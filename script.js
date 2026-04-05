@@ -676,3 +676,8 @@ document.querySelectorAll("#menu .dropdown span").forEach(item => {
     this.parentElement.classList.toggle("active");
   });
 });
+
+
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("active");
+}

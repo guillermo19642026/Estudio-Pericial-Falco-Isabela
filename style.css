@@ -4339,3 +4339,96 @@ img {
 #menu {
   color: black;
 }
+
+
+/* =========================
+   MOBILE HEADER LIMPIO
+========================= */
+
+@media (max-width: 768px) {
+
+  /* OCULTAR TEXTO DUPLICADO */
+  .header-texto {
+    display: none;
+  }
+
+  /* CONTENEDOR */
+  .header-derecha {
+    display: block;
+  }
+
+  /* BOTON */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+  }
+
+  /* MENU OCULTO */
+  #menu {
+    display: none !important;
+  }
+
+  /* MENU ABIERTO */
+  #menu.active {
+    display: flex !important;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  /* LINKS */
+  #menu a {
+    color: #000;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* 🔥 OCULTAR TODO EL BLOQUE DERECHO */
+  .header-derecha {
+    display: none;
+  }
+
+  /* 🔥 MOSTRAR SOLO EL BOTÓN */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+  }
+
+  /* 🔥 MENÚ DESPLEGADO */
+  #menu.active {
+    display: flex !important;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 9999;
+  }
+
+  #menu a {
+    color: #000;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+}
