@@ -1770,6 +1770,28 @@ function toggleMenu(el) {
 
 
 
+<script>
+function toggleDropdown(el) {
+  // cerrar otros dropdowns en móvil
+  const dropdowns = document.querySelectorAll('#menu .dropdown');
+  dropdowns.forEach(dd => {
+    if(dd !== el.parentElement) dd.classList.remove('open');
+  });
+
+  // abrir o cerrar el clickeado
+  el.parentElement.classList.toggle('open');
+}
+
+// Menú hamburguesa
+function toggleMenu(el) {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+  el.classList.toggle("open");
+}
+</script>
+
+
+
 
 
 

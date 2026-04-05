@@ -4037,3 +4037,31 @@ SECCION PERITO
     position: relative; /* para que el menú absoluto se ubique respecto a este contenedor */
   }
 }
+
+
+
+/* Dropdowns en móvil */
+@media screen and (max-width: 768px) {
+  nav#menu .dropdown {
+    position: relative;
+  }
+
+  nav#menu .dropdown .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: none; /* oculto por defecto */
+    flex-direction: column;
+    padding-left: 15px;
+    border: none;
+    background: none;
+  }
+
+  nav#menu .dropdown.open .dropdown-menu {
+    display: flex; /* se muestra cuando se abre */
+  }
+
+  nav#menu a, nav#menu span {
+    padding: 10px 0; /* más espacio en vertical */
+  }
+}
