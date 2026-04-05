@@ -4083,3 +4083,13 @@ img {
 .recurso-header h3 {
   word-break: break-word;
 }
+
+
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+}
