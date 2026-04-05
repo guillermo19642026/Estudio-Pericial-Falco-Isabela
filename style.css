@@ -4208,3 +4208,8 @@ img {
     padding-top: 0;
   }
 }
+
+
+.hero {
+  height: var(--vh, 100vh); /* fallback para navegadores antiguos */
+}
