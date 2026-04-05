@@ -3989,3 +3989,51 @@ SECCION PERITO
 }
 
 
+/* Ocultar menú en móvil por defecto */
+#menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-hamburguesa {
+  display: none; /* visible solo en móvil */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.menu-hamburguesa .bar {
+  height: 3px;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+/* Responsive: mostrar hamburguesa y ocultar menú por defecto */
+@media screen and (max-width: 768px) {
+  #menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff; /* fondo para que se vea en móviles */
+    position: absolute;
+    top: 60px; /* ajustar según header */
+    right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #menu.active {
+    display: flex;
+  }
+
+  .menu-hamburguesa {
+    display: flex;
+  }
+
+  .header-derecha {
+    position: relative; /* para que el menú absoluto se ubique respecto a este contenedor */
+  }
+}

@@ -77,6 +77,20 @@ html{scroll-behavior:smooth;}
     <span>Lic. en Psicología ISABELA FALCO</span>
     </div>
 
+
+
+<!-- MENÚ HAMBURGUESA (solo para móviles) -->
+<div class="menu-hamburguesa" onclick="toggleMenu(this)">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+
+
+
+
+
   
  <!-- MENÚ -->
  <nav id="menu">
@@ -1741,6 +1755,26 @@ window.open(url,"_blank");
 
 
 
+
+
+<script>
+function toggleMenu(el) {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+  el.classList.toggle("open"); // para animar hamburguesa si quieres
+}
+
+// Opcional: animación de la hamburguesa
+// Puedes agregar CSS para .menu-hamburguesa.open para girar las barras
+</script>
+
+
+
+
+
+
+
+
  <div class="modal-contenido"></div>
 
     <span onclick="cerrarModal()" style="
@@ -1803,6 +1837,13 @@ MODAL
 
 
 <script src="script.js"></script>
+
+
+
+
+
+
+
 
 
 
