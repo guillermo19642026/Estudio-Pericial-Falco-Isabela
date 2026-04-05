@@ -4296,3 +4296,46 @@ img {
     display: none !important;
   }
 }
+
+
+@media (max-width: 768px) {
+
+  #menu.active {
+    display: flex !important;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 9999;
+  }
+
+  /* LINKS VISIBLES */
+  #menu a {
+    color: #000 !important;
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+
+  /* DROPDOWNS */
+  #menu .dropdown-menu {
+    position: static;
+    display: none;
+    background: #f5f5f5;
+    padding-left: 10px;
+  }
+
+  #menu .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+}
+
+
+#menu {
+  color: black;
+}

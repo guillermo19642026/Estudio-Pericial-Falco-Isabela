@@ -669,3 +669,10 @@ document.querySelectorAll("#menu a").forEach(link => {
     document.getElementById("menu").classList.remove("active");
   });
 });
+
+
+document.querySelectorAll("#menu .dropdown span").forEach(item => {
+  item.addEventListener("click", function () {
+    this.parentElement.classList.toggle("active");
+  });
+});
