@@ -4134,3 +4134,18 @@ img {
   }
 
 }
+
+
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  #recursos .card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}
