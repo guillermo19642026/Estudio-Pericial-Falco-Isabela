@@ -55,79 +55,96 @@ html{scroll-behavior:smooth;}
 
 
 <header>
+
   <div class="nav-container">
 
-    <!-- IZQUIERDA (1/4) -->
-    <div class="header-izquierda">
-      <div class="logo">
-        <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+
+      <!-- IZQUIERDA (1/4) -->
+      <div class="header-izquierda">
+          <div class="logo">
+              <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+          </div>
       </div>
+  
+
+      <!-- DERECHA (3/4) -->
+      <div class="header-derecha">
+
+  
+ <!-- TEXTO -->
+   <div class="header-texto">
+    ESTUDIO PERICIAL PSICOLÓGICO<br>
+    <span>Lic. en Psicología ISABELA FALCO</span>
     </div>
 
-    <!-- DERECHA (3/4) -->
-    <div class="header-derecha">
+  
+ <!-- MENÚ -->
+ <nav id="menu">
 
-      <!-- TEXTO -->
-      <div class="header-texto">
-        ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
-      </div>
+  <a href="#inicio">Inicio</a>
 
-      <!-- MENÚ HAMBURGUESA -->
-      <div class="menu-hamburguesa" onclick="toggleMenu(this)">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
 
-      <!-- MENÚ -->
-      <nav id="menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
+  <!-- SERVICIOS -->
+  <a href="#servicios">Servicios</a>
 
-        <div class="dropdown">
-          <span onclick="toggleDropdown(this)">Áreas ▾</span>
-          <div class="dropdown-menu">
-            <a href="#areas">de Servicio</a>
-            <a href="#areas">de Pericia</a>
-          </div>
-        </div>
 
-        <a href="#danio-psiquico">Daño Psíquico</a>
-
-        <div class="dropdown">
-          <span onclick="toggleDropdown(this)">Recursos ▾</span>
-          <div class="dropdown-menu">
-            <a href="#tecnicas">Técnicas Periciales</a>
-            <a href="#recursos">Material Técnico</a>
-          </div>
-        </div>
-
-        <a href="#formacion">Formación</a>
-
-        <div class="dropdown">
-          <span onclick="toggleDropdown(this)">Sobre la Perito ▾</span>
-          <div class="dropdown-menu">
-            <a href="#perito">Perfil Profesional</a>
-            <a href="#perito">Enfoque de Trabajo</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <span onclick="toggleDropdown(this)">Consultas ▾</span>
-          <div class="dropdown-menu">
-            <a href="#pericia">Evaluación pericial</a>
-            <a href="#documentos">Cargar documentación</a>
-            <a href="#consultas">Particulares</a>
-          </div>
-        </div>
-
-        <a href="#faq">FAQ</a>
-      </nav>
-
+  <!-- AREAS -->
+  <div class="dropdown">
+    <span onclick="toggleDropdown(this)">Áreas ▾</span>
+    <div class="dropdown-menu">
+      <a href="#areas">de Servicio</a>
+      <a href="#areas">de Pericia</a>
     </div>
   </div>
-</header>
+
+
+  <!-- DAÑO PSIQUICO (PROTAGONISTA) -->
+  <a href="#danio-psiquico">Daño Psíquico</a>
+
+
+  <!-- RECURSOS -->
+  <div class="dropdown">
+  <span onclick="toggleDropdown(this)">Recursos ▾</span>
+  <div class="dropdown-menu">
+    <a href="#tecnicas">Técnicas Periciales</a>
+    <a href="#recursos">Material Técnico</a>
+  </div>
+  </div>
+
+
+  <!-- FORMACIÓN -->
+  <a href="#formacion">Formación</a>
+
+
+  <!-- SOBRE -->
+<div class="dropdown">
+  <span onclick="toggleDropdown(this)">Sobre la Perito ▾</span>
+  <div class="dropdown-menu">
+    <a href="#perito">Perfil Profesional</a>
+    <a href="#perito">Enfoque de Trabajo</a>
+  </div>
+</div>
+
+
+  <!-- CONSULTAS -->
+  <div class="dropdown">
+    <span onclick="toggleDropdown(this)">Consultas ▾</span>
+    <div class="dropdown-menu">
+      <a href="#pericia">Evaluación pericial</a>
+      <a href="#documentos">Cargar documentación</a>
+      <a href="#consultas">Particulares</a>
+    </div>
+  </div>
+
+  <a href="#faq">FAQ</a>
+
+</nav>
+  
+      </div>
+  
+  </div>
+  
+  </header>
 
 
 <!-- HERO -->
@@ -1724,48 +1741,6 @@ window.open(url,"_blank");
 
 
 
-
-
-<script>
-function toggleMenu(el) {
-  const menu = document.getElementById("menu");
-  menu.classList.toggle("active");
-  el.classList.toggle("open"); // para animar hamburguesa si quieres
-}
-
-// Opcional: animación de la hamburguesa
-// Puedes agregar CSS para .menu-hamburguesa.open para girar las barras
-</script>
-
-
-
-<script>
-function toggleDropdown(el) {
-  // cerrar otros dropdowns en móvil
-  const dropdowns = document.querySelectorAll('#menu .dropdown');
-  dropdowns.forEach(dd => {
-    if(dd !== el.parentElement) dd.classList.remove('open');
-  });
-
-  // abrir o cerrar el clickeado
-  el.parentElement.classList.toggle('open');
-}
-
-// Menú hamburguesa
-function toggleMenu(el) {
-  const menu = document.getElementById("menu");
-  menu.classList.toggle("active");
-  el.classList.toggle("open");
-}
-</script>
-
-
-
-
-
-
-
-
  <div class="modal-contenido"></div>
 
     <span onclick="cerrarModal()" style="
@@ -1833,19 +1808,5 @@ MODAL
 
 
 
-
-
-
-
-
-
-
 </body>
-
-
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-
-
-
 </html>
