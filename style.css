@@ -4219,3 +4219,35 @@ img {
   }
 
 }
+
+
+@media (max-width: 768px) {
+
+  /* OCULTAR MENU POR DEFECTO */
+  #menu {
+    display: none !important;
+  }
+
+  /* MOSTRAR SOLO CUANDO SE ABRE */
+  #menu.active {
+    display: flex !important;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 998;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  #menu {
+    width: 100%;
+  }
+
+}
