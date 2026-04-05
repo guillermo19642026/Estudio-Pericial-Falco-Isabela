@@ -4409,3 +4409,43 @@ img {
   }
 
 }
+
+
+/* FORZAR BOTON HAMBURGUESA */
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block !important;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: black; /* 🔥 importante */
+    z-index: 9999;
+    cursor: pointer;
+  }
+}
+
+
+.menu-toggle {
+  display: none; /* ❌ oculto en PC */
+}
+
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block !important; /* ✅ aparece en celular */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: black; /* ⚠️ si tu fondo es blanco, cambiá a negro */
+    z-index: 9999;
+    cursor: pointer;
+  }
+
+}
