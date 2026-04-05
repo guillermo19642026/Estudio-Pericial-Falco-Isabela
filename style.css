@@ -4209,9 +4209,3 @@ img {
   }
 }
 
-
-@media (max-width: 768px) {
-  .hero {
-    height: calc(100vh - 60px - env(safe-area-inset-top));
-  }
-}
