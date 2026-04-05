@@ -4340,113 +4340,22 @@ img {
   color: black;
 }
 
-
 /* =========================
    MOBILE HEADER LIMPIO
 ========================= */
 
+.menu-toggle {
+  display: none;
+}
+
 @media (max-width: 768px) {
 
-  /* OCULTAR TEXTO DUPLICADO */
+  /* OCULTAR TEXTO DEL HEADER */
   .header-texto {
     display: none;
   }
 
-  /* CONTENEDOR */
-  .header-derecha {
-    display: block;
-  }
-
-  /* BOTON */
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    z-index: 1000;
-  }
-
-  /* MENU OCULTO */
-  #menu {
-    display: none !important;
-  }
-
-  /* MENU ABIERTO */
-  #menu.active {
-    display: flex !important;
-    flex-direction: column;
-    background: #ffffff;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    z-index: 999;
-  }
-
-  /* LINKS */
-  #menu a {
-    color: #000;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-  }
-
-}
-
-
-@media (max-width: 768px) {
-
-  /* 🔥 OCULTAR TODO EL BLOQUE DERECHO */
-  .header-derecha {
-    display: none;
-  }
-
-  /* 🔥 MOSTRAR SOLO EL BOTÓN */
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    z-index: 1000;
-  }
-
-  /* 🔥 MENÚ DESPLEGADO */
-  #menu.active {
-    display: flex !important;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    z-index: 9999;
-  }
-
-  #menu a {
-    color: #000;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-  }
-
-}
-
-
-@media (max-width: 768px) {
-
-  /* 🔴 OCULTAR TEXTO DEL HEADER */
-  .header-texto {
-    display: none !important;
-  }
-
-  /* 🔴 OCULTAR MENU NORMAL */
-  #menu {
-    display: none !important;
-  }
-
-  /* ✅ BOTON HAMBURGUESA */
+  /* BOTÓN HAMBURGUESA */
   .menu-toggle {
     display: block;
     position: absolute;
@@ -4454,20 +4363,30 @@ img {
     right: 20px;
     font-size: 28px;
     z-index: 1001;
+    cursor: pointer;
   }
 
-  /* ✅ MENU CUANDO SE ABRE */
+  /* OCULTAR MENU NORMAL */
+  #menu {
+    display: none;
+  }
+
+  /* MENU ABIERTO */
   #menu.active {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
-    background: #ffffff;
-    position: fixed; /* 🔥 IMPORTANTE */
+
+    position: fixed; /* 🔥 CLAVE */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* 🔥 pantalla completa */
+    height: 100vh;
+
+    background: #fff;
+
     padding: 80px 20px 20px;
     z-index: 1000;
+
     overflow-y: auto;
   }
 
@@ -4477,6 +4396,16 @@ img {
     padding: 15px 0;
     border-bottom: 1px solid #ddd;
     font-size: 18px;
+  }
+
+  /* DROPDOWN MOBILE */
+  .dropdown-menu {
+    position: static;
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
   }
 
 }
