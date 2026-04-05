@@ -4201,11 +4201,5 @@ img {
 
 
 
-@media (max-width: 768px) {
-  .hero {
-    height: calc(100vh - 60px); /* 60px = altura de tu header */
-    margin-top: 0;
-    padding-top: 0;
-  }
-}
+
 
