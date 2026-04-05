@@ -68,24 +68,18 @@ html{scroll-behavior:smooth;}
   
 
       <!-- DERECHA (3/4) -->
-
+      <div class="header-derecha">
 
   
-<div class="header-derecha">
-
-  <!-- BOTON HAMBURGUESA -->
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
  <!-- TEXTO -->
    <div class="header-texto">
     ESTUDIO PERICIAL PSICOLÓGICO<br>
     <span>Lic. en Psicología ISABELA FALCO</span>
     </div>
 
-  <!-- MENÚ -->
-  <nav id="menu">
-
-
+  
+ <!-- MENÚ -->
+ <nav id="menu">
 
   <a href="#inicio">Inicio</a>
 
@@ -1031,7 +1025,7 @@ html{scroll-behavior:smooth;}
 
         <div class="danio-item">
           <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Psicodiagnósticos Judiciales</span>
+            <span>Pericias Judiciales</span>
             <span class="icono">+</span>
           </div>
           <div class="danio-contenido">
@@ -1747,7 +1741,22 @@ window.open(url,"_blank");
 
 
 
- 
+ <div class="modal-contenido"></div>
+
+    <span onclick="cerrarModal()" style="
+    position:absolute;
+    top:10px;
+    right:15px;
+    cursor:pointer;
+    font-size:20px;
+    ">✕</span>
+
+    <h3 id="modal-titulo"></h3>
+    <p id="modal-texto"></p>
+
+  </div>
+
+</div>
 
 
 
@@ -1765,6 +1774,10 @@ window.open(url,"_blank");
   </div>
 
 </div>
+
+
+
+
 
 
 
@@ -1786,7 +1799,14 @@ MODAL
 
 
 
+
+
+
 <script src="script.js"></script>
+
+
+
+
 
 </body>
 </html>
