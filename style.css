@@ -4031,3 +4031,47 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+@media (max-width: 768px) {
+
+  .servicios-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .recurso-acordeon {
+    width: 100%;
+  }
+
+  .recurso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* 🔥 CLAVE */
+  }
+
+  .recurso-header h3 {
+    font-size: 16px;
+  }
+
+}
+
+
+.servicios-contenedor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .servicios-contenedor {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.recurso-header h3 {
+  word-break: break-word;
+}
