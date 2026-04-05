@@ -3989,3 +3989,45 @@ SECCION PERITO
 }
 
 
+@media (max-width: 768px) {
+  .servicios-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .recurso-acordeon {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .perito-contenedor {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .perito-perfil,
+  .perito-info {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .danio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
