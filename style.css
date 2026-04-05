@@ -4251,3 +4251,48 @@ img {
   }
 
 }
+
+
+@media (max-width: 768px) {
+
+  /* HEADER EN COLUMNA */
+  .header-derecha {
+    display: block;
+  }
+
+  /* OCULTAR MENU */
+  #menu {
+    display: none !important;
+  }
+
+  /* MOSTRAR SOLO CUANDO SE ABRE */
+  #menu.active {
+    display: flex !important;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  /* BOTON */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    z-index: 1000;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  nav#menu {
+    display: none !important;
+  }
+}
