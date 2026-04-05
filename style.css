@@ -4125,3 +4125,68 @@ img {
   }
 
 }
+
+
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+}
+
+
+/* =========================
+   RESPONSIVE FINAL (CELULAR)
+========================= */
+
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: block !important;
+  }
+
+}
+
+
+/* FIX FINAL RECURSOS MOBILE */
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  #recursos .card {
+    width: 100% !important;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  #recursos .card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}
