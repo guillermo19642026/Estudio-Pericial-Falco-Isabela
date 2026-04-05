@@ -578,7 +578,6 @@ ANIMACIONES
 .servicios-contenedor{
   display:flex;
   gap:40px;
-
   max-width:1200px;   /* 👈 CLAVE */
   margin:0 auto;      /* 👈 CENTRA TODO */
 }
@@ -614,10 +613,28 @@ ANIMACIONES
 }
 
 /* RESPONSIVE */
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-  .servicios-contenedor{
-    flex-direction:column;
+  /* Recursos */
+  #recursos .servicios-contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  /* Por si usa flex en otros lados */
+  .servicios-contenedor {
+    flex-direction: column;
+  }
+
+  /* Ajustes de acordeones */
+  .recurso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .recurso-header h3 {
+    font-size: 16px;
   }
 
 }
@@ -3532,13 +3549,6 @@ background: linear-gradient(
 
 
 
-.servicios-contenedor{
-  display:flex;
-  gap:40px;
-  max-width:1200px;
-  margin:0 auto;
-}
-
 
 
 
@@ -3546,7 +3556,6 @@ background: linear-gradient(
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:40px;
-
   max-width:1100px;
   margin:auto;
 }
@@ -3555,6 +3564,18 @@ background: linear-gradient(
   #recursos .servicios-contenedor{
     grid-template-columns:1fr;
   }
+}
+
+@media (max-width: 768px) {
+
+  .recurso-header {
+    flex-wrap: wrap;
+  }
+
+  .recurso-header h3 {
+    font-size: 16px;
+  }
+
 }
 
 
@@ -4036,8 +4057,8 @@ img {
 @media (max-width: 768px) {
 
   .servicios-contenedor {
-    display: flex;
     flex-direction: column;
+    display: flex;
     gap: 15px;
   }
 
