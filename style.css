@@ -3995,34 +3995,57 @@ SECCION PERITO
   gap: 20px;
 }
 
+
+
+
+
+
+
+
+
+
+/* Hamburguesa */
 .menu-hamburguesa {
-  display: none; /* visible solo en móvil */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 25px;
   height: 20px;
   cursor: pointer;
 }
-
 .menu-hamburguesa .bar {
   height: 3px;
   background-color: #000;
   border-radius: 2px;
 }
 
-/* Responsive: mostrar hamburguesa y ocultar menú por defecto */
+/* Dropdowns por defecto */
+.dropdown .dropdown-menu {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+/* Desktop */
+#menu {
+  display: flex;
+  gap: 20px;
+}
+
+/* Responsive móvil */
 @media screen and (max-width: 768px) {
   #menu {
     display: none;
     flex-direction: column;
     gap: 10px;
-    background-color: #fff; /* fondo para que se vea en móviles */
     position: absolute;
-    top: 60px; /* ajustar según header */
+    top: 60px;
     right: 10px;
+    background: #fff;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    z-index: 1000;
   }
 
   #menu.active {
@@ -4033,35 +4056,193 @@ SECCION PERITO
     display: flex;
   }
 
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
+  nav#menu a, nav#menu span {
+    padding: 10px 0;
+  }
+
   .header-derecha {
-    position: relative; /* para que el menú absoluto se ubique respecto a este contenedor */
+    position: relative;
   }
 }
 
 
-
-/* Dropdowns en móvil */
-@media screen and (max-width: 768px) {
-  nav#menu .dropdown {
-    position: relative;
-  }
-
-  nav#menu .dropdown .dropdown-menu {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: none; /* oculto por defecto */
+@media screen and (min-width: 769px) {
+  /* Mostrar dropdowns al pasar el mouse en PC */
+  nav#menu .dropdown:hover .dropdown-menu {
+    display: flex;
     flex-direction: column;
-    padding-left: 15px;
-    border: none;
-    background: none;
+    position: absolute;
+    top: 100%; /* debajo del menú */
+    left: 0;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1000;
   }
 
-  nav#menu .dropdown.open .dropdown-menu {
-    display: flex; /* se muestra cuando se abre */
+  /* Ajuste de links dentro del dropdown */
+  nav#menu .dropdown .dropdown-menu a {
+    padding: 5px 10px;
+  }
+
+  /* Mantener nav horizontal */
+  #menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    position: static;
+    background: none;
+    padding: 0;
+    border: none;
+  }
+}
+
+
+/* Dropdowns en PC */
+@media screen and (min-width: 769px) {
+  nav#menu .dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* debajo del menú */
+    left: 0;
+    background: rgba(255, 255, 255, 0.0); /* transparente */
+    /* Si quieres que sea del mismo color que el header, reemplaza con: background: #f5f5f5; */
+    padding: 10px;
+    border: none; /* quitar borde si no quieres */
+    border-radius: 0; /* quitar redondeo si quieres plano */
+    z-index: 1000;
+  }
+
+  /* Ajuste de links dentro del dropdown */
+  nav#menu .dropdown .dropdown-menu a {
+    padding: 5px 10px;
+    color: #000; /* texto visible */
+    background: transparent; /* sin fondo adicional */
+  }
+
+  /* Mantener nav horizontal */
+  #menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    position: static;
+    background: none;
+    padding: 0;
+    border: none;
+  }
+}
+
+
+/* --- MENU HAMBURGUESA --- */
+.menu-hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+.menu-hamburguesa .bar {
+  height: 3px;
+  background-color: #000; /* color de las barras */
+  border-radius: 2px;
+}
+
+/* --- DROPDOWNS --- */
+.dropdown .dropdown-menu {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+/* Links generales del menú */
+#menu a, #menu span {
+  color: #fff; /* color de texto en header oscuro */
+  text-decoration: none;
+}
+
+/* Hover en los links */
+#menu a:hover, #menu span:hover {
+  color: #ffd700; /* color al pasar mouse, dorado de ejemplo */
+}
+
+/* Desktop (>768px) */
+@media screen and (min-width: 769px) {
+  #menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    position: static;
+    background: none;
+    padding: 0;
+    border: none;
+  }
+
+  nav#menu .dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #333; /* fondo oscuro igual al header */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+
+  nav#menu .dropdown .dropdown-menu a {
+    color: #fff; /* texto visible sobre fondo oscuro */
+    padding: 5px 10px;
+  }
+
+  nav#menu .dropdown .dropdown-menu a:hover {
+    color: #ffd700; /* texto al pasar el mouse */
+  }
+}
+
+/* Mobile (<768px) */
+@media screen and (max-width: 768px) {
+  #menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #333; /* fondo del menú en móvil */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+
+  #menu.active {
+    display: flex;
+  }
+
+  .menu-hamburguesa {
+    display: flex;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;
   }
 
   nav#menu a, nav#menu span {
-    padding: 10px 0; /* más espacio en vertical */
+    color: #fff;
+    padding: 10px 0;
+  }
+
+  nav#menu a:hover, nav#menu span:hover {
+    color: #ffd700;
+  }
+
+  .header-derecha {
+    position: relative;
   }
 }

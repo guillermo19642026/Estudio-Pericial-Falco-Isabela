@@ -55,110 +55,79 @@ html{scroll-behavior:smooth;}
 
 
 <header>
-
   <div class="nav-container">
 
+    <!-- IZQUIERDA (1/4) -->
+    <div class="header-izquierda">
+      <div class="logo">
+        <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+      </div>
+    </div>
 
-      <!-- IZQUIERDA (1/4) -->
-      <div class="header-izquierda">
-          <div class="logo">
-              <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+    <!-- DERECHA (3/4) -->
+    <div class="header-derecha">
+
+      <!-- TEXTO -->
+      <div class="header-texto">
+        ESTUDIO PERICIAL PSICOLÓGICO<br>
+        <span>Lic. en Psicología ISABELA FALCO</span>
+      </div>
+
+      <!-- MENÚ HAMBURGUESA -->
+      <div class="menu-hamburguesa" onclick="toggleMenu(this)">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!-- MENÚ -->
+      <nav id="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Áreas ▾</span>
+          <div class="dropdown-menu">
+            <a href="#areas">de Servicio</a>
+            <a href="#areas">de Pericia</a>
           </div>
-      </div>
-  
+        </div>
 
-      <!-- DERECHA (3/4) -->
-      <div class="header-derecha">
+        <a href="#danio-psiquico">Daño Psíquico</a>
 
-  
- <!-- TEXTO -->
-   <div class="header-texto">
-    ESTUDIO PERICIAL PSICOLÓGICO<br>
-    <span>Lic. en Psicología ISABELA FALCO</span>
-    </div>
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Recursos ▾</span>
+          <div class="dropdown-menu">
+            <a href="#tecnicas">Técnicas Periciales</a>
+            <a href="#recursos">Material Técnico</a>
+          </div>
+        </div>
 
+        <a href="#formacion">Formación</a>
 
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Sobre la Perito ▾</span>
+          <div class="dropdown-menu">
+            <a href="#perito">Perfil Profesional</a>
+            <a href="#perito">Enfoque de Trabajo</a>
+          </div>
+        </div>
 
-<!-- MENÚ HAMBURGUESA (solo para móviles) -->
-<div class="menu-hamburguesa" onclick="toggleMenu(this)">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</div>
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Consultas ▾</span>
+          <div class="dropdown-menu">
+            <a href="#pericia">Evaluación pericial</a>
+            <a href="#documentos">Cargar documentación</a>
+            <a href="#consultas">Particulares</a>
+          </div>
+        </div>
 
+        <a href="#faq">FAQ</a>
+      </nav>
 
-
-
-
-
-  
- <!-- MENÚ -->
- <nav id="menu">
-
-  <a href="#inicio">Inicio</a>
-
-
-  <!-- SERVICIOS -->
-  <a href="#servicios">Servicios</a>
-
-
-  <!-- AREAS -->
-  <div class="dropdown">
-    <span onclick="toggleDropdown(this)">Áreas ▾</span>
-    <div class="dropdown-menu">
-      <a href="#areas">de Servicio</a>
-      <a href="#areas">de Pericia</a>
     </div>
   </div>
-
-
-  <!-- DAÑO PSIQUICO (PROTAGONISTA) -->
-  <a href="#danio-psiquico">Daño Psíquico</a>
-
-
-  <!-- RECURSOS -->
-  <div class="dropdown">
-  <span onclick="toggleDropdown(this)">Recursos ▾</span>
-  <div class="dropdown-menu">
-    <a href="#tecnicas">Técnicas Periciales</a>
-    <a href="#recursos">Material Técnico</a>
-  </div>
-  </div>
-
-
-  <!-- FORMACIÓN -->
-  <a href="#formacion">Formación</a>
-
-
-  <!-- SOBRE -->
-<div class="dropdown">
-  <span onclick="toggleDropdown(this)">Sobre la Perito ▾</span>
-  <div class="dropdown-menu">
-    <a href="#perito">Perfil Profesional</a>
-    <a href="#perito">Enfoque de Trabajo</a>
-  </div>
-</div>
-
-
-  <!-- CONSULTAS -->
-  <div class="dropdown">
-    <span onclick="toggleDropdown(this)">Consultas ▾</span>
-    <div class="dropdown-menu">
-      <a href="#pericia">Evaluación pericial</a>
-      <a href="#documentos">Cargar documentación</a>
-      <a href="#consultas">Particulares</a>
-    </div>
-  </div>
-
-  <a href="#faq">FAQ</a>
-
-</nav>
-  
-      </div>
-  
-  </div>
-  
-  </header>
+</header>
 
 
 <!-- HERO -->
@@ -1872,4 +1841,11 @@ MODAL
 
 
 </body>
+
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+
+
 </html>
