@@ -4210,6 +4210,3 @@ img {
 }
 
 
-.hero {
-  height: var(--vh, 100vh); /* fallback para navegadores antiguos */
-}
