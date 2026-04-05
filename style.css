@@ -4449,3 +4449,17 @@ img {
   }
 
 }
+
+
+@media (max-width: 768px) {
+
+  .dropdown-menu {
+    display: none;
+    padding-left: 15px;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+}

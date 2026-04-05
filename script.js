@@ -681,3 +681,16 @@ document.querySelectorAll("#menu .dropdown span").forEach(item => {
 function toggleMenu() {
   document.getElementById("menu").classList.toggle("active");
 }
+
+
+function toggleDropdown(element) {
+  let all = document.querySelectorAll(".dropdown");
+
+  all.forEach(d => {
+    if (d !== element.parentElement) {
+      d.classList.remove("active");
+    }
+  });
+
+  element.parentElement.classList.toggle("active");
+}
