@@ -4097,3 +4097,31 @@ img {
   }
 
 }
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  /* Recursos */
+  #recursos .servicios-contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  /* Por si usa flex en otros lados */
+  .servicios-contenedor {
+    flex-direction: column;
+  }
+
+  /* Ajustes de acordeones */
+  .recurso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .recurso-header h3 {
+    font-size: 16px;
+  }
+
+}
