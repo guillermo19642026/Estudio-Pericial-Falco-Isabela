@@ -694,3 +694,19 @@ function toggleDropdown(element) {
 
   element.parentElement.classList.toggle("active");
 }
+
+
+function toggleDropdown(element) {
+
+  let parent = element.parentElement;
+
+  // cerrar otros
+  document.querySelectorAll(".dropdown").forEach(d => {
+    if (d !== parent) {
+      d.classList.remove("active");
+    }
+  });
+
+  // toggle actual
+  parent.classList.toggle("active");
+}

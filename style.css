@@ -4463,3 +4463,25 @@ img {
   }
 
 }
+
+
+#menu a {
+  color: #000 !important;
+}
+
+.dropdown span {
+  color: #000 !important;
+}
+
+.dropdown-menu a {
+  color: #000 !important;
+}
+
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown.active .dropdown-menu {
+  display: block;
+}
