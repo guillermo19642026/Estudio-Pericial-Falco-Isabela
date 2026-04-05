@@ -4118,3 +4118,19 @@ img {
   }
 
 }
+
+
+/* FIX FINAL RECURSOS MOBILE */
+@media (max-width: 768px) {
+
+  #recursos .servicios-contenedor {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  #recursos .card {
+    width: 100% !important;
+  }
+
+}
