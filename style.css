@@ -3980,17 +3980,11 @@ SECCION PERITO
 }
 
 
-@media (max-width: 768px) {
-  .servicios-contenedor {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
 
   .recurso-acordeon {
     width: 100%;
   }
-}
+
 
 
 @media (max-width: 768px) {
