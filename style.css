@@ -4201,5 +4201,11 @@ img {
 
 
 
-
+.texto-central {
+  max-width: 800px; /* antes 700px */
+  margin: 20px auto;
+  text-align: center;
+  line-height: 1.6;
+  padding: 0 10px; /* menos espacio lateral */
+}
 
