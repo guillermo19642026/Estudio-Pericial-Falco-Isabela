@@ -4209,3 +4209,41 @@ img {
   padding: 0 10px; /* menos espacio lateral */
 }
 
+
+
+
+
+
+
+
+
+header {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  transition: top 0.3s;
+  z-index: 1000;
+}
+
+header.visible {
+  top: 0; /* aparece */
+}
+
+
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+}

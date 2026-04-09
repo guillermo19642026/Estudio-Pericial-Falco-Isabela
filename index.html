@@ -41,7 +41,9 @@ html{scroll-behavior:smooth;}
 
 </head>
 
+
 <body>
+
 
 <!-- NEURONAL -->
 
@@ -167,6 +169,7 @@ html{scroll-behavior:smooth;}
       <p class="hero-sello">
         Evaluaciones periciales psicológicas con validez técnica y jurídica
       </p>
+
 
     </div>
 
@@ -1767,6 +1770,31 @@ window.open(url,"_blank");
 
 
 <script src="script.js"></script>
+
+
+
+
+
+
+
+
+<script>
+window.addEventListener("scroll", function() {
+  const header = document.querySelector("header");
+
+  if (!header) return; // evita errores
+
+  if (window.scrollY > 100) {
+    header.classList.add("visible");
+  } else {
+    header.classList.remove("visible");
+  }
+});
+</script>
+
+
+
+
 
 
 </body>
