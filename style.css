@@ -4252,3 +4252,92 @@ header.visible {
 .seccion-definicion{
   padding: 40px 20px 20px;
 }
+
+
+#neuronal-bg {
+  pointer-events: none;
+}
+
+
+#neuronal-bg {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.seccion-links-seo {
+  position: relative;
+  z-index: 2;
+}
+
+.seccion-links-seo .btn-principal {
+  position: relative;
+  z-index: 3;
+}
+
+
+.seccion-links-seo .danio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .seccion-links-seo .danio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.seccion-links-seo .danio-item,
+.seccion-links-seo .danio-contenido {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+
+#neuronal-bg {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.seccion-links-seo {
+  position: relative;
+  z-index: 2;
+}
+
+.seccion-links-seo .danio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.seccion-links-seo .danio-item,
+.seccion-links-seo .danio-contenido,
+.seccion-links-seo .btn-principal {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .seccion-links-seo .danio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+FIX BOTONES SEO (CLAVE)
+========================= */
+
+.seccion-links-seo .danio-contenido {
+  max-height: none !important;
+  overflow: visible !important;
+  display: block !important;
+}
+
+.seccion-links-seo .danio-item {
+  overflow: visible !important;
+}
