@@ -4247,3 +4247,8 @@ header.visible {
     min-height: 100svh;
   }
 }
+
+
+.seccion-definicion{
+  padding: 40px 20px 20px;
+}
