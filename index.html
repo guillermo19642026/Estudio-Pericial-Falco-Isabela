@@ -198,7 +198,7 @@ html{scroll-behavior:smooth;}
         <div class="danio-contenido" style="display:block;">
           Evaluación psicológica judicial en Buenos Aires.
           <br><br>
-          <a href="pericia-psicologica-buenos-aires.html" class="btn-principal">
+          <a href="pericia-psicologica-buenos-aires.html" class="btn-secundario">
             Ver más
           </a>
         </div>
@@ -211,7 +211,7 @@ html{scroll-behavior:smooth;}
         <div class="danio-contenido" style="display:block;">
           Análisis del impacto psicológico en procesos legales.
           <br><br>
-          <a href="danio-psiquico-buenos-aires.html" class="btn-principal">
+          <a href="danio-psiquico-buenos-aires.html" class="btn-secundario">
             Ver más
           </a>
         </div>
@@ -224,7 +224,7 @@ html{scroll-behavior:smooth;}
         <div class="danio-contenido" style="display:block;">
           Elaboración de informes técnicos para el ámbito judicial.
           <br><br>
-          <a href="informe-pericial-psicologico.html" class="btn-principal">
+          <a href="informe-pericial-psicologico.html" class="btn-secundario">
             Ver más
           </a>
         </div>
@@ -1920,13 +1920,14 @@ window.addEventListener("scroll", function() {
 </script>
 
 
-
-
-
-
 <script>
 window.addEventListener("pageshow", function (event) {
-  if (event.persisted) {
+  const navEntries = performance.getEntriesByType("navigation");
+  const cameFromBackForward =
+    event.persisted ||
+    (navEntries.length > 0 && navEntries[0].type === "back_forward");
+
+  if (cameFromBackForward) {
     window.location.reload();
   }
 });
