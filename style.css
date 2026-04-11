@@ -4455,3 +4455,27 @@ FIX BOTONES SEO (CLAVE)
   position: relative;
   z-index: 2;
 }
+
+
+.hero-interno {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background: rgba(10,10,15,0.9);
+}
+
+.hero-interno-contenido {
+  max-width: 800px;
+  margin: auto;
+}
+
+.logo-interno {
+  width: 80px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero-interno-titulo {
+  font-size: 2rem;
+  color: #d4af37;
+  font-family: 'Playfair Display', serif;
+}
