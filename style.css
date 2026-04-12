@@ -4603,3 +4603,80 @@ FIX BOTONES SEO (CLAVE)
     gap: 20px;
   }
 }
+
+
+
+
+
+/* HEADER EN PÁGINAS INTERNAS */
+.pagina-interna header {
+  position: static;
+  z-index: 1000;
+  width: 100%;
+  background: #111;
+  display: block;
+}
+
+.pagina-interna .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.pagina-interna .header-izquierda,
+.pagina-interna .header-derecha {
+  display: flex;
+  align-items: center;
+}
+
+.pagina-interna .header-derecha {
+  gap: 30px;
+}
+
+.pagina-interna .logo {
+  display: block;
+}
+
+.pagina-interna .logo img {
+  max-height: 70px;
+  display: block;
+}
+
+.pagina-interna .header-texto {
+  color: #fff;
+  display: block;
+}
+
+.pagina-interna #menu {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.pagina-interna #menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.pagina-interna #menu a:hover {
+  color: #c9a96e;
+}
+
+.pagina-interna .hero-interno {
+  margin-top: 0;
+}
+
+
+.pagina-interna header {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100%;
+  background: #111;
+  display: block;
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+  transform: none !important;
+}
