@@ -4512,3 +4512,94 @@ FIX BOTONES SEO (CLAVE)
   box-shadow: 0 15px 30px rgba(0,0,0,0.45);
   background: linear-gradient(135deg, #e0c04a, #c9a93a);
 }
+
+
+
+
+.footer {
+  background: #0f0f0f;
+  color: #ccc;
+  padding: 25px 20px;
+  font-size: 0.95rem;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-titulo {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.footer-texto {
+  color: #aaa;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.credito-web {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: #c9a96e;
+  text-decoration: underline;
+}
+
+
+.footer-col p {
+  margin: 5px 0;
+}
+
+
+.footer-bottom {
+  margin-top: 15px;
+}
+
+.credito-web {
+  margin-top: 5px;
+}
+
+
+@media (max-width: 768px) {
+  .footer-contenido {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
