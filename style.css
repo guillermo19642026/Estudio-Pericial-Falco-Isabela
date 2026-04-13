@@ -4686,3 +4686,54 @@ FIX BOTONES SEO (CLAVE)
   display: inline-block;
   margin-top: 20px;
 }
+
+
+.seccion-areas {
+  padding: 60px 20px;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.area-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.area-item h3 {
+  color: #c9a96e;
+  margin-bottom: 10px;
+}
+
+.area-item p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.area-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* EFECTO HOVER */
+
+.area-item:hover {
+  transform: translateY(-5px);
+  border-color: #c9a96e;
+  box-shadow: 0 0 15px rgba(201,169,110,0.3);
+}
+
+.area-item:hover h3 {
+  color: #c9a96e;
+}
