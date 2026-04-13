@@ -4980,3 +4980,43 @@ FIX BOTONES SEO (CLAVE)
   font-size: 0.9rem;
   line-height: 1.5;
 }
+
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background: #111;
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 10px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 1000;
+}
+
+.dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(201,169,110,0.08);
+  color: #c9a96e;
+}

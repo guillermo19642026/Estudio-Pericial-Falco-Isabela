@@ -732,3 +732,32 @@ function toggleForm(header) {
     icono.textContent = '−';
   }
 }
+
+
+
+document.querySelectorAll('.dropdown-menu a').forEach(link => {
+  link.addEventListener('click', function () {
+    const href = this.getAttribute('href');
+    const target = document.querySelector(href);
+    const header = document.querySelector('header');
+    const offset = header ? header.offsetHeight + 20 : 20;
+
+    if (target && target.classList.contains('form-item')) {
+      const formHeader = target.querySelector('.form-header');
+
+      setTimeout(() => {
+        toggleForm(formHeader);
+
+        setTimeout(() => {
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({
+            top: top,
+            behavior: 'smooth'
+          });
+        }, 200);
+
+      }, 400);
+    }
+  });
+});
