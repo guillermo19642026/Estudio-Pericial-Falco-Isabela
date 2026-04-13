@@ -4737,3 +4737,246 @@ FIX BOTONES SEO (CLAVE)
 .area-item:hover h3 {
   color: #c9a96e;
 }
+
+
+
+
+
+
+
+
+
+
+#formularios {
+  padding: 60px 20px;
+}
+
+.form-item {
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.form-header {
+  padding: 15px 20px;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  font-weight: bold;
+}
+
+.form-header .icono {
+  position: absolute;
+  right: 20px;
+}
+
+.form-contenido {
+  display: none;
+  padding: 20px;
+}
+
+.form-contenido form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-contenido input,
+.form-contenido textarea,
+.form-contenido select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(201,169,110,0.3);
+  background: #111;
+  color: #fff;
+}
+
+.form-contenido button {
+  background: #c9a96e;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+#formularios {
+  padding: 60px 20px;
+}
+
+.form-item {
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.form-header {
+  padding: 18px 20px;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255,255,255,0.03);
+}
+
+/* TITULO DORADO */
+.titulo-form {
+  color: #c9a96e;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.form-header:hover {
+  background: rgba(201,169,110,0.05);
+}
+
+/* ICONO */
+.form-header .icono {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  color: #c9a96e;
+  font-size: 1.3rem;
+}
+
+/* CONTENIDO */
+.form-contenido {
+  display: none;
+  padding: 20px;
+}
+
+/* FORM */
+.form-contenido form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-contenido input,
+.form-contenido textarea,
+.form-contenido select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(201,169,110,0.3);
+  background: #111;
+  color: #fff;
+}
+
+.form-contenido button {
+  background: #c9a96e;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-contenido button:hover {
+  background: #e0c04a;
+}
+
+
+#formularios {
+  padding: 60px 20px;
+}
+
+#formularios .form-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#formularios .form-item:hover {
+  border-color: #c9a96e;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+#formularios .form-header {
+  padding: 18px 20px;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255,255,255,0.02);
+}
+
+#formularios .titulo-form {
+  color: #c9a96e;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+#formularios .icono {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  color: #c9a96e;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+
+#formularios .form-contenido-inner {
+  padding: 20px;
+}
+
+#formularios .form-contenido form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#formularios .form-contenido input,
+#formularios .form-contenido textarea,
+#formularios .form-contenido select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(201,169,110,0.3);
+  background: #111;
+  color: #fff;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+#formularios .form-contenido input[type="file"] {
+  padding: 10px;
+  background: #111;
+  color: #ccc;
+}
+
+#formularios .form-contenido input:focus,
+#formularios .form-contenido textarea:focus,
+#formularios .form-contenido select:focus {
+  outline: none;
+  border-color: #c9a96e;
+  box-shadow: 0 0 0 2px rgba(201,169,110,0.15);
+}
+
+#formularios .form-contenido button {
+  background: #c9a96e;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#formularios .form-contenido button:hover {
+  background: #e0c04a;
+  transform: translateY(-2px);
+}
+
+#formularios .aviso-documentacion {
+  margin-top: 14px;
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

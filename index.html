@@ -220,40 +220,7 @@ html{scroll-behavior:smooth;}
 </section>
 
 
-<!-- ÁREAS DE INTERVENCIÓN -->
-<section class="seccion-areas">
 
-  <div class="danio-contenedor">
-
-    <h2 class="titulo-seccion">Áreas de Intervención</h2>
-
-    <div class="areas-grid">
-
-      <div class="area-item">
-        <h3>Ámbito Civil</h3>
-        <p>Evaluaciones psicológicas en procesos de responsabilidad civil y daño psíquico.</p>
-      </div>
-
-      <div class="area-item">
-        <h3>Ámbito Laboral</h3>
-        <p>Intervención en conflictos laborales, estrés y situaciones de acoso.</p>
-      </div>
-
-      <div class="area-item">
-        <h3>Ámbito de Familia</h3>
-        <p>Análisis de dinámicas vinculares en procesos judiciales de familia.</p>
-      </div>
-
-      <div class="area-item">
-        <h3>Ámbito Penal</h3>
-        <p>Evaluaciones psicológicas en el marco de procesos penales.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
 
 
 <!-- SERVICIOS ESPECIALIZADOS -->
@@ -1263,10 +1230,11 @@ Atención profesional a particulares y estudios jurídicos en Buenos Aires y Arg
 </section>
 
 
-
-
-
 <!-- FIN DE RECURSOS NUEVO -->
+
+
+
+
 
 
 
@@ -1431,139 +1399,92 @@ Atención profesional a particulares y estudios jurídicos en Buenos Aires y Arg
 
 </section>
 
- <!-- FIN DE AREAS -->
+  <!-- FIN DE AREAS -->
 
 
- <!-- SOLICITUD DE PERICIA -->
+  <!-- FORMULARIOS -->
+<section id="formularios">
+  <h2 class="titulo-seccion">Consultas</h2>
 
-<section id="pericia" class="seccion-pro">
+  <div class="form-acordeon">
 
-<div class="contenedor formulario-box">
+    <!-- FORM 1 -->
+    <div class="form-item">
+      <div class="form-header" onclick="toggleForm(this)">
+        <span class="titulo-form">Solicitud de Evaluación Pericial</span>
+        <span class="icono">+</span>
+      </div>
 
-<h2 class="titulo-seccion">Solicitud de Evaluación Pericial</h2>
+      <div class="form-contenido">
+        <div class="form-contenido-inner">
+          <form id="form-evaluacion-pericial">
+            <input type="text" id="pericia-nombre" placeholder="Nombre completo" required>
+            <input type="email" id="pericia-email" placeholder="Email" required>
+            <input type="tel" id="pericia-telefono" placeholder="Teléfono">
+            <textarea id="pericia-mensaje" placeholder="Detalle del caso" rows="5"></textarea>
+            <button type="submit">Enviar por WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-<p class="subtitulo-seccion">
-Complete el formulario para solicitar intervención profesional o asesoramiento técnico.
-</p>
+    <!-- FORM 2 -->
+    <div class="form-item">
+      <div class="form-header" onclick="toggleForm(this)">
+        <span class="titulo-form">Carga de Documentación</span>
+        <span class="icono">+</span>
+      </div>
 
-<form id="form-pericia">
+      <div class="form-contenido">
+        <div class="form-contenido-inner">
+          <form id="form-documentacion">
+            <input type="text" id="doc-nombre" placeholder="Nombre completo" required>
+            <input type="email" id="doc-email" placeholder="Email" required>
+            <input type="tel" id="doc-telefono" placeholder="Teléfono">
+            <input type="file" id="doc-archivo">
+            <textarea id="doc-mensaje" placeholder="Detalle de la documentación" rows="5"></textarea>
+            <button type="submit">Solicitar envío</button>
+          </form>
 
-<input type="text" id="nombre" placeholder="Nombre y Apellido" required>
+          <p class="aviso-documentacion">
+            La carga directa de archivos requiere integración con servidor o servicio externo.
+            Este formulario enviará una solicitud por WhatsApp para coordinar el envío de la documentación.
+          </p>
+        </div>
+      </div>
+    </div>
 
-<input type="email" id="email" placeholder="Correo electrónico" required>
+    <!-- FORM 3 -->
+    <div class="form-item">
+      <div class="form-header" onclick="toggleForm(this)">
+        <span class="titulo-form">Solicitud de Consulta Particular</span>
+        <span class="icono">+</span>
+      </div>
 
-<input type="tel" id="telefono" placeholder="Teléfono">
+      <div class="form-contenido">
+        <div class="form-contenido-inner">
+          <form id="form-consulta-particular">
+            <input type="text" id="consulta-nombre" placeholder="Nombre completo" required>
+            <input type="email" id="consulta-email" placeholder="Email" required>
+            <input type="tel" id="consulta-telefono" placeholder="Teléfono">
+            <textarea id="consulta-mensaje" placeholder="Escriba su consulta" rows="5"></textarea>
+            <button type="submit">Enviar por WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-<select id="tipo">
-<option>Solicitud de Pericia Judicial</option>
-<option>Consulta Profesional</option>
-<option>Asesoramiento a Estudio Jurídico</option>
-</select>
-
-<textarea id="mensaje" placeholder="Describa brevemente el caso..." rows="5"></textarea>
-
-<button type="submit" class="btn-principal">
-Enviar Solicitud
-</button>
-
-</form>
-
-</div>
-
-</section>
-
- <!-- FIN DE SOLICITUD DE PERICIA -->
-
-
-<!-- CARGA DE DOCUMENTACIÓN -->
-
-<section id="documentos" class="seccion-pro">
-
-<div class="contenedor formulario-box">
-
-<h2 class="titulo-seccion">Carga de Documentación</h2>
-
-<p class="subtitulo-seccion">
-Adjunte documentación relevante para el análisis del caso (formato PDF).
-</p>
-
-<form action="https://formsubmit.co/estudiopericialpsicologico@gmail.com" 
-      method="POST" 
-      enctype="multipart/form-data">
-
-<input type="text" name="nombre" placeholder="Nombre del Profesional" required>
-
-<input type="email" name="email" placeholder="Correo electrónico" required>
-
-<select name="tipo">
-<option>Causa Judicial</option>
-<option>Informe Psicológico</option>
-<option>Test Psicológico</option>
-<option>Solicitud</option>
-</select>
-
-<input type="file" name="archivo" accept=".pdf" required>
-
-<button type="submit" class="btn-principal">
-Subir Documentación
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<!-- FIN DE CARGA DE DOCUMENTACIÓN -->
-
-
-
-<!-- CONSULTAS PARTICULARES -->
-
-<section id="consultas" class="seccion-pro">
-
-  <div class="contenedor formulario-box">
-  
-  <h2 class="titulo-seccion">Solicitud de Consulta Particulares</h2>
-  
-  <p class="subtitulo-seccion">
-    Si querés realizar una consulta particular o solicitar un turno, podés completar el siguiente formulario
-    o comunicarte directamente por WhatsApp. Te responderé a la brevedad.
-  </p>
-  
-  <form id="form-consultas">
-  
-  <input type="text" id="nombre" placeholder="Nombre y Apellido" required>
-  
-  <input type="email" id="email" placeholder="Correo electrónico" required>
-  
-  <input type="tel" id="telefono" placeholder="Teléfono">
-  
-  
-  <textarea id="mensaje" placeholder="Describa brevemente el caso..." rows="5"></textarea>
-  
-  <button type="submit" class="btn-principal">
-  Enviar Solicitud
-  </button>
-  
-  </form>
-
-
-<!-- WHATSAPP -->
-<div class="whatsapp-consultas">
-  <p>También podés comunicarte directamente:</p>
-
-  <a href="https://wa.me/5491132049521" target="_blank" class="btn-whatsapp">
-    Escribir por WhatsApp
-  </a>
-</div>
-
-  
   </div>
-  
-  </section>
+</section>
 
-<!-- FIN DE CONSULTAS PARTICULARES -->
+
+
+
+
+
+
+
+
 
 
 <!-- SOBRE LA PERITO -->
@@ -1709,14 +1630,6 @@ facilitando la valoración judicial mediante informes técnicamente sólidos.
   </div>
 </div>
         </div>
-
-
-
-
-
-
-
-
 
 
       </div>
@@ -2069,7 +1982,7 @@ window.open(url,"_blank");
 </script>
  
 
-<script src="script.js"></script>
+
 
 
 <script>
@@ -2099,6 +2012,201 @@ window.addEventListener("pageshow", function (event) {
   }
 });
 </script>
+
+
+
+<script>
+document.querySelectorAll('.acordeon-formulario').forEach((item) => {
+  item.addEventListener('toggle', () => {
+    if (item.open) {
+      document.querySelectorAll('.acordeon-formulario').forEach((other) => {
+        if (other !== item) {
+          other.open = false;
+        }
+      });
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const botones = document.querySelectorAll('.recurso-header');
+
+  botones.forEach((boton) => {
+    boton.addEventListener('click', function () {
+      const acordeon = this.closest('.recurso-acordeon');
+      const contenido = acordeon.querySelector('.recurso-contenido');
+      const icono = acordeon.querySelector('.icono-toggle');
+
+      document.querySelectorAll('.recurso-acordeon').forEach((item) => {
+        if (item !== acordeon) {
+          item.classList.remove('activo');
+          item.querySelector('.recurso-contenido').style.maxHeight = null;
+          item.querySelector('.icono-toggle').textContent = '+';
+        }
+      });
+
+      if (acordeon.classList.contains('activo')) {
+        acordeon.classList.remove('activo');
+        contenido.style.maxHeight = null;
+        icono.textContent = '+';
+      } else {
+        acordeon.classList.add('activo');
+        contenido.style.maxHeight = contenido.scrollHeight + 'px';
+        icono.textContent = '−';
+      }
+    });
+  });
+});
+</script>
+
+
+<script src="script.js"></script>
+
+
+
+<script>
+function toggleRecurso(header) {
+  const card = header.parentElement;
+  const contenido = card.querySelector('.recurso-contenido');
+  const icono = card.querySelector('.icono-toggle');
+
+  document.querySelectorAll('#recursos .recurso-acordeon').forEach((item) => {
+    if (item !== card) {
+      item.querySelector('.recurso-contenido').style.display = 'none';
+      item.querySelector('.icono-toggle').textContent = '+';
+    }
+  });
+
+  if (contenido.style.display === 'block') {
+    contenido.style.display = 'none';
+    icono.textContent = '+';
+  } else {
+    contenido.style.display = 'block';
+    icono.textContent = '−';
+  }
+}
+</script>
+
+<script>
+function toggleForm(header) {
+  const item = header.parentElement;
+  const contenido = item.querySelector('.form-contenido');
+  const icono = header.querySelector('.icono');
+
+  document.querySelectorAll('#formularios .form-item').forEach((el) => {
+    if (el !== item) {
+      el.querySelector('.form-contenido').style.display = 'none';
+      el.querySelector('.icono').textContent = '+';
+    }
+  });
+
+  if (contenido.style.display === 'block') {
+    contenido.style.display = 'none';
+    icono.textContent = '+';
+  } else {
+    contenido.style.display = 'block';
+    icono.textContent = '−';
+  }
+}
+
+// WhatsApp
+const numeroWhatsApp = "5491132049521";
+
+// Formulario 1: Evaluación Pericial
+const formPericia = document.getElementById("form-evaluacion-pericial");
+if (formPericia) {
+  formPericia.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("pericia-nombre").value;
+    const email = document.getElementById("pericia-email").value;
+    const telefono = document.getElementById("pericia-telefono").value;
+    const mensaje = document.getElementById("pericia-mensaje").value;
+
+    const texto =
+      "Solicitud de Evaluación Pericial%0A%0A" +
+      "Nombre: " + nombre + "%0A" +
+      "Email: " + email + "%0A" +
+      "Teléfono: " + telefono + "%0A" +
+      "Detalle del caso: " + mensaje;
+
+    window.open("https://wa.me/" + numeroWhatsApp + "?text=" + texto, "_blank");
+  });
+}
+
+// Formulario 2: Documentación
+const formDocumentacion = document.getElementById("form-documentacion");
+if (formDocumentacion) {
+  formDocumentacion.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("doc-nombre").value;
+    const email = document.getElementById("doc-email").value;
+    const telefono = document.getElementById("doc-telefono").value;
+    const archivoInput = document.getElementById("doc-archivo");
+    const archivo = archivoInput && archivoInput.files.length ? archivoInput.files[0] : null;
+    const mensaje = document.getElementById("doc-mensaje").value;
+
+    const nombreArchivo = archivo ? archivo.name : "No adjuntado";
+
+    const texto =
+      "Carga de Documentación%0A%0A" +
+      "Nombre: " + nombre + "%0A" +
+      "Email: " + email + "%0A" +
+      "Teléfono: " + telefono + "%0A" +
+      "Archivo seleccionado: " + nombreArchivo + "%0A" +
+      "Detalle: " + mensaje + "%0A%0A" +
+      "Solicito coordinación para envío de documentación.";
+
+    window.open("https://wa.me/" + numeroWhatsApp + "?text=" + texto, "_blank");
+  });
+}
+
+// Formulario 3: Consulta Particular
+const formConsulta = document.getElementById("form-consulta-particular");
+if (formConsulta) {
+  formConsulta.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("consulta-nombre").value;
+    const email = document.getElementById("consulta-email").value;
+    const telefono = document.getElementById("consulta-telefono").value;
+    const mensaje = document.getElementById("consulta-mensaje").value;
+
+    const texto =
+      "Solicitud de Consulta Particular%0A%0A" +
+      "Nombre: " + nombre + "%0A" +
+      "Email: " + email + "%0A" +
+      "Teléfono: " + telefono + "%0A" +
+      "Consulta: " + mensaje;
+
+    window.open("https://wa.me/" + numeroWhatsApp + "?text=" + texto, "_blank");
+  });
+}
+</script>
+
 
 
 </body>

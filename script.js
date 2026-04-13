@@ -712,4 +712,23 @@ function toggleDropdown(element) {
 }
 
 
+function toggleForm(header) {
+  const item = header.parentElement;
+  const contenido = item.querySelector('.form-contenido');
+  const icono = header.querySelector('.icono');
 
+  document.querySelectorAll('#formularios .form-item').forEach((el) => {
+    if (el !== item) {
+      el.querySelector('.form-contenido').style.display = 'none';
+      el.querySelector('.icono').textContent = '+';
+    }
+  });
+
+  if (contenido.style.display === 'block') {
+    contenido.style.display = 'none';
+    icono.textContent = '+';
+  } else {
+    contenido.style.display = 'block';
+    icono.textContent = '−';
+  }
+}
