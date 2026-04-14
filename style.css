@@ -5108,3 +5108,268 @@ FIX BOTONES SEO (CLAVE)
     font-size: 0.8rem;
   }
 }
+
+
+
+
+
+
+
+#recursos .form-contenido a:last-child {
+  margin-bottom: 0;
+}
+
+#recursos .form-contenido a:hover {
+  color: #c9a96e;
+}
+
+#recursos .badge-proximamente {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+#recursos .form-contenido a:last-child {
+  margin-bottom: 0;
+}
+
+#recursos .form-contenido a:hover {
+  color: #c9a96e;
+}
+
+#recursos .badge-proximamente {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+
+/* FIX RECURSOS ACORDEÓN */
+
+#recursos .form-contenido {
+  display: none;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+
+
+#recursos .recurso-contenido {
+  display: none;
+}
+
+#recursos .recurso-item.activo .recurso-contenido {
+  display: block;
+}
+
+
+
+
+#recursos .recurso-contenido .form-contenido-inner {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  padding: 20px !important;
+}
+
+#recursos .recurso-contenido a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+#recursos .recurso-contenido a:last-child {
+  margin-bottom: 0;
+}
+
+#recursos .recurso-contenido a:hover {
+  color: #c9a96e;
+}
+
+#recursos .badge-proximamente {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+
+
+/* =========================
+RECURSOS IGUAL A CONSULTAS
+========================= */
+
+#recursos {
+  padding: 60px 20px;
+}
+
+#recursos .form-acordeon {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+
+#recursos .recurso-item:hover {
+  border-color: #c9a96e;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+
+
+#recursos .titulo-form {
+  color: #c9a96e;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+#recursos .icono {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  color: #c9a96e;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+
+
+#recursos .badge-proximamente {
+  position: static;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+#recursos .recurso-contenido a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+#recursos .recurso-contenido a:last-child {
+  margin-bottom: 0;
+}
+
+#recursos .recurso-contenido a:hover {
+  color: #c9a96e;
+}
+
+
+
+/* RECURSOS - MISMO SISTEMA QUE CONSULTAS */
+
+#recursos .recurso-item {
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  transition: all 0.3s ease;
+}
+
+#recursos .recurso-item:hover {
+  border-color: #c9a96e;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+#recursos .recurso-header {
+  padding: 18px 20px;
+  cursor: pointer;
+  position: relative;
+  background: rgba(255,255,255,0.02);
+}
+
+#recursos .titulo-form {
+  color: #c9a96e;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+#recursos .recurso-header .icono {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  color: #c9a96e;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#recursos .recurso-contenido {
+  display: none;
+  padding: 20px;
+}
+
+#recursos .form-contenido-inner {
+  padding: 0;
+}
+
+#recursos .badge-proximamente {
+  position: static;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+#recursos .recurso-contenido a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+#recursos .recurso-contenido a:last-child {
+  margin-bottom: 0;
+}
+
+#recursos .recurso-contenido a:hover {
+  color: #c9a96e;
+}
+
+
+/* FIX DEFINITIVO RECURSOS */
+
+#recursos .recurso-contenido {
+  display: none;
+  padding: 20px !important;
+  max-height: none !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  background: transparent;
+}
+
+#recursos .recurso-contenido .form-contenido-inner {
+  display: block !important;
+  padding: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+#recursos .recurso-contenido a {
+  display: block !important;
+  color: #ccc !important;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+#recursos .recurso-contenido a:last-child {
+  margin-bottom: 0;
+}
+
+#recursos .recurso-contenido a:hover {
+  color: #c9a96e !important;
+}
+
+#recursos .badge-proximamente {
+  position: static !important;
+  display: inline-block !important;
+  margin-bottom: 15px;
+}
