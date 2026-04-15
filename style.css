@@ -5131,6 +5131,18 @@ FIX BOTONES SEO (CLAVE)
 
 
 
+/* SUBACORDEON DE DAÑO PSIQUICO: ARRANCA CERRADO */
+#danio-psiquico .danio-dictamen .acordeon-contenido {
+  display: none;
+}
+
+/* SOLO SE VE CUANDO LO ABRE EL JS */
+#danio-psiquico .danio-dictamen .acordeon-item.abierto .acordeon-contenido {
+  display: block;
+}
+
+
+
 
 
 #recursos .form-contenido a:last-child {
@@ -5438,4 +5450,54 @@ RECURSOS IGUAL A CONSULTAS
   right: 20px;
   color: #c9a96e;
   font-size: 1.3rem;
+}
+
+
+
+#danio-psiquico .acordeon-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+#danio-psiquico .acordeon-header .icono {
+  position: absolute;
+  right: 20px;
+}
+
+
+#tecnicas .acordeon-tecnicas .acordeon-contenido {
+  display: none;
+}
+
+#tecnicas .acordeon-tecnicas .acordeon-item.abierto .acordeon-contenido {
+  display: block;
+}
+
+
+
+#tecnicas .acordeon-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#tecnicas .acordeon-header .icono {
+  position: absolute;
+  right: 20px;
+}
+
+
+#recursos .titulo-seccion {
+  text-align: center;
+}
+
+
+
+#recursos .titulo-seccion {
+  text-align: center;
+  width: 100%;
 }
