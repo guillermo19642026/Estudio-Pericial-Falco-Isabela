@@ -2097,7 +2097,21 @@ function toggleTecnicas(header) {
 </script>
 
 
+<script>
+const titulos = document.querySelectorAll('.titulo-seccion, .perito-titulo-info');
 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('activo');
+    }
+  });
+}, {
+  threshold: 0.4
+});
+
+titulos.forEach(t => observer.observe(t));
+</script>
 
 
 </body>

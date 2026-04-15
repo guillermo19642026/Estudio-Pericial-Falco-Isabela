@@ -5723,3 +5723,97 @@ RECURSOS IGUAL A CONSULTAS
   top: 50%;
   transform: translateY(-50%);
 }
+
+
+
+
+.titulo-seccion,
+.perito-titulo-info {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* LÍNEA BASE */
+.titulo-seccion::after,
+.perito-titulo-info::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 0%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+
+  transform: translateX(-50%);
+  transition: width 0.4s ease;
+}
+
+/* EFECTO AL APARECER */
+.titulo-seccion.activo::after,
+.perito-titulo-info.activo::after {
+  width: 80%;
+}
+
+
+.titulo-seccion::after {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00d4ff,
+    #ffffff,
+    #00d4ff,
+    transparent
+  );
+  box-shadow: 0 0 6px rgba(0,212,255,0.4);
+}
+
+
+.titulo-seccion,
+.perito-titulo-info {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* LÍNEA MUY SUTIL */
+.titulo-seccion::after,
+.perito-titulo-info::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 0%;
+  height: 1px;
+
+  background: rgba(255,255,255,0.25);
+
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+
+/* ACTIVACIÓN */
+.titulo-seccion.activo::after,
+.perito-titulo-info.activo::after {
+  width: 50%;
+}
+
+
+
+
+.titulo-seccion::after {
+  background: rgba(255,255,255,0.18);
+}
+
+.titulo-seccion.activo::after {
+  width: 40%;
+}
