@@ -2143,7 +2143,7 @@ ACORDEON PREMIUM
 
 /* cuando está activo */
 .acordeon-item.activo .acordeon-contenido{
-  max-height:500px;
+  max-height:2000px;
   padding:15px 18px 20px;
 }
 
@@ -5378,3 +5378,64 @@ RECURSOS IGUAL A CONSULTAS
 
 
 
+.seccion-perfil-profesional .acordeon-header {
+  position: relative;
+  cursor: pointer;
+}
+
+.seccion-perfil-profesional .acordeon-header .titulo-seccion {
+  margin-bottom: 0;
+}
+
+.seccion-perfil-profesional .acordeon-header .titulo-seccion::after {
+  margin: 15px auto 0;
+}
+
+.seccion-perfil-profesional .icono {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.seccion-perfil-profesional .acordeon-header {
+  position: relative;
+  cursor: pointer;
+  text-align: center; /* 🔥 centra el título */
+}
+
+.seccion-perfil-profesional .acordeon-header .titulo-seccion {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.seccion-perfil-profesional .icono {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+
+
+.seccion-links-seo .acordeon-header {
+  display: flex;
+  justify-content: center;   /* centra el título */
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.seccion-links-seo .titulo-seccion {
+  margin: 0;
+  text-align: center;
+}
+
+.seccion-links-seo .icono {
+  position: absolute;
+  right: 20px;
+  color: #c9a96e;
+  font-size: 1.3rem;
+}
