@@ -5704,3 +5704,22 @@ RECURSOS IGUAL A CONSULTAS
 .acordeon-item.activo .icono {
   transform: rotate(45deg); /* + → X */
 }
+
+
+
+#perito .perito-info .acordeon-header {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+#perito .perito-info .perito-titulo-info {
+  margin: 0 auto;
+}
+
+#perito .perito-info .acordeon-header .icono {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
