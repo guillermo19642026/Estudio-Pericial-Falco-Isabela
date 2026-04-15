@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
@@ -9,150 +8,109 @@
 <title>Perito Psicóloga Forense | Pericias Psicológicas Judiciales | Lic. Isabela Falco</title>
 
 <meta name="description" content="Perito psicóloga especializada en pericias psicológicas forenses, evaluación de daño psíquico, informes periciales y asesoramiento a abogados en procesos judiciales.">
-
 <meta name="author" content="Lic. Isabela Falco">
-
 <meta name="robots" content="index, follow">
 
-
-
-
-
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-
-
-
-<!-- Open Graph (para compartir en redes) -->
-
+<!-- Open Graph -->
 <meta property="og:title" content="Perito Psicóloga Forense | Lic. Isabela Falco">
-
 <meta property="og:description" content="Pericias psicológicas judiciales, informes periciales y evaluación de daño psíquico para procesos judiciales.">
-
 <meta property="og:type" content="website">
-
 <meta property="og:locale" content="es_AR">
 
+<!-- CSS -->
 <link rel="stylesheet" href="style.css">
 
 <style>
-html{scroll-behavior:smooth;}
+html {
+  scroll-behavior: smooth;
+}
 </style>
 
 </head>
 
-
 <body>
 
-
 <!-- NEURONAL -->
-
 <canvas id="neuronal-bg"></canvas>
 
 <div id="loader">
-<div class="spinner"></div>
+  <div class="spinner"></div>
 </div>
-
-<!-- FIN DEL NEURONAL -->
-
+<!-- FIN NEURONAL -->
 
 <header>
-
   <div class="nav-container">
 
+    <!-- IZQUIERDA -->
+    <div class="header-izquierda">
+      <div class="logo">
+        <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+      </div>
+    </div>
 
-      <!-- IZQUIERDA (1/4) -->
-      <div class="header-izquierda">
-          <div class="logo">
-              <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+    <!-- DERECHA -->
+    <div class="header-derecha">
+
+      <!-- TEXTO -->
+      <div class="header-texto">
+        ESTUDIO PERICIAL PSICOLÓGICO<br>
+        <span>Lic. en Psicología ISABELA FALCO</span>
+      </div>
+
+      <!-- MENÚ -->
+      <nav id="menu">
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#servicios">Servicios</a>
+
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Áreas ▾</span>
+          <div class="dropdown-menu">
+            <a href="#areas">de Servicio</a>
+            <a href="#areas">de Pericia</a>
           </div>
-      </div>
-  
+        </div>
 
-      <!-- DERECHA (3/4) -->
-      <div class="header-derecha">
+        <a href="#danio-psiquico">Daño Psíquico</a>
 
-  
- <!-- TEXTO -->
-   <div class="header-texto">
-    ESTUDIO PERICIAL PSICOLÓGICO<br>
-    <span>Lic. en Psicología ISABELA FALCO</span>
-    </div>
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Recursos ▾</span>
+          <div class="dropdown-menu">
+            <a href="#tecnicas">Técnicas Periciales</a>
+            <a href="#recursos">Material Técnico</a>
+          </div>
+        </div>
 
-  
- <!-- MENÚ -->
- <nav id="menu">
+        <a href="#formacion">Formación</a>
 
-  <a href="#inicio">Inicio</a>
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Sobre la Perito ▾</span>
+          <div class="dropdown-menu">
+            <a href="#perito">Perfil Profesional</a>
+            <a href="#perito">Enfoque de Trabajo</a>
+          </div>
+        </div>
 
+        <div class="dropdown">
+          <span onclick="toggleDropdown(this)">Consultas ▾</span>
+          <div class="dropdown-menu">
+            <a href="#pericia">Evaluación pericial</a>
+            <a href="#documentos">Cargar documentación</a>
+            <a href="#consultas">Particulares</a>
+          </div>
+        </div>
 
+        <a href="#faq">FAQ</a>
 
+      </nav>
 
-
-  <!-- SERVICIOS -->
-  <a href="#servicios">Servicios</a>
-
-
-  <!-- AREAS -->
-  <div class="dropdown">
-    <span onclick="toggleDropdown(this)">Áreas ▾</span>
-    <div class="dropdown-menu">
-      <a href="#areas">de Servicio</a>
-      <a href="#areas">de Pericia</a>
-    </div>
-  </div>
-
-
-  <!-- DAÑO PSIQUICO (PROTAGONISTA) -->
-  <a href="#danio-psiquico">Daño Psíquico</a>
-
-
-  <!-- RECURSOS -->
-  <div class="dropdown">
-  <span onclick="toggleDropdown(this)">Recursos ▾</span>
-  <div class="dropdown-menu">
-    <a href="#tecnicas">Técnicas Periciales</a>
-    <a href="#recursos">Material Técnico</a>
-  </div>
-  </div>
-
-
-  <!-- FORMACIÓN -->
-  <a href="#formacion">Formación</a>
-
-
-  <!-- SOBRE -->
-<div class="dropdown">
-  <span onclick="toggleDropdown(this)">Sobre la Perito ▾</span>
-  <div class="dropdown-menu">
-    <a href="#perito">Perfil Profesional</a>
-    <a href="#perito">Enfoque de Trabajo</a>
-  </div>
-</div>
-
-
-  <!-- CONSULTAS -->
-  <div class="dropdown">
-    <span onclick="toggleDropdown(this)">Consultas ▾</span>
-    <div class="dropdown-menu">
-      <a href="#pericia">Evaluación pericial</a>
-      <a href="#documentos">Cargar documentación</a>
-      <a href="#consultas">Particulares</a>
     </div>
   </div>
-
-  <a href="#faq">FAQ</a>
-
-</nav>
-  
-      </div>
-  
-  </div>
-  
-  </header>
-
-
-
+</header>
 
 
 <!-- HERO -->
@@ -179,17 +137,17 @@ html{scroll-behavior:smooth;}
       </p>
 
       <div class="hero-botones">
-        <a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20profesional." 
-           class="btn-principal" 
-           target="_blank" 
-           rel="noopener noreferrer">
-          Consulta profesional
-        </a>
+  <a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20profesional." 
+     class="btn-hero" 
+     target="_blank" 
+     rel="noopener noreferrer">
+    Consulta profesional
+  </a>
 
-        <a href="#servicios" class="btn-secundario">
-          Ver servicios
-        </a>
-      </div>
+  <a href="#servicios" class="btn-hero-outline">
+    Ver servicios
+  </a>
+</div>
 
     </div>
 
@@ -870,36 +828,6 @@ html{scroll-behavior:smooth;}
 
 </section>
 <!-- FIN DE RECURSOS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p class="texto-central">
-Ofrecemos servicios de psicodiagnóstico clínico-forense en Ciudad Autónoma de Buenos Aires,
-incluyendo evaluación emocional, informes periciales y análisis de daño psíquico.
-</p>
-
-<p class="texto-central">
-Atención profesional a particulares y estudios jurídicos en Buenos Aires y Argentina.
-</p>
 
 
 
