@@ -5817,3 +5817,43 @@ RECURSOS IGUAL A CONSULTAS
 .titulo-seccion.activo::after {
   width: 40%;
 }
+
+
+/* CONTENEDOR */
+.servicios-relacionados {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* GRID */
+.servicios-rel-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* ITEMS */
+.servicio-rel-item {
+  padding: 10px 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 30px;
+  font-size: 0.95rem;
+  color: #ddd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(4px);
+}
+
+/* HOVER SUTIL */
+.servicio-rel-item:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+
+
+
