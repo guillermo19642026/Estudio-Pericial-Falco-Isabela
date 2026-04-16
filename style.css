@@ -5857,3 +5857,70 @@ RECURSOS IGUAL A CONSULTAS
 
 
 
+
+.servicios-rel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  gap: 14px;
+  margin-top: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BOTONES */
+.servicio-rel-item {
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 25px;
+
+  font-size: 0.9rem;
+  color: #ddd;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER FINO */
+.servicio-rel-item:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+
+
+@media (max-width: 768px) {
+  .servicios-rel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .servicios-rel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.danio-item.destacado {
+  border: 1px solid rgba(201,169,110,0.45);
+  background: rgba(201,169,110,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.danio-item.destacado .danio-header span {
+  color: #c9a96e;
+  font-weight: 600;
+}
+
+.danio-item.destacado:hover {
+  border-color: #c9a96e;
+  background: rgba(201,169,110,0.1);
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+}
+
