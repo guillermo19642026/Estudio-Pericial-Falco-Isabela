@@ -5924,3 +5924,80 @@ RECURSOS IGUAL A CONSULTAS
   transition: all 0.3s ease;
 }
 
+
+
+#menu a[href="#consultas"] {
+  color: #c9a96e;
+  font-weight: 600;
+}
+
+
+
+
+
+
+/* BOTON CONSULTA HEADER - AISLADO DEL ESTILO GENERAL */
+#menu .btn-header,
+#menu .btn-header:link,
+#menu .btn-header:visited,
+#menu .btn-header:hover,
+#menu .btn-header:active,
+#menu .btn-header:focus,
+#menu .btn-header:focus-visible {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1;
+  border: 1px solid rgba(201,169,110,0.55);
+  background: rgba(201,169,110,0.12);
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  box-shadow: none;
+  text-shadow: none;
+  transition: all 0.3s ease;
+}
+
+#menu .btn-header:hover,
+#menu .btn-header:active,
+#menu .btn-header:focus,
+#menu .btn-header:focus-visible {
+  background: #c9a96e !important;
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+  border-color: #c9a96e !important;
+  outline: none;
+}
+
+
+/* BOTON DEBAJO DE INICIO */
+.btn-header-inline {
+  display: block;
+  margin: 6px 0 10px 0;
+
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  font-size: 0.8rem;
+  text-decoration: none;
+
+  background: rgba(201,169,110,0.12);
+  border: 1px solid rgba(201,169,110,0.4);
+
+  color: #c9a96e !important;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.btn-header-inline:hover {
+  background: #c9a96e !important;
+  color: #111 !important;
+}
+
+
+
