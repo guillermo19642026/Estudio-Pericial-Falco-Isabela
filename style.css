@@ -6001,3 +6001,121 @@ RECURSOS IGUAL A CONSULTAS
 
 
 
+
+
+
+
+
+
+.formacion-destacada {
+  margin-top: 50px;
+}
+
+.formacion-bloque {
+  margin-top: 35px;
+}
+
+.formacion-subtitulo {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 22px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.formacion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.formacion-card {
+  display: block;
+  text-decoration: none;
+  color: #ddd;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.18);
+  border-radius: 14px;
+  padding: 22px 18px;
+  transition: all 0.3s ease;
+  min-height: 220px;
+}
+
+.formacion-card:hover {
+  transform: translateY(-4px);
+  border-color: #c9a96e;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.formacion-tipo {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #c9a96e;
+  margin-bottom: 12px;
+}
+
+.formacion-card h4 {
+  font-size: 1.05rem;
+  margin: 0 0 12px 0;
+  color: #fff;
+}
+
+.formacion-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cfcfcf;
+  margin: 0 0 18px 0;
+}
+
+.formacion-link {
+  font-size: 0.88rem;
+  color: #c9a96e;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .formacion-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.proximamente {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.7rem;
+  color: #c9a96e;
+  border: 1px solid rgba(201,169,110,0.4);
+  padding: 2px 6px;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+
+.formacion-card {
+  position: relative;
+}
+
+.badge-prox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(201,169,110,0.14);
+  color: #c9a96e;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(201,169,110,0.35);
+  letter-spacing: 0.3px;
+}
+
+.formacion-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: #c9a96e;
+  font-weight: 500;
+}
