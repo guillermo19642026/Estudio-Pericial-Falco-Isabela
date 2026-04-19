@@ -6119,3 +6119,218 @@ RECURSOS IGUAL A CONSULTAS
   color: #c9a96e;
   font-weight: 500;
 }
+
+
+/* TALLERES */
+.formacion-card.taller {
+  border-color: rgba(201,169,110,0.18);
+}
+
+/* CURSOS */
+.formacion-card.curso {
+  border-color: rgba(120,160,255,0.18);
+}
+
+/* ETIQUETA TIPO */
+.formacion-tipo {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+
+
+
+.titulo-seccion {
+  position: relative;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.titulo-seccion::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  margin: 12px auto 0;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201,169,110,0.6),
+    transparent
+  );
+}
+
+
+/* TARJETAS DESACTIVADAS */
+.formacion-card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(20%);
+}
+
+/* BADGE CONSTRUCCIÓN */
+.badge-construccion {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(200,200,200,0.08);
+  color: #aaa;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(200,200,200,0.2);
+}
+
+/* asegurar posicionamiento */
+.formacion-card {
+  position: relative;
+}
+
+
+
+
+
+
+.formacion-destacada {
+  margin-top: 50px;
+}
+
+.formacion-bloque {
+  margin-top: 35px;
+}
+
+.formacion-subtitulo {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 22px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.formacion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.formacion-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: #ddd;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.18);
+  border-radius: 14px;
+  padding: 22px 18px;
+  transition: all 0.3s ease;
+  min-height: 220px;
+}
+
+.formacion-card:hover {
+  transform: translateY(-4px);
+  border-color: #c9a96e;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.formacion-card.en-construccion {
+  opacity: 0.78;
+  filter: grayscale(10%);
+}
+
+.formacion-card.en-construccion:hover {
+  opacity: 1;
+}
+
+.formacion-card.taller .formacion-tipo {
+  color: #c9a96e;
+}
+
+.formacion-card.curso .formacion-tipo {
+  color: #7aa2ff;
+}
+
+.formacion-tipo {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+.formacion-card h4 {
+  font-size: 1.05rem;
+  margin: 0 0 12px 0;
+  color: #fff;
+}
+
+.formacion-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cfcfcf;
+  margin: 0 0 18px 0;
+}
+
+.formacion-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: #c9a96e;
+  font-weight: 500;
+}
+
+.badge-construccion {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(200,200,200,0.08);
+  color: #aaa;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(200,200,200,0.2);
+  letter-spacing: 0.3px;
+}
+
+/* LISTA DE ESPERA */
+.lista-espera-formacion {
+  margin-top: 55px;
+}
+
+.lista-espera-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.18);
+  border-radius: 14px;
+  padding: 28px 22px;
+  text-align: center;
+}
+
+.lista-espera-texto {
+  color: #ccc;
+  max-width: 760px;
+  margin: 0 auto 22px;
+  line-height: 1.7;
+}
+
+.lista-espera-opciones {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.lista-espera-nota {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+@media (max-width: 900px) {
+  .formacion-grid {
+    grid-template-columns: 1fr;
+  }
+}
