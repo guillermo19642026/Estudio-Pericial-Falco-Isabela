@@ -771,33 +771,37 @@ function toggleMenu() {
   const menu = document.getElementById("menu");
   const toggle = document.querySelector(".menu-toggle");
 
+  if (!menu || !toggle) return;
+
   menu.classList.toggle("menu-abierto");
   toggle.classList.toggle("activo");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-
   const menu = document.getElementById("menu");
   const toggle = document.querySelector(".menu-toggle");
 
-  // 🔹 SUBMENUS (FUNCIONAN EN MOBILE)
+  // Si no existe el menú o el botón, no hacer nada
+  if (!menu || !toggle) return;
+
+  // Submenús en mobile
   document.querySelectorAll("#menu .dropdown > span").forEach((item) => {
     item.addEventListener("click", function (e) {
-      e.stopPropagation(); // evita conflicto
-      const parent = this.parentElement;
-      parent.classList.toggle("activo");
+      if (window.innerWidth <= 768) {
+        e.stopPropagation();
+        const parent = this.parentElement;
+        parent.classList.toggle("activo");
+      }
     });
   });
 
-  // 🔹 CERRAR MENU AL HACER CLICK EN LINK
+  // Cerrar menú al tocar links en mobile
   document.querySelectorAll("#menu a").forEach((link) => {
     link.addEventListener("click", function () {
       if (window.innerWidth <= 768) {
-
         menu.classList.remove("menu-abierto");
         toggle.classList.remove("activo");
 
-        // cerrar submenus también
         document.querySelectorAll("#menu .dropdown").forEach((drop) => {
           drop.classList.remove("activo");
         });
@@ -805,12 +809,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 🔹 CERRAR TOCANDO FUERA
+  // Cerrar tocando afuera
   document.addEventListener("click", function (e) {
-
     if (window.innerWidth <= 768) {
+      const clickDentroMenu = menu.contains(e.target);
+      const clickBoton = toggle.contains(e.target);
 
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      if (!clickDentroMenu && !clickBoton) {
         menu.classList.remove("menu-abierto");
         toggle.classList.remove("activo");
 
@@ -818,9 +823,6 @@ document.addEventListener("DOMContentLoaded", function () {
           drop.classList.remove("activo");
         });
       }
-
     }
-
   });
-
 });
