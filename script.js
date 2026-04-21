@@ -767,7 +767,7 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
 
 
 
-ffunction toggleMenu() {
+function toggleMenu() {
   const menu = document.getElementById("menu");
   const toggle = document.querySelector(".menu-toggle");
 
