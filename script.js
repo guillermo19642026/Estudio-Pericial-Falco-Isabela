@@ -767,7 +767,7 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
 
 
 
-function toggleMenu() {
+ffunction toggleMenu() {
   const menu = document.getElementById("menu");
   const toggle = document.querySelector(".menu-toggle");
 
@@ -776,37 +776,51 @@ function toggleMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
   const menu = document.getElementById("menu");
   const toggle = document.querySelector(".menu-toggle");
-  const menuLinks = document.querySelectorAll("#menu a");
 
-  // cerrar al tocar link
-  menuLinks.forEach((link) => {
+  // 🔹 SUBMENUS (FUNCIONAN EN MOBILE)
+  document.querySelectorAll("#menu .dropdown > span").forEach((item) => {
+    item.addEventListener("click", function (e) {
+      e.stopPropagation(); // evita conflicto
+      const parent = this.parentElement;
+      parent.classList.toggle("activo");
+    });
+  });
+
+  // 🔹 CERRAR MENU AL HACER CLICK EN LINK
+  document.querySelectorAll("#menu a").forEach((link) => {
     link.addEventListener("click", function () {
       if (window.innerWidth <= 768) {
+
         menu.classList.remove("menu-abierto");
         toggle.classList.remove("activo");
+
+        // cerrar submenus también
+        document.querySelectorAll("#menu .dropdown").forEach((drop) => {
+          drop.classList.remove("activo");
+        });
       }
     });
   });
 
-  // dropdown mobile
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll("#menu .dropdown > span").forEach((item) => {
-      item.addEventListener("click", function () {
-        const parent = this.parentElement;
-        parent.classList.toggle("activo");
-      });
-    });
-  }
-
-  // cerrar tocando afuera
+  // 🔹 CERRAR TOCANDO FUERA
   document.addEventListener("click", function (e) {
+
     if (window.innerWidth <= 768) {
+
       if (!menu.contains(e.target) && !toggle.contains(e.target)) {
         menu.classList.remove("menu-abierto");
         toggle.classList.remove("activo");
+
+        document.querySelectorAll("#menu .dropdown").forEach((drop) => {
+          drop.classList.remove("activo");
+        });
       }
+
     }
+
   });
+
 });
