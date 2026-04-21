@@ -7007,3 +7007,11 @@ h3 {
   }
 
 }
+
+
+.menu-toggle {
+  background: blue !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: block !important;
+}
