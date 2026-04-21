@@ -6782,24 +6782,7 @@ h3 {
   display: none !important;
 }
 
-@media (max-width: 768px) {
 
-  .menu-toggle {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: auto;
-    min-height: 40px;
-    margin: 10px auto 0;
-    padding: 8px 12px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,169,110,0.35);
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    z-index: 9999;
-  }
 
   .menu-icon {
     display: inline-flex;
@@ -6918,7 +6901,7 @@ h3 {
   .header-texto span {
     font-size: 0.68rem;
   }
-}
+
 
 
 @media (max-width: 768px) {
@@ -6963,11 +6946,6 @@ h3 {
 }
 
 
-@media (max-width: 768px) {
-
-  header {
-    padding: 8px 12px !important;
-  }
 
   .nav-container {
     gap: 2px !important;
@@ -7008,4 +6986,3 @@ h3 {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-}
