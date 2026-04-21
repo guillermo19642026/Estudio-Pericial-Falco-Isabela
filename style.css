@@ -6970,3 +6970,14 @@ h3 {
 .logo img {
   max-height: 38px;
 }
+
+
+.menu-toggle span {
+  background: #c9a96e !important; /* dorado fuerte */
+}
+
+
+.menu-toggle span {
+  background: red !important;
+  height: 3px !important;
+}
