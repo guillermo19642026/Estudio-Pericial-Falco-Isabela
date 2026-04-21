@@ -6777,50 +6777,92 @@ h3 {
 
 
 
-/* BOTON MENU MOBILE */
+/* ===== MENU MOBILE FINAL ===== */
 .menu-toggle {
-  display: none;
+  display: none !important;
 }
 
-/* SOLO CELULAR */
 @media (max-width: 768px) {
 
   .menu-toggle {
-    display: block;
-    margin: 12px auto 0;
-    padding: 10px 16px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    min-height: 40px;
+    margin: 10px auto 0;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.04);
     border: 1px solid rgba(201,169,110,0.35);
     border-radius: 10px;
-    background: rgba(255,255,255,0.04);
-    color: #fff;
-    font-size: 0.95rem;
     cursor: pointer;
+    position: relative;
+    z-index: 9999;
   }
 
-  .menu-toggle:hover {
-    background: rgba(201,169,110,0.12);
+  .menu-icon {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 18px;
+  }
+
+  .menu-icon span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #c9a96e;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle em {
+    font-style: normal;
+    font-size: 0.85rem;
+    color: #fff;
+    letter-spacing: 0.2px;
+  }
+
+  .menu-toggle.activo .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+
+  .menu-toggle.activo .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.activo .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
   }
 
   #menu {
     display: none;
     flex-direction: column;
     gap: 10px;
-    margin-top: 14px;
+    margin-top: 12px;
     padding: 14px;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0,0,0,0.94);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
   }
 
   #menu.menu-abierto {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   #menu a,
   #menu .dropdown span {
     width: 100%;
     text-align: center;
-    padding: 10px 0;
+    padding: 8px 0;
+    font-size: 0.9rem;
   }
 
   #menu .dropdown {
@@ -6848,83 +6890,6 @@ h3 {
     display: block;
     padding: 8px 0;
   }
-}
-
-
-/* OCULTAR SIEMPRE EN PC */
-.menu-toggle {
-  display: none;
-}
-
-/* SOLO MOSTRAR EN CELULAR */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-}
-
-
-/* ===== BOTON HAMBURGUESA SOLO MOBILE ===== */
-.menu-toggle {
-  display: none !important;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    width: 40px;
-    height: 40px;
-    margin: 10px auto 0;
-    padding: 0;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer;
-    position: relative;
-    z-index: 9999;
-  }
-
-  .menu-toggle span {
-    display: block !important;
-    width: 100% !important;
-    height: 3px !important;
-    background: #c9a96e !important;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .menu-toggle.activo span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-
-  .menu-toggle.activo span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.activo span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-
-  #menu {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 16px;
-    background: rgba(0, 0, 0, 0.96);
-    border-radius: 12px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  }
-
-  #menu.menu-abierto {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   header {
     padding: 10px 12px;
@@ -6946,17 +6911,11 @@ h3 {
 
   .header-texto {
     font-size: 0.75rem;
-    line-height: 1.2;
+    line-height: 1.15;
     text-align: center;
   }
 
   .header-texto span {
-    font-size: 0.7rem;
-  }
-
-  #menu a,
-  #menu .dropdown span {
-    padding: 8px 0;
-    font-size: 0.9rem;
+    font-size: 0.68rem;
   }
 }

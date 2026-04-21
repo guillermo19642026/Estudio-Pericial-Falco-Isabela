@@ -776,21 +776,21 @@ function toggleMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-
   const menu = document.getElementById("menu");
   const toggle = document.querySelector(".menu-toggle");
   const menuLinks = document.querySelectorAll("#menu a");
 
-  // cerrar al hacer click en link
+  // cerrar al tocar link
   menuLinks.forEach((link) => {
     link.addEventListener("click", function () {
       if (window.innerWidth <= 768) {
         menu.classList.remove("menu-abierto");
+        toggle.classList.remove("activo");
       }
     });
   });
 
-  // dropdown en mobile
+  // dropdown mobile
   if (window.innerWidth <= 768) {
     document.querySelectorAll("#menu .dropdown > span").forEach((item) => {
       item.addEventListener("click", function () {
@@ -805,8 +805,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth <= 768) {
       if (!menu.contains(e.target) && !toggle.contains(e.target)) {
         menu.classList.remove("menu-abierto");
+        toggle.classList.remove("activo");
       }
     }
   });
-
 });
