@@ -761,3 +761,24 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
     }
   });
 });
+
+
+
+
+
+
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("menu-abierto");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll("#menu .dropdown > span").forEach((item) => {
+      item.addEventListener("click", function () {
+        const parent = this.parentElement;
+        parent.classList.toggle("activo");
+      });
+    });
+  }
+});
