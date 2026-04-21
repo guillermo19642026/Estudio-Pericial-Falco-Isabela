@@ -6769,25 +6769,41 @@ h3 {
 .lista-espera-formacion .titulo-seccion {
   text-align: center !important;
   display: block;
-  wSidth: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 
 
+/* ===== MENU MOBILE CORREGIDO ===== */
 
-/* ===== MENU MOBILE FINAL ===== */
+/* oculto en desktop */
 .menu-toggle {
-  display: none !important;
+  display: none;
 }
 
+@media (max-width: 768px) {
 
+  /* MOSTRAR BOTÓN */
+  .menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 34px;
+    margin: 6px auto 0;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.35);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 9999;
+  }
 
   .menu-icon {
     display: inline-flex;
     flex-direction: column;
-    justify-content: center;
     gap: 4px;
     width: 18px;
   }
@@ -6798,191 +6814,54 @@ h3 {
     height: 2px;
     background: #c9a96e;
     border-radius: 2px;
-    transition: all 0.3s ease;
   }
 
   .menu-toggle em {
-    font-style: normal;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #fff;
-    letter-spacing: 0.2px;
   }
 
-  .menu-toggle.activo .menu-icon span:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
-  }
-
-  .menu-toggle.activo .menu-icon span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.activo .menu-icon span:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
-  }
-
+  /* MENÚ */
   #menu {
     display: none;
     flex-direction: column;
     gap: 10px;
-    margin-top: 12px;
-    padding: 14px;
-    background: rgba(0,0,0,0.94);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
+    margin-top: 10px;
+    padding: 12px;
+    background: rgba(0,0,0,0.95);
+    border-radius: 10px;
   }
 
   #menu.menu-abierto {
     display: flex;
-    opacity: 1;
-    transform: translateY(0);
   }
 
-  #menu a,
-  #menu .dropdown span {
-    width: 100%;
+  #menu a {
     text-align: center;
     padding: 8px 0;
     font-size: 0.9rem;
   }
 
-  #menu .dropdown {
-    width: 100%;
-  }
-
-  #menu .dropdown-menu {
-    position: static;
-    display: none;
-    margin-top: 8px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-
-  #menu .dropdown:hover .dropdown-menu {
-    display: none;
-  }
-
-  #menu .dropdown.activo .dropdown-menu {
-    display: block;
-  }
-
-  #menu .dropdown-menu a {
-    display: block;
-    padding: 8px 0;
-  }
-
-  header {
-    padding: 10px 12px;
-  }
-
+  /* HEADER COMPACTO */
   .nav-container {
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-  }
-
-  .header-izquierda {
-    margin-bottom: 4px;
-  }
-
-  .logo img {
-    max-height: 38px;
-  }
-
-  .header-texto {
-    font-size: 0.75rem;
-    line-height: 1.15;
-    text-align: center;
-  }
-
-  .header-texto span {
-    font-size: 0.68rem;
-  }
-
-
-
-@media (max-width: 768px) {
-
-  .nav-container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px; /* 👈 más compacto */
-  }
-
-  .header-izquierda {
-    margin: 0; /* 👈 sacamos espacio extra */
+    gap: 4px;
   }
 
   .header-derecha {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px; /* 👈 reduce espacio */
+    gap: 4px;
   }
 
   .logo img {
-    max-height: 36px;
-    margin: 0;
+    max-height: 34px;
   }
 
   .header-texto {
-    margin: 0;
-    font-size: 0.72rem;
-    line-height: 1.1;
+    font-size: 0.7rem;
+    text-align: center;
   }
-
-  .header-texto span {
-    font-size: 0.65rem;
-  }
-
-  .menu-toggle {
-    margin: 6px auto 0; /* 👈 lo sube */
-  }
-
 }
-
-
-
-  .nav-container {
-    gap: 2px !important;
-  }
-
-  .header-izquierda,
-  .header-derecha,
-  .header-texto {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .logo img {
-    max-height: 34px !important;
-    margin: 0 !important;
-  }
-
-  .header-texto {
-    font-size: 0.7rem !important;
-    line-height: 1.05 !important;
-  }
-
-  .header-texto span {
-    font-size: 0.64rem !important;
-  }
-
-  .menu-toggle {
-    margin: 4px auto 0 !important;
-  }
-
-  .hero-interno {
-    padding-top: 28px !important;
-    margin-top: 0 !important;
-  }
-
-  .hero-contenido,
-  .hero-top {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
