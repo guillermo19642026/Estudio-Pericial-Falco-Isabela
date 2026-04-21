@@ -6919,3 +6919,45 @@ h3 {
     font-size: 0.68rem;
   }
 }
+
+
+@media (max-width: 768px) {
+
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px; /* 👈 más compacto */
+  }
+
+  .header-izquierda {
+    margin: 0; /* 👈 sacamos espacio extra */
+  }
+
+  .header-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px; /* 👈 reduce espacio */
+  }
+
+  .logo img {
+    max-height: 36px;
+    margin: 0;
+  }
+
+  .header-texto {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.1;
+  }
+
+  .header-texto span {
+    font-size: 0.65rem;
+  }
+
+  .menu-toggle {
+    margin: 6px auto 0; /* 👈 lo sube */
+  }
+
+}
