@@ -6961,3 +6961,51 @@ h3 {
   }
 
 }
+
+
+@media (max-width: 768px) {
+
+  header {
+    padding: 8px 12px !important;
+  }
+
+  .nav-container {
+    gap: 2px !important;
+  }
+
+  .header-izquierda,
+  .header-derecha,
+  .header-texto {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .logo img {
+    max-height: 34px !important;
+    margin: 0 !important;
+  }
+
+  .header-texto {
+    font-size: 0.7rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .header-texto span {
+    font-size: 0.64rem !important;
+  }
+
+  .menu-toggle {
+    margin: 4px auto 0 !important;
+  }
+
+  .hero-interno {
+    padding-top: 28px !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-contenido,
+  .hero-top {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
