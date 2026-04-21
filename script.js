@@ -773,6 +773,21 @@ function toggleMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
+  const menu = document.getElementById("menu");
+  const toggle = document.querySelector(".menu-toggle");
+  const menuLinks = document.querySelectorAll("#menu a");
+
+  // cerrar al hacer click en link
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      if (window.innerWidth <= 768) {
+        menu.classList.remove("menu-abierto");
+      }
+    });
+  });
+
+  // dropdown en mobile
   if (window.innerWidth <= 768) {
     document.querySelectorAll("#menu .dropdown > span").forEach((item) => {
       item.addEventListener("click", function () {
@@ -781,4 +796,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // cerrar tocando afuera
+  document.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove("menu-abierto");
+      }
+    }
+  });
+
 });
