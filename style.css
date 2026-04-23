@@ -7524,9 +7524,10 @@ header.visible{
 ========================= */
 
 .credito-card{
-  margin-top: 22px;
-  padding: 18px 20px;
-  border-radius: 16px;
+  margin-top: 18px;
+  padding: 12px 14px; /* 🔽 antes 18px */
+
+  border-radius: 14px;
 
   background: linear-gradient(
     180deg,
@@ -7537,9 +7538,9 @@ header.visible{
   border: 1px solid rgba(201,169,110,0.2);
   text-align: center;
 
-  transition: all 0.35s ease;
+  transition: all 0.3s ease;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.22); /* 🔽 más sutil */
 }
 
 /* hover general */
@@ -7555,7 +7556,7 @@ header.visible{
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #aaa;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 /* nombre clickeable */
@@ -7564,7 +7565,7 @@ header.visible{
   align-items: center;
   gap: 8px;
 
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #c9a96e;
   text-decoration: none;
@@ -7603,7 +7604,7 @@ header.visible{
 
 /* descripción */
 .credito-descripcion{
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: #bbb;
   line-height: 1.5;
 }
