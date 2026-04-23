@@ -54,315 +54,326 @@ FONDO
 
 
 /* =========================
-HEADER
+   HEADER
 ========================= */
 
-
-/* =========================
-HEADER
-========================= */
-
-/* =========================
-HEADER
-========================= */
-
+/* Contenedor principal fijo arriba */
 header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:9999;
-  padding:10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 10px 0;
   background: rgba(20,20,20,0.55);
   backdrop-filter: blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
   transition: all 0.3s ease;
 }
 
+/* Variante al hacer scroll */
 header.scrolled{
   background: rgba(20,20,20,0.85);
-  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
+/* Estructura interna del header */
 .nav-container{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  max-width:1200px;
-  margin:auto;
-  padding:10px 30px;
-  gap:20px;
-  flex-wrap:wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 30px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
+
 
 /* =========================
-LOGO
+   LOGO
 ========================= */
 
 .logo{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo img{
-  max-width:100px;
-  border-radius:50%;
+  max-width: 100px;
+  border-radius: 50%;
 }
+
 
 /* =========================
-COLUMNAS HEADER
+   COLUMNAS DEL HEADER
 ========================= */
 
+/* Columna izquierda: logo */
 .header-izquierda{
-  width:25%;
-  display:flex;
-  justify-content:center;
-  border-right:1px solid rgba(201,169,110,0.3);
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid rgba(201,169,110,0.3);
 }
 
+/* Columna derecha: texto + menú + CTA */
 .header-derecha{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
 }
 
+/* Texto institucional */
 .header-texto{
-  font-size:14px;
-  letter-spacing:2px;
-  color:#c9a96e;
-  text-align:right;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #c9a96e;
+  text-align: right;
 }
 
 .header-texto span{
-  font-size:12px;
-  color:#ddd;
+  font-size: 12px;
+  color: #ddd;
 }
+
 
 /* =========================
-BOTON MENU (OCULTO EN PC)
+   BOTÓN MENÚ MOBILE
 ========================= */
 
+/* Oculto en desktop */
 .menu-toggle{
-  display:none;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(201,169,110,0.35);
-  border-radius:10px;
-  cursor:pointer;
-  padding:6px 10px;
+  display: none;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,169,110,0.35);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
 }
 
+/* Ícono hamburguesa */
 .menu-icon{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .menu-icon span{
-  width:18px;
-  height:2px;
-  background:#c9a96e;
-  display:block;
+  width: 18px;
+  height: 2px;
+  background: #c9a96e;
+  display: block;
 }
 
+
 /* =========================
-NAV DESKTOP
+   NAV DESKTOP
 ========================= */
 
 nav{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
+/* Links y títulos de dropdown */
 nav a,
 nav span{
-  color:white;
-  text-decoration:none;
-  cursor:pointer;
-  position:relative;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
 }
 
 nav a:hover,
 nav span:hover{
-  color:#d4af37;
+  color: #d4af37;
 }
+
 
 /* =========================
-DROPDOWN DESKTOP
+   DROPDOWN DESKTOP
 ========================= */
 
+/* Contenedor dropdown */
 .dropdown{
-  position:relative;
+  position: relative;
 }
 
+/* Submenú oculto por defecto en desktop */
 .dropdown-menu{
-  position:absolute;
-  top:40px;
-  left:0;
-  min-width:220px;
-  display:flex;
-  flex-direction:column;
-
+  position: absolute;
+  top: 40px;
+  left: 0;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
   background: rgba(15,15,20,0.95);
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.1);
-
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(10px);
-  transition:0.3s;
-  z-index:9999;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+  z-index: 9999;
 }
 
+/* Abrir dropdown en desktop por hover */
 .dropdown:hover .dropdown-menu{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
+/* Items del submenú */
 .dropdown-menu a{
-  padding:12px 18px;
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .dropdown-menu a:hover{
-  background:rgba(212,175,55,0.12);
+  background: rgba(212,175,55,0.12);
 }
 
+
 /* =========================
-BOTON HEADER
+   BOTÓN CTA DEL HEADER
 ========================= */
 
 .btn-header-inline{
-  display:block;
-  margin-top:6px;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:0.8rem;
-  background:rgba(201,169,110,0.12);
-  border:1px solid rgba(201,169,110,0.4);
-  color:#c9a96e !important;
+  display: block;
+  margin-top: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  background: rgba(201,169,110,0.12);
+  border: 1px solid rgba(201,169,110,0.4);
+  color: #c9a96e !important;
 }
 
 .btn-header-inline:hover{
-  background:#c9a96e;
-  color:#111 !important;
+  background: #c9a96e;
+  color: #111 !important;
 }
 
+
 /* =========================
-MOBILE
+   MOBILE
 ========================= */
 
-@media (max-width:768px){
+@media (max-width: 768px){
 
+  /* El header se apila */
   .nav-container{
-    flex-direction:column;
-    align-items:center;
-    padding:15px;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
   }
 
   .header-izquierda,
   .header-derecha{
-    width:100%;
-    border:none;
-    align-items:center;
-    text-align:center;
+    width: 100%;
+    border: none;
+    align-items: center;
+    text-align: center;
   }
 
   .header-derecha{
-    margin-top:10px;
+    margin-top: 10px;
   }
 
   .header-texto{
-    text-align:center;
-    font-size:0.75rem;
+    text-align: center;
+    font-size: 0.75rem;
   }
 
   .header-texto span{
-    font-size:0.7rem;
+    font-size: 0.7rem;
   }
 
-  /* mostrar botón */
+  /* Mostrar botón hamburguesa */
   .menu-toggle{
-    display:flex;
-    align-items:center;
-    gap:8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  /* menú cerrado */
+  /* Menú cerrado */
   #menu{
-    display:none;
-    flex-direction:column;
-    width:100%;
-    margin-top:10px;
-    padding:10px;
-    background:rgba(0,0,0,0.95);
-    border-radius:10px;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0,0,0,0.95);
+    border-radius: 10px;
   }
 
-  /* menú abierto */
+  /* Menú abierto */
   #menu.active{
-    display:flex;
+    display: flex;
   }
 
+  /* Items del menú en mobile */
   #menu a,
   #menu span{
-    width:100%;
-    text-align:center;
-    padding:10px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 
-  /* dropdown mobile */
+  /* Dropdown mobile */
   .dropdown{
-    width:100%;
-    position:static;
+    width: 100%;
+    position: static;
   }
 
+  /* Submenú cerrado en mobile */
   .dropdown-menu{
-    display:none;
-    position:static;
-    opacity:1;
-    visibility:visible;
-    transform:none;
-    background:transparent;
-    border:none;
+    display: none;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
   }
 
+  /* Submenú abierto en mobile */
   .dropdown.active .dropdown-menu{
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* desactiva hover en mobile */
-  .dropdown:hover .dropdown-menu{
-    opacity:1;
-    visibility:visible;
-    transform:none;
-  }
-
+  /* En mobile no se usa el CTA lateral */
   .btn-wrapper{
-    display:none;
+    display: none;
   }
 }
 
+
 /* =========================
-TABLET
+   TABLET
 ========================= */
 
-@media (max-width:900px){
+/* Ocultar segunda línea del texto en pantallas medianas */
+@media (max-width: 900px){
   .header-texto span{
-    display:none;
+    display: none;
   }
 }
 
 
-/* =========================
-SECCIONES
-========================= */
+
+
+
+
+
 
 
  section{
@@ -7403,3 +7414,24 @@ nav span:hover::after{
     display: flex !important;
   }
 }
+
+
+/* HEADER OCULTO PERFECTAMENTE */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-100%); /* oculta exacto */
+  transition: transform 0.35s ease;
+  z-index: 9999;
+}
+
+/* CUANDO APARECE */
+header.visible{
+  transform: translateY(0);
+}
+
+
+
+

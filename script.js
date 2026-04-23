@@ -295,3 +295,20 @@ function toggleBloque(id) {
   const bloque = document.getElementById(id);
   if (bloque) bloque.classList.toggle("activo");
 }
+
+
+
+/* ===============================
+   HEADER APARECE AL DESLIZAR
+=============================== */
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+
+  if (!header) return;
+
+  if (window.scrollY > 40) {
+    header.classList.add("header-visible");
+  } else {
+    header.classList.remove("header-visible");
+  }
+});
