@@ -7435,3 +7435,20 @@ header.visible{
 
 
 
+
+
+
+
+
+.credito-link{
+  color: #c9a96e;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.credito-link:hover{
+  color: #fff;
+  border-bottom: 1px solid #c9a96e;
+}
