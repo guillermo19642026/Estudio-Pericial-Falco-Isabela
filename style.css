@@ -7452,3 +7452,158 @@ header.visible{
   color: #fff;
   border-bottom: 1px solid #c9a96e;
 }
+
+
+
+/* =========================
+   TARJETA CONTACTO FOOTER
+========================= */
+
+.credito-card{
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,169,110,0.2);
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+.credito-card:hover{
+  border-color: #c9a96e;
+  background: rgba(201,169,110,0.05);
+  transform: translateY(-2px);
+}
+
+/* título chico */
+.credito-titulo{
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+/* nombre (clickable) */
+.credito-nombre{
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c9a96e;
+  text-decoration: none;
+  margin-bottom: 6px;
+
+  transition: all 0.3s ease;
+}
+
+.credito-nombre:hover{
+  color: #fff;
+}
+
+/* descripción */
+.credito-descripcion{
+  font-size: 0.85rem;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+.credito-card{
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
+/* =========================
+   TARJETA CONTACTO PRO
+========================= */
+
+.credito-card{
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.015)
+  );
+
+  border: 1px solid rgba(201,169,110,0.2);
+  text-align: center;
+
+  transition: all 0.35s ease;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* hover general */
+.credito-card:hover{
+  border-color: #c9a96e;
+  background: rgba(201,169,110,0.06);
+  transform: translateY(-3px);
+}
+
+/* título */
+.credito-titulo{
+  font-size: 0.72rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+/* nombre clickeable */
+.credito-nombre{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #c9a96e;
+  text-decoration: none;
+
+  margin-bottom: 6px;
+
+  transition: all 0.3s ease;
+}
+
+/* efecto hover nombre */
+.credito-nombre:hover{
+  color: #fff;
+}
+
+/* icono whatsapp */
+.icono-whatsapp{
+  font-size: 0.9rem;
+  animation: pulse 1.6s infinite;
+}
+
+/* animación glow suave */
+@keyframes pulse{
+  0%{
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50%{
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* descripción */
+.credito-descripcion{
+  font-size: 0.85rem;
+  color: #bbb;
+  line-height: 1.5;
+}
