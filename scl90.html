@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SCL-90-R | Carga y resultados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+    <h1>SCL-90-R | Carga de respuestas y resultados</h1>
+  
+    <p>
+      Formulario web local: no envía datos a ningún servidor. Escala de respuesta 0 a 4.
+    </p>
+  
+    <p style="margin-top:10px; font-size:13px; opacity:.9; max-width:900px;">
+      Esta aplicación es una herramienta de apoyo para la administración y procesamiento de instrumentos psicométricos. 
+      Su uso está destinado exclusivamente a profesionales de la salud mental o con fines académicos bajo supervisión adecuada. 
+      Los instrumentos utilizados pueden estar protegidos por derechos de autor, siendo responsabilidad del usuario contar con 
+      las licencias correspondientes. Los resultados obtenidos son orientativos y no constituyen por sí mismos un diagnóstico clínico.
+    </p>
+  </header>
+
+
+
+<div class="card">
+    <h2>Tipo de evaluación</h2>
+  
+    <select id="tipoTest" onchange="cambiarTest()">
+      <option value="90">SCL-90-R (90 ítems)</option>
+      <option value="53">BSI (53 ítems)</option>
+      <option value="18">BSI-18 (18 ítems)</option>
+    </select>
+  </div>
+
+
+
+<main>
+  <section class="card">
+    <h2>Datos del paciente</h2>
+
+    <div class="patient-grid">
+      <div>
+        <label>Nombre y apellido</label>
+        <input id="nombre">
+      </div>
+
+      <div>
+        <label>Edad</label>
+        <input id="edad" type="number">
+      </div>
+
+      <div>
+        <label>Sexo</label>
+        <select id="sexo">
+          <option value="">Seleccionar</option>
+          <option>Femenino</option>
+          <option>Masculino</option>
+          <option>Otro / No consigna</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Fecha</label>
+        <input id="fecha" type="date">
+      </div>
+    </div>
+
+    <div style="margin-top:10px">
+      <label>Observaciones</label>
+      <textarea id="observaciones"></textarea>
+    </div>
+
+    <div class="toolbar">
+      <button onclick="window.print()">Imprimir / guardar PDF</button>
+      <button class="secondary" onclick="exportarCSV()">Exportar CSV</button>
+      <button class="secondary" onclick="limpiarFormulario()">Limpiar respuestas</button>
+
+      <button type="button" onclick="generarInformePDF()">Informe clínico PDF</button>
+      <section id="informeClinico" class="card informe print-only"></section>
+
+    </div>
+
+    <div class="status">
+      <span id="estadoCarga" class="pill warn">Respuestas cargadas: 0/90</span>
+      <span id="estadoFaltantes" class="pill bad">Faltan 90</span>
+    </div>
+  </section>
+
+  <div class="grid two">
+    <section class="card">
+      <h2>Carga de respuestas</h2>
+      <p class="note">0 = Nada | 1 = Muy poco | 2 = Poco | 3 = Bastante | 4 = Mucho</p>
+      <div id="items" class="items"></div>
+    </section>
+
+    <section class="card">
+      <h2>Resultados automáticos</h2>
+
+
+      <div class="grafico-box">
+        <canvas id="graficoPerfil" width="400" height="260"></canvas>
+      </div>
+
+
+
+      <table>
+        <thead>
+          <tr>
+            <th>Escala</th>
+            <th>Ítems</th>
+            <th class="score">Suma</th>
+            <th class="score">Promedio</th>
+          </tr>
+        </thead>
+        <tbody id="tablaResultados"></tbody>
+      </table>
+
+      <h2 style="margin-top:18px">Índices globales</h2>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>Índice Global de Severidad (IGS / GSI)</td>
+            <td class="score" id="gsi">—</td>
+          </tr>
+          <tr>
+            <td>Total de Síntomas Positivos (TSP / PST)</td>
+            <td class="score" id="pst">—</td>
+          </tr>
+          <tr>
+            <td>Índice de Malestar Sintomático Positivo (IMSP / PSDI)</td>
+            <td class="score" id="psdi">—</td>
+          </tr>
+          <tr>
+            <td>Suma total</td>
+            <td class="score" id="total">—</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h2 style="margin-top:18px">Interpretación orientativa</h2>
+      <div id="interpretacionClinica" class="interpretacion-box"></div>
+
+
+
+    </section>
+  </div>
+</main>
+
+<script src="script-scl.js"></script>
+</body>
+</html>
