@@ -6772,8 +6772,10 @@ h3 {
   }
 
   .btn-wrapper {
-    display: none;
-  }
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
   .hero,
   .hero-interno {
@@ -7170,10 +7172,6 @@ nav span:hover::after{
     transform: none;
   }
 
-  /* CTA del header fuera en mobile */
-  .btn-wrapper{
-    display: none;
-  }
 }
 
 /* ocultar la segunda línea del texto del header
@@ -7183,6 +7181,25 @@ nav span:hover::after{
     display: none;
   }
 }
+
+
+
+
+@media (max-width: 768px) {
+  .header-derecha .btn-wrapper {
+    display: flex !important;
+    flex-direction: column; /* uno abajo del otro */
+    gap: 8px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .header-derecha .btn-wrapper .btn-header-inline {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 
 
 
@@ -7607,4 +7624,52 @@ header.visible{
   font-size: 0.78rem;
   color: #bbb;
   line-height: 1.5;
+}
+
+
+
+
+
+
+/* BOTONES HEADER EN LÍNEA */
+.header-derecha .btn-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 10px !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: nowrap !important;
+}
+
+.header-derecha .btn-wrapper .btn-header-inline {
+  display: inline-flex !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+  /* ocultar el primer botón (Solicitar evaluación) */
+  .btn-wrapper .btn-header-inline:first-child {
+    display: none !important;
+  }
+
+  /* dejar visible el botón Tests */
+  .btn-wrapper {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-wrapper .btn-header-inline {
+    width: 100%;
+    text-align: center;
+  }
+
 }
