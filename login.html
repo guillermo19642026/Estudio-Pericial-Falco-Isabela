@@ -12,18 +12,20 @@
 
 <div class="login-premium-card">
 
+  <!-- LOGO -->
   <div class="login-logo">
     <img src="img/logo.png" alt="Estudio Pericial Psicológico">
   </div>
 
+  <!-- TITULO -->
   <h1>Ingreso profesional</h1>
-
   <p class="login-subtitle">
     Sistema de evaluaciones psicométricas
   </p>
 
   <!-- LOGIN -->
   <div class="login-form">
+
     <input type="email" id="email" placeholder="Correo electrónico">
     <input type="password" id="password" placeholder="Contraseña">
 
@@ -32,6 +34,7 @@
     </button>
 
     <p id="error" class="login-error"></p>
+
   </div>
 
   <hr class="login-separador">
@@ -40,12 +43,29 @@
   <div class="solicitud-box">
 
     <h2>Solicitar acceso</h2>
+    <p class="solicitud-subtitulo">
+      Completá tus datos para solicitar usuario y contraseña.
+    </p>
 
-    <input type="text" id="sol_nombre" placeholder="Nombre y apellido">
-    <input type="text" id="sol_profesion" placeholder="Profesión / institución">
-    <input type="email" id="sol_email" placeholder="Email de contacto">
+    <div class="campo-form">
+      <label>Nombre y apellido</label>
+      <input type="text" id="sol_nombre" placeholder="Ej: María González">
+    </div>
 
-    <textarea id="sol_motivo" placeholder="Motivo de solicitud"></textarea>
+    <div class="campo-form">
+      <label>Profesión / institución</label>
+      <input type="text" id="sol_profesion" placeholder="Ej: Psicóloga / Hospital">
+    </div>
+
+    <div class="campo-form">
+      <label>Email de contacto</label>
+      <input type="email" id="sol_email" placeholder="Ej: email@ejemplo.com">
+    </div>
+
+    <div class="campo-form">
+      <label>Motivo de solicitud</label>
+      <textarea id="sol_motivo" placeholder="Indique brevemente el uso previsto"></textarea>
+    </div>
 
     <button type="button" class="btn-access-premium" onclick="solicitarAccesoWhatsapp()">
       Enviar solicitud por WhatsApp
@@ -61,29 +81,52 @@
 
 </div>
 
+<!-- FIREBASE LOGIN -->
 <script type="module" src="auth.js"></script>
 
+<!-- FORMULARIO + WHATSAPP -->
 <script>
 function solicitarAccesoWhatsapp() {
-  const nombre = document.getElementById("sol_nombre").value.trim();
-  const profesion = document.getElementById("sol_profesion").value.trim();
-  const email = document.getElementById("sol_email").value.trim();
-  const motivo = document.getElementById("sol_motivo").value.trim();
+
+  const nombre = document.getElementById("sol_nombre");
+  const profesion = document.getElementById("sol_profesion");
+  const email = document.getElementById("sol_email");
+  const motivo = document.getElementById("sol_motivo");
   const error = document.getElementById("sol_error");
 
+  const campos = [nombre, profesion, email, motivo];
+
+  campos.forEach(c => c.classList.remove("campo-error"));
   error.textContent = "";
 
-  if (!nombre || !profesion || !email || !motivo) {
-    error.textContent = "Completá todos los campos para solicitar acceso.";
+  let hayError = false;
+
+  campos.forEach(campo => {
+    if (!campo.value.trim()) {
+      campo.classList.add("campo-error");
+      hayError = true;
+    }
+  });
+
+  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+
+  if (email.value.trim() && !emailValido) {
+    email.classList.add("campo-error");
+    error.textContent = "Ingresá un email válido.";
+    return;
+  }
+
+  if (hayError) {
+    error.textContent = "Completá todos los campos.";
     return;
   }
 
   const mensaje = `Hola, solicito acceso al sistema de evaluaciones psicométricas.
 
-Nombre y apellido: ${nombre}
-Profesión / institución: ${profesion}
-Email: ${email}
-Motivo de solicitud: ${motivo}
+Nombre: ${nombre.value}
+Profesión: ${profesion.value}
+Email: ${email.value}
+Motivo: ${motivo.value}
 Fecha: ${new Date().toLocaleString()}`;
 
   const telefono = "5491132049521";

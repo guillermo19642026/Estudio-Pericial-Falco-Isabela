@@ -908,3 +908,63 @@ th {
 .solicitud-box {
   margin-top: 10px;
 }
+
+
+
+/* ===== FORMULARIO SOLICITUD PRO ===== */
+
+.solicitud-subtitulo {
+  color: #aaa;
+  font-size: 13px;
+  margin: -4px 0 18px;
+  line-height: 1.4;
+}
+
+.campo-form {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.campo-form label {
+  display: block;
+  color: #c9a86a;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.campo-form input,
+.campo-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: #252525;
+  color: #fff;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.campo-form textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.campo-form input::placeholder,
+.campo-form textarea::placeholder {
+  color: #777;
+}
+
+.campo-form input:focus,
+.campo-form textarea:focus {
+  outline: none;
+  border-color: #c9a86a;
+  box-shadow: 0 0 0 3px rgba(201,168,106,.16);
+  background: #202020;
+}
+
+.campo-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239,68,68,.16) !important;
+}
