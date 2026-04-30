@@ -864,3 +864,47 @@ th {
   margin-top: 22px;
   line-height: 1.4;
 }
+
+
+.login-separador {
+  border: none;
+  border-top: 1px solid rgba(201,168,106,.25);
+  margin: 24px 0;
+}
+
+.solicitud-box h2 {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 0 14px;
+}
+
+.solicitud-box textarea {
+  width: 100%;
+  min-height: 90px;
+  resize: vertical;
+  padding: 13px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #252525;
+  color: #fff;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.solicitud-box textarea::placeholder {
+  color: #9ca3af;
+}
+
+
+/* ===== ESPACIADO FORMULARIO SOLICITUD ===== */
+
+.solicitud-box input,
+.solicitud-box textarea {
+  margin-bottom: 14px; /* más aire entre campos */
+}
+
+/* opcional: separación superior del bloque */
+.solicitud-box {
+  margin-top: 10px;
+}

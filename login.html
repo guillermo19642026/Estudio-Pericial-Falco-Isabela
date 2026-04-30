@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ingreso profesional</title>
-
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -13,20 +12,18 @@
 
 <div class="login-premium-card">
 
-  <!-- LOGO -->
   <div class="login-logo">
     <img src="img/logo.png" alt="Estudio Pericial Psicológico">
   </div>
 
-  <!-- TITULO -->
   <h1>Ingreso profesional</h1>
+
   <p class="login-subtitle">
     Sistema de evaluaciones psicométricas
   </p>
 
-  <!-- FORM -->
+  <!-- LOGIN -->
   <div class="login-form">
-
     <input type="email" id="email" placeholder="Correo electrónico">
     <input type="password" id="password" placeholder="Contraseña">
 
@@ -34,11 +31,27 @@
       Ingresar
     </button>
 
+    <p id="error" class="login-error"></p>
+  </div>
+
+  <hr class="login-separador">
+
+  <!-- SOLICITUD DE ACCESO -->
+  <div class="solicitud-box">
+
+    <h2>Solicitar acceso</h2>
+
+    <input type="text" id="sol_nombre" placeholder="Nombre y apellido">
+    <input type="text" id="sol_profesion" placeholder="Profesión / institución">
+    <input type="email" id="sol_email" placeholder="Email de contacto">
+
+    <textarea id="sol_motivo" placeholder="Motivo de solicitud"></textarea>
+
     <button type="button" class="btn-access-premium" onclick="solicitarAccesoWhatsapp()">
-      Solicitar acceso por WhatsApp
+      Enviar solicitud por WhatsApp
     </button>
 
-    <p id="error" class="login-error"></p>
+    <p id="sol_error" class="login-error"></p>
 
   </div>
 
@@ -48,24 +61,22 @@
 
 </div>
 
-<!-- FIREBASE -->
 <script type="module" src="auth.js"></script>
 
-<!-- WHATSAPP -->
 <script>
 function solicitarAccesoWhatsapp() {
+  const nombre = document.getElementById("sol_nombre").value.trim();
+  const profesion = document.getElementById("sol_profesion").value.trim();
+  const email = document.getElementById("sol_email").value.trim();
+  const motivo = document.getElementById("sol_motivo").value.trim();
+  const error = document.getElementById("sol_error");
 
-  const nombre = prompt("Nombre y apellido:");
-  if (!nombre) return;
+  error.textContent = "";
 
-  const profesion = prompt("Profesión / institución:");
-  if (!profesion) return;
-
-  const email = prompt("Email de contacto:");
-  if (!email) return;
-
-  const motivo = prompt("Motivo de solicitud:");
-  if (!motivo) return;
+  if (!nombre || !profesion || !email || !motivo) {
+    error.textContent = "Completá todos los campos para solicitar acceso.";
+    return;
+  }
 
   const mensaje = `Hola, solicito acceso al sistema de evaluaciones psicométricas.
 
@@ -76,7 +87,6 @@ Motivo de solicitud: ${motivo}
 Fecha: ${new Date().toLocaleString()}`;
 
   const telefono = "5491132049521";
-
   const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(mensaje)}`;
 
   window.location.href = url;
