@@ -2,32 +2,86 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ingreso profesional</title>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="login-premium-body">
 
-<div class="login-container">
-  <div class="login-box">
+<div class="login-premium-card">
 
-    <h2>Ingreso profesional</h2>
+  <!-- LOGO -->
+  <div class="login-logo">
+    <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+  </div>
 
-    <input type="email" id="email" placeholder="Email">
+  <!-- TITULO -->
+  <h1>Ingreso profesional</h1>
+  <p class="login-subtitle">
+    Sistema de evaluaciones psicométricas
+  </p>
+
+  <!-- FORM -->
+  <div class="login-form">
+
+    <input type="email" id="email" placeholder="Correo electrónico">
     <input type="password" id="password" placeholder="Contraseña">
 
-    <button onclick="login()">Ingresar</button>
-
-    <button type="button" class="secondary" onclick="solicitarAcceso()">
-      Solicitar acceso
+    <button class="btn-login-premium" onclick="login()">
+      Ingresar
     </button>
 
-    <p id="error" style="color:red;"></p>
+    <button type="button" class="btn-access-premium" onclick="solicitarAccesoWhatsapp()">
+      Solicitar acceso por WhatsApp
+    </button>
+
+    <p id="error" class="login-error"></p>
 
   </div>
+
+  <p class="login-note">
+    Acceso exclusivo para profesionales autorizados.
+  </p>
+
 </div>
 
+<!-- FIREBASE -->
 <script type="module" src="auth.js"></script>
+
+<!-- WHATSAPP -->
+<script>
+function solicitarAccesoWhatsapp() {
+
+  const nombre = prompt("Nombre y apellido:");
+  if (!nombre) return;
+
+  const profesion = prompt("Profesión / institución:");
+  if (!profesion) return;
+
+  const email = prompt("Email de contacto:");
+  if (!email) return;
+
+  const motivo = prompt("Motivo de solicitud:");
+  if (!motivo) return;
+
+  const mensaje = `Hola, solicito acceso al sistema de evaluaciones psicométricas.
+
+Nombre y apellido: ${nombre}
+Profesión / institución: ${profesion}
+Email: ${email}
+Motivo de solicitud: ${motivo}
+Fecha: ${new Date().toLocaleString()}`;
+
+  const telefono = "5491132049521";
+
+  const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(mensaje)}`;
+
+  window.location.href = url;
+}
+</script>
 
 </body>
 </html>

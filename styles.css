@@ -663,3 +663,204 @@ th {
     height: 24px;
   }
 }
+
+
+/* ===== LOGIN PROFESIONAL ===== */
+
+.login-body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #111, #1f2937);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.login-box {
+  background: #1b1b1b;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(201,168,106,0.3);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-header h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.login-header p {
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* inputs */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/* botón ingresar */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #c9a86a;
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background: #b89558;
+}
+
+/* botón whatsapp */
+.btn-whatsapp {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #25d366;
+  color: #25d366;
+  font-size: 14px;
+}
+
+.btn-whatsapp:hover {
+  background: #25d366;
+  color: #111;
+}
+
+/* error */
+.login-error {
+  color: #ff4d4d;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+/* ===== LOGIN PREMIUM ===== */
+
+.login-premium-body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(201,168,106,.18), transparent 35%),
+    linear-gradient(135deg, #0f0f0f, #1f2937);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+.login-premium-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(20,20,20,.95);
+  border: 1px solid rgba(201,168,106,.35);
+  border-radius: 22px;
+  padding: 34px;
+  box-shadow: 0 30px 70px rgba(0,0,0,.55);
+  text-align: center;
+}
+
+.login-logo img {
+  width: 90px;
+  margin-bottom: 18px;
+}
+
+.login-premium-card h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 28px;
+}
+
+.login-subtitle {
+  color: #c9a86a;
+  font-size: 14px;
+  margin: 8px 0 24px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #252525;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.login-form input::placeholder {
+  color: #9ca3af;
+}
+
+.btn-login-premium {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  background: #c9a86a;
+  color: #111;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.btn-login-premium:hover {
+  background: #b89558;
+}
+
+.btn-access-premium {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: 1px solid #25d366;
+  background: transparent;
+  color: #25d366;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-access-premium:hover {
+  background: #25d366;
+  color: #111;
+}
+
+.login-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.login-note {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 22px;
+  line-height: 1.4;
+}
