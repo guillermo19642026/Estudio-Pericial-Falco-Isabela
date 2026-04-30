@@ -3,45 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ingreso profesional</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="login-premium-body">
 
+<div class="login-topbar">
+  <a href="index.html" class="login-back">← Volver al inicio</a>
+</div>
+
 <div class="login-premium-card">
 
-  <!-- LOGO -->
   <div class="login-logo">
     <img src="img/logo.png" alt="Estudio Pericial Psicológico">
   </div>
 
-  <!-- TITULO -->
   <h1>Ingreso profesional</h1>
-  <p class="login-subtitle">
-    Sistema de evaluaciones psicométricas
-  </p>
+  <p class="login-subtitle">Sistema de evaluaciones psicométricas</p>
 
-  <!-- LOGIN -->
   <div class="login-form">
-
     <input type="email" id="email" placeholder="Correo electrónico">
     <input type="password" id="password" placeholder="Contraseña">
 
-    <button class="btn-login-premium" onclick="login()">
-      Ingresar
-    </button>
+    <button class="btn-login-premium" onclick="login()">Ingresar</button>
 
     <p id="error" class="login-error"></p>
-
   </div>
 
   <hr class="login-separador">
 
-  <!-- SOLICITUD DE ACCESO -->
   <div class="solicitud-box">
-
     <h2>Solicitar acceso</h2>
     <p class="solicitud-subtitulo">
       Completá tus datos para solicitar usuario y contraseña.
@@ -72,22 +64,16 @@
     </button>
 
     <p id="sol_error" class="login-error"></p>
-
   </div>
 
-  <p class="login-note">
-    Acceso exclusivo para profesionales autorizados.
-  </p>
+  <p class="login-note">Acceso exclusivo para profesionales autorizados.</p>
 
 </div>
 
-<!-- FIREBASE LOGIN -->
 <script type="module" src="auth.js"></script>
 
-<!-- FORMULARIO + WHATSAPP -->
 <script>
 function solicitarAccesoWhatsapp() {
-
   const nombre = document.getElementById("sol_nombre");
   const profesion = document.getElementById("sol_profesion");
   const email = document.getElementById("sol_email");
