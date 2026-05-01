@@ -25,26 +25,10 @@ const preguntas = [
 ];
 
 const claveCorreccion = {
-  1: "F",
-  2: "V",
-  3: "F",
-  4: "V",
-  5: "F",
-  6: "F",
-  7: "V",
-  8: "F",
-  9: "V",
-  10: "F",
-  11: "V",
-  12: "V",
-  13: "F",
-  14: "V",
-  15: "F",
-  16: "V",
-  17: "V",
-  18: "V",
-  19: "F",
-  20: "V"
+  1: "F", 2: "V", 3: "F", 4: "V", 5: "F",
+  6: "F", 7: "V", 8: "F", 9: "V", 10: "F",
+  11: "V", 12: "V", 13: "F", 14: "V", 15: "F",
+  16: "V", 17: "V", 18: "V", 19: "F", 20: "V"
 };
 
 function crearFormulario() {
@@ -99,7 +83,6 @@ function calcular() {
 
     if (valor !== "") {
       cargadas++;
-
       if (valor === claveCorreccion[i]) {
         puntaje++;
       }
@@ -122,6 +105,7 @@ function calcular() {
     faltan === 0 ? "pill ok" : "pill bad";
 
   document.getElementById("puntajeTotal").textContent = puntaje;
+
   document.getElementById("nivel").innerHTML =
     `<span class="${claseNivel(puntaje)}">${nivel}</span>`;
 
@@ -131,12 +115,36 @@ function calcular() {
   generarInterpretacion(puntaje, nivel);
   guardarAutomatico();
 
-  if (faltan === 0 && !sessionStorage.getItem("pdf_generado_desesperanza")) {
-    sessionStorage.setItem("pdf_generado_desesperanza", "true");
+  // 🔥 BLOQUE CORRECTO
+  if (faltan === 0) {
 
-    setTimeout(() => {
-      generarInformePDF();
-    }, 500);
+    // Guardar en Firebase
+    if (!sessionStorage.getItem("resultado_guardado_desesperanza")) {
+      sessionStorage.setItem("resultado_guardado_desesperanza", "true");
+
+      if (typeof guardarResultadoTest === "function") {
+        guardarResultadoTest({
+          test: "Escala de Desesperanza de Beck",
+          nombre: document.getElementById("nombre").value,
+          edad: document.getElementById("edad").value,
+          sexo: document.getElementById("sexo").value,
+          fecha: document.getElementById("fecha").value,
+          observaciones: document.getElementById("observaciones").value,
+          puntajeTotal: puntaje,
+          nivel: nivel,
+          respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+        });
+      }
+    }
+
+    // PDF
+    if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
+      sessionStorage.setItem("pdf_generado_desesperanza", "true");
+
+      setTimeout(() => {
+        generarInformePDF();
+      }, 500);
+    }
   }
 }
 
@@ -157,24 +165,9 @@ function generarInterpretacion(puntaje, nivel) {
   }
 
   contenedor.innerHTML = `
-    <p>
-      El puntaje total obtenido es <strong>${puntaje}</strong>, correspondiente a un nivel
-      orientativo de desesperanza <strong>${nivel}</strong>.
-    </p>
-
+    <p><strong>Puntaje total:</strong> ${puntaje} | <strong>Nivel:</strong> ${nivel}</p>
     <p>${texto}</p>
-
-    ${puntaje >= 9 ? `
-      <div class="alerta-clinica">
-        Atención: el puntaje se ubica en un rango que requiere profundizar la evaluación clínica,
-        especialmente en relación con ideación suicida, estado de ánimo, desesperanza y factores de riesgo.
-      </div>
-    ` : ""}
-
-    <div class="recomendacion-clinica">
-      Esta interpretación es orientativa. No reemplaza entrevista clínica, juicio profesional,
-      baremos oficiales ni evaluación de riesgo.
-    </div>
+    ${puntaje >= 9 ? `<div class="alerta-clinica">Requiere evaluación clínica.</div>` : ""}
   `;
 }
 
@@ -212,70 +205,15 @@ function cargarAutomatico() {
 }
 
 function limpiarFormulario() {
-  if (!confirm("¿Limpiar todas las respuestas y datos guardados?")) return;
+  if (!confirm("¿Limpiar todo?")) return;
 
   localStorage.removeItem(STORAGE_KEY);
   sessionStorage.removeItem("pdf_generado_desesperanza");
+  sessionStorage.removeItem("resultado_guardado_desesperanza");
   location.reload();
 }
 
-function exportarCSV() {
-  let csv = "Item,Respuesta,Puntua\n";
-
-  for (let i = 1; i <= NUM_ITEMS; i++) {
-    const respuesta = valorItem(i);
-    const puntua = respuesta === claveCorreccion[i] ? 1 : 0;
-    csv += `${i},${respuesta},${respuesta ? puntua : ""}\n`;
-  }
-
-  csv += `\nNombre,${document.getElementById("nombre").value}\n`;
-  csv += `Edad,${document.getElementById("edad").value}\n`;
-  csv += `Sexo,${document.getElementById("sexo").value}\n`;
-  csv += `Fecha,${document.getElementById("fecha").value}\n`;
-  csv += `Puntaje total,${document.getElementById("puntajeTotal").textContent}\n`;
-  csv += `Nivel,${document.getElementById("nivel").textContent}\n`;
-
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-
-  const enlace = document.createElement("a");
-  enlace.href = url;
-  enlace.download = "beck_desesperanza.csv";
-  enlace.click();
-
-  URL.revokeObjectURL(url);
-}
-
 function generarInformePDF() {
-  const informe = document.getElementById("informeClinico");
-
-  if (informe) {
-    informe.innerHTML = `
-      <h2>Informe clínico orientativo</h2>
-      <p><strong>Instrumento:</strong> Escala de Desesperanza de Beck</p>
-      <p><strong>Nombre:</strong> ${document.getElementById("nombre").value || "—"}</p>
-      <p><strong>Edad:</strong> ${document.getElementById("edad").value || "—"}</p>
-      <p><strong>Sexo:</strong> ${document.getElementById("sexo").value || "—"}</p>
-      <p><strong>Fecha:</strong> ${document.getElementById("fecha").value || "—"}</p>
-
-      <hr>
-
-      <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
-      <p><strong>Nivel orientativo:</strong> ${document.getElementById("nivel").textContent}</p>
-
-      <h3>Interpretación orientativa</h3>
-      ${document.getElementById("interpretacionClinica").innerHTML}
-
-      <h3>Observaciones</h3>
-      <p>${document.getElementById("observaciones").value || "—"}</p>
-
-      <p class="note">
-        Informe generado automáticamente. No reemplaza entrevista clínica, baremos oficiales,
-        evaluación de riesgo ni juicio profesional.
-      </p>
-    `;
-  }
-
   window.print();
 }
 
@@ -283,9 +221,7 @@ window.addEventListener("DOMContentLoaded", () => {
   crearFormulario();
 
   const fecha = document.getElementById("fecha");
-  if (fecha && !fecha.value) {
-    fecha.valueAsDate = new Date();
-  }
+  if (fecha && !fecha.value) fecha.valueAsDate = new Date();
 
   cargarAutomatico();
   calcular();

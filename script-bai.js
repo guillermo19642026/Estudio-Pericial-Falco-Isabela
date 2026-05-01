@@ -110,6 +110,7 @@ function calcular() {
     faltan === 0 ? "pill ok" : "pill bad";
 
   document.getElementById("puntajeTotal").textContent = total;
+
   document.getElementById("nivel").innerHTML =
     `<span class="${claseNivel(total)}">${nivel}</span>`;
 
@@ -119,12 +120,32 @@ function calcular() {
   generarInterpretacion(total, nivel);
   guardarAutomatico();
 
-  if (faltan === 0 && !sessionStorage.getItem("pdf_generado_bai")) {
-    sessionStorage.setItem("pdf_generado_bai", "true");
+  if (faltan === 0) {
+    if (!sessionStorage.getItem("resultado_guardado_bai")) {
+      sessionStorage.setItem("resultado_guardado_bai", "true");
 
-    setTimeout(() => {
-      generarInformePDF();
-    }, 500);
+      if (typeof guardarResultadoTest === "function") {
+        guardarResultadoTest({
+          test: "BAI - Inventario de Ansiedad de Beck",
+          nombre: document.getElementById("nombre").value,
+          edad: document.getElementById("edad").value,
+          sexo: document.getElementById("sexo").value,
+          fecha: document.getElementById("fecha").value,
+          observaciones: document.getElementById("observaciones").value,
+          puntajeTotal: total,
+          nivel: nivel,
+          respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+        });
+      }
+    }
+
+    if (!sessionStorage.getItem("pdf_generado_bai")) {
+      sessionStorage.setItem("pdf_generado_bai", "true");
+
+      setTimeout(() => {
+        generarInformePDF();
+      }, 500);
+    }
   }
 }
 
@@ -208,6 +229,7 @@ function limpiarFormulario() {
 
   localStorage.removeItem(STORAGE_KEY);
   sessionStorage.removeItem("pdf_generado_bai");
+  sessionStorage.removeItem("resultado_guardado_bai");
   location.reload();
 }
 

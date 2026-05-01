@@ -189,11 +189,6 @@ const dimensiones90 = {
   "Psicoticismo": [7,16,35,62,77,84,85,87,88,90]
 };
 
-// Corrección importante:
-// Para SCL-53 y SCL-18, las preguntas están renumeradas.
-// Por eso se calcula la dimensión buscando el texto equivalente
-// dentro de los ítems originales del SCL-90-R.
-
 function obtenerDimensionItems(nombreEscala) {
   if (NUM_ITEMS === 90) return dimensiones90[nombreEscala];
 
@@ -212,7 +207,6 @@ function obtenerDimensionItems(nombreEscala) {
 }
 
 // ===== BAREMOS =====
-// Valores cargados según el JS original del usuario.
 
 const baremos = {
   masculino: {
@@ -269,6 +263,7 @@ function cambiarTest() {
   }
 
   sessionStorage.removeItem("pdf_generado_scl");
+  sessionStorage.removeItem("resultado_guardado_scl");
 
   document.getElementById("items").innerHTML = "";
   crearFormulario();
@@ -320,13 +315,6 @@ function claseGravedad(promedio) {
   return "gravedad-alta";
 }
 
-function textoGravedad(promedio) {
-  if (promedio === null) return "—";
-  if (promedio < 1) return "Baja";
-  if (promedio < 2.5) return "Media";
-  return "Alta";
-}
-
 function interpretarSexo(escala, promedio) {
   const sexo = document.getElementById("sexo").value.toLowerCase();
 
@@ -375,12 +363,38 @@ function calcular() {
   renderResultados();
   guardarAutomatico();
 
-  if (faltan === 0 && !sessionStorage.getItem("pdf_generado_scl")) {
-    sessionStorage.setItem("pdf_generado_scl", "true");
+  if (faltan === 0) {
 
-    setTimeout(() => {
-      generarInformePDF();
-    }, 500);
+    // 🔥 GUARDAR EN FIREBASE
+    if (!sessionStorage.getItem("resultado_guardado_scl")) {
+      sessionStorage.setItem("resultado_guardado_scl", "true");
+
+      if (typeof guardarResultadoTest === "function") {
+        guardarResultadoTest({
+          test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
+          tipoTest: document.getElementById("tipoTest")?.value || "90",
+          nombre: document.getElementById("nombre").value,
+          edad: document.getElementById("edad").value,
+          sexo: document.getElementById("sexo").value,
+          fecha: document.getElementById("fecha").value,
+          observaciones: document.getElementById("observaciones").value,
+          total: total,
+          gsi: gsi.toFixed(2),
+          pst: positivas,
+          psdi: psdi !== null ? psdi.toFixed(2) : "—",
+          respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+        });
+      }
+    }
+
+    // 📄 PDF
+    if (!sessionStorage.getItem("pdf_generado_scl")) {
+      sessionStorage.setItem("pdf_generado_scl", "true");
+
+      setTimeout(() => {
+        generarInformePDF();
+      }, 500);
+    }
   }
 }
 
@@ -577,7 +591,7 @@ function generarInterpretacionClinica(datosEscalas, gsi, pst, psdi) {
   contenedor.innerHTML = html;
 }
 
-// ===== GUARDADO =====
+// ===== GUARDADO LOCAL =====
 
 function guardarAutomatico() {
   const datos = {
@@ -639,6 +653,7 @@ function limpiarFormulario() {
 
   localStorage.removeItem(STORAGE_KEY);
   sessionStorage.removeItem("pdf_generado_scl");
+  sessionStorage.removeItem("resultado_guardado_scl");
   location.reload();
 }
 
