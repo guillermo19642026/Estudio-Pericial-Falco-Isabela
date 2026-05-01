@@ -12,7 +12,12 @@ import {
   setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ===== LOGIN DE UN SOLO USO =====
+// 🔐 CONFIGURACIÓN ADMIN
+const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
+
+// ===== LOGIN =====
+// Admin: sin límite
+// Usuarios comunes: un solo uso
 window.login = async function () {
   const email = document.getElementById("email")?.value.trim();
   const password = document.getElementById("password")?.value;
@@ -32,17 +37,24 @@ window.login = async function () {
     const ref = doc(db, "usuarios", user.uid);
     const snap = await getDoc(ref);
 
-    if (snap.exists() && snap.data().usado === true) {
-      if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
-      await signOut(auth);
-      return;
-    }
+    // 🔐 ADMIN SIN LÍMITE
+    if (user.email !== ADMIN_EMAIL) {
 
-    await setDoc(ref, {
-      email: user.email,
-      usado: true,
-      fechaUso: new Date().toISOString()
-    }, { merge: true });
+      // 🔥 BLOQUEO DE USO ÚNICO PARA USUARIOS COMUNES
+      if (snap.exists() && snap.data().usado === true) {
+        if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
+        await signOut(auth);
+        return;
+      }
+
+      // ✔ MARCAR COMO USADO SOLO USUARIOS COMUNES
+      await setDoc(ref, {
+        email: user.email,
+        usado: true,
+        fechaUso: new Date().toISOString()
+      }, { merge: true });
+
+    }
 
     window.location.href = "dashboard.html";
 
@@ -60,12 +72,37 @@ window.logout = async function () {
   window.location.href = "login.html";
 };
 
-// ===== PROTEGER PÁGINAS =====
-onAuthStateChanged(auth, user => {
+// ===== PROTEGER PÁGINAS + CONTROL ADMIN =====
+onAuthStateChanged(auth, (user) => {
   const pagina = window.location.pathname.toLowerCase();
-  const esLogin = pagina.includes("login.html") || pagina.endsWith("/");
 
+  const esLogin =
+    pagina.includes("login.html") ||
+    pagina.endsWith("/");
+
+  const esAdminPanel = pagina.includes("admin-resultados.html");
+
+  // 🔒 SI NO ESTÁ LOGUEADO → LOGIN
   if (!user && !esLogin) {
     window.location.href = "login.html";
+    return;
+  }
+
+  // 🔒 SI NO ES ADMIN → BLOQUEAR PANEL
+  if (user && esAdminPanel && user.email !== ADMIN_EMAIL) {
+    alert("No tenés permisos para acceder a esta sección.");
+    window.location.href = "dashboard.html";
+    return;
+  }
+
+  // 👁️ MOSTRAR / OCULTAR BOTÓN RESULTADOS
+  const btnResultados = document.getElementById("btnResultados");
+
+  if (btnResultados) {
+    if (user && user.email === ADMIN_EMAIL) {
+      btnResultados.style.display = "flex";
+    } else {
+      btnResultados.style.display = "none";
+    }
   }
 });
