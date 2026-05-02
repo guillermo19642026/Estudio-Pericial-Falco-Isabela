@@ -350,10 +350,19 @@ nav span:hover{
     flex-direction: column;
   }
 
-  /* En mobile no se usa el CTA lateral */
-  .btn-wrapper{
-    display: none;
-  }
+  /* Botón visible y bien centrado en mobile */
+.btn-wrapper{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.btn-header-inline{
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
 }
 
 
@@ -7673,3 +7682,119 @@ header.visible{
   }
 
 }
+
+
+
+
+
+.texto-acceso-tests {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+  text-align: center;
+}
+
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 220px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 12px;
+
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.btn-header-inline {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1f2937, #374151);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.btn-header-inline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #111827, #1f2937);
+}
+
+
+.btn-header-inline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.2),
+    rgba(255,255,255,0.05)
+  );
+  transform: skewX(-20deg);
+  transition: all 0.5s;
+}
+
+.btn-header-inline:hover::after {
+  left: 130%;
+}
+
+
+/* FIX FINAL: mostrar botón de tests en celular */
+@media (max-width: 768px) {
+
+  .header-derecha .btn-wrapper {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 12px !important;
+  }
+
+  .header-derecha .btn-wrapper .btn-header-inline {
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .btn-header-inline {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+}
+
