@@ -7798,3 +7798,12 @@ header.visible{
 
 }
 
+
+
+.btn-header-inline {
+  opacity: 0.9;
+}
+
+.btn-header-inline:hover {
+  opacity: 1;
+}
