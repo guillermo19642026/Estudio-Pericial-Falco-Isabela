@@ -7807,3 +7807,80 @@ header.visible{
 .btn-header-inline:hover {
   opacity: 1;
 }
+
+
+
+
+
+/* ===== PANEL ADMIN PRO ===== */
+
+.admin-filtros {
+  display: flex;
+  gap: 14px;            /* 🔥 más separación */
+  margin: 25px 0;       /* 🔥 más aire arriba y abajo */
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.admin-filtros input,
+.admin-filtros select {
+  padding: 12px 14px;   /* 🔥 más cómodo */
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  min-width: 240px;
+}
+
+.admin-filtros button {
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.detalle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 18px;
+}
+
+#detalleContenido pre {
+  background: #f3f4f6;
+  padding: 14px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .admin-filtros {
+    flex-direction: column;
+  }
+
+  .admin-filtros input,
+  .admin-filtros select,
+  .admin-filtros button {
+    width: 100%;
+  }
+
+  .detalle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .admin-filtros {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .admin-filtros input,
+  .admin-filtros select,
+  .admin-filtros button {
+    width: 100%;
+  }
+
+}

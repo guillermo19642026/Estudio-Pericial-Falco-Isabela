@@ -21,23 +21,39 @@
 
   <section class="card">
     <h2>Evaluaciones guardadas</h2>
-    <p class="note">Resultados almacenados en Firebase.</p>
+    <p class="note">Buscar, filtrar y revisar resultados almacenados.</p>
+
+    <div class="admin-filtros">
+      <input type="text" id="buscarPaciente" placeholder="Buscar por paciente...">
+
+      <select id="filtroTest">
+        <option value="">Todos los tests</option>
+        <option value="BDI">BDI</option>
+        <option value="BAI">BAI</option>
+        <option value="Desesperanza">Desesperanza</option>
+        <option value="SCL">SCL</option>
+      </select>
+
+      <button onclick="limpiarFiltros()">Limpiar filtros</button>
+    </div>
 
     <div id="estadoCargaAdmin">Cargando resultados...</div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Paciente</th>
-          <th>Test</th>
-          <th>Puntaje</th>
-          <th>Nivel</th>
-          <th>Acción</th>
-        </tr>
-      </thead>
-      <tbody id="tablaResultadosAdmin"></tbody>
-    </table>
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Paciente</th>
+            <th>Test</th>
+            <th>Puntaje</th>
+            <th>Nivel</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="tablaResultadosAdmin"></tbody>
+      </table>
+    </div>
   </section>
 
   <section class="card" id="detalleResultado" style="display:none;">

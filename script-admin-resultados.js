@@ -12,6 +12,9 @@ const estado = document.getElementById("estadoCargaAdmin");
 const detalle = document.getElementById("detalleResultado");
 const detalleContenido = document.getElementById("detalleContenido");
 
+const buscarPaciente = document.getElementById("buscarPaciente");
+const filtroTest = document.getElementById("filtroTest");
+
 let resultados = [];
 
 async function cargarResultados() {
@@ -49,17 +52,40 @@ function formatearFecha(timestamp) {
   });
 }
 
+function obtenerResultadosFiltrados() {
+  const texto = buscarPaciente.value.toLowerCase().trim();
+  const test = filtroTest.value.toLowerCase();
+
+  return resultados.filter(r => {
+    const nombre = (r.nombre || "").toLowerCase();
+    const nombreTest = (r.test || "").toLowerCase();
+
+    const coincidePaciente = !texto || nombre.includes(texto);
+    const coincideTest = !test || nombreTest.includes(test.toLowerCase());
+
+    return coincidePaciente && coincideTest;
+  });
+}
+
 function renderTabla() {
   tabla.innerHTML = "";
 
-  if (resultados.length === 0) {
-    estado.textContent = "No hay resultados guardados.";
+  const filtrados = obtenerResultadosFiltrados();
+
+  estado.textContent = `Resultados encontrados: ${filtrados.length}`;
+
+  if (filtrados.length === 0) {
+    tabla.innerHTML = `
+      <tr>
+        <td colspan="6">No hay resultados para los filtros seleccionados.</td>
+      </tr>
+    `;
     return;
   }
 
-  estado.textContent = `Resultados encontrados: ${resultados.length}`;
+  filtrados.forEach((r) => {
+    const indexOriginal = resultados.findIndex(item => item.id === r.id);
 
-  resultados.forEach((r, index) => {
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
@@ -69,7 +95,7 @@ function renderTabla() {
       <td>${r.puntajeTotal ?? r.total ?? "—"}</td>
       <td>${r.nivel || "—"}</td>
       <td>
-        <button onclick="verDetalle(${index})">Ver</button>
+        <button onclick="verDetalle(${indexOriginal})">Ver</button>
       </td>
     `;
 
@@ -83,18 +109,20 @@ window.verDetalle = function(index) {
   detalle.style.display = "block";
 
   detalleContenido.innerHTML = `
-    <p><strong>Paciente:</strong> ${r.nombre || "—"}</p>
-    <p><strong>Edad:</strong> ${r.edad || "—"}</p>
-    <p><strong>Sexo:</strong> ${r.sexo || "—"}</p>
-    <p><strong>Fecha del test:</strong> ${r.fecha || "—"}</p>
-    <p><strong>Guardado:</strong> ${formatearFecha(r.creadoEn)}</p>
-    <p><strong>Test:</strong> ${r.test || "—"}</p>
-    <p><strong>Puntaje:</strong> ${r.puntajeTotal ?? r.total ?? "—"}</p>
-    <p><strong>Nivel:</strong> ${r.nivel || "—"}</p>
-
-    ${r.gsi ? `<p><strong>GSI:</strong> ${r.gsi}</p>` : ""}
-    ${r.pst ? `<p><strong>PST:</strong> ${r.pst}</p>` : ""}
-    ${r.psdi ? `<p><strong>PSDI:</strong> ${r.psdi}</p>` : ""}
+    <div class="detalle-grid">
+      <p><strong>Paciente:</strong> ${r.nombre || "—"}</p>
+      <p><strong>Edad:</strong> ${r.edad || "—"}</p>
+      <p><strong>Sexo:</strong> ${r.sexo || "—"}</p>
+      <p><strong>Fecha del test:</strong> ${r.fecha || "—"}</p>
+      <p><strong>Guardado:</strong> ${formatearFecha(r.creadoEn)}</p>
+      <p><strong>Usuario:</strong> ${r.usuarioEmail || "—"}</p>
+      <p><strong>Test:</strong> ${r.test || "—"}</p>
+      <p><strong>Puntaje:</strong> ${r.puntajeTotal ?? r.total ?? "—"}</p>
+      <p><strong>Nivel:</strong> ${r.nivel || "—"}</p>
+      ${r.gsi ? `<p><strong>GSI:</strong> ${r.gsi}</p>` : ""}
+      ${r.pst ? `<p><strong>PST:</strong> ${r.pst}</p>` : ""}
+      ${r.psdi ? `<p><strong>PSDI:</strong> ${r.psdi}</p>` : ""}
+    </div>
 
     <h3>Observaciones</h3>
     <p>${r.observaciones || "—"}</p>
@@ -105,5 +133,14 @@ window.verDetalle = function(index) {
 
   detalle.scrollIntoView({ behavior: "smooth" });
 };
+
+window.limpiarFiltros = function() {
+  buscarPaciente.value = "";
+  filtroTest.value = "";
+  renderTabla();
+};
+
+buscarPaciente.addEventListener("input", renderTabla);
+filtroTest.addEventListener("change", renderTabla);
 
 cargarResultados();
