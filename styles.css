@@ -1514,3 +1514,26 @@ th {
   }
 
 }
+
+
+.btn-volver-wrapper {
+  margin-right: 10px;
+}
+
+.btn-volver {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+
+@media (max-width: 768px) {
+
+  .btn-volver-wrapper {
+    order: -1;              /* 🔥 lo pone arriba del todo */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+}
