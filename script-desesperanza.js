@@ -237,4 +237,25 @@ function generarInformePDF() {
 }
 
 
+window.addEventListener("DOMContentLoaded", () => {
+  crearFormulario();
+
+  const fecha = document.getElementById("fecha");
+  if (fecha && !fecha.value) {
+    fecha.valueAsDate = new Date();
+  }
+
+  cargarAutomatico();
+  calcular();
+
+  ["nombre", "edad", "sexo", "fecha", "observaciones"].forEach(id => {
+    const campo = document.getElementById(id);
+    if (campo) {
+      campo.addEventListener("input", guardarAutomatico);
+      campo.addEventListener("change", guardarAutomatico);
+    }
+  });
+});
+
+
 
