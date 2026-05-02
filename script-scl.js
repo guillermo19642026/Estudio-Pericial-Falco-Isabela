@@ -657,28 +657,35 @@ function limpiarFormulario() {
   location.reload();
 }
 
+
+
+
 function generarInformePDF() {
-  const informe = document.getElementById("informeClinico");
 
-  if (informe) {
-    informe.innerHTML = `
-      <h2>Informe clínico</h2>
-      <p><strong>Evaluación:</strong> ${document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90-R"}</p>
-      <p><strong>Nombre:</strong> ${document.getElementById("nombre").value || "—"}</p>
-      <p><strong>Edad:</strong> ${document.getElementById("edad").value || "—"}</p>
-      <p><strong>Sexo:</strong> ${document.getElementById("sexo").value || "—"}</p>
-      <p><strong>Fecha:</strong> ${document.getElementById("fecha").value || "—"}</p>
-      <hr>
-      ${document.getElementById("interpretacionClinica")?.innerHTML || ""}
-      <p class="note">
-        Informe generado automáticamente. No reemplaza evaluación clínica integral,
-        baremos oficiales ni juicio profesional.
-      </p>
-    `;
-  }
+  const tipoTest = document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL";
 
-  window.print();
+  generarPDFClinico({
+    test: tipoTest,
+
+    nombre: document.getElementById("nombre").value,
+    edad: document.getElementById("edad").value,
+    sexo: document.getElementById("sexo").value,
+    fecha: document.getElementById("fecha").value,
+    observaciones: document.getElementById("observaciones").value,
+
+    resultadosHTML: `
+      <p><strong>Puntaje total:</strong> ${document.getElementById("total").textContent}</p>
+      <p><strong>GSI:</strong> ${document.getElementById("gsi").textContent}</p>
+      <p><strong>PST:</strong> ${document.getElementById("pst").textContent}</p>
+      <p><strong>PSDI:</strong> ${document.getElementById("psdi").textContent}</p>
+    `,
+
+    interpretacionHTML: document.getElementById("interpretacionClinica").innerHTML
+  });
 }
+
+
+
 
 function exportarCSV() {
   let csv = "Item,Respuesta\n";

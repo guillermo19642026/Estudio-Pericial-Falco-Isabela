@@ -367,38 +367,30 @@ function exportarCSV() {
   URL.revokeObjectURL(url);
 }
 
+
+
+
 function generarInformePDF() {
-  const informe = document.getElementById("informeClinico");
+  generarPDFClinico({
+    test: "Inventario de Depresión de Beck (BDI)",
 
-  if (informe) {
-    informe.innerHTML = `
-      <h2>Informe clínico orientativo</h2>
-      <p><strong>Instrumento:</strong> Inventario de Depresión de Beck</p>
-      <p><strong>Nombre:</strong> ${document.getElementById("nombre").value || "—"}</p>
-      <p><strong>Edad:</strong> ${document.getElementById("edad").value || "—"}</p>
-      <p><strong>Sexo:</strong> ${document.getElementById("sexo").value || "—"}</p>
-      <p><strong>Fecha:</strong> ${document.getElementById("fecha").value || "—"}</p>
+    nombre: document.getElementById("nombre").value,
+    edad: document.getElementById("edad").value,
+    sexo: document.getElementById("sexo").value,
+    fecha: document.getElementById("fecha").value,
+    observaciones: document.getElementById("observaciones").value,
 
-      <hr>
-
+    resultadosHTML: `
       <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
       <p><strong>Nivel orientativo:</strong> ${document.getElementById("nivel").textContent}</p>
+    `,
 
-      <h3>Interpretación orientativa</h3>
-      ${document.getElementById("interpretacionClinica").innerHTML}
-
-      <h3>Observaciones</h3>
-      <p>${document.getElementById("observaciones").value || "—"}</p>
-
-      <p class="note">
-        Informe generado automáticamente. No reemplaza entrevista clínica, baremos oficiales,
-        evaluación de riesgo ni juicio profesional.
-      </p>
-    `;
-  }
-
-  window.print();
+    interpretacionHTML: document.getElementById("interpretacionClinica").innerHTML
+  });
 }
+
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
   crearFormulario();

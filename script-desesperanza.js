@@ -213,24 +213,28 @@ function limpiarFormulario() {
   location.reload();
 }
 
+
+
+
+
 function generarInformePDF() {
-  window.print();
+  generarPDFClinico({
+    test: "Escala de Desesperanza de Beck",
+
+    nombre: document.getElementById("nombre").value,
+    edad: document.getElementById("edad").value,
+    sexo: document.getElementById("sexo").value,
+    fecha: document.getElementById("fecha").value,
+    observaciones: document.getElementById("observaciones").value,
+
+    resultadosHTML: `
+      <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
+      <p><strong>Nivel orientativo:</strong> ${document.getElementById("nivel").textContent}</p>
+    `,
+
+    interpretacionHTML: document.getElementById("interpretacionClinica").innerHTML
+  });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  crearFormulario();
 
-  const fecha = document.getElementById("fecha");
-  if (fecha && !fecha.value) fecha.valueAsDate = new Date();
 
-  cargarAutomatico();
-  calcular();
-
-  ["nombre", "edad", "sexo", "fecha", "observaciones"].forEach(id => {
-    const campo = document.getElementById(id);
-    if (campo) {
-      campo.addEventListener("input", guardarAutomatico);
-      campo.addEventListener("change", guardarAutomatico);
-    }
-  });
-});
