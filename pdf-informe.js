@@ -11,7 +11,7 @@ window.generarPDFClinico = function (datos) {
 
       <div class="pdf-header">
         <h1>INFORME PSICOLÓGICO</h1>
-        <p>Estudio Pericial Psicológico · Lic. Isabela Falco</p>
+        <p>Estudio Pericial Psicológico</p>
       </div>
 
       <hr>
@@ -53,7 +53,7 @@ window.generarPDFClinico = function (datos) {
 
       <div class="firma">
         <p>________________________________</p>
-        <p><strong>Lic. Isabela Falco</strong></p>
+    
         <p>Lic. en Psicología</p>
       </div>
 
