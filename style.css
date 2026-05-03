@@ -7812,75 +7812,231 @@ header.visible{
 
 
 
-/* ===== PANEL ADMIN PRO ===== */
 
-.admin-filtros {
+
+
+
+/* ===== FIX BOTON TESTS MOBILE ===== */
+
+.bloque-tests .btn-wrapper {
   display: flex;
-  gap: 14px;            /* 🔥 más separación */
-  margin: 25px 0;       /* 🔥 más aire arriba y abajo */
-  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  width: 100%;
 }
 
-.admin-filtros input,
-.admin-filtros select {
-  padding: 12px 14px;   /* 🔥 más cómodo */
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  min-width: 240px;
+.bloque-tests .btn-header-inline {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
 }
 
-.admin-filtros button {
-  padding: 12px 16px;
-  border-radius: 10px;
+/* Asegurar visibilidad en mobile */
+@media (max-width: 768px) {
+  .bloque-tests .btn-wrapper {
+    display: flex !important;
+  }
+
+  .bloque-tests .btn-header-inline {
+    display: inline-block !important;
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
-.tabla-scroll {
-  overflow-x: auto;
+
+
+
+
+/* ===== BOTON TESTS EN PAGINA SUPERVISION ===== */
+
+.bloque-tests .btn-header-inline {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #c9a86a;
+  color: #111 !important;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid #c9a86a;
+  margin-top: 18px;
+  max-width: 100%;
 }
 
-.detalle-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px 18px;
+.bloque-tests .btn-header-inline:hover {
+  background: #b89558;
+  color: #111 !important;
 }
 
-#detalleContenido pre {
-  background: #f3f4f6;
-  padding: 14px;
-  border-radius: 10px;
-  overflow-x: auto;
+.bloque-tests .btn-wrapper {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .bloque-tests .btn-header-inline {
+    width: 100%;
+    max-width: 320px;
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}
+
+
+/* ===== ACCESO TESTS - FIX DEFINITIVO MOBILE ===== */
+
+/* ===== BOTON TESTS VERSION PRO ===== */
+
+/* ===== BLOQUE TESTS - AJUSTE FINO ===== */
+
+.acceso-tests-mobile-fix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centra todo */
+  justify-content: center;
+  margin: 30px auto;
+  gap: 8px;              /* espacio entre botón y texto */
+  width: 100%;
+}
+
+/* BOTÓN */
+.acceso-tests-mobile-fix a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  color: #c9a86a !important;
+  text-decoration: none;
+  font-weight: 600;
   font-size: 13px;
+
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(201,168,106,0.6);
+
+  min-width: 220px;      /* evita que se achique de más */
+  max-width: 280px;      /* evita que crezca demasiado */
+  width: auto;
+
+  transition: all 0.2s ease;
 }
 
+/* hover */
+.acceso-tests-mobile-fix a:hover {
+  background: rgba(201,168,106,0.1);
+  border-color: #c9a86a;
+}
+
+/* TEXTO */
+.acceso-tests-mobile-fix p {
+  color: #777;
+  font-size: 11px;
+  text-align: center;
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
-  .admin-filtros {
-    flex-direction: column;
+
+  .acceso-tests-mobile-fix {
+    margin: 25px auto;
+    padding: 0 10px;
   }
 
-  .admin-filtros input,
-  .admin-filtros select,
-  .admin-filtros button {
-    width: 100%;
+  .acceso-tests-mobile-fix a {
+    font-size: 12px;
+    padding: 7px 14px;
+    min-width: 200px;
+    max-width: 240px;
   }
 
-  .detalle-grid {
-    grid-template-columns: 1fr;
+  .acceso-tests-mobile-fix p {
+    font-size: 10px;
   }
 }
 
 
+
+/* ===== BADGE ACCESO PROFESIONAL ===== */
+
+.badge-acceso-tests {
+  display: flex;
+  justify-content: center;
+  margin: 35px auto 10px;
+}
+
+/* contenedor clickeable */
+.badge-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  color: #c9a86a;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(201,168,106,0.5);
+  background: rgba(201,168,106,0.05);
+
+  transition: all 0.25s ease;
+}
+
+/* icono */
+.badge-icono {
+  font-size: 14px;
+}
+
+/* texto */
+.badge-texto {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* subtitulo */
+.badge-texto small {
+  font-size: 10px;
+  font-weight: 400;
+  color: #888;
+}
+
+/* hover elegante */
+.badge-link:hover {
+  background: rgba(201,168,106,0.12);
+  border-color: #c9a86a;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
 
-  .admin-filtros {
-    flex-direction: column;
-    gap: 12px;
+  .badge-link {
+    padding: 8px 14px;
+    gap: 8px;
   }
 
-  .admin-filtros input,
-  .admin-filtros select,
-  .admin-filtros button {
-    width: 100%;
+  .badge-texto {
+    font-size: 11px;
   }
 
+  .badge-texto small {
+    font-size: 9px;
+  }
 }
+
+
+.badge-link {
+  backdrop-filter: blur(6px);
+}
+ 
