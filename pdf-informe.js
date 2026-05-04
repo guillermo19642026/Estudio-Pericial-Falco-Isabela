@@ -64,5 +64,16 @@ window.generarPDFClinico = function (datos) {
     </div>
   `;
 
-  window.print();
+ informe.style.display = "block";
+informe.classList.remove("print-only");
+
+informe.insertAdjacentHTML("beforeend", `
+  <div class="acciones-informe" style="margin-top:20px; text-align:center;">
+    <button onclick="window.print()">
+      Imprimir / guardar PDF
+    </button>
+  </div>
+`);
+
+informe.scrollIntoView({ behavior: "smooth" });
 };
