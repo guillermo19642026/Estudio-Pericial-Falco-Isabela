@@ -214,8 +214,18 @@ ${dimensionesHTML}
     <h2>Observaciones</h2>
     <p>${r.observaciones || "—"}</p>
 
-    <h2>Respuestas</h2>
-    <pre>${JSON.stringify(r.respuestas || [], null, 2)}</pre>
+  <h2>Respuestas</h2>
+
+<table style="width:100%; border-collapse:collapse;">
+  <tbody>
+    ${(r.respuestas || []).map((valor, i) => `
+      <tr>
+        <td style="border:1px solid #ccc; padding:4px;"><strong>${i + 1}</strong></td>
+        <td style="border:1px solid #ccc; padding:4px;">${valor ?? "—"}</td>
+      </tr>
+    `).join("")}
+  </tbody>
+</table>
   `;
 
   const ventana = window.open("", "_blank");
