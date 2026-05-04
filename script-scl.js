@@ -327,6 +327,43 @@ function interpretarSexo(escala, promedio) {
   return promedio >= corte ? "ALTO" : "NORMAL";
 }
 
+
+
+
+function obtenerDimensionesCalculadas() {
+  const dimensiones = {};
+
+  Object.keys(dimensiones90).forEach(nombre => {
+    const items = obtenerDimensionItems(nombre);
+
+    let suma = 0;
+    let respondidos = 0;
+
+    items.forEach(item => {
+      const valor = valorItem(item);
+
+      if (valor !== null) {
+        suma += valor;
+        respondidos++;
+      }
+    });
+
+    const promedio = respondidos > 0 ? suma / respondidos : null;
+    const interpretacion = interpretarSexo(nombre, promedio);
+
+    dimensiones[nombre] = {
+      items: items.length,
+      suma,
+      respondidos,
+      promedio: promedio !== null ? promedio.toFixed(2) : "—",
+      interpretacion: interpretacion || "—"
+    };
+  });
+
+  return dimensiones;
+}
+
+
 // ===== CÁLCULO =====
 
 function calcular() {
@@ -382,7 +419,8 @@ function calcular() {
           gsi: gsi.toFixed(2),
           pst: positivas,
           psdi: psdi !== null ? psdi.toFixed(2) : "—",
-          respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+dimensiones: obtenerDimensionesCalculadas(),
+respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
         });
       }
     }
@@ -664,6 +702,10 @@ function generarInformePDF() {
 
   const tipoTest = document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL";
 
+  
+  const dimensiones = obtenerDimensionesCalculadas();
+  
+  
   generarPDFClinico({
     test: tipoTest,
 
@@ -674,11 +716,43 @@ function generarInformePDF() {
     observaciones: document.getElementById("observaciones").value,
 
     resultadosHTML: `
-      <p><strong>Puntaje total:</strong> ${document.getElementById("total").textContent}</p>
-      <p><strong>GSI:</strong> ${document.getElementById("gsi").textContent}</p>
-      <p><strong>PST:</strong> ${document.getElementById("pst").textContent}</p>
-      <p><strong>PSDI:</strong> ${document.getElementById("psdi").textContent}</p>
-    `,
+  <p><strong>Puntaje total:</strong> ${document.getElementById("total").textContent}</p>
+  <p><strong>GSI:</strong> ${document.getElementById("gsi").textContent}</p>
+  <p><strong>PST:</strong> ${document.getElementById("pst").textContent}</p>
+  <p><strong>PSDI:</strong> ${document.getElementById("psdi").textContent}</p>
+
+  <h3 style="margin-top:20px;">Dimensiones SCL-90</h3>
+
+  <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+    <thead>
+      <tr>
+        <th style="border:1px solid #ccc; padding:6px;">Escala</th>
+        <th style="border:1px solid #ccc; padding:6px;">Ítems</th>
+        <th style="border:1px solid #ccc; padding:6px;">Suma</th>
+        <th style="border:1px solid #ccc; padding:6px;">Promedio</th>
+        <th style="border:1px solid #ccc; padding:6px;">Interpretación</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${Object.entries(dimensiones).map(([nombre, d]) => `
+        <tr>
+          <td style="border:1px solid #ccc; padding:6px;">${nombre}</td>
+          <td style="border:1px solid #ccc; padding:6px;">${d.items}</td>
+          <td style="border:1px solid #ccc; padding:6px;">${d.suma}</td>
+          <td style="border:1px solid #ccc; padding:6px;">${d.promedio}</td>
+          <td style="
+  border:1px solid #ccc;
+  padding:6px;
+  color: ${d.interpretacion === "ALTO" ? "red" : "#333"};
+  font-weight: ${d.interpretacion === "ALTO" ? "bold" : "normal"};
+">
+  ${d.interpretacion}
+</td>
+        </tr>
+      `).join("")}
+    </tbody>
+  </table>
+`,
 
     interpretacionHTML: document.getElementById("interpretacionClinica").innerHTML
   });

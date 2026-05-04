@@ -77,7 +77,7 @@ function renderTabla() {
   if (filtrados.length === 0) {
     tabla.innerHTML = `
       <tr>
-        <td colspan="6">No hay resultados para los filtros seleccionados.</td>
+        <td colspan="7">No hay resultados para los filtros seleccionados.</td>
       </tr>
     `;
     return;
@@ -94,9 +94,12 @@ function renderTabla() {
       <td>${r.test || "—"}</td>
       <td>${r.puntajeTotal ?? r.total ?? "—"}</td>
       <td>${r.nivel || "—"}</td>
-      <td>
-        <button onclick="verDetalle(${indexOriginal})">Ver</button>
-      </td>
+<td>
+  <button onclick="generarPDF(${indexOriginal})">PDF</button>
+</td>
+<td>
+  <button onclick="verDetalle(${indexOriginal})">Ver</button>
+</td>
     `;
 
     tabla.appendChild(fila);
@@ -133,6 +136,152 @@ window.verDetalle = function(index) {
 
   detalle.scrollIntoView({ behavior: "smooth" });
 };
+
+window.generarPDF = function(index) {
+  const r = resultados[index];
+
+
+const dimensionesHTML = r.dimensiones
+  ? `
+    <hr>
+    <h2>Dimensiones SCL</h2>
+
+    <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+      <thead>
+        <tr>
+          <th style="border:1px solid #ccc; padding:6px;">Escala</th>
+          <th style="border:1px solid #ccc; padding:6px;">Ítems</th>
+          <th style="border:1px solid #ccc; padding:6px;">Suma</th>
+          <th style="border:1px solid #ccc; padding:6px;">Promedio</th>
+          <th style="border:1px solid #ccc; padding:6px;">Interpretación</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${Object.entries(r.dimensiones)
+  .filter(([nombre, d]) => Number(d.items) > 0)
+  .map(([nombre, d]) => {
+          const esAlto = d.interpretacion === "ALTO";
+
+          return `
+            <tr>
+              <td style="border:1px solid #ccc; padding:6px;">${nombre}</td>
+              <td style="border:1px solid #ccc; padding:6px;">${d.items}</td>
+              <td style="border:1px solid #ccc; padding:6px;">${d.suma}</td>
+              <td style="border:1px solid #ccc; padding:6px;">${d.promedio}</td>
+              <td style="
+                border:1px solid #ccc;
+                padding:6px;
+                color:${esAlto ? "red" : "#333"};
+                font-weight:${esAlto ? "bold" : "normal"};
+              ">
+                ${d.interpretacion}
+              </td>
+            </tr>
+          `;
+        }).join("")}
+      </tbody>
+    </table>
+  `
+  : "";
+
+
+  const contenido = `
+    <h1>Resultado de evaluación psicológica</h1>
+
+    <p><strong>Paciente:</strong> ${r.nombre || "—"}</p>
+    <p><strong>Edad:</strong> ${r.edad || "—"}</p>
+    <p><strong>Sexo:</strong> ${r.sexo || "—"}</p>
+    <p><strong>Fecha del test:</strong> ${r.fecha || "—"}</p>
+    <p><strong>Guardado:</strong> ${formatearFecha(r.creadoEn)}</p>
+    <p><strong>Usuario:</strong> ${r.usuarioEmail || "—"}</p>
+
+    <hr>
+
+    <h2>Datos del test</h2>
+    <p><strong>Test:</strong> ${r.test || "—"}</p>
+    <p><strong>Puntaje:</strong> ${r.puntajeTotal ?? r.total ?? "—"}</p>
+    <p><strong>Nivel:</strong> ${r.nivel || "—"}</p>
+
+    ${r.gsi ? `<p><strong>GSI:</strong> ${r.gsi}</p>` : ""}
+    ${r.pst ? `<p><strong>PST:</strong> ${r.pst}</p>` : ""}
+    ${r.psdi ? `<p><strong>PSDI:</strong> ${r.psdi}</p>` : ""}
+
+${dimensionesHTML}
+
+<hr>
+
+
+    <h2>Observaciones</h2>
+    <p>${r.observaciones || "—"}</p>
+
+    <h2>Respuestas</h2>
+    <pre>${JSON.stringify(r.respuestas || [], null, 2)}</pre>
+  `;
+
+  const ventana = window.open("", "_blank");
+
+  ventana.document.write(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Resultado ${r.nombre || ""}</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          padding: 30px;
+          color: #222;
+        }
+
+        h1 {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        h2 {
+          margin-top: 25px;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 5px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        pre {
+          background: #f5f5f5;
+          padding: 15px;
+          white-space: pre-wrap;
+          font-size: 12px;
+        }
+
+        @media print {
+          button {
+            display: none;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      ${contenido}
+
+      <br>
+      <button onclick="window.print()">Guardar / Imprimir PDF</button>
+    </body>
+    </html>
+  `);
+
+  ventana.document.close();
+};
+
+
+
+
+
+
+
+
 
 window.limpiarFiltros = function() {
   buscarPaciente.value = "";
