@@ -4,7 +4,10 @@ import {
   collection,
   getDocs,
   query,
-  orderBy
+  orderBy,
+  doc,
+  updateDoc,
+  deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const tabla = document.getElementById("tablaPostulaciones");
@@ -28,10 +31,10 @@ async function cargarPostulaciones() {
 
     postulaciones = [];
 
-    snapshot.forEach(doc => {
+    snapshot.forEach(docSnap => {
       postulaciones.push({
-        id: doc.id,
-        ...doc.data()
+        id: docSnap.id,
+        ...docSnap.data()
       });
     });
 
@@ -61,7 +64,7 @@ function badgeEstado(valor) {
   if (estado === "contactado") clase = "badge-bajo";
   if (estado === "descartado") clase = "badge-alto";
 
-  return `<span class="badge-nivel ${clase}">${estado}</span>`;
+  return `<span class="badge-estado ${clase}">${estado}</span>`;
 }
 
 function obtenerPostulacionesFiltradas() {
@@ -98,7 +101,7 @@ function renderPostulaciones() {
   if (filtradas.length === 0) {
     tabla.innerHTML = `
       <tr>
-        <td colspan="7">No hay postulaciones para los filtros seleccionados.</td>
+        <td colspan="9">No hay postulaciones para los filtros seleccionados.</td>
       </tr>
     `;
     return;
@@ -117,7 +120,13 @@ function renderPostulaciones() {
       <td>${p.telefono || "—"}</td>
       <td>${badgeEstado(p.estado)}</td>
       <td>
+        ${p.cvUrl ? `<a href="${p.cvUrl}" target="_blank">Ver CV</a>` : "—"}
+      </td>
+      <td>
         <button onclick="verPostulacion(${indexOriginal})">Ver</button>
+      </td>
+      <td>
+        <button onclick="eliminarPostulacion('${p.id}')">Eliminar</button>
       </td>
     `;
 
@@ -136,21 +145,77 @@ window.verPostulacion = function(index) {
       <p><strong>Profesión:</strong> ${p.profesion || "—"}</p>
       <p><strong>Email:</strong> ${p.email || "—"}</p>
       <p><strong>Teléfono:</strong> ${p.telefono || "—"}</p>
-      <p><strong>Estado:</strong> ${p.estado || "pendiente"}</p>
+      <p><strong>Estado:</strong> ${badgeEstado(p.estado)}</p>
       <p><strong>Fecha:</strong> ${formatearFecha(p.creadoEn)}</p>
+      <p><strong>CV:</strong> ${p.cvUrl ? `<a href="${p.cvUrl}" target="_blank">Abrir CV</a>` : "No adjuntado"}</p>
     </div>
 
     <h3>Antecedentes / Mensaje</h3>
     <p>${p.mensaje || "—"}</p>
+
+    <h3>Cambiar estado</h3>
+    <div class="estado-actions">
+      <button onclick="cambiarEstadoPostulacion('${p.id}', 'pendiente')">Pendiente</button>
+      <button onclick="cambiarEstadoPostulacion('${p.id}', 'contactado')">Contactado</button>
+      <button onclick="cambiarEstadoPostulacion('${p.id}', 'descartado')">Descartado</button>
+    </div>
   `;
 
   detalle.scrollIntoView({ behavior: "smooth" });
+};
+
+window.cambiarEstadoPostulacion = async function(id, nuevoEstado) {
+  try {
+    await updateDoc(doc(db, "postulaciones", id), {
+      estado: nuevoEstado
+    });
+
+    await cargarPostulaciones();
+    detalle.style.display = "none";
+
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo cambiar el estado.");
+  }
+};
+
+window.eliminarPostulacion = async function(id) {
+  if (!confirm("¿Eliminar esta postulación?")) return;
+
+  try {
+    await deleteDoc(doc(db, "postulaciones", id));
+    await cargarPostulaciones();
+    detalle.style.display = "none";
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo eliminar la postulación.");
+  }
 };
 
 window.limpiarFiltrosPostulaciones = function() {
   buscarPostulante.value = "";
   filtroEstado.value = "";
   renderPostulaciones();
+};
+
+window.exportarPostulacionesCSV = function() {
+  const filas = obtenerPostulacionesFiltradas();
+
+  let csv = "Fecha,Nombre,Profesión,Email,Teléfono,Estado,CV,Mensaje\n";
+
+  filas.forEach(p => {
+    csv += `"${formatearFecha(p.creadoEn)}","${p.nombre || ""}","${p.profesion || ""}","${p.email || ""}","${p.telefono || ""}","${p.estado || "pendiente"}","${p.cvUrl || ""}","${p.mensaje || ""}"\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const enlace = document.createElement("a");
+  enlace.href = url;
+  enlace.download = "postulaciones.csv";
+  enlace.click();
+
+  URL.revokeObjectURL(url);
 };
 
 buscarPostulante.addEventListener("input", renderPostulaciones);

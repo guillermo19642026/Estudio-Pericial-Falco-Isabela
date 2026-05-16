@@ -14,15 +14,19 @@ window.guardarPostulacion = async function(event) {
 
   const estado = document.getElementById("post_estado");
 
-  const datos = {
-    nombre: document.getElementById("post_nombre").value.trim(),
-    profesion: document.getElementById("post_profesion").value.trim(),
-    email: document.getElementById("post_email").value.trim(),
-    telefono: document.getElementById("post_telefono").value.trim(),
-    mensaje: document.getElementById("post_mensaje").value.trim(),
-    estado: "pendiente",
-    creadoEn: serverTimestamp()
-  };
+const datos = {
+  nombre: document.getElementById("post_nombre").value.trim(),
+  profesion: document.getElementById("post_profesion").value.trim(),
+  email: document.getElementById("post_email").value.trim(),
+  telefono: document.getElementById("post_telefono").value.trim(),
+
+  mensaje: document.getElementById("post_mensaje").value.trim(),
+
+  cvUrl: document.getElementById("post_cv").value.trim(),
+
+  estado: "pendiente",
+  creadoEn: serverTimestamp()
+};
 
   try {
     await addDoc(collection(db, "postulaciones"), datos);

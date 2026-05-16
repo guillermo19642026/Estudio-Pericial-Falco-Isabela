@@ -34,22 +34,27 @@
       </select>
 
       <button onclick="limpiarFiltrosPostulaciones()">Limpiar filtros</button>
-    </div>
+    
+      <button onclick="exportarPostulacionesCSV()">Exportar CSV</button>
+
+      </div>
 
     <div id="estadoPostulaciones">Cargando postulaciones...</div>
 
     <div class="tabla-scroll">
       <table>
         <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Nombre</th>
-            <th>Profesión</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Estado</th>
-            <th>Acción</th>
-          </tr>
+         <tr>
+  <th>Fecha</th>
+  <th>Nombre</th>
+  <th>Profesión</th>
+  <th>Email</th>
+  <th>Teléfono</th>
+  <th>Estado</th>
+  <th>CV</th>
+  <th>Ver</th>
+  <th>Eliminar</th>
+</tr>
         </thead>
         <tbody id="tablaPostulaciones"></tbody>
       </table>
