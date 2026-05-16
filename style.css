@@ -8120,4 +8120,35 @@ header.visible{
 }
 
 
+.sumarse-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-cv-inline.secondary {
+  background: transparent;
+  color: #c9a86a;
+}
+
+.btn-cv-inline.secondary:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+
+@media (max-width: 768px) {
+
+  .sumarse-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .sumarse-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+
 
