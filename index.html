@@ -1807,27 +1807,22 @@ buscador.addEventListener("keyup", function(){
     </p>
   </div>
 
-  <div class="sumarse-actions">
+  <form class="form-postulacion" onsubmit="guardarPostulacion(event)">
+    <input id="post_nombre" type="text" placeholder="Nombre y apellido" required>
+    <input id="post_profesion" type="text" placeholder="Profesión / matrícula" required>
+    <input id="post_email" type="email" placeholder="Email" required>
+    <input id="post_telefono" type="text" placeholder="Teléfono / WhatsApp" required>
 
-    <a 
-      href="mailto:estudiopericialpsicologico@gmail.com?subject=Postulación profesional"
-      class="btn-cv-inline"
-    >
-      Enviar antecedentes
-    </a>
+    <textarea id="post_mensaje" placeholder="Breve descripción de antecedentes" required></textarea>
 
-    <a 
-      href="https://wa.me/5491132049521?text=Hola,%20quisiera%20postularme%20para%20formar%20parte%20del%20Estudio%20Pericial%20Psicológico."
-      target="_blank"
-      class="btn-cv-inline secondary"
-    >
-      WhatsApp
-    </a>
+    <button type="submit" class="btn-cv-inline">
+      Enviar postulación
+    </button>
 
-  </div>
+    <p id="post_estado" class="post-estado"></p>
+  </form>
 
 </section>
-
 
 
 <!-- FOOTER -->
@@ -2282,6 +2277,9 @@ const observer = new IntersectionObserver(entries => {
 
 titulos.forEach(t => observer.observe(t));
 </script>
+
+
+<script type="module" src="postulaciones-firestore.js"></script>
 
 
 </body>

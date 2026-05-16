@@ -1645,3 +1645,54 @@ th {
     padding: 12px 14px;
   }
 }
+
+
+
+.form-postulacion {
+  display: grid;
+  gap: 10px;
+  min-width: 280px;
+  max-width: 360px;
+}
+
+.form-postulacion input,
+.form-postulacion textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-postulacion textarea {
+  min-height: 75px;
+  resize: vertical;
+}
+
+.form-postulacion input::placeholder,
+.form-postulacion textarea::placeholder {
+  color: #aaa;
+}
+
+.post-estado {
+  font-size: 13px;
+  margin: 0;
+}
+
+.post-estado.ok {
+  color: #86efac;
+}
+
+.post-estado.error {
+  color: #fca5a5;
+}
+
+@media (max-width: 768px) {
+  .form-postulacion {
+    width: 100%;
+    max-width: none;
+  }
+}
