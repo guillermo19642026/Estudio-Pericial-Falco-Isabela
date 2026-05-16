@@ -95,14 +95,29 @@ onAuthStateChanged(auth, (user) => {
     return;
   }
 
-  // 👁️ MOSTRAR / OCULTAR BOTÓN RESULTADOS
-  const btnResultados = document.getElementById("btnResultados");
+  // 👁️ MOSTRAR / OCULTAR BOTONES ADMIN
+const btnResultados = document.getElementById("btnResultados");
+const btnPostulaciones = document.getElementById("btnPostulaciones");
+
+if (user && user.email === ADMIN_EMAIL) {
 
   if (btnResultados) {
-    if (user && user.email === ADMIN_EMAIL) {
-      btnResultados.style.display = "flex";
-    } else {
-      btnResultados.style.display = "none";
-    }
+    btnResultados.style.display = "flex";
   }
+
+  if (btnPostulaciones) {
+    btnPostulaciones.style.display = "flex";
+  }
+
+} else {
+
+  if (btnResultados) {
+    btnResultados.style.display = "none";
+  }
+
+  if (btnPostulaciones) {
+    btnPostulaciones.style.display = "none";
+  }
+
+}
 });
