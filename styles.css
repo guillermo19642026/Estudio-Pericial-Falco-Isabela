@@ -2212,3 +2212,78 @@ margin:38px auto;
   border-left-color: #4f708f;
   background: rgba(79,112,143,.05);
 }
+
+
+
+/* =========================
+   FOOTER DASHBOARD MINIMAL
+========================= */
+
+.dashboard-footer-min {
+  margin-top: 64px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.22);
+}
+
+.dashboard-footer-min-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 22px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+}
+
+.dashboard-footer-brand strong {
+  display: block;
+  color: #f5f5f5;
+  font-size: .95rem;
+  margin-bottom: 5px;
+}
+
+.dashboard-footer-brand span {
+  color: #a8a8a8;
+  font-size: .82rem;
+}
+
+.dashboard-footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.dashboard-footer-links a {
+  color: #c9a86a;
+  text-decoration: none;
+  font-size: .84rem;
+  transition: .2s;
+}
+
+.dashboard-footer-links a:hover {
+  opacity: .75;
+}
+
+.dashboard-footer-bottom {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px 22px;
+  color: #777;
+  font-size: .78rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-footer-min-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dashboard-footer-links {
+    justify-content: center;
+  }
+
+  .dashboard-footer-bottom {
+    text-align: center;
+  }
+}

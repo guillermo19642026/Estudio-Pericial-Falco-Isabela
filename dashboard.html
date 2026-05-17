@@ -60,26 +60,20 @@
 <section class="dashboard-metricas">
 
   <div class="dashboard-metrica">
-    <span>Evaluaciones</span>
-    <strong>Tests</strong>
-    <small>Administración psicométrica</small>
-  </div>
-
-  <div class="dashboard-metrica">
     <span>Resultados</span>
-    <strong>Panel</strong>
-    <small>Evaluaciones guardadas</small>
+    <strong id="totalResultados">0</strong>
+    <small>Evaluaciones almacenadas</small>
   </div>
 
   <div class="dashboard-metrica">
     <span>Mesa de entrada</span>
-    <strong>Digital</strong>
-    <small>Documentación y escritos</small>
+    <strong id="totalMesaEntrada">0</strong>
+    <small>Presentaciones recibidas</small>
   </div>
 
   <div class="dashboard-metrica">
     <span>Postulaciones</span>
-    <strong>RRHH</strong>
+    <strong id="totalPostulaciones">0</strong>
     <small>Antecedentes profesionales</small>
   </div>
 
@@ -214,51 +208,45 @@
 <section class="dashboard-actividad">
 
   <div class="dashboard-actividad-header">
-    <span>Estado institucional</span>
-    <h2>Actividad del sistema</h2>
+    <span>Actividad institucional</span>
+    <h2>Últimos movimientos</h2>
   </div>
 
   <div class="actividad-grid">
 
     <div class="actividad-card">
 
-      <strong>🟢 Sistema operativo</strong>
+      <strong>🧠 Última evaluación</strong>
 
-      <p>
-        Plataforma institucional activa y funcionando correctamente.
+      <p id="actividadResultados">
+        Cargando actividad...
       </p>
 
-      <small id="fechaActual"></small>
+      <small id="fechaResultados"></small>
 
     </div>
 
     <div class="actividad-card">
 
-      <strong>🔐 Acceso administrativo</strong>
+      <strong>👥 Última postulación</strong>
 
-      <p>
-        Paneles internos habilitados para gestión
-        de resultados y documentación.
+      <p id="actividadPostulaciones">
+        Cargando actividad...
       </p>
 
-      <small>
-        Usuario autenticado
-      </small>
+      <small id="fechaPostulaciones"></small>
 
     </div>
 
     <div class="actividad-card">
 
-      <strong>📡 Ecosistema digital activo</strong>
+      <strong>🏛️ Última presentación</strong>
 
-      <p>
-        Evaluaciones, mesa de entrada y postulaciones
-        integradas al sistema institucional.
+      <p id="actividadMesa">
+        Cargando actividad...
       </p>
 
-      <small>
-        Plataforma sincronizada
-      </small>
+      <small id="fechaMesa"></small>
 
     </div>
 
@@ -267,6 +255,35 @@
 </section>
 
 
+<!-- FOOTER DASHBOARD -->
+<footer class="dashboard-footer-min">
+
+  <div class="dashboard-footer-min-content">
+
+    <div class="dashboard-footer-brand">
+      <strong>Lic. Isabela Falco</strong>
+      <span>Pericias Psicológicas Forenses · Plataforma Institucional</span>
+    </div>
+
+    <div class="dashboard-footer-links">
+      <a href="index.html">Sitio principal</a>
+      <a href="mesa-entrada.html">Mesa de Entrada</a>
+      <a href="mailto:estudiopericialpsicologico@gmail.com">Email</a>
+      <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+
+  </div>
+
+  <div class="dashboard-footer-bottom">
+    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
+  </div>
+
+</footer>
+
+
+
+
+<script type="module" src="dashboard-actividad.js"></script>
 
 
 <script type="module" src="auth.js"></script>
