@@ -1925,3 +1925,290 @@ th {
 
 
 
+
+
+
+/* =========================
+   DASHBOARD INSTITUCIONAL
+========================= */
+
+.dashboard-hero {
+  text-align: center;
+  padding: 42px 20px 20px;
+}
+
+.dashboard-kicker {
+  display: inline-block;
+  color: #c9a86a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .78rem;
+  margin-bottom: 8px;
+}
+
+.dashboard-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 10px;
+}
+
+.dashboard-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #d0d0d0;
+  line-height: 1.7;
+}
+
+.dashboard-metricas {
+  max-width: 1120px;
+  margin:18px auto 18px;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.dashboard-metrica {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-left: 3px solid #c9a86a;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.dashboard-metrica span {
+  display: block;
+  color: #c9a86a;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  margin-bottom: 8px;
+}
+
+.dashboard-metrica strong {
+  display: block;
+  font-size: 1.45rem;
+  margin-bottom: 6px;
+}
+
+.dashboard-metrica small {
+  color: #bdbdbd;
+  line-height: 1.4;
+}
+
+.dashboard-section-title{
+
+  max-width:1120px;
+  margin:8px auto 10px;
+  padding:0 22px;
+}
+
+.dashboard-section-title span {
+  color: #c9a86a;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: .75rem;
+}
+
+.dashboard-section-title h2 {
+  margin-top: 6px;
+  font-size: 1.6rem;
+}
+
+@media (max-width: 900px) {
+  .dashboard-metricas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-metricas {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   DASHBOARD MODULE CARDS
+========================= */
+
+.dashboard-module {
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  min-height: 155px;
+  padding: 26px;
+  border-left: 3px solid #c9a86a;
+}
+
+.dashboard-module span {
+  font-size: 1.18rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-module small {
+  color: #cfcfcf;
+  line-height: 1.5;
+}
+
+.dashboard-module b {
+  margin-top: 18px;
+  color: #c9a86a;
+  font-size: .9rem;
+}
+
+.dashboard-module::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  right: -55px;
+  bottom: -55px;
+  background: rgba(201,168,106,.08);
+  border-radius: 50%;
+  transition: .3s ease;
+}
+
+.dashboard-module:hover::after {
+  right: -35px;
+  bottom: -35px;
+}
+
+
+
+/* =========================
+   ACTIVIDAD DASHBOARD
+========================= */
+
+.dashboard-actividad{
+
+  max-width:1120px;
+
+margin:38px auto;
+
+  padding:0 22px;
+}
+
+.dashboard-actividad-header{
+  margin-bottom:22px;
+}
+
+.dashboard-actividad-header span{
+
+  color:#c9a86a;
+
+  text-transform:uppercase;
+
+  letter-spacing:1.6px;
+
+  font-size:.75rem;
+}
+
+.dashboard-actividad-header h2{
+  margin-top:6px;
+  font-size:1.7rem;
+}
+
+.actividad-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:18px;
+}
+
+.actividad-card{
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  border-radius:18px;
+
+  padding:24px;
+
+  transition:.25s;
+}
+
+.actividad-card:hover{
+  transform:translateY(-3px);
+}
+
+.actividad-card strong{
+
+  display:block;
+
+  margin-bottom:12px;
+
+  font-size:1rem;
+}
+
+.actividad-card p{
+
+  color:#cfcfcf;
+
+  line-height:1.7;
+
+  margin-bottom:16px;
+}
+
+.actividad-card small{
+  color:#9d9d9d;
+}
+
+@media(max-width:900px){
+
+  .actividad-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+.admin-title {
+  margin-top: 42px;
+}
+
+.admin-modulos {
+  margin-top: 10px;
+}
+
+.admin-modulos .dashboard-module {
+  border-left-color: #8f7a4f;
+}
+
+
+/* =========================
+   ADMIN MODULES
+========================= */
+
+.admin-title {
+  margin-top: 44px;
+}
+
+.admin-modulos {
+  margin-top: 10px;
+}
+
+.admin-modulos .dashboard-module {
+  border-left-color: #8f7a4f;
+  background: rgba(201,168,106,.035);
+}
+
+.admin-modulos .dashboard-module span {
+  color: #f3e4c1;
+}
+
+.admin-modulos .dashboard-module b {
+  color: #c9a86a;
+}
+
+
+.public-title {
+  margin-top: 44px;
+}
+
+.public-modulos .dashboard-module {
+  border-left-color: #4f708f;
+  background: rgba(79,112,143,.05);
+}

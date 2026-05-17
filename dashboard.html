@@ -45,73 +45,258 @@
 </header>
 
 
-<section class="tests-hero">
-  <h1>Evaluaciones Psicológicas</h1>
-  <p>Seleccione el instrumento que desea administrar</p>
+<section class="tests-hero dashboard-hero">
+  <span class="dashboard-kicker">Centro operativo</span>
+  <h1>Panel Institucional</h1>
+  <p>
+    Gestión integral de evaluaciones, resultados,
+    postulaciones y presentaciones profesionales.
+  </p>
 </section>
+
+
+
+
+<section class="dashboard-metricas">
+
+  <div class="dashboard-metrica">
+    <span>Evaluaciones</span>
+    <strong>Tests</strong>
+    <small>Administración psicométrica</small>
+  </div>
+
+  <div class="dashboard-metrica">
+    <span>Resultados</span>
+    <strong>Panel</strong>
+    <small>Evaluaciones guardadas</small>
+  </div>
+
+  <div class="dashboard-metrica">
+    <span>Mesa de entrada</span>
+    <strong>Digital</strong>
+    <small>Documentación y escritos</small>
+  </div>
+
+  <div class="dashboard-metrica">
+    <span>Postulaciones</span>
+    <strong>RRHH</strong>
+    <small>Antecedentes profesionales</small>
+  </div>
+
+</section>
+
+
+
+<section class="dashboard-section-title">
+  <span>Módulos disponibles</span>
+  <h2>Accesos rápidos</h2>
+</section>
+
 
 
 <main class="tests-main">
 
 
-  <button class="tests-card" onclick="ir('scl90.html')">
-    <span>SCL-90 / BSI</span>
-    <small>Evaluación psicopatológica general</small>
-    <b>Iniciar evaluación</b>
-  </button>
+  <button class="tests-card dashboard-module" onclick="ir('scl90.html')">
+  <span>🧠 SCL-90 / BSI</span>
+  <small>Evaluación psicopatológica general</small>
+  <b>Administrar instrumento →</b>
+</button>
 
-  <button class="tests-card" onclick="ir('bdi.html')">
-    <span>Depresión BDI</span>
-    <small>Inventario de Depresión de Beck</small>
-    <b>Iniciar evaluación</b>
-  </button>
+  <!-- DEPRESIÓN BDI -->
+<button class="tests-card dashboard-module" onclick="ir('bdi.html')">
 
-  <button class="tests-card" onclick="ir('bai.html')">
-    <span>Ansiedad BAI</span>
-    <small>Inventario de Ansiedad de Beck</small>
-    <b>Iniciar evaluación</b>
-  </button>
+  <span>📘 Depresión BDI</span>
 
-  <button class="tests-card" onclick="ir('desesperanza.html')">
-    <span>Desesperanza</span>
-    <small>Escala de Desesperanza de Beck</small>
-    <b>Iniciar evaluación</b>
-  </button>
+  <small>
+    Inventario de Depresión de Beck para evaluación
+    de sintomatología depresiva.
+  </small>
 
+  <b>Administrar instrumento →</b>
 
-<button id="btnResultados" class="tests-card" onclick="ir('admin-resultados.html')" style="display:none;">
-  <span>Resultados</span>
-  <small>Evaluaciones guardadas</small>
-  <b>Ver panel</b>
 </button>
 
 
-<button id="btnPostulaciones" class="tests-card" onclick="ir('panel-postulaciones.html')" style="display:none;">
-  <span>Postulaciones</span>
-  <small>Profesionales interesados</small>
-  <b>Ver panel</b>
+<!-- ANSIEDAD BAI -->
+<button class="tests-card dashboard-module" onclick="ir('bai.html')">
+
+  <span>⚖️ Ansiedad BAI</span>
+
+  <small>
+    Inventario de Ansiedad de Beck orientado
+    a indicadores clínicos de ansiedad.
+  </small>
+
+  <b>Administrar instrumento →</b>
+
 </button>
 
 
-<button id="btnMesaEntrada" class="tests-card" onclick="ir('panel-mesa-entrada.html')" style="display:none;">
-  <span>Mesa de Entrada</span>
-  <small>Consultas y documentación recibida</small>
-  <b>Ver panel</b>
+<!-- DESESPERANZA -->
+<button class="tests-card dashboard-module" onclick="ir('desesperanza.html')">
+
+  <span>🩶 Desesperanza</span>
+
+  <small>
+    Escala de Desesperanza de Beck para evaluación
+    de expectativas negativas y riesgo emocional.
+  </small>
+
+  <b>Administrar instrumento →</b>
+
 </button>
-
-
-
-
 
 </main>
+
+
+
+<section class="dashboard-section-title admin-title">
+  <span>Gestión administrativa</span>
+  <h2>Paneles internos</h2>
+</section>
+
+
+
+
+<main class="tests-main admin-modulos">
+
+  <button id="btnResultados" class="tests-card dashboard-module" onclick="ir('admin-resultados.html')" style="display:none;">
+    <span>📋 Resultados</span>
+    <small>Evaluaciones guardadas y detalles clínicos.</small>
+    <b>Ver panel →</b>
+  </button>
+
+  <button id="btnPostulaciones" class="tests-card dashboard-module" onclick="ir('panel-postulaciones.html')" style="display:none;">
+    <span>👥 Postulaciones</span>
+    <small>Antecedentes profesionales recibidos.</small>
+    <b>Gestionar →</b>
+  </button>
+
+  <button id="btnMesaEntrada" class="tests-card dashboard-module" onclick="ir('panel-mesa-entrada.html')" style="display:none;">
+    <span>🏛️ Mesa de Entrada</span>
+    <small>Consultas, escritos y documentación recibida.</small>
+    <b>Revisar →</b>
+  </button>
+
+</main>
+
+
+
+
+
+<section class="dashboard-section-title public-title">
+  <span>Accesos públicos</span>
+  <h2>Canales externos</h2>
+</section>
+
+<main class="tests-main public-modulos">
+
+  <button class="tests-card dashboard-module" onclick="ir('index.html')">
+    <span>🌐 Sitio principal</span>
+    <small>Página institucional pública del estudio.</small>
+    <b>Ir al sitio →</b>
+  </button>
+
+  <button class="tests-card dashboard-module" onclick="ir('mesa-entrada.html')">
+    <span>🏛️ Mesa Digital</span>
+    <small>Formulario público para documentación y presentaciones.</small>
+    <b>Abrir canal →</b>
+  </button>
+
+</main>
+
+
+
+
+
+
+<section class="dashboard-actividad">
+
+  <div class="dashboard-actividad-header">
+    <span>Estado institucional</span>
+    <h2>Actividad del sistema</h2>
+  </div>
+
+  <div class="actividad-grid">
+
+    <div class="actividad-card">
+
+      <strong>🟢 Sistema operativo</strong>
+
+      <p>
+        Plataforma institucional activa y funcionando correctamente.
+      </p>
+
+      <small id="fechaActual"></small>
+
+    </div>
+
+    <div class="actividad-card">
+
+      <strong>🔐 Acceso administrativo</strong>
+
+      <p>
+        Paneles internos habilitados para gestión
+        de resultados y documentación.
+      </p>
+
+      <small>
+        Usuario autenticado
+      </small>
+
+    </div>
+
+    <div class="actividad-card">
+
+      <strong>📡 Ecosistema digital activo</strong>
+
+      <p>
+        Evaluaciones, mesa de entrada y postulaciones
+        integradas al sistema institucional.
+      </p>
+
+      <small>
+        Plataforma sincronizada
+      </small>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
 
 <script type="module" src="auth.js"></script>
 
 <script>
+
 function ir(pagina) {
   window.location.href = pagina;
 }
+
+const fecha = new Date();
+
+const opciones = {
+  dateStyle: "full",
+  timeStyle: "short"
+};
+
+const fechaTexto =
+  fecha.toLocaleString("es-AR", opciones);
+
+const fechaActual =
+  document.getElementById("fechaActual");
+
+if(fechaActual){
+  fechaActual.textContent = fechaTexto;
+}
+
 </script>
+
+
 
 </body>
 </html>
