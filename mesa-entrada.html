@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesa de Entrada Digital</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mesa-entrada.css">
+</head>
+
+<body class="mesa-body">
+
+<div class="mesa-topbar">
+
+  <div class="mesa-brand">
+    <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+    <div>
+      <strong>ESTUDIO PERICIAL PSICOLÓGICO</strong>
+      <span>Mesa de Entrada Digital</span>
+    </div>
+  </div>
+
+  <a href="index.html" class="mesa-volver">
+    ← Volver al inicio
+  </a>
+
+</div>
+
+<main class="mesa-main">
+
+  <section class="mesa-hero">
+    <span>Recepción institucional</span>
+    <h1>Mesa de Entrada Digital</h1>
+    <p>
+      Canal independiente para la recepción de consultas, documentación,
+      escritos y presentaciones vinculadas al ámbito pericial, judicial y profesional.
+    </p>
+  </section>
+
+  <section class="mesa-card">
+
+    <form class="mesa-form" onsubmit="guardarMesaEntrada(event)">
+
+      <div class="mesa-grid">
+        <div>
+          <label>Tipo de solicitante</label>
+          <select id="mesa_tipo" required>
+            <option value="">Seleccionar</option>
+            <option>Estudio jurídico</option>
+            <option>Perito</option>
+            <option>Particular</option>
+            <option>Organismo / Institución</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Nombre / Estudio / Institución</label>
+          <input id="mesa_nombre" type="text" required>
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input id="mesa_email" type="email" required>
+        </div>
+
+        <div>
+          <label>Teléfono / WhatsApp</label>
+          <input id="mesa_telefono" type="text">
+        </div>
+      </div>
+
+      <div>
+        <label>Carátula / referencia</label>
+        <input id="mesa_caratula" type="text">
+      </div>
+
+      <div>
+        <label>Link a documentación o escritos</label>
+        <input id="mesa_documentos" type="text" placeholder="Drive, Dropbox, OneDrive, etc.">
+      </div>
+
+      <div>
+        <label>Detalle de la presentación</label>
+        <textarea id="mesa_mensaje" required></textarea>
+      </div>
+
+      <div class="mesa-aviso">
+        La recepción de documentación por este medio no implica aceptación automática
+        de intervención profesional ni reemplaza la confirmación formal por parte del estudio.
+      </div>
+
+      <button type="submit" class="mesa-btn">
+        Registrar presentación
+      </button>
+
+      <p id="mesa_estado" class="post-estado"></p>
+
+    </form>
+
+
+<div class="mesa-bottom-link">
+
+  <a href="index.html">
+    ← Volver al sitio principal
+  </a>
+
+</div>
+
+
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-contenido">
+
+    <!-- IDENTIDAD -->
+    <div class="footer-col">
+      <p class="footer-titulo">
+        Lic. Isabela Falco
+      </p>
+      <p class="footer-texto">
+        Pericias Psicológicas Forenses
+      </p>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="footer-col">
+      <p class="footer-subtitulo">Contacto</p>
+
+      <p class="footer-item">
+        WhatsApp<br>
+        <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">
+          11 3204 9521
+        </a>
+      </p>
+
+      <p class="footer-item">
+        Email<br>
+        <a href="mailto:estudiopericialpsicologico@gmail.com">
+          estudiopericialpsicologico@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <!-- REDES -->
+    <div class="footer-col">
+      <p class="footer-subtitulo">Redes</p>
+
+      <p class="footer-item">
+        <a href="https://www.instagram.com/estudiopericialpsicologico/" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a><br>
+
+        <a href="https://www.facebook.com/licisabelafalco" target="_blank" rel="noopener noreferrer">
+          Facebook
+        </a><br>
+
+        <a href="https://www.linkedin.com/in/isabela-falco-1225b127a" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </p>
+    </div>
+
+    <!-- ÁMBITO DE ATENCIÓN -->
+    <div class="footer-col">
+      <p class="footer-subtitulo">Ámbito de atención</p>
+
+      <p class="footer-item">
+        Zona Norte (Escobar · Pilar)<br>
+        Zona Oeste (Ramos Mejía)
+      </p>
+
+      <p class="footer-item">
+        Atención en estudio profesional<br>
+        Modalidad presencial y virtual
+      </p>
+
+      <p class="footer-nota">
+        Coordinación previa de turnos
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SEPARADOR -->
+  <div class="footer-separador"></div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
+  </div>
+
+  <!-- CRÉDITO -->
+  <div class="credito-card">
+
+  <p class="credito-titulo">
+    Diseño y desarrollo web
+  </p>
+
+  <a 
+    href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="credito-nombre"
+  >
+    <span class="icono-whatsapp">🟢</span>
+    Guillermo Hechem
+  </a>
+
+  <p class="credito-descripcion">
+    Desarrollo web profesional · Sitios modernos y optimizados
+  </p>
+
+</div>
+
+</footer>
+
+
+
+
+
+
+
+
+
+<script type="module" src="mesa-entrada-firestore.js"></script>
+
+
+
+
+</body>
+</html>

@@ -98,6 +98,7 @@ onAuthStateChanged(auth, (user) => {
   // 👁️ MOSTRAR / OCULTAR BOTONES ADMIN
 const btnResultados = document.getElementById("btnResultados");
 const btnPostulaciones = document.getElementById("btnPostulaciones");
+const btnMesaEntrada = document.getElementById("btnMesaEntrada");
 
 if (user && user.email === ADMIN_EMAIL) {
 
@@ -109,6 +110,12 @@ if (user && user.email === ADMIN_EMAIL) {
     btnPostulaciones.style.display = "flex";
   }
 
+  if (btnMesaEntrada) {
+  btnMesaEntrada.style.display = "flex";
+  }
+
+
+
 } else {
 
   if (btnResultados) {
@@ -118,6 +125,12 @@ if (user && user.email === ADMIN_EMAIL) {
   if (btnPostulaciones) {
     btnPostulaciones.style.display = "none";
   }
+
+  if (btnMesaEntrada) {
+  btnMesaEntrada.style.display = "none";
+  }
+
+
 
 }
 });

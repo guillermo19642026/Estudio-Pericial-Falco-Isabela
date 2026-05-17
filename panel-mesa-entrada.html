@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Mesa de Entrada</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="admin-header">
+  <h1>Panel Mesa de Entrada</h1>
+  <div>
+    <button onclick="window.location.href='dashboard.html'">Volver</button>
+    <button class="logout" onclick="logout()">Cerrar sesión</button>
+  </div>
+</header>
+
+<main class="admin-panel">
+
+  <section class="card">
+    <h2>Presentaciones recibidas</h2>
+    <p class="note">Consultas, documentación y escritos ingresados por la Mesa de Entrada Digital.</p>
+
+    <div class="admin-filtros">
+      <input type="text" id="buscarMesa" placeholder="Buscar por nombre, email, carátula o tipo...">
+
+      <select id="filtroMesaEstado">
+        <option value="">Todos los estados</option>
+        <option value="recibido">Recibido</option>
+        <option value="en revisión">En revisión</option>
+        <option value="respondido">Respondido</option>
+        <option value="archivado">Archivado</option>
+      </select>
+
+      <button onclick="limpiarFiltrosMesa()">Limpiar filtros</button>
+      <button onclick="exportarMesaCSV()">Exportar CSV</button>
+    </div>
+
+    <div id="estadoMesa">Cargando presentaciones...</div>
+
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Carátula</th>
+            <th>Estado</th>
+            <th>Docs</th>
+            <th>Ver</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaMesa"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="detalleMesa" style="display:none;">
+    <h2>Detalle de presentación</h2>
+    <div id="detalleMesaContenido"></div>
+  </section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="script-panel-mesa-entrada.js"></script>
+
+</body>
+</html>
