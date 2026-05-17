@@ -2108,11 +2108,11 @@ th {
 
   text-align: left;
 
-  min-height: 170px;
+  min-height: 145px;
 
-  padding: 28px;
+  padding: 22px;
 
-  border-radius: 22px;
+  border-radius: 18px;
 
   border: 1px solid rgba(255,255,255,.08);
 
@@ -2157,7 +2157,7 @@ th {
 
   display:block;
 
-  font-size:1.15rem;
+  font-size:1.02rem;
 
   margin-bottom:12px;
 
@@ -2172,7 +2172,7 @@ th {
 
   color:#cfcfcf;
 
-  line-height:1.7;
+  line-height:1.55;
 
   font-size:.92rem;
 }
