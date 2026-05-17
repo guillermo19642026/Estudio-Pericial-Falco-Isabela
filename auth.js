@@ -99,6 +99,7 @@ onAuthStateChanged(auth, (user) => {
 const btnResultados = document.getElementById("btnResultados");
 const btnPostulaciones = document.getElementById("btnPostulaciones");
 const btnMesaEntrada = document.getElementById("btnMesaEntrada");
+const btnArchivoPericial = document.getElementById("btnArchivoPericial");
 const dashboardMetricas = document.getElementById("dashboardMetricas");
 
 if (user && user.email === ADMIN_EMAIL) {
@@ -120,6 +121,10 @@ if (user && user.email === ADMIN_EMAIL) {
   dashboardMetricas.style.display = "grid";
 }
 
+if (btnArchivoPericial) {
+  btnArchivoPericial.style.display = "flex";
+}
+
 
 
 } else {
@@ -139,6 +144,11 @@ if (user && user.email === ADMIN_EMAIL) {
 
   if (dashboardMetricas) {
   dashboardMetricas.style.display = "none";
+}
+
+
+if (btnArchivoPericial) {
+  btnArchivoPericial.style.display = "none";
 }
 
 

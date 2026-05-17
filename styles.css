@@ -2605,3 +2605,91 @@ margin:38px auto;
   }
 
 }
+
+
+
+/* =========================
+   BADGES CATEGORÍAS
+========================= */
+
+.badge-categoria{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  padding:6px 12px;
+
+  border-radius:999px;
+
+  font-size:.78rem;
+
+  font-weight:700;
+
+  letter-spacing:.2px;
+}
+
+/* ESCRITOS */
+
+.cat-escritos{
+
+  background:rgba(201,168,106,.14);
+
+  color:#d7b47a;
+}
+
+/* MODELOS */
+
+.cat-modelos{
+
+  background:rgba(120,170,255,.12);
+
+  color:#8db4ff;
+}
+
+/* JURISPRUDENCIA */
+
+.cat-jurisprudencia{
+
+  background:rgba(140,120,255,.12);
+
+  color:#a69bff;
+}
+
+/* CAUSAS */
+
+.cat-causas{
+
+  background:rgba(255,120,120,.12);
+
+  color:#ff9b9b;
+}
+
+/* INFORMES */
+
+.cat-informes{
+
+  background:rgba(120,255,190,.12);
+
+  color:#84f2bf;
+}
+
+/* NOTAS */
+
+.cat-notas{
+
+  background:rgba(255,200,120,.12);
+
+  color:#ffc977;
+}
+
+/* ACADÉMICO */
+
+.cat-academico{
+
+  background:rgba(180,180,180,.12);
+
+  color:#d5d5d5;
+}

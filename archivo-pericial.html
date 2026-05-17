@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archivo Pericial</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="admin-header">
+  <h1>Archivo Pericial</h1>
+  <div>
+    <button onclick="window.location.href='dashboard.html'">Volver</button>
+    <button class="logout" onclick="logout()">Cerrar sesión</button>
+  </div>
+</header>
+
+<main class="admin-panel">
+
+  <section class="card">
+    <h2>Cargar material</h2>
+    <p class="note">
+      Repositorio privado de escritos, modelos, causas, jurisprudencia y material técnico.
+    </p>
+
+    <form class="archivo-form" onsubmit="guardarArchivo(event)">
+
+      <input id="archivo_titulo" type="text" placeholder="Título" required>
+
+      <select id="archivo_categoria" required>
+        <option value="">Categoría</option>
+        <option>Escritos</option>
+        <option>Modelos</option>
+        <option>Jurisprudencia</option>
+        <option>Causas</option>
+        <option>Informes</option>
+        <option>Notas técnicas</option>
+        <option>Material académico</option>
+      </select>
+
+      <input id="archivo_fecha" type="date">
+
+      <input id="archivo_link" type="text" placeholder="Ej: pdf-publicos/modelo-prueba.pdf" required>
+
+      <textarea id="archivo_descripcion" placeholder="Descripción breve"></textarea>
+
+      <button type="submit">Guardar material</button>
+
+      <p id="archivo_estado" class="post-estado"></p>
+
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Material guardado</h2>
+
+    <div class="admin-filtros">
+      <input type="text" id="buscarArchivo" placeholder="Buscar por título, categoría o descripción...">
+
+      <select id="filtroCategoriaArchivo">
+        <option value="">Todas las categorías</option>
+        <option>Escritos</option>
+        <option>Modelos</option>
+        <option>Jurisprudencia</option>
+        <option>Causas</option>
+        <option>Informes</option>
+        <option>Notas técnicas</option>
+        <option>Material académico</option>
+      </select>
+
+      <button onclick="limpiarFiltrosArchivo()">Limpiar filtros</button>
+    </div>
+
+    <div id="estadoArchivo">Cargando archivo...</div>
+
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Título</th>
+            <th>Categoría</th>
+            <th>Descripción</th>
+            <th>Link</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="tablaArchivo"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="archivo-pericial.js"></script>
+
+</body>
+</html>
