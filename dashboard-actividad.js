@@ -19,8 +19,14 @@ function formatearFecha(timestamp) {
 
 function setTexto(id, texto) {
   const el = document.getElementById(id);
-  if (el) el.textContent = texto;
+
+  if (el) {
+    el.textContent = texto;
+    el.classList.remove("loading-text");
+  }
 }
+
+
 
 const qResultados = query(
   collection(db, "resultados_tests"),
