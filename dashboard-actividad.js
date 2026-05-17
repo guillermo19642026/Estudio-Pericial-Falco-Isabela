@@ -5,127 +5,79 @@ import {
   query,
   orderBy,
   limit,
-  getDocs
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-async function cargarActividad(){
+function formatearFecha(timestamp) {
+  if (!timestamp || !timestamp.toDate) return "";
 
-  try{
-
-    // =========================
-    // RESULTADOS
-    // =========================
-
-    const resultadosQuery = query(
-      collection(db, "resultados_tests"),
-      orderBy("creadoEn", "desc"),
-      limit(1)
-    );
-
-    const resultadosSnap =
-      await getDocs(resultadosQuery);
-
-    resultadosSnap.forEach(doc => {
-
-      const data = doc.data();
-
-      document.getElementById(
-        "actividadResultados"
-      ).textContent =
-        `Nuevo resultado: ${data.test || "Evaluación"}`;
-
-      if(data.creadoEn){
-
-        const fecha =
-          data.creadoEn.toDate();
-
-        document.getElementById(
-          "fechaResultados"
-        ).textContent =
-          fecha.toLocaleString("es-AR");
-      }
-
-    });
-
-    // =========================
-    // POSTULACIONES
-    // =========================
-
-    const postulacionesQuery = query(
-      collection(db, "postulaciones"),
-      orderBy("creadoEn", "desc"),
-      limit(1)
-    );
-
-    const postulacionesSnap =
-      await getDocs(postulacionesQuery);
-
-    postulacionesSnap.forEach(doc => {
-
-      const data = doc.data();
-
-      document.getElementById(
-        "actividadPostulaciones"
-      ).textContent =
-        `Nueva postulación: ${data.nombre || "Profesional"}`;
-
-      if(data.creadoEn){
-
-        const fecha =
-          data.creadoEn.toDate();
-
-        document.getElementById(
-          "fechaPostulaciones"
-        ).textContent =
-          fecha.toLocaleString("es-AR");
-      }
-
-    });
-
-    // =========================
-    // MESA ENTRADA
-    // =========================
-
-    const mesaQuery = query(
-      collection(db, "mesa_entrada"),
-      orderBy("creadoEn", "desc"),
-      limit(1)
-    );
-
-    const mesaSnap =
-      await getDocs(mesaQuery);
-
-    mesaSnap.forEach(doc => {
-
-      const data = doc.data();
-
-      document.getElementById(
-        "actividadMesa"
-      ).textContent =
-        `Nueva presentación: ${data.nombre || "Ingreso institucional"}`;
-
-      if(data.creadoEn){
-
-        const fecha =
-          data.creadoEn.toDate();
-
-        document.getElementById(
-          "fechaMesa"
-        ).textContent =
-          fecha.toLocaleString("es-AR");
-      }
-
-    });
-
-  }catch(error){
-
-    console.error(
-      "Error actividad:",
-      error
-    );
-
-  }
-
+  return timestamp.toDate().toLocaleString("es-AR", {
+    dateStyle: "short",
+    timeStyle: "short"
+  });
 }
 
-cargarActividad();
+function setTexto(id, texto) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = texto;
+}
+
+const qResultados = query(
+  collection(db, "resultados_tests"),
+  orderBy("creadoEn", "desc"),
+  limit(1)
+);
+
+onSnapshot(qResultados, (snapshot) => {
+  if (snapshot.empty) {
+    setTexto("actividadResultados", "Sin evaluaciones registradas.");
+    setTexto("fechaResultados", "");
+    return;
+  }
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    setTexto("actividadResultados", `Último resultado: ${data.test || "Evaluación"}`);
+    setTexto("fechaResultados", formatearFecha(data.creadoEn));
+  });
+});
+
+const qPostulaciones = query(
+  collection(db, "postulaciones"),
+  orderBy("creadoEn", "desc"),
+  limit(1)
+);
+
+onSnapshot(qPostulaciones, (snapshot) => {
+  if (snapshot.empty) {
+    setTexto("actividadPostulaciones", "Sin postulaciones registradas.");
+    setTexto("fechaPostulaciones", "");
+    return;
+  }
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    setTexto("actividadPostulaciones", `Última postulación: ${data.nombre || "Profesional"}`);
+    setTexto("fechaPostulaciones", formatearFecha(data.creadoEn));
+  });
+});
+
+const qMesa = query(
+  collection(db, "mesa_entrada"),
+  orderBy("creadoEn", "desc"),
+  limit(1)
+);
+
+onSnapshot(qMesa, (snapshot) => {
+  if (snapshot.empty) {
+    setTexto("actividadMesa", "Sin presentaciones registradas.");
+    setTexto("fechaMesa", "");
+    return;
+  }
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    setTexto("actividadMesa", `Última presentación: ${data.nombre || "Ingreso institucional"}`);
+    setTexto("fechaMesa", formatearFecha(data.creadoEn));
+  });
+});
