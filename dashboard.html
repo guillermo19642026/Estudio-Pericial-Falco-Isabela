@@ -164,12 +164,19 @@
   <button id="btnPostulaciones" class="tests-card dashboard-module" onclick="ir('panel-postulaciones.html')" style="display:none;">
     <span>👥 Postulaciones</span>
     <small>Antecedentes profesionales recibidos.</small>
+
+    <em id="badgePostulacionesPendientes" class="dashboard-badge">0 pendientes</em>
+
     <b>Gestionar →</b>
   </button>
 
   <button id="btnMesaEntrada" class="tests-card dashboard-module" onclick="ir('panel-mesa-entrada.html')" style="display:none;">
     <span>🏛️ Mesa de Entrada</span>
     <small>Consultas, escritos y documentación recibida.</small>
+
+    <em id="badgeMesaPendientes" class="dashboard-badge">0 pendientes</em>
+
+
     <b>Revisar →</b>
   </button>
 
@@ -282,11 +289,10 @@
 
 
 
-
+<script type="module" src="dashboard-metricas.js"></script>
 <script type="module" src="dashboard-actividad.js"></script>
-
-
 <script type="module" src="auth.js"></script>
+
 
 <script>
 
