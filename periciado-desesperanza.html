@@ -32,6 +32,17 @@
 <input id="dni" type="text" inputmode="numeric" required>
 </div>
 
+
+<div>
+<label>Foto del DNI</label>
+
+<input
+  id="fotoDni"
+  type="file"
+  accept="image/*,.pdf"
+  required>
+</div>
+
 <div>
 <label>Edad</label>
 <input id="edad" type="number" required>
@@ -141,6 +152,7 @@ Los resultados no se muestran en este acceso.
 <script src="script-desesperanza.js"></script>
 
 <script>
+
 function enviarEvaluacionPericiado() {
 
 const campos = [
@@ -167,18 +179,41 @@ return;
 }
 }
 
+const fotoDni =
+document.getElementById("fotoDni");
+
+if (!fotoDni || !fotoDni.files.length) {
+
+alert("Debe adjuntar foto del DNI.");
+
+fotoDni?.focus();
+
+return;
+}
+
 const totalCargadasTexto =
-  document.getElementById("estadoCarga")?.textContent || "";
+document.getElementById("estadoCarga")?.textContent || "";
 
 if (!totalCargadasTexto.includes("20/20")) {
-  alert("Debe responder todos los ítems antes de enviar la evaluación.");
-  return;
+
+alert("Debe responder todos los ítems.");
+
+return;
 }
 
-document.getElementById(
-"mensajeFinalPericiado"
-).style.display = "block";
+const mensaje =
+document.getElementById("mensajeFinalPericiado");
+
+if (mensaje) {
+
+mensaje.style.display = "block";
+
+mensaje.scrollIntoView({
+behavior: "smooth"
+});
 }
+}
+
 </script>
 
 </body>

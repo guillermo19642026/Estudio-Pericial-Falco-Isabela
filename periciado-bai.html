@@ -33,6 +33,17 @@
 </div>
 
 <div>
+<label>Foto del DNI</label>
+
+<input
+  id="fotoDni"
+  type="file"
+  accept="image/*,.pdf"
+  required>
+</div>
+
+
+<div>
 <label>Edad</label>
 <input id="edad" type="number" required>
 </div>
@@ -166,6 +177,18 @@ campo?.focus();
 
 return;
 }
+}
+
+const fotoDni =
+document.getElementById("fotoDni");
+
+if (!fotoDni || !fotoDni.files.length) {
+
+alert("Debe adjuntar foto del DNI.");
+
+fotoDni?.focus();
+
+return;
 }
 
 const totalCargadasTexto =

@@ -58,6 +58,17 @@ Los resultados serán remitidos exclusivamente al profesional interviniente.
 <input id="dni" type="text" inputmode="numeric" required>
 </div>
 
+
+<div>
+<label>Foto del DNI</label>
+
+<input
+  id="fotoDni"
+  type="file"
+  accept="image/*,.pdf"
+  required>
+</div>
+
 <div>
 <label>Edad</label>
 <input id="edad" type="number" required>
@@ -200,14 +211,11 @@ const campos = [
 
 for (const id of campos) {
 
-const campo =
-document.getElementById(id);
+const campo = document.getElementById(id);
 
 if (!campo || !campo.value.trim()) {
 
-alert(
-"Debe completar todos los datos personales antes de enviar."
-);
+alert("Debe completar todos los datos personales.");
 
 campo?.focus();
 
@@ -215,33 +223,41 @@ return;
 }
 }
 
+const fotoDni =
+document.getElementById("fotoDni");
+
+if (!fotoDni || !fotoDni.files.length) {
+
+alert("Debe adjuntar foto del DNI.");
+
+fotoDni?.focus();
+
+return;
+}
+
 const tipoTest =
-  document.getElementById("tipoTest")?.value || "90";
+document.getElementById("tipoTest")?.value || "90";
 
 const totalEsperado =
-  tipoTest === "90" ? 90 :
-  tipoTest === "53" ? 53 :
-  18;
+tipoTest === "90" ? 90 :
+tipoTest === "53" ? 53 :
+18;
 
 const estadoCarga =
-  document.getElementById("estadoCarga")?.textContent || "";
+document.getElementById("estadoCarga")?.textContent || "";
 
 const completado =
-  estadoCarga.includes(`${totalEsperado}/${totalEsperado}`);
+estadoCarga.includes(`${totalEsperado}/${totalEsperado}`);
 
 if (!completado) {
 
-  alert(
-    "Debe responder todos los ítems antes de enviar la evaluación."
-  );
+alert("Debe responder todos los ítems.");
 
-  return;
+return;
 }
 
 const mensaje =
-document.getElementById(
-"mensajeFinalPericiado"
-);
+document.getElementById("mensajeFinalPericiado");
 
 if (mensaje) {
 
