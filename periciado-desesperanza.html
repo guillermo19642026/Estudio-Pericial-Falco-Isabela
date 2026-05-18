@@ -159,14 +159,12 @@ return;
 }
 }
 
-const faltantes =
-document.getElementById("estadoFaltantes")?.textContent || "";
+const totalCargadasTexto =
+  document.getElementById("estadoCarga")?.textContent || "";
 
-if (!faltantes.includes("0")) {
-
-alert("Debe responder todos los ítems.");
-
-return;
+if (!totalCargadasTexto.includes("20/20")) {
+  alert("Debe responder todos los ítems antes de enviar la evaluación.");
+  return;
 }
 
 document.getElementById(
