@@ -59,11 +59,13 @@ window.login = async function () {
       }, { merge: true });
     }
 
-    if (rol === "admin") {
-      window.location.href = "dashboard.html";
-    } else {
-      window.location.href = "dashboard-periciado.html";
-    }
+   if (rol === "admin") {
+  window.location.href = "dashboard.html";
+} else if (rol === "perito") {
+  window.location.href = "dashboard-perito.html";
+} else {
+  window.location.href = "dashboard-periciado.html";
+}
 
   } catch (error) {
     console.error(error);
@@ -101,7 +103,9 @@ onAuthStateChanged(auth, async (user) => {
   const rol = dataUsuario.rol || (user.email === ADMIN_EMAIL ? "admin" : "periciado");
 
   const esAdmin = rol === "admin";
-  const esPericiado = rol === "periciado";
+const esPerito = rol === "perito";
+const esPericiado = rol === "periciado";
+const tieneAccesoPanel = esAdmin || esPerito;
 
   const paginasAdmin = [
     "dashboard.html",
@@ -125,23 +129,32 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
-  // 🔒 Admin no necesita dashboard periciado
-  if (esAdmin && pagina.includes("dashboard-periciado.html")) {
+  // 🔒 Admin y perito no usan dashboard periciado
+if (
+  (esAdmin || esPerito) &&
+  pagina.includes("dashboard-periciado.html")
+) {
+
+  if (esAdmin) {
     window.location.href = "dashboard.html";
-    return;
+  } else {
+    window.location.href = "dashboard-perito.html";
   }
+
+  return;
+}
 
   // 👁️ Mostrar / ocultar botones admin
   const botonesAdmin = document.querySelectorAll(".admin-only");
 
   botonesAdmin.forEach(boton => {
-    boton.style.display = esAdmin ? "flex" : "none";
+    boton.style.display = tieneAccesoPanel ? "flex" : "none";
   });
 
   const dashboardMetricas = document.getElementById("dashboardMetricas");
 
   if (dashboardMetricas) {
-    dashboardMetricas.style.display = esAdmin ? "grid" : "none";
+    dashboardMetricas.style.display = tieneAccesoPanel ? "grid" : "none";
   }
 
   // 🧠 Si periciado entra a un test sin modo=periciado, lo corregimos
