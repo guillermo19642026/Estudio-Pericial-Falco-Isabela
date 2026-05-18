@@ -2693,3 +2693,28 @@ margin:38px auto;
 
   color:#d5d5d5;
 }
+
+
+
+
+.mensaje-final-periciado {
+  border-left: 4px solid #c9a86a;
+}
+
+.btn-enviar-evaluacion {
+  background: #c9a86a;
+  color: #111;
+  font-weight: 700;
+}
+
+
+
+
+.card table,
+.card table td,
+.card .score,
+#interpretacionClinica,
+.interpretacion-box {
+  color: #1a1a1a !important;
+}
+

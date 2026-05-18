@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventario de Depresión de Beck</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header>
+  <h1>Inventario de Depresión de Beck</h1>
+  <p>Evaluación psicológica de acceso reservado.</p>
+</header>
+
+<main>
+
+<section class="card">
+
+<h2>Datos del evaluado</h2>
+
+<div class="patient-grid">
+
+<div>
+<label>Nombre y apellido</label>
+<input id="nombre" type="text" required>
+</div>
+
+<div>
+<label>DNI</label>
+<input id="dni" type="text" inputmode="numeric" required>
+</div>
+
+<div>
+<label>Edad</label>
+<input id="edad" type="number" required>
+</div>
+
+<div>
+<label>Sexo</label>
+
+<select id="sexo" required>
+<option value="">Seleccionar</option>
+<option>Femenino</option>
+<option>Masculino</option>
+<option>Otro / No consigna</option>
+</select>
+</div>
+
+<div>
+<label>Estado civil</label>
+<input id="estadoCivil" type="text" required>
+</div>
+
+<div>
+<label>Domicilio</label>
+<input id="direccion" type="text" required>
+</div>
+
+<div>
+<label>Fecha</label>
+<input id="fecha" type="date" required>
+</div>
+
+</div>
+
+<div style="margin-top:10px">
+<label>Observaciones</label>
+<textarea id="observaciones"></textarea>
+</div>
+
+<div class="toolbar no-print">
+<button class="secondary" onclick="limpiarFormulario()">
+Limpiar respuestas
+</button>
+</div>
+
+<div class="status">
+<span id="estadoCarga" class="pill warn">Respuestas cargadas: 0/21</span>
+<span id="estadoFaltantes" class="pill bad">Faltan 21</span>
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Carga de respuestas</h2>
+
+<p class="note">
+Seleccione una opción por cada grupo.
+</p>
+
+<div id="items" class="items"></div>
+
+<div style="margin-top:22px">
+
+<button onclick="enviarEvaluacionPericiado()">
+Enviar evaluación
+</button>
+
+</div>
+
+</section>
+
+<div style="display:none">
+<span id="puntajeTotal">0</span>
+<span id="nivel">—</span>
+<span id="cargadasTabla">0/21</span>
+<div id="interpretacionClinica"></div>
+<section id="informeClinico"></section>
+</div>
+
+<section id="mensajeFinalPericiado" class="card" style="display:none;">
+
+<h2>Evaluación enviada correctamente</h2>
+
+<p>
+Las respuestas fueron registradas y serán revisadas
+exclusivamente por el profesional interviniente.
+</p>
+
+<p class="note">
+Los resultados no se muestran en este acceso.
+</p>
+
+</section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="resultados-firestore.js"></script>
+<script src="script-bai.js"></script>
+
+<script>
+
+
+function enviarEvaluacionPericiado() {
+
+const campos = [
+"nombre",
+"dni",
+"edad",
+"sexo",
+"estadoCivil",
+"direccion",
+"fecha"
+];
+
+for (const id of campos) {
+
+const campo = document.getElementById(id);
+
+if (!campo || !campo.value.trim()) {
+
+alert("Debe completar todos los datos personales.");
+
+campo?.focus();
+
+return;
+}
+}
+
+const faltantes =
+document.getElementById("estadoFaltantes")?.textContent || "";
+
+if (!faltantes.includes("0")) {
+
+alert("Debe responder todos los ítems.");
+
+return;
+}
+
+document.getElementById(
+"mensajeFinalPericiado"
+).style.display = "block";
+}
+</script>
+
+</body>
+</html>

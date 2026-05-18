@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="tests-home">
+
 <header>
     <h1>SCL-90-R | Carga de respuestas y resultados</h1>
   
@@ -51,40 +52,55 @@
 
 
 <main>
+
   <section class="card">
+
     <h2>Datos del paciente</h2>
 
     <div class="patient-grid">
-      <div>
-        <label>Nombre y apellido</label>
-        <input id="nombre">
-      </div>
 
-      <div>
-        <label>Edad</label>
-        <input id="edad" type="number">
-      </div>
+  <div>
+    <label>Nombre y apellido</label>
+    <input id="nombre" type="text" required>
+  </div>
 
-      <div>
-        <label>Sexo</label>
-        <select id="sexo">
-          <option value="">Seleccionar</option>
-          <option>Femenino</option>
-          <option>Masculino</option>
-          <option>Otro / No consigna</option>
-        </select>
-      </div>
+  <div>
+    <label>DNI</label>
+    <input id="dni" type="text" inputmode="numeric" required>
+  </div>
 
-      <div>
-        <label>Fecha</label>
-        <input id="fecha" type="date">
-      </div>
-    </div>
+  <div>
+    <label>Edad</label>
+    <input id="edad" type="number" required>
+  </div>
 
-    <div style="margin-top:10px">
-      <label>Observaciones</label>
-      <textarea id="observaciones"></textarea>
-    </div>
+  <div>
+    <label>Sexo</label>
+
+    <select id="sexo" required>
+      <option value="">Seleccionar</option>
+      <option>Femenino</option>
+      <option>Masculino</option>
+      <option>Otro / No consigna</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Estado civil</label>
+    <input id="estadoCivil" type="text" required>
+  </div>
+
+  <div>
+    <label>Domicilio</label>
+    <input id="direccion" type="text" required>
+  </div>
+
+  <div>
+    <label>Fecha</label>
+    <input id="fecha" type="date" required>
+  </div>
+
+</div>
 
     <div class="toolbar">
       <button onclick="window.print()">Imprimir / guardar PDF</button>
@@ -174,6 +190,7 @@
 <script src="pdf-informe.js"></script>
 
 <script src="script-scl.js"></script>
+
 
 
 </body>

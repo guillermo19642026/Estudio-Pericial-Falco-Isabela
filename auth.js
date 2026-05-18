@@ -17,7 +17,7 @@ const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
 
 // ===== LOGIN =====
 // Admin: sin límite
-// Usuarios comunes: un solo uso
+// Periciados: un solo uso
 window.login = async function () {
   const email = document.getElementById("email")?.value.trim();
   const password = document.getElementById("password")?.value;
@@ -37,26 +37,33 @@ window.login = async function () {
     const ref = doc(db, "usuarios", user.uid);
     const snap = await getDoc(ref);
 
-    // 🔐 ADMIN SIN LÍMITE
-    if (user.email !== ADMIN_EMAIL) {
+    const dataUsuario = snap.exists() ? snap.data() : {};
+    const rol = dataUsuario.rol || (user.email === ADMIN_EMAIL ? "admin" : "periciado");
 
-      // 🔥 BLOQUEO DE USO ÚNICO PARA USUARIOS COMUNES
-      if (snap.exists() && snap.data().usado === true) {
+    // 🔐 ADMIN SIN LÍMITE
+    if (rol !== "admin") {
+
+      // 🔥 BLOQUEO DE USO ÚNICO PARA PERICIADOS
+      if (snap.exists() && dataUsuario.usado === true) {
         if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
         await signOut(auth);
         return;
       }
 
-      // ✔ MARCAR COMO USADO SOLO USUARIOS COMUNES
+      // ✔ MARCAR COMO USADO SOLO PERICIADOS
       await setDoc(ref, {
         email: user.email,
+        rol: rol,
         usado: true,
         fechaUso: new Date().toISOString()
       }, { merge: true });
-
     }
 
-    window.location.href = "dashboard.html";
+    if (rol === "admin") {
+      window.location.href = "dashboard.html";
+    } else {
+      window.location.href = "dashboard-periciado.html";
+    }
 
   } catch (error) {
     console.error(error);
@@ -72,86 +79,84 @@ window.logout = async function () {
   window.location.href = "login.html";
 };
 
-// ===== PROTEGER PÁGINAS + CONTROL ADMIN =====
-onAuthStateChanged(auth, (user) => {
+// ===== PROTEGER PÁGINAS + CONTROL DE ROLES =====
+onAuthStateChanged(auth, async (user) => {
   const pagina = window.location.pathname.toLowerCase();
 
   const esLogin =
     pagina.includes("login.html") ||
     pagina.endsWith("/");
 
-  const esAdminPanel = pagina.includes("admin-resultados.html");
-
-  // 🔒 SI NO ESTÁ LOGUEADO → LOGIN
   if (!user && !esLogin) {
     window.location.href = "login.html";
     return;
   }
 
-  // 🔒 SI NO ES ADMIN → BLOQUEAR PANEL
-  if (user && esAdminPanel && user.email !== ADMIN_EMAIL) {
-    alert("No tenés permisos para acceder a esta sección.");
+  if (!user) return;
+
+  const ref = doc(db, "usuarios", user.uid);
+  const snap = await getDoc(ref);
+
+  const dataUsuario = snap.exists() ? snap.data() : {};
+  const rol = dataUsuario.rol || (user.email === ADMIN_EMAIL ? "admin" : "periciado");
+
+  const esAdmin = rol === "admin";
+  const esPericiado = rol === "periciado";
+
+  const paginasAdmin = [
+    "dashboard.html",
+    "admin-resultados.html",
+    "panel-postulaciones.html",
+    "panel-mesa-entrada.html",
+    "archivo-pericial.html"
+  ];
+
+  const paginasPericiado = [
+    "dashboard-periciado.html",
+    "scl90.html",
+    "bdi.html",
+    "bai.html",
+    "desesperanza.html"
+  ];
+
+  // 🔒 Periciado no puede entrar a paneles admin
+  if (esPericiado && paginasAdmin.some(p => pagina.includes(p))) {
+    window.location.href = "dashboard-periciado.html";
+    return;
+  }
+
+  // 🔒 Admin no necesita dashboard periciado
+  if (esAdmin && pagina.includes("dashboard-periciado.html")) {
     window.location.href = "dashboard.html";
     return;
   }
 
-  // 👁️ MOSTRAR / OCULTAR BOTONES ADMIN
-const btnResultados = document.getElementById("btnResultados");
-const btnPostulaciones = document.getElementById("btnPostulaciones");
-const btnMesaEntrada = document.getElementById("btnMesaEntrada");
-const btnArchivoPericial = document.getElementById("btnArchivoPericial");
-const dashboardMetricas = document.getElementById("dashboardMetricas");
+  // 👁️ Mostrar / ocultar botones admin
+  const botonesAdmin = document.querySelectorAll(".admin-only");
 
-if (user && user.email === ADMIN_EMAIL) {
+  botonesAdmin.forEach(boton => {
+    boton.style.display = esAdmin ? "flex" : "none";
+  });
 
-  if (btnResultados) {
-    btnResultados.style.display = "flex";
-  }
-
-  if (btnPostulaciones) {
-    btnPostulaciones.style.display = "flex";
-  }
-
-  if (btnMesaEntrada) {
-  btnMesaEntrada.style.display = "flex";
-  }
-
+  const dashboardMetricas = document.getElementById("dashboardMetricas");
 
   if (dashboardMetricas) {
-  dashboardMetricas.style.display = "grid";
-}
-
-if (btnArchivoPericial) {
-  btnArchivoPericial.style.display = "flex";
-}
-
-
-
-} else {
-
-  if (btnResultados) {
-    btnResultados.style.display = "none";
+    dashboardMetricas.style.display = esAdmin ? "grid" : "none";
   }
 
-  if (btnPostulaciones) {
-    btnPostulaciones.style.display = "none";
+  // 🧠 Si periciado entra a un test sin modo=periciado, lo corregimos
+  const estaEnTest =
+    pagina.includes("scl90.html") ||
+    pagina.includes("bdi.html") ||
+    pagina.includes("bai.html") ||
+    pagina.includes("desesperanza.html");
+
+  if (esPericiado && estaEnTest) {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("modo") !== "periciado") {
+  window.location.replace(window.location.pathname + "?modo=periciado");
+  return;
+}
   }
-
-  if (btnMesaEntrada) {
-  btnMesaEntrada.style.display = "none";
-  }
-
-
-  if (dashboardMetricas) {
-  dashboardMetricas.style.display = "none";
-}
-
-
-if (btnArchivoPericial) {
-  btnArchivoPericial.style.display = "none";
-}
-
-
-
-}
 });

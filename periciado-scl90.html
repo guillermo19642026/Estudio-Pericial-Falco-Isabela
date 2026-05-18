@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SCL-90-R | Evaluación Psicológica</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="tests-home">
+
+<header>
+
+<h1>SCL-90-R</h1>
+
+<p>
+Evaluación psicológica de acceso reservado.
+</p>
+
+<p style="margin-top:10px; font-size:13px; opacity:.9; max-width:900px;">
+Complete todos los datos personales y responda cada ítem.
+Los resultados serán remitidos exclusivamente al profesional interviniente.
+</p>
+
+</header>
+
+<div class="card">
+
+<h2>Tipo de evaluación</h2>
+
+<select id="tipoTest" onchange="cambiarTest()">
+<option value="90">SCL-90-R (90 ítems)</option>
+<option value="53">BSI (53 ítems)</option>
+<option value="18">BSI-18 (18 ítems)</option>
+</select>
+
+</div>
+
+<main>
+
+<section class="card">
+
+<h2>Datos del evaluado</h2>
+
+<div class="patient-grid">
+
+<div>
+<label>Nombre y apellido</label>
+<input id="nombre" type="text" required>
+</div>
+
+<div>
+<label>DNI</label>
+<input id="dni" type="text" inputmode="numeric" required>
+</div>
+
+<div>
+<label>Edad</label>
+<input id="edad" type="number" required>
+</div>
+
+<div>
+<label>Sexo</label>
+
+<select id="sexo" required>
+<option value="">Seleccionar</option>
+<option>Femenino</option>
+<option>Masculino</option>
+<option>Otro / No consigna</option>
+</select>
+
+</div>
+
+<div>
+<label>Estado civil</label>
+<input id="estadoCivil" type="text" required>
+</div>
+
+<div>
+<label>Domicilio</label>
+<input id="direccion" type="text" required>
+</div>
+
+<div>
+<label>Fecha</label>
+<input id="fecha" type="date" required>
+</div>
+
+</div>
+
+<div class="toolbar">
+
+<button class="secondary" onclick="limpiarFormulario()">
+Limpiar respuestas
+</button>
+
+</div>
+
+<div class="status">
+
+<span id="estadoCarga" class="pill warn">
+Respuestas cargadas: 0/90
+</span>
+
+<span id="estadoFaltantes" class="pill bad">
+Faltan 90
+</span>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Carga de respuestas</h2>
+
+<p class="note">
+0 = Nada | 1 = Muy poco | 2 = Poco | 3 = Bastante | 4 = Mucho
+</p>
+
+<div id="items" class="items"></div>
+
+<div style="margin-top:22px">
+
+<button onclick="enviarEvaluacionPericiado()">
+Enviar evaluación
+</button>
+
+</div>
+
+</section>
+
+<!-- CAMPOS TÉCNICOS OCULTOS -->
+<div style="display:none">
+
+<span id="gsi">0</span>
+<span id="pst">0</span>
+<span id="psdi">0</span>
+<span id="total">0</span>
+
+<div id="tablaResultados"></div>
+
+<div id="interpretacionClinica"></div>
+
+<section id="informeClinico"></section>
+
+</div>
+
+<section
+id="mensajeFinalPericiado"
+class="card"
+style="display:none;">
+
+<h2>Evaluación enviada correctamente</h2>
+
+<p>
+Las respuestas fueron registradas y serán revisadas
+exclusivamente por el profesional interviniente.
+</p>
+
+<p class="note">
+Los resultados no se muestran en este acceso.
+</p>
+
+</section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+
+<script type="module" src="resultados-firestore.js"></script>
+
+<script src="script-scl.js"></script>
+
+<script>
+
+function enviarEvaluacionPericiado() {
+
+const campos = [
+"nombre",
+"dni",
+"edad",
+"sexo",
+"estadoCivil",
+"direccion",
+"fecha"
+];
+
+for (const id of campos) {
+
+const campo =
+document.getElementById(id);
+
+if (!campo || !campo.value.trim()) {
+
+alert(
+"Debe completar todos los datos personales antes de enviar."
+);
+
+campo?.focus();
+
+return;
+}
+}
+
+const faltantes =
+document.getElementById("estadoFaltantes")
+?.textContent || "";
+
+if (!faltantes.includes("0")) {
+
+alert(
+"Debe responder todos los ítems antes de enviar la evaluación."
+);
+
+return;
+}
+
+const mensaje =
+document.getElementById(
+"mensajeFinalPericiado"
+);
+
+if (mensaje) {
+
+mensaje.style.display = "block";
+
+mensaje.scrollIntoView({
+behavior: "smooth"
+});
+}
+}
+
+</script>
+
+</body>
+</html>
