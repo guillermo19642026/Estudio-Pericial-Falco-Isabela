@@ -207,17 +207,27 @@ return;
 }
 }
 
-const faltantes =
-document.getElementById("estadoFaltantes")
-?.textContent || "";
+const tipoTest =
+  document.getElementById("tipoTest")?.value || "90";
 
-if (!faltantes.includes("0")) {
+const totalEsperado =
+  tipoTest === "90" ? 90 :
+  tipoTest === "53" ? 53 :
+  18;
 
-alert(
-"Debe responder todos los ítems antes de enviar la evaluación."
-);
+const estadoCarga =
+  document.getElementById("estadoCarga")?.textContent || "";
 
-return;
+const completado =
+  estadoCarga.includes(`${totalEsperado}/${totalEsperado}`);
+
+if (!completado) {
+
+  alert(
+    "Debe responder todos los ítems antes de enviar la evaluación."
+  );
+
+  return;
 }
 
 const mensaje =
