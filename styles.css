@@ -2718,3 +2718,12 @@ margin:38px auto;
   color: #1a1a1a !important;
 }
 
+
+
+
+#mensajeFinalPericiado,
+#mensajeFinalPericiado h2,
+#mensajeFinalPericiado p,
+#mensajeFinalPericiado .note {
+  color: #1a1a1a !important;
+}

@@ -165,36 +165,75 @@
 
 <main class="tests-main admin-modulos">
 
-  <button id="btnResultados" class="tests-card dashboard-module" onclick="ir('admin-resultados.html')" style="display:none;">
-    <span>📋 Resultados</span>
-    <small>Evaluaciones guardadas y detalles clínicos.</small>
-    <b>Ver panel →</b>
-  </button>
+  <button
+id="btnResultados"
+class="tests-card dashboard-module admin-only"
+onclick="ir('admin-resultados.html')">
 
-  <button id="btnPostulaciones" class="tests-card dashboard-module" onclick="ir('panel-postulaciones.html')" style="display:none;">
-    <span>👥 Postulaciones</span>
-    <small>Antecedentes profesionales recibidos.</small>
+<span>📋 Resultados</span>
 
-    <em id="badgePostulacionesPendientes" class="dashboard-badge">0 pendientes</em>
+<small>
+Evaluaciones guardadas y detalles clínicos.
+</small>
 
-    <b>Gestionar →</b>
-  </button>
+<b>Ver panel →</b>
 
-  <button id="btnMesaEntrada" class="tests-card dashboard-module" onclick="ir('panel-mesa-entrada.html')" style="display:none;">
-    <span>🏛️ Mesa de Entrada</span>
-    <small>Consultas, escritos y documentación recibida.</small>
+</button>
 
-    <em id="badgeMesaPendientes" class="dashboard-badge">0 pendientes</em>
+  <button
+id="btnPostulaciones"
+class="tests-card dashboard-module admin-only"
+onclick="ir('panel-postulaciones.html')">
+
+<span>👥 Postulaciones</span>
+
+<small>
+Antecedentes profesionales recibidos.
+</small>
+
+<em id="badgePostulacionesPendientes"
+class="dashboard-badge">
+0 pendientes
+</em>
+
+<b>Gestionar →</b>
+
+</button>
+
+  <button
+id="btnMesaEntrada"
+class="tests-card dashboard-module admin-only"
+onclick="ir('panel-mesa-entrada.html')">
+
+<span>🏛️ Mesa de Entrada</span>
+
+<small>
+Consultas, escritos y documentación recibida.
+</small>
+
+<em id="badgeMesaPendientes"
+class="dashboard-badge">
+0 pendientes
+</em>
+
+<b>Revisar →</b>
+
+</button>
 
 
-    <b>Revisar →</b>
-  </button>
+ <button
+id="btnArchivoPericial"
+class="tests-card dashboard-module admin-only"
+onclick="ir('archivo-pericial.html')">
 
+<span>📚 Archivo Pericial</span>
 
-  <button id="btnArchivoPericial" class="tests-card dashboard-module" onclick="ir('archivo-pericial.html')" style="display:none;">
-  <span>📚 Archivo Pericial</span>
-  <small>Escritos, modelos, causas y material técnico privado.</small>
-  <b>Gestionar archivo →</b>
+<small>
+Escritos, modelos, causas y material técnico privado.
+</small>
+
+<b>Gestionar archivo →</b>
+
 </button>
 
 </main>
