@@ -159,19 +159,26 @@ return;
 }
 }
 
-const faltantes =
-document.getElementById("estadoFaltantes")?.textContent || "";
+const totalCargadasTexto =
+  document.getElementById("estadoCarga")?.textContent || "";
 
-if (!faltantes.includes("0")) {
+if (!totalCargadasTexto.includes("21/21")) {
 
-alert("Debe responder todos los ítems.");
+  alert("Debe responder todos los ítems.");
 
-return;
+  return;
 }
 
-document.getElementById(
-"mensajeFinalPericiado"
-).style.display = "block";
+const mensaje =
+  document.getElementById("mensajeFinalPericiado");
+
+if (mensaje) {
+  mensaje.style.display = "block";
+  mensaje.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
 }
 </script>
 
