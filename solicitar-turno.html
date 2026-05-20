@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitud de Turno</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header>
+  <h1>Solicitud de turno</h1>
+
+  <p>
+    Solicitud de entrevista psicológica pericial.
+  </p>
+</header>
+
+<main>
+
+  <section class="card">
+
+    <h2>Datos del solicitante</h2>
+
+    <div class="patient-grid">
+
+      <div>
+        <label>Nombre y apellido</label>
+        <input id="nombreTurno" type="text">
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input id="emailTurno" type="email">
+      </div>
+
+      <div>
+        <label>Teléfono</label>
+        <input id="telefonoTurno" type="text">
+      </div>
+
+      <div>
+        <label>Fecha solicitada</label>
+        <input id="fechaTurno" type="date">
+      </div>
+
+      <div>
+        <label>Horario</label>
+
+        <select id="horaTurno">
+          <option value="">Seleccionar</option>
+          <option value="14:00">14:00 hs</option>
+          <option value="15:00">15:00 hs</option>
+          <option value="16:00">16:00 hs</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Modalidad</label>
+
+        <select id="modalidadTurno">
+          <option value="">Seleccionar</option>
+          <option>Virtual</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Motivo de la entrevista</label>
+
+        <input
+          id="motivoTurno"
+          type="text"
+          placeholder="Ej: entrevista pericial, orientación, evaluación, etc.">
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="card pago-turno-box">
+
+    <h2>Datos para confirmar el pago</h2>
+
+    <p class="note">
+      El turno será confirmado únicamente una vez acreditado o informado el pago correspondiente.
+    </p>
+
+    <div class="patient-grid">
+
+      <div>
+        <label>Monto</label>
+
+        <input
+          id="montoTurno"
+          type="text"
+          value="$100.000"
+          readonly>
+      </div>
+
+      <div>
+        <label>Medio de pago</label>
+
+        <select id="medioPagoTurno">
+          <option value="">Seleccionar</option>
+          <option>Transferencia</option>
+          <option>Mercado Pago</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Alias</label>
+
+        <input
+          type="text"
+          value="FUENTE.PUPILA.GRANO"
+          readonly>
+      </div>
+
+      <div>
+        <label>CBU</label>
+
+        <input
+          type="text"
+          value="0140043403512952341827"
+          readonly>
+      </div>
+
+    </div>
+
+    <div class="aviso-pago">
+
+      <strong>Envío de comprobante</strong>
+
+      <p>
+        Para confirmar el turno, el comprobante de pago deberá enviarse por WhatsApp al
+        <strong>11 3204-9521</strong>
+        o por email a
+        <strong>estudiopericialpsicologico@gmail.com</strong>.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <button onclick="solicitarTurno()">
+      Solicitar turno
+    </button>
+
+    <p id="estadoTurno" class="post-estado"></p>
+
+  </section>
+
+</main>
+
+<script type="module" src="solicitar-turno.js"></script>
+
+</body>
+</html>

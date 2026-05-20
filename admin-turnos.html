@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de Turnos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header class="admin-header">
+  <h1>Gestión de Turnos</h1>
+
+  <div>
+    <button onclick="window.location.href='dashboard.html'">Volver</button>
+    <button class="logout" onclick="logout()">Cerrar sesión</button>
+  </div>
+</header>
+
+<main class="admin-panel">
+
+  <section class="card">
+    <h2>Crear nuevo turno</h2>
+
+
+
+    <div class="patient-grid">
+
+      <div>
+        <label>Nombre y apellido</label>
+        <input id="nombreTurno" type="text">
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input id="emailTurno" type="email">
+      </div>
+
+      <div>
+        <label>Teléfono</label>
+        <input id="telefonoTurno" type="text">
+      </div>
+
+      <div>
+        <label>Fecha</label>
+        <input id="fechaTurno" type="date">
+      </div>
+
+      <div>
+  <label>Hora</label>
+
+  <select id="horaTurno">
+    <option value="">Seleccionar</option>
+    <option value="14:00">14:00 hs</option>
+    <option value="15:00">15:00 hs</option>
+    <option value="16:00">16:00 hs</option>
+  </select>
+</div>
+
+      <div>
+        <label>Modalidad</label>
+        <select id="modalidadTurno">
+          <option value="">Seleccionar</option>
+          <option>Virtual</option>
+        </select>
+      </div>
+
+
+<div>
+  <label>Motivo de la entrevista</label>
+
+  <input
+    id="motivoTurno"
+    type="text"
+    placeholder="Ej: entrevista pericial, orientación, evaluación, etc.">
+</div>
+
+
+
+
+
+
+</div>
+
+<div class="pago-turno-box">
+
+  <h3>Datos para confirmar el pago</h3>
+
+  <p class="note">
+    El turno queda confirmado únicamente una vez acreditado o informado el pago correspondiente.
+  </p>
+
+  <div class="patient-grid">
+
+    <div>
+      <label>Monto</label>
+      <input id="montoTurno" type="text" value="$100.000" readonly>
+    </div>
+
+    <div>
+      <label>Medio de pago</label>
+      <select id="medioPagoTurno">
+        <option value="">Seleccionar</option>
+        <option>Transferencia</option>
+        <option>Mercado Pago</option>
+        <option>Efectivo</option>
+        <option>Otro</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Alias</label>
+      <input id="aliasTurno" type="text" value="FUENTE.PUPILA.GRANO" readonly>
+    </div>
+
+    <div>
+      <label>CBU</label>
+      <input id="cbuTurno" type="text" value="0140043403512952341827" readonly>
+    </div>
+
+  </div>
+
+  <div class="aviso-pago">
+    <strong>Envío de comprobante</strong>
+    <p>
+      Para confirmar el turno, el comprobante de pago deberá enviarse por WhatsApp al
+      <strong>11 3204-9521</strong>
+      o por email a
+      <strong>estudiopericialpsicologico@gmail.com</strong>.
+    </p>
+  </div>
+
+</div>
+
+<div class="patient-grid">
+
+
+
+
+      <div>
+        <label>Estado</label>
+        <select id="estadoTurno">
+          <option value="solicitado">Solicitado</option>
+          <option value="pendiente_pago">Pendiente de pago</option>
+          <option value="pago_informado">Pago informado</option>
+          <option value="confirmado">Confirmado</option>
+          <option value="realizado">Realizado</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div style="margin-top:12px">
+      <label>Observaciones</label>
+      <textarea id="observacionesTurno"></textarea>
+    </div>
+
+    <p class="note">
+      El turno queda confirmado únicamente una vez acreditado o informado el pago correspondiente.
+    </p>
+
+    <button onclick="crearTurno()">
+      Guardar turno
+    </button>
+
+    <p id="estadoFormularioTurno" class="post-estado"></p>
+  </section>
+
+  <section class="card">
+    <h2>Turnos registrados</h2>
+
+    <div class="admin-filtros">
+      <input id="buscarTurno" type="text" placeholder="Buscar por nombre, email o teléfono...">
+
+      <select id="filtroEstadoTurno">
+        <option value="">Todos los estados</option>
+        <option value="solicitado">Solicitado</option>
+        <option value="pendiente_pago">Pendiente de pago</option>
+        <option value="pago_informado">Pago informado</option>
+        <option value="confirmado">Confirmado</option>
+        <option value="realizado">Realizado</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+
+      <button onclick="limpiarFiltrosTurnos()">Limpiar filtros</button>
+    </div>
+
+    <div id="estadoListadoTurnos">Cargando turnos...</div>
+
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Modalidad</th>
+            <th>Motivo</th>
+            <th>Monto</th>
+            <th>Pago</th>
+            <th>Estado</th>
+            <th>Observaciones</th>
+            <th>Actualizar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+
+        <tbody id="tablaTurnos"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="admin-turnos.js"></script>
+
+</body>
+</html>

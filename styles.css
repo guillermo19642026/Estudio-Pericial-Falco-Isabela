@@ -2760,3 +2760,31 @@ margin:38px auto;
 #estadoDocumento.error {
   color: #c62828 !important;
 }
+
+
+.pago-turno-box {
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fff8e6;
+  border: 1px solid #e5c978;
+}
+
+.pago-turno-box h3 {
+  margin-top: 0;
+  color: #1f1f1f;
+}
+
+.aviso-pago {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #fff;
+  border-left: 4px solid #c9a86a;
+  color: #1f1f1f;
+}
+
+.aviso-pago p {
+  margin-bottom: 0;
+  color: #1f1f1f;
+}
