@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consentimiento Informado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header>
+  <h1>Consentimiento informado de pericia psicológica</h1>
+  <p>Documento digital de aceptación para evaluación psicológica pericial.</p>
+</header>
+
+<main>
+
+  <section class="card">
+
+    <h2>Datos del evaluado</h2>
+
+    <div class="patient-grid">
+
+      <div>
+        <label>Nombre y apellido</label>
+        <input id="nombre" type="text" required>
+      </div>
+
+      <div>
+        <label>DNI</label>
+        <input id="dni" type="text" inputmode="numeric" required>
+      </div>
+
+      <div>
+        <label>Foto del DNI / link a imagen</label>
+        <input id="fotoDni" type="url" placeholder="Pegue aquí el link a la foto del DNI" required>
+      </div>
+
+      <div>
+        <label>Fecha</label>
+        <input id="fecha" type="date" required>
+      </div>
+
+      <div>
+        <label>Ordenado por</label>
+        <input id="ordenadoPor" type="text" placeholder="Juzgado, causa, profesional o institución" required>
+      </div>
+
+      <div>
+        <label>Firma / aclaración</label>
+        <input id="firma" type="text" required>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>Texto del consentimiento</h2>
+
+    <p>
+      Manifiesto que he sido informado/a por la Lic. Isabela Falco,
+      perito psicóloga, acerca de las características generales,
+      alcances, modalidad, finalidad y condiciones de la pericia psicológica.
+    </p>
+
+    <p>
+      Declaro haber comprendido la información recibida y haber tenido
+      oportunidad de formular las preguntas que consideré necesarias.
+    </p>
+
+    <p>
+      En consecuencia, presto mi consentimiento para la realización de la
+      pericia psicológica en modalidad virtual o presencial, según corresponda,
+      autorizando a la profesional interviniente a llevar adelante las tareas
+      propias de la evaluación psicológica pericial.
+    </p>
+
+    <label class="option">
+      <input id="acepta" type="checkbox">
+      <span>He leído y acepto el consentimiento informado.</span>
+    </label>
+
+  </section>
+
+  <section class="card">
+
+    <button onclick="enviarConsentimiento()">
+      Enviar consentimiento
+    </button>
+
+    <button class="secondary" onclick="window.location.href='dashboard-periciado.html'">
+      Volver
+    </button>
+
+    <p id="estadoDocumento" class="post-estado"></p>
+
+  </section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+
+<script type="module">
+import { guardarDocumentoPericiado } from "./documentos-periciados.js";
+
+const fecha = document.getElementById("fecha");
+
+if (fecha && !fecha.value) {
+  fecha.valueAsDate = new Date();
+}
+
+window.enviarConsentimiento = async function () {
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const dni = document.getElementById("dni").value.trim();
+  const fotoDni = document.getElementById("fotoDni").value.trim();
+  const fechaValor = document.getElementById("fecha").value.trim();
+  const ordenadoPor = document.getElementById("ordenadoPor").value.trim();
+  const firma = document.getElementById("firma").value.trim();
+  const acepta = document.getElementById("acepta").checked;
+  const estado = document.getElementById("estadoDocumento");
+
+  if (!nombre || !dni || !fotoDni || !fechaValor || !ordenadoPor || !firma) {
+    alert("Debe completar todos los campos obligatorios.");
+    return;
+  }
+
+  if (!acepta) {
+    alert("Debe aceptar el consentimiento informado.");
+    return;
+  }
+
+  try {
+    await guardarDocumentoPericiado({
+      tipo: "consentimiento_informado",
+      nombre,
+      dni,
+      fotoDni,
+      fecha: fechaValor,
+      ordenadoPor,
+      firma,
+      aceptado: true
+    });
+
+    estado.textContent = "Consentimiento informado enviado correctamente.";
+    estado.className = "post-estado ok";
+
+  } catch (error) {
+    console.error(error);
+    estado.textContent = "No se pudo enviar el consentimiento. Intentá nuevamente.";
+    estado.className = "post-estado error";
+  }
+};
+</script>
+
+</body>
+</html>

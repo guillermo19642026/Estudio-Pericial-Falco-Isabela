@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentos de Periciados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header class="admin-header">
+  <h1>Documentos de Periciados</h1>
+
+  <div>
+    <button onclick="window.location.href='dashboard.html'">Volver</button>
+    <button class="logout" onclick="logout()">Cerrar sesión</button>
+  </div>
+</header>
+
+<main class="admin-panel">
+
+  <section class="card">
+    <h2>Consentimientos y constancias recibidas</h2>
+
+    <div class="admin-filtros">
+      <input id="buscarDocumento" type="text" placeholder="Buscar por nombre, DNI o tipo...">
+
+      <select id="filtroTipoDocumento">
+        <option value="">Todos los documentos</option>
+        <option value="consentimiento_informado">Consentimiento informado</option>
+        <option value="constancia_tratamiento">Constancia de tratamiento</option>
+      </select>
+
+      <button onclick="limpiarFiltrosDocumentos()">Limpiar filtros</button>
+    </div>
+
+    <div id="estadoDocumentos">Cargando documentos...</div>
+
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha envío</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Firma</th>
+            <th>Foto DNI</th>
+            <th>Datos</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+
+        <tbody id="tablaDocumentos"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="admin-documentos.js"></script>
+
+</body>
+</html>

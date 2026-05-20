@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Constancia de tratamiento</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="tests-home">
+
+<header>
+
+<h1>Constancia de tratamiento</h1>
+
+<p>
+Declaración jurada vinculada a tratamientos psicológicos,
+psiquiátricos y medicación.
+</p>
+
+</header>
+
+<main>
+
+<section class="card">
+
+<h2>Datos del evaluado</h2>
+
+<div class="patient-grid">
+
+<div>
+<label>Nombre y apellido</label>
+<input id="nombre" type="text" required>
+</div>
+
+<div>
+<label>DNI</label>
+<input id="dni" type="text" inputmode="numeric" required>
+</div>
+
+<div>
+<label>Foto del DNI / link</label>
+<input
+id="fotoDni"
+type="url"
+placeholder="Pegue aquí el link a la foto del DNI"
+required>
+</div>
+
+<div>
+<label>Fecha</label>
+<input id="fecha" type="date" required>
+</div>
+
+<div>
+<label>Firma / aclaración</label>
+<input id="firma" type="text" required>
+</div>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>Información clínica declarada</h2>
+
+<div style="margin-bottom:18px">
+
+<label>
+¿Actualmente se encuentra en tratamiento?
+</label>
+
+<select id="enTratamiento" required>
+<option value="">Seleccionar</option>
+<option value="si">Sí</option>
+<option value="no">No</option>
+</select>
+
+</div>
+
+<div style="margin-bottom:18px">
+
+<label>
+Tipo de tratamiento
+</label>
+
+<select id="tipoTratamiento">
+
+<option value="">Seleccionar</option>
+
+<option>Ninguno</option>
+
+<option>Psicológico</option>
+
+<option>Psiquiátrico</option>
+
+<option>Psicológico y psiquiátrico</option>
+
+</select>
+
+
+
+<script>
+
+document
+.getElementById("enTratamiento")
+.addEventListener("change", function () {
+
+const tipo =
+document.getElementById("tipoTratamiento");
+
+if (this.value === "no") {
+
+tipo.value = "Ninguno";
+
+} else if (tipo.value === "Ninguno") {
+
+tipo.value = "";
+}
+});
+
+</script>
+
+
+
+
+
+</div>
+
+<div style="margin-bottom:18px">
+
+<label>
+¿Toma medicación psiquiátrica?
+</label>
+
+<select id="medicacion">
+
+<option value="">Seleccionar</option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div style="margin-bottom:18px">
+
+<label>
+Profesional tratante
+</label>
+
+<input
+id="profesional"
+type="text"
+placeholder="Nombre del profesional o institución">
+</div>
+
+<div style="margin-bottom:18px">
+
+<label>
+Adjuntar constancia profesional (link)
+</label>
+
+<input
+id="constancia"
+type="url"
+placeholder="Link a constancia psicológica o psiquiátrica">
+</div>
+
+<div style="margin-bottom:18px">
+
+<label>
+Observaciones
+</label>
+
+<textarea id="observaciones"></textarea>
+
+</div>
+
+<label class="option">
+
+<input id="declara" type="checkbox">
+
+<span>
+Declaro bajo juramento que la información suministrada es verdadera.
+</span>
+
+</label>
+
+</section>
+
+<section class="card">
+
+<button onclick="enviarConstancia()">
+Enviar constancia
+</button>
+
+<button
+class="secondary"
+onclick="window.location.href='dashboard-periciado.html'">
+
+Volver
+
+</button>
+
+<p id="estadoDocumento" class="post-estado"></p>
+
+</section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+
+<script type="module">
+
+import {
+guardarDocumentoPericiado
+} from "./documentos-periciados.js";
+
+const fecha =
+document.getElementById("fecha");
+
+if (fecha && !fecha.value) {
+fecha.valueAsDate = new Date();
+}
+
+window.enviarConstancia = async function () {
+
+const nombre =
+document.getElementById("nombre").value.trim();
+
+const dni =
+document.getElementById("dni").value.trim();
+
+const fotoDni =
+document.getElementById("fotoDni").value.trim();
+
+const fechaValor =
+document.getElementById("fecha").value.trim();
+
+const firma =
+document.getElementById("firma").value.trim();
+
+const enTratamiento =
+document.getElementById("enTratamiento").value;
+
+const tipoTratamiento =
+document.getElementById("tipoTratamiento").value;
+
+const medicacion =
+document.getElementById("medicacion").value;
+
+const profesional =
+document.getElementById("profesional").value.trim();
+
+const constancia =
+document.getElementById("constancia").value.trim();
+
+const observaciones =
+document.getElementById("observaciones").value.trim();
+
+const declara =
+document.getElementById("declara").checked;
+
+const estado =
+document.getElementById("estadoDocumento");
+
+if (
+!nombre ||
+!dni ||
+!fotoDni ||
+!fechaValor ||
+!firma ||
+!enTratamiento
+) {
+
+alert(
+"Debe completar todos los campos obligatorios."
+);
+
+return;
+}
+
+if (!declara) {
+
+alert(
+"Debe aceptar la declaración jurada."
+);
+
+return;
+}
+
+try {
+
+await guardarDocumentoPericiado({
+
+tipo: "constancia_tratamiento",
+
+nombre,
+dni,
+fotoDni,
+
+fecha: fechaValor,
+
+firma,
+
+enTratamiento,
+tipoTratamiento,
+medicacion,
+profesional,
+constancia,
+observaciones,
+
+declaracionJurada: true
+
+});
+
+estado.textContent =
+"Constancia enviada correctamente.";
+
+estado.className =
+"post-estado ok";
+
+} catch (error) {
+
+console.error(error);
+
+estado.textContent =
+"No se pudo enviar la constancia.";
+
+estado.className =
+"post-estado error";
+}
+};
+
+</script>
+
+</body>
+</html>
