@@ -34,16 +34,24 @@
   <input id="dni" type="text" inputmode="numeric" required>
 </div>
 
+
+
 <div>
-  <label>Foto del DNI</label>
+  <label>Foto del DNI (opcional)</label>
 
   <input
-  id="fotoDni"
-  type="file"
-  accept="image/*"
-  capture="environment"
-  required>
+    id="fotoDni"
+    type="url"
+    placeholder="Pegue aquí el enlace de la foto del DNI">
+
+  <small class="note">
+    Puede subir una foto del DNI a Google Drive,
+    OneDrive o Dropbox y pegar aquí el enlace compartido.
+  </small>
 </div>
+
+
+
 
       <div>
         <label>Fecha</label>
@@ -125,11 +133,8 @@ window.enviarConsentimiento = async function () {
   const nombre = document.getElementById("nombre").value.trim();
   const dni = document.getElementById("dni").value.trim();
   
-  const fotoDniInput =
-document.getElementById("fotoDni");
-
-const fotoDni =
-fotoDniInput?.files?.[0];
+ const fotoDni =
+document.getElementById("fotoDni").value.trim();
 
 
   const fechaValor = document.getElementById("fecha").value.trim();
@@ -138,7 +143,7 @@ fotoDniInput?.files?.[0];
   const acepta = document.getElementById("acepta").checked;
   const estado = document.getElementById("estadoDocumento");
 
-  if (!nombre || !dni || !fotoDni || !fechaValor || !ordenadoPor || !firma) {
+  if (!nombre || !dni || !fechaValor || !ordenadoPor || !firma) {
     alert("Debe completar todos los campos obligatorios.");
     return;
   }
@@ -153,7 +158,7 @@ fotoDniInput?.files?.[0];
       tipo: "consentimiento_informado",
       nombre,
       dni,
-      fotoDniNombre: fotoDni.name,
+      fotoDni,
       fecha: fechaValor,
       ordenadoPor,
       firma,

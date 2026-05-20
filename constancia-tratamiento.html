@@ -43,14 +43,17 @@ psiquiátricos y medicación.
 </div>
 
 <div>
-<label>Foto del DNI</label>
+  <label>Foto del DNI (opcional)</label>
 
-<input
-id="fotoDni"
-type="file"
-accept="image/*"
-capture="environment"
-required>
+  <input
+    id="fotoDni"
+    type="url"
+    placeholder="Pegue aquí el enlace de la foto del DNI">
+
+  <small class="note">
+    Puede subir una foto del DNI a Google Drive,
+    OneDrive o Dropbox y pegar aquí el enlace compartido.
+  </small>
 </div>
 
 <div>
@@ -241,11 +244,12 @@ document.getElementById("nombre").value.trim();
 const dni =
 document.getElementById("dni").value.trim();
 
-const fotoDniInput =
-document.getElementById("fotoDni");
+
 
 const fotoDni =
-fotoDniInput?.files?.[0];
+document.getElementById("fotoDni").value.trim();
+
+
 
 const fechaValor =
 document.getElementById("fecha").value.trim();
@@ -280,7 +284,6 @@ document.getElementById("estadoDocumento");
 if (
 !nombre ||
 !dni ||
-!fotoDni ||
 !fechaValor ||
 !firma ||
 !enTratamiento
