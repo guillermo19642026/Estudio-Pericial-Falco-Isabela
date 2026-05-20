@@ -22,12 +22,13 @@
 
     <div class="patient-grid">
 
-      <div>
-        <label>Nombre y apellido</label>
-        <input id="nombre" type="text" required>
-      </div>
+  <div>
+    <label>Nombre y apellido</label>
+    <input id="nombre" type="text" required>
+  </div>
 
-      <div>
+
+
        <div>
   <label>DNI</label>
   <input id="dni" type="text" inputmode="numeric" required>
@@ -152,7 +153,7 @@ fotoDniInput?.files?.[0];
       tipo: "consentimiento_informado",
       nombre,
       dni,
-      fotoDni,
+      fotoDniNombre: fotoDni.name,
       fecha: fechaValor,
       ordenadoPor,
       firma,
