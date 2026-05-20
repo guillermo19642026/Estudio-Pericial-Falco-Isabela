@@ -89,7 +89,7 @@ function renderDocumentos() {
   if (filtrados.length === 0) {
     tabla.innerHTML = `
       <tr>
-        <td colspan="8">No hay documentos para mostrar.</td>
+        <td colspan="9">No hay documentos para mostrar.</td>
       </tr>
     `;
     return;
@@ -104,19 +104,39 @@ function renderDocumentos() {
       <td>${docu.nombre || "—"}</td>
       <td>${docu.dni || "—"}</td>
       <td>${docu.firma || "—"}</td>
-      <td>
-        ${
-          docu.fotoDni
-            ? `<a href="${docu.fotoDni}" target="_blank">Abrir DNI</a>`
-            : "—"
-        }
-      </td>
-      <td>${datosExtra(docu)}</td>
-      <td>
-        <button onclick="eliminarDocumento('${docu.id}')">
-          Eliminar
-        </button>
-      </td>
+
+
+
+
+      <td>${docu.fotoDni
+      ? `<a href="${docu.fotoDni}" target="_blank">Abrir DNI</a>`
+      : docu.fotoDniNombre || "—"}</td>
+
+<td>${datosExtra(docu)}</td>
+
+<td>
+  <button onclick='generarPDFDocumento(${JSON.stringify(docu)})'>
+    Ver PDF
+  </button>
+</td>
+
+
+<td>
+  <button onclick="eliminarDocumento('${docu.id}')">
+    Eliminar
+  </button>
+</td>
+
+
+
+
+
+
+<td>
+  <button onclick="eliminarDocumento('${docu.id}')">
+    Eliminar
+  </button>
+</td>
     `;
 
     tabla.appendChild(fila);
