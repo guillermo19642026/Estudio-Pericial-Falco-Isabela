@@ -89,7 +89,7 @@ function renderDocumentos() {
   if (filtrados.length === 0) {
     tabla.innerHTML = `
       <tr>
-        <td colspan="9">No hay documentos para mostrar.</td>
+        <td colspan="10">No hay documentos para mostrar.</td>
       </tr>
     `;
     return;
@@ -119,16 +119,6 @@ function renderDocumentos() {
     Ver PDF
   </button>
 </td>
-
-
-<td>
-  <button onclick="eliminarDocumento('${docu.id}')">
-    Eliminar
-  </button>
-</td>
-
-
-
 
 
 
