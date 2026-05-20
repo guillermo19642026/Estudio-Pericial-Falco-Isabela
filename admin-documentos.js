@@ -14,7 +14,27 @@ const estado = document.getElementById("estadoDocumentos");
 const buscar = document.getElementById("buscarDocumento");
 const filtroTipo = document.getElementById("filtroTipoDocumento");
 
+
+
+
 let documentos = [];
+
+
+
+window.generarPDFDocumentoPorId = function(id) {
+  const docu = documentos.find(d => d.id === id);
+
+  if (!docu) {
+    alert("No se encontró el documento.");
+    return;
+  }
+
+  generarPDFDocumento(docu);
+};
+
+
+
+
 
 function formatearFecha(timestamp) {
   if (!timestamp || !timestamp.toDate) return "—";
@@ -89,7 +109,7 @@ function renderDocumentos() {
   if (filtrados.length === 0) {
     tabla.innerHTML = `
       <tr>
-        <td colspan="10">No hay documentos para mostrar.</td>
+        <td colspan="9">No hay documentos para mostrar.</td>
       </tr>
     `;
     return;
@@ -112,12 +132,16 @@ function renderDocumentos() {
       ? `<a href="${docu.fotoDni}" target="_blank">Abrir DNI</a>`
       : docu.fotoDniNombre || "—"}</td>
 
+
+
+
+
 <td>${datosExtra(docu)}</td>
 
 <td>
-  <button onclick='generarPDFDocumento(${JSON.stringify(docu)})'>
-    Ver PDF
-  </button>
+ <button onclick="generarPDFDocumentoPorId('${docu.id}')">
+  Ver PDF
+</button>
 </td>
 
 
