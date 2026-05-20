@@ -28,8 +28,14 @@
       </div>
 
       <div>
-        <label>DNI</label>
-        <input id="dni" type="text" inputmode="numeric" required>
+        <label>Foto del DNI</label>
+
+<input
+id="fotoDni"
+type="file"
+accept="image/*"
+capture="environment"
+required>
       </div>
 
       <div>
@@ -116,7 +122,14 @@ window.enviarConsentimiento = async function () {
 
   const nombre = document.getElementById("nombre").value.trim();
   const dni = document.getElementById("dni").value.trim();
-  const fotoDni = document.getElementById("fotoDni").value.trim();
+  
+  const fotoDniInput =
+document.getElementById("fotoDni");
+
+const fotoDni =
+fotoDniInput?.files?.[0];
+
+
   const fechaValor = document.getElementById("fecha").value.trim();
   const ordenadoPor = document.getElementById("ordenadoPor").value.trim();
   const firma = document.getElementById("firma").value.trim();

@@ -43,11 +43,13 @@ psiquiátricos y medicación.
 </div>
 
 <div>
-<label>Foto del DNI / link</label>
+<label>Foto del DNI</label>
+
 <input
 id="fotoDni"
-type="url"
-placeholder="Pegue aquí el link a la foto del DNI"
+type="file"
+accept="image/*"
+capture="environment"
 required>
 </div>
 
@@ -239,8 +241,11 @@ document.getElementById("nombre").value.trim();
 const dni =
 document.getElementById("dni").value.trim();
 
+const fotoDniInput =
+document.getElementById("fotoDni");
+
 const fotoDni =
-document.getElementById("fotoDni").value.trim();
+fotoDniInput?.files?.[0];
 
 const fechaValor =
 document.getElementById("fecha").value.trim();
