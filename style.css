@@ -8306,3 +8306,225 @@ header.visible{
 
 
 
+
+/* =========================
+   SECCIÓN LIBRO
+========================= */
+
+.seccion-libro{
+  padding:80px 24px;
+  border-top:1px solid rgba(201,168,106,.22);
+  border-bottom:1px solid rgba(201,168,106,.22);
+  background:transparent;
+}
+
+.libro-card{
+  max-width:1180px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 280px .75fr;
+  gap:54px;
+  align-items:center;
+}
+
+/* TEXTO */
+
+.libro-tag{
+  color:#b8934f;
+  text-transform:uppercase;
+  letter-spacing:2.6px;
+  font-size:10px;
+  font-weight:500;
+}
+
+.libro-info h2{
+  margin:18px 0 16px;
+  font-size:46px;
+  line-height:1.08;
+  font-weight:300;
+  color:#2e2a26;
+}
+
+.libro-info h3{
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  line-height:1.85;
+  color:#b8934f;
+  font-weight:400;
+  max-width:600px;
+}
+
+.libro-linea{
+  width:54px;
+  height:1px;
+  background:#c9a86a;
+  margin:24px 0;
+}
+
+.libro-info p{
+  font-size:16px;
+  line-height:1.9;
+  color:#3b3733;
+  opacity:.86;
+  margin-bottom:15px;
+  max-width:600px;
+}
+
+/* ITEMS */
+
+.libro-items{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.libro-items div{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.libro-items span{
+  color:#c9a86a;
+  font-size:23px;
+}
+
+.libro-items small{
+  font-size:12px;
+  line-height:1.55;
+  color:#5a544d;
+}
+
+/* PRECIO */
+
+.libro-precio{
+  margin-top:34px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.libro-precio strong{
+  color:#8f6e37;
+  font-size:27px;
+  font-weight:400;
+}
+
+.libro-precio small{
+  font-size:13px;
+  color:#6f675f;
+}
+
+/* IMAGEN */
+
+.libro-img{
+  display:flex;
+  justify-content:center;
+}
+
+.libro-img img{
+  width:100%;
+  max-width:280px;
+  filter:drop-shadow(0 22px 42px rgba(0,0,0,.16));
+  transition:.25s ease;
+}
+
+.libro-img img:hover{
+  transform:translateY(-3px);
+}
+
+/* COMPRA */
+
+.libro-compra{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.libro-compra a{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:15px 0;
+  text-decoration:none;
+  border-bottom:1px solid rgba(201,168,106,.22);
+  transition:.2s ease;
+}
+
+.libro-compra a:hover{
+  border-color:#c9a86a;
+}
+
+.libro-compra strong{
+  display:block;
+  font-size:15px;
+  font-weight:400;
+  color:#332f2b;
+  margin-bottom:4px;
+}
+
+.libro-compra small{
+  font-size:12px;
+  color:#7a726a;
+  line-height:1.6;
+}
+
+.libro-compra a span{
+  color:#c9a86a;
+  font-size:23px;
+  transition:.2s ease;
+}
+
+.libro-compra a:hover span{
+  transform:translateX(3px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+  .libro-card{
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+
+  .libro-img{
+    order:-1;
+  }
+
+  .libro-info h2{
+    font-size:38px;
+  }
+
+  .libro-items{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .seccion-libro{
+    padding:64px 20px;
+  }
+
+  .libro-info h2{
+    font-size:31px;
+  }
+
+  .libro-info p{
+    font-size:15px;
+  }
+
+  .libro-precio strong{
+    font-size:24px;
+  }
+
+  .libro-items{
+    grid-template-columns:1fr;
+  }
+
+  .libro-compra strong{
+    font-size:14px;
+  }
+}
