@@ -363,3 +363,29 @@
     text-align: center;
   }
 }
+
+
+.mesa-turno-link{
+  margin-top:18px;
+}
+
+.mesa-turno-link a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:14px;
+  font-weight:500;
+
+  color:#c9a86a;
+  text-decoration:none;
+
+  border-bottom:1px solid transparent;
+
+  transition:.2s ease;
+}
+
+.mesa-turno-link a:hover{
+  color:#b8934f;
+  border-color:#c9a86a;
+}
