@@ -57,6 +57,14 @@
       <input type="text" id="sol_nombre" placeholder="Ej: María González">
     </div>
 
+
+<div class="campo-form">
+  <label>DNI</label>
+  <input type="text" id="sol_dni" inputmode="numeric" placeholder="Ej: 12345678">
+</div>
+
+
+
     <div class="campo-form">
       <label>Profesión / institución</label>
       <input type="text" id="sol_profesion" placeholder="Ej: Psicóloga / Hospital">
@@ -88,12 +96,13 @@
 <script>
 function solicitarAccesoWhatsapp() {
   const nombre = document.getElementById("sol_nombre");
+  const dni = document.getElementById("sol_dni");
   const profesion = document.getElementById("sol_profesion");
   const email = document.getElementById("sol_email");
   const motivo = document.getElementById("sol_motivo");
   const error = document.getElementById("sol_error");
 
-  const campos = [nombre, profesion, email, motivo];
+  const campos = [nombre, dni, profesion, email, motivo];
 
   campos.forEach(c => c.classList.remove("campo-error"));
   error.textContent = "";
@@ -123,6 +132,7 @@ function solicitarAccesoWhatsapp() {
   const mensaje = `Hola, solicito acceso al sistema de evaluaciones psicométricas.
 
 Nombre: ${nombre.value}
+DNI: ${dni.value}
 Profesión: ${profesion.value}
 Email: ${email.value}
 Motivo: ${motivo.value}
