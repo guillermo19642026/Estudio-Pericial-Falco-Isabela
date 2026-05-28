@@ -256,6 +256,40 @@ alert("Debe responder todos los ítems.");
 return;
 }
 
+
+
+
+if (typeof window.guardarResultadoTest === "function") {
+
+  const respuestas =
+    Array.from({ length: totalEsperado }, (_, i) => {
+      const campo = document.getElementById(`item_${i + 1}`);
+      return campo ? Number(campo.value) : null;
+    });
+
+  window.guardarResultadoTest({
+    test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
+    tipoTest,
+    nombre: document.getElementById("nombre").value.trim(),
+    dni: document.getElementById("dni").value.trim(),
+    edad: document.getElementById("edad").value.trim(),
+    sexo: document.getElementById("sexo").value,
+    estadoCivil: document.getElementById("estadoCivil").value,
+    direccion: document.getElementById("direccion").value.trim(),
+    fecha: document.getElementById("fecha").value,
+    total: document.getElementById("total").textContent,
+    gsi: document.getElementById("gsi").textContent,
+    pst: document.getElementById("pst").textContent,
+    psdi: document.getElementById("psdi").textContent,
+    respuestas,
+    origen: "periciado"
+  });
+}
+
+
+
+
+
 const mensaje =
 document.getElementById("mensajeFinalPericiado");
 
