@@ -402,28 +402,32 @@ function calcular() {
 
   if (faltan === 0) {
 
-    // 🔥 GUARDAR EN FIREBASE
-    if (!sessionStorage.getItem("resultado_guardado_scl")) {
-      sessionStorage.setItem("resultado_guardado_scl", "true");
+   /*
 
-      if (typeof guardarResultadoTest === "function") {
-        guardarResultadoTest({
-          test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
-          tipoTest: document.getElementById("tipoTest")?.value || "90",
-          nombre: document.getElementById("nombre").value,
-          edad: document.getElementById("edad").value,
-          sexo: document.getElementById("sexo").value,
-          fecha: document.getElementById("fecha").value,
-          observaciones: document.getElementById("observaciones").value,
-          total: total,
-          gsi: gsi.toFixed(2),
-          pst: positivas,
-          psdi: psdi !== null ? psdi.toFixed(2) : "—",
-dimensiones: obtenerDimensionesCalculadas(),
-respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
-        });
-      }
-    }
+// 🔥 GUARDAR EN FIREBASE
+if (!sessionStorage.getItem("resultado_guardado_scl")) {
+  sessionStorage.setItem("resultado_guardado_scl", "true");
+
+  if (typeof guardarResultadoTest === "function") {
+    guardarResultadoTest({
+      test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
+      tipoTest: document.getElementById("tipoTest")?.value || "90",
+      nombre: document.getElementById("nombre").value,
+      edad: document.getElementById("edad").value,
+      sexo: document.getElementById("sexo").value,
+      fecha: document.getElementById("fecha").value,
+      observaciones: document.getElementById("observaciones").value,
+      total: total,
+      gsi: gsi.toFixed(2),
+      pst: positivas,
+      psdi: psdi !== null ? psdi.toFixed(2) : "—",
+      dimensiones: obtenerDimensionesCalculadas(),
+      respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+    });
+  }
+}
+
+*/
 
     // 📄 PDF
     if (!sessionStorage.getItem("pdf_generado_scl")) {
