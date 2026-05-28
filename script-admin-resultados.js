@@ -4,7 +4,9 @@ import {
   collection,
   getDocs,
   query,
-  orderBy
+  orderBy,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const tabla = document.getElementById("tablaResultadosAdmin");
@@ -95,10 +97,21 @@ function renderTabla() {
       <td>${r.puntajeTotal ?? r.total ?? "—"}</td>
       <td>${r.nivel || "—"}</td>
 <td>
-  <button onclick="generarPDF(${indexOriginal})">PDF</button>
+  <button onclick="generarPDF(${indexOriginal})">
+    PDF
+  </button>
 </td>
+
 <td>
-  <button onclick="verDetalle(${indexOriginal})">Ver</button>
+  <button onclick="verDetalle(${indexOriginal})">
+    Ver
+  </button>
+</td>
+
+<td>
+  <button onclick="eliminarEvaluacion('${r.id}')">
+    Eliminar
+  </button>
 </td>
     `;
 
@@ -283,6 +296,30 @@ ${dimensionesHTML}
   `);
 
   ventana.document.close();
+};
+
+
+
+
+
+window.eliminarEvaluacion = async function(id) {
+
+  if (!confirm("¿Eliminar esta evaluación?")) return;
+
+  try {
+
+    await deleteDoc(
+      doc(db, "resultados_tests", id)
+    );
+
+    await cargarResultados();
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert("No se pudo eliminar la evaluación.");
+  }
 };
 
 
