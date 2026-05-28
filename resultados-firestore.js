@@ -9,10 +9,19 @@ import {
 window.guardarResultadoTest = async function (datos) {
   const user = auth.currentUser;
 
-  if (!user) {
-    console.warn("No hay usuario logueado.");
-    return;
-  }
+ if (!user) {
+
+  console.warn("No hay usuario logueado. Guardando como periciado.");
+
+  await addDoc(collection(db, "resultados_tests"), {
+    ...datos,
+    usuarioEmail: "periciado",
+    usuarioUID: "periciado",
+    creadoEn: serverTimestamp()
+  });
+
+  return;
+}
 
   try {
     await addDoc(collection(db, "resultados_tests"), {
