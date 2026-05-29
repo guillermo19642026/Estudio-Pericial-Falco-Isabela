@@ -8677,3 +8677,39 @@ body.fondo-neuronal .servicio-rel-item,
     color:#f1d07a !important;
   }
 }
+
+
+/* SERVICIOS RELACIONADOS - ESTILO OSCURO GLASS */
+
+.servicios-relacionados{
+  background: rgba(10,15,28,.55) !important;
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.servicios-relacionados::before,
+.servicios-relacionados::after{
+  background: transparent !important;
+}
+
+.servicios-rel-grid{
+  background: transparent !important;
+}
+
+.servicio-rel-item{
+  background: rgba(35,35,42,.68) !important;
+  color: #f1d07a !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 14px 35px rgba(0,0,0,.28);
+  backdrop-filter: blur(8px);
+}
+
+@media(max-width:768px){
+  .servicios-relacionados{
+    background: rgba(10,15,28,.58) !important;
+  }
+
+  .servicio-rel-item{
+    background: rgba(45,45,52,.72) !important;
+  }
+}
