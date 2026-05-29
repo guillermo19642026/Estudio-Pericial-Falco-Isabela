@@ -8538,3 +8538,22 @@ header.visible{
   line-height:1.6;
   color:#7a726a;
 }
+
+
+
+/* FONDO NEURONAL EN PÁGINAS INTERNAS */
+
+body.fondo-neuronal{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(201,169,110,.18), transparent 26%),
+    radial-gradient(circle at 85% 15%, rgba(201,169,110,.12), transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(201,169,110,.14), transparent 35%),
+    linear-gradient(135deg,#0f1115 0%,#181a1f 50%,#0b0d10 100%) !important;
+  background-attachment: fixed;
+}
+
+body.fondo-neuronal .seccion-definicion,
+body.fondo-neuronal .servicios-relacionados,
+body.fondo-neuronal .bloque-tests{
+  background: transparent !important;
+}
