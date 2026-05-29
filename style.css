@@ -8584,3 +8584,55 @@ body.fondo-neuronal .bloque-tests{
     color: #fff !important;
   }
 }
+
+
+
+
+/* =========================
+   FIX DEFINITIVO MOBILE
+   SERVICIOS RELACIONADOS
+========================= */
+
+body.fondo-neuronal .servicios-relacionados,
+.servicios-relacionados{
+  background: rgba(10,15,28,0.72) !important;
+  background-image: none !important;
+}
+
+body.fondo-neuronal .servicios-relacionados::before,
+.servicios-relacionados::before{
+  background: transparent !important;
+}
+
+body.fondo-neuronal .servicios-rel-grid,
+.servicios-rel-grid{
+  background: transparent !important;
+}
+
+body.fondo-neuronal .servicio-rel-item,
+.servicio-rel-item{
+  background: rgba(20,20,25,0.82) !important;
+  color: #f1d07a !important;
+  border: 1px solid rgba(201,169,110,.28) !important;
+}
+
+@media(max-width:768px){
+
+  body.fondo-neuronal .servicios-relacionados,
+  .servicios-relacionados{
+    background: rgba(10,15,28,0.86) !important;
+    background-image: none !important;
+  }
+
+  body.fondo-neuronal .servicios-relacionados::before,
+  .servicios-relacionados::before{
+    background: transparent !important;
+  }
+
+  body.fondo-neuronal .servicio-rel-item,
+  .servicio-rel-item{
+    background: rgba(20,20,25,0.9) !important;
+    color: #f1d07a !important;
+    border: 1px solid rgba(201,169,110,.32) !important;
+  }
+}
