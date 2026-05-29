@@ -8636,3 +8636,44 @@ body.fondo-neuronal .servicio-rel-item,
     border: 1px solid rgba(201,169,110,.32) !important;
   }
 }
+
+
+/* FIX DEFINITIVO SERVICIOS RELACIONADOS MOBILE */
+
+.servicios-relacionados{
+  background:#0a0f1c !important;
+  background-image:none !important;
+}
+
+.servicios-relacionados::before,
+.servicios-relacionados::after{
+  background:transparent !important;
+}
+
+.servicios-rel-grid{
+  background:transparent !important;
+}
+
+.servicio-rel-item{
+  background:rgba(20,20,25,.90) !important;
+  color:#f1d07a !important;
+  border:1px solid rgba(201,169,110,.28) !important;
+}
+
+@media(max-width:768px){
+
+  section.servicios-relacionados{
+    background:#0a0f1c !important;
+    background-image:none !important;
+  }
+
+  section.servicios-relacionados::before,
+  section.servicios-relacionados::after{
+    background:transparent !important;
+  }
+
+  .servicio-rel-item{
+    background:rgba(20,20,25,.92) !important;
+    color:#f1d07a !important;
+  }
+}
