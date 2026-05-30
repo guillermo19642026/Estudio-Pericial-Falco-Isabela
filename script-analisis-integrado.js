@@ -219,6 +219,23 @@ ${generarInterpretacionInteligente(
 
 <hr>
 
+<h3>Tabla de dimensiones SCL / BSI</h3>
+
+${generarTablaDimensionesSCL(scl)}
+
+<hr>
+
+<h3>Perfil Integrado</h3>
+
+${generarPerfilGrafico(
+  scl,
+  bdi,
+  bai,
+  desesperanza
+)}
+
+<hr>
+
 <h3>Lectura por dimensiones SCL / BSI</h3>
 
 ${generarLecturaDimensionesSCL(scl)}
@@ -472,4 +489,106 @@ function generarLecturaDimensionesSCL(scl) {
   }
 
   return texto || `<p>No se detectan elevaciones significativas en las dimensiones disponibles.</p>`;
+}
+
+
+
+
+function generarTablaDimensionesSCL(scl){
+
+  if(!scl || !scl.dimensiones){
+    return "<p>No hay dimensiones disponibles.</p>";
+  }
+
+  let filas = "";
+
+Object.entries(scl.dimensiones).forEach(([nombre,d]) => {
+
+  filas += `
+    <tr>
+
+      <td style="padding:8px; border:1px solid #ddd;">
+        ${nombre}
+      </td>
+
+      <td style="padding:8px; border:1px solid #ddd;">
+        ${d.promedio ?? "-"}
+      </td>
+
+      <td style="padding:8px; border:1px solid #ddd;">
+        ${d.interpretacion ?? "-"}
+      </td>
+
+    </tr>
+  `;
+
+});
+
+
+
+  return `
+    <table style="
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+">
+      <thead>
+        <tr>
+          <th style="padding:8px; border:1px solid #ddd; background:#f5f5f5;">
+  Dimensión
+</th>
+
+<th style="padding:8px; border:1px solid #ddd; background:#f5f5f5;">
+  Promedio
+</th>
+
+<th style="padding:8px; border:1px solid #ddd; background:#f5f5f5;">
+  Interpretación
+</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${filas}
+      </tbody>
+    </table>
+  `;
+}
+
+
+function generarPerfilGrafico(scl, bdi, bai, desesperanza){
+
+  const ansiedad = bai?.puntajeTotal || 0;
+  const depresion = bdi?.puntajeTotal || 0;
+  const desesperanzaValor = desesperanza?.puntajeTotal || 0;
+  const malestar = Math.round((Number(scl?.gsi || 0)) * 40);
+
+  return `
+    <div style="margin-top:15px">
+
+      <p>
+        Ansiedad
+        <progress max="63" value="${ansiedad}"></progress>
+        ${ansiedad}
+      </p>
+
+      <p>
+        Depresión
+        <progress max="63" value="${depresion}"></progress>
+        ${depresion}
+      </p>
+
+      <p>
+        Desesperanza
+        <progress max="20" value="${desesperanzaValor}"></progress>
+        ${desesperanzaValor}
+      </p>
+
+      <p>
+        Malestar Global
+        <progress max="80" value="${malestar}"></progress>
+        ${malestar}
+      </p>
+
+    </div>
+  `;
 }
