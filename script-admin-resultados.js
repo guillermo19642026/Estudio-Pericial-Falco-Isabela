@@ -93,6 +93,7 @@ function renderTabla() {
     fila.innerHTML = `
       <td>${formatearFecha(r.creadoEn)}</td>
       <td>${r.nombre || "Sin nombre"}</td>
+      <td>${r.dni || "—"}</td>
       <td>${r.test || "—"}</td>
       <td>${r.puntajeTotal ?? r.total ?? "—"}</td>
       <td>${r.nivel || "—"}</td>
