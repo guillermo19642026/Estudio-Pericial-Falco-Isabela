@@ -8591,7 +8591,7 @@ body.fondo-neuronal .bloque-tests{
 /* =========================
    FIX DEFINITIVO MOBILE
    SERVICIOS RELACIONADOS
-========================= */
+========================= 
 
 body.fondo-neuronal .servicios-relacionados,
 .servicios-relacionados{
@@ -8638,7 +8638,7 @@ body.fondo-neuronal .servicio-rel-item,
 }
 
 
-/* FIX DEFINITIVO SERVICIOS RELACIONADOS MOBILE */
+/* FIX DEFINITIVO SERVICIOS RELACIONADOS MOBILE 
 
 .servicios-relacionados{
   background:#0a0f1c !important;
@@ -8679,7 +8679,7 @@ body.fondo-neuronal .servicio-rel-item,
 }
 
 
-/* SERVICIOS RELACIONADOS - ESTILO OSCURO GLASS */
+/* SERVICIOS RELACIONADOS - ESTILO OSCURO GLASS 
 
 .servicios-relacionados{
   background: rgba(10,15,28,.55) !important;
@@ -8712,4 +8712,4 @@ body.fondo-neuronal .servicio-rel-item,
   .servicio-rel-item{
     background: rgba(45,45,52,.72) !important;
   }
-}
+}     
