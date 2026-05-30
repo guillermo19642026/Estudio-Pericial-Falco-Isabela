@@ -280,6 +280,41 @@ alert("La función generarInformePDF se ejecutó");
 }
 
 
+
+
+function exportarCSV() {
+  let csv = "Item,Pregunta,Respuesta\n";
+
+  for (let i = 1; i <= NUM_ITEMS; i++) {
+    csv += `${i},"${preguntas[i - 1]}","${valorItem(i)}"\n`;
+  }
+
+  csv += `\nNombre,${document.getElementById("nombre")?.value || ""}\n`;
+  csv += `DNI,${document.getElementById("dni")?.value || ""}\n`;
+  csv += `Edad,${document.getElementById("edad")?.value || ""}\n`;
+  csv += `Sexo,${document.getElementById("sexo")?.value || ""}\n`;
+  csv += `Estado civil,${document.getElementById("estadoCivil")?.value || ""}\n`;
+  csv += `Domicilio,${document.getElementById("direccion")?.value || ""}\n`;
+  csv += `Fecha,${document.getElementById("fecha")?.value || ""}\n`;
+  csv += `Puntaje total,${document.getElementById("puntajeTotal")?.textContent || ""}\n`;
+  csv += `Nivel,${document.getElementById("nivel")?.textContent || ""}\n`;
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const enlace = document.createElement("a");
+  enlace.href = url;
+  enlace.download = "beck_desesperanza.csv";
+  enlace.click();
+
+  URL.revokeObjectURL(url);
+}
+
+
+
+
+
+
 window.addEventListener("DOMContentLoaded", () => {
   crearFormulario();
 
