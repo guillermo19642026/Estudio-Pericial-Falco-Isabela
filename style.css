@@ -8541,7 +8541,7 @@ header.visible{
 
 
 
-/* FONDO NEURONAL EN PÁGINAS INTERNAS */
+/* FONDO NEURONAL EN PÁGINAS INTERNAS 
 
 body.fondo-neuronal{
   background:
@@ -8561,7 +8561,7 @@ body.fondo-neuronal .bloque-tests{
 
 
 
-/* FIX MOBILE - SERVICIOS RELACIONADOS */
+/* FIX MOBILE - SERVICIOS RELACIONADOS 
 
 @media(max-width:768px){
 
