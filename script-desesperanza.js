@@ -158,8 +158,10 @@ function calcular() {
     }
 
 
+  }
+}
 
-
+/*
 if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
   sessionStorage.setItem("pdf_generado_desesperanza", "true");
 
@@ -171,11 +173,7 @@ if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
     }
   }, 500);
 }
-
-  }
-}
-
-
+*/
 
 
 function generarInterpretacion(puntaje, nivel) {
