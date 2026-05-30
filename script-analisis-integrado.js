@@ -440,13 +440,13 @@ function generarLecturaDimensionesSCL(scl) {
   }
 
   if (elevadasPorPromedio.length > 0) {
-    texto += `
-      <p>
-        Asimismo, se registran puntajes de intensidad elevada en:
-        <strong>${elevadasPorPromedio.map(([nombre]) => nombre).join(", ")}</strong>.
-      </p>
-    `;
-  }
+  texto += `
+    <p>
+      La intensidad sintomática predominante se concentra en:
+      <strong>${elevadasPorPromedio.map(([nombre]) => nombre).join(", ")}</strong>.
+    </p>
+  `;
+}
 
   const nombresAltas = altas.map(([nombre]) => nombre.toLowerCase());
 
