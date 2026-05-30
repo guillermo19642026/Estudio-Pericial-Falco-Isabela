@@ -241,7 +241,7 @@ function calcular() {
 
   return {
     item: index + 1,
-    pregunta: opcionesItem[0], // texto base del ítem
+    pregunta: opcionesItem.join(" / "),
     respuesta: valor,
     descripcion:
       valor !== null

@@ -149,8 +149,9 @@ window.verDetalle = function(index) {
   <thead>
     <tr>
       <th style="border:1px solid #ccc;padding:6px;">Ítem</th>
-      <th style="border:1px solid #ccc;padding:6px;">Pregunta</th>
-      <th style="border:1px solid #ccc;padding:6px;">Respuesta</th>
+      <th style="border:1px solid #ccc;padding:6px;">Pregunta / Opciones</th>
+      <th style="border:1px solid #ccc;padding:6px;">Respuesta elegida</th>
+      <th style="border:1px solid #ccc;padding:6px;">Valor</th>
     </tr>
   </thead>
 
@@ -169,8 +170,12 @@ window.verDetalle = function(index) {
         </td>
 
         <td style="border:1px solid #ccc;padding:6px;">
-          ${resp.descripcion || resp.respuesta || "—"}
-        </td>
+  ${resp.descripcion || "—"}
+</td>
+
+<td style="border:1px solid #ccc;padding:6px;text-align:center;">
+  ${resp.respuesta ?? "—"}
+</td>
 
       </tr>
 
@@ -264,9 +269,10 @@ ${dimensionesHTML}
 
   <thead>
     <tr>
-      <th style="border:1px solid #ccc;padding:6px;">Ítem</th>
-      <th style="border:1px solid #ccc;padding:6px;">Pregunta</th>
-      <th style="border:1px solid #ccc;padding:6px;">Respuesta</th>
+    <th style="border:1px solid #ccc;padding:6px;">Ítem</th>
+    <th style="border:1px solid #ccc;padding:6px;">Pregunta / Opciones</th>
+    <th style="border:1px solid #ccc;padding:6px;">Respuesta elegida</th>
+    <th style="border:1px solid #ccc;padding:6px;">Valor</th>
     </tr>
   </thead>
 
@@ -285,7 +291,11 @@ ${dimensionesHTML}
         </td>
 
         <td style="border:1px solid #ccc;padding:6px;">
-          ${resp.descripcion || resp.respuesta || "—"}
+          ${resp.descripcion || "—"}
+        </td>
+
+        <td style="border:1px solid #ccc;padding:6px;text-align:center;">
+          ${resp.respuesta ?? "—"}
         </td>
 
       </tr>
