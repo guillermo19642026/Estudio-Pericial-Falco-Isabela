@@ -226,6 +226,9 @@ function calcular() {
         guardarResultadoTest({
           test: "BDI - Inventario de Depresión de Beck",
           nombre: document.getElementById("nombre").value,
+          dni: document.getElementById("dni")?.value || "",
+estadoCivil: document.getElementById("estadoCivil")?.value || "",
+direccion: document.getElementById("direccion")?.value || "",
           edad: document.getElementById("edad").value,
           sexo: document.getElementById("sexo").value,
           fecha: document.getElementById("fecha").value,
@@ -317,7 +320,10 @@ function guardarAutomatico() {
     nombre: document.getElementById("nombre").value,
     edad: document.getElementById("edad").value,
     sexo: document.getElementById("sexo").value,
-    fecha: document.getElementById("fecha").value,
+    dni: document.getElementById("dni")?.value || "",
+estadoCivil: document.getElementById("estadoCivil")?.value || "",
+direccion: document.getElementById("direccion")?.value || "",
+fecha: document.getElementById("fecha")?.value || "",
     observaciones: document.getElementById("observaciones").value,
     respuestas: {}
   };
