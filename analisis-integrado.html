@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Análisis Integrado</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+
+.estado-ok{
+  color:#16a34a;
+  font-weight:bold;
+}
+
+.estado-falta{
+  color:#dc2626;
+  font-weight:bold;
+}
+
+.tarjeta-integrada{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="admin-header">
+  <h1>Análisis Integrado</h1>
+
+  <div>
+    <button onclick="window.location.href='dashboard.html'">
+      Volver
+    </button>
+  </div>
+</header>
+
+<main class="admin-panel">
+
+<section class="card">
+
+<h2>Buscar paciente</h2>
+
+<input
+  type="text"
+  id="buscarDni"
+  placeholder="Ingresar DNI..."
+>
+
+<button onclick="buscarPaciente()">
+  Buscar
+</button>
+
+</section>
+
+<section id="resultadoBusqueda"></section>
+
+<section id="informeIntegrado"></section>
+
+</main>
+
+<script type="module" src="script-analisis-integrado.js"></script>
+
+</body>
+</html>
