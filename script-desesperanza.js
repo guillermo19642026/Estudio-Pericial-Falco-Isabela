@@ -246,6 +246,9 @@ function limpiarFormulario() {
 
 
 function generarInformePDF() {
+
+alert("La función generarInformePDF se ejecutó");
+
   const informe = document.getElementById("informeClinico");
 
   if (!informe) {
