@@ -216,6 +216,15 @@ ${generarInterpretacionInteligente(
   desesperanza
 )}
 
+
+<hr>
+
+<h3>Lectura por dimensiones SCL / BSI</h3>
+
+${generarLecturaDimensionesSCL(scl)}
+
+
+
 <br>
 
       <button onclick="window.print()">
@@ -400,4 +409,67 @@ function generarAlertasClinicas(scl, bdi, bai, desesperanza) {
   }
 
   return alertas || `<p>No se detectan alertas automáticas relevantes con los instrumentos disponibles.</p>`;
+}
+
+
+function generarLecturaDimensionesSCL(scl) {
+  if (!scl || !scl.dimensiones) {
+    return `<p>No se dispone de dimensiones SCL / BSI para integrar.</p>`;
+  }
+
+  const dimensiones = Object.entries(scl.dimensiones)
+    .filter(([nombre, d]) => Number(d.items) > 0);
+
+  const altas = dimensiones.filter(([nombre, d]) =>
+    (d.interpretacion || "").toUpperCase() === "ALTO"
+  );
+
+  const elevadasPorPromedio = dimensiones.filter(([nombre, d]) =>
+    Number(d.promedio) >= 2.5
+  );
+
+  let texto = "";
+
+  if (altas.length > 0) {
+    texto += `
+      <p>
+        En el perfil SCL / BSI se observan elevaciones clínicamente relevantes en:
+        <strong>${altas.map(([nombre]) => nombre).join(", ")}</strong>.
+      </p>
+    `;
+  }
+
+  if (elevadasPorPromedio.length > 0) {
+    texto += `
+      <p>
+        Asimismo, se registran puntajes de intensidad elevada en:
+        <strong>${elevadasPorPromedio.map(([nombre]) => nombre).join(", ")}</strong>.
+      </p>
+    `;
+  }
+
+  const nombresAltas = altas.map(([nombre]) => nombre.toLowerCase());
+
+  if (
+    nombresAltas.includes("ansiedad") &&
+    nombresAltas.includes("depresión")
+  ) {
+    texto += `
+      <p>
+        La presencia conjunta de elevaciones en ansiedad y depresión sugiere
+        un patrón de malestar emocional mixto.
+      </p>
+    `;
+  }
+
+  if (nombresAltas.includes("somatización")) {
+    texto += `
+      <p>
+        Se observan indicadores de somatización, compatibles con la expresión
+        corporal del malestar psicológico.
+      </p>
+    `;
+  }
+
+  return texto || `<p>No se detectan elevaciones significativas en las dimensiones disponibles.</p>`;
 }
