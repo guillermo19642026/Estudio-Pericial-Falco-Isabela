@@ -128,8 +128,11 @@ window.verDetalle = function(index) {
   detalleContenido.innerHTML = `
     <div class="detalle-grid">
       <p><strong>Paciente:</strong> ${r.nombre || "—"}</p>
+      <p><strong>DNI:</strong> ${r.dni || "—"}</p>
       <p><strong>Edad:</strong> ${r.edad || "—"}</p>
       <p><strong>Sexo:</strong> ${r.sexo || "—"}</p>
+      <p><strong>Estado civil:</strong> ${r.estadoCivil || "—"}</p>
+      <p><strong>Domicilio:</strong> ${r.direccion || "—"}</p>
       <p><strong>Fecha del test:</strong> ${r.fecha || "—"}</p>
       <p><strong>Guardado:</strong> ${formatearFecha(r.creadoEn)}</p>
       <p><strong>Usuario:</strong> ${r.usuarioEmail || "—"}</p>
@@ -242,8 +245,11 @@ const dimensionesHTML = r.dimensiones
     <h1>Resultado de evaluación psicológica</h1>
 
     <p><strong>Paciente:</strong> ${r.nombre || "—"}</p>
+    <p><strong>DNI:</strong> ${r.dni || "—"}</p>
     <p><strong>Edad:</strong> ${r.edad || "—"}</p>
     <p><strong>Sexo:</strong> ${r.sexo || "—"}</p>
+    <p><strong>Estado civil:</strong> ${r.estadoCivil || "—"}</p>
+    <p><strong>Domicilio:</strong> ${r.direccion || "—"}</p>
     <p><strong>Fecha del test:</strong> ${r.fecha || "—"}</p>
     <p><strong>Guardado:</strong> ${formatearFecha(r.creadoEn)}</p>
     <p><strong>Usuario:</strong> ${r.usuarioEmail || "—"}</p>
