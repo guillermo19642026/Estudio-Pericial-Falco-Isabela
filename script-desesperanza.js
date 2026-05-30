@@ -83,6 +83,7 @@ function calcular() {
 
     if (valor !== "") {
       cargadas++;
+
       if (valor === claveCorreccion[i]) {
         puntaje++;
       }
@@ -115,47 +116,42 @@ function calcular() {
   generarInterpretacion(puntaje, nivel);
   guardarAutomatico();
 
-  // 🔥 BLOQUE CORRECTO
   if (faltan === 0) {
+    if (
+      !sessionStorage.getItem("resultado_guardado_desesperanza") &&
+      typeof window.guardarResultadoTest === "function"
+    ) {
+      sessionStorage.setItem("resultado_guardado_desesperanza", "true");
 
-    // Guardar en Firebase
-   // Guardar en Firebase
-if (typeof window.guardarResultadoTest === "function") {
-  window.guardarResultadoTest({
-          test: "Escala de Desesperanza de Beck",
-          nombre: document.getElementById("nombre").value,
-          edad: document.getElementById("edad").value,
-          sexo: document.getElementById("sexo").value,
-          fecha: document.getElementById("fecha").value,
-          observaciones: document.getElementById("observaciones").value,
-          puntajeTotal: puntaje,
-          nivel: nivel,
+      window.guardarResultadoTest({
+        test: "Escala de Desesperanza de Beck",
+        nombre: document.getElementById("nombre").value,
+        edad: document.getElementById("edad").value,
+        sexo: document.getElementById("sexo").value,
+        fecha: document.getElementById("fecha").value,
+        observaciones: document.getElementById("observaciones").value,
+        puntajeTotal: puntaje,
+        nivel: nivel,
 
+        respuestas: preguntas.map((texto, index) => {
+          const valor = valorItem(index + 1);
 
-          respuestas: preguntas.map((texto, index) => {
+          const etiquetas = {
+            "V": "Verdadero",
+            "F": "Falso"
+          };
 
-  const valor = valorItem(index + 1);
-
-  const etiquetas = {
-    "V": "Verdadero",
-    "F": "Falso"
-  };
-
-  return {
-    item: index + 1,
-    pregunta: texto,
-    respuesta: valor,
-    descripcion: etiquetas[valor] || ""
-  };
-
-})
-
-
-        });
-      }
+          return {
+            item: index + 1,
+            pregunta: texto,
+            respuesta: valor,
+            descripcion: etiquetas[valor] || ""
+          };
+        })
+      });
     }
-
   }
+}
   
 
 
