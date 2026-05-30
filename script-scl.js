@@ -444,6 +444,7 @@ if (
   });
 }
 
+
     // 📄 PDF
     if (!sessionStorage.getItem("pdf_generado_scl")) {
       sessionStorage.setItem("pdf_generado_scl", "true");
