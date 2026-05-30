@@ -189,9 +189,20 @@ window.generarAnalisis = function () {
 
       <h3>Lectura integrada automática</h3>
 
-      ${generarTextoIntegrado(scl, bdi, bai, desesperanza)}
+${generarTextoIntegrado(scl, bdi, bai, desesperanza)}
 
-      <br>
+<hr>
+
+<h3>Interpretación clínica integrada</h3>
+
+${generarInterpretacionInteligente(
+  scl,
+  bdi,
+  bai,
+  desesperanza
+)}
+
+<br>
 
       <button onclick="window.print()">
         Imprimir / guardar PDF
@@ -251,6 +262,76 @@ function generarTextoIntegrado(scl, bdi, bai, desesperanza) {
       general, ideación negativa y expectativas respecto del futuro.
     </p>
   `;
+
+  return texto;
+}
+
+
+
+
+function generarInterpretacionInteligente(scl, bdi, bai, desesperanza) {
+
+  let texto = "";
+
+  if (
+    bai &&
+    ["Moderada", "Grave", "Severa"].includes(bai.nivel)
+  ) {
+    texto += `
+      <p>
+        Se observan indicadores compatibles con sintomatología ansiosa
+        clínicamente significativa según el Inventario de Ansiedad de Beck.
+      </p>
+    `;
+  }
+
+  if (
+    bdi &&
+    ["Moderada", "Grave", "Severa"].includes(bdi.nivel)
+  ) {
+    texto += `
+      <p>
+        Los resultados sugieren la presencia de indicadores depresivos
+        clínicamente relevantes al momento de la evaluación.
+      </p>
+    `;
+  }
+
+  if (
+    desesperanza &&
+    ["Moderada", "Grave", "Severa"].includes(desesperanza.nivel)
+  ) {
+    texto += `
+      <p>
+        Se observan expectativas negativas respecto del futuro y una
+        visión pesimista de la propia situación vital.
+      </p>
+    `;
+  }
+
+  if (scl && scl.gsi && Number(scl.gsi) >= 1.50) {
+    texto += `
+      <p>
+        El nivel global de malestar psicológico registrado en el SCL/BSI
+        resulta elevado y sugiere afectación subjetiva significativa.
+      </p>
+    `;
+  }
+
+  const positivos = [
+    bdi && ["Moderada","Grave","Severa"].includes(bdi.nivel),
+    bai && ["Moderada","Grave","Severa"].includes(bai.nivel),
+    desesperanza && ["Moderada","Grave","Severa"].includes(desesperanza.nivel)
+  ].filter(Boolean).length;
+
+  if (positivos >= 2) {
+    texto += `
+      <p>
+        Los instrumentos administrados muestran una adecuada convergencia
+        psicométrica, observándose consistencia entre las distintas áreas evaluadas.
+      </p>
+    `;
+  }
 
   return texto;
 }
