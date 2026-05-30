@@ -122,8 +122,8 @@ function calcular() {
     if (!sessionStorage.getItem("resultado_guardado_desesperanza")) {
       sessionStorage.setItem("resultado_guardado_desesperanza", "true");
 
-      if (typeof guardarResultadoTest === "function") {
-        guardarResultadoTest({
+      if (typeof window.guardarResultadoTest === "function") {
+  window.guardarResultadoTest({
           test: "Escala de Desesperanza de Beck",
           nombre: document.getElementById("nombre").value,
           edad: document.getElementById("edad").value,
@@ -157,16 +157,26 @@ function calcular() {
       }
     }
 
-    // PDF
-    if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
-      sessionStorage.setItem("pdf_generado_desesperanza", "true");
 
-      setTimeout(() => {
-        generarInformePDF();
-      }, 500);
+
+
+if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
+  sessionStorage.setItem("pdf_generado_desesperanza", "true");
+
+  setTimeout(() => {
+    if (typeof generarInformePDF === "function") {
+      generarInformePDF();
+    } else {
+      alert("No se pudo generar el informe PDF.");
     }
+  }, 500);
+}
+
   }
 }
+
+
+
 
 function generarInterpretacion(puntaje, nivel) {
   const contenedor = document.getElementById("interpretacionClinica");
