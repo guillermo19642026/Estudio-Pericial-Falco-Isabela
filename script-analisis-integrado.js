@@ -191,6 +191,20 @@ window.generarAnalisis = function () {
 
 ${generarTextoIntegrado(scl, bdi, bai, desesperanza)}
 
+
+<hr>
+
+<h3>Alertas clínicas orientativas</h3>
+
+${generarAlertasClinicas(
+  scl,
+  bdi,
+  bai,
+  desesperanza
+)}
+
+
+
 <hr>
 
 <h3>Interpretación clínica integrada</h3>
@@ -334,4 +348,56 @@ function generarInterpretacionInteligente(scl, bdi, bai, desesperanza) {
   }
 
   return texto;
+}
+
+
+
+
+
+
+function generarAlertasClinicas(scl, bdi, bai, desesperanza) {
+  let alertas = "";
+
+  const riesgoBDI =
+    bdi?.respuestas?.find(r => r.item === 9 && Number(r.respuesta) > 0);
+
+  const riesgoSCL =
+    scl?.respuestas?.find(r =>
+      r.pregunta?.toLowerCase().includes("quitarme la vida") &&
+      Number(r.respuesta) > 0
+    );
+
+  if (riesgoBDI || riesgoSCL) {
+    alertas += `
+      <div style="border:2px solid #dc2626; background:#fee2e2; padding:12px; border-radius:8px; margin-bottom:10px;">
+        ⚠ Se registran respuestas vinculadas a ideación de muerte o autolesión. Requiere valoración clínica específica.
+      </div>
+    `;
+  }
+
+  if (bdi && ["Moderada", "Grave", "Severa"].includes(bdi.nivel)) {
+    alertas += `
+      <div style="border:1px solid #f59e0b; background:#fef3c7; padding:12px; border-radius:8px; margin-bottom:10px;">
+        ⚠ Indicadores depresivos clínicamente relevantes.
+      </div>
+    `;
+  }
+
+  if (bai && ["Moderada", "Grave", "Severa"].includes(bai.nivel)) {
+    alertas += `
+      <div style="border:1px solid #f59e0b; background:#fef3c7; padding:12px; border-radius:8px; margin-bottom:10px;">
+        ⚠ Indicadores ansiosos clínicamente relevantes.
+      </div>
+    `;
+  }
+
+  if (desesperanza && ["Moderado", "Moderada", "Severo", "Severa"].includes(desesperanza.nivel)) {
+    alertas += `
+      <div style="border:1px solid #f59e0b; background:#fef3c7; padding:12px; border-radius:8px; margin-bottom:10px;">
+        ⚠ Elevación en indicadores de desesperanza.
+      </div>
+    `;
+  }
+
+  return alertas || `<p>No se detectan alertas automáticas relevantes con los instrumentos disponibles.</p>`;
 }
