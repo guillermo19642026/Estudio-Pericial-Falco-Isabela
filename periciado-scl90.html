@@ -283,7 +283,30 @@ async function enviarEvaluacionPericiado() {
     gsi: document.getElementById("gsi").textContent,
     pst: document.getElementById("pst").textContent,
     psdi: document.getElementById("psdi").textContent,
-    respuestas,
+
+
+    respuestas: preguntas.map((texto, index) => {
+
+  const valor = respuestas[index];
+
+  const etiquetas = {
+    0: "Nada",
+    1: "Muy poco",
+    2: "Poco",
+    3: "Bastante",
+    4: "Mucho"
+  };
+
+  return {
+    item: index + 1,
+    pregunta: texto,
+    respuesta: valor,
+    descripcion: etiquetas[valor] || ""
+  };
+}),
+
+
+
     origen: "periciado"
   });
    
