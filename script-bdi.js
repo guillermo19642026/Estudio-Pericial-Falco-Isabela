@@ -233,7 +233,25 @@ function calcular() {
           puntajeTotal: total,
           nivel: nivel,
           item9: valorItem(9),
-          respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+
+
+         respuestas: preguntas.map((opcionesItem, index) => {
+
+  const valor = valorItem(index + 1);
+
+  return {
+    item: index + 1,
+    pregunta: opcionesItem[0], // texto base del ítem
+    respuesta: valor,
+    descripcion:
+      valor !== null
+        ? opcionesItem[valor]
+        : ""
+  };
+
+})
+
+
         });
       }
     }

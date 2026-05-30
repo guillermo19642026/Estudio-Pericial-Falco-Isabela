@@ -132,7 +132,27 @@ function calcular() {
           observaciones: document.getElementById("observaciones").value,
           puntajeTotal: puntaje,
           nivel: nivel,
-          respuestas: Array.from({ length: NUM_ITEMS }, (_, i) => valorItem(i + 1))
+
+
+          respuestas: preguntas.map((texto, index) => {
+
+  const valor = valorItem(index + 1);
+
+  const etiquetas = {
+    "V": "Verdadero",
+    "F": "Falso"
+  };
+
+  return {
+    item: index + 1,
+    pregunta: texto,
+    respuesta: valor,
+    descripcion: etiquetas[valor] || ""
+  };
+
+})
+
+
         });
       }
     }

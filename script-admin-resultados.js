@@ -143,8 +143,42 @@ window.verDetalle = function(index) {
     <h3>Observaciones</h3>
     <p>${r.observaciones || "—"}</p>
 
-    <h3>Respuestas</h3>
-    <pre>${JSON.stringify(r.respuestas || [], null, 2)}</pre>
+   <h3>Respuestas</h3>
+
+<table style="width:100%; border-collapse:collapse; margin-top:10px;">
+  <thead>
+    <tr>
+      <th style="border:1px solid #ccc;padding:6px;">Ítem</th>
+      <th style="border:1px solid #ccc;padding:6px;">Pregunta</th>
+      <th style="border:1px solid #ccc;padding:6px;">Respuesta</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    ${(r.respuestas || []).map(resp => `
+
+      <tr>
+
+        <td style="border:1px solid #ccc;padding:6px;text-align:center;">
+          ${resp.item || "—"}
+        </td>
+
+        <td style="border:1px solid #ccc;padding:6px;">
+          ${resp.pregunta || "—"}
+        </td>
+
+        <td style="border:1px solid #ccc;padding:6px;">
+          ${resp.descripcion || resp.respuesta || "—"}
+        </td>
+
+      </tr>
+
+    `).join("")}
+
+  </tbody>
+
+</table>
   `;
 
   detalle.scrollIntoView({ behavior: "smooth" });
@@ -224,20 +258,42 @@ ${dimensionesHTML}
 <hr>
 
 
-    <h2>Observaciones</h2>
-    <p>${r.observaciones || "—"}</p>
-
-  <h2>Respuestas</h2>
+    <h2>Respuestas</h2>
 
 <table style="width:100%; border-collapse:collapse;">
+
+  <thead>
+    <tr>
+      <th style="border:1px solid #ccc;padding:6px;">Ítem</th>
+      <th style="border:1px solid #ccc;padding:6px;">Pregunta</th>
+      <th style="border:1px solid #ccc;padding:6px;">Respuesta</th>
+    </tr>
+  </thead>
+
   <tbody>
-    ${(r.respuestas || []).map((valor, i) => `
+
+    ${(r.respuestas || []).map(resp => `
+
       <tr>
-        <td style="border:1px solid #ccc; padding:4px;"><strong>${i + 1}</strong></td>
-        <td style="border:1px solid #ccc; padding:4px;">${valor ?? "—"}</td>
+
+        <td style="border:1px solid #ccc;padding:6px;text-align:center;">
+          ${resp.item || "—"}
+        </td>
+
+        <td style="border:1px solid #ccc;padding:6px;">
+          ${resp.pregunta || "—"}
+        </td>
+
+        <td style="border:1px solid #ccc;padding:6px;">
+          ${resp.descripcion || resp.respuesta || "—"}
+        </td>
+
       </tr>
+
     `).join("")}
+
   </tbody>
+
 </table>
   `;
 
