@@ -314,7 +314,7 @@ window.addEventListener("DOMContentLoaded", () => {
     fecha.valueAsDate = new Date();
   }
 
-  cargarAutomatico();
+  // cargarAutomatico();
   calcular();
 
   ["nombre", "edad", "sexo", "fecha", "observaciones"].forEach(id => {
