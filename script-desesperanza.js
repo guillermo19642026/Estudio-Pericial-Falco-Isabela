@@ -246,22 +246,34 @@ function limpiarFormulario() {
 
 
 function generarInformePDF() {
-  generarPDFClinico({
-    test: "Escala de Desesperanza de Beck",
+  const informe = document.getElementById("informeClinico");
 
-    nombre: document.getElementById("nombre").value,
-    edad: document.getElementById("edad").value,
-    sexo: document.getElementById("sexo").value,
-    fecha: document.getElementById("fecha").value,
-    observaciones: document.getElementById("observaciones").value,
+  if (!informe) {
+    alert("No existe el contenedor informeClinico.");
+    return;
+  }
 
-    resultadosHTML: `
-      <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
-      <p><strong>Nivel orientativo:</strong> ${document.getElementById("nivel").textContent}</p>
-    `,
+  informe.style.display = "block";
+  informe.classList.remove("print-only");
 
-    interpretacionHTML: document.getElementById("interpretacionClinica").innerHTML
-  });
+  informe.innerHTML = `
+    <h2>Informe generado</h2>
+    <p><strong>Test:</strong> Escala de Desesperanza de Beck</p>
+    <p><strong>Nombre:</strong> ${document.getElementById("nombre").value || "—"}</p>
+    <p><strong>Edad:</strong> ${document.getElementById("edad").value || "—"}</p>
+    <p><strong>Sexo:</strong> ${document.getElementById("sexo").value || "—"}</p>
+    <p><strong>Fecha:</strong> ${document.getElementById("fecha").value || "—"}</p>
+    <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
+    <p><strong>Nivel:</strong> ${document.getElementById("nivel").textContent}</p>
+
+    <h3>Interpretación orientativa</h3>
+    ${document.getElementById("interpretacionClinica").innerHTML || "<p>—</p>"}
+
+    <br>
+    <button onclick="window.print()">Imprimir / guardar PDF</button>
+  `;
+
+  informe.scrollIntoView({ behavior: "smooth" });
 }
 
 
