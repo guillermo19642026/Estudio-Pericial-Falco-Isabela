@@ -412,7 +412,12 @@ if (
   window.guardarResultadoTest({
     test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
     tipoTest: document.getElementById("tipoTest")?.value || "90",
+
     nombre: document.getElementById("nombre").value,
+    dni: document.getElementById("dni")?.value || "",
+    estadoCivil: document.getElementById("estadoCivil")?.value || "",
+    direccion: document.getElementById("direccion")?.value || "",
+
     edad: document.getElementById("edad").value,
     sexo: document.getElementById("sexo").value,
     fecha: document.getElementById("fecha").value,
@@ -654,9 +659,12 @@ function generarInterpretacionClinica(datosEscalas, gsi, pst, psdi) {
 function guardarAutomatico() {
   const datos = {
     nombre: document.getElementById("nombre").value,
+    dni: document.getElementById("dni")?.value || "",
+    estadoCivil: document.getElementById("estadoCivil")?.value || "",
+    direccion: document.getElementById("direccion")?.value || "",
     edad: document.getElementById("edad").value,
     sexo: document.getElementById("sexo").value,
-    fecha: document.getElementById("fecha").value,
+    fecha: document.getElementById("fecha")?.value || new Date().toISOString().split("T")[0],
     observaciones: document.getElementById("observaciones").value,
     tipo: document.getElementById("tipoTest")?.value || "90",
     respuestas: {}
@@ -694,6 +702,9 @@ function cargarAutomatico() {
   document.getElementById("edad").value = datos.edad || "";
   document.getElementById("sexo").value = datos.sexo || "";
   document.getElementById("fecha").value = datos.fecha || "";
+  document.getElementById("dni").value = datos.dni || "";
+  document.getElementById("estadoCivil").value = datos.estadoCivil || "";
+  document.getElementById("direccion").value = datos.direccion || "";
   document.getElementById("observaciones").value = datos.observaciones || "";
 
   for (let i = 1; i <= NUM_ITEMS; i++) {
