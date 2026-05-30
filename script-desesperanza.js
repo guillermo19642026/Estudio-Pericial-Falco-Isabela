@@ -119,10 +119,8 @@ function calcular() {
   if (faltan === 0) {
 
     // Guardar en Firebase
-    if (!sessionStorage.getItem("resultado_guardado_desesperanza")) {
-      sessionStorage.setItem("resultado_guardado_desesperanza", "true");
-
-      if (typeof window.guardarResultadoTest === "function") {
+   // Guardar en Firebase
+if (typeof window.guardarResultadoTest === "function") {
   window.guardarResultadoTest({
           test: "Escala de Desesperanza de Beck",
           nombre: document.getElementById("nombre").value,
@@ -159,7 +157,7 @@ function calcular() {
 
 
   }
-}
+
 
 /*
 if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
