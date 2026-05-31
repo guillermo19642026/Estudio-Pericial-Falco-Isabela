@@ -1,81 +1,23 @@
-import { auth, db } from "./firebase-config.js";
+const tests = {
+  scl: localStorage.getItem("scl_completado") === "true",
+  bdi: localStorage.getItem("bdi_completado") === "true",
+  bai: localStorage.getItem("bai_completado") === "true",
+  desesperanza: localStorage.getItem("desesperanza_completado") === "true"
+};
 
+marcarEstado("estadoSCL", tests.scl);
+marcarEstado("estadoBDI", tests.bdi);
+marcarEstado("estadoBAI", tests.bai);
+marcarEstado("estadoDesesperanza", tests.desesperanza);
 
+const cantidad = Object.values(tests).filter(Boolean).length;
 
+const bloqueInforme =
+  document.getElementById("bloqueInformeDisponible");
 
-import {
-  collection,
-  getDocs,
-  query,
-  where
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-import {
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-onAuthStateChanged(auth, async (user) => {
-  if (!user) return;
-
-  const q = query(
-  collection(db, "resultados_tests"),
-  where("usuarioEmail", "==", user.email)
-);
-
-const snapshot = await getDocs(q);
-
-  const tests = {
-    scl: false,
-    bdi: false,
-    bai: false,
-    desesperanza: false
-  };
-
-  snapshot.forEach((doc) => {
-    const r = doc.data();
-
-    const uidResultado = r.usuarioUID || "";
-    const emailResultado = (r.usuarioEmail || "").toLowerCase();
-    const emailUsuario = (user.email || "").toLowerCase();
-
-    if (
-      uidResultado !== user.uid &&
-      emailResultado !== emailUsuario
-    ) return;
-
-    const nombreTest = (r.test || "").toLowerCase();
-
-    if (nombreTest.includes("scl") || nombreTest.includes("bsi")) {
-      tests.scl = true;
-    }
-
-    if (nombreTest.includes("bdi")) {
-      tests.bdi = true;
-    }
-
-    if (nombreTest.includes("bai")) {
-      tests.bai = true;
-    }
-
-    if (nombreTest.includes("desesperanza")) {
-      tests.desesperanza = true;
-    }
-  });
-
-  marcarEstado("estadoSCL", tests.scl);
-  marcarEstado("estadoBDI", tests.bdi);
-  marcarEstado("estadoBAI", tests.bai);
-  marcarEstado("estadoDesesperanza", tests.desesperanza);
-
-  const cantidad = Object.values(tests).filter(Boolean).length;
-
-  const bloqueInforme =
-    document.getElementById("bloqueInformeDisponible");
-
-  if (bloqueInforme && cantidad >= 3) {
-    bloqueInforme.style.display = "block";
-  }
-});
+if (bloqueInforme && cantidad >= 3) {
+  bloqueInforme.style.display = "block";
+}
 
 function marcarEstado(id, completado) {
   const span = document.getElementById(id);
