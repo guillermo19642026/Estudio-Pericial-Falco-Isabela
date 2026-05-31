@@ -8731,3 +8731,16 @@ body.fondo-neuronal .servicio-rel-item,
 .busqueda-dni input{
   min-width:280px;
 }
+
+
+#resultadoBusqueda{
+  margin-top:20px;
+}
+
+#informeIntegrado{
+  margin-top:20px;
+}
+
+.analisis-busqueda{
+  margin-top:35px;
+}
