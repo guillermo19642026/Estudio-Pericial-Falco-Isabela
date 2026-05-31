@@ -502,7 +502,9 @@ function generarTablaDimensionesSCL(scl){
 
   let filas = "";
 
-Object.entries(scl.dimensiones).forEach(([nombre,d]) => {
+Object.entries(scl.dimensiones)
+  .filter(([nombre, d]) => Number(d.items) > 0)
+  .forEach(([nombre,d]) => {
 
   filas += `
     <tr>
