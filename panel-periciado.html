@@ -37,6 +37,21 @@
 
   </section>
 
+
+
+<section class="card estado-evaluacion-card">
+  <h2>Estado de la evaluación</h2>
+
+  <div class="estado-tests">
+    <p>SCL-90 / BSI <span id="estadoSCL">Pendiente</span></p>
+    <p>BDI <span id="estadoBDI">Pendiente</span></p>
+    <p>BAI <span id="estadoBAI">Pendiente</span></p>
+    <p>Desesperanza <span id="estadoDesesperanza">Pendiente</span></p>
+  </div>
+</section>
+
+
+
   <section class="tests-main">
 
     <button class="tests-card dashboard-module" onclick="ir('scl90.html')">
@@ -74,6 +89,9 @@ function ir(pagina){
   window.location.href = pagina;
 }
 </script>
+
+<script type="module" src="estado-periciado.js"></script>
+
 
 </body>
 </html>

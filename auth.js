@@ -59,10 +59,15 @@ window.login = async function () {
       }, { merge: true });
     }
 
-   if (rol === "admin") {
+  if (rol === "admin") {
   window.location.href = "dashboard.html";
+
 } else if (rol === "perito") {
   window.location.href = "dashboard-perito.html";
+
+} else if (rol === "informe") {
+  window.location.href = "panel-informe.html";
+
 } else {
   window.location.href = "dashboard-periciado.html";
 }
@@ -105,7 +110,9 @@ onAuthStateChanged(auth, async (user) => {
   const esAdmin = rol === "admin";
 const esPerito = rol === "perito";
 const esPericiado = rol === "periciado";
+const esInforme = rol === "informe";
 const tieneAccesoPanel = esAdmin || esPerito;
+
 
   const paginasAdmin = [
     "dashboard.html",
@@ -123,11 +130,25 @@ const tieneAccesoPanel = esAdmin || esPerito;
     "desesperanza.html"
   ];
 
+
+
+const paginasInforme = [
+  "panel-informe.html",
+  "scl90.html",
+  "bdi.html",
+  "bai.html",
+  "desesperanza.html",
+  "analisis-integrado.html"
+];
+
+
   // 🔒 Periciado no puede entrar a paneles admin
-  if (esPericiado && paginasAdmin.some(p => pagina.includes(p))) {
-    window.location.href = "dashboard-periciado.html";
-    return;
-  }
+ if ((esPericiado || esInforme) && paginasAdmin.some(p => pagina.includes(p))) {
+  window.location.href = esInforme ? "panel-informe.html" : "dashboard-periciado.html";
+  return;
+}
+
+
 
   // 🔒 Admin y perito no usan dashboard periciado
 if (
@@ -143,6 +164,23 @@ if (
 
   return;
 }
+
+
+if (
+  (esAdmin || esPerito) &&
+  pagina.includes("panel-informe.html")
+) {
+
+  if (esAdmin) {
+    window.location.href = "dashboard.html";
+  } else {
+    window.location.href = "dashboard-perito.html";
+  }
+
+  return;
+}
+
+
 
   // 👁️ Mostrar / ocultar botones admin
   const botonesAdmin = document.querySelectorAll(".admin-only");
@@ -164,7 +202,7 @@ if (
     pagina.includes("bai.html") ||
     pagina.includes("desesperanza.html");
 
-  if (esPericiado && estaEnTest) {
+  if ((esPericiado || esInforme) && estaEnTest) {
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("modo") !== "periciado") {

@@ -2841,3 +2841,29 @@ margin:38px auto;
   line-height:1.7;
   margin-bottom:8px;
 }
+
+
+
+
+.estado-evaluacion-card{
+  max-width:760px;
+  margin:20px auto 35px;
+  cursor:default;
+}
+
+.estado-tests p{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:10px 0;
+}
+
+.estado-completado{
+  color:#22c55e;
+  font-weight:600;
+}
+
+.estado-pendiente{
+  color:#c9a96e;
+  font-weight:500;
+}
