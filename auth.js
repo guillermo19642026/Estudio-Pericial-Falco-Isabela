@@ -38,10 +38,15 @@ window.login = async function () {
     const snap = await getDoc(ref);
 
     const dataUsuario = snap.exists() ? snap.data() : {};
-    const rol = dataUsuario.rol || (user.email === ADMIN_EMAIL ? "admin" : "periciado");
+
+    const rol =
+  user.email === ADMIN_EMAIL
+    ? "admin"
+    : (dataUsuario.rol || "periciado");
+
 
     // 🔐 ADMIN SIN LÍMITE
-    if (rol !== "admin") {
+    if (rol === "periciado") {
 
       // 🔥 BLOQUEO DE USO ÚNICO PARA PERICIADOS
       if (snap.exists() && dataUsuario.usado === true) {
@@ -105,7 +110,10 @@ onAuthStateChanged(auth, async (user) => {
   const snap = await getDoc(ref);
 
   const dataUsuario = snap.exists() ? snap.data() : {};
-  const rol = dataUsuario.rol || (user.email === ADMIN_EMAIL ? "admin" : "periciado");
+  const rol =
+  user.email === ADMIN_EMAIL
+    ? "admin"
+    : (dataUsuario.rol || "periciado");
 
   const esAdmin = rol === "admin";
 const esPerito = rol === "perito";
