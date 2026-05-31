@@ -234,6 +234,13 @@ ${generarPerfilGrafico(
   desesperanza
 )}
 
+${generarRadarIntegrado(
+  scl,
+  bdi,
+  bai,
+  desesperanza
+)}
+
 <hr>
 
 <h3>Lectura por dimensiones SCL / BSI</h3>
@@ -620,5 +627,46 @@ function generarPerfilGrafico(scl, bdi, bai, desesperanza){
 
     </div>
 
+  `;
+}
+
+
+function generarRadarIntegrado(scl, bdi, bai, desesperanza){
+
+  const ansiedad = Math.round((bai?.puntajeTotal || 0) / 63 * 100);
+  const depresion = Math.round((bdi?.puntajeTotal || 0) / 63 * 100);
+  const desesperanzaValor = Math.round((desesperanza?.puntajeTotal || 0) / 20 * 100);
+  const malestar = Math.min(Math.round((Number(scl?.gsi || 0)) * 40), 100);
+
+  return `
+    <div style="
+      margin-top:20px;
+      padding:18px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      background:#fafafa;
+    ">
+
+      <h4 style="margin-top:0;">Radar clínico orientativo</h4>
+
+      <div style="
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
+      ">
+
+        <div><strong>Ansiedad:</strong> ${ansiedad}%</div>
+        <div><strong>Depresión:</strong> ${depresion}%</div>
+        <div><strong>Desesperanza:</strong> ${desesperanzaValor}%</div>
+        <div><strong>Malestar global:</strong> ${malestar}%</div>
+
+      </div>
+
+      <p style="font-size:13px; margin-top:14px;">
+        Este perfil resume visualmente la intensidad relativa de los indicadores
+        principales obtenidos en los instrumentos administrados.
+      </p>
+
+    </div>
   `;
 }
