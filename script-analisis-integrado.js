@@ -559,38 +559,66 @@ Object.entries(scl.dimensiones)
 
 function generarPerfilGrafico(scl, bdi, bai, desesperanza){
 
-  const ansiedad = bai?.puntajeTotal || 0;
-  const depresion = bdi?.puntajeTotal || 0;
-  const desesperanzaValor = desesperanza?.puntajeTotal || 0;
+  const ansiedad = Math.round((bai?.puntajeTotal || 0) / 63 * 100);
+  const depresion = Math.round((bdi?.puntajeTotal || 0) / 63 * 100);
+  const desesperanzaValor = Math.round((desesperanza?.puntajeTotal || 0) / 20 * 100);
   const malestar = Math.round((Number(scl?.gsi || 0)) * 40);
 
+  function barra(nombre, valor){
+
+    return `
+      <div style="margin-bottom:15px;">
+
+        <div style="
+          display:flex;
+          justify-content:space-between;
+          margin-bottom:4px;
+          font-weight:600;
+        ">
+          <span>${nombre}</span>
+          <span>${valor}%</span>
+        </div>
+
+        <div style="
+          background:#e5e7eb;
+          border-radius:8px;
+          overflow:hidden;
+          height:20px;
+        ">
+
+          <div style="
+            width:${Math.min(valor,100)}%;
+            height:100%;
+            background:linear-gradient(
+              90deg,
+              #c9a96e,
+              #8b6b35
+            );
+          ">
+          </div>
+
+        </div>
+
+      </div>
+    `;
+  }
+
   return `
-    <div style="margin-top:15px">
 
-      <p>
-        Ansiedad
-        <progress max="63" value="${ansiedad}"></progress>
-        ${ansiedad}
-      </p>
+    <div style="
+      max-width:700px;
+      margin-top:15px;
+    ">
 
-      <p>
-        Depresión
-        <progress max="63" value="${depresion}"></progress>
-        ${depresion}
-      </p>
+      ${barra("Ansiedad", ansiedad)}
 
-      <p>
-        Desesperanza
-        <progress max="20" value="${desesperanzaValor}"></progress>
-        ${desesperanzaValor}
-      </p>
+      ${barra("Depresión", depresion)}
 
-      <p>
-        Malestar Global
-        <progress max="80" value="${malestar}"></progress>
-        ${malestar}
-      </p>
+      ${barra("Desesperanza", desesperanzaValor)}
+
+      ${barra("Malestar Global", malestar)}
 
     </div>
+
   `;
 }
