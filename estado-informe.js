@@ -1,8 +1,13 @@
 import { auth, db } from "./firebase-config.js";
 
+
+
+
 import {
   collection,
-  getDocs
+  getDocs,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 import {
@@ -12,7 +17,12 @@ import {
 onAuthStateChanged(auth, async (user) => {
   if (!user) return;
 
-  const snapshot = await getDocs(collection(db, "resultados_tests"));
+  const q = query(
+  collection(db, "resultados_tests"),
+  where("usuarioEmail", "==", user.email)
+);
+
+const snapshot = await getDocs(q);
 
   const tests = {
     scl: false,
