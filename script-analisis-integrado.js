@@ -685,50 +685,111 @@ window.imprimirInformeIntegrado = function () {
   const ventana =
     window.open("", "_blank");
 
-  ventana.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Informe Integrado</title>
 
-      <style>
+ventana.document.write(`
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Informe Integrado</title>
 
-      body{
-        font-family:Arial,sans-serif;
-        padding:30px;
-        color:#222;
-      }
+<style>
+  body{
+    font-family: Arial, sans-serif;
+    padding: 35px;
+    color: #222;
+    line-height: 1.5;
+  }
 
-      h2,h3{
-        margin-top:20px;
-      }
+  .encabezado{
+    text-align: center;
+    border-bottom: 2px solid #c9a96e;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
 
-      table{
-        width:100%;
-        border-collapse:collapse;
-      }
+  .encabezado h1{
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
 
-      th,td{
-        border:1px solid #ddd;
-        padding:8px;
-      }
+  .encabezado p{
+    margin: 6px 0 0;
+    font-size: 14px;
+    color: #555;
+  }
 
-      button{
-        display:none;
-      }
+  h2{
+    text-align: center;
+    margin-top: 10px;
+  }
 
-      </style>
+  h3{
+    margin-top: 24px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
 
-    </head>
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+  }
 
-    <body>
+  th,td{
+    border:1px solid #ddd;
+    padding:8px;
+    font-size: 13px;
+  }
 
-      ${informe.innerHTML}
+  th{
+    background:#f5f5f5;
+  }
 
-    </body>
+  .pie{
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+  }
 
-    </html>
-  `);
+  button{
+    display:none;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="encabezado">
+  <h1>ESTUDIO PERICIAL PSICOLÓGICO</h1>
+
+  <p>
+    Informe Integrado de Evaluación Psicométrica
+  </p>
+
+  <p>
+    Fecha de emisión:
+    ${new Date().toLocaleDateString("es-AR")}
+  </p>
+</div>
+
+  ${informe.innerHTML}
+
+  <div class="pie">
+    Informe generado automáticamente por el sistema institucional de evaluaciones psicométricas.
+    <br>
+    Los resultados deben ser interpretados por profesional competente dentro de una evaluación integral.
+  </div>
+
+</body>
+</html>
+`);
+
+
 
   ventana.document.close();
 
