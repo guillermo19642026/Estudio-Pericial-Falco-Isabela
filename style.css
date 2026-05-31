@@ -8713,3 +8713,21 @@ body.fondo-neuronal .servicio-rel-item,
     background: rgba(45,45,52,.72) !important;
   }
 }     
+
+
+
+.analisis-busqueda{
+  margin-top: 25px;
+}
+
+.busqueda-dni{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.busqueda-dni input{
+  min-width:280px;
+}
