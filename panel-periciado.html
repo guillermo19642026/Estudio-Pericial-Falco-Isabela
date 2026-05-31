@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evaluación psicométrica online</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header class="admin-header">
+  <h1>Evaluación psicométrica online</h1>
+
+  <div>
+    <button class="logout" onclick="logout()">
+      Cerrar sesión
+    </button>
+  </div>
+</header>
+
+<main class="admin-panel">
+
+  <section class="card panel-bienvenida-tests">
+
+    <h2>Bienvenido/a</h2>
+
+    <p>
+      Plataforma de evaluación psicométrica online.
+    </p>
+
+    <p>
+      Seleccione el instrumento que desea completar. Los resultados quedarán
+      registrados en el sistema una vez finalizada la evaluación.
+    </p>
+
+  </section>
+
+  <section class="tests-main">
+
+    <button class="tests-card dashboard-module" onclick="ir('scl90.html')">
+      <span>🧠 SCL-90 / BSI</span>
+      <small>Evaluación de sintomatología psicológica general.</small>
+      <b>Completar →</b>
+    </button>
+
+    <button class="tests-card dashboard-module" onclick="ir('bdi.html')">
+      <span>📘 BDI</span>
+      <small>Indicadores asociados al estado de ánimo.</small>
+      <b>Completar →</b>
+    </button>
+
+    <button class="tests-card dashboard-module" onclick="ir('bai.html')">
+      <span>⚖️ BAI</span>
+      <small>Indicadores relacionados con ansiedad.</small>
+      <b>Completar →</b>
+    </button>
+
+    <button class="tests-card dashboard-module" onclick="ir('desesperanza.html')">
+      <span>🩶 Desesperanza</span>
+      <small>Exploración de expectativas respecto del futuro.</small>
+      <b>Completar →</b>
+    </button>
+
+  </section>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+
+<script>
+function ir(pagina){
+  window.location.href = pagina;
+}
+</script>
+
+</body>
+</html>
