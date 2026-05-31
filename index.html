@@ -221,9 +221,13 @@ html {
 
   <div class="tests-premium-card tests-card-min">
 
-    <h2>
-      Evaluación psicométrica online
-    </h2>
+    <span class="tests-nuevo">
+  Acceso online disponible
+</span>
+
+<h2>
+  Evaluación psicométrica online
+</h2>
 
     <p class="tests-descripcion tests-descripcion-min">
       Acceso privado mediante usuario y contraseña para la administración
@@ -238,6 +242,46 @@ html {
       Acceso disponible únicamente para usuarios autorizados. Los resultados
       deben interpretarse dentro de una evaluación psicológica integral.
     </p>
+
+
+<button class="tests-toggle-info" onclick="toggleInfoTests()">
+  Ver condiciones de acceso
+</button>
+
+<div id="infoTestsOnline" class="tests-info-oculta">
+
+  <p>
+    El acceso a la plataforma psicométrica es un servicio arancelado y se habilita
+    mediante usuario y contraseña una vez confirmada la solicitud.
+  </p>
+
+  <p>
+    Incluye la administración online de los instrumentos disponibles y la generación
+    de informes orientativos de resultados.
+  </p>
+
+  <p>
+    Los resultados no constituyen diagnóstico por sí mismos y deben ser interpretados
+    dentro de una evaluación psicológica integral.
+  </p>
+
+  <p style="margin-top:12px;">
+    Para más información sobre modalidades de acceso, costos y condiciones de utilización,
+    puede realizar su consulta por WhatsApp.
+  </p>
+
+  <a
+    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20la%20plataforma%20de%20evaluaci%C3%B3n%20psicom%C3%A9trica%20online."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn-info-whatsapp"
+  >
+    Consultar por WhatsApp
+  </a>
+
+</div>
+
+
 
     <div class="tests-botones tests-botones-min">
 
@@ -2574,6 +2618,17 @@ titulos.forEach(t => observer.observe(t));
 
 
 <script type="module" src="postulaciones-firestore.js"></script>
+
+
+
+<script>
+function toggleInfoTests(){
+  const info = document.getElementById("infoTestsOnline");
+  if(info){
+    info.classList.toggle("activo");
+  }
+}
+</script>
 
 
 </body>

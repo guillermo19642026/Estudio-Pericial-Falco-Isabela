@@ -9013,3 +9013,89 @@ BOTONES HERO ELEGANTES
 
   transform:translateY(-1px);
 }
+
+
+
+.tests-nuevo{
+
+  display:inline-block;
+
+  padding:4px 10px;
+
+  margin-bottom:14px;
+
+  border-radius:20px;
+
+  border:1px solid rgba(201,169,110,.20);
+
+  background:rgba(201,169,110,.08);
+
+  color:#c9a96e;
+
+  font-size:.72rem;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+  font-weight:500;
+}
+
+
+
+
+.tests-toggle-info{
+  margin-top:16px;
+  background:transparent;
+  border:none;
+  color:#c9a96e;
+  font-size:.82rem;
+  cursor:pointer;
+  text-decoration:underline;
+  opacity:.85;
+}
+
+.tests-info-oculta{
+  display:none;
+  margin-top:14px;
+  padding:14px 16px;
+  border-left:3px solid rgba(201,169,110,.45);
+  background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.72);
+  font-size:.84rem;
+  line-height:1.6;
+}
+
+.tests-info-oculta.activo{
+  display:block;
+}
+
+
+
+.btn-info-whatsapp{
+
+  display:inline-block;
+
+  margin-top:12px;
+
+  padding:8px 16px;
+
+  border-radius:25px;
+
+  text-decoration:none;
+
+  font-size:.82rem;
+
+  color:#c9a96e;
+
+  border:1px solid rgba(201,169,110,.35);
+
+  transition:.3s ease;
+}
+
+.btn-info-whatsapp:hover{
+
+  background:rgba(201,169,110,.08);
+
+  border-color:#c9a96e;
+}
