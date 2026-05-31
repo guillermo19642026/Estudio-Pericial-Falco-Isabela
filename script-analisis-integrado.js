@@ -251,9 +251,9 @@ ${generarLecturaDimensionesSCL(scl)}
 
 <br>
 
-      <button onclick="window.print()">
-        Imprimir / guardar PDF
-      </button>
+      <button onclick="imprimirInformeIntegrado()">
+  Imprimir / guardar PDF
+</button>
 
     </section>
   `;
@@ -670,3 +670,70 @@ function generarRadarIntegrado(scl, bdi, bai, desesperanza){
     </div>
   `;
 }
+
+
+window.imprimirInformeIntegrado = function () {
+
+  const informe =
+    document.getElementById("informeIntegrado");
+
+  if (!informe) {
+    alert("No se encontró el informe.");
+    return;
+  }
+
+  const ventana =
+    window.open("", "_blank");
+
+  ventana.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Informe Integrado</title>
+
+      <style>
+
+      body{
+        font-family:Arial,sans-serif;
+        padding:30px;
+        color:#222;
+      }
+
+      h2,h3{
+        margin-top:20px;
+      }
+
+      table{
+        width:100%;
+        border-collapse:collapse;
+      }
+
+      th,td{
+        border:1px solid #ddd;
+        padding:8px;
+      }
+
+      button{
+        display:none;
+      }
+
+      </style>
+
+    </head>
+
+    <body>
+
+      ${informe.innerHTML}
+
+    </body>
+
+    </html>
+  `);
+
+  ventana.document.close();
+
+  setTimeout(() => {
+    ventana.print();
+  }, 500);
+
+};
