@@ -2,7 +2,9 @@ import { auth, db } from "./firebase-config.js";
 
 import {
   collection,
-  getDocs
+  getDocs,
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 import {
@@ -11,6 +13,22 @@ import {
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) return;
+
+  const refUsuario = doc(db, "usuarios", user.uid);
+  const snapUsuario = await getDoc(refUsuario);
+
+  if (!snapUsuario.exists()) {
+    console.warn("No existe documento del usuario.");
+    return;
+  }
+
+  const dataUsuario = snapUsuario.data();
+  const dniUsuario = String(dataUsuario.dni || "").trim();
+
+  if (!dniUsuario) {
+    console.warn("Este usuario no tiene DNI cargado en usuarios.");
+    return;
+  }
 
   const snapshot = await getDocs(collection(db, "resultados_tests"));
 
@@ -24,13 +42,9 @@ onAuthStateChanged(auth, async (user) => {
   snapshot.forEach((doc) => {
     const r = doc.data();
 
-    const emailResultado =
-  r.usuarioEmail ||
-  r.email ||
-  r.usuario ||
-  "";
+    const dniResultado = String(r.dni || "").trim();
 
-if (emailResultado !== user.email) return;
+    if (dniResultado !== dniUsuario) return;
 
     const nombreTest = (r.test || "").toLowerCase();
 
