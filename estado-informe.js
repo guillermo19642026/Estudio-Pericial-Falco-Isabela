@@ -24,7 +24,13 @@ onAuthStateChanged(auth, async (user) => {
   snapshot.forEach((doc) => {
     const r = doc.data();
 
-    if (r.usuarioEmail !== user.email) return;
+    const emailResultado =
+  r.usuarioEmail ||
+  r.email ||
+  r.usuario ||
+  "";
+
+if (emailResultado !== user.email) return;
 
     const nombreTest = (r.test || "").toLowerCase();
 
