@@ -2788,3 +2788,35 @@ margin:38px auto;
   margin-bottom: 0;
   color: #1f1f1f;
 }
+
+
+
+
+.analisis-busqueda{
+  margin-top: 25px;
+}
+
+.busqueda-dni{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.busqueda-dni input{
+  min-width:280px;
+}
+
+
+#resultadoBusqueda{
+  margin-top:20px;
+}
+
+#informeIntegrado{
+  margin-top:20px;
+}
+
+.analisis-busqueda{
+  margin-top:35px;
+}

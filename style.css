@@ -8715,32 +8715,3 @@ body.fondo-neuronal .servicio-rel-item,
 }     
 
 
-
-.analisis-busqueda{
-  margin-top: 25px;
-}
-
-.busqueda-dni{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-top:15px;
-  flex-wrap:wrap;
-}
-
-.busqueda-dni input{
-  min-width:280px;
-}
-
-
-#resultadoBusqueda{
-  margin-top:20px;
-}
-
-#informeIntegrado{
-  margin-top:20px;
-}
-
-.analisis-busqueda{
-  margin-top:35px;
-}
