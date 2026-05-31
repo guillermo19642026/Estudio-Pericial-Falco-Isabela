@@ -2,9 +2,7 @@ import { auth, db } from "./firebase-config.js";
 
 import {
   collection,
-  getDocs,
-  doc,
-  getDoc
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 import {
@@ -14,21 +12,8 @@ import {
 onAuthStateChanged(auth, async (user) => {
   if (!user) return;
 
-  const refUsuario = doc(db, "usuarios", user.uid);
-  const snapUsuario = await getDoc(refUsuario);
 
-  if (!snapUsuario.exists()) {
-    console.warn("No existe documento del usuario.");
-    return;
-  }
 
-  const dataUsuario = snapUsuario.data();
-  const dniUsuario = String(dataUsuario.dni || "").trim();
-
-  if (!dniUsuario) {
-    console.warn("Este usuario no tiene DNI cargado en usuarios.");
-    return;
-  }
 
   const snapshot = await getDocs(collection(db, "resultados_tests"));
 
@@ -42,9 +27,25 @@ onAuthStateChanged(auth, async (user) => {
   snapshot.forEach((doc) => {
     const r = doc.data();
 
-    const dniResultado = String(r.dni || "").trim();
+    const uidResultado = r.usuarioUID || "";
 
-    if (dniResultado !== dniUsuario) return;
+
+const uidResultado = r.usuarioUID || "";
+const emailResultado = (r.usuarioEmail || "").toLowerCase();
+const emailUsuario = (user.email || "").toLowerCase();
+
+console.log("UID RESULTADO:", uidResultado);
+console.log("UID USUARIO:", user.uid);
+console.log("EMAIL RESULTADO:", emailResultado);
+console.log("EMAIL USUARIO:", emailUsuario);
+console.log("TEST:", r.test);
+
+if (
+  uidResultado !== user.uid &&
+  emailResultado !== emailUsuario
+) return;
+
+
 
     const nombreTest = (r.test || "").toLowerCase();
 
