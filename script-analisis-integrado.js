@@ -662,10 +662,10 @@ function generarRadarIntegrado(scl, bdi, bai, desesperanza){
 
       </div>
 
-      <p style="font-size:13px; margin-top:14px;">
-        Este perfil resume visualmente la intensidad relativa de los indicadores
-        principales obtenidos en los instrumentos administrados.
-      </p>
+      <p style="font-size:12px; color:#666;">
+  Fecha de emisión:
+  ${new Date().toLocaleDateString("es-AR")}
+</p>
 
     </div>
   `;
