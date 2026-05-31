@@ -12,9 +12,6 @@ import {
 onAuthStateChanged(auth, async (user) => {
   if (!user) return;
 
-
-
-
   const snapshot = await getDocs(collection(db, "resultados_tests"));
 
   const tests = {
@@ -28,24 +25,13 @@ onAuthStateChanged(auth, async (user) => {
     const r = doc.data();
 
     const uidResultado = r.usuarioUID || "";
+    const emailResultado = (r.usuarioEmail || "").toLowerCase();
+    const emailUsuario = (user.email || "").toLowerCase();
 
-
-const uidResultado = r.usuarioUID || "";
-const emailResultado = (r.usuarioEmail || "").toLowerCase();
-const emailUsuario = (user.email || "").toLowerCase();
-
-console.log("UID RESULTADO:", uidResultado);
-console.log("UID USUARIO:", user.uid);
-console.log("EMAIL RESULTADO:", emailResultado);
-console.log("EMAIL USUARIO:", emailUsuario);
-console.log("TEST:", r.test);
-
-if (
-  uidResultado !== user.uid &&
-  emailResultado !== emailUsuario
-) return;
-
-
+    if (
+      uidResultado !== user.uid &&
+      emailResultado !== emailUsuario
+    ) return;
 
     const nombreTest = (r.test || "").toLowerCase();
 
