@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Panel de Informe</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="tests-home">
+
+<header class="tests-header">
+
+  <div class="tests-logo">
+    <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+  </div>
+
+  <div class="tests-brand">
+    ESTUDIO PERICIAL PSICOLÓGICO
+    <span>Informe orientativo</span>
+  </div>
+
+  <button class="tests-logout" onclick="logout()">
+    Cerrar sesión
+  </button>
+
+</header>
+
+<section class="tests-hero dashboard-hero">
+
+  <span class="dashboard-kicker">
+    Acceso con informe
+  </span>
+
+  <h1>Evaluación psicométrica online</h1>
+
+  <p>
+    Complete los instrumentos disponibles. Una vez registrados los resultados,
+    podrá generarse un informe orientativo de integración.
+  </p>
+
+</section>
+
+<section class="card estado-evaluacion-card">
+
+  <h2>Estado de la evaluación</h2>
+
+  <div class="estado-tests">
+    <p>SCL-90 / BSI <span id="estadoSCL">Pendiente</span></p>
+    <p>BDI <span id="estadoBDI">Pendiente</span></p>
+    <p>BAI <span id="estadoBAI">Pendiente</span></p>
+    <p>Desesperanza <span id="estadoDesesperanza">Pendiente</span></p>
+  </div>
+
+  <div id="bloqueInformeDisponible" style="display:none; margin-top:20px;">
+    <p class="note">
+      Ya cuenta con instrumentos suficientes para generar un informe orientativo.
+    </p>
+
+    <button onclick="ir('analisis-integrado.html')">
+      Generar informe orientativo
+    </button>
+  </div>
+
+</section>
+
+<section class="dashboard-section-title">
+  <span>Instrumentos disponibles</span>
+  <h2>Evaluaciones</h2>
+</section>
+
+<main class="tests-main">
+
+  <button class="tests-card dashboard-module" onclick="ir('scl90.html')">
+    <span>🧠 SCL-90 / BSI</span>
+    <small>Evaluación de sintomatología psicológica general.</small>
+    <b>Completar →</b>
+  </button>
+
+  <button class="tests-card dashboard-module" onclick="ir('bdi.html')">
+    <span>📘 BDI</span>
+    <small>Indicadores asociados al estado de ánimo.</small>
+    <b>Completar →</b>
+  </button>
+
+  <button class="tests-card dashboard-module" onclick="ir('bai.html')">
+    <span>⚖️ BAI</span>
+    <small>Indicadores relacionados con ansiedad.</small>
+    <b>Completar →</b>
+  </button>
+
+  <button class="tests-card dashboard-module" onclick="ir('desesperanza.html')">
+    <span>🩶 Desesperanza</span>
+    <small>Exploración de expectativas respecto del futuro.</small>
+    <b>Completar →</b>
+  </button>
+
+</main>
+
+<footer class="dashboard-footer-min">
+  <div class="dashboard-footer-bottom">
+    Informe orientativo · Evaluación psicométrica online
+  </div>
+</footer>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="estado-informe.js"></script>
+
+<script>
+function ir(pagina){
+  window.location.href = pagina;
+}
+</script>
+
+</body>
+</html>
