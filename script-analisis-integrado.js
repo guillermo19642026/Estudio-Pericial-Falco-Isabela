@@ -313,30 +313,8 @@ ${desesperanza ? `
 
       <hr>
 
-      <h3>Síntesis clínica orientativa</h3>
+      
 
-      <p>
-        Se realiza una lectura integrada de los instrumentos psicométricos disponibles.
-        ${
-          cantidad === 4
-          ? "El análisis cuenta con la totalidad de los cuatro instrumentos previstos."
-          : "El análisis se realiza con tres instrumentos disponibles, por lo que debe considerarse parcial."
-        }
-      </p>
-
-      <p>
-        Los resultados deben interpretarse dentro de una evaluación clínica y/o pericial integral,
-        considerando entrevista, antecedentes, documentación obrante y criterio profesional.
-      </p>
-
-      <hr>
-
-      <h3>Lectura integrada automática</h3>
-
-${generarTextoIntegrado(scl, bdi, bai, desesperanza)}
-
-
-<hr>
 
 <h3>Alertas clínicas orientativas</h3>
 
@@ -433,6 +411,12 @@ function generarResumenEjecutivo(scl, bdi, bai, desesperanza, cantidad){
   `;
 }
 
+
+
+
+
+
+
 function generarNivelGlobal(scl, bdi, bai, desesperanza){
 
   let puntos = 0;
@@ -443,22 +427,40 @@ function generarNivelGlobal(scl, bdi, bai, desesperanza){
   if (desesperanza && esElevado(desesperanza.nivel)) puntos++;
 
   let nivel = "Bajo";
-  let descripcion = "No se observan indicadores globales elevados en los instrumentos disponibles.";
+  let descripcion = "";
+
+  if (puntos === 0) {
+    descripcion =
+      "Los instrumentos administrados no evidencian indicadores globales de afectación emocional clínicamente significativa.";
+  }
 
   if (puntos === 1) {
     nivel = "Moderado";
-    descripcion = "Se observa al menos un área con indicadores clínicamente relevantes, lo que sugiere la conveniencia de ampliar la evaluación profesional.";
+    descripcion =
+      "Se identifica al menos un área con indicadores clínicamente relevantes, sugiriendo la conveniencia de ampliar la exploración profesional.";
   }
 
   if (puntos >= 2) {
     nivel = "Elevado";
-    descripcion = "Se observa convergencia entre dos o más áreas de malestar emocional, lo que requiere especial atención dentro de una evaluación integral.";
+    descripcion =
+      "Se observa convergencia entre múltiples indicadores de malestar emocional, configurando un perfil que requiere especial consideración clínica.";
   }
 
   return `
-    <div class="nivel-global-box">
-      <strong>${nivel}</strong>
-      <p>${descripcion}</p>
+    <div style="
+      padding:20px;
+      border-radius:12px;
+      background:#faf8f3;
+      border-left:5px solid #c9a96e;
+      margin:10px 0 20px;
+    ">
+      <h4 style="margin-top:0;">
+        Nivel global: ${nivel}
+      </h4>
+
+      <p style="margin-bottom:0;">
+        ${descripcion}
+      </p>
     </div>
   `;
 }
