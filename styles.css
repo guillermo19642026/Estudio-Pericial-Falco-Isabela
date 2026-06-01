@@ -2990,3 +2990,71 @@ border:
 
   pointer-events:none;
 }
+
+
+/* =========================
+   ESTADO EVALUACION FIX
+========================= */
+
+.estado-evaluacion-card h2{
+  color:#f5f5f5 !important;
+}
+
+.estado-evaluacion-card p{
+  color:#e8e8e8 !important;
+}
+
+.estado-item span:first-child{
+  color:#f5f5f5 !important;
+}
+
+.estado-completado{
+  color:#7ef0a6 !important;
+}
+
+.estado-pendiente{
+  color:#e4c48b !important;
+}
+
+.note{
+  color:#d8d8d8 !important;
+  text-align:center;
+  margin-top:20px;
+}
+
+#bloqueInformeDisponible{
+  text-align:center;
+}
+
+#bloqueInformeDisponible button{
+
+  margin-top:15px;
+
+  background:linear-gradient(
+    135deg,
+    #c9a86a,
+    #d8bc87
+  );
+
+  color:#111 !important;
+
+  border:none;
+
+  padding:12px 22px;
+
+  border-radius:12px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+#bloqueInformeDisponible button:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(201,168,106,.25);
+}
