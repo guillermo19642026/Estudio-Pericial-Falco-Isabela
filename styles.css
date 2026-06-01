@@ -2852,7 +2852,11 @@ margin:38px auto;
   margin:20px auto 35px;
 
   background:
-    rgba(255,255,255,.04);
+  linear-gradient(
+    180deg,
+    rgba(22,22,22,.96),
+    rgba(16,16,16,.98)
+  );
 
   border:1px solid rgba(255,255,255,.08);
 
@@ -2863,7 +2867,13 @@ margin:38px auto;
   padding:28px;
 
   backdrop-filter:blur(8px);
+
+  position:relative;
+
+  overflow:hidden;
 }
+
+
 
 .estado-evaluacion-card h2{
   text-align:center;
@@ -2960,4 +2970,23 @@ border:
   font-weight:700;
 
   font-size:.85rem;
+}
+
+
+.estado-evaluacion-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(201,168,106,.08),
+      transparent 40%
+    );
+
+  pointer-events:none;
 }
