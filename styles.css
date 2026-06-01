@@ -3129,3 +3129,59 @@ border:
 .datos-evaluado p{
   margin:8px 0;
 }
+
+
+.informe-profesional h2{
+  text-align:center;
+  margin-bottom:8px;
+  color:#f5f5f5;
+}
+
+.fecha-emision{
+  text-align:center;
+  color:#c9a96e;
+  font-size:.90rem;
+  margin-bottom:20px;
+}
+
+.datos-evaluado{
+  padding:18px;
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(201,168,106,.06),
+      rgba(255,255,255,.02)
+    );
+
+  border:
+    1px solid rgba(201,168,106,.15);
+
+  margin-bottom:20px;
+}
+
+
+
+.tabla-resumen{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+  margin-bottom:20px;
+}
+
+.tabla-resumen th{
+  background:#c9a96e;
+  color:#111;
+  padding:10px;
+  text-align:left;
+}
+
+.tabla-resumen td{
+  padding:10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.tabla-resumen tr:hover{
+  background:rgba(201,169,110,.05);
+}

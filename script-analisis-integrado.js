@@ -194,6 +194,10 @@ window.resultadosPaciente = {
 
 
 
+
+
+
+
 window.generarAnalisis = function () {
   const { scl, bdi, bai, desesperanza, datos } = window.resultadosPaciente;
 
@@ -227,14 +231,44 @@ window.generarAnalisis = function () {
 
       <hr>
 
-      <h3>Instrumentos disponibles</h3>
+      <h3>Resumen de Resultados</h3>
 
-      <ul>
-        ${scl ? `<li>SCL / BSI: IGS ${scl.gsi || "—"} | PST ${scl.pst || "—"} | PSDI ${scl.psdi || "—"}</li>` : ""}
-        ${bdi ? `<li>BDI: ${bdi.puntajeTotal || "—"} puntos | ${bdi.nivel || "—"}</li>` : ""}
-        ${bai ? `<li>BAI: ${bai.puntajeTotal || "—"} puntos | ${bai.nivel || "—"}</li>` : ""}
-        ${desesperanza ? `<li>Desesperanza: ${desesperanza.puntajeTotal || "—"} puntos | ${desesperanza.nivel || "—"}</li>` : ""}
-      </ul>
+<table class="tabla-resumen">
+
+<tr>
+  <th>Instrumento</th>
+  <th>Resultado</th>
+</tr>
+
+${scl ? `
+<tr>
+  <td>SCL / BSI</td>
+  <td>IGS ${scl.gsi || "—"}</td>
+</tr>
+` : ""}
+
+${bdi ? `
+<tr>
+  <td>BDI</td>
+  <td>${bdi.nivel || "—"}</td>
+</tr>
+` : ""}
+
+${bai ? `
+<tr>
+  <td>BAI</td>
+  <td>${bai.nivel || "—"}</td>
+</tr>
+` : ""}
+
+${desesperanza ? `
+<tr>
+  <td>Desesperanza</td>
+  <td>${desesperanza.nivel || "—"}</td>
+</tr>
+` : ""}
+
+</table>
 
       <hr>
 
