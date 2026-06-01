@@ -313,51 +313,7 @@ ${generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza)}
 
 
 
-      <hr>
-
-      <h3>Resultados por instrumento</h3>
-
-<table class="tabla-resumen">
-
-<tr>
-  <th>Instrumento</th>
-  <th>Resultado</th>
-</tr>
-
-${scl ? `
-<tr>
-  <td>SCL / BSI</td>
-  <td>IGS ${scl.gsi || "—"}</td>
-</tr>
-` : ""}
-
-${bdi ? `
-<tr>
-  <td>BDI</td>
-  <td>${bdi.nivel || "—"}</td>
-</tr>
-` : ""}
-
-${bai ? `
-<tr>
-  <td>BAI</td>
-  <td>${bai.nivel || "—"}</td>
-</tr>
-` : ""}
-
-${desesperanza ? `
-<tr>
-  <td>Desesperanza</td>
-  <td>${desesperanza.nivel || "—"}</td>
-</tr>
-` : ""}
-
-</table>
-
-      <hr>
-
-      
-
+ <hr>
 
 <h3>Alertas clínicas orientativas</h3>
 
@@ -367,7 +323,6 @@ ${generarAlertasClinicas(
   bai,
   desesperanza
 )}
-
 
 
 <hr>
@@ -381,7 +336,6 @@ ${generarInterpretacionInteligente(
   desesperanza
 )}
 
-
 <hr>
 
 <h3>Tabla de dimensiones SCL / BSI</h3>
@@ -390,7 +344,13 @@ ${generarTablaDimensionesSCL(scl)}
 
 <hr>
 
-<h3>Perfil Integrado</h3>
+<h3>Lectura por dimensiones SCL / BSI</h3>
+
+${generarLecturaDimensionesSCL(scl)}
+
+<hr>
+
+<h3>Perfil gráfico integrado</h3>
 
 ${generarPerfilGrafico(
   scl,
@@ -406,27 +366,19 @@ ${generarRadarIntegrado(
   desesperanza
 )}
 
-<hr>
-
-<h3>Lectura por dimensiones SCL / BSI</h3>
-
-${generarLecturaDimensionesSCL(scl)}
-
-
-
 <br>
 
-      <button onclick="imprimirInformeIntegrado()">
+<button onclick="imprimirInformeIntegrado()">
   Imprimir / guardar PDF
 </button>
 
-    </section>
-  `;
+
+</section>
+`;
+
 
   informe.scrollIntoView({ behavior: "smooth" });
 };
-
-
 
 
 function esElevado(nivel){
