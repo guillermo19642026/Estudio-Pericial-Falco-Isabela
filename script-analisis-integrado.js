@@ -287,10 +287,6 @@ ${desesperanza ? `
 
 
 
-
-
-
-
 <hr>
 
 <h3>Nivel global de afectación emocional</h3>
@@ -320,6 +316,20 @@ ${generarFactoresProtectores(scl, bdi, bai, desesperanza)}
 <h3>Recomendaciones orientativas</h3>
 
 ${generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza)}
+
+
+
+<hr>
+
+<h3>Conclusión orientativa</h3>
+
+${generarConclusionIntegrada(
+  scl,
+  bdi,
+  bai,
+  desesperanza
+)}
+
 
 
 
@@ -419,10 +429,6 @@ function generarResumenEjecutivo(scl, bdi, bai, desesperanza, cantidad){
 
 
 
-
-
-
-
 function generarNivelGlobal(scl, bdi, bai, desesperanza){
 
   let puntos = 0;
@@ -433,24 +439,41 @@ function generarNivelGlobal(scl, bdi, bai, desesperanza){
   if (desesperanza && esElevado(desesperanza.nivel)) puntos++;
 
   let nivel = "Bajo";
-  let descripcion = "";
+
+
 
   if (puntos === 0) {
-    descripcion =
-      "Los instrumentos administrados no evidencian indicadores globales de afectación emocional clínicamente significativa.";
+
+  descripcion =
+    "Los instrumentos administrados no evidencian indicadores globales de afectación emocional clínicamente significativa.";
+
+}
+
+if (puntos === 1) {
+
+  descripcion =
+    "Se identifica un área con indicadores clínicamente relevantes, sugiriendo la conveniencia de ampliar la exploración profesional.";
+
+  if (bdi && esElevado(bdi.nivel)) {
+    descripcion +=
+      " En el presente caso, dicha clasificación se encuentra determinada principalmente por la presencia de indicadores depresivos de intensidad moderada o superior.";
   }
 
-  if (puntos === 1) {
-    nivel = "Moderado";
-    descripcion =
-      "Se identifica al menos un área con indicadores clínicamente relevantes, sugiriendo la conveniencia de ampliar la exploración profesional.";
+  if (bai && esElevado(bai.nivel)) {
+    descripcion +=
+      " La clasificación global se vincula principalmente con indicadores de ansiedad clínicamente relevantes.";
   }
 
-  if (puntos >= 2) {
-    nivel = "Elevado";
-    descripcion =
-      "Se observa convergencia entre múltiples indicadores de malestar emocional, configurando un perfil que requiere especial consideración clínica.";
-  }
+}
+
+if (puntos >= 2) {
+
+  descripcion =
+    "Se observa convergencia entre múltiples indicadores de malestar emocional, configurando un perfil que requiere especial consideración clínica y profesional.";
+}
+
+
+
 
   return `
     <div style="
@@ -470,6 +493,10 @@ function generarNivelGlobal(scl, bdi, bai, desesperanza){
     </div>
   `;
 }
+
+
+
+
 
 function generarPerfilEmocionalIntegrado(scl, bdi, bai, desesperanza){
 
@@ -592,6 +619,47 @@ function generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza){
 }
 
 
+
+
+function generarConclusionIntegrada(
+  scl,
+  bdi,
+  bai,
+  desesperanza
+){
+
+  let texto =
+    "La integración de los resultados obtenidos permite identificar el perfil emocional predominante observado al momento de la evaluación.";
+
+  if (bdi && esElevado(bdi.nivel)) {
+    texto +=
+      " Se destacan indicadores afectivos compatibles con sintomatología depresiva clínicamente relevante.";
+  }
+
+  if (bai && esElevado(bai.nivel)) {
+    texto +=
+      " Asimismo, se observan manifestaciones compatibles con incremento de ansiedad subjetiva.";
+  }
+
+  if (desesperanza && esElevado(desesperanza.nivel)) {
+    texto +=
+      " También se registran expectativas negativas respecto del futuro y disminución de la percepción de alternativas de resolución.";
+  }
+
+  if (
+    (!bdi || !esElevado(bdi.nivel)) &&
+    (!bai || !esElevado(bai.nivel)) &&
+    (!desesperanza || !esElevado(desesperanza.nivel))
+  ) {
+    texto +=
+      " No se observan indicadores clínicamente significativos de afectación emocional global en los instrumentos administrados.";
+  }
+
+  texto +=
+    " Los resultados deben interpretarse dentro de una evaluación psicológica integral y no constituyen por sí mismos un diagnóstico clínico o pericial.";
+
+  return `<p>${texto}</p>`;
+}
 
 
 
@@ -803,37 +871,74 @@ function generarAlertasClinicas(scl, bdi, bai, desesperanza) {
 
 
 function generarLecturaDimensionesSCL(scl) {
+
   if (!scl || !scl.dimensiones) {
-    return `<p>No se dispone de dimensiones SCL / BSI para integrar.</p>`;
-  }
-
-  const dimensiones = Object.entries(scl.dimensiones)
-    .filter(([nombre, d]) => Number(d.items) > 0);
-
-  const altas = dimensiones.filter(([nombre, d]) =>
-    (d.interpretacion || "").toUpperCase() === "ALTO"
-  );
-
-  const elevadasPorPromedio = dimensiones.filter(([nombre, d]) =>
-    Number(d.promedio) >= 2.5
-  );
-
-  let texto = "";
-
-  if (altas.length > 0) {
-    texto += `
+    return `
       <p>
-        En el perfil SCL / BSI se observan elevaciones clínicamente relevantes en:
-        <strong>${altas.map(([nombre]) => nombre).join(", ")}</strong>.
+        No se dispone de información dimensional suficiente para realizar una interpretación orientativa.
       </p>
     `;
   }
 
-  if (elevadasPorPromedio.length > 0) {
-  texto += `
+  const dimensiones = Object.entries(scl.dimensiones)
+    .filter(([_, d]) => Number(d.items) > 0)
+    .sort((a, b) => Number(b[1].promedio) - Number(a[1].promedio));
+
+  if (dimensiones.length === 0) {
+    return `
+      <p>
+        No se dispone de dimensiones válidas para realizar la interpretación.
+      </p>
+    `;
+  }
+
+  const elevadas = dimensiones.filter(
+    ([_, d]) => Number(d.promedio) >= 2
+  );
+
+  if (elevadas.length === 0) {
+
+    const primera = dimensiones[0];
+    const segunda = dimensiones[1];
+    const tercera = dimensiones[2];
+
+    return `
+      <p>
+        Las dimensiones disponibles presentan valores dentro de rangos no elevados desde el punto de vista orientativo.
+      </p>
+
+      <p>
+        Se observa predominio relativo de la dimensión
+        <strong>${primera[0]}</strong>
+        (${Number(primera[1].promedio).toFixed(2)})
+
+        ${segunda ? `, seguida por <strong>${segunda[0]}</strong> (${Number(segunda[1].promedio).toFixed(2)})` : ""}
+
+        ${tercera ? ` y <strong>${tercera[0]}</strong> (${Number(tercera[1].promedio).toFixed(2)})` : ""},
+
+        sin alcanzar niveles considerados clínicamente significativos según los criterios automáticos de interpretación utilizados por el sistema.
+      </p>
+
+      <p>
+        La configuración observada no evidencia un patrón de elevación sintomática específico, sugiriendo un perfil dimensional globalmente conservado dentro de las áreas evaluadas.
+      </p>
+    `;
+  }
+
+  const nombres = elevadas.map(([n]) => n);
+
+  return `
     <p>
-      La intensidad sintomática predominante se concentra en:
-      <strong>${elevadasPorPromedio.map(([nombre]) => nombre).join(", ")}</strong>.
+      Se observan elevaciones relativas en las dimensiones:
+      <strong>${nombres.join(", ")}</strong>.
+    </p>
+
+    <p>
+      La distribución de los resultados sugiere la presencia de áreas específicas de malestar psicológico que merecen ser consideradas dentro de una evaluación clínica integral.
+    </p>
+
+    <p>
+      La interpretación definitiva de dichas elevaciones debe realizarse conjuntamente con la entrevista psicológica, antecedentes relevantes y demás elementos de valoración profesional.
     </p>
   `;
 }
