@@ -19,7 +19,16 @@ onAuthStateChanged(auth, async (user) => {
 
   const params = new URLSearchParams(window.location.search);
 
+
   if (params.get("auto") !== "informe") return;
+
+  const buscador = document.querySelector(".card");
+
+if (buscador) {
+  buscador.style.display = "none";
+}
+
+
 
   const q = query(
     collection(db, "resultados_tests"),

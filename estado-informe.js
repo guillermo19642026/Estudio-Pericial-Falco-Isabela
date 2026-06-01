@@ -21,8 +21,6 @@ onAuthStateChanged(auth, async (user) => {
 
 const snapshot = await getDocs(q);
 
-console.log("EMAIL LOGUEADO:", user.email);
-console.log("CANTIDAD DE RESULTADOS ENCONTRADOS:", snapshot.size);
 
 
   const tests = {
@@ -34,7 +32,6 @@ console.log("CANTIDAD DE RESULTADOS ENCONTRADOS:", snapshot.size);
 
   snapshot.forEach((doc) => {
 
-console.log("DOCUMENTO:", doc.data());
 
     const r = doc.data();
 
