@@ -230,6 +230,56 @@ window.generarAnalisis = function () {
 
 ${generarResumenEjecutivo(scl, bdi, bai, desesperanza, cantidad)}
 
+
+
+
+ <hr>
+
+      <h3>Resultados por instrumento</h3>
+
+<table class="tabla-resumen">
+
+<tr>
+  <th>Instrumento</th>
+  <th>Resultado</th>
+</tr>
+
+${scl ? `
+<tr>
+  <td>SCL / BSI</td>
+  <td>IGS ${scl.gsi || "—"}</td>
+</tr>
+` : ""}
+
+${bdi ? `
+<tr>
+  <td>BDI</td>
+  <td>${bdi.nivel || "—"}</td>
+</tr>
+` : ""}
+
+${bai ? `
+<tr>
+  <td>BAI</td>
+  <td>${bai.nivel || "—"}</td>
+</tr>
+` : ""}
+
+${desesperanza ? `
+<tr>
+  <td>Desesperanza</td>
+  <td>${desesperanza.nivel || "—"}</td>
+</tr>
+` : ""}
+
+</table>
+
+
+
+
+
+
+
 <hr>
 
 <h3>Nivel global de afectación emocional</h3>
@@ -265,7 +315,7 @@ ${generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza)}
 
       <hr>
 
-      <h3>Resumen de Resultados</h3>
+      <h3>Resultados por instrumento</h3>
 
 <table class="tabla-resumen">
 
