@@ -208,14 +208,7 @@ window.generarAnalisis = function () {
   informe.innerHTML = `
   <section class="card informe-profesional">
 
-    <h2>
-      Informe Integrado de Evaluación Psicométrica
-    </h2>
 
-    <p class="fecha-emision">
-      Fecha de emisión:
-      ${new Date().toLocaleDateString("es-AR")}
-    </p>
 
     <div class="datos-evaluado">
 
