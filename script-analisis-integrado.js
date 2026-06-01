@@ -617,6 +617,7 @@ function generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza){
 
 
 
+
 function generarConclusionIntegrada(
   scl,
   bdi,
@@ -624,22 +625,29 @@ function generarConclusionIntegrada(
   desesperanza
 ){
 
-  let texto =
-    "La integración de los resultados obtenidos permite identificar el perfil emocional predominante observado al momento de la evaluación.";
+  let texto = `
+    La integración de los instrumentos administrados permite realizar una aproximación orientativa al funcionamiento emocional actual del evaluado, considerando la convergencia de los distintos indicadores psicométricos obtenidos.
+  `;
 
   if (bdi && esElevado(bdi.nivel)) {
-    texto +=
-      " Se destacan indicadores afectivos compatibles con sintomatología depresiva clínicamente relevante.";
+
+    texto += `
+      Se destacan indicadores compatibles con sintomatología depresiva de intensidad clínicamente relevante, observándose elementos asociados a disminución del estado de ánimo, desmotivación, pesimismo y reducción de recursos subjetivos para afrontar las demandas cotidianas.
+    `;
   }
 
   if (bai && esElevado(bai.nivel)) {
-    texto +=
-      " Asimismo, se observan manifestaciones compatibles con incremento de ansiedad subjetiva.";
+
+    texto += `
+      Asimismo, se registran manifestaciones compatibles con incremento de ansiedad subjetiva, caracterizadas por preocupación persistente, tensión psicológica y aumento de la activación emocional.
+    `;
   }
 
   if (desesperanza && esElevado(desesperanza.nivel)) {
-    texto +=
-      " También se registran expectativas negativas respecto del futuro y disminución de la percepción de alternativas de resolución.";
+
+    texto += `
+      También se observan indicadores vinculados a expectativas negativas respecto del futuro y disminución de la percepción de alternativas de resolución frente a situaciones vitales complejas.
+    `;
   }
 
   if (
@@ -647,15 +655,33 @@ function generarConclusionIntegrada(
     (!bai || !esElevado(bai.nivel)) &&
     (!desesperanza || !esElevado(desesperanza.nivel))
   ) {
-    texto +=
-      " No se observan indicadores clínicamente significativos de afectación emocional global en los instrumentos administrados.";
+
+    texto += `
+      No se observan indicadores clínicamente significativos de afectación emocional global en los instrumentos administrados, registrándose un perfil compatible con parámetros esperables dentro de la población general.
+    `;
   }
 
-  texto +=
-    " Los resultados deben interpretarse dentro de una evaluación psicológica integral y no constituyen por sí mismos un diagnóstico clínico o pericial.";
+  texto += `
+    Los hallazgos descriptos deben interpretarse conjuntamente con entrevistas clínicas, antecedentes personales, contexto vital y demás elementos de valoración profesional. Los resultados psicométricos constituyen herramientas complementarias de evaluación y no reemplazan una valoración psicológica integral realizada por profesional competente.
+  `;
 
-  return `<p>${texto}</p>`;
+  return `
+    <div style="
+      background:rgba(201,168,106,.06);
+      border-left:4px solid #c9a96e;
+      padding:18px;
+      border-radius:10px;
+      line-height:1.8;
+    ">
+      ${texto}
+    </div>
+  `;
 }
+
+
+
+
+
 
 
 
