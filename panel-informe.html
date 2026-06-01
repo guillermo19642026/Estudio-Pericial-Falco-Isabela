@@ -59,9 +59,9 @@
       Ya cuenta con instrumentos suficientes para generar un informe orientativo.
     </p>
 
-    <button onclick="ir('analisis-integrado.html')">
-      Generar informe orientativo
-    </button>
+   <button onclick="generarInformeUsuario()">
+  Generar informe orientativo
+</button>
   </div>
 
 </section>
@@ -111,6 +111,10 @@
 <script>
 function ir(pagina){
   window.location.href = pagina;
+}
+
+function generarInformeUsuario(){
+  window.location.href = "analisis-integrado.html?auto=informe";
 }
 </script>
 

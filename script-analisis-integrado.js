@@ -1,9 +1,55 @@
-import { db } from "./firebase-config.js";
+import { auth, db } from "./firebase-config.js";
 
 import {
   collection,
-  getDocs
+  getDocs,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+
+
+
+onAuthStateChanged(auth, async (user) => {
+  if (!user) return;
+
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("auto") !== "informe") return;
+
+  const q = query(
+    collection(db, "resultados_tests"),
+    where("usuarioEmail", "==", user.email)
+  );
+
+  const snapshot = await getDocs(q);
+
+  const resultados = [];
+
+  snapshot.forEach(doc => {
+    resultados.push(doc.data());
+  });
+
+  mostrarResultados(resultados);
+
+  setTimeout(() => {
+
+  const cantidad =
+    resultados.filter(r => r.test).length;
+
+  if (cantidad >= 3) {
+    window.generarAnalisis();
+  }
+
+}, 300);
+});
+
+
+
 
 window.buscarPaciente = async function () {
 
