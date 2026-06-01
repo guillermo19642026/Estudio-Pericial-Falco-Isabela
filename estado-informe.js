@@ -53,17 +53,29 @@ console.log("DOCUMENTO:", doc.data());
       tests.scl = true;
     }
 
-    if (nombreTest.includes("bdi")) {
-      tests.bdi = true;
-    }
+    if (
+  nombreTest.includes("bdi") ||
+  nombreTest.includes("depresión") ||
+  nombreTest.includes("depresion") ||
+  nombreTest.includes("beck")
+) {
+  tests.bdi = true;
+}
 
-    if (nombreTest.includes("bai")) {
-      tests.bai = true;
-    }
+    if (
+  nombreTest.includes("bai") ||
+  nombreTest.includes("ansiedad")
+) {
+  tests.bai = true;
+}
 
-    if (nombreTest.includes("desesperanza")) {
-      tests.desesperanza = true;
-    }
+   if (
+  nombreTest.includes("desesperanza") ||
+  nombreTest.includes("hopelessness") ||
+  nombreTest.includes("beck")
+) {
+  tests.desesperanza = true;
+}
   });
 
   marcarEstado("estadoSCL", tests.scl);

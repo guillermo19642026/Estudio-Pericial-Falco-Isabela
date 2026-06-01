@@ -126,7 +126,10 @@ function calcular() {
 
       if (typeof guardarResultadoTest === "function") {
         guardarResultadoTest({
-          test: "BAI - Inventario de Ansiedad de Beck",
+
+
+           test: "BAI - Inventario de Ansiedad de Beck",
+
           nombre: document.getElementById("nombre").value,
           dni: document.getElementById("dni")?.value || "",
 estadoCivil: document.getElementById("estadoCivil")?.value || "",
