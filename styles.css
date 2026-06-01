@@ -2864,7 +2864,7 @@ margin:38px auto;
 
   border-radius:18px;
 
-  padding:28px;
+  padding:20px 22px;
 
   backdrop-filter:blur(8px);
 
@@ -2884,7 +2884,7 @@ margin:38px auto;
 .estado-tests{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:8px;
 }
 
 .estado-item{
@@ -2895,7 +2895,7 @@ margin:38px auto;
 
   align-items:center;
 
-  padding:14px 16px;
+  padding:10px 14px;
 
   border-radius:12px;
 
@@ -2936,7 +2936,9 @@ border:
 
 .estado-completado{
 
-  padding:6px 12px;
+  padding:4px 10px;
+
+  font-size:.80rem;
 
   border-radius:999px;
 
@@ -2955,7 +2957,9 @@ border:
 
 .estado-pendiente{
 
-  padding:6px 12px;
+  padding:4px 10px;
+
+  font-size:.80rem;
 
   border-radius:999px;
 
@@ -3019,8 +3023,10 @@ border:
 .note{
   color:#d8d8d8 !important;
   text-align:center;
-  margin-top:20px;
+  margin-top:12px;
+  margin-bottom:10px;
 }
+
 
 #bloqueInformeDisponible{
   text-align:center;
@@ -3040,7 +3046,8 @@ border:
 
   border:none;
 
-  padding:12px 22px;
+  padding:10px 18px;
+  font-size:.92rem;
 
   border-radius:12px;
 
