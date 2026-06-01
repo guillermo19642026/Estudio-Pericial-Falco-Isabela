@@ -229,6 +229,47 @@ window.generarAnalisis = function () {
 
     </div>
 
+
+
+<hr>
+
+<h3>Resumen ejecutivo</h3>
+
+${generarResumenEjecutivo(scl, bdi, bai, desesperanza, cantidad)}
+
+<hr>
+
+<h3>Nivel global de afectación emocional</h3>
+
+${generarNivelGlobal(scl, bdi, bai, desesperanza)}
+
+<hr>
+
+<h3>Perfil emocional integrado</h3>
+
+${generarPerfilEmocionalIntegrado(scl, bdi, bai, desesperanza)}
+
+<hr>
+
+<h3>Factores de vulnerabilidad</h3>
+
+${generarFactoresVulnerabilidad(scl, bdi, bai, desesperanza)}
+
+<hr>
+
+<h3>Factores protectores</h3>
+
+${generarFactoresProtectores(scl, bdi, bai, desesperanza)}
+
+<hr>
+
+<h3>Recomendaciones orientativas</h3>
+
+${generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza)}
+
+
+
+
       <hr>
 
       <h3>Resumen de Resultados</h3>
@@ -363,6 +404,188 @@ ${generarLecturaDimensionesSCL(scl)}
 
   informe.scrollIntoView({ behavior: "smooth" });
 };
+
+
+
+
+function esElevado(nivel){
+  return ["Moderada", "Grave", "Severa", "Moderado", "Severo"].includes(nivel);
+}
+
+function generarResumenEjecutivo(scl, bdi, bai, desesperanza, cantidad){
+
+  return `
+    <div class="bloque-informe-destacado">
+      <p>
+        Se integran los resultados obtenidos a partir de
+        <strong>${cantidad}</strong> instrumento/s psicométrico/s administrado/s.
+        El presente informe tiene carácter orientativo y busca aportar una
+        lectura preliminar del estado emocional actual del evaluado.
+      </p>
+
+      <ul>
+        ${scl ? `<li><strong>SCL / BSI:</strong> IGS ${scl.gsi || "—"} · PST ${scl.pst || "—"} · PSDI ${scl.psdi || "—"}</li>` : ""}
+        ${bdi ? `<li><strong>BDI:</strong> ${bdi.puntajeTotal || "—"} puntos · ${bdi.nivel || "—"}</li>` : ""}
+        ${bai ? `<li><strong>BAI:</strong> ${bai.puntajeTotal || "—"} puntos · ${bai.nivel || "—"}</li>` : ""}
+        ${desesperanza ? `<li><strong>Desesperanza:</strong> ${desesperanza.puntajeTotal || "—"} puntos · ${desesperanza.nivel || "—"}</li>` : ""}
+      </ul>
+    </div>
+  `;
+}
+
+function generarNivelGlobal(scl, bdi, bai, desesperanza){
+
+  let puntos = 0;
+
+  if (scl && Number(scl.gsi) >= 1.50) puntos++;
+  if (bdi && esElevado(bdi.nivel)) puntos++;
+  if (bai && esElevado(bai.nivel)) puntos++;
+  if (desesperanza && esElevado(desesperanza.nivel)) puntos++;
+
+  let nivel = "Bajo";
+  let descripcion = "No se observan indicadores globales elevados en los instrumentos disponibles.";
+
+  if (puntos === 1) {
+    nivel = "Moderado";
+    descripcion = "Se observa al menos un área con indicadores clínicamente relevantes, lo que sugiere la conveniencia de ampliar la evaluación profesional.";
+  }
+
+  if (puntos >= 2) {
+    nivel = "Elevado";
+    descripcion = "Se observa convergencia entre dos o más áreas de malestar emocional, lo que requiere especial atención dentro de una evaluación integral.";
+  }
+
+  return `
+    <div class="nivel-global-box">
+      <strong>${nivel}</strong>
+      <p>${descripcion}</p>
+    </div>
+  `;
+}
+
+function generarPerfilEmocionalIntegrado(scl, bdi, bai, desesperanza){
+
+  const ansiedad = bai && esElevado(bai.nivel);
+  const depresion = bdi && esElevado(bdi.nivel);
+  const desesperanzaAlta = desesperanza && esElevado(desesperanza.nivel);
+  const malestar = scl && Number(scl.gsi) >= 1.50;
+
+  let perfil = "Perfil emocional sin elevaciones clínicas predominantes.";
+
+  if (ansiedad && depresion) {
+    perfil = "Perfil ansioso-depresivo con indicadores de malestar emocional significativo.";
+  } else if (ansiedad) {
+    perfil = "Perfil con predominio de sintomatología ansiosa.";
+  } else if (depresion) {
+    perfil = "Perfil con predominio de indicadores afectivos depresivos.";
+  } else if (desesperanzaAlta) {
+    perfil = "Perfil con presencia de expectativas negativas respecto del futuro.";
+  } else if (malestar) {
+    perfil = "Perfil caracterizado por malestar psicológico general aumentado.";
+  }
+
+  return `
+    <p>
+      ${perfil} La lectura integrada permite observar la forma en que los
+      distintos indicadores psicométricos se organizan dentro de una experiencia
+      subjetiva global, debiendo interpretarse siempre en relación con la historia
+      personal, el contexto actual y los recursos adaptativos del evaluado.
+    </p>
+  `;
+}
+
+function generarFactoresVulnerabilidad(scl, bdi, bai, desesperanza){
+
+  let items = [];
+
+  if (bai && esElevado(bai.nivel)) {
+    items.push("Indicadores ansiosos de intensidad clínicamente relevante.");
+  }
+
+  if (bdi && esElevado(bdi.nivel)) {
+    items.push("Indicadores depresivos o afectivos elevados.");
+  }
+
+  if (desesperanza && esElevado(desesperanza.nivel)) {
+    items.push("Expectativas negativas respecto del futuro.");
+  }
+
+  if (scl && Number(scl.gsi) >= 1.50) {
+    items.push("Malestar psicológico general aumentado.");
+  }
+
+  if (items.length === 0) {
+    items.push("No se identifican factores de vulnerabilidad significativos a partir de los instrumentos administrados.");
+  }
+
+  return `
+    <ul>
+      ${items.map(i => `<li>${i}</li>`).join("")}
+    </ul>
+  `;
+}
+
+function generarFactoresProtectores(scl, bdi, bai, desesperanza){
+
+  let items = [];
+
+  if (!bai || !esElevado(bai.nivel)) {
+    items.push("No se observan indicadores ansiosos elevados en el instrumento administrado.");
+  }
+
+  if (!bdi || !esElevado(bdi.nivel)) {
+    items.push("No se observan indicadores depresivos elevados o severos.");
+  }
+
+  if (!desesperanza || !esElevado(desesperanza.nivel)) {
+    items.push("No se identifican indicadores marcados de desesperanza.");
+  }
+
+  if (!scl || Number(scl.gsi) < 1.50) {
+    items.push("El índice global de malestar no se presenta elevado en términos orientativos.");
+  }
+
+  return `
+    <ul>
+      ${items.map(i => `<li>${i}</li>`).join("")}
+    </ul>
+  `;
+}
+
+function generarRecomendacionesOrientativas(scl, bdi, bai, desesperanza){
+
+  let recomendaciones = [];
+
+  if (bai && esElevado(bai.nivel)) {
+    recomendaciones.push("Profundizar la evaluación de sintomatología ansiosa, recursos de afrontamiento y niveles actuales de estrés.");
+  }
+
+  if (bdi && esElevado(bdi.nivel)) {
+    recomendaciones.push("Ampliar la exploración del estado de ánimo, motivación, energía psíquica y funcionamiento cotidiano.");
+  }
+
+  if (desesperanza && esElevado(desesperanza.nivel)) {
+    recomendaciones.push("Valorar clínicamente expectativas futuras, percepción de alternativas y presencia de ideación negativa persistente.");
+  }
+
+  if (scl && Number(scl.gsi) >= 1.50) {
+    recomendaciones.push("Considerar una entrevista psicológica integral para contextualizar el malestar subjetivo registrado.");
+  }
+
+  if (recomendaciones.length === 0) {
+    recomendaciones.push("No se desprende de los instrumentos una recomendación de intervención urgente; no obstante, los resultados deben ser contextualizados profesionalmente.");
+  }
+
+  return `
+    <ul>
+      ${recomendaciones.map(r => `<li>${r}</li>`).join("")}
+    </ul>
+  `;
+}
+
+
+
+
 
 function generarTextoIntegrado(scl, bdi, bai, desesperanza) {
   let texto = "";
