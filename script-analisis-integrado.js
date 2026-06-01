@@ -429,6 +429,9 @@ function generarResumenEjecutivo(scl, bdi, bai, desesperanza, cantidad){
 
 
 
+
+
+
 function generarNivelGlobal(scl, bdi, bai, desesperanza){
 
   let puntos = 0;
@@ -439,41 +442,36 @@ function generarNivelGlobal(scl, bdi, bai, desesperanza){
   if (desesperanza && esElevado(desesperanza.nivel)) puntos++;
 
   let nivel = "Bajo";
-
-
+  let descripcion = "";
 
   if (puntos === 0) {
-
-  descripcion =
-    "Los instrumentos administrados no evidencian indicadores globales de afectación emocional clínicamente significativa.";
-
-}
-
-if (puntos === 1) {
-
-  descripcion =
-    "Se identifica un área con indicadores clínicamente relevantes, sugiriendo la conveniencia de ampliar la exploración profesional.";
-
-  if (bdi && esElevado(bdi.nivel)) {
-    descripcion +=
-      " En el presente caso, dicha clasificación se encuentra determinada principalmente por la presencia de indicadores depresivos de intensidad moderada o superior.";
+    descripcion =
+      "Los instrumentos administrados no evidencian indicadores globales de afectación emocional clínicamente significativa.";
   }
 
-  if (bai && esElevado(bai.nivel)) {
-    descripcion +=
-      " La clasificación global se vincula principalmente con indicadores de ansiedad clínicamente relevantes.";
+  if (puntos === 1) {
+    nivel = "Moderado";
+
+    descripcion =
+      "Se identifica un área con indicadores clínicamente relevantes, sugiriendo la conveniencia de ampliar la exploración profesional.";
+
+    if (bdi && esElevado(bdi.nivel)) {
+      descripcion +=
+        " En el presente caso, dicha clasificación se encuentra determinada principalmente por la presencia de indicadores depresivos de intensidad moderada o superior.";
+    }
+
+    if (bai && esElevado(bai.nivel)) {
+      descripcion +=
+        " La clasificación global se vincula principalmente con indicadores de ansiedad clínicamente relevantes.";
+    }
   }
 
-}
+  if (puntos >= 2) {
+    nivel = "Elevado";
 
-if (puntos >= 2) {
-
-  descripcion =
-    "Se observa convergencia entre múltiples indicadores de malestar emocional, configurando un perfil que requiere especial consideración clínica y profesional.";
-}
-
-
-
+    descripcion =
+      "Se observa convergencia entre múltiples indicadores de malestar emocional, configurando un perfil que requiere especial consideración clínica y profesional.";
+  }
 
   return `
     <div style="
@@ -493,8 +491,6 @@ if (puntos >= 2) {
     </div>
   `;
 }
-
-
 
 
 
