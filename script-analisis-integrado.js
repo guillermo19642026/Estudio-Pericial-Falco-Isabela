@@ -1231,17 +1231,27 @@ ventana.document.write(`
 
 <body>
 
-  <div class="encabezado">
+<div class="encabezado">
   <h1>ESTUDIO PERICIAL PSICOLÓGICO</h1>
 
   <p>
-    Informe Integrado de Evaluación Psicométrica
+    INFORME ORIENTATIVO
+  </p>
+
+  <p>
+    Integración Automatizada de Resultados Psicométricos
   </p>
 
   <p>
     Fecha de emisión:
     ${new Date().toLocaleDateString("es-AR")}
   </p>
+
+<p>
+  Código de informe: INF-${Date.now().toString().slice(-6)}
+</p>
+
+
 </div>
 
   ${informe.innerHTML}
