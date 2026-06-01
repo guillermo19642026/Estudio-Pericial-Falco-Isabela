@@ -943,32 +943,6 @@ function generarLecturaDimensionesSCL(scl) {
   `;
 }
 
-  const nombresAltas = altas.map(([nombre]) => nombre.toLowerCase());
-
-  if (
-    nombresAltas.includes("ansiedad") &&
-    nombresAltas.includes("depresión")
-  ) {
-    texto += `
-      <p>
-        La presencia conjunta de elevaciones en ansiedad y depresión sugiere
-        un patrón de malestar emocional mixto.
-      </p>
-    `;
-  }
-
-  if (nombresAltas.includes("somatización")) {
-    texto += `
-      <p>
-        Se observan indicadores de somatización, compatibles con la expresión
-        corporal del malestar psicológico.
-      </p>
-    `;
-  }
-
-  return texto || `<p>No se detectan elevaciones significativas en las dimensiones disponibles.</p>`;
-}
-
 
 
 
