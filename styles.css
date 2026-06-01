@@ -2904,11 +2904,17 @@ border:
 
 .estado-item:hover{
 
-  transform:
-    translateY(-2px);
+  transform:translateY(-2px);
 
   background:
-    rgba(255,255,255,.05);
+    linear-gradient(
+      180deg,
+      rgba(201,168,106,.08),
+      rgba(255,255,255,.02)
+    );
+
+  border-color:
+    rgba(201,168,106,.25);
 }
 
 .estado-item span:first-child{
