@@ -3244,7 +3244,14 @@ border:
   font-size:.92rem;
 }
 
-.btn-consulta-test{
+
+
+/* ==========================
+   BOTONES SUTILES PLATAFORMA
+========================== */
+
+.btn-consulta-test,
+#bloqueInformeDisponible button{
 
   display:inline-block;
 
@@ -3258,261 +3265,109 @@ border:
 
   font-weight:500;
 
-  color:#d8d8d8;
+  color:#d8d8d8 !important;
 
   background:
-    rgba(255,255,255,.03);
+    rgba(255,255,255,.03) !important;
 
   border:
-    1px solid rgba(201,168,106,.18);
+    1px solid rgba(201,168,106,.18) !important;
+
+  box-shadow:none !important;
+
+  cursor:pointer;
 
   transition:.25s ease;
 }
 
-.btn-consulta-test:hover{
+.btn-consulta-test:hover,
+#bloqueInformeDisponible button:hover{
 
-  color:#f5f5f5;
+  color:#f5f5f5 !important;
 
   border-color:
-    rgba(201,168,106,.35);
+    rgba(201,168,106,.35) !important;
 
   background:
-    rgba(201,168,106,.05);
+    rgba(201,168,106,.05) !important;
 
   transform:
     translateY(-1px);
+
+  box-shadow:none !important;
 }
-
-
-
-
-.btn-consulta-test:hover{
-
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 10px 20px rgba(201,169,110,.25);
-}
-
-
-
 
 
 /* ==========================
-FOOTER PLATAFORMA TESTS
+   FOOTER PLATAFORMA PREMIUM
 ========================== */
 
 .footer{
+  margin-top:45px;
 
-margin-top:60px;
-
-background:
-linear-gradient(
-180deg,
-rgba(15,15,15,.98),
-rgba(8,8,8,1)
-);
-
-border-top:
-1px solid rgba(201,168,106,.15);
-
-padding-top:40px;
-}
-
-.footer-contenido{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:0 25px;
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:35px;
-}
-
-.footer-col{
-color:#d8d8d8;
-}
-
-.footer-titulo{
-
-color:#f5f5f5;
-
-font-size:1.1rem;
-
-font-weight:700;
-
-margin-bottom:6px;
-}
-
-.footer-texto{
-color:#c9a96e;
-}
-
-.footer-subtitulo{
-
-color:#c9a96e;
-
-font-weight:700;
-
-margin-bottom:8px;
-}
-
-.footer-item{
-
-line-height:1.7;
-
-color:#d8d8d8;
-
-margin-bottom:8px;
-}
-
-.footer-item a{
-
-color:#e8e8e8;
-
-text-decoration:none;
-
-transition:.3s;
-}
-
-.footer-item a:hover
-
-.footer-nota{
-
-color:#aaaaaa;
-
-font-size:.85rem;
-}
-
-.footer-separador{
-
-max-width:1200px;
-
-margin:25px auto 15px;
-
-height:1px;
-
-background:
-rgba(201,168,106,.15);
-}
-
-.footer-bottom{
-
-text-align:center;
-
-color:#999;
-
-font-size:.85rem;
-
-padding-bottom:12px;
-}
-
-/* ==========================
-CREDITO
-========================== */
-
-.credito-card{
-
-text-align:center;
-
-padding-bottom:25px;
-}
-
-.credito-titulo{
-
-color:#888;
-
-font-size:.80rem;
-
-margin-bottom:6px;
-}
-
-.credito-nombre{
-
-color:#c9a96e;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.3s;
-}
-
-.credito-nombre:hover
-
-.credito-descripcion{
-
-color:#888;
-
-font-size:.80rem;
-
-margin-top:6px;
-}
-
-.icono-whatsapp{
-margin-right:6px;
-}
-
-
-
-
-
-/* ==========================
-   FOOTER PREMIUM HOVER
-========================== */
-
-.footer{
-  margin-top:60px;
   background:
-    radial-gradient(circle at top, rgba(201,168,106,.08), transparent 35%),
+    radial-gradient(circle at top, rgba(201,168,106,.06), transparent 32%),
     linear-gradient(180deg, rgba(15,15,15,.98), rgba(8,8,8,1));
-  border-top:1px solid rgba(201,168,106,.18);
+
+  border-top:1px solid rgba(201,168,106,.16);
+
   padding-top:22px;
 }
 
 .footer-contenido{
-  max-width:1200px;
+  max-width:1180px;
   margin:auto;
-  padding:0 25px;
+  padding:0 24px;
+
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+  gap:14px;
 }
 
 .footer-col{
   padding:10px 12px;
-  border-radius:16px;
+  border-radius:14px;
+  color:#d8d8d8;
   transition:.28s ease;
 }
 
 .footer-col:hover{
-  background:rgba(201,168,106,.06);
-  transform:translateY(-4px);
-  box-shadow:0 14px 32px rgba(0,0,0,.28);
+  background:rgba(201,168,106,.045);
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
 }
 
 .footer-titulo{
   color:#f5f5f5;
-  font-size:1.05rem;
+  font-size:1rem;
   font-weight:700;
-  margin-bottom:6px;
+  margin:0 0 5px;
 }
 
-.footer-texto,
+.footer-texto{
+  color:#c9a96e;
+  font-size:.88rem;
+  margin:0;
+}
+
 .footer-subtitulo{
   color:#c9a96e;
+  font-weight:700;
+  font-size:.90rem;
+  margin:0 0 8px;
 }
 
-.footer-item,
-.footer-nota{
+.footer-item{
   color:#d8d8d8;
-  line-height:1.7;
+  line-height:1.55;
+  font-size:.88rem;
+  margin:0 0 7px;
+}
+
+.footer-nota{
+  color:#aaa;
+  font-size:.80rem;
+  margin:0;
 }
 
 .footer a{
@@ -3523,35 +3378,49 @@ margin-right:6px;
 
 .footer a:hover{
   color:#c9a96e;
-  padding-left:4px;
+  padding-left:3px;
 }
 
 .footer-separador{
-  max-width:1200px;
-  margin:24px auto 14px;
+  max-width:1180px;
+  margin:18px auto 10px;
   height:1px;
-  background:rgba(201,168,106,.18);
+  background:rgba(201,168,106,.16);
 }
 
-.footer-bottom,
-.credito-titulo,
-.credito-descripcion{
+.footer-bottom{
   text-align:center;
   color:#888;
-  font-size:.82rem;
+  font-size:.80rem;
+  padding-bottom:8px;
 }
 
 .credito-card{
   text-align:center;
-  padding:8px 20px 14px;
+  padding:6px 20px 14px;
+}
+
+.credito-titulo,
+.credito-descripcion{
+  color:#777;
+  font-size:.78rem;
+  margin:4px 0;
 }
 
 .credito-nombre{
   color:#c9a96e !important;
+  text-decoration:none;
   font-weight:700;
+  font-size:.86rem;
+  transition:.25s ease;
 }
 
 .credito-nombre:hover{
   color:#e3c48a !important;
-  padding-left:0;
+  padding-left:0 !important;
 }
+
+.icono-whatsapp{
+  margin-right:5px;
+}
+
