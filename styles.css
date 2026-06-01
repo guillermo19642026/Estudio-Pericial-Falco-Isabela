@@ -3469,3 +3469,100 @@ margin-top:6px;
 .icono-whatsapp{
 margin-right:6px;
 }
+
+
+
+
+
+/* ==========================
+   FOOTER PREMIUM HOVER
+========================== */
+
+.footer{
+  margin-top:60px;
+  background:
+    radial-gradient(circle at top, rgba(201,168,106,.08), transparent 35%),
+    linear-gradient(180deg, rgba(15,15,15,.98), rgba(8,8,8,1));
+  border-top:1px solid rgba(201,168,106,.18);
+  padding-top:38px;
+}
+
+.footer-contenido{
+  max-width:1200px;
+  margin:auto;
+  padding:0 25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.footer-col{
+  padding:18px;
+  border-radius:16px;
+  transition:.28s ease;
+}
+
+.footer-col:hover{
+  background:rgba(201,168,106,.06);
+  transform:translateY(-4px);
+  box-shadow:0 14px 32px rgba(0,0,0,.28);
+}
+
+.footer-titulo{
+  color:#f5f5f5;
+  font-size:1.05rem;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.footer-texto,
+.footer-subtitulo{
+  color:#c9a96e;
+}
+
+.footer-item,
+.footer-nota{
+  color:#d8d8d8;
+  line-height:1.7;
+}
+
+.footer a{
+  color:#e8e8e8;
+  text-decoration:none;
+  transition:.25s ease;
+}
+
+.footer a:hover{
+  color:#c9a96e;
+  padding-left:4px;
+}
+
+.footer-separador{
+  max-width:1200px;
+  margin:24px auto 14px;
+  height:1px;
+  background:rgba(201,168,106,.18);
+}
+
+.footer-bottom,
+.credito-titulo,
+.credito-descripcion{
+  text-align:center;
+  color:#888;
+  font-size:.82rem;
+}
+
+.credito-card{
+  text-align:center;
+  padding:10px 20px 26px;
+}
+
+.credito-nombre{
+  color:#c9a96e !important;
+  font-weight:700;
+}
+
+.credito-nombre:hover{
+  color:#e3c48a !important;
+  padding-left:0;
+}
