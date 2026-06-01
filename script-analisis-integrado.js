@@ -202,14 +202,28 @@ window.generarAnalisis = function () {
   const informe = document.getElementById("informeIntegrado");
 
   informe.innerHTML = `
-    <section class="card">
+  <section class="card informe-profesional">
 
-      <h2>Informe integrado</h2>
+    <h2>
+      Informe Integrado de Evaluación Psicométrica
+    </h2>
 
-      <p><strong>Paciente:</strong> ${datos.nombre || "—"}</p>
+    <p class="fecha-emision">
+      Fecha de emisión:
+      ${new Date().toLocaleDateString("es-AR")}
+    </p>
+
+    <div class="datos-evaluado">
+
+      <p><strong>Nombre:</strong> ${datos.nombre || "—"}</p>
+
       <p><strong>DNI:</strong> ${datos.dni || "—"}</p>
+
       <p><strong>Edad:</strong> ${datos.edad || "—"}</p>
+
       <p><strong>Sexo:</strong> ${datos.sexo || "—"}</p>
+
+    </div>
 
       <hr>
 
