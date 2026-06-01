@@ -418,75 +418,107 @@ function generarTextoIntegrado(scl, bdi, bai, desesperanza) {
 
 
 
-
 function generarInterpretacionInteligente(scl, bdi, bai, desesperanza) {
 
   let texto = "";
 
-  if (
+  const ansiedadAlta =
     bai &&
-    ["Moderada", "Grave", "Severa"].includes(bai.nivel)
-  ) {
-    texto += `
-      <p>
-        Se observan indicadores compatibles con sintomatología ansiosa
-        clínicamente significativa según el Inventario de Ansiedad de Beck.
-      </p>
-    `;
-  }
+    ["Moderada", "Grave", "Severa"].includes(bai.nivel);
 
-  if (
+  const depresionAlta =
     bdi &&
-    ["Moderada", "Grave", "Severa"].includes(bdi.nivel)
-  ) {
-    texto += `
-      <p>
-        Los resultados sugieren la presencia de indicadores depresivos
-        clínicamente relevantes al momento de la evaluación.
-      </p>
-    `;
-  }
+    ["Moderada", "Grave", "Severa"].includes(bdi.nivel);
 
-  if (
+  const desesperanzaAlta =
     desesperanza &&
-    ["Moderada", "Grave", "Severa"].includes(desesperanza.nivel)
-  ) {
+    ["Moderada", "Grave", "Severa", "Moderado", "Severo"].includes(desesperanza.nivel);
+
+  const malestarAlto =
+    scl &&
+    scl.gsi &&
+    Number(scl.gsi) >= 1.50;
+
+  texto += `
+    <p>
+      La integración de los instrumentos administrados permite realizar una aproximación orientativa al estado emocional actual del evaluado, considerando la convergencia de los distintos indicadores psicométricos obtenidos.
+    </p>
+  `;
+
+  if (ansiedadAlta) {
     texto += `
       <p>
-        Se observan expectativas negativas respecto del futuro y una
-        visión pesimista de la propia situación vital.
+        Se observan indicadores compatibles con elevados niveles de ansiedad, caracterizados por preocupación persistente, incremento de la tensión psicológica, hipervigilancia y dificultades para alcanzar estados adecuados de relajación emocional. Estos resultados suelen asociarse a situaciones de estrés significativo o exigencias percibidas como difíciles de afrontar.
       </p>
     `;
   }
 
-  if (scl && scl.gsi && Number(scl.gsi) >= 1.50) {
+  if (depresionAlta) {
     texto += `
       <p>
-        El nivel global de malestar psicológico registrado en el SCL/BSI
-        resulta elevado y sugiere afectación subjetiva significativa.
+        Los resultados sugieren la presencia de indicadores afectivos compatibles con sintomatología depresiva clínicamente relevante. Entre las manifestaciones habitualmente asociadas a este perfil pueden encontrarse disminución del interés, desmotivación, sentimientos de insatisfacción, pesimismo y reducción de la energía psicológica disponible para afrontar las demandas cotidianas.
+      </p>
+    `;
+  }
+
+  if (desesperanzaAlta) {
+    texto += `
+      <p>
+        Asimismo, se registran indicadores vinculados a expectativas negativas respecto del futuro, percepción limitada de alternativas de resolución y disminución de la confianza en cambios favorables de la situación actual. Estos aspectos constituyen variables de especial interés dentro de la evaluación psicológica integral.
+      </p>
+    `;
+  }
+
+  if (malestarAlto) {
+    texto += `
+      <p>
+        El nivel global de malestar psicológico registrado en el SCL/BSI resulta elevado, sugiriendo una afectación subjetiva significativa que trasciende áreas específicas y se expresa como una experiencia general de sufrimiento emocional.
       </p>
     `;
   }
 
   const positivos = [
-    bdi && ["Moderada","Grave","Severa"].includes(bdi.nivel),
-    bai && ["Moderada","Grave","Severa"].includes(bai.nivel),
-    desesperanza && ["Moderada","Grave","Severa"].includes(desesperanza.nivel)
+    ansiedadAlta,
+    depresionAlta,
+    desesperanzaAlta
   ].filter(Boolean).length;
 
   if (positivos >= 2) {
     texto += `
       <p>
-        Los instrumentos administrados muestran una adecuada convergencia
-        psicométrica, observándose consistencia entre las distintas áreas evaluadas.
+        Los distintos instrumentos administrados presentan una adecuada consistencia interna y convergencia clínica, observándose coincidencias entre las áreas evaluadas. Esta convergencia fortalece la confiabilidad interpretativa de los resultados obtenidos.
       </p>
     `;
   }
 
+  if (positivos === 0 && !malestarAlto) {
+    texto += `
+      <p>
+        Los instrumentos administrados no evidencian indicadores clínicamente significativos de malestar emocional al momento de la evaluación, observándose un perfil global compatible con parámetros esperables dentro de la población general.
+      </p>
+    `;
+  }
+
+  texto += `
+    <p>
+      Los hallazgos expuestos deben interpretarse conjuntamente con entrevistas clínicas, antecedentes personales, contexto vital y demás elementos de valoración profesional. Los resultados psicométricos constituyen herramientas complementarias y no reemplazan una evaluación psicológica integral.
+    </p>
+  `;
+
+  texto += `
+    <p style="
+      margin-top:20px;
+      padding-top:15px;
+      border-top:1px solid rgba(201,168,106,.20);
+      font-size:.92rem;
+      color:#bdbdbd;
+    ">
+      El presente informe posee carácter exclusivamente orientativo y ha sido generado mediante integración automatizada de resultados psicométricos. No constituye diagnóstico psicológico, psiquiátrico ni pericial, y debe ser interpretado por profesional competente dentro de una evaluación integral.
+    </p>
+  `;
+
   return texto;
 }
-
-
 
 
 
