@@ -9107,3 +9107,90 @@ BOTONES HERO ELEGANTES
   font-size:.84rem;
   letter-spacing:.02em;
 }
+
+
+
+
+
+
+.nota-acceso{
+  margin-top:12px;
+  opacity:.85;
+}
+
+.acciones-online{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+
+
+.tests-destacados{
+
+  color:#c9a96e;
+
+  font-size:.85rem;
+
+  font-weight:300;
+
+  letter-spacing:.5px;
+
+  text-align:center;
+
+  margin:8px 0 12px;
+
+  opacity:.90;
+}
+
+
+.acciones-online a{
+
+  min-width:220px;
+
+  text-align:center;
+}
+
+
+
+
+.link-contrainforme{
+
+  margin-top:18px;
+
+  text-align:center;
+
+  font-size:.90rem;
+
+  color:#cfcfcf;
+
+  line-height:1.6;
+}
+
+.link-contrainforme a{
+
+  color:#c9a96e;
+
+  text-decoration:none;
+
+  font-weight:500;
+
+  margin-left:4px;
+
+  transition:.25s ease;
+}
+
+.link-contrainforme a:hover{
+
+  color:#e2c48a;
+
+  text-decoration:underline;
+}
+
+
+#infoTestsOnline p{
+
+  margin-bottom:16px;
+
+  line-height:1.8;
+}
