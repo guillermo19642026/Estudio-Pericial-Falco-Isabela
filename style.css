@@ -9365,3 +9365,56 @@ BOTONES HERO ELEGANTES
 
   transform:translateX(3px);
 }
+
+
+
+
+.consultoria-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin:28px 0 38px;
+}
+
+.consultoria-card{
+  padding:18px;
+  border-radius:16px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.035),
+    rgba(255,255,255,.01)
+  );
+  border:1px solid rgba(201,168,106,.13);
+  transition:.3s ease;
+}
+
+.consultoria-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(201,168,106,.30);
+  box-shadow:0 14px 32px rgba(0,0,0,.22);
+}
+
+.consultoria-card h3{
+  color:#c9a96e;
+  font-size:.98rem;
+  font-weight:500;
+  margin-bottom:8px;
+}
+
+.consultoria-card p{
+  font-size:.88rem;
+  line-height:1.6;
+  color:#d8d8d8;
+}
+
+@media(max-width:900px){
+  .consultoria-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .consultoria-grid{
+    grid-template-columns:1fr;
+  }
+}
