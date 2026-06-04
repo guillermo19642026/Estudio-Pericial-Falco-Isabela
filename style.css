@@ -9669,3 +9669,26 @@ BOTONES HERO ELEGANTES
   margin:0 auto;
   color:#d8d8d8;
 }
+
+
+.mini-link-servicio{
+
+  display:inline-block;
+
+  margin-top:12px;
+
+  color:#c9a96e;
+
+  font-size:.90rem;
+
+  font-weight:500;
+
+  transition:.25s ease;
+}
+
+.servicio-juridico-card:hover .mini-link-servicio{
+
+  transform:translateX(4px);
+
+  color:#fff;
+}
