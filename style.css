@@ -9418,3 +9418,58 @@ BOTONES HERO ELEGANTES
     grid-template-columns:1fr;
   }
 }
+
+
+.consultoria-servicios{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:14px;
+
+  margin:25px 0 40px;
+}
+
+.servicio-item{
+
+  padding:16px 18px;
+
+  border-radius:14px;
+
+  background:
+    rgba(255,255,255,.02);
+
+  border:
+    1px solid rgba(201,168,106,.12);
+
+  color:#d8d8d8;
+
+  line-height:1.6;
+
+  transition:.25s ease;
+}
+
+.servicio-item:hover{
+
+  border-color:
+    rgba(201,168,106,.30);
+
+  background:
+    rgba(201,168,106,.04);
+
+  transform:
+    translateY(-2px);
+}
+
+
+@media(max-width:700px){
+
+  .consultoria-servicios{
+
+    grid-template-columns:
+      1fr;
+  }
+
+}
