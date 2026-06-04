@@ -9618,3 +9618,54 @@ BOTONES HERO ELEGANTES
   line-height:1.7;
   margin:0;
 }
+
+
+.faq-consultoria-card{
+
+  padding:22px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.03),
+      rgba(255,255,255,.01)
+    );
+
+  border:1px solid rgba(201,168,106,.12);
+
+  transition:.25s ease;
+}
+
+.faq-consultoria-card:hover{
+
+  border-color:
+    rgba(201,168,106,.28);
+
+  transform:
+    translateY(-2px);
+}
+
+.faq-consultoria-abogados{
+  max-width:880px;
+  margin:25px auto 42px;
+}
+
+.faq-consultoria-card{
+  text-align:center;
+  padding:20px 24px;
+}
+
+.faq-consultoria-card h3{
+  text-align:center;
+  color:#c9a96e;
+  font-weight:500;
+}
+
+.faq-consultoria-card p{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto;
+  color:#d8d8d8;
+}
