@@ -9234,17 +9234,22 @@ BOTONES HERO ELEGANTES
 }
 
 .servicios-juridicos-grid{
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap:16px;
+
   margin-bottom:32px;
 }
 
 .servicio-juridico-card{
 
-  padding:22px;
+  padding:18px;
 
-  border-radius:18px;
+  border-radius:16px;
 
   background:
     linear-gradient(
@@ -9256,37 +9261,29 @@ BOTONES HERO ELEGANTES
   border:
     1px solid rgba(201,168,106,.12);
 
-  backdrop-filter:blur(8px);
+  text-align:left;
 
   transition:.3s ease;
-
-  text-align:left;
-}
-
-.servicio-juridico-card:hover{
-
-  transform:translateY(-4px);
-
-  border-color:
-    rgba(201,168,106,.25);
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.18);
 }
 
 .servicio-juridico-card h3{
 
   color:#c9a96e;
 
-  font-size:1.05rem;
+  font-size:.98rem;
 
   font-weight:500;
 
-  margin-bottom:10px;
+  margin-bottom:8px;
+
+  line-height:1.4;
 }
 
 .servicio-juridico-card p{
-  line-height:1.65;
+
+  font-size:.88rem;
+
+  line-height:1.6;
 }
 
 .btn-servicios-juridicos-web{
@@ -9321,4 +9318,25 @@ BOTONES HERO ELEGANTES
   background:rgba(201,168,106,.05);
 
   transform:translateY(-1px);
+}
+
+
+@media (max-width: 900px){
+
+  .servicios-juridicos-grid{
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+@media (max-width: 600px){
+
+  .servicios-juridicos-grid{
+
+    grid-template-columns:
+      1fr;
+  }
+
 }
