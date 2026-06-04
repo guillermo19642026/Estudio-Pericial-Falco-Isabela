@@ -9340,3 +9340,28 @@ BOTONES HERO ELEGANTES
   }
 
 }
+
+
+.mini-link-servicio{
+
+  display:inline-block;
+
+  margin-top:10px;
+
+  color:#c9a96e;
+
+  text-decoration:none;
+
+  font-size:.85rem;
+
+  font-weight:500;
+
+  transition:.25s ease;
+}
+
+.mini-link-servicio:hover{
+
+  color:#e3c48a;
+
+  transform:translateX(3px);
+}
