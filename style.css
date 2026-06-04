@@ -9473,3 +9473,85 @@ BOTONES HERO ELEGANTES
   }
 
 }
+
+
+.areas-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:16px;
+
+  margin:25px 0 40px;
+}
+
+.area-card{
+
+  padding:18px;
+
+  border-radius:16px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.03),
+      rgba(255,255,255,.01)
+    );
+
+  border:
+    1px solid rgba(201,168,106,.12);
+
+  transition:.3s ease;
+}
+
+.area-card:hover{
+
+  transform:translateY(-4px);
+
+  border-color:
+    rgba(201,168,106,.30);
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.22);
+}
+
+.area-card span{
+
+  display:block;
+
+  font-size:1.6rem;
+
+  margin-bottom:10px;
+}
+
+.area-card p{
+
+  margin:0;
+
+  color:#d8d8d8;
+
+  line-height:1.5;
+}
+
+
+@media(max-width:900px){
+
+  .areas-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  .areas-grid{
+    grid-template-columns:
+      1fr;
+  }
+
+}
