@@ -9749,3 +9749,56 @@ BOTONES HERO ELEGANTES
   background:
     rgba(20,20,20,.95);
 }
+
+
+
+
+
+
+.titulo-conveniencia-perito{
+
+  text-align:center;
+
+  margin:35px 0 20px;
+
+  color:#c9a96e;
+
+  font-size:1.2rem;
+}
+
+.bloque-conveniencia-perito{
+
+  max-width:900px;
+
+  margin:0 auto 30px;
+
+  padding:22px;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(201,168,106,.05),
+      rgba(255,255,255,.015)
+    );
+
+  border:
+    1px solid rgba(201,168,106,.14);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.18);
+}
+
+.bloque-conveniencia-perito p{
+
+  color:#d8d8d8;
+
+  line-height:1.8;
+
+  margin-bottom:14px;
+}
+
+.bloque-conveniencia-perito p:last-child{
+  margin-bottom:0;
+}
