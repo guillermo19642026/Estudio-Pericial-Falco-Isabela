@@ -9763,7 +9763,9 @@ BOTONES HERO ELEGANTES
 
   color:#c9a96e;
 
-  font-size:1.2rem;
+  font-size:1.05rem;
+
+  font-weight:500;
 }
 
 .bloque-conveniencia-perito{
@@ -9792,9 +9794,13 @@ BOTONES HERO ELEGANTES
 
 .bloque-conveniencia-perito p{
 
-  color:#d8d8d8;
+  color:#d4d4d4;
 
-  line-height:1.8;
+  font-size:.92rem;
+
+  line-height:1.85;
+
+  font-weight:300;
 
   margin-bottom:14px;
 }
