@@ -9906,7 +9906,9 @@ BOTONES HERO ELEGANTES
 
 .diferencial-card{
 
-  padding:25px;
+  padding:18px;
+
+  min-height:auto;
 
   border-radius:18px;
 
@@ -9941,7 +9943,7 @@ BOTONES HERO ELEGANTES
 
   display:block;
 
-  font-size:2rem;
+ font-size:1.5rem;
 
   margin-bottom:12px;
 }
@@ -9950,9 +9952,9 @@ BOTONES HERO ELEGANTES
 
   color:#c9a96e;
 
-  font-size:1rem;
+ font-size:.92rem;
 
-  margin-bottom:12px;
+  margin-bottom:8px;
 }
 
 .diferencial-card p{
@@ -9962,6 +9964,10 @@ BOTONES HERO ELEGANTES
   line-height:1.7;
 
   margin:0;
+
+  font-size:.88rem;
+
+  line-height:1.6;
 }
 
 @media(max-width:900px){
@@ -9980,4 +9986,35 @@ BOTONES HERO ELEGANTES
     grid-template-columns:
       1fr;
   }
+}
+
+
+.cta-final-estudio{
+  padding:30px 20px 70px;
+}
+
+.cta-final-card{
+  max-width:850px;
+  margin:0 auto;
+  padding:30px;
+  text-align:center;
+  border-radius:22px;
+  background:linear-gradient(
+    180deg,
+    rgba(201,168,106,.06),
+    rgba(255,255,255,.015)
+  );
+  border:1px solid rgba(201,168,106,.18);
+}
+
+.cta-final-card h2{
+  color:#c9a96e;
+  font-size:1.35rem;
+  margin-bottom:14px;
+}
+
+.cta-final-card p{
+  color:#d8d8d8;
+  line-height:1.7;
+  margin-bottom:20px;
 }
