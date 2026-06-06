@@ -9808,3 +9808,64 @@ BOTONES HERO ELEGANTES
 .bloque-conveniencia-perito p:last-child{
   margin-bottom:0;
 }
+
+
+
+/* RECURSOS DE INTERÉS */
+
+.recursos-relacionados{
+
+  margin-top:10px;
+  padding-top:10px;
+}
+
+.recursos-relacionados .titulo-seccion{
+
+  font-size:1.4rem;
+
+  opacity:.9;
+}
+
+.recursos-relacionados .servicio-rel-item{
+
+  opacity:.88;
+
+  font-size:.95rem;
+}
+
+
+.recursos-relacionados .titulo-seccion{
+
+  text-align:center;
+
+  width:100%;
+
+  margin:0 auto 30px;
+}
+
+
+/* CENTRAR TÍTULOS PRINCIPALES */
+
+.titulo-seccion{
+  text-align:center !important;
+  width:100%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Cuando el título está dentro de acordeón */
+.acordeon-header .titulo-seccion{
+  text-align:center !important;
+  flex:1;
+}
+
+/* Títulos de secciones principales */
+#servicios .titulo-seccion,
+#areas .titulo-seccion,
+#formularios .titulo-seccion,
+#faq .titulo-seccion,
+#perito .titulo-seccion,
+.seccion-perfil-profesional .titulo-seccion{
+  text-align:center !important;
+}
