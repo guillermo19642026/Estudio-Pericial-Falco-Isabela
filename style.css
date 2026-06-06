@@ -10018,3 +10018,34 @@ BOTONES HERO ELEGANTES
   line-height:1.7;
   margin-bottom:20px;
 }
+
+
+.servicios-intro{
+
+  max-width:850px;
+
+  margin:0 auto 35px;
+
+  text-align:center;
+
+  color:#d8d8d8;
+
+  line-height:1.8;
+
+  font-size:.98rem;
+}
+
+#servicios .subtitulo{
+
+  text-align:center;
+
+  color:#c9a96e;
+
+  font-size:1.08rem;
+
+  font-weight:500;
+
+  margin-bottom:20px;
+
+  letter-spacing:.4px;
+}
