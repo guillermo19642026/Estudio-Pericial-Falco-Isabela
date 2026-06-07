@@ -476,7 +476,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 /* ===============================
    SCROLL REVEAL
 =============================== */
@@ -484,7 +483,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   const elementos = document.querySelectorAll(
-    ".card, .acordeon-item, .danio-item, .servicio-juridico-card"
+    ".card, .acordeon-item, .danio-item, .servicio-juridico-card, .caso-card, .acceso-card, .proceso-card"
   );
 
   elementos.forEach(el => {
