@@ -10690,3 +10690,31 @@ header{
 #formacion .lista-programas a:hover{
   color:#c9a86a;
 }
+
+
+
+/* =========================
+   IMPUGNACIONES - DESTACADO
+========================= */
+
+.destacado-explicaciones{
+  margin:35px 0;
+  padding:26px;
+  border-radius:18px;
+  border:1px solid rgba(201,168,106,.12);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.018)
+    );
+}
+
+.destacado-explicaciones h2{
+  margin-top:0;
+}
+
+.destacado-explicaciones p{
+  color:#cfcfcf;
+  line-height:1.7;
+}
