@@ -507,3 +507,25 @@ document.addEventListener("DOMContentLoaded", () => {
   elementos.forEach(el => observer.observe(el));
 
 });
+
+
+
+
+
+
+function toggleBloque(id) {
+
+  const respuestas = document.querySelectorAll('.faq-perito-respuesta');
+
+  respuestas.forEach(respuesta => {
+
+    if (respuesta.id !== id) {
+      respuesta.classList.remove('activo');
+    }
+
+  });
+
+  const actual = document.getElementById(id);
+
+  actual.classList.toggle('activo');
+}

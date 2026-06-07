@@ -10410,3 +10410,189 @@ header{
   line-height:1.7;
   color:#cfcfcf;
 }
+
+
+/* =========================
+   TABLA COMPARATIVA
+========================= */
+
+.tabla-comparativa{
+
+  max-width:850px;
+  margin:25px auto;
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  border:1px solid rgba(201,168,106,.12);
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.03),
+    rgba(255,255,255,.015)
+  );
+}
+
+.fila-cabecera,
+.fila{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+}
+
+.fila-cabecera{
+
+  background:
+  rgba(201,168,106,.12);
+
+  font-weight:700;
+}
+
+.fila-cabecera div,
+.fila div{
+  padding:12px 14px;
+  font-size:.92rem;
+}
+
+.fila{
+
+  border-top:
+  1px solid rgba(255,255,255,.06);
+}
+
+.fila div:first-child{
+
+  border-right:
+  1px solid rgba(255,255,255,.06);
+}
+
+.fila:hover{
+
+  background:
+  rgba(255,255,255,.02);
+}
+
+
+@media (max-width:768px){
+
+  .fila-cabecera,
+  .fila{
+
+    grid-template-columns:1fr;
+  }
+
+  .fila div:first-child{
+
+    border-right:none;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.06);
+  }
+
+}
+
+
+.servicios-mini{
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+
+  margin:25px 0 35px;
+}
+
+.servicios-mini span{
+
+  padding:8px 14px;
+
+  border-radius:30px;
+
+  font-size:.88rem;
+
+  color:#d8d8d8;
+
+  border:1px solid rgba(201,168,106,.15);
+
+  background:rgba(255,255,255,.02);
+}
+
+
+/* =========================
+   FAQ PERITO DE PARTE
+========================= */
+
+.faq-perito-parte{
+  max-width:850px;
+  margin:30px auto 0;
+}
+
+.faq-perito-item{
+  border:1px solid rgba(201,168,106,.12);
+  border-radius:14px;
+  margin-bottom:10px;
+  background:rgba(255,255,255,.018);
+  overflow:hidden;
+}
+
+.faq-perito-pregunta{
+  width:100%;
+  padding:14px 18px;
+  border:0;
+  background:transparent;
+  color:#f5f5f5;
+  text-align:left;
+  font-size:.95rem;
+  font-weight:600;
+  cursor:pointer;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.faq-perito-pregunta span{
+  color:#c9a86a;
+  font-size:1.1rem;
+}
+
+.faq-perito-respuesta{
+
+  max-height:0;
+
+  overflow:hidden;
+
+  padding:0 18px;
+
+  transition:
+    max-height .35s ease,
+    padding .35s ease;
+}
+
+.faq-perito-respuesta.activo{
+
+  max-height:250px;
+
+  padding:0 18px 16px;
+}
+
+.faq-perito-respuesta p{
+  margin:0;
+  color:#cfcfcf;
+  line-height:1.65;
+  font-size:.92rem;
+}
+
+.faq-perito-item:hover{
+  border-color:rgba(201,168,106,.25);
+}
+
+
+.faq-perito-item{
+  width:100%;
+  box-sizing:border-box;
+}
