@@ -10049,3 +10049,63 @@ BOTONES HERO ELEGANTES
 
   letter-spacing:.4px;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MENU ACTIVO - REFUERZO VISUAL
+========================= */
+
+#menu a.activo {
+  color: #c9a86a !important;
+  font-weight: 700;
+}
+
+#menu a.activo::after {
+  width: 100%;
+}
+
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+/* =========================
+   HEADER PREMIUM
+========================= */
+
+header{
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.header-visible{
+  transform: translateY(0);
+}

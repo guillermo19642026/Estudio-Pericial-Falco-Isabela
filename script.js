@@ -389,3 +389,122 @@ if (canvas) {
 
   window.addEventListener("resize", resizeCanvas);
 }
+
+
+
+
+
+
+
+
+/* ===============================
+   ANALYTICS - CLICS IMPORTANTES
+   Seguro: no modifica diseño ni funciones existentes
+=============================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof gtag !== "function") return;
+
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener("click", () => {
+      gtag("event", "click_whatsapp", {
+        event_category: "consulta",
+        event_label: link.textContent.trim() || "WhatsApp"
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href*="login.html"]').forEach(link => {
+    link.addEventListener("click", () => {
+      gtag("event", "click_acceso_tests", {
+        event_category: "plataforma",
+        event_label: "Acceso a tests psicometricos"
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href*="solicitar-turno.html"]').forEach(link => {
+    link.addEventListener("click", () => {
+      gtag("event", "click_solicitar_turno", {
+        event_category: "turnos",
+        event_label: "Solicitar turno"
+      });
+    });
+  });
+});
+
+
+
+
+
+/* ===============================
+   MENU ACTIVO SEGUN SECCION VISIBLE
+   Version compatible con header fijo
+=============================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const linksMenu = document.querySelectorAll('#menu a[href^="#"]');
+
+  if (!linksMenu.length) return;
+
+  const activarMenu = () => {
+    let linkActivo = null;
+
+    linksMenu.forEach(link => {
+      const id = link.getAttribute("href");
+      const section = document.querySelector(id);
+
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= 220 && rect.bottom >= 220) {
+        linkActivo = link;
+      }
+    });
+
+    linksMenu.forEach(link => link.classList.remove("activo"));
+
+    if (linkActivo) {
+      linkActivo.classList.add("activo");
+    }
+  };
+
+  window.addEventListener("scroll", activarMenu);
+  window.addEventListener("resize", activarMenu);
+  activarMenu();
+});
+
+
+
+/* ===============================
+   SCROLL REVEAL
+=============================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const elementos = document.querySelectorAll(
+    ".card, .acordeon-item, .danio-item, .servicio-juridico-card"
+  );
+
+  elementos.forEach(el => {
+    el.classList.add("reveal");
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+
+    });
+
+  }, {
+    threshold: 0.12
+  });
+
+  elementos.forEach(el => observer.observe(el));
+
+});
