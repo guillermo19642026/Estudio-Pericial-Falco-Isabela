@@ -11185,3 +11185,30 @@ body.pagina-interna{
   margin-top:20px;
   text-decoration:none;
 }
+
+
+button.btn-header-inline{
+  border:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+
+/* ==========================
+   ACCESO BIBLIOTECA
+========================== */
+
+.biblioteca-acceso{
+  max-width:850px;
+  margin:40px auto;
+  text-align:center;
+}
+
+.biblioteca-acceso h3{
+  margin-bottom:15px;
+  color:#d4af37;
+}
+
+.biblioteca-acceso p{
+  margin-bottom:25px;
+}

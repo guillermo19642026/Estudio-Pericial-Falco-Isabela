@@ -73,6 +73,9 @@ window.login = async function () {
 } else if (rol === "informe") {
   window.location.href = "panel-informe.html";
 
+} else if (rol === "biblioteca") {
+  window.location.href = "biblioteca-falco.html";
+
 } else {
   window.location.href = "dashboard-periciado.html";
 }
@@ -119,6 +122,7 @@ onAuthStateChanged(auth, async (user) => {
 const esPerito = rol === "perito";
 const esPericiado = rol === "periciado";
 const esInforme = rol === "informe";
+const esBiblioteca = rol === "biblioteca";
 const tieneAccesoPanel = esAdmin || esPerito;
 
 
@@ -149,11 +153,27 @@ const paginasInforme = [
   "analisis-integrado.html"
 ];
 
+const paginasBiblioteca = [
+  "biblioteca-falco.html"
+];
+
 
   // 🔒 Periciado no puede entrar a paneles admin
  if ((esPericiado || esInforme) && paginasAdmin.some(p => pagina.includes(p))) {
   window.location.href = esInforme ? "panel-informe.html" : "dashboard-periciado.html";
   return;
+}
+
+if (esBiblioteca) {
+
+  const puedeEntrarBiblioteca =
+    paginasBiblioteca.some(p => pagina.includes(p));
+
+  if (!puedeEntrarBiblioteca) {
+    window.location.href = "biblioteca-falco.html";
+    return;
+  }
+
 }
 
 

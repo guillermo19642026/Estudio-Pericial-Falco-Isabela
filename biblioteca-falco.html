@@ -37,7 +37,7 @@ content="Biblioteca privada con acceso a materiales exclusivos del Método FALCO
 <div class="header-izquierda">
 
 <div class="logo">
-<a href="dashboard.html">
+<a href="biblioteca-falco.html">
 <img src="img/logo.png" alt="Estudio Pericial Psicológico">
 </a>
 </div>
@@ -51,9 +51,9 @@ ESTUDIO PERICIAL PSICOLÓGICO<br>
 <span>Lic. en Psicología ISABELA FALCO</span>
 </div>
 
-<a href="#" id="logoutBtn" class="btn-header-inline">
-Cerrar sesión
-</a>
+<button type="button" id="logoutBtn" class="btn-header-inline">
+  Cerrar sesión
+</button>
 
 </div>
 
@@ -270,39 +270,65 @@ Contactar por WhatsApp
 
 <script src="script.js"></script>
 
+
+
+
+
 <!-- PROTECCIÓN LOGIN -->
 
 <script type="module">
 
-import { auth } from "./js/firebase-config.js";
+import { auth, db } from "./firebase-config.js";
 
 import {
-onAuthStateChanged,
-signOut
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-onAuthStateChanged(auth,(user)=>{
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-if(!user){
+const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
 
-window.location.href="login.html";
+const logoutBtn = document.getElementById("logoutBtn");
 
-}
+onAuthStateChanged(auth, async (user) => {
+
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  const ref = doc(db, "usuarios", user.uid);
+  const snap = await getDoc(ref);
+
+  const dataUsuario = snap.exists() ? snap.data() : {};
+
+  const rol =
+    user.email === ADMIN_EMAIL
+      ? "admin"
+      : (dataUsuario.rol || "periciado");
+
+  if (
+    rol !== "biblioteca" &&
+    rol !== "admin" &&
+    rol !== "perito"
+  ) {
+    window.location.href = "login.html";
+    return;
+  }
 
 });
 
-document.getElementById("logoutBtn")
-.addEventListener("click",async(e)=>{
-
-e.preventDefault();
-
-await signOut(auth);
-
-window.location.href="login.html";
-
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+  window.location.href = "login.html";
 });
 
 </script>
+
 
 </body>
 </html>
