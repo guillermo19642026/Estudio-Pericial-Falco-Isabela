@@ -10989,3 +10989,199 @@ a.consultoria-card p {
   }
 
 }
+
+
+
+
+/* ==========================
+   BIBLIOTECA FALCO
+========================== */
+
+.biblioteca-alerta{
+  max-width:900px;
+  margin:25px auto 0;
+  padding:18px 22px;
+  border:1px solid rgba(201,169,110,.35);
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  color:#f5f5f5;
+  text-align:center;
+  line-height:1.6;
+}
+
+/* Tarjetas PDF clickeables */
+
+a.consultoria-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+a.consultoria-card:hover{
+  text-decoration:none;
+  color:inherit;
+}
+
+a.consultoria-card:visited{
+  color:inherit;
+}
+
+a.consultoria-card h3,
+a.consultoria-card p{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* Efecto premium para biblioteca */
+
+.consultoria-card{
+  transition:.3s ease;
+}
+
+.consultoria-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(201,169,110,.55);
+}
+
+.consultoria-card:hover h3{
+  color:#d4af37;
+}
+
+/* Botón cerrar sesión */
+
+#logoutBtn{
+  cursor:pointer;
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+  .biblioteca-alerta{
+    margin:20px 15px 0;
+    padding:16px;
+    font-size:.95rem;
+  }
+
+}
+
+
+
+
+
+
+/* ==========================
+   BIBLIOTECA FALCO - AJUSTE VISUAL
+========================== */
+
+body.pagina-interna{
+  background:#111;
+  color:#f5f5f5;
+}
+
+.biblioteca-page .hero-interno{
+  min-height:60vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px 80px;
+}
+
+.biblioteca-page .hero-contenido{
+  max-width:950px;
+  margin:0 auto;
+}
+
+.biblioteca-page .hero-titulo-principal{
+  color:#ffffff;
+  font-size:clamp(2.4rem, 6vw, 5rem);
+  margin:15px 0;
+}
+
+.biblioteca-page .hero-subtitulo-fuerte{
+  color:#d4af37;
+  font-size:clamp(1.2rem, 3vw, 2rem);
+  margin-bottom:20px;
+}
+
+.biblioteca-page .hero-descripcion{
+  max-width:780px;
+  margin:0 auto;
+  color:#e8e8e8;
+  line-height:1.7;
+}
+
+.biblioteca-page .seccion-definicion{
+  padding:70px 20px;
+}
+
+.biblioteca-page .danio-contenedor{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.biblioteca-page .consultoria-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;
+  margin-top:35px;
+}
+
+.biblioteca-page .consultoria-card{
+  display:block;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(201,169,110,.28);
+  border-radius:22px;
+  padding:28px;
+  text-decoration:none !important;
+  color:#f5f5f5 !important;
+  box-shadow:0 20px 45px rgba(0,0,0,.22);
+  transition:.3s ease;
+}
+
+.biblioteca-page .consultoria-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(212,175,55,.65);
+  background:rgba(255,255,255,.1);
+}
+
+.biblioteca-page .consultoria-card h3{
+  color:#d4af37;
+  margin-bottom:12px;
+  font-size:1.25rem;
+}
+
+.biblioteca-page .consultoria-card p{
+  color:#e8e8e8;
+  line-height:1.6;
+}
+
+.biblioteca-page .frase-taller{
+  max-width:1000px;
+  margin:0 auto;
+  padding:35px 25px;
+  text-align:center;
+}
+
+.biblioteca-page .frase-taller p{
+  color:#d4af37;
+  font-size:1.25rem;
+  line-height:1.7;
+}
+
+.biblioteca-page .cta-final-card{
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(201,169,110,.35);
+  border-radius:28px;
+  padding:45px 30px;
+}
+
+.biblioteca-page .btn-principal{
+  display:inline-block;
+  margin-top:20px;
+  text-decoration:none;
+}
