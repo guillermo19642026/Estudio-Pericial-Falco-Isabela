@@ -1,9 +1,9 @@
-// js/escuela-login.js
-
 import { auth } from "./firebase-config.js";
 
 import {
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const loginForm = document.getElementById("loginEscuelaForm");
@@ -19,16 +19,19 @@ loginForm.addEventListener("submit", async (e) => {
   loginMensaje.style.color = "#f5dfad";
 
   try {
+    await setPersistence(auth, browserLocalPersistence);
+
     await signInWithEmailAndPassword(auth, email, password);
 
     loginMensaje.textContent = "Acceso correcto. Redirigiendo...";
     loginMensaje.style.color = "#9ee6b8";
 
-    window.location.assign("./escuela-panel.html");
+    setTimeout(() => {
+      window.location.href = "./escuela-panel.html";
+    }, 800);
 
   } catch (error) {
     console.error(error);
-
     loginMensaje.textContent = "Correo o contraseña incorrectos.";
     loginMensaje.style.color = "#ffb4b4";
   }
