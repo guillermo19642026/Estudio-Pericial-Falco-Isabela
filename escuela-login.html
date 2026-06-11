@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acceso Escuela para Padres FALCO®</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="pagina-interna fondo-neuronal">
+<canvas id="neuronal-bg"></canvas>
+
+<header>
+  <div class="nav-container">
+
+    <div class="header-izquierda">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+        </a>
+      </div>
+    </div>
+
+    <div class="header-derecha">
+      <div class="header-texto">
+        ESTUDIO PERICIAL PSICOLÓGICO<br>
+        <span>Lic. en Psicología ISABELA FALCO</span>
+      </div>
+
+      <a href="escuela-para-padres.html" class="btn-header-inline">
+        Volver a Escuela FALCO®
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<main class="login-escuela-main">
+
+  <section class="login-escuela-card">
+
+    <span class="tests-nuevo">Acceso exclusivo</span>
+
+    <h1>Escuela para Padres FALCO®</h1>
+
+    <p>
+      Ingresá con el usuario autorizado para acceder a los módulos,
+      materiales descargables y recursos del programa.
+    </p>
+
+    <form id="loginEscuelaForm" class="login-form">
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" placeholder="tuemail@email.com" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" placeholder="********" required>
+
+      <button type="submit" class="btn-principal">
+        Ingresar
+      </button>
+
+      <p id="loginMensaje" class="login-mensaje"></p>
+
+    </form>
+
+    <a
+      href="https://wa.me/5491132049521?text=Hola,%20necesito%20ayuda%20para%20ingresar%20a%20la%20Escuela%20para%20Padres%20FALCO"
+      target="_blank"
+      class="link-ayuda">
+      ¿Necesitás ayuda para ingresar?
+    </a>
+
+  </section>
+
+</main>
+
+<script type="module" src="js/escuela-login.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
