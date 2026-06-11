@@ -4,7 +4,7 @@ import { auth } from "./firebase-config.js";
 
 import {
   signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const loginForm = document.getElementById("loginEscuelaForm");
 const loginMensaje = document.getElementById("loginMensaje");
@@ -24,9 +24,7 @@ loginForm.addEventListener("submit", async (e) => {
     loginMensaje.textContent = "Acceso correcto. Redirigiendo...";
     loginMensaje.style.color = "#9ee6b8";
 
-    setTimeout(() => {
-      window.location.href = "escuela-panel.html";
-    }, 900);
+    window.location.assign("./escuela-panel.html");
 
   } catch (error) {
     console.error(error);
