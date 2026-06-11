@@ -11475,3 +11475,107 @@ transform: translateY(-8px);
     grid-template-columns: 1fr !important;
   }
 }
+
+
+
+
+
+
+/* ==============================
+   ESCUELA PARA PADRES FALCO®
+   BLOQUES NUEVOS
+============================== */
+
+.cohorte-fundadora,
+.materiales-escuela,
+.inscripcion-escuela {
+  position: relative;
+}
+
+.cohorte-fundadora .consultoria-card,
+.materiales-escuela .consultoria-card {
+  border: 1px solid rgba(201, 169, 110, 0.22);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.cohorte-fundadora .consultoria-card h3,
+.materiales-escuela .consultoria-card h3 {
+  color: #c9a96e;
+}
+
+#encuentros .consultoria-card {
+  min-height: 190px;
+}
+
+#encuentros .consultoria-card h3 {
+  color: #c9a96e;
+  margin-bottom: 12px;
+}
+
+#encuentros .consultoria-card p {
+  line-height: 1.65;
+}
+
+.inscripcion-escuela {
+  background:
+    radial-gradient(circle at top left, rgba(201, 169, 110, 0.16), transparent 35%),
+    linear-gradient(135deg, rgba(15, 23, 35, 0.96), rgba(22, 34, 52, 0.96));
+  padding: 80px 20px;
+}
+
+.inscripcion-escuela .danio-contenedor {
+  text-align: center;
+}
+
+.inscripcion-escuela .titulo-seccion,
+.inscripcion-escuela p {
+  color: #ffffff;
+}
+
+.inscripcion-escuela .tests-nuevo {
+  background: rgba(201, 169, 110, 0.15);
+  color: #f5dfad;
+  border: 1px solid rgba(201, 169, 110, 0.35);
+}
+
+.inscripcion-escuela .hero-botones {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.inscripcion-escuela .btn-secundario {
+  background: transparent;
+  border: 1px solid rgba(245, 223, 173, 0.7);
+  color: #f5dfad;
+}
+
+.inscripcion-escuela .btn-secundario:hover {
+  background: rgba(245, 223, 173, 0.12);
+  color: #ffffff;
+}
+
+/* Tarjetas más compactas en móviles */
+@media (max-width: 768px) {
+  #encuentros .consultoria-card {
+    min-height: auto;
+  }
+
+  .inscripcion-escuela {
+    padding: 60px 18px;
+  }
+
+  .inscripcion-escuela .hero-botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inscripcion-escuela .btn-principal,
+  .inscripcion-escuela .btn-secundario {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+}
