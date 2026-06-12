@@ -11757,3 +11757,10 @@ transform: translateY(-8px);
   text-align: center;
 
 }
+
+
+.header-botones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
