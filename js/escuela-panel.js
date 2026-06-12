@@ -95,7 +95,7 @@ onAuthStateChanged(auth, async (user) => {
 
 </div>
 
-          </div>
+
           `
           :
           `
