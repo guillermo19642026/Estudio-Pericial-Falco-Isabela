@@ -29,6 +29,9 @@ btnCerrarSesion.addEventListener("click", async () => {
 
 onAuthStateChanged(auth, async (user) => {
 
+
+
+
   if (!user) {
 
     window.location.href = "escuela-login.html";
@@ -50,7 +53,10 @@ onAuthStateChanged(auth, async (user) => {
     contenedor.innerHTML = `
       <div class="consultoria-card">
         <h3>Sin acceso asignado</h3>
-        <p>Comunicate con la administración.</p>
+        <p>
+Tu acceso aún no fue habilitado.
+Si considerás que se trata de un error, comunicate con la coordinación de la Escuela para Padres FALCO®.
+</p>
       </div>
     `;
 
