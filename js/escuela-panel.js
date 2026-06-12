@@ -79,15 +79,21 @@ onAuthStateChanged(auth, async (user) => {
           habilitado
           ?
           `
-          <div class="modulo-acciones">
+         <div class="modulo-acciones">
 
-            <a href="#" class="btn-principal">
-              Cuadernillo
-            </a>
+  <a href="escuela/modulo${i}/cuadernillo.pdf" class="btn-principal" target="_blank">
+    Cuadernillo
+  </a>
 
-            <a href="#" class="btn-secundario">
-              Actividad
-            </a>
+  <a href="escuela/modulo${i}/actividad.pdf" class="btn-secundario" target="_blank">
+    Actividad
+  </a>
+
+  <a href="escuela/modulo${i}/presentacion.pptx" class="btn-secundario" target="_blank">
+    Presentación
+  </a>
+
+</div>
 
           </div>
           `
