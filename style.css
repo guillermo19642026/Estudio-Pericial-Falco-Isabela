@@ -11829,3 +11829,34 @@ transform: translateY(-8px);
 .modulos-panel {
   margin-top: 10px;
 }
+
+
+.consultoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+  gap: 25px;
+  justify-content: center;
+}
+
+.consultoria-card {
+  width: 100%;
+  text-align: center;
+}
+
+
+.inscripcion-escuela {
+  padding: 45px 20px;
+}
+
+.inscripcion-escuela .danio-contenedor {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.inscripcion-escuela .titulo-seccion {
+  margin-bottom: 12px;
+}
+
+.inscripcion-escuela p {
+  margin-bottom: 22px;
+}
