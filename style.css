@@ -11764,3 +11764,20 @@ transform: translateY(-8px);
   gap: 10px;
   align-items: center;
 }
+
+
+
+
+
+.texto-bloqueado {
+  color: #777;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.modulo-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}

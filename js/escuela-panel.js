@@ -68,52 +68,71 @@ Si considerás que se trata de un error, comunicate con la coordinación de la E
   const datos = snap.data();
 
 
-  for (let i = 1; i <= 8; i++) {
-
-    const habilitado = datos[`modulo${i}`];
 
 
-    contenedor.innerHTML += `
-
-      <div class="consultoria-card ${habilitado ? "modulo-disponible" : "modulo-bloqueado"}">
-
-        <h3>Encuentro ${i}</h3>
-
-        <p>${obtenerTitulo(i)}</p>
-
-        ${
-          habilitado
-          ?
-          `
-         <div class="modulo-acciones">
-
-  <a href="escuela/modulo${i}/cuadernillo.pdf" class="btn-principal" target="_blank">
-    Cuadernillo
-  </a>
-
-  <a href="escuela/modulo${i}/actividad.pdf" class="btn-secundario" target="_blank">
-    Actividad
-  </a>
-
-  <a href="escuela/modulo${i}/presentacion.pptx" class="btn-secundario" target="_blank">
-    Presentación
-  </a>
-
-</div>
 
 
-          `
-          :
-          `
-          <p>Se habilitará próximamente.</p>
-          `
-        }
+for (let i = 1; i <= 8; i++) {
 
-      </div>
+  const habilitado = datos[`modulo${i}`];
 
-    `;
+  contenedor.innerHTML += `
 
-  }
+    <div class="consultoria-card ${habilitado ? "modulo-disponible" : "modulo-bloqueado"}">
+
+      <h3>Encuentro ${i}</h3>
+
+      <p>${obtenerTitulo(i)}</p>
+
+      ${
+        habilitado
+        ?
+        `
+        <div class="modulo-acciones">
+
+          <a href="escuela/modulo${i}/cuadernillo.pdf"
+             class="btn-principal"
+             target="_blank">
+
+            📖 Acceso al cuadernillo
+
+          </a>
+
+          <a href="escuela/modulo${i}/actividad.pdf"
+             class="btn-secundario"
+             target="_blank">
+
+            ✏️ Actividad del encuentro
+
+          </a>
+
+          <a href="escuela/modulo${i}/presentacion.pptx"
+             class="btn-secundario"
+             target="_blank">
+
+            🖥️ Presentación del encuentro
+
+          </a>
+
+        </div>
+        `
+        :
+        `
+        <p class="texto-bloqueado">
+          🔒 Este encuentro se habilitará próximamente.
+        </p>
+        `
+      }
+
+    </div>
+
+  `;
+}
+
+
+
+
+
 
 });
 
