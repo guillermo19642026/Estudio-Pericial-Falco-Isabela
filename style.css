@@ -11694,32 +11694,31 @@ transform: translateY(-8px);
 
 .panel-escuela {
 
-  padding: 140px 20px 80px;
+  padding: 60px 20px 80px;
 
 }
 
 .hero-panel {
-
   text-align: center;
-
-  margin-bottom: 60px;
-
+  margin-bottom: 20px;
+  padding-bottom: 0;
 }
 
 .hero-panel h1 {
-
   color: #c9a96e;
-
-  margin: 20px 0;
-
+  margin: 14px 0;
 }
 
 .hero-panel p {
-
   max-width: 700px;
+  margin: 0 auto 8px;
+}
 
-  margin: auto;
-
+.logo-panel {
+  width: 180px;
+  margin-top: 8px;
+  margin-bottom: -20px;
+  opacity: 0.95;
 }
 
 .modulo-bloqueado {
@@ -11807,4 +11806,26 @@ transform: translateY(-8px);
   font-size: 0.9rem;
   opacity: 0.85;
   font-style: italic;
+}
+
+
+
+
+.subtitulo-header {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 2px 0;
+}
+
+
+.logo-panel {
+  width: 180px;
+  margin: 10px auto 0;
+  display: block;
+  opacity: 0.95;
+}
+
+.modulos-panel {
+  margin-top: 10px;
 }
