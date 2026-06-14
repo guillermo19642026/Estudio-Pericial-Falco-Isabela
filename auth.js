@@ -12,12 +12,8 @@ import {
   setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// 🔐 CONFIGURACIÓN ADMIN
 const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
 
-// ===== LOGIN =====
-// Admin: sin límite
-// Periciados: un solo uso
 window.login = async function () {
   const email = document.getElementById("email")?.value.trim();
   const password = document.getElementById("password")?.value;
@@ -36,26 +32,20 @@ window.login = async function () {
 
     const ref = doc(db, "usuarios", user.uid);
     const snap = await getDoc(ref);
-
     const dataUsuario = snap.exists() ? snap.data() : {};
 
     const rol =
-  user.email === ADMIN_EMAIL
-    ? "admin"
-    : (dataUsuario.rol || "periciado");
+      user.email === ADMIN_EMAIL
+        ? "admin"
+        : (dataUsuario.rol || "periciado");
 
-
-    // 🔐 ADMIN SIN LÍMITE
     if (rol === "periciado") {
-
-      // 🔥 BLOQUEO DE USO ÚNICO PARA PERICIADOS
       if (snap.exists() && dataUsuario.usado === true) {
         if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
         await signOut(auth);
         return;
       }
 
-      // ✔ MARCAR COMO USADO SOLO PERICIADOS
       await setDoc(ref, {
         email: user.email,
         rol: rol,
@@ -64,42 +54,48 @@ window.login = async function () {
       }, { merge: true });
     }
 
-  if (rol === "admin") {
-  window.location.href = "dashboard.html";
+    if (rol === "admin") {
+      window.location.href = "dashboard.html";
+      return;
 
-} else if (rol === "perito") {
-  window.location.href = "dashboard-perito.html";
+    } else if (rol === "perito") {
+      window.location.href = "dashboard-perito.html";
+      return;
 
-} else if (rol === "informe") {
-  window.location.href = "panel-informe.html";
+    } else if (rol === "informe") {
+      window.location.href = "panel-informe.html";
+      return;
 
-} else if (rol === "biblioteca") {
-  window.location.href = "biblioteca-falco.html";
+    } else if (rol === "periciado") {
+      window.location.href = "dashboard-periciado.html";
+      return;
 
-} else {
-  window.location.href = "dashboard-periciado.html";
-}
+    } else {
+      await signOut(auth);
+      if (errorBox) {
+        errorBox.textContent = "Este usuario no tiene autorización para ingresar a tests psicométricos.";
+      }
+      return;
+    }
 
   } catch (error) {
     console.error(error);
     if (errorBox) {
-      errorBox.textContent = "No se pudo iniciar sesión. Revisá usuario, contraseña o permisos.";
+      errorBox.textContent = "Correo o contraseña incorrectos.";
     }
   }
 };
 
-// ===== LOGOUT =====
 window.logout = async function () {
   await signOut(auth);
   window.location.href = "login.html";
 };
 
-// ===== PROTEGER PÁGINAS + CONTROL DE ROLES =====
 onAuthStateChanged(auth, async (user) => {
   const pagina = window.location.pathname.toLowerCase();
 
   const esLogin =
-    pagina.includes("login.html") ||
+    pagina.endsWith("/login.html") ||
     pagina.endsWith("/");
 
   if (!user && !esLogin) {
@@ -111,20 +107,18 @@ onAuthStateChanged(auth, async (user) => {
 
   const ref = doc(db, "usuarios", user.uid);
   const snap = await getDoc(ref);
-
   const dataUsuario = snap.exists() ? snap.data() : {};
+
   const rol =
-  user.email === ADMIN_EMAIL
-    ? "admin"
-    : (dataUsuario.rol || "periciado");
+    user.email === ADMIN_EMAIL
+      ? "admin"
+      : (dataUsuario.rol || "periciado");
 
   const esAdmin = rol === "admin";
-const esPerito = rol === "perito";
-const esPericiado = rol === "periciado";
-const esInforme = rol === "informe";
-const esBiblioteca = rol === "biblioteca";
-const tieneAccesoPanel = esAdmin || esPerito;
-
+  const esPerito = rol === "perito";
+  const esPericiado = rol === "periciado";
+  const esInforme = rol === "informe";
+  const tieneAccesoPanel = esAdmin || esPerito;
 
   const paginasAdmin = [
     "dashboard.html",
@@ -134,96 +128,31 @@ const tieneAccesoPanel = esAdmin || esPerito;
     "archivo-pericial.html"
   ];
 
-  const paginasPericiado = [
-    "dashboard-periciado.html",
-    "scl90.html",
-    "bdi.html",
-    "bai.html",
-    "desesperanza.html"
-  ];
-
-
-
-const paginasInforme = [
-  "panel-informe.html",
-  "scl90.html",
-  "bdi.html",
-  "bai.html",
-  "desesperanza.html",
-  "analisis-integrado.html"
-];
-
-const paginasBiblioteca = [
-  "biblioteca-falco.html"
-];
-
-
-  // 🔒 Periciado no puede entrar a paneles admin
- if ((esPericiado || esInforme) && paginasAdmin.some(p => pagina.includes(p))) {
-  window.location.href = esInforme ? "panel-informe.html" : "dashboard-periciado.html";
-  return;
-}
-
-if (esBiblioteca) {
-
-  const puedeEntrarBiblioteca =
-    paginasBiblioteca.some(p => pagina.includes(p));
-
-  if (!puedeEntrarBiblioteca) {
-    window.location.href = "biblioteca-falco.html";
+  if ((esPericiado || esInforme) && paginasAdmin.some(p => pagina.includes(p))) {
+    window.location.href = esInforme ? "panel-informe.html" : "dashboard-periciado.html";
     return;
   }
 
-}
-
-
-
-  // 🔒 Admin y perito no usan dashboard periciado
-if (
-  (esAdmin || esPerito) &&
-  pagina.includes("dashboard-periciado.html")
-) {
-
-  if (esAdmin) {
-    window.location.href = "dashboard.html";
-  } else {
-    window.location.href = "dashboard-perito.html";
+  if ((esAdmin || esPerito) && pagina.includes("dashboard-periciado.html")) {
+    window.location.href = esAdmin ? "dashboard.html" : "dashboard-perito.html";
+    return;
   }
 
-  return;
-}
-
-
-if (
-  (esAdmin || esPerito) &&
-  pagina.includes("panel-informe.html")
-) {
-
-  if (esAdmin) {
-    window.location.href = "dashboard.html";
-  } else {
-    window.location.href = "dashboard-perito.html";
+  if ((esAdmin || esPerito) && pagina.includes("panel-informe.html")) {
+    window.location.href = esAdmin ? "dashboard.html" : "dashboard-perito.html";
+    return;
   }
 
-  return;
-}
-
-
-
-  // 👁️ Mostrar / ocultar botones admin
   const botonesAdmin = document.querySelectorAll(".admin-only");
-
   botonesAdmin.forEach(boton => {
     boton.style.display = tieneAccesoPanel ? "flex" : "none";
   });
 
   const dashboardMetricas = document.getElementById("dashboardMetricas");
-
   if (dashboardMetricas) {
     dashboardMetricas.style.display = tieneAccesoPanel ? "grid" : "none";
   }
 
-  // 🧠 Si periciado entra a un test sin modo=periciado, lo corregimos
   const estaEnTest =
     pagina.includes("scl90.html") ||
     pagina.includes("bdi.html") ||
@@ -234,8 +163,8 @@ if (
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("modo") !== "periciado") {
-  window.location.replace(window.location.pathname + "?modo=periciado");
-  return;
-}
+      window.location.replace(window.location.pathname + "?modo=periciado");
+      return;
+    }
   }
 });
