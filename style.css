@@ -11891,3 +11891,26 @@ transform: translateY(-8px);
     }
 
 }
+
+
+
+.biblioteca-link-disabled {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: #d4af37;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: default;
+}
+
+.biblioteca-card {
+    cursor: default;
+}
+
+.biblioteca-card:hover {
+    transform: translateY(-5px);
+}
