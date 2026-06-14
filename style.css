@@ -11914,3 +11914,27 @@ transform: translateY(-8px);
 .biblioteca-card:hover {
     transform: translateY(-5px);
 }
+
+
+@media (max-width: 768px) {
+
+  .header-botones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .btn-header-inline {
+    padding: 7px 6px;
+    font-size: 0.68rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tooltip-text {
+    display: none;
+  }
+
+}
