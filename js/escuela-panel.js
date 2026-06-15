@@ -17,6 +17,11 @@ const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
 const nombreParticipante = document.getElementById("nombreParticipante");
 
+const textoProgreso = document.getElementById("textoProgreso");
+
+const barraProgreso = document.getElementById("barraProgreso");
+
+
 
 btnCerrarSesion.addEventListener("click", async () => {
 
@@ -68,6 +73,20 @@ Si considerás que se trata de un error, comunicate con la coordinación de la E
   const datos = snap.data();
 
 
+  let encuentrosHabilitados = 0;
+
+for (let i = 1; i <= 8; i++) {
+  if (datos[`modulo${i}`]) {
+    encuentrosHabilitados++;
+  }
+}
+
+const porcentajeProgreso = (encuentrosHabilitados / 8) * 100;
+
+textoProgreso.textContent = `${encuentrosHabilitados} de 8 encuentros habilitados`;
+barraProgreso.style.width = `${porcentajeProgreso}%`;
+
+
 
 
 
@@ -80,9 +99,21 @@ for (let i = 1; i <= 8; i++) {
 
     <div class="consultoria-card ${habilitado ? "modulo-disponible" : "modulo-bloqueado"}">
 
-      <h3>Encuentro ${i}</h3>
+      
+<span class="modulo-numero">
+  Encuentro ${i} de 8
+</span>
 
-      <p>${obtenerTitulo(i)}</p>
+
+<p class="estado-modulo ${habilitado ? "estado-disponible" : "estado-bloqueado"}">
+  ${habilitado ? "🟢 Disponible" : "🔒 Próximamente"}
+</p>
+
+
+
+<h3>Módulo ${i}</h3>
+
+<p>${obtenerTitulo(i)}</p>
 
       ${
         habilitado
