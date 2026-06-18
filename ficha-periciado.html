@@ -1,0 +1,431 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha Integral del Periciado</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .ficha-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .ficha-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    .ficha-grid label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .ficha-grid small {
+      display: block;
+      margin-top: 6px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      opacity: .75;
+    }
+
+    .ficha-grid textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .ficha-grid input,
+    .ficha-grid textarea {
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .ficha-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="tests-home">
+
+<header>
+  <h1>Ficha integral del periciado</h1>
+  <p>Formulario de datos personales, judiciales, familiares, sociales, laborales y antecedentes relevantes.</p>
+</header>
+
+<main>
+
+  <form id="formFichaPericiado">
+
+    <section class="card">
+      <h2>Datos personales</h2>
+
+      <div class="ficha-grid">
+
+        <div>
+          <label>Nombre y apellido</label>
+          <input id="nombre" type="text" required>
+        </div>
+
+        <div>
+          <label>DNI</label>
+          <input id="dni" type="text" inputmode="numeric" required>
+        </div>
+
+        <div>
+          <label>Fecha de nacimiento</label>
+          <input id="fechaNacimiento" type="date">
+        </div>
+
+        <div>
+          <label>Edad</label>
+          <input id="edad" type="number">
+        </div>
+
+        <div>
+          <label>Estado civil</label>
+          <input id="estadoCivil" type="text" placeholder="Ejemplo: soltero/a, casado/a, separado/a, viudo/a">
+        </div>
+
+        <div>
+          <label>Domicilio</label>
+          <input id="domicilio" type="text">
+        </div>
+
+        <div>
+          <label>Teléfono</label>
+          <input id="telefono" type="tel">
+        </div>
+
+        <div>
+          <label>Correo electrónico</label>
+          <input id="email" type="email">
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Datos judiciales y administrativos</h2>
+
+      <div class="ficha-grid">
+
+        <div class="full">
+          <label>Carátula del expediente</label>
+          <input id="caratula" type="text" placeholder="Ejemplo: Pérez Juan c/ Experta ART S.A. s/ Accidente de Trabajo">
+        </div>
+
+        <div>
+          <label>Número de expediente</label>
+          <input id="expediente" type="text" placeholder="Ejemplo: LM-12345-2025">
+        </div>
+
+        <div>
+          <label>Juzgado o Tribunal interviniente</label>
+          <input id="juzgado" type="text">
+        </div>
+
+        <div class="full">
+          <label>¿Contra quién se dirige la demanda?</label>
+          <small>Indique ART, clínica, empresa, aseguradora, particular u otro demandado.</small>
+          <input id="demandado" type="text" placeholder="Ejemplo: Experta ART, Galeno ART, Clínica XX, Empresa XX">
+        </div>
+
+        <div>
+          <label>Abogado patrocinante</label>
+          <input id="abogado" type="text">
+        </div>
+
+        <div>
+          <label>Teléfono del abogado</label>
+          <input id="telefonoAbogado" type="tel">
+        </div>
+
+        <div class="full">
+          <label>Correo electrónico del abogado</label>
+          <input id="emailAbogado" type="email">
+        </div>
+
+        <div class="full">
+          <label>Motivo de la demanda</label>
+          <small>Describa brevemente el motivo principal del reclamo.</small>
+          <textarea id="motivoDemanda" rows="5" placeholder="Ejemplo: accidente laboral, enfermedad profesional, mala praxis, daños y perjuicios, accidente de tránsito, despido, etc."></textarea>
+        </div>
+
+        <div class="full">
+          <label>Relate brevemente qué ocurrió y por qué se inició la demanda</label>
+          <textarea id="relatoHechos" rows="6"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Grupo familiar y conviviente</h2>
+
+      <div class="ficha-grid">
+
+        <div class="full">
+          <label>¿Con quién convive actualmente?</label>
+          <small>Indique nombres, edades y vínculo con cada persona conviviente.</small>
+          <textarea id="convivencia" rows="5" placeholder="Ejemplo: Convivo con mi pareja y mis dos hijos de 12 y 15 años."></textarea>
+        </div>
+
+        <div class="full">
+          <label>¿Tiene hijos?</label>
+          <small>Indique nombres, edades, estudios u ocupación y vínculo actual.</small>
+          <textarea id="hijos" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>¿Tiene hermanos?</label>
+          <small>Indique nombres, edades, ocupación y vínculo actual.</small>
+          <textarea id="hermanos" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Padres</label>
+          <small>Indique si viven, edad, ocupación, estado de salud y vínculo actual.</small>
+          <textarea id="padres" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Abuelos</label>
+          <small>Indique si viven, nombres, edades y vínculo actual.</small>
+          <textarea id="abuelos" rows="4"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Familia extendida</h2>
+
+      <div class="ficha-grid">
+
+        <div class="full">
+          <label>Tíos, primos y otros familiares</label>
+          <small>Indique si mantiene contacto, frecuencia y tipo de vínculo.</small>
+          <textarea id="tiosPrimos" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Familia política</label>
+          <small>Suegros, cuñados u otros familiares de la pareja o expareja.</small>
+          <textarea id="familiaPolitica" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Personas significativas</label>
+          <small>Incluya otras personas importantes de su red familiar o afectiva.</small>
+          <textarea id="personasSignificativas" rows="5"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Estudios y formación</h2>
+
+      <div class="ficha-grid">
+
+        <div class="full">
+          <label>Estudios cursados</label>
+          <small>Nivel educativo alcanzado, estudios completos o incompletos, cursos y capacitaciones.</small>
+          <textarea id="estudios" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Dificultades escolares relevantes</label>
+          <small>Repitencias, cambios de escuela, abandono de estudios u otras situaciones significativas.</small>
+          <textarea id="dificultadesEscolares" rows="4"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Área social</h2>
+
+      <div class="ficha-grid">
+        <div class="full">
+          <label>Describa su área social</label>
+          <small>Amistades, vecinos, compañeros, grupos de pertenencia, frecuencia de contacto y red de apoyo.</small>
+          <textarea id="areaSocial" rows="6" placeholder="Ejemplo: Mantengo contacto frecuente con tres amigos. Nos reunimos una vez por semana."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Área recreativa</h2>
+
+      <div class="ficha-grid">
+        <div class="full">
+          <label>Describa su área recreativa</label>
+          <small>Hobbies, deportes, salidas, lectura, música, viajes, actividades culturales o tiempo libre.</small>
+          <textarea id="areaRecreativa" rows="6" placeholder="Ejemplo: Disfruto caminar, leer y realizar actividades al aire libre."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Área laboral</h2>
+
+      <div class="ficha-grid">
+
+        <div class="full">
+          <label>Describa su área laboral</label>
+          <small>Ocupación actual, trayectoria laboral, ambiente de trabajo, relación con superiores y compañeros.</small>
+          <textarea id="areaLaboral" rows="6"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Situación laboral actual</label>
+          <small>Indique si trabaja actualmente, está con licencia, desempleado/a, jubilado/a, con ART u otra situación.</small>
+          <textarea id="situacionLaboralActual" rows="5"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Antecedentes de salud y tratamientos</h2>
+
+      <div class="ficha-grid">
+
+        <div class="full">
+          <label>Tratamientos psicológicos previos o actuales</label>
+          <small>Indique fechas aproximadas, motivo de consulta y profesional tratante si lo recuerda.</small>
+          <textarea id="tratamientoPsicologico" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Tratamientos psiquiátricos previos o actuales</label>
+          <textarea id="tratamientoPsiquiatrico" rows="5"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Medicación actual</label>
+          <small>Indique nombre de la medicación, dosis y profesional que la indicó, si corresponde.</small>
+          <textarea id="medicacion" rows="4"></textarea>
+        </div>
+
+        <div class="full">
+          <label>Antecedentes médicos relevantes</label>
+          <small>Enfermedades, cirugías, accidentes, internaciones o tratamientos médicos actuales.</small>
+          <textarea id="antecedentesMedicos" rows="5"></textarea>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Historia personal relevante</h2>
+
+      <div class="ficha-grid">
+        <div class="full">
+          <label>Acontecimientos importantes de su vida</label>
+          <small>Mudanzas, pérdidas, separaciones, accidentes, enfermedades, situaciones traumáticas, logros personales u otros hechos significativos.</small>
+          <textarea id="historiaPersonal" rows="8"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Observaciones finales</h2>
+
+      <div class="ficha-grid">
+        <div class="full">
+          <label>Información adicional</label>
+          <small>Agregue cualquier información que considere importante para la evaluación.</small>
+          <textarea id="observaciones" rows="6"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+
+      <button type="button" onclick="enviarFichaPericiado()">
+        Enviar ficha
+      </button>
+
+      <button type="button" class="secondary" onclick="generarPdfFicha()">
+        Generar PDF
+      </button>
+
+      <button type="button" class="secondary" onclick="window.location.href='dashboard-periciado.html'">
+        Volver
+      </button>
+
+      <p id="estadoDocumento" class="post-estado"></p>
+
+    </section>
+
+  </form>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+
+<script type="module">
+import { guardarDocumentoPericiado } from "./documentos-periciados.js";
+
+const campos = [
+  "nombre", "dni", "fechaNacimiento", "edad", "estadoCivil", "domicilio", "telefono", "email",
+  "caratula", "expediente", "juzgado", "demandado", "abogado", "telefonoAbogado", "emailAbogado",
+  "motivoDemanda", "relatoHechos", "convivencia", "hijos", "hermanos", "padres", "abuelos",
+  "tiosPrimos", "familiaPolitica", "personasSignificativas", "estudios", "dificultadesEscolares",
+  "areaSocial", "areaRecreativa", "areaLaboral", "situacionLaboralActual",
+  "tratamientoPsicologico", "tratamientoPsiquiatrico", "medicacion", "antecedentesMedicos",
+  "historiaPersonal", "observaciones"
+];
+
+function obtenerDatosFicha() {
+  const datos = {};
+
+  campos.forEach(id => {
+    const elemento = document.getElementById(id);
+    datos[id] = elemento ? elemento.value.trim() : "";
+  });
+
+  return datos;
+}
+
+window.enviarFichaPericiado = async function () {
+  const estado = document.getElementById("estadoDocumento");
+  const datos = obtenerDatosFicha();
+
+  if (!datos.nombre || !datos.dni) {
+    alert("Debe completar al menos nombre, apellido y DNI.");
+    return;
+  }
+
+  try {
+    await guardarDocumentoPericiado({
+      tipo: "ficha_integral_periciado",
+      fechaCarga: new Date().toISOString(),
+      ...datos
+    });
+
+    estado.textContent = "Ficha integral enviada correctamente.";
+    estado.className = "post-estado ok";
+
+  } catch (error) {
+    console.error(error);
+    estado.textContent = "No se pudo enviar la ficha. Intentá nuevamente.";
+    estado.className = "post-estado error";
+  }
+};
+
+window.generarPdfFicha = function () {
+  window.print();
+};
+</script>
+
+</body>
+</html>
+
