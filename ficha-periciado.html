@@ -55,6 +55,13 @@
 <header>
   <h1>Ficha integral del periciado</h1>
   <p>Formulario de datos personales, judiciales, familiares, sociales, laborales y antecedentes relevantes.</p>
+
+
+<p class="aviso-obligatorio">
+  Los campos marcados con <span>*</span> son obligatorios.
+</p>
+
+
 </header>
 
 <main>
@@ -67,43 +74,64 @@
       <div class="ficha-grid">
 
         <div>
-          <label>Nombre y apellido</label>
+          <label class="label-obligatorio">Nombre y apellido</label>
           <input id="nombre" type="text" required>
         </div>
 
         <div>
-          <label>DNI</label>
+          <label class="label-obligatorio">DNI</label>
           <input id="dni" type="text" inputmode="numeric" required>
         </div>
 
+<div>
+  <label class="label-obligatorio">CUIL/CUIT</label>
+  <input id="cuil" type="text" required>
+</div>
+
+
+
         <div>
-          <label>Fecha de nacimiento</label>
-          <input id="fechaNacimiento" type="date">
+  <label class="label-obligatorio">Fecha de nacimiento</label>
+  <input id="fechaNacimiento" type="date" required>
+</div>
+
+<div>
+ <label class="label-obligatorio">Lugar de nacimiento</label>
+  <input id="lugarNacimiento" type="text" required>
+</div>
+
+        <div>
+          <label class="label-obligatorio">Edad</label>
+          <input id="edad" type="number" required>
+        </div>
+
+      <div>
+  <label class="label-obligatorio">Estado civil</label>
+
+  <select id="estadoCivil" required>
+    <option value="">Seleccione estado civil</option>
+    <option>Soltero/a</option>
+    <option>Casado/a</option>
+    <option>Conviviente</option>
+    <option>Separado/a</option>
+    <option>Divorciado/a</option>
+    <option>Viudo/a</option>
+  </select>
+</div>
+
+        <div>
+          <label class="label-obligatorio">Domicilio</label>
+          <input id="domicilio" type="text" required>
         </div>
 
         <div>
-          <label>Edad</label>
-          <input id="edad" type="number">
+          <label class="label-obligatorio">Teléfono</label>
+         <input id="telefono" type="tel" required>
         </div>
 
         <div>
-          <label>Estado civil</label>
-          <input id="estadoCivil" type="text" placeholder="Ejemplo: soltero/a, casado/a, separado/a, viudo/a">
-        </div>
-
-        <div>
-          <label>Domicilio</label>
-          <input id="domicilio" type="text">
-        </div>
-
-        <div>
-          <label>Teléfono</label>
-          <input id="telefono" type="tel">
-        </div>
-
-        <div>
-          <label>Correo electrónico</label>
-          <input id="email" type="email">
+          <label class="label-obligatorio">Correo electrónico</label>
+          <input id="email" type="email" required>
         </div>
 
       </div>
@@ -130,9 +158,13 @@
         </div>
 
         <div class="full">
-          <label>¿Contra quién se dirige la demanda?</label>
+          <label class="label-obligatorio">¿Contra quién se dirige la demanda?</label>
           <small>Indique ART, clínica, empresa, aseguradora, particular u otro demandado.</small>
-          <input id="demandado" type="text" placeholder="Ejemplo: Experta ART, Galeno ART, Clínica XX, Empresa XX">
+          <input
+  id="demandado"
+  type="text"
+  required
+  placeholder="Ejemplo: Experta ART, Galeno ART, Clínica XX, Empresa XX">
         </div>
 
         <div>
@@ -150,16 +182,72 @@
           <input id="emailAbogado" type="email">
         </div>
 
-        <div class="full">
-          <label>Motivo de la demanda</label>
-          <small>Describa brevemente el motivo principal del reclamo.</small>
-          <textarea id="motivoDemanda" rows="5" placeholder="Ejemplo: accidente laboral, enfermedad profesional, mala praxis, daños y perjuicios, accidente de tránsito, despido, etc."></textarea>
-        </div>
+
+
+  <div class="full">
+  <label class="label-obligatorio">
+    Motivo de la demanda
+  </label>
+
+  <small>
+    Indique el motivo principal por el cual se inició el reclamo o demanda judicial.
+  </small>
+
+  <textarea
+    id="motivoDemanda"
+    rows="5"
+    required
+    placeholder="Ejemplo: accidente laboral, enfermedad profesional, mala praxis, daños y perjuicios, accidente de tránsito, despido, etc."></textarea>
+</div>
+
 
         <div class="full">
-          <label>Relate brevemente qué ocurrió y por qué se inició la demanda</label>
-          <textarea id="relatoHechos" rows="6"></textarea>
+          <label class="label-obligatorio">Relate brevemente qué ocurrió y por qué se inició la demanda</label>
+          <textarea
+  id="relatoHechos"
+  rows="6"
+  required></textarea>
         </div>
+
+
+<div class="full">
+  <label>¿Cuál considera que fue la principal consecuencia del hecho denunciado en su vida?</label>
+  <textarea id="consecuenciaPrincipal" rows="5"></textarea>
+</div>
+
+<div class="full">
+  <label class="label-obligatorio">¿Participó anteriormente en otros procesos judiciales?</label>
+
+  <small>
+    Indique si fue actor, demandado, testigo o peritado anteriormente.
+    Señale el tipo de causa y el año aproximado.
+  </small>
+
+  <textarea
+    id="juiciosPrevios"
+    rows="4"
+    placeholder="Ejemplo: Reclamo laboral en 2018. Accidente de tránsito en 2021. Ninguno.">
+  </textarea>
+</div>
+
+
+<div class="full">
+  <label class="label-obligatorio">¿Actualmente tiene otros reclamos judiciales o administrativos en trámite?</label>
+
+  <small>
+    Incluya reclamos laborales, previsionales, civiles,
+    penales, ART, seguros u otros.
+  </small>
+
+  <textarea
+    id="otrosReclamos"
+    rows="4"
+    placeholder="Ejemplo: Reclamo previsional en trámite. Ninguno.">
+  </textarea>
+</div>
+
+
+
 
       </div>
     </section>
@@ -170,33 +258,60 @@
       <div class="ficha-grid">
 
         <div class="full">
-          <label>¿Con quién convive actualmente?</label>
+          <label class="label-obligatorio">¿Con quién convive actualmente?</label>
           <small>Indique nombres, edades y vínculo con cada persona conviviente.</small>
-          <textarea id="convivencia" rows="5" placeholder="Ejemplo: Convivo con mi pareja y mis dos hijos de 12 y 15 años."></textarea>
-        </div>
+          <textarea id="convivencia" rows="5" required
+placeholder="Ejemplo: Convivo con mi pareja y mis dos hijos de 12 y 15 años."></textarea>
+        </div><div class="full">
+ <label class="label-obligatorio">¿Tiene hijos?</label>
+
+  <select id="tieneHijos" required onchange="mostrarCampoCondicional('tieneHijos', 'datosHijos')">
+    <option value="">Seleccione una opción</option>
+    <option value="No">No</option>
+    <option value="Sí">Sí</option>
+  </select>
+</div>
+
+<div class="full campo-condicional" id="datosHijos">
+  <label>Cantidad de hijos</label>
+  <input id="cantidadHijos" type="number" min="1">
+
+  <label>Nombres y edades de los hijos</label>
+  <textarea id="hijos" rows="5"
+  placeholder="Ejemplo: Juan, 12 años. Martina, 15 años."></textarea>
+</div>
 
         <div class="full">
-          <label>¿Tiene hijos?</label>
-          <small>Indique nombres, edades, estudios u ocupación y vínculo actual.</small>
-          <textarea id="hijos" rows="5"></textarea>
-        </div>
+  <label class="label-obligatorio">¿Tiene hermanos?</label>
+
+  <select id="tieneHermanos" required onchange="mostrarCampoCondicional('tieneHermanos', 'datosHermanos')">
+    <option value="">Seleccione una opción</option>
+    <option value="No">No</option>
+    <option value="Sí">Sí</option>
+  </select>
+</div>
+
+<div class="full campo-condicional" id="datosHermanos">
+  <label>Cantidad de hermanos</label>
+  <input id="cantidadHermanos" type="number" min="1">
+
+  <label>Nombres y edades de los hermanos</label>
+  <textarea id="hermanos" rows="5"
+  placeholder="Ejemplo: María, 40 años. Carlos, 35 años."></textarea>
+</div>
 
         <div class="full">
-          <label>¿Tiene hermanos?</label>
-          <small>Indique nombres, edades, ocupación y vínculo actual.</small>
-          <textarea id="hermanos" rows="5"></textarea>
-        </div>
+          <label class="label-obligatorio">Padres</label>
 
-        <div class="full">
-          <label>Padres</label>
           <small>Indique si viven, edad, ocupación, estado de salud y vínculo actual.</small>
-          <textarea id="padres" rows="5"></textarea>
+         <textarea id="padres" rows="5" required></textarea>
         </div>
 
         <div class="full">
-          <label>Abuelos</label>
+          <label class="label-obligatorio">Abuelos</label>
+
           <small>Indique si viven, nombres, edades y vínculo actual.</small>
-          <textarea id="abuelos" rows="4"></textarea>
+         <textarea id="abuelos" rows="4" required></textarea>
         </div>
 
       </div>
@@ -208,22 +323,33 @@
       <div class="ficha-grid">
 
         <div class="full">
-          <label>Tíos, primos y otros familiares</label>
+          <label class="label-obligatorio">Tíos, primos y otros familiares</label>
+
           <small>Indique si mantiene contacto, frecuencia y tipo de vínculo.</small>
-          <textarea id="tiosPrimos" rows="5"></textarea>
+          <textarea id="tiosPrimos" rows="5" required></textarea>
         </div>
 
-        <div class="full">
-          <label>Familia política</label>
-          <small>Suegros, cuñados u otros familiares de la pareja o expareja.</small>
-          <textarea id="familiaPolitica" rows="5"></textarea>
-        </div>
+       <div class="full">
+  <label class="label-obligatorio">Familia política</label>
+
+
+  <small>
+    Suegros, cuñados u otros familiares de la pareja o expareja.
+  </small>
+
+  <textarea id="familiaPolitica" rows="5" required></textarea>
+</div>
 
         <div class="full">
-          <label>Personas significativas</label>
-          <small>Incluya otras personas importantes de su red familiar o afectiva.</small>
-          <textarea id="personasSignificativas" rows="5"></textarea>
-        </div>
+  <label class="label-obligatorio">Personas significativas</label>
+
+
+  <small>
+    Incluya otras personas importantes de su red familiar o afectiva.
+  </small>
+
+  <textarea id="personasSignificativas" rows="5" required></textarea>
+</div>
 
       </div>
     </section>
@@ -231,19 +357,38 @@
     <section class="card">
       <h2>Estudios y formación</h2>
 
-      <div class="ficha-grid">
+    <div class="full">
+  <label class="label-obligatorio">
+    Nivel educativo alcanzado
+  </label>
 
-        <div class="full">
-          <label>Estudios cursados</label>
-          <small>Nivel educativo alcanzado, estudios completos o incompletos, cursos y capacitaciones.</small>
-          <textarea id="estudios" rows="5"></textarea>
-        </div>
+  <select id="nivelEstudios" required>
+  <option value="">Seleccione nivel educativo</option>
+  <option>Primario incompleto</option>
+  <option>Primario completo</option>
+  <option>Secundario incompleto</option>
+  <option>Secundario completo</option>
+  <option>Terciario incompleto</option>
+  <option>Terciario completo</option>
+  <option>Universitario incompleto</option>
+  <option>Universitario completo</option>
+  <option>Posgrado</option>
+</select>
 
-        <div class="full">
-          <label>Dificultades escolares relevantes</label>
-          <small>Repitencias, cambios de escuela, abandono de estudios u otras situaciones significativas.</small>
-          <textarea id="dificultadesEscolares" rows="4"></textarea>
-        </div>
+</div>
+
+<div class="full">
+  <label class="label-obligatorio">
+    Estudios, títulos, cursos y capacitaciones
+  </label>
+
+  <textarea
+    id="estudios"
+    rows="5"
+    required
+    placeholder="Indique institución, título, cursos o capacitaciones.">
+  </textarea>
+</div>
 
       </div>
     </section>
@@ -251,11 +396,15 @@
     <section class="card">
       <h2>Área social</h2>
 
+<label class="label-obligatorio">Área social</label>
+
+
+
       <div class="ficha-grid">
         <div class="full">
           <label>Describa su área social</label>
           <small>Amistades, vecinos, compañeros, grupos de pertenencia, frecuencia de contacto y red de apoyo.</small>
-          <textarea id="areaSocial" rows="6" placeholder="Ejemplo: Mantengo contacto frecuente con tres amigos. Nos reunimos una vez por semana."></textarea>
+          <textarea id="areaSocial" rows="6" required placeholder="Ejemplo: Mantengo contacto frecuente con tres amigos. Nos reunimos una vez por semana."></textarea>
         </div>
       </div>
     </section>
@@ -263,11 +412,14 @@
     <section class="card">
       <h2>Área recreativa</h2>
 
+      <label class="label-obligatorio">Área recreativa</label>
+
+
       <div class="ficha-grid">
         <div class="full">
           <label>Describa su área recreativa</label>
           <small>Hobbies, deportes, salidas, lectura, música, viajes, actividades culturales o tiempo libre.</small>
-          <textarea id="areaRecreativa" rows="6" placeholder="Ejemplo: Disfruto caminar, leer y realizar actividades al aire libre."></textarea>
+          <textarea id="areaRecreativa" rows="6" required placeholder="Ejemplo: Disfruto caminar, leer y realizar actividades al aire libre."></textarea>
         </div>
       </div>
     </section>
@@ -275,22 +427,171 @@
     <section class="card">
       <h2>Área laboral</h2>
 
+<label class="label-obligatorio">Trayectoria laboral</label>
+
+
+
       <div class="ficha-grid">
 
-        <div class="full">
-          <label>Describa su área laboral</label>
-          <small>Ocupación actual, trayectoria laboral, ambiente de trabajo, relación con superiores y compañeros.</small>
-          <textarea id="areaLaboral" rows="6"></textarea>
-        </div>
+      <div class="full">
+  <label>Describa su trayectoria laboral</label>
+
+  <small>
+    Trabajos realizados, antigüedad, relación con superiores y compañeros,
+    licencias, accidentes laborales y cambios de empleo.
+  </small>
+
+  <textarea id="areaLaboral" rows="6" required></textarea>
+</div>
 
         <div class="full">
-          <label>Situación laboral actual</label>
+          <label class="label-obligatorio">Situación laboral actual</label>
+
           <small>Indique si trabaja actualmente, está con licencia, desempleado/a, jubilado/a, con ART u otra situación.</small>
-          <textarea id="situacionLaboralActual" rows="5"></textarea>
+          <textarea id="situacionLaboralActual" rows="5" required></textarea>
         </div>
 
       </div>
+
+
+<div class="full">
+  <label class="label-obligatorio">¿Se encuentra actualmente en tratamiento por el hecho reclamado?</label>
+  <textarea id="tratamientoPorHecho" rows="4"
+  placeholder="Indique profesional, institución y frecuencia."></textarea>
+</div>
+
+
     </section>
+
+
+
+
+<section class="card">
+  <h2>Antecedentes relacionados con el hecho</h2>
+
+  <div class="ficha-grid">
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Fue sometido/a a alguna operación relacionada con el hecho reclamado?
+      </label>
+
+      <select id="operacionesHecho" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realizó tratamiento clínico?
+      </label>
+
+      <select id="tratamientoClinico" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realizó tratamiento psicológico?
+      </label>
+
+      <select id="tratamientoPsicologicoHecho" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realizó tratamiento psiquiátrico?
+      </label>
+
+      <select id="tratamientoPsiquiatricoHecho" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realizó tratamiento traumatológico?
+      </label>
+
+      <select id="tratamientoTraumatologico" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Se encuentra actualmente bajo tratamiento médico por el hecho reclamado?
+      </label>
+
+      <select id="tratamientoActualHecho" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realiza o realizó consumo habitual de alcohol?
+      </label>
+
+      <select id="consumoAlcohol" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+  ¿Posee antecedentes de consumo de sustancias psicoactivas?
+      </label>
+
+      <select id="consumoDrogas" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="full">
+      <label class="label-obligatorio">
+        Observaciones sobre operaciones, tratamientos o consumos
+      </label>
+
+      <small>
+        Si respondió "Sí" en alguna de las preguntas anteriores,
+        detalle fechas aproximadas, profesionales intervinientes,
+        medicación, tratamientos realizados o cualquier dato relevante.
+        Si respondió "No" en todas, escriba "No corresponde".
+      </small>
+
+      <textarea
+        id="detalleTratamientos"
+        rows="6"
+        required
+        placeholder="Ejemplo: Tratamiento traumatológico desde marzo de 2025. Cirugía de hombro en junio de 2025. Tratamiento psicológico semanal durante 8 meses.">
+      </textarea>
+    </div>
+
+  </div>
+</section>
+
+
+
 
     <section class="card">
       <h2>Antecedentes de salud y tratamientos</h2>
@@ -298,27 +599,44 @@
       <div class="ficha-grid">
 
         <div class="full">
-          <label>Tratamientos psicológicos previos o actuales</label>
+          <label class="label-obligatorio">Tratamientos psicológicos previos o actuales</label>
+
           <small>Indique fechas aproximadas, motivo de consulta y profesional tratante si lo recuerda.</small>
-          <textarea id="tratamientoPsicologico" rows="5"></textarea>
+         <textarea id="tratamientoPsicologico" rows="5" required></textarea>
         </div>
 
         <div class="full">
-          <label>Tratamientos psiquiátricos previos o actuales</label>
-          <textarea id="tratamientoPsiquiatrico" rows="5"></textarea>
+         <label class="label-obligatorio">Tratamientos psiquiátricos previos o actuales</label>
+
+          <textarea id="tratamientoPsiquiatrico" rows="5" required></textarea>
         </div>
 
         <div class="full">
-          <label>Medicación actual</label>
+          <label class="label-obligatorio">Medicación actual</label>
+
           <small>Indique nombre de la medicación, dosis y profesional que la indicó, si corresponde.</small>
-          <textarea id="medicacion" rows="4"></textarea>
+          <textarea id="medicacion" rows="4" required></textarea>
         </div>
 
         <div class="full">
-          <label>Antecedentes médicos relevantes</label>
+          <label class="label-obligatorio">Antecedentes médicos relevantes</label>
+
           <small>Enfermedades, cirugías, accidentes, internaciones o tratamientos médicos actuales.</small>
-          <textarea id="antecedentesMedicos" rows="5"></textarea>
+         <textarea id="antecedentesMedicos" rows="5" required></textarea>
         </div>
+
+
+<div class="full">
+  <label class="label-obligatorio">¿Posee Certificado Único de Discapacidad (CUD)?</label>
+
+  <select id="cud" required>
+    <option value="">Seleccione</option>
+    <option>Sí</option>
+    <option>No</option>
+  </select>
+</div>
+
+
 
       </div>
     </section>
@@ -379,9 +697,21 @@ const campos = [
   "caratula", "expediente", "juzgado", "demandado", "abogado", "telefonoAbogado", "emailAbogado",
   "motivoDemanda", "relatoHechos", "convivencia", "hijos", "hermanos", "padres", "abuelos",
   "tiosPrimos", "familiaPolitica", "personasSignificativas", "estudios", "dificultadesEscolares",
-  "areaSocial", "areaRecreativa", "areaLaboral", "situacionLaboralActual",
-  "tratamientoPsicologico", "tratamientoPsiquiatrico", "medicacion", "antecedentesMedicos",
-  "historiaPersonal", "observaciones"
+  "areaSocial", "areaRecreativa", "areaLaboral", "situacionLaboralActual", "consecuenciaPrincipal",
+"tratamientoPorHecho", "tratamientoPsicologico", "tratamientoPsiquiatrico", "medicacion", "antecedentesMedicos",
+  "historiaPersonal", "observaciones","tieneHijos", "cantidadHijos", "juiciosPrevios", "lugarNacimiento",
+"otrosReclamos", "operacionesHecho",
+"tratamientoClinico",
+"tratamientoPsicologicoHecho",
+"tratamientoPsiquiatricoHecho",
+"tratamientoTraumatologico",
+"tratamientoActualHecho",
+"consumoAlcohol",
+"consumoDrogas",
+"detalleTratamientos",
+"cud",
+"tieneHermanos", "cantidadHermanos",
+"nivelEstudios",
 ];
 
 function obtenerDatosFicha() {
@@ -399,10 +729,60 @@ window.enviarFichaPericiado = async function () {
   const estado = document.getElementById("estadoDocumento");
   const datos = obtenerDatosFicha();
 
-  if (!datos.nombre || !datos.dni) {
-    alert("Debe completar al menos nombre, apellido y DNI.");
-    return;
-  }
+ if (
+  !datos.nombre ||
+  !datos.dni ||
+  !datos.fechaNacimiento ||
+  !datos.edad ||
+  !datos.estadoCivil ||
+  !datos.domicilio ||
+  !datos.telefono ||
+  !datos.email ||
+  !datos.demandado ||
+  !datos.motivoDemanda ||
+  !datos.relatoHechos ||
+  !datos.convivencia ||
+  !datos.tieneHijos ||
+  !datos.tieneHermanos ||
+  !datos.padres ||
+  !datos.abuelos ||
+  !datos.tiosPrimos ||
+  !datos.familiaPolitica ||
+  !datos.personasSignificativas ||
+  !datos.nivelEstudios ||
+  !datos.estudios ||
+  !datos.areaSocial ||
+  !datos.areaRecreativa ||
+  !datos.areaLaboral ||
+  !datos.situacionLaboralActual ||
+  !datos.tratamientoPsicologico ||
+  !datos.tratamientoPsiquiatrico ||
+  !datos.medicacion ||
+  !datos.antecedentesMedicos ||
+  !datos.operacionesHecho ||
+!datos.tratamientoClinico ||
+!datos.tratamientoPsicologicoHecho ||
+!datos.tratamientoPsiquiatricoHecho ||
+!datos.tratamientoTraumatologico ||
+!datos.tratamientoActualHecho ||
+!datos.consumoAlcohol ||
+!datos.consumoDrogas ||
+!datos.detalleTratamientos ||
+!datos.cud
+) {
+  alert("Debe completar todos los campos obligatorios.");
+  return;
+}
+
+if (datos.tieneHijos === "Sí" && (!datos.cantidadHijos || !datos.hijos)) {
+  alert("Debe completar cantidad, nombres y edades de los hijos.");
+  return;
+}
+
+if (datos.tieneHermanos === "Sí" && (!datos.cantidadHermanos || !datos.hermanos)) {
+  alert("Debe completar cantidad, nombres y edades de los hermanos.");
+  return;
+}
 
   try {
     await guardarDocumentoPericiado({
@@ -424,6 +804,34 @@ window.enviarFichaPericiado = async function () {
 window.generarPdfFicha = function () {
   window.print();
 };
+
+
+
+
+window.mostrarCampoCondicional = function(selectId, campoId) {
+  const select = document.getElementById(selectId);
+  const campo = document.getElementById(campoId);
+
+  if (select.value === "Sí") {
+    campo.style.display = "block";
+  } else {
+    campo.style.display = "none";
+
+    campo.querySelectorAll("input, textarea").forEach(el => {
+      el.value = "";
+    });
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  mostrarCampoCondicional("tieneHijos", "datosHijos");
+  mostrarCampoCondicional("tieneHermanos", "datosHermanos");
+
+});
+
+
+
 </script>
 
 </body>

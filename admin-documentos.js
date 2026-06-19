@@ -46,8 +46,10 @@ function formatearFecha(timestamp) {
 }
 
 function nombreTipo(tipo) {
-  if (tipo === "consentimiento_informado") return "Consentimiento informado";
-  if (tipo === "constancia_tratamiento") return "Constancia de tratamiento";
+  if (tipo === "consentimiento_informado") return "📝 Consentimiento informado";
+  if (tipo === "constancia_tratamiento") return "📄 Constancia de tratamiento";
+  if (tipo === "ficha_integral_periciado") return "📋 Ficha integral del periciado";
+
   return tipo || "—";
 }
 
@@ -75,6 +77,20 @@ function datosExtra(docu) {
     `;
   }
 
+
+if (docu.tipo === "ficha_integral_periciado") {
+  return `
+    <strong>Expediente:</strong> ${docu.expediente || "—"}<br>
+    <strong>Demandado:</strong> ${docu.demandado || "—"}<br>
+    <strong>Motivo:</strong> ${docu.motivoDemanda || "—"}<br>
+    <strong>Grupo conviviente:</strong> ${docu.convivencia || "—"}<br>
+    <strong>Área laboral:</strong> ${docu.areaLaboral || "—"}<br>
+    <strong>CUD:</strong> ${docu.cud || "—"}
+  `;
+}
+
+
+
   return "—";
 }
 
@@ -86,12 +102,17 @@ function filtrarDocumentos() {
     const coincideTipo = !tipo || docu.tipo === tipo;
 
     const contenido = `
-      ${docu.nombre || ""}
-      ${docu.dni || ""}
-      ${docu.tipo || ""}
-      ${docu.firma || ""}
-      ${docu.usuarioEmail || ""}
-    `.toLowerCase();
+  ${docu.nombre || ""}
+  ${docu.dni || ""}
+  ${docu.tipo || ""}
+  ${docu.firma || ""}
+  ${docu.usuarioEmail || ""}
+  ${docu.expediente || ""}
+  ${docu.caratula || ""}
+  ${docu.demandado || ""}
+  ${docu.motivoDemanda || ""}
+  ${docu.abogado || ""}
+`.toLowerCase();
 
     const coincideTexto = !texto || contenido.includes(texto);
 

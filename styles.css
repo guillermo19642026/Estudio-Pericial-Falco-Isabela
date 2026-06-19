@@ -3560,7 +3560,6 @@ border:
 }
 
 
-```css
 /* ==========================================
    FICHA INTEGRAL DEL PERICIADO
 ========================================== */
@@ -3629,4 +3628,55 @@ border:
   }
 
 }
-```
+
+
+
+
+
+.campo-condicional {
+  display: none;
+}
+
+
+.campo-condicional {
+  display: none;
+}
+
+.ficha-grid select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+
+.label-obligatorio::after {
+  content: " *";
+  color: #b8934a;
+  font-weight: 700;
+}
+
+.aviso-obligatorio {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: .95rem;
+  color: #666;
+}
+
+.aviso-obligatorio span {
+  color: #b8934a;
+  font-weight: 700;
+}
+
+
+.campo-condicional {
+  display: none;
+}
+
+.ficha-grid select,
+.ficha-grid input,
+.ficha-grid textarea {
+  width: 100%;
+  box-sizing: border-box;
+}

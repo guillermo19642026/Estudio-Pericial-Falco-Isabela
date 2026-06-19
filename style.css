@@ -12441,3 +12441,22 @@ transform: translateY(-8px);
     font-size: 0.78rem;
   }
 }
+
+
+.label-obligatorio::after {
+  content: " *";
+  color: #b8934a;
+  font-weight: 700;
+}
+
+.aviso-obligatorio {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: .95rem;
+  color: #666;
+}
+
+.aviso-obligatorio span {
+  color: #b8934a;
+  font-weight: 700;
+}

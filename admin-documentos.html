@@ -21,16 +21,17 @@
 <main class="admin-panel">
 
   <section class="card">
-    <h2>Consentimientos y constancias recibidas</h2>
+    <h2>Documentos recibidos</h2>
 
     <div class="admin-filtros">
-      <input id="buscarDocumento" type="text" placeholder="Buscar por nombre, DNI o tipo...">
+      <input id="buscarDocumento" type="text" placeholder="Buscar por nombre, DNI, tipo o expediente...">
 
       <select id="filtroTipoDocumento">
-        <option value="">Todos los documentos</option>
-        <option value="consentimiento_informado">Consentimiento informado</option>
-        <option value="constancia_tratamiento">Constancia de tratamiento</option>
-      </select>
+  <option value="">Todos los documentos</option>
+  <option value="consentimiento_informado">Consentimiento informado</option>
+  <option value="constancia_tratamiento">Constancia de tratamiento</option>
+  <option value="ficha_integral_periciado">Ficha integral del periciado</option>
+</select>
 
       <button onclick="limpiarFiltrosDocumentos()">Limpiar filtros</button>
     </div>
