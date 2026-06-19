@@ -111,6 +111,25 @@
 </main>
 
 
+<section class="dashboard-section-title">
+  <span>Cierre del proceso</span>
+  <h2>Finalizar evaluación</h2>
+</section>
+
+<main class="tests-main">
+
+  <button class="tests-card dashboard-module" onclick="finalizarEvaluacion()">
+    <span>✅ Finalizar evaluación</span>
+
+    <small>
+      Presione este botón únicamente cuando haya completado todos los tests
+      y documentos requeridos.
+    </small>
+
+    <b>Finalizar proceso →</b>
+  </button>
+
+</main>
 
 
 
@@ -133,10 +152,44 @@
 
 <script type="module" src="auth.js"></script>
 
-<script>
-function ir(pagina) {
+<script type="module">
+import { auth, db } from "./firebase-config.js";
+
+import {
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+window.finalizarEvaluacion = async function () {
+  const user = auth.currentUser;
+
+  if (!user) {
+    alert("Debe iniciar sesión.");
+    return;
+  }
+
+  const confirma = confirm(
+    "¿Confirma que completó todos los tests y documentos? Luego no podrá volver a ingresar."
+  );
+
+  if (!confirma) return;
+
+  await setDoc(
+    doc(db, "usuarios", user.uid),
+    {
+      usado: true,
+      fechaUso: new Date().toISOString()
+    },
+    { merge: true }
+  );
+
+  alert("Evaluación finalizada correctamente.");
+  window.location.href = "login.html";
+};
+
+window.ir = function(pagina) {
   window.location.href = pagina;
-}
+};
 </script>
 
 </body>

@@ -8,8 +8,7 @@ import {
 
 import {
   doc,
-  getDoc,
-  setDoc
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
@@ -39,17 +38,13 @@ window.login = async function () {
         ? "admin"
         : (dataUsuario.rol || "periciado");
 
-  if (rol === "periciado") {
-  if (snap.exists() && dataUsuario.usado === true) {
-    if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
-    await signOut(auth);
-    return;
-  }
-}
-
-
-
-
+    if (rol === "periciado") {
+      if (snap.exists() && dataUsuario.usado === true) {
+        if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
+        await signOut(auth);
+        return;
+      }
+    }
 
     if (rol === "admin") {
       window.location.href = "dashboard.html";
