@@ -46,9 +46,9 @@ psiquiátricos y medicación.
   <label>Foto del DNI (opcional)</label>
 
   <input
-    id="fotoDni"
-    type="url"
-    placeholder="Pegue aquí el enlace de la foto del DNI">
+  id="fotoDni"
+  type="text"
+  placeholder="Pegue aquí el enlace de la foto del DNI, si corresponde">
 
   <small class="note">
     Puede subir una foto del DNI a Google Drive,
@@ -352,7 +352,7 @@ estado.className =
 console.error(error);
 
 estado.textContent =
-"No se pudo enviar la constancia.";
+"No se pudo enviar la constancia: " + error.message;
 
 estado.className =
 "post-estado error";
