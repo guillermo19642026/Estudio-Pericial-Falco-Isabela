@@ -165,6 +165,17 @@ document.getElementById("fotoDni").value.trim();
       aceptado: true
     });
 
+
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("consentimiento")) {
+  avance.push("consentimiento");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
+
+
+
     estado.textContent = "Consentimiento informado enviado correctamente.";
     estado.className = "post-estado ok";
 

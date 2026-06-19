@@ -201,8 +201,16 @@ alert("Debe responder todos los ítems.");
 return;
 }
 
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("desesperanza")) {
+  avance.push("desesperanza");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
 const mensaje =
 document.getElementById("mensajeFinalPericiado");
+
 
 if (mensaje) {
 

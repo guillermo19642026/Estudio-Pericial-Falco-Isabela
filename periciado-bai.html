@@ -201,17 +201,25 @@ alert("Debe responder todos los ítems.");
 return;
 }
 
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("bai")) {
+  avance.push("bai");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
 const mensaje =
 document.getElementById("mensajeFinalPericiado");
 
 if (mensaje) {
 
-mensaje.style.display = "block";
+  mensaje.style.display = "block";
 
-mensaje.scrollIntoView({
-behavior: "smooth"
-});
+  mensaje.scrollIntoView({
+    behavior: "smooth"
+  });
 }
+
 }
 
 </script>

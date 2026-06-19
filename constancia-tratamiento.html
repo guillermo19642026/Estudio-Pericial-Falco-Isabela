@@ -330,6 +330,18 @@ declaracionJurada: true
 
 });
 
+
+
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("constancia")) {
+  avance.push("constancia");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
+
+
+
 estado.textContent =
 "Constancia enviada correctamente.";
 

@@ -792,6 +792,18 @@ if (datos.tieneHermanos === "Sí" && (!datos.cantidadHermanos || !datos.hermanos
       ...datos
     });
 
+
+
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("ficha")) {
+  avance.push("ficha");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
+
+
+
     estado.textContent = "Ficha integral enviada correctamente.";
     estado.className = "post-estado ok";
 

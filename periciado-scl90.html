@@ -309,6 +309,17 @@ async function enviarEvaluacionPericiado() {
 
     origen: "periciado"
   });
+
+
+
+
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("scl90")) {
+  avance.push("scl90");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
    
 
 

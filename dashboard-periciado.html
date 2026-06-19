@@ -107,8 +107,34 @@
 </button>
 
 
-
 </main>
+
+
+<section class="dashboard-section-title">
+  <span>Estado de avance</span>
+  <h2>Progreso de la evaluación</h2>
+</section>
+
+<section class="progreso-periciado">
+
+  <div class="progreso-card">
+
+    <div class="barra-progreso">
+    <div id="barraProgresoInterna"></div>
+    </div>
+
+    <p>
+      La evaluación se encuentra en proceso.
+    </p>
+
+    <small>
+      Complete todos los instrumentos y documentos requeridos antes de finalizar.
+    </small>
+
+  </div>
+
+</section>
+
 
 
 <section class="dashboard-section-title">
@@ -160,11 +186,45 @@ import {
   setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+function actualizarProgreso() {
+  const total = 7;
+  const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+  const completados = avance.length;
+  const porcentaje = Math.round((completados / total) * 100);
+
+  const barra = document.getElementById("barraProgresoInterna");
+  const texto = document.querySelector(".progreso-card p");
+  const detalle = document.querySelector(".progreso-card small");
+
+  if (barra) barra.style.width = porcentaje + "%";
+
+  if (texto) {
+    texto.textContent =
+      completados === total
+        ? "La evaluación se encuentra completa."
+        : "La evaluación se encuentra en proceso.";
+  }
+
+  if (detalle) {
+    detalle.textContent =
+      `Avance actual: ${completados} de ${total} etapas completadas.`;
+  }
+}
+
+actualizarProgreso();
+
 window.finalizarEvaluacion = async function () {
   const user = auth.currentUser;
 
   if (!user) {
     alert("Debe iniciar sesión.");
+    return;
+  }
+
+  const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+  if (avance.length < 7) {
+    alert("Aún no completó todos los tests y documentos requeridos.");
     return;
   }
 
@@ -183,6 +243,8 @@ window.finalizarEvaluacion = async function () {
     { merge: true }
   );
 
+  localStorage.removeItem("avanceEvaluacionFalco");
+
   alert("Evaluación finalizada correctamente.");
   window.location.href = "login.html";
 };
@@ -191,6 +253,7 @@ window.ir = function(pagina) {
   window.location.href = pagina;
 };
 </script>
+
 
 </body>
 </html>
