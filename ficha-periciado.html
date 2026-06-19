@@ -693,7 +693,7 @@ placeholder="Ejemplo: Convivo con mi pareja y mis dos hijos de 12 y 15 años."><
 import { guardarDocumentoPericiado } from "./documentos-periciados.js";
 
 const campos = [
-  "nombre", "dni", "fechaNacimiento", "edad", "estadoCivil", "domicilio", "telefono", "email",
+  "nombre", "dni", "cuil", "fechaNacimiento", "edad", "estadoCivil", "domicilio", "telefono", "email",
   "caratula", "expediente", "juzgado", "demandado", "abogado", "telefonoAbogado", "emailAbogado",
   "motivoDemanda", "relatoHechos", "convivencia", "hijos", "hermanos", "padres", "abuelos",
   "tiosPrimos", "familiaPolitica", "personasSignificativas", "estudios", "dificultadesEscolares",
@@ -732,6 +732,7 @@ window.enviarFichaPericiado = async function () {
  if (
   !datos.nombre ||
   !datos.dni ||
+  !datos.cuil ||
   !datos.fechaNacimiento ||
   !datos.edad ||
   !datos.estadoCivil ||
