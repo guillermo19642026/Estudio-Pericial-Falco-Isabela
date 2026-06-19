@@ -464,6 +464,94 @@ placeholder="Ejemplo: Convivo con mi pareja y mis dos hijos de 12 y 15 años."><
     </section>
 
 
+<section class="card">
+
+  <h2>Antecedentes previos e impacto actual</h2>
+
+  <div class="ficha-grid">
+
+    <div>
+      <label class="label-obligatorio">
+        Fecha del hecho reclamado
+      </label>
+
+      <input
+        id="fechaHecho"
+        type="date"
+        required>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realizó tratamiento psicológico antes del hecho?
+      </label>
+
+      <select id="tratamientoPsicologicoPrevio" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Realizó tratamiento psiquiátrico antes del hecho?
+      </label>
+
+      <select id="tratamientoPsiquiatricoPrevio" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label-obligatorio">
+        ¿Tuvo internaciones por motivos psicológicos o psiquiátricos?
+      </label>
+
+      <select id="internacionesPrevias" required>
+        <option value="">Seleccione</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="full">
+      <label>
+        Detalle de internaciones (si corresponde)
+      </label>
+
+      <textarea
+        id="detalleInternaciones"
+        rows="4"
+        placeholder="Indique fecha aproximada, motivo e institución.">
+      </textarea>
+    </div>
+
+    <div class="full">
+      <label class="label-obligatorio">
+        ¿Cómo considera que este hecho ha afectado su vida actualmente?
+      </label>
+
+      <small>
+        Describa cambios emocionales, familiares, sociales,
+        laborales, económicos o personales que atribuye al hecho.
+      </small>
+
+      <textarea
+        id="impactoActual"
+        rows="6"
+        required
+        placeholder="Describa cómo este hecho afectó su vida.">
+      </textarea>
+    </div>
+
+  </div>
+
+</section>
+
+
 
 
 <section class="card">
@@ -641,6 +729,10 @@ placeholder="Ejemplo: Convivo con mi pareja y mis dos hijos de 12 y 15 años."><
       </div>
     </section>
 
+
+
+
+
     <section class="card">
       <h2>Historia personal relevante</h2>
 
@@ -711,7 +803,12 @@ const campos = [
 "detalleTratamientos",
 "cud",
 "tieneHermanos", "cantidadHermanos",
-"nivelEstudios",
+"nivelEstudios", "fechaHecho",
+"tratamientoPsicologicoPrevio",
+"tratamientoPsiquiatricoPrevio",
+"internacionesPrevias",
+"detalleInternaciones",
+"impactoActual",
 ];
 
 function obtenerDatosFicha() {
@@ -769,7 +866,14 @@ window.enviarFichaPericiado = async function () {
 !datos.consumoAlcohol ||
 !datos.consumoDrogas ||
 !datos.detalleTratamientos ||
-!datos.cud
+!datos.cud ||
+!datos.fechaHecho ||
+!datos.tratamientoPsicologicoPrevio ||
+!datos.tratamientoPsiquiatricoPrevio ||
+!datos.internacionesPrevias ||
+!datos.juiciosPrevios ||
+!datos.otrosReclamos ||
+!datos.impactoActual 
 ) {
   alert("Debe completar todos los campos obligatorios.");
   return;
