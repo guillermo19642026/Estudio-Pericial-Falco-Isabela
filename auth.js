@@ -39,20 +39,17 @@ window.login = async function () {
         ? "admin"
         : (dataUsuario.rol || "periciado");
 
-    if (rol === "periciado") {
-      if (snap.exists() && dataUsuario.usado === true) {
-        if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
-        await signOut(auth);
-        return;
-      }
+  if (rol === "periciado") {
+  if (snap.exists() && dataUsuario.usado === true) {
+    if (errorBox) errorBox.textContent = "Este usuario ya fue utilizado.";
+    await signOut(auth);
+    return;
+  }
+}
 
-      await setDoc(ref, {
-        email: user.email,
-        rol: rol,
-        usado: true,
-        fechaUso: new Date().toISOString()
-      }, { merge: true });
-    }
+
+
+
 
     if (rol === "admin") {
       window.location.href = "dashboard.html";

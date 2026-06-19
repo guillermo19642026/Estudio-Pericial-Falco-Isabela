@@ -3,7 +3,9 @@ import { auth, db } from "./firebase-config.js";
 import {
   collection,
   addDoc,
-  serverTimestamp
+  serverTimestamp,
+  doc,
+  setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 export async function guardarDocumentoPericiado(datos) {
@@ -24,4 +26,13 @@ export async function guardarDocumentoPericiado(datos) {
 
     creadoEn: serverTimestamp()
   });
+
+  await setDoc(
+    doc(db, "usuarios", user.uid),
+    {
+      usado: true,
+      fechaUso: new Date().toISOString()
+    },
+    { merge: true }
+  );
 }
