@@ -14,141 +14,157 @@ window.generarPDFDocumento = function (docu) {
     tipo = "Documento pericial";
   }
 
+  function valor(v) {
+    return v && String(v).trim() !== "" ? v : "—";
+  }
+
+  function campo(label, value) {
+    return `
+      <div class="campo">
+        <div class="etiqueta">${label}</div>
+        <div class="valor">${valor(value)}</div>
+      </div>
+    `;
+  }
+
+  function seccion(titulo, contenido) {
+    return `
+      <section class="seccion">
+        <h2>${titulo}</h2>
+        <div class="grid-datos">
+          ${contenido}
+        </div>
+      </section>
+    `;
+  }
+
   let contenido = "";
 
-
-  if (docu.tipo === "consentimiento_informado") {
+  if (docu.tipo === "ficha_integral_periciado") {
 
     contenido = `
-      <h2>Consentimiento informado de pericia psicológica</h2>
+      ${seccion("Datos personales", `
+        ${campo("Nombre", docu.nombre)}
+        ${campo("DNI", docu.dni)}
+        ${campo("CUIL/CUIT", docu.cuil)}
+        ${campo("Fecha de nacimiento", docu.fechaNacimiento)}
+        ${campo("Lugar de nacimiento", docu.lugarNacimiento)}
+        ${campo("Edad", docu.edad)}
+        ${campo("Estado civil", docu.estadoCivil)}
+        ${campo("Domicilio", docu.domicilio)}
+        ${campo("Teléfono", docu.telefono)}
+        ${campo("Email", docu.email)}
+      `)}
 
-      <p>
-        Sr./Sra. <strong>${docu.nombre || "—"}</strong>,
-        DNI <strong>${docu.dni || "—"}</strong>, manifiesta haber sido informado/a
-        por la Lic. Isabela Falco acerca de las características generales,
-        alcances, modalidad, finalidad y condiciones de la pericia psicológica.
-      </p>
+      ${seccion("Datos judiciales y administrativos", `
+        ${campo("Carátula", docu.caratula)}
+        ${campo("Expediente", docu.expediente)}
+        ${campo("Juzgado / Tribunal", docu.juzgado)}
+        ${campo("Demandado", docu.demandado)}
+        ${campo("Abogado", docu.abogado)}
+        ${campo("Teléfono abogado", docu.telefonoAbogado)}
+        ${campo("Email abogado", docu.emailAbogado)}
+        ${campo("Motivo de demanda", docu.motivoDemanda)}
+        ${campo("Relato de hechos", docu.relatoHechos)}
+        ${campo("Consecuencia principal", docu.consecuenciaPrincipal)}
+        ${campo("Juicios previos", docu.juiciosPrevios)}
+        ${campo("Otros reclamos", docu.otrosReclamos)}
+      `)}
 
-      <p>
-        Declara haber comprendido la información recibida y haber tenido
-        oportunidad de formular las preguntas que consideró necesarias.
-      </p>
+      ${seccion("Grupo familiar y conviviente", `
+        ${campo("Convivencia", docu.convivencia)}
+        ${campo("Tiene hijos", docu.tieneHijos)}
+        ${campo("Cantidad de hijos", docu.cantidadHijos)}
+        ${campo("Hijos", docu.hijos)}
+        ${campo("Tiene hermanos", docu.tieneHermanos)}
+        ${campo("Cantidad de hermanos", docu.cantidadHermanos)}
+        ${campo("Hermanos", docu.hermanos)}
+        ${campo("Padres", docu.padres)}
+        ${campo("Abuelos", docu.abuelos)}
+      `)}
 
-      <p>
-        En consecuencia, presta consentimiento para la realización de la
-        pericia psicológica, autorizando a la profesional interviniente
-        a llevar adelante las tareas propias de la evaluación.
-      </p>
+      ${seccion("Familia extendida", `
+        ${campo("Tíos, primos y otros familiares", docu.tiosPrimos)}
+        ${campo("Familia política", docu.familiaPolitica)}
+        ${campo("Personas significativas", docu.personasSignificativas)}
+      `)}
 
-      <p><strong>Ordenado por:</strong> ${docu.ordenadoPor || "—"}</p>
-      <p><strong>Aceptación:</strong> ${docu.aceptado ? "Sí" : "No"}</p>
+      ${seccion("Estudios y formación", `
+        ${campo("Nivel educativo", docu.nivelEstudios)}
+        ${campo("Estudios", docu.estudios)}
+      `)}
+
+      ${seccion("Áreas de funcionamiento", `
+        ${campo("Área social", docu.areaSocial)}
+        ${campo("Área recreativa", docu.areaRecreativa)}
+        ${campo("Área laboral", docu.areaLaboral)}
+        ${campo("Situación laboral actual", docu.situacionLaboralActual)}
+        ${campo("Tratamiento por el hecho reclamado", docu.tratamientoPorHecho)}
+      `)}
+
+      ${seccion("Antecedentes relacionados con el hecho", `
+        ${campo("Operaciones relacionadas con el hecho", docu.operacionesHecho)}
+        ${campo("Tratamiento clínico", docu.tratamientoClinico)}
+        ${campo("Tratamiento psicológico por el hecho", docu.tratamientoPsicologicoHecho)}
+        ${campo("Tratamiento psiquiátrico por el hecho", docu.tratamientoPsiquiatricoHecho)}
+        ${campo("Tratamiento traumatológico", docu.tratamientoTraumatologico)}
+        ${campo("Tratamiento médico actual por el hecho", docu.tratamientoActualHecho)}
+        ${campo("Consumo habitual de alcohol", docu.consumoAlcohol)}
+        ${campo("Antecedentes de consumo de sustancias psicoactivas", docu.consumoDrogas)}
+        ${campo("Detalle de tratamientos", docu.detalleTratamientos)}
+      `)}
+
+      ${seccion("Antecedentes de salud y tratamientos", `
+        ${campo("Tratamientos psicológicos previos o actuales", docu.tratamientoPsicologico)}
+        ${campo("Tratamientos psiquiátricos previos o actuales", docu.tratamientoPsiquiatrico)}
+        ${campo("Medicación actual", docu.medicacion)}
+        ${campo("Antecedentes médicos relevantes", docu.antecedentesMedicos)}
+        ${campo("CUD", docu.cud)}
+      `)}
+
+      ${seccion("Historia personal relevante", `
+        ${campo("Acontecimientos importantes", docu.historiaPersonal)}
+      `)}
+
+      ${seccion("Observaciones finales", `
+        ${campo("Información adicional", docu.observaciones)}
+      `)}
     `;
 
+  } else if (docu.tipo === "consentimiento_informado") {
 
+    contenido = `
+      ${seccion("Consentimiento informado", `
+        ${campo("Nombre", docu.nombre)}
+        ${campo("DNI", docu.dni)}
+        ${campo("Ordenado por", docu.ordenadoPor)}
+        ${campo("Aceptación", docu.aceptado ? "Sí" : "No")}
+      `)}
 
-} else if (docu.tipo === "ficha_integral_periciado") {
+      <p class="texto">
+        Sr./Sra. <strong>${valor(docu.nombre)}</strong>, DNI <strong>${valor(docu.dni)}</strong>,
+        manifiesta haber sido informado/a por la Lic. Isabela Falco acerca de las características
+        generales, alcances, modalidad, finalidad y condiciones de la pericia psicológica.
+      </p>
 
-  contenido = `
-    <h2>Ficha integral del periciado</h2>
-
-    <h2>Datos personales</h2>
-    <p><strong>Nombre:</strong> ${docu.nombre || "—"}</p>
-    <p><strong>DNI:</strong> ${docu.dni || "—"}</p>
-    <p><strong>CUIL/CUIT:</strong> ${docu.cuil || "—"}</p>
-    <p><strong>Fecha de nacimiento:</strong> ${docu.fechaNacimiento || "—"}</p>
-    <p><strong>Lugar de nacimiento:</strong> ${docu.lugarNacimiento || "—"}</p>
-    <p><strong>Edad:</strong> ${docu.edad || "—"}</p>
-    <p><strong>Estado civil:</strong> ${docu.estadoCivil || "—"}</p>
-    <p><strong>Domicilio:</strong> ${docu.domicilio || "—"}</p>
-    <p><strong>Teléfono:</strong> ${docu.telefono || "—"}</p>
-    <p><strong>Email:</strong> ${docu.email || "—"}</p>
-
-    <h2>Datos judiciales y administrativos</h2>
-    <p><strong>Carátula:</strong> ${docu.caratula || "—"}</p>
-    <p><strong>Expediente:</strong> ${docu.expediente || "—"}</p>
-    <p><strong>Juzgado / Tribunal:</strong> ${docu.juzgado || "—"}</p>
-    <p><strong>Demandado:</strong> ${docu.demandado || "—"}</p>
-    <p><strong>Abogado:</strong> ${docu.abogado || "—"}</p>
-    <p><strong>Teléfono abogado:</strong> ${docu.telefonoAbogado || "—"}</p>
-    <p><strong>Email abogado:</strong> ${docu.emailAbogado || "—"}</p>
-    <p><strong>Motivo de demanda:</strong> ${docu.motivoDemanda || "—"}</p>
-    <p><strong>Relato de hechos:</strong> ${docu.relatoHechos || "—"}</p>
-    <p><strong>Consecuencia principal:</strong> ${docu.consecuenciaPrincipal || "—"}</p>
-    <p><strong>Juicios previos:</strong> ${docu.juiciosPrevios || "—"}</p>
-    <p><strong>Otros reclamos:</strong> ${docu.otrosReclamos || "—"}</p>
-
-    <h2>Grupo familiar y conviviente</h2>
-    <p><strong>Convivencia:</strong> ${docu.convivencia || "—"}</p>
-    <p><strong>Tiene hijos:</strong> ${docu.tieneHijos || "—"}</p>
-    <p><strong>Cantidad de hijos:</strong> ${docu.cantidadHijos || "—"}</p>
-    <p><strong>Hijos:</strong> ${docu.hijos || "—"}</p>
-    <p><strong>Tiene hermanos:</strong> ${docu.tieneHermanos || "—"}</p>
-    <p><strong>Cantidad de hermanos:</strong> ${docu.cantidadHermanos || "—"}</p>
-    <p><strong>Hermanos:</strong> ${docu.hermanos || "—"}</p>
-    <p><strong>Padres:</strong> ${docu.padres || "—"}</p>
-    <p><strong>Abuelos:</strong> ${docu.abuelos || "—"}</p>
-
-    <h2>Familia extendida</h2>
-    <p><strong>Tíos, primos y otros familiares:</strong> ${docu.tiosPrimos || "—"}</p>
-    <p><strong>Familia política:</strong> ${docu.familiaPolitica || "—"}</p>
-    <p><strong>Personas significativas:</strong> ${docu.personasSignificativas || "—"}</p>
-
-    <h2>Estudios y formación</h2>
-    <p><strong>Nivel educativo:</strong> ${docu.nivelEstudios || "—"}</p>
-    <p><strong>Estudios:</strong> ${docu.estudios || "—"}</p>
-
-    <h2>Áreas de funcionamiento</h2>
-    <p><strong>Área social:</strong> ${docu.areaSocial || "—"}</p>
-    <p><strong>Área recreativa:</strong> ${docu.areaRecreativa || "—"}</p>
-    <p><strong>Área laboral:</strong> ${docu.areaLaboral || "—"}</p>
-    <p><strong>Situación laboral actual:</strong> ${docu.situacionLaboralActual || "—"}</p>
-    <p><strong>Tratamiento por el hecho reclamado:</strong> ${docu.tratamientoPorHecho || "—"}</p>
-
-    <h2>Antecedentes relacionados con el hecho</h2>
-    <p><strong>Operaciones relacionadas con el hecho:</strong> ${docu.operacionesHecho || "—"}</p>
-    <p><strong>Tratamiento clínico:</strong> ${docu.tratamientoClinico || "—"}</p>
-    <p><strong>Tratamiento psicológico por el hecho:</strong> ${docu.tratamientoPsicologicoHecho || "—"}</p>
-    <p><strong>Tratamiento psiquiátrico por el hecho:</strong> ${docu.tratamientoPsiquiatricoHecho || "—"}</p>
-    <p><strong>Tratamiento traumatológico:</strong> ${docu.tratamientoTraumatologico || "—"}</p>
-    <p><strong>Tratamiento médico actual por el hecho:</strong> ${docu.tratamientoActualHecho || "—"}</p>
-    <p><strong>Consumo habitual de alcohol:</strong> ${docu.consumoAlcohol || "—"}</p>
-    <p><strong>Antecedentes de consumo de sustancias psicoactivas:</strong> ${docu.consumoDrogas || "—"}</p>
-    <p><strong>Detalle de tratamientos:</strong> ${docu.detalleTratamientos || "—"}</p>
-
-    <h2>Antecedentes de salud y tratamientos</h2>
-    <p><strong>Tratamientos psicológicos previos o actuales:</strong> ${docu.tratamientoPsicologico || "—"}</p>
-    <p><strong>Tratamientos psiquiátricos previos o actuales:</strong> ${docu.tratamientoPsiquiatrico || "—"}</p>
-    <p><strong>Medicación actual:</strong> ${docu.medicacion || "—"}</p>
-    <p><strong>Antecedentes médicos relevantes:</strong> ${docu.antecedentesMedicos || "—"}</p>
-    <p><strong>CUD:</strong> ${docu.cud || "—"}</p>
-
-    <h2>Historia personal relevante</h2>
-    <p>${docu.historiaPersonal || "—"}</p>
-
-    <h2>Observaciones finales</h2>
-    <p>${docu.observaciones || "—"}</p>
-  `;
-
-
-
+      <p class="texto">
+        En consecuencia, presta consentimiento para la realización de la evaluación psicológica pericial.
+      </p>
+    `;
 
   } else {
 
     contenido = `
-      <h2>Constancia de tratamiento</h2>
-
-      <p>
-        Sr./Sra. <strong>${docu.nombre || "—"}</strong>,
-        DNI <strong>${docu.dni || "—"}</strong>, declara bajo juramento
-        la siguiente información:
-      </p>
-
-      <p><strong>¿Se encuentra en tratamiento?</strong> ${docu.enTratamiento || "—"}</p>
-      <p><strong>Tipo de tratamiento:</strong> ${docu.tipoTratamiento || "—"}</p>
-      <p><strong>Medicación psiquiátrica:</strong> ${docu.medicacion || "—"}</p>
-      <p><strong>Profesional tratante:</strong> ${docu.profesional || "—"}</p>
-      <p><strong>Observaciones:</strong> ${docu.observaciones || "—"}</p>
-      <p><strong>Declaración jurada:</strong> ${docu.declaracionJurada ? "Sí" : "No"}</p>
+      ${seccion("Constancia de tratamiento", `
+        ${campo("Nombre", docu.nombre)}
+        ${campo("DNI", docu.dni)}
+        ${campo("¿Se encuentra en tratamiento?", docu.enTratamiento)}
+        ${campo("Tipo de tratamiento", docu.tipoTratamiento)}
+        ${campo("Medicación psiquiátrica", docu.medicacion)}
+        ${campo("Profesional tratante", docu.profesional)}
+        ${campo("Observaciones", docu.observaciones)}
+        ${campo("Declaración jurada", docu.declaracionJurada ? "Sí" : "No")}
+      `)}
     `;
   }
 
@@ -162,53 +178,167 @@ window.generarPDFDocumento = function (docu) {
       <style>
         body {
           font-family: Arial, sans-serif;
-          padding: 40px;
-          color: #111;
-          line-height: 1.6;
+          margin: 0;
+          padding: 42px;
+          color: #1f2933;
+          line-height: 1.55;
+          background: #ffffff;
+        }
+
+        body::before {
+          content: "FALCO®";
+          position: fixed;
+          top: 42%;
+          left: 12%;
+          font-size: 110px;
+          font-weight: 700;
+          color: rgba(201, 168, 106, 0.08);
+          transform: rotate(-24deg);
+          z-index: -1;
+        }
+
+        .print-btn {
+          position: fixed;
+          top: 18px;
+          right: 18px;
+          background: #b8934a;
+          color: white;
+          border: none;
+          padding: 10px 16px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: bold;
         }
 
         .encabezado {
-          border-bottom: 2px solid #c9a86a;
-          margin-bottom: 30px;
-          padding-bottom: 16px;
+          border-bottom: 3px solid #c9a86a;
+          padding-bottom: 18px;
+          margin-bottom: 26px;
         }
 
-        h1 {
-          font-size: 22px;
+        .marca {
+          font-size: 24px;
+          font-weight: 700;
+          color: #1f2933;
           margin-bottom: 4px;
         }
 
-        h2 {
+        .submarca {
+          color: #6b7280;
+          font-size: 14px;
+        }
+
+        .titulo-doc {
+          margin: 26px 0 18px;
+          padding: 16px 18px;
+          background: #f8f5ee;
+          border-left: 5px solid #c9a86a;
+          border-radius: 10px;
+        }
+
+        .titulo-doc h1 {
+          margin: 0;
+          font-size: 22px;
+          color: #2f2f2f;
+        }
+
+        .resumen {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px 20px;
+          margin: 22px 0;
+          padding: 16px 18px;
+          background: #fafafa;
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+        }
+
+        .resumen p {
+          margin: 0;
+          font-size: 14px;
+        }
+
+        .seccion {
+          margin: 22px 0;
+          padding: 16px 18px;
+          border: 1px solid #e6e0d2;
+          border-radius: 12px;
+          background: rgba(250, 250, 250, .92);
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        .seccion h2 {
+          margin: 0 0 14px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid #ddd3bd;
+          color: #8b6a2b;
           font-size: 18px;
-          margin-top: 26px;
         }
 
-        .datos {
-          margin: 24px 0;
-          padding: 16px;
-          border: 1px solid #ddd;
-          background: #f8f8f8;
+        .grid-datos {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px 18px;
         }
 
-        .firma {
-          margin-top: 60px;
+        .campo {
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
         }
 
-        .linea {
-          border-top: 1px solid #111;
-          width: 260px;
-          margin-top: 40px;
+        .etiqueta {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: .04em;
+          color: #6b7280;
+          font-weight: 700;
+          margin-bottom: 3px;
+        }
+
+        .valor {
+          font-size: 14px;
+          color: #1f2933;
+          white-space: pre-wrap;
+        }
+
+        .texto {
+          font-size: 15px;
+          margin: 18px 0;
         }
 
         .nota {
           margin-top: 30px;
+          padding-top: 14px;
+          border-top: 1px solid #ddd;
           font-size: 12px;
           color: #555;
         }
 
+        .firma-institucional {
+          margin-top: 34px;
+          font-size: 13px;
+          color: #444;
+        }
+
         @media print {
-          button {
+          .print-btn {
             display: none;
+          }
+
+          body {
+            padding: 28px;
+          }
+
+          .seccion {
+            break-inside: avoid;
+          }
+        }
+
+        @media (max-width: 700px) {
+          .grid-datos,
+          .resumen {
+            grid-template-columns: 1fr;
           }
         }
       </style>
@@ -216,33 +346,33 @@ window.generarPDFDocumento = function (docu) {
 
     <body>
 
-      <button onclick="window.print()">Imprimir / guardar PDF</button>
+      <button class="print-btn" onclick="window.print()">Imprimir / guardar PDF</button>
 
       <div class="encabezado">
-        <h1>Lic. Isabela Falco</h1>
-        <div>Pericias Psicológicas Forenses</div>
+        <div class="marca">Lic. Isabela Falco</div>
+        <div class="submarca">Pericias Psicológicas Forenses · Plataforma Institucional</div>
       </div>
 
-      <h1>${tipo}</h1>
+      <div class="titulo-doc">
+        <h1>${tipo}</h1>
+      </div>
 
-      <div class="datos">
-        <p><strong>Nombre:</strong> ${docu.nombre || "—"}</p>
-        <p><strong>DNI:</strong> ${docu.dni || "—"}</p>
-        <p><strong>Fecha:</strong> ${docu.fecha || "—"}</p>
-        <p><strong>Firma / aclaración:</strong> ${docu.firma || "—"}</p>
-        <p><strong>Foto DNI:</strong> ${docu.fotoDniNombre || docu.fotoDni || "—"}</p>
+      <div class="resumen">
+        <p><strong>Nombre:</strong> ${valor(docu.nombre)}</p>
+        <p><strong>DNI:</strong> ${valor(docu.dni)}</p>
+        <p><strong>Tipo:</strong> ${tipo}</p>
+        <p><strong>Fecha de generación:</strong> ${new Date().toLocaleDateString("es-AR")}</p>
       </div>
 
       ${contenido}
 
-      <div class="firma">
-        <div class="linea"></div>
-        <p>Firma / aclaración: ${docu.firma || "—"}</p>
-        <p>DNI: ${docu.dni || "—"}</p>
+      <div class="firma-institucional">
+        <strong>Documento generado digitalmente desde la plataforma institucional.</strong><br>
+        Lic. Isabela Falco · Pericias Psicológicas Forenses
       </div>
 
       <p class="nota">
-        Documento generado digitalmente desde la plataforma institucional.
+        Este documento reproduce la información cargada digitalmente por el usuario/periciado en la plataforma.
       </p>
 
     </body>

@@ -12460,3 +12460,108 @@ transform: translateY(-8px);
   color: #b8934a;
   font-weight: 700;
 }
+
+
+
+
+/* PANEL DOCUMENTOS PERICIADOS */
+
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.tabla-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+.tabla-scroll th {
+  background: #b8934a;
+  color: white;
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tabla-scroll td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tabla-scroll tr:hover {
+  background: #faf8f2;
+}
+
+#tablaDocumentos td:nth-child(1) {
+  min-width: 110px;
+}
+
+#tablaDocumentos td:nth-child(2) {
+  min-width: 180px;
+}
+
+#tablaDocumentos td:nth-child(3) {
+  min-width: 180px;
+}
+
+#tablaDocumentos td:nth-child(4) {
+  min-width: 100px;
+}
+
+#tablaDocumentos td:nth-child(7) {
+  min-width: 380px;
+}
+
+#tablaDocumentos button {
+  background: #b8934a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#tablaDocumentos button:hover {
+  opacity: 0.9;
+}
+
+#tablaDocumentos a {
+  color: #8b6a2b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#tablaDocumentos a:hover {
+  text-decoration: underline;
+}
+
+.admin-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.admin-filtros input,
+.admin-filtros select {
+  padding: 10px 12px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  min-width: 240px;
+}
+
+.admin-filtros button {
+  background: #1f2937;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
