@@ -148,8 +148,8 @@
     <span>✅ Finalizar evaluación</span>
 
     <small>
-      Presione este botón únicamente cuando haya completado todos los tests
-      y documentos requeridos.
+     Presione este botón cuando desee cerrar definitivamente su evaluación.
+Una vez finalizada, no podrá volver a ingresar.
     </small>
 
     <b>Finalizar proceso →</b>
@@ -214,6 +214,7 @@ function actualizarProgreso() {
 actualizarProgreso();
 
 window.finalizarEvaluacion = async function () {
+
   const user = auth.currentUser;
 
   if (!user) {
@@ -221,15 +222,8 @@ window.finalizarEvaluacion = async function () {
     return;
   }
 
-  const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
-
-  if (avance.length < 7) {
-    alert("Aún no completó todos los tests y documentos requeridos.");
-    return;
-  }
-
   const confirma = confirm(
-    "¿Confirma que completó todos los tests y documentos? Luego no podrá volver a ingresar."
+    "¿Confirma que desea finalizar la evaluación? Luego no podrá volver a ingresar."
   );
 
   if (!confirma) return;
@@ -246,8 +240,15 @@ window.finalizarEvaluacion = async function () {
   localStorage.removeItem("avanceEvaluacionFalco");
 
   alert("Evaluación finalizada correctamente.");
+
   window.location.href = "login.html";
 };
+
+
+
+
+
+
 
 window.ir = function(pagina) {
   window.location.href = pagina;
