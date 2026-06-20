@@ -226,7 +226,7 @@ los documentos requeridos y la documentación adicional solicitada.
 
   <label class="file-custom">
     📷 Sacar foto o elegir archivo
-    <input type="file" id="dniFrente" accept="image/*,.pdf" capture="environment">
+    <input type="file" id="dniFrente" accept="image/*,.pdf">
   </label>
 </div>
 
@@ -239,11 +239,7 @@ los documentos requeridos y la documentación adicional solicitada.
 
   <label class="file-custom">
     📷 Sacar foto o elegir archivo
-    <input
-      type="file"
-      id="dniDorso"
-      accept="image/*,.pdf"
-      capture="environment">
+    <input type="file" id="dniDorso" accept="image/*,.pdf">
   </label>
 </div>
 
@@ -257,13 +253,12 @@ los documentos requeridos y la documentación adicional solicitada.
 
   <label class="file-custom">
     📎 Adjuntar archivos o sacar fotos
-    <input
-      type="file"
-      id="certificadosFile"
-      name="certificadosFile[]"
-      multiple
-      accept="image/*,.pdf"
-      capture="environment">
+   <input
+  type="file"
+  id="certificadosFile"
+  name="certificadosFile[]"
+  multiple
+  accept="image/*,.pdf">
   </label>
 </div>
 
@@ -287,11 +282,6 @@ los documentos requeridos y la documentación adicional solicitada.
   </div>
 
 </section>
-
-
-
-
-
 
 
 
@@ -484,11 +474,12 @@ actualizarProgreso();
 
 
 
-  } catch (error) {
-    console.error(error);
-    alert("Ocurrió un error al subir la documentación.");
-  }
+}catch (error) {
+  console.error(error);
+  alert("Ocurrió un error al subir la documentación:\n\n" + error.message);
 }
+}
+
 
 window.guardarDocumentacionExtra = guardarDocumentacionExtra;
 
