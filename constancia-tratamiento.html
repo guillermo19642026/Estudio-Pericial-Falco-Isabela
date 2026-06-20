@@ -43,17 +43,18 @@ psiquiátricos y medicación.
 </div>
 
 <div>
-  <label>Foto del DNI (opcional)</label>
+  <label>Foto del DNI</label>
 
-  <input
-  id="fotoDni"
-  type="text"
-  placeholder="Pegue aquí el enlace de la foto del DNI, si corresponde">
+  <label class="file-custom">
+    📷 Sacar foto o elegir archivo
+    <input
+      type="file"
+      id="fotoDni"
+      accept="image/*,.pdf"
+      capture="environment">
+  </label>
 
-  <small class="note">
-    Puede subir una foto del DNI a Google Drive,
-    OneDrive o Dropbox y pegar aquí el enlace compartido.
-  </small>
+  <small id="estadoDniSubida"></small>
 </div>
 
 <div>
@@ -170,15 +171,19 @@ placeholder="Nombre del profesional o institución">
 <div style="margin-bottom:18px">
 
 <label>
-Adjuntar constancia profesional (link)
+Adjuntar constancia profesional
 </label>
 
-<input
-  id="constancia"
-  type="text"
-  placeholder="Link a constancia psicológica o psiquiátrica, si corresponde">
+<label class="file-custom">
+  📎 Adjuntar constancia o sacar foto
+  <input
+    type="file"
+    id="constancia"
+    accept="image/*,.pdf"
+    capture="environment">
+</label>
 
-<div style="margin-bottom:18px">
+<small id="estadoConstanciaSubida"></small>
 
 <label>
 Observaciones
@@ -235,6 +240,122 @@ if (fecha && !fecha.value) {
 fecha.valueAsDate = new Date();
 }
 
+
+
+
+
+
+
+async function subirArchivoCloudinary() {
+  const estado = document.getElementById("estadoDniSubida");
+  const input = document.getElementById("fotoDni");
+  const archivo = input?.files[0];
+
+  if (!archivo) return null;
+
+  if (estado) estado.textContent = "⏳ Subiendo archivo...";
+
+  const formData = new FormData();
+  formData.append("file", archivo);
+  formData.append("upload_preset", "periciados");
+  formData.append("folder", "periciados");
+
+  const response = await fetch(
+    "https://api.cloudinary.com/v1_1/dxvtuqx6p/auto/upload",
+    { method: "POST", body: formData }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    if (estado) estado.textContent = "❌ Error al subir archivo";
+    throw new Error(data.error?.message || "Error al subir DNI");
+  }
+
+  if (estado) estado.textContent = "✅ Archivo subido correctamente";
+
+  return {
+    nombre: archivo.name,
+    tipo: archivo.type,
+    url: data.secure_url,
+    publicId: data.public_id,
+    fecha: new Date().toISOString()
+  };
+}
+
+async function subirConstanciaCloudinary() {
+  const estado = document.getElementById("estadoConstanciaSubida");
+  const input = document.getElementById("constancia");
+  const archivo = input?.files[0];
+
+  if (!archivo) return null;
+
+  if (estado) estado.textContent = "⏳ Subiendo constancia...";
+
+  const formData = new FormData();
+  formData.append("file", archivo);
+  formData.append("upload_preset", "periciados");
+  formData.append("folder", "periciados");
+
+  const response = await fetch(
+    "https://api.cloudinary.com/v1_1/dxvtuqx6p/auto/upload",
+    { method: "POST", body: formData }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    if (estado) estado.textContent = "❌ Error al subir constancia";
+    throw new Error(data.error?.message || "Error al subir constancia");
+  }
+
+  if (estado) estado.textContent = "✅ Constancia subida correctamente";
+
+  return {
+    nombre: archivo.name,
+    tipo: archivo.type,
+    url: data.secure_url,
+    publicId: data.public_id,
+    fecha: new Date().toISOString()
+  };
+}
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("fotoDni");
+
+const inputConstancia = document.getElementById("constancia");
+const estadoConstancia = document.getElementById("estadoConstanciaSubida");
+
+if (inputConstancia && estadoConstancia) {
+
+  inputConstancia.addEventListener("change", () => {
+
+    estadoConstancia.textContent =
+      inputConstancia.files[0]
+        ? "✅ Constancia seleccionada correctamente"
+        : "";
+  });
+}
+
+
+  const estado = document.getElementById("estadoDniSubida");
+
+  if (!input || !estado) return;
+
+  input.addEventListener("change", () => {
+    estado.textContent = input.files[0]
+      ? "✅ Archivo seleccionado correctamente"
+      : "";
+  });
+});
+
+
+
 window.enviarConstancia = async function () {
 
 const nombre =
@@ -242,12 +363,6 @@ document.getElementById("nombre").value.trim();
 
 const dni =
 document.getElementById("dni").value.trim();
-
-
-
-const fotoDni =
-document.getElementById("fotoDni").value.trim();
-
 
 
 const fechaValor =
@@ -268,8 +383,7 @@ document.getElementById("medicacion").value;
 const profesional =
 document.getElementById("profesional").value.trim();
 
-const constancia =
-document.getElementById("constancia").value.trim();
+let constancia = null;
 
 const observaciones =
 document.getElementById("observaciones").value.trim();
@@ -305,6 +419,11 @@ return;
 }
 
 try {
+  const fotoDni = await subirArchivoCloudinary();
+
+constancia = await subirConstanciaCloudinary();
+
+
 
 await guardarDocumentoPericiado({
 

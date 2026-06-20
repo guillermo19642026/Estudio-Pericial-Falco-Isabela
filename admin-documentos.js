@@ -67,12 +67,22 @@ function datosExtra(docu) {
       <strong>Tipo:</strong> ${docu.tipoTratamiento || "—"}<br>
       <strong>Medicación:</strong> ${docu.medicacion || "—"}<br>
       <strong>Profesional:</strong> ${docu.profesional || "—"}<br>
+
+
+
       <strong>Constancia:</strong>
-      ${
-        docu.constancia
-          ? `<a href="${docu.constancia}" target="_blank">Abrir</a>`
-          : "—"
-      }<br>
+${
+  (() => {
+    const constanciaUrl =
+      typeof docu.constancia === "string"
+        ? docu.constancia
+        : docu.constancia?.url || "";
+
+    return constanciaUrl
+      ? `<a href="${constanciaUrl}" target="_blank">👁 Ver constancia</a>`
+      : "—";
+  })()
+}<br>
       <strong>Observaciones:</strong> ${docu.observaciones || "—"}
     `;
   }
@@ -149,10 +159,20 @@ function renderDocumentos() {
 
 
 
-      <td>${docu.fotoDni
-      ? `<a href="${docu.fotoDni}" target="_blank">Abrir DNI</a>`
-      : docu.fotoDniNombre || "—"}</td>
+     <td>
+  ${
+    (() => {
+      const fotoDniUrl =
+        typeof docu.fotoDni === "string"
+          ? docu.fotoDni
+          : docu.fotoDni?.url || "";
 
+      return fotoDniUrl
+        ? `<a href="${fotoDniUrl}" target="_blank">👁 Ver DNI</a>`
+        : docu.fotoDniNombre || "—";
+    })()
+  }
+</td>
 
 
 
