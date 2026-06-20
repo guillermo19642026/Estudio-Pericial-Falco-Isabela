@@ -3,113 +3,98 @@ import { db } from "./firebase-config.js";
 import {
   collection,
   getDocs,
-  orderBy,
-  query
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const tabla = document.getElementById("tablaAdjuntos");
 
 async function cargarAdjuntos() {
-
   try {
-
-    const q = query(
-      collection(db, "documentos_periciados")
-    );
-
-    const snap = await getDocs(q);
-
-    if (snap.empty) {
-
-      tabla.innerHTML = `
-        <tr>
-          <td colspan="5">
-            No existen documentos cargados.
-          </td>
-        </tr>
-      `;
-
-      return;
-    }
+    const snap = await getDocs(collection(db, "documentos_periciados"));
 
     tabla.innerHTML = "";
 
-    snap.forEach(docSnap => {
+    let encontrados = 0;
 
+    snap.forEach(docSnap => {
       const data = docSnap.data();
 
-      const fecha =
-        data.fechaCargaAdjuntos
-          ? new Date(data.fechaCargaAdjuntos).toLocaleString("es-AR")
-          : "-";
+      const tieneAdjuntos =
+        data.dniFrente?.url ||
+        data.dniDorso?.url ||
+        (data.certificados && data.certificados.length > 0);
 
-      const dniFrente = data.dniFrente?.url || "";
-      const dniDorso = data.dniDorso?.url || "";
+      if (!tieneAdjuntos) return;
 
-      let certificadosHtml = "-";
+      encontrados++;
 
-      if (
-        data.certificados &&
-        data.certificados.length > 0
-      ) {
+      const fecha = data.fechaCargaAdjuntos
+        ? new Date(data.fechaCargaAdjuntos).toLocaleString("es-AR")
+        : "-";
 
-        certificadosHtml =
-          data.certificados
-            .map((c, i) => `
-              <a
-                href="${c.url}"
-                target="_blank">
-                Certificado ${i + 1}
-              </a>
-            `)
-            .join("<br>");
-      }
+      const completo =
+        data.dniFrente?.url && data.dniDorso?.url
+          ? "Completo"
+          : "Incompleto";
+
+      const certificadosHtml = data.certificados?.length
+        ? data.certificados.map((c, i) => `
+            <a href="${c.url}" target="_blank">Certificado ${i + 1}</a>
+          `).join("<br>")
+        : "-";
 
       tabla.innerHTML += `
         <tr>
-
           <td>${fecha}</td>
-
+          <td>${data.usuarioEmail || "-"}</td>
+          <td>${completo}</td>
+          <td>${data.dniFrente?.url ? `<a href="${data.dniFrente.url}" target="_blank">👁 Ver</a>` : "-"}</td>
+          <td>${data.dniDorso?.url ? `<a href="${data.dniDorso.url}" target="_blank">👁 Ver</a>` : "-"}</td>
+          <td>${certificadosHtml}</td>
           <td>
-            ${data.usuarioEmail || "-"}
+            <button onclick="guardarLinks('${docSnap.id}')">
+              💾 Guardar
+            </button>
           </td>
-
           <td>
-            ${
-              dniFrente
-              ? `<a href="${dniFrente}" target="_blank">👁 Ver</a>`
-              : "-"
-            }
+            <button onclick="eliminarAdjunto('${docSnap.id}')">
+              🗑 Eliminar
+            </button>
           </td>
-
-          <td>
-            ${
-              dniDorso
-              ? `<a href="${dniDorso}" target="_blank">👁 Ver</a>`
-              : "-"
-            }
-          </td>
-
-          <td>
-            ${certificadosHtml}
-          </td>
-
         </tr>
       `;
     });
 
-  } catch(error) {
+    if (encontrados === 0) {
+      tabla.innerHTML = `
+        <tr>
+          <td colspan="8">No existen adjuntos cargados.</td>
+        </tr>
+      `;
+    }
 
+  } catch (error) {
     console.error(error);
-
     tabla.innerHTML = `
       <tr>
-        <td colspan="5">
-          Error al cargar documentos.
-        </td>
+        <td colspan="8">Error al cargar documentos.</td>
       </tr>
     `;
   }
 }
+
+window.eliminarAdjunto = async function(id) {
+  const confirma = confirm("¿Eliminar este registro de adjuntos?");
+  if (!confirma) return;
+
+  await deleteDoc(doc(db, "documentos_periciados", id));
+  alert("Registro eliminado.");
+  cargarAdjuntos();
+};
+
+window.guardarLinks = function(id) {
+  alert("Para guardar los archivos, abrí cada documento y descargalo desde Cloudinary.");
+};
 
 cargarAdjuntos();
