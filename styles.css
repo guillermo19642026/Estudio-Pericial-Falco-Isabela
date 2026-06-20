@@ -4033,3 +4033,14 @@ border:
 .btn-subir-documentacion:hover{
   background:#a7894f;
 }
+
+
+
+
+#estadoDniSubida{
+  display:block;
+  margin-top:8px;
+  font-size:13px;
+  color:#d6b57a;
+  font-weight:600;
+}

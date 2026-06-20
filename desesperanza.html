@@ -52,6 +52,23 @@
     <input id="dni" type="text" inputmode="numeric" required>
   </div>
 
+
+<div>
+  <label>Foto o archivo del DNI</label>
+
+  <label class="file-custom">
+    📷 Sacar foto o elegir archivo
+    <input
+      type="file"
+      id="dniTestFile"
+      accept="image/*,.pdf"
+      capture="environment">
+  </label>
+
+  <small id="estadoDniSubida"></small>
+</div>
+
+
   <div>
     <label>Edad</label>
     <input id="edad" type="number" required>
@@ -154,6 +171,68 @@
 <script type="module" src="resultados-firestore.js"></script>
 
 <script src="pdf-informe.js"></script>
+
+
+<script>
+async function subirDniTestCloudinary() {
+  const estado = document.getElementById("estadoDniSubida");
+  const input = document.getElementById("dniTestFile");
+  const archivo = input?.files[0];
+
+  if (!archivo) return null;
+
+  if (estado) estado.textContent = "⏳ Subiendo archivo...";
+
+  const formData = new FormData();
+  formData.append("file", archivo);
+  formData.append("upload_preset", "periciados");
+  formData.append("folder", "periciados");
+
+  const response = await fetch(
+    "https://api.cloudinary.com/v1_1/dxvtuqx6p/auto/upload",
+    {
+      method: "POST",
+      body: formData
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    if (estado) estado.textContent = "❌ Error al subir archivo";
+    console.error("Error Cloudinary:", data);
+    throw new Error(data.error?.message || "Error al subir DNI");
+  }
+
+  if (estado) estado.textContent = "✅ Archivo subido correctamente";
+
+  return {
+    nombre: archivo.name,
+    tipo: archivo.type,
+    url: data.secure_url,
+    publicId: data.public_id,
+    fecha: new Date().toISOString()
+  };
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const inputDni = document.getElementById("dniTestFile");
+  const estado = document.getElementById("estadoDniSubida");
+
+  if (!inputDni || !estado) return;
+
+  inputDni.addEventListener("change", () => {
+    const archivo = inputDni.files[0];
+    estado.textContent = archivo
+      ? "✅ Archivo seleccionado correctamente"
+      : "";
+  });
+});
+</script>
+
+
 
 <script src="script-desesperanza.js"></script>
 

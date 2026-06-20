@@ -218,44 +218,46 @@ function calcular() {
   guardarAutomatico();
 
   if (faltan === 0) {
-
     if (!sessionStorage.getItem("resultado_guardado_bdi")) {
       sessionStorage.setItem("resultado_guardado_bdi", "true");
 
       if (typeof guardarResultadoTest === "function") {
-        guardarResultadoTest({
-          test: "BDI - Inventario de Depresión de Beck",
-          nombre: document.getElementById("nombre").value,
-          dni: document.getElementById("dni")?.value || "",
-estadoCivil: document.getElementById("estadoCivil")?.value || "",
-direccion: document.getElementById("direccion")?.value || "",
-          edad: document.getElementById("edad").value,
-          sexo: document.getElementById("sexo").value,
-          fecha: document.getElementById("fecha").value,
-          observaciones: document.getElementById("observaciones").value,
-          puntajeTotal: total,
-          nivel: nivel,
-          item9: valorItem(9),
+        (async () => {
+          const dniArchivo =
+            typeof subirDniTestCloudinary === "function"
+              ? await subirDniTestCloudinary()
+              : null;
 
+          guardarResultadoTest({
+            test: "BDI - Inventario de Depresión de Beck",
+            nombre: document.getElementById("nombre").value,
+            dni: document.getElementById("dni")?.value || "",
+            dniArchivo: dniArchivo,
+            estadoCivil: document.getElementById("estadoCivil")?.value || "",
+            direccion: document.getElementById("direccion")?.value || "",
+            edad: document.getElementById("edad").value,
+            sexo: document.getElementById("sexo").value,
+            fecha: document.getElementById("fecha").value,
+            observaciones: document.getElementById("observaciones").value,
+            puntajeTotal: total,
+            nivel: nivel,
+            item9: valorItem(9),
 
-         respuestas: preguntas.map((opcionesItem, index) => {
+            respuestas: preguntas.map((opcionesItem, index) => {
+              const valor = valorItem(index + 1);
 
-  const valor = valorItem(index + 1);
-
-  return {
-    item: index + 1,
-    pregunta: opcionesItem.join(" / "),
-    respuesta: valor,
-    descripcion:
-      valor !== null
-        ? opcionesItem[valor]
-        : ""
-  };
-
-})
-
-
-        });
+              return {
+                item: index + 1,
+                pregunta: opcionesItem.join(" / "),
+                respuesta: valor,
+                descripcion:
+                  valor !== null
+                    ? opcionesItem[valor]
+                    : ""
+              };
+            })
+          });
+        })();
       }
     }
 

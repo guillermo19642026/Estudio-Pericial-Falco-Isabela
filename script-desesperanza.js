@@ -123,35 +123,43 @@ function calcular() {
     ) {
       sessionStorage.setItem("resultado_guardado_desesperanza", "true");
 
-      window.guardarResultadoTest({
-        test: "Escala de Desesperanza de Beck",
-        nombre: document.getElementById("nombre").value,
-        dni: document.getElementById("dni")?.value || "",
-estadoCivil: document.getElementById("estadoCivil")?.value || "",
-direccion: document.getElementById("direccion")?.value || "",
-        edad: document.getElementById("edad").value,
-        sexo: document.getElementById("sexo").value,
-        fecha: document.getElementById("fecha").value,
-        observaciones: document.getElementById("observaciones").value,
-        puntajeTotal: puntaje,
-        nivel: nivel,
+      (async () => {
+        const dniArchivo =
+          typeof subirDniTestCloudinary === "function"
+            ? await subirDniTestCloudinary()
+            : null;
 
-        respuestas: preguntas.map((texto, index) => {
-          const valor = valorItem(index + 1);
+        window.guardarResultadoTest({
+          test: "Escala de Desesperanza de Beck",
+          nombre: document.getElementById("nombre").value,
+          dni: document.getElementById("dni")?.value || "",
+          dniArchivo: dniArchivo,
+          estadoCivil: document.getElementById("estadoCivil")?.value || "",
+          direccion: document.getElementById("direccion")?.value || "",
+          edad: document.getElementById("edad").value,
+          sexo: document.getElementById("sexo").value,
+          fecha: document.getElementById("fecha").value,
+          observaciones: document.getElementById("observaciones").value,
+          puntajeTotal: puntaje,
+          nivel: nivel,
 
-          const etiquetas = {
-            "V": "Verdadero",
-            "F": "Falso"
-          };
+          respuestas: preguntas.map((texto, index) => {
+            const valor = valorItem(index + 1);
 
-          return {
-            item: index + 1,
-            pregunta: texto,
-            respuesta: valor,
-            descripcion: etiquetas[valor] || ""
-          };
-        })
-      });
+            const etiquetas = {
+              "V": "Verdadero",
+              "F": "Falso"
+            };
+
+            return {
+              item: index + 1,
+              pregunta: texto,
+              respuesta: valor,
+              descripcion: etiquetas[valor] || ""
+            };
+          })
+        });
+      })();
     }
   }
 }

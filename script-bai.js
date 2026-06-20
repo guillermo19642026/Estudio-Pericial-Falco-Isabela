@@ -81,13 +81,15 @@ function claseNivel(puntaje) {
   return "gravedad-alta";
 }
 
+
+
+
 function calcular() {
   let total = 0;
   let cargadas = 0;
 
   for (let i = 1; i <= NUM_ITEMS; i++) {
     const valor = valorItem(i);
-
     if (valor !== null) {
       total += valor;
       cargadas++;
@@ -125,45 +127,45 @@ function calcular() {
       sessionStorage.setItem("resultado_guardado_bai", "true");
 
       if (typeof guardarResultadoTest === "function") {
-        guardarResultadoTest({
+        (async () => {
+          const dniArchivo =
+            typeof subirDniTestCloudinary === "function"
+              ? await subirDniTestCloudinary()
+              : null;
 
+          guardarResultadoTest({
+            test: "BAI - Inventario de Ansiedad de Beck",
+            nombre: document.getElementById("nombre").value,
+            dni: document.getElementById("dni")?.value || "",
+            dniArchivo: dniArchivo,
+            estadoCivil: document.getElementById("estadoCivil")?.value || "",
+            direccion: document.getElementById("direccion")?.value || "",
+            edad: document.getElementById("edad").value,
+            sexo: document.getElementById("sexo").value,
+            fecha: document.getElementById("fecha").value,
+            observaciones: document.getElementById("observaciones").value,
+            puntajeTotal: total,
+            nivel: nivel,
 
-           test: "BAI - Inventario de Ansiedad de Beck",
+            respuestas: preguntas.map((texto, index) => {
+              const valor = valorItem(index + 1);
 
-          nombre: document.getElementById("nombre").value,
-          dni: document.getElementById("dni")?.value || "",
-estadoCivil: document.getElementById("estadoCivil")?.value || "",
-direccion: document.getElementById("direccion")?.value || "",
-          edad: document.getElementById("edad").value,
-          sexo: document.getElementById("sexo").value,
-          fecha: document.getElementById("fecha").value,
-          observaciones: document.getElementById("observaciones").value,
-          puntajeTotal: total,
-          nivel: nivel,
+              const etiquetas = {
+                0: "En absoluto",
+                1: "Levemente",
+                2: "Moderadamente",
+                3: "Severamente"
+              };
 
-
-          respuestas: preguntas.map((texto, index) => {
-
-  const valor = valorItem(index + 1);
-
-  const etiquetas = {
-    0: "En absoluto",
-    1: "Levemente",
-    2: "Moderadamente",
-    3: "Severamente"
-  };
-
-  return {
-    item: index + 1,
-    pregunta: texto,
-    respuesta: valor,
-    descripcion: etiquetas[valor] || ""
-  };
-
-})
-
-
-        });
+              return {
+                item: index + 1,
+                pregunta: texto,
+                respuesta: valor,
+                descripcion: etiquetas[valor] || ""
+              };
+            })
+          });
+        })();
       }
     }
 
