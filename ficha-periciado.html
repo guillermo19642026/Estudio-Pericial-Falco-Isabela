@@ -83,6 +83,24 @@
           <input id="dni" type="text" inputmode="numeric" required>
         </div>
 
+
+<div>
+  <label>Foto del DNI</label>
+
+  <label class="file-custom">
+    📷 Sacar foto o elegir archivo
+    <input
+      type="file"
+      id="fotoDni"
+      accept="image/*,.pdf"
+      capture="environment">
+  </label>
+
+  <small id="estadoDniSubida"></small>
+</div>
+
+
+
 <div>
   <label class="label-obligatorio">CUIL/CUIT</label>
   <input id="cuil" type="text" required>
@@ -822,9 +840,55 @@ function obtenerDatosFicha() {
   return datos;
 }
 
+
+
+
+async function subirArchivoCloudinary() {
+  const estado = document.getElementById("estadoDniSubida");
+  const input = document.getElementById("fotoDni");
+  const archivo = input?.files[0];
+
+  if (!archivo) return null;
+
+  if (estado) estado.textContent = "⏳ Subiendo archivo...";
+
+  const formData = new FormData();
+  formData.append("file", archivo);
+  formData.append("upload_preset", "periciados");
+  formData.append("folder", "periciados");
+
+  const response = await fetch(
+    "https://api.cloudinary.com/v1_1/dxvtuqx6p/auto/upload",
+    { method: "POST", body: formData }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    if (estado) estado.textContent = "❌ Error al subir archivo";
+    throw new Error(data.error?.message || "Error al subir DNI");
+  }
+
+  if (estado) estado.textContent = "✅ Archivo subido correctamente";
+
+  return {
+    nombre: archivo.name,
+    tipo: archivo.type,
+    url: data.secure_url,
+    publicId: data.public_id,
+    fecha: new Date().toISOString()
+  };
+}
+
+
+
+
 window.enviarFichaPericiado = async function () {
   const estado = document.getElementById("estadoDocumento");
   const datos = obtenerDatosFicha();
+
+
+
 
  if (
   !datos.nombre ||
@@ -890,9 +954,13 @@ if (datos.tieneHermanos === "Sí" && (!datos.cantidadHermanos || !datos.hermanos
 }
 
   try {
+
+const fotoDni = await subirArchivoCloudinary();
+
+
     await guardarDocumentoPericiado({
       tipo: "ficha_integral_periciado",
-      fechaCarga: new Date().toISOString(),
+      fechaCarga: new Date().toISOString(), fotoDni,
       ...datos
     });
 
@@ -941,6 +1009,20 @@ window.mostrarCampoCondicional = function(selectId, campoId) {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+
+const input = document.getElementById("fotoDni");
+const estado = document.getElementById("estadoDniSubida");
+
+if (input && estado) {
+  input.addEventListener("change", () => {
+    estado.textContent = input.files[0]
+      ? "✅ Archivo seleccionado correctamente"
+      : "";
+  });
+}
+
+
+
 
   mostrarCampoCondicional("tieneHijos", "datosHijos");
   mostrarCampoCondicional("tieneHermanos", "datosHermanos");
