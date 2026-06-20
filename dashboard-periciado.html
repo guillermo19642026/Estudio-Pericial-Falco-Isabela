@@ -290,18 +290,20 @@ los documentos requeridos y la documentación adicional solicitada.
   <div class="progreso-card">
 
     <div class="barra-progreso">
-    <div id="barraProgresoInterna"></div>
+      <div id="barraProgresoInterna"></div>
     </div>
 
-    <p>
+    <p id="textoProgreso">
       La evaluación se encuentra en proceso.
     </p>
 
-    <small>
+    <small id="detalleProgreso">
       Complete todos los instrumentos y documentos requeridos antes de finalizar.
     </small>
 
   </div>
+
+</section>
 
 </section>
 
@@ -318,8 +320,10 @@ los documentos requeridos y la documentación adicional solicitada.
     <span>✅ Finalizar evaluación</span>
 
     <small>
-     Presione este botón cuando desee cerrar definitivamente su evaluación.
-Una vez finalizada, no podrá volver a ingresar.
+     <small>
+Presione este botón cuando haya finalizado la carga de la información solicitada.
+Si posteriormente fuera necesario completar nuevos instrumentos o aportar documentación adicional, deberá solicitar un nuevo acceso.
+</small>
     </small>
 
     <b>Finalizar proceso →</b>
@@ -412,10 +416,15 @@ async function guardarDocumentacionExtra() {
   const dniDorso = dniDorsoInput?.files[0];
   const certificados = certificadosInput ? Array.from(certificadosInput.files) : [];
 
-  if (!dniFrente && !dniDorso && certificados.length === 0) {
-    alert("Seleccione al menos un archivo para subir.");
-    return;
-  }
+  if (!dniFrente) {
+  alert("Debe adjuntar el frente del DNI.");
+  return;
+}
+
+if (!dniDorso) {
+  alert("Debe adjuntar el dorso del DNI.");
+  return;
+}
 
   try {
     alert("Subiendo documentación. Aguarde unos segundos...");
@@ -453,6 +462,17 @@ async function guardarDocumentacionExtra() {
 
     alert("Documentación subida correctamente.");
 
+const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
+
+if (!avance.includes("documentacion")) {
+  avance.push("documentacion");
+  localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
+}
+
+actualizarProgreso();
+
+
+
   } catch (error) {
     console.error(error);
     alert("Ocurrió un error al subir la documentación.");
@@ -465,7 +485,7 @@ window.guardarDocumentacionExtra = guardarDocumentacionExtra;
 
 
 function actualizarProgreso() {
-  const total = 7;
+  const total = 8;
   const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];
   const completados = avance.length;
   const porcentaje = Math.round((completados / total) * 100);
@@ -476,17 +496,19 @@ function actualizarProgreso() {
 
   if (barra) barra.style.width = porcentaje + "%";
 
-  if (texto) {
-    texto.textContent =
-      completados === total
-        ? "La evaluación se encuentra completa."
-        : "La evaluación se encuentra en proceso.";
-  }
+ if (texto) {
+  texto.textContent =
+    completados >= total
+      ? "✅ Evaluación completa."
+      : "La evaluación se encuentra en proceso.";
+}
 
-  if (detalle) {
-    detalle.textContent =
-      `Avance actual: ${completados} de ${total} etapas completadas.`;
-  }
+if (detalle) {
+  detalle.textContent =
+    completados >= total
+      ? "Se completaron los instrumentos psicológicos y la documentación requerida. Si necesitara aportar nueva documentación o completar nuevas evaluaciones, deberá solicitar un nuevo acceso."
+      : `Avance actual: ${completados} de ${total} etapas completadas.`;
+}
 }
 
 actualizarProgreso();
@@ -521,10 +543,6 @@ window.finalizarEvaluacion = async function () {
 
   window.location.href = "login.html";
 };
-
-
-
-
 
 
 
