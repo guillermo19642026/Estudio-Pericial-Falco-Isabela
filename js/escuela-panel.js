@@ -87,7 +87,10 @@ for (let i = 1; i <= 8; i++) {
 
 const porcentajeProgreso = (encuentrosCompletados / 8) * 100;
 
-textoProgreso.textContent = `${encuentrosCompletados} de 8 encuentros completados`;
+textoProgreso.textContent =
+`${encuentrosCompletados} de 8 encuentros completados (${Math.round(porcentajeProgreso)}%)`;
+
+
 barraProgreso.style.width = `${porcentajeProgreso}%`;
 
 if (
