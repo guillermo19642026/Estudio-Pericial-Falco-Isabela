@@ -37,13 +37,22 @@ onAuthStateChanged(auth, async (user) => {
         comentariosHTML += `
           <div class="comentario-modulo">
             <strong>Encuentro ${i}</strong>
-            <p>Valoración: ${"⭐".repeat(Number(encuesta.valoracion))}</p>
-            <p>${encuesta.comentario}</p>
-            <small>${encuesta.fecha || ""}</small>
+
+            <p>
+              Valoración:
+              ${"⭐".repeat(Number(encuesta.valoracion || 0))}
+            </p>
+
+            <p>
+              "${encuesta.comentario || ""}"
+            </p>
+
+            <small>
+              ${encuesta.fecha || ""}
+            </small>
           </div>
         `;
       }
-
     }
 
     if (comentariosHTML) {
@@ -61,12 +70,11 @@ onAuthStateChanged(auth, async (user) => {
 
         </div>
       `;
-
     }
 
   });
 
-  if (contenedor.innerHTML === "") {
+  if (contenedor.innerHTML.trim() === "") {
     contenedor.innerHTML = `
       <div class="consultoria-card">
         <h3>Sin comentarios todavía</h3>

@@ -14,6 +14,10 @@ import {
 
 const contenedor = document.getElementById("contenedorModulos");
 const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+
+const btnAdminComentarios =
+  document.getElementById("btnAdminComentarios");
+
 const nombreParticipante = document.getElementById("nombreParticipante");
 const textoProgreso = document.getElementById("textoProgreso");
 const barraProgreso = document.getElementById("barraProgreso");
@@ -44,6 +48,16 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   nombreParticipante.textContent = user.email;
+
+
+if (
+  btnAdminComentarios &&
+  user.email === "estudiopericialpsicologico@gmail.com"
+) {
+  btnAdminComentarios.style.display = "inline-flex";
+}
+
+
 
   const ref = doc(db, "escuela_participantes", user.uid);
   const snap = await getDoc(ref);
