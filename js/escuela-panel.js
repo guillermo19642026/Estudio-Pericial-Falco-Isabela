@@ -19,6 +19,7 @@ const textoProgreso = document.getElementById("textoProgreso");
 const barraProgreso = document.getElementById("barraProgreso");
 
 
+
 btnCerrarSesion.addEventListener("click", async () => {
   await signOut(auth);
   window.location.href = "escuela-login.html";
@@ -64,6 +65,7 @@ const porcentajeProgreso = (encuentrosCompletados / 8) * 100;
 
 textoProgreso.textContent = `${encuentrosCompletados} de 8 encuentros completados`;
 barraProgreso.style.width = `${porcentajeProgreso}%`;
+
 
   contenedor.innerHTML = "";
 
@@ -121,13 +123,20 @@ barraProgreso.style.width = `${porcentajeProgreso}%`;
             </a>
 
             <a href="escuela/modulo${i}/presentacion.pptx"
-               class="btn-secundario"
-               target="_blank">
+   class="btn-secundario"
+   target="_blank">
 
-              🖥️ Presentación del encuentro
+  🖥️ Presentación del encuentro
 
-            </a>
+</a>
 
+<a href="escuela/modulo${i}/recursos.pdf"
+   class="btn-secundario"
+   target="_blank">
+
+   📎 Recursos adicionales
+
+</a>
 
 <button
   class="${completado ? "btn-completado" : "btn-secundario"}"
@@ -137,7 +146,6 @@ barraProgreso.style.width = `${porcentajeProgreso}%`;
   ${completado ? "✅ Encuentro completado" : "✅ Marcar encuentro como completado"}
 
 </button>
-
 
 
 
