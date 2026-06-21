@@ -41,15 +41,19 @@
 
 
 <div>
-  <label>Foto o archivo del DNI</label>
+  <label>DNI</label>
+  <input id="dni" type="text" inputmode="numeric" required>
+</div>
+
+<div>
+  <label>Foto del DNI</label>
 
   <label class="file-custom">
     📷 Sacar foto o elegir archivo
     <input
       type="file"
       id="dniTestFile"
-      accept="image/*,.pdf"
-      capture="environment">
+      accept="image/*,.pdf">
   </label>
 
   <small id="estadoDniSubida"></small>
