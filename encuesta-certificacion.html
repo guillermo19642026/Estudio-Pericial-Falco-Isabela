@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Encuesta Final | Escuela para Padres FALCO®</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-interna fondo-neuronal">
+
+<main class="panel-escuela">
+
+<section class="hero-panel">
+
+  <span class="tests-nuevo">Etapa final</span>
+
+  <h1>Encuesta de satisfacción</h1>
+
+  <p>
+    Gracias por completar la Escuela para Padres FALCO®.
+    Tu opinión nos ayuda a mejorar nuestros contenidos.
+  </p>
+
+</section>
+
+<section class="proximo-paso-card">
+
+<form id="formEncuesta">
+
+  <label>Nombre y apellido</label>
+  <input type="text" id="nombre" required>
+
+  <label>¿Cómo evaluás tu experiencia general?</label>
+  <select id="experiencia" required>
+    <option value="">Seleccionar</option>
+    <option>Excelente</option>
+    <option>Muy buena</option>
+    <option>Buena</option>
+    <option>Regular</option>
+  </select>
+
+  <label>¿Qué encuentro te resultó más útil?</label>
+  <select id="encuentroUtil" required>
+    <option value="">Seleccionar</option>
+    <option>Encuentro 1 - Comprender la adolescencia</option>
+    <option>Encuentro 2 - Comunicación efectiva</option>
+    <option>Encuentro 3 - Emociones y autoestima</option>
+    <option>Encuentro 4 - Identidad y pertenencia</option>
+    <option>Encuentro 5 - Redes sociales y tecnología</option>
+    <option>Encuentro 6 - Límites saludables</option>
+    <option>Encuentro 7 - Salud mental adolescente</option>
+    <option>Encuentro 8 - Proyecto de vida y cierre</option>
+  </select>
+
+  <label>¿Qué aprendizaje considerás más valioso?</label>
+  <textarea id="aprendizaje" required></textarea>
+
+  <label>¿Recomendarías este programa?</label>
+  <select id="recomendaria" required>
+    <option value="">Seleccionar</option>
+    <option>Sí</option>
+    <option>No</option>
+  </select>
+
+  <label>Comentarios o sugerencias</label>
+  <textarea id="comentarios"></textarea>
+
+  <button type="submit" class="btn-principal">
+    Enviar encuesta
+  </button>
+
+</form>
+
+<div id="mensajeFinal" style="display:none; margin-top:25px; text-align:center;">
+
+  <h2>¡Gracias por completar la encuesta!</h2>
+
+  <p>
+    Ya podés descargar tu certificación de participación.
+  </p>
+
+  <a href="pdf/certificado-falco.pdf"
+     class="btn-principal"
+     target="_blank">
+     🏆 Descargar certificado
+  </a>
+
+</div>
+
+</section>
+
+</main>
+
+<script type="module" src="js/encuesta-certificacion.js"></script>
+
+</body>
+</html>

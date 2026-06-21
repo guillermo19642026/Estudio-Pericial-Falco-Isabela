@@ -18,6 +18,9 @@ const nombreParticipante = document.getElementById("nombreParticipante");
 const textoProgreso = document.getElementById("textoProgreso");
 const barraProgreso = document.getElementById("barraProgreso");
 
+const textoFinal = document.getElementById("textoFinal");
+const btnFinal = document.getElementById("btnFinal");
+
 
 
 btnCerrarSesion.addEventListener("click", async () => {
@@ -65,6 +68,24 @@ const porcentajeProgreso = (encuentrosCompletados / 8) * 100;
 
 textoProgreso.textContent = `${encuentrosCompletados} de 8 encuentros completados`;
 barraProgreso.style.width = `${porcentajeProgreso}%`;
+
+if (
+  encuentrosCompletados === 8 &&
+  textoFinal &&
+  btnFinal
+) {
+
+  textoFinal.textContent =
+    "Felicitaciones. Completaste los ocho encuentros de la Escuela para Padres FALCO®. Ya podés realizar la encuesta final y descargar tu certificación.";
+
+  btnFinal.textContent = "⭐ Encuesta y Certificación";
+  btnFinal.href = "encuesta-certificacion.html";
+
+  btnFinal.classList.remove("disabled-link");
+  btnFinal.classList.remove("btn-secundario");
+  btnFinal.classList.add("btn-principal");
+}
+
 
 
   contenedor.innerHTML = "";
@@ -143,7 +164,7 @@ barraProgreso.style.width = `${porcentajeProgreso}%`;
   onclick="marcarCompletado(${i})"
   ${completado ? "disabled" : ""}>
 
-  ${completado ? "✅ Encuentro completado" : "✅ Marcar encuentro como completado"}
+  ${completado ? "✅ Encuentro completado" : "📝 Finalizar encuentro y dejar comentario"}
 
 </button>
 
@@ -210,13 +231,30 @@ window.marcarCompletado = async function(numero) {
 
   if (!user) return;
 
+  const valoracion = prompt(
+    `Del 1 al 5, ¿cómo valorarías el Encuentro ${numero}?`
+  );
+
+  if (!valoracion) return;
+
+  const comentario = prompt(
+    `Dejá un comentario breve sobre el Encuentro ${numero}:`
+  );
+
+  if (!comentario) return;
+
   const ref = doc(db, "escuela_participantes", user.uid);
 
   await updateDoc(ref, {
-    [`completado${numero}`]: true
+    [`completado${numero}`]: true,
+    [`encuestaModulo${numero}`]: {
+      valoracion: valoracion,
+      comentario: comentario,
+      fecha: new Date().toISOString()
+    }
   });
 
-  alert(`Encuentro ${numero} marcado como completado.`);
+  alert(`Gracias. El Encuentro ${numero} fue marcado como completado.`);
 
   location.reload();
 
