@@ -43,8 +43,11 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
-  nombreCertificado.textContent =
-    datos.nombre || user.email;
+ nombreCertificado.textContent =
+  datos.nombreCompleto ||
+  datos.nombreApellido ||
+  datos.nombre ||
+  user.email;
 
   const fecha = new Date().toLocaleDateString("es-AR");
 
