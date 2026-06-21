@@ -21,6 +21,13 @@ const barraProgreso = document.getElementById("barraProgreso");
 const textoFinal = document.getElementById("textoFinal");
 const btnFinal = document.getElementById("btnFinal");
 
+const modalEncuentro = document.getElementById("modalEncuentro");
+const modalTitulo = document.getElementById("modalTitulo");
+const valoracionEncuentro = document.getElementById("valoracionEncuentro");
+const comentarioEncuentro = document.getElementById("comentarioEncuentro");
+
+let encuentroSeleccionado = null;
+
 
 
 btnCerrarSesion.addEventListener("click", async () => {
@@ -225,36 +232,56 @@ function obtenerVideo(numero) {
 
 
 
-window.marcarCompletado = async function(numero) {
+window.marcarCompletado = function(numero) {
+
+  encuentroSeleccionado = numero;
+
+  modalTitulo.textContent = `Finalizar Encuentro ${numero}`;
+
+  valoracionEncuentro.value = "";
+  comentarioEncuentro.value = "";
+
+  modalEncuentro.classList.add("activo");
+
+};
+
+
+window.cerrarModalEncuentro = function() {
+  modalEncuentro.classList.remove("activo");
+};
+
+
+window.enviarEncuestaEncuentro = async function() {
 
   const user = auth.currentUser;
 
-  if (!user) return;
+  if (!user || !encuentroSeleccionado) return;
 
-  const valoracion = prompt(
-    `Del 1 al 5, ¿cómo valorarías el Encuentro ${numero}?`
-  );
+  const valoracion = valoracionEncuentro.value;
+  const comentario = comentarioEncuentro.value.trim();
 
-  if (!valoracion) return;
+  if (!valoracion) {
+    alert("Por favor seleccioná una valoración.");
+    return;
+  }
 
-  const comentario = prompt(
-    `Dejá un comentario breve sobre el Encuentro ${numero}:`
-  );
-
-  if (!comentario) return;
+  if (!comentario) {
+    alert("Por favor escribí un comentario breve.");
+    return;
+  }
 
   const ref = doc(db, "escuela_participantes", user.uid);
 
   await updateDoc(ref, {
-    [`completado${numero}`]: true,
-    [`encuestaModulo${numero}`]: {
+    [`completado${encuentroSeleccionado}`]: true,
+    [`encuestaModulo${encuentroSeleccionado}`]: {
       valoracion: valoracion,
       comentario: comentario,
       fecha: new Date().toISOString()
     }
   });
 
-  alert(`Gracias. El Encuentro ${numero} fue marcado como completado.`);
+  alert(`Gracias. El Encuentro ${encuentroSeleccionado} fue marcado como completado.`);
 
   location.reload();
 

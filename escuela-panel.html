@@ -344,6 +344,58 @@
 
 
 
+<div id="modalEncuentro" class="modal-encuentro">
+
+  <div class="modal-encuentro-card">
+
+    <button class="modal-cerrar" onclick="cerrarModalEncuentro()">
+      ×
+    </button>
+
+    <span class="tests-nuevo">
+      Encuesta breve
+    </span>
+
+    <h2 id="modalTitulo">
+      Finalizar encuentro
+    </h2>
+
+    <p>
+      Antes de marcar este encuentro como completado,
+      te invitamos a dejar una breve devolución.
+    </p>
+
+    <label>Valoración del encuentro</label>
+
+    <select id="valoracionEncuentro">
+      <option value="">Seleccionar</option>
+      <option value="5">Excelente</option>
+      <option value="4">Muy bueno</option>
+      <option value="3">Bueno</option>
+      <option value="2">Regular</option>
+      <option value="1">Necesita mejorar</option>
+    </select>
+
+    <label>Comentario breve</label>
+
+    <textarea
+      id="comentarioEncuentro"
+      placeholder="Escribí aquí tu comentario..."></textarea>
+
+    <button
+      class="btn-principal"
+      onclick="enviarEncuestaEncuentro()">
+
+      Enviar y finalizar encuentro
+
+    </button>
+
+  </div>
+
+</div>
+
+
+
 
 </main>
 
