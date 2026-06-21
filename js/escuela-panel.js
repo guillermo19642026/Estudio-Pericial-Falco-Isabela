@@ -50,9 +50,14 @@ onAuthStateChanged(auth, async (user) => {
   nombreParticipante.textContent = user.email;
 
 
+const administradores = [
+  "estudiopericialpsicologico@gmail.com",
+  "isabelafalco@hotmail.com"
+];
+
 if (
   btnAdminComentarios &&
-  user.email === "estudiopericialpsicologico@gmail.com"
+  administradores.includes(user.email)
 ) {
   btnAdminComentarios.style.display = "inline-flex";
 }
