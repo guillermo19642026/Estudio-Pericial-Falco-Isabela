@@ -12773,26 +12773,31 @@ transform: translateY(-8px);
   line-height: 1.7;
 }
 
-.fecha-certificado {
-  margin-top: 35px;
+.firma-certificado{
+  margin-top: 25px;
+  text-align: center;
 }
 
-.firma-certificado {
-  margin-top: 60px;
-  border-top: 1px solid #7c5c1b;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 10px;
+.firma-certificado img{
+  width: 650px;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto -15px auto;
 }
 
-.firma-certificado p {
+.firma-certificado p{
   margin: 0;
+  font-size: 24px;
   font-weight: 700;
+  color: #7c5c1b;
 }
 
-.firma-certificado span {
-  color: #6b7280;
+.firma-certificado span{
+  display: block;
+  margin-top: 6px;
+  font-size: 16px;
+  color: #666;
 }
 
 .no-print {
@@ -12812,4 +12817,13 @@ transform: translateY(-8px);
     box-shadow: none;
     border: 10px solid #c9a96e;
   }
+}
+
+
+
+.firma-img {
+  width: 180px;
+  max-height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
 }
