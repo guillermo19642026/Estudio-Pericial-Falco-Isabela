@@ -12706,3 +12706,25 @@ transform: translateY(-8px);
   cursor: pointer;
   color: #7c5c1b;
 }
+
+
+
+.comentario-modulo {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(201,169,110,.25);
+}
+
+.comentario-modulo strong {
+  color: #7c5c1b;
+}
+
+.comentario-modulo p {
+  margin: 6px 0;
+}
+
+.comentario-modulo small {
+  color: #6b7280;
+}
