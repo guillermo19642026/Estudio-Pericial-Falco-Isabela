@@ -18,71 +18,93 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
-  contenedor.innerHTML = "";
+  contenedor.innerHTML = `
+    <div class="consultoria-card">
+      <h3>Cargando comentarios...</h3>
+    </div>
+  `;
 
-  const participantesRef = collection(db, "escuela_participantes");
-  const snapshot = await getDocs(participantesRef);
+  try {
 
-  snapshot.forEach((docu) => {
+    const participantesRef = collection(db, "escuela_participantes");
+    const snapshot = await getDocs(participantesRef);
 
-    const datos = docu.data();
+    contenedor.innerHTML = "";
 
-    let comentariosHTML = "";
+    snapshot.forEach((docu) => {
 
-    for (let i = 1; i <= 8; i++) {
+      const datos = docu.data();
 
-      const encuesta = datos[`encuestaModulo${i}`];
+      let comentariosHTML = "";
 
-      if (encuesta) {
-        comentariosHTML += `
-          <div class="comentario-modulo">
-            <strong>Encuentro ${i}</strong>
+      for (let i = 1; i <= 8; i++) {
+
+        const encuesta = datos[`encuestaModulo${i}`];
+
+        if (encuesta) {
+          comentariosHTML += `
+            <div class="comentario-modulo">
+              <strong>Encuentro ${i}</strong>
+
+              <p>
+                Valoración:
+                ${"⭐".repeat(Number(encuesta.valoracion || 0))}
+              </p>
+
+              <p>
+                "${encuesta.comentario || ""}"
+              </p>
+
+              <small>
+                ${encuesta.fecha || ""}
+              </small>
+            </div>
+          `;
+        }
+      }
+
+      if (comentariosHTML) {
+        contenedor.innerHTML += `
+          <div class="consultoria-card">
+
+            <h3>${datos.nombre || "Participante"}</h3>
 
             <p>
-              Valoración:
-              ${"⭐".repeat(Number(encuesta.valoracion || 0))}
+              <strong>Email:</strong> ${datos.email || "Sin email registrado"}
             </p>
 
-            <p>
-              "${encuesta.comentario || ""}"
-            </p>
+            ${comentariosHTML}
 
-            <small>
-              ${encuesta.fecha || ""}
-            </small>
           </div>
         `;
       }
-    }
 
-    if (comentariosHTML) {
+    });
 
-      contenedor.innerHTML += `
+    if (contenedor.innerHTML.trim() === "") {
+      contenedor.innerHTML = `
         <div class="consultoria-card">
-
-          <h3>${datos.nombre || "Participante"}</h3>
-
+          <h3>Sin comentarios todavía</h3>
           <p>
-            <strong>Email:</strong> ${datos.email || "Sin email registrado"}
+            No se encontraron comentarios cargados en los encuentros.
           </p>
-
-          ${comentariosHTML}
-
         </div>
       `;
     }
 
-  });
+  } catch (error) {
 
-  if (contenedor.innerHTML.trim() === "") {
+    console.error("Error al cargar comentarios:", error);
+
     contenedor.innerHTML = `
       <div class="consultoria-card">
-        <h3>Sin comentarios todavía</h3>
+        <h3>Error al cargar comentarios</h3>
         <p>
-          Aún no hay devoluciones cargadas por los participantes.
+          ${error.message}
         </p>
       </div>
     `;
+
   }
 
 });
