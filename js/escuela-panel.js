@@ -180,6 +180,22 @@ if (
 
 </a>
 
+<a href="${obtenerLinkConsulta(i)}"
+   class="btn-secundario"
+   target="_blank"
+   rel="noopener noreferrer">
+
+   💬 Consulta sobre este encuentro
+
+</a>
+
+<p class="consulta-modulo">
+  Las consultas de este encuentro serán respondidas dentro de las 48 horas hábiles.
+</p>
+
+
+
+
 <button
   class="${completado ? "btn-completado" : "btn-secundario"}"
   onclick="marcarCompletado(${i})"
@@ -243,6 +259,23 @@ function obtenerVideo(numero) {
   return videos[numero];
 
 }
+
+function obtenerLinkConsulta(numero) {
+
+  const titulo = obtenerTitulo(numero);
+
+  return `https://wa.me/5491132049521?text=${encodeURIComponent(
+`Hola, soy participante de la Escuela para Padres FALCO®.
+
+Encuentro: ${numero} - ${titulo}
+
+Mi consulta es:
+`
+  )}`;
+
+}
+
+
 
 
 

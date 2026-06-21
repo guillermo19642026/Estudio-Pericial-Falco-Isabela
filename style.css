@@ -12868,3 +12868,12 @@ transform: translateY(-8px);
   }
 
 }
+
+
+.consulta-modulo{
+  font-size:.85rem;
+  color:#777;
+  line-height:1.4;
+  margin:4px 0 10px;
+  text-align:center;
+}
