@@ -11710,10 +11710,9 @@ transform: translateY(-8px);
   opacity: 0.95;
 }
 
-.modulo-bloqueado {
-
-  opacity: .65;
-
+.modulo-bloqueado{
+  opacity:.65;
+  filter:grayscale(.15);
 }
 
 .modulo-bloqueado h3::after {
@@ -12879,47 +12878,10 @@ transform: translateY(-8px);
 }
 
 
-.modulo-disponible{
-  border:2px solid rgba(184,150,75,.45);
-  box-shadow:0 12px 32px rgba(184,150,75,.18);
-}
-
-.modulo-disponible .modulo-numero{
-  color:#b8964b;
-  font-weight:700;
-}
-
-.modulo-bloqueado{
-  opacity:.65;
-  filter:grayscale(.15);
-}
-
-.estado-completado{
-  background:#f8f3df;
-  color:#8a6a1d;
-  border:1px solid #d4b66a;
-  padding:6px 10px;
-  border-radius:999px;
-  display:inline-block;
-  font-weight:700;
-}
-
-.estado-disponible{
-  background:#eef8f0;
-  color:#2f7d3b;
-  border:1px solid #a7d9b0;
-  padding:6px 10px;
-  border-radius:999px;
-  display:inline-block;
-  font-weight:700;
-}
-
-.estado-bloqueado{
-  background:#f1f1f1;
+.consulta-modulo{
+  font-size:.85rem;
   color:#777;
-  border:1px solid #ddd;
-  padding:6px 10px;
-  border-radius:999px;
-  display:inline-block;
-  font-weight:700;
+  line-height:1.4;
+  margin:4px 0 10px;
+  text-align:center;
 }
