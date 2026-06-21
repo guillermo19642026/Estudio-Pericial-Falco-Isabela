@@ -185,7 +185,7 @@ if (
    target="_blank"
    rel="noopener noreferrer">
 
-   💬 Consulta sobre este encuentro
+   💬 Consultar a la Lic. Isabela Falco
 
 </a>
 
@@ -328,7 +328,15 @@ window.enviarEncuestaEncuentro = async function() {
     }
   });
 
-  alert(`Gracias. El Encuentro ${encuentroSeleccionado} fue marcado como completado.`);
+  alert(
+`¡Felicitaciones!
+
+Has completado el Encuentro ${encuentroSeleccionado} de la Escuela para Padres FALCO®.
+
+Tu comentario ha sido registrado correctamente.
+
+Te invitamos a continuar con el siguiente encuentro de tu recorrido formativo.`
+);
 
   location.reload();
 
