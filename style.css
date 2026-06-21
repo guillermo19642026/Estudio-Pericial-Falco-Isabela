@@ -12565,3 +12565,23 @@ transform: translateY(-8px);
   padding: 10px 16px;
   cursor: pointer;
 }
+
+
+
+
+.modulo-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.modulo-acciones a {
+  text-align: center;
+}
+
+
+.estado-completado {
+  color: #2f8f5b;
+  font-weight: 700;
+}
