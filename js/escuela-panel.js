@@ -100,7 +100,7 @@ if (
     "Felicitaciones. Completaste los ocho encuentros de la Escuela para Padres FALCO®. Ya podés realizar la encuesta final y descargar tu certificación.";
 
   btnFinal.textContent = "⭐ Encuesta y Certificación";
-  btnFinal.href = "encuesta-certificacion.html";
+ btnFinal.href = "encuesta-certificacion.html";
 
   btnFinal.classList.remove("disabled-link");
   btnFinal.classList.remove("btn-secundario");

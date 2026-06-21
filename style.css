@@ -12728,3 +12728,88 @@ transform: translateY(-8px);
 .comentario-modulo small {
   color: #6b7280;
 }
+
+
+
+.certificado-body {
+  background: #f3f4f6;
+  padding: 30px;
+}
+
+.certificado {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px;
+  background: #fff;
+  border: 12px solid #c9a96e;
+  text-align: center;
+  color: #1f2937;
+}
+
+.certificado-logo {
+  width: 120px;
+  margin-bottom: 25px;
+}
+
+.certificado h1 {
+  font-size: 42px;
+  color: #7c5c1b;
+  margin-bottom: 30px;
+}
+
+.certificado h2 {
+  font-size: 36px;
+  color: #111827;
+  margin: 25px 0;
+}
+
+.certificado h3 {
+  color: #b08d57;
+  margin-top: 20px;
+}
+
+.certificado p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.fecha-certificado {
+  margin-top: 35px;
+}
+
+.firma-certificado {
+  margin-top: 60px;
+  border-top: 1px solid #7c5c1b;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+
+.firma-certificado p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.firma-certificado span {
+  color: #6b7280;
+}
+
+.no-print {
+  margin-top: 40px;
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .certificado {
+    box-shadow: none;
+    border: 10px solid #c9a96e;
+  }
+}
