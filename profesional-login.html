@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W9RKEV2LN1');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acceso al Área Profesional | Falco®</title>
+
+<link rel="stylesheet" href="styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+</head>
+
+<body class="login-premium-body">
+
+<div class="login-topbar">
+  <a href="index.html" class="login-back">← Volver al inicio</a>
+</div>
+
+<div class="login-premium-card">
+
+  <div class="login-logo">
+    <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+  </div>
+
+  <h1>Acceso al Área Profesional</h1>
+
+  <p class="login-subtitle">
+    Recursos para psicólogos y peritos psicólogos
+  </p>
+
+  <div class="login-form">
+    <input type="email" id="email" placeholder="Correo electrónico">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button class="btn-login-premium" onclick="login()">Ingresar</button>
+
+    <p id="error" class="login-error"></p>
+  </div>
+
+  <hr class="login-separador">
+
+  <div class="solicitud-box">
+    <h2>Solicitar acceso profesional</h2>
+
+    <p class="solicitud-subtitulo">
+      Complete sus datos para solicitar acceso al Área Profesional para Psicólogos y Peritos Psicólogos.
+    </p>
+
+    <div class="campo-form">
+      <label>Nombre y apellido</label>
+      <input type="text" id="sol_nombre" placeholder="Ej: María González">
+    </div>
+
+    <div class="campo-form">
+      <label>DNI</label>
+      <input type="text" id="sol_dni" inputmode="numeric" placeholder="Ej: 12345678">
+    </div>
+
+    <div class="campo-form">
+      <label>Profesión / matrícula</label>
+      <input type="text" id="sol_profesion" placeholder="Ej: Psicóloga MP 0000">
+    </div>
+
+    <div class="campo-form">
+      <label>Email de contacto</label>
+      <input type="email" id="sol_email" placeholder="Ej: email@ejemplo.com">
+    </div>
+
+    <div class="campo-form">
+      <label>Motivo de solicitud</label>
+      <textarea id="sol_motivo" placeholder="Indique brevemente qué recursos profesionales desea consultar"></textarea>
+    </div>
+
+    <button type="button" class="btn-access-premium" onclick="solicitarAccesoWhatsapp()">
+      Enviar solicitud por WhatsApp
+    </button>
+
+    <p id="sol_error" class="login-error"></p>
+  </div>
+
+  <p class="login-note">
+    Acceso exclusivo para profesionales autorizados.
+  </p>
+
+</div>
+
+<script type="module" src="auth.js"></script>
+
+<script>
+function solicitarAccesoWhatsapp() {
+  const nombre = document.getElementById("sol_nombre");
+  const dni = document.getElementById("sol_dni");
+  const profesion = document.getElementById("sol_profesion");
+  const email = document.getElementById("sol_email");
+  const motivo = document.getElementById("sol_motivo");
+  const error = document.getElementById("sol_error");
+
+  const campos = [nombre, dni, profesion, email, motivo];
+
+  campos.forEach(c => c.classList.remove("campo-error"));
+  error.textContent = "";
+
+  let hayError = false;
+
+  campos.forEach(campo => {
+    if (!campo.value.trim()) {
+      campo.classList.add("campo-error");
+      hayError = true;
+    }
+  });
+
+  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+
+  if (email.value.trim() && !emailValido) {
+    email.classList.add("campo-error");
+    error.textContent = "Ingresá un email válido.";
+    return;
+  }
+
+  if (hayError) {
+    error.textContent = "Completá todos los campos.";
+    return;
+  }
+
+  const mensaje = `Hola, solicito acceso al Área Profesional para Psicólogos y Peritos Psicólogos.
+
+Nombre: ${nombre.value}
+DNI: ${dni.value}
+Profesión / matrícula: ${profesion.value}
+Email: ${email.value}
+Motivo: ${motivo.value}
+Fecha: ${new Date().toLocaleString()}`;
+
+  const telefono = "5491132049521";
+  const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(mensaje)}`;
+
+  window.location.href = url;
+}
+</script>
+
+</body>
+</html>
