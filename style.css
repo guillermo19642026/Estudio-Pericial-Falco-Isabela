@@ -12934,3 +12934,148 @@ transform: translateY(-8px);
 
   transform:translateY(-1px);
 }
+
+
+
+.recurso-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,106,.18);
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: .25s;
+}
+
+.recurso-card:hover{
+  border-color: rgba(201,168,106,.45);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+
+.recurso-card h3{
+  color:#c9a86a;
+  margin-bottom:12px;
+  font-size:1.1rem;
+}
+
+.recurso-card p{
+  color:#d6d6d6;
+  line-height:1.6;
+}
+
+.lista-recursos{
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left:18px;
+
+  columns:2;
+  column-gap:35px;
+}
+
+.lista-recursos li{
+  margin-bottom:6px;
+  line-height:1.45;
+  color:#e7e7e7;
+
+  break-inside:avoid;
+  -webkit-column-break-inside:avoid;
+  page-break-inside:avoid;
+}
+
+.recurso-card{
+  overflow:hidden;
+}
+
+.recurso-footer{
+  margin-top:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.badge-bloqueado{
+  display:inline-block;
+  border-radius:999px;
+  background:rgba(255,255,255,0.10);
+  color:#f0d28a;
+  margin-top:0;
+  padding:5px 10px;
+  font-size:.80rem;
+}
+
+.btn-acceso-mini{
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:8px 18px;
+
+  border-radius:30px;
+
+  background:linear-gradient(
+    135deg,
+    rgba(201,168,106,.95),
+    rgba(230,198,140,.95)
+  );
+
+  color:#111;
+
+  font-size:.85rem;
+  font-weight:700;
+
+  text-decoration:none;
+
+  transition:.25s;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.18);
+
+}
+
+.btn-acceso-mini:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.biblioteca-stats{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin:25px 0;
+}
+
+.stat-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:16px;
+  padding:15px 20px;
+  min-width:150px;
+  text-align:center;
+}
+
+.stat-card strong{
+  display:block;
+  font-size:1.5rem;
+  margin-bottom:5px;
+}
+
+.stat-card span{
+  font-size:0.9rem;
+  color:#d6d6d6;
+}
+
+.recurso-bloqueado-link{
+  color:#fff;
+  text-decoration:none;
+}
+
+.recurso-bloqueado-link:hover{
+  text-decoration:underline;
+}

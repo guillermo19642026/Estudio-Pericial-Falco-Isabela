@@ -4093,3 +4093,20 @@ border:
   margin-bottom:20px;
   opacity:.9;
 }
+
+
+.recurso-footer{
+  margin-top:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.btn-acceso-mini{
+  padding:6px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:0.85rem;
+  font-weight:600;
+}

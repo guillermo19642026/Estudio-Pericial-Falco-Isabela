@@ -140,10 +140,23 @@ onAuthStateChanged(auth, async (user) => {
     "perfil-profesional.html"
   ];
 
-  if (!(esProfesional || esAdmin) && paginasProfesional.some(p => pagina.includes(p))) {
+ 
+
+
+  /*
+  Área Profesional pública:
+  Se permite navegar las páginas profesionales sin login
+  para que los visitantes puedan conocer los recursos disponibles.
+
+  El acceso se restringirá únicamente sobre documentos,
+  modelos, cursos, escritos y contenidos descargables.
+*/
+/*
+if (!(esProfesional || esAdmin) && paginasProfesional.some(p => pagina.includes(p))) {
   window.location.href = "login.html";
   return;
-  }
+}
+*/
 
 
 

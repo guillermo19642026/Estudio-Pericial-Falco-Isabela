@@ -254,9 +254,9 @@ function obtenerTitulo(numero) {
 function obtenerVideo(numero) {
 
   const videos = {
-    1: "https://youtu.be/xzTQl6WaOwk",
-    2: "#",
-    3: "#",
+    1: "https://youtu.be/WCho7jEDE04",
+    2: "https://youtu.be/OKk_VZ9UIG8",
+    3: "https://youtu.be/dyOhU4rP8Do",
     4: "#",
     5: "#",
     6: "#",
