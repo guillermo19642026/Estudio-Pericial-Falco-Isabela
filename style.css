@@ -11851,16 +11851,24 @@ transform: translateY(-8px);
 
 
 
-.header-botones {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+
+
+.header-botones{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:nowrap;
+
+   margin-top:12px;
 }
 
-.btn-header-inline {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+
+
+.btn-header-inline{
+  padding:5px 9px;
+  font-size:0.82rem;
+  white-space:nowrap;
 }
 
 
