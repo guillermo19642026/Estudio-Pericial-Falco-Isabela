@@ -58,6 +58,11 @@ window.login = async function () {
       window.location.href = "panel-informe.html";
       return;
 
+    } else if (rol === "profesional") {
+      window.location.href = "dashboard-profesional.html";
+      return;
+
+
     } else if (rol === "periciado") {
       window.location.href = "dashboard-periciado.html";
       return;
@@ -110,6 +115,7 @@ onAuthStateChanged(auth, async (user) => {
   const esPerito = rol === "perito";
   const esPericiado = rol === "periciado";
   const esInforme = rol === "informe";
+  const esProfesional = rol === "profesional";
   const tieneAccesoPanel = esAdmin || esPerito;
 
   const paginasAdmin = [
@@ -119,6 +125,27 @@ onAuthStateChanged(auth, async (user) => {
     "panel-mesa-entrada.html",
     "archivo-pericial.html"
   ];
+
+   const paginasProfesional = [
+    "dashboard-profesional.html",
+    "area-profesional-psicologos.html",
+    "novedades-profesionales.html",
+    "biblioteca-profesional.html",
+    "tests-profesionales.html",
+    "informes-profesionales.html",
+    "escritos-judiciales.html",
+    "cursos-profesionales.html",
+    "consultoria-profesional.html",
+    "recursos-tecnicos.html",
+    "perfil-profesional.html"
+  ];
+
+  if (!(esProfesional || esAdmin) && paginasProfesional.some(p => pagina.includes(p))) {
+  window.location.href = "login.html";
+  return;
+  }
+
+
 
   if ((esPericiado || esInforme) && paginasAdmin.some(p => pagina.includes(p))) {
     window.location.href = esInforme ? "panel-informe.html" : "dashboard-periciado.html";
