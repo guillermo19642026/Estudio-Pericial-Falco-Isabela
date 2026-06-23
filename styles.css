@@ -4075,3 +4075,21 @@ border:
 .instructivo-paso p{
   color:#666;
 }
+
+
+
+.consultar-area-profesional{
+  margin-top:30px;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,0.15);
+  text-align:center;
+}
+
+.consultar-area-profesional h3{
+  margin-bottom:10px;
+}
+
+.consultar-area-profesional p{
+  margin-bottom:20px;
+  opacity:.9;
+}
