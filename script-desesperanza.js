@@ -113,72 +113,13 @@ function calcular() {
   document.getElementById("cargadasTabla").textContent =
     `${cargadas}/${NUM_ITEMS}`;
 
+
+  
+
   generarInterpretacion(puntaje, nivel);
   guardarAutomatico();
 
-  if (faltan === 0) {
-    if (
-      !sessionStorage.getItem("resultado_guardado_desesperanza") &&
-      typeof window.guardarResultadoTest === "function"
-    ) {
-      sessionStorage.setItem("resultado_guardado_desesperanza", "true");
-
-      (async () => {
-        const dniArchivo =
-          typeof subirDniTestCloudinary === "function"
-            ? await subirDniTestCloudinary()
-            : null;
-
-        window.guardarResultadoTest({
-          test: "Escala de Desesperanza de Beck",
-          nombre: document.getElementById("nombre").value,
-          dni: document.getElementById("dni")?.value || "",
-          dniArchivo: dniArchivo,
-          estadoCivil: document.getElementById("estadoCivil")?.value || "",
-          direccion: document.getElementById("direccion")?.value || "",
-          edad: document.getElementById("edad").value,
-          sexo: document.getElementById("sexo").value,
-          fecha: document.getElementById("fecha").value,
-          observaciones: document.getElementById("observaciones").value,
-          puntajeTotal: puntaje,
-          nivel: nivel,
-
-          respuestas: preguntas.map((texto, index) => {
-            const valor = valorItem(index + 1);
-
-            const etiquetas = {
-              "V": "Verdadero",
-              "F": "Falso"
-            };
-
-            return {
-              item: index + 1,
-              pregunta: texto,
-              respuesta: valor,
-              descripcion: etiquetas[valor] || ""
-            };
-          })
-        });
-      })();
-    }
-  }
 }
-  
-
-
-/*
-if (!sessionStorage.getItem("pdf_generado_desesperanza")) {
-  sessionStorage.setItem("pdf_generado_desesperanza", "true");
-
-  setTimeout(() => {
-    if (typeof generarInformePDF === "function") {
-      generarInformePDF();
-    } else {
-      alert("No se pudo generar el informe PDF.");
-    }
-  }, 500);
-}
-*/
 
 
 function generarInterpretacion(puntaje, nivel) {

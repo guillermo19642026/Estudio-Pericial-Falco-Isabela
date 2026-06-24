@@ -400,68 +400,10 @@ function calcular() {
   renderResultados();
   guardarAutomatico();
 
-  if (faltan === 0) {
-    if (
-      !sessionStorage.getItem("resultado_guardado_scl") &&
-      typeof window.guardarResultadoTest === "function"
-    ) {
-      sessionStorage.setItem("resultado_guardado_scl", "true");
-
-      (async () => {
-        const dniArchivo =
-          typeof subirDniTestCloudinary === "function"
-            ? await subirDniTestCloudinary()
-            : null;
-
-        window.guardarResultadoTest({
-          test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
-          tipoTest: document.getElementById("tipoTest")?.value || "90",
-          nombre: document.getElementById("nombre").value,
-          dni: document.getElementById("dni")?.value || "",
-          dniArchivo: dniArchivo,
-          estadoCivil: document.getElementById("estadoCivil")?.value || "",
-          direccion: document.getElementById("direccion")?.value || "",
-          edad: document.getElementById("edad").value,
-          sexo: document.getElementById("sexo").value,
-          fecha: document.getElementById("fecha").value,
-          observaciones: document.getElementById("observaciones").value,
-          total: total,
-          gsi: gsi.toFixed(2),
-          pst: positivas,
-          psdi: psdi !== null ? psdi.toFixed(2) : "—",
-          dimensiones: obtenerDimensionesCalculadas(),
-
-          respuestas: preguntas.map((texto, index) => {
-            const valor = valorItem(index + 1);
-
-            const etiquetas = {
-              0: "Nada",
-              1: "Muy poco",
-              2: "Poco",
-              3: "Bastante",
-              4: "Mucho"
-            };
-
-            return {
-              item: index + 1,
-              pregunta: texto,
-              respuesta: valor,
-              descripcion: etiquetas[valor] || ""
-            };
-          })
-        });
-      })();
-    }
-
-    if (!sessionStorage.getItem("pdf_generado_scl")) {
-      sessionStorage.setItem("pdf_generado_scl", "true");
-
-      setTimeout(() => {
-        generarInformePDF();
-      }, 500);
-    }
   }
-}
+
+
+
 // ===== RESULTADOS + GRÁFICO =====
 
 function dibujarGraficoPerfil(datosGrafico) {

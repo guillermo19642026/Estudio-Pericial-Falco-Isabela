@@ -269,8 +269,9 @@ async function enviarEvaluacionPericiado() {
 
 
     
-  await window.guardarResultadoTest({
-    test: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
+   const guardado = await window.guardarResultadoTest({
+    test: "scl90",
+    nombreTest: document.getElementById("tipoTest")?.selectedOptions[0]?.text || "SCL-90 / BSI",
     tipoTest,
     nombre: document.getElementById("nombre").value.trim(),
     dni: document.getElementById("dni").value.trim(),
@@ -310,7 +311,7 @@ async function enviarEvaluacionPericiado() {
     origen: "periciado"
   });
 
-
+ if (!guardado) return;
 
 
 const avance = JSON.parse(localStorage.getItem("avanceEvaluacionFalco")) || [];

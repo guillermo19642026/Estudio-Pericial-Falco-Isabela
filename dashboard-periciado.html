@@ -363,9 +363,9 @@ import { auth, db } from "./firebase-config.js";
 
 import {
   doc,
-  setDoc
+  setDoc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 
 
 async function comprimirImagen(file) {
@@ -564,7 +564,50 @@ if (detalle) {
 }
 }
 
+
+
+
 actualizarProgreso();
+
+async function controlarTestsRealizados() {
+  const user = auth.currentUser;
+  if (!user) return;
+
+  const tests = [
+    { id: "scl90", pagina: "periciado-scl90.html" },
+    { id: "bdi", pagina: "periciado-bdi.html" },
+    { id: "bai", pagina: "periciado-bai.html" },
+    { id: "desesperanza", pagina: "periciado-desesperanza.html" }
+  ];
+
+  for (const test of tests) {
+    const ref = doc(db, "resultados_tests", `${user.uid}_${test.id}`);
+    const snap = await getDoc(ref);
+
+    if (snap.exists()) {
+      const boton = document.querySelector(`button[onclick="ir('${test.pagina}')"]`);
+
+      if (boton) {
+        boton.disabled = true;
+        boton.style.opacity = "0.55";
+        boton.style.cursor = "not-allowed";
+
+        const texto = boton.querySelector("b");
+        if (texto) {
+          texto.textContent = "✅ Test ya realizado";
+        }
+
+        boton.onclick = function () {
+          alert("Usted ya realizó este test. No puede completarlo nuevamente.");
+        };
+      }
+    }
+  }
+}
+
+auth.onAuthStateChanged(() => {
+  controlarTestsRealizados();
+});
 
 window.finalizarEvaluacion = async function () {
 

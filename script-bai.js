@@ -123,18 +123,18 @@ function calcular() {
   guardarAutomatico();
 
   if (faltan === 0) {
-    if (!sessionStorage.getItem("resultado_guardado_bai")) {
-      sessionStorage.setItem("resultado_guardado_bai", "true");
+  if (!sessionStorage.getItem("resultado_guardado_bai")) {
 
-      if (typeof guardarResultadoTest === "function") {
+      if (typeof window.guardarResultadoTest === "function") {
         (async () => {
           const dniArchivo =
             typeof subirDniTestCloudinary === "function"
               ? await subirDniTestCloudinary()
               : null;
 
-          guardarResultadoTest({
-            test: "BAI - Inventario de Ansiedad de Beck",
+            const guardado = await window.guardarResultadoTest({
+            test: "bai",
+            nombreTest: "BAI - Inventario de Ansiedad de Beck",
             nombre: document.getElementById("nombre").value,
             dni: document.getElementById("dni")?.value || "",
             dniArchivo: dniArchivo,
@@ -165,6 +165,11 @@ function calcular() {
               };
             })
           });
+
+          if (!guardado) return;
+
+          sessionStorage.setItem("resultado_guardado_bai", "true");
+
         })();
       }
     }

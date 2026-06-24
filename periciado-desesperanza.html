@@ -153,7 +153,7 @@ Los resultados no se muestran en este acceso.
 
 <script>
 
-function enviarEvaluacionPericiado() {
+async function enviarEvaluacionPericiado() {
 
 const campos = [
 "nombre",
@@ -207,6 +207,32 @@ if (!avance.includes("desesperanza")) {
   avance.push("desesperanza");
   localStorage.setItem("avanceEvaluacionFalco", JSON.stringify(avance));
 }
+
+calcular();
+
+if (typeof window.guardarResultadoTest !== "function") {
+  alert("No se pudo conectar con el sistema de guardado.");
+  return;
+}
+
+const guardado = await window.guardarResultadoTest({
+  test: "desesperanza",
+  nombreTest: "Escala de Desesperanza de Beck",
+  nombre: document.getElementById("nombre").value,
+  dni: document.getElementById("dni")?.value || "",
+  edad: document.getElementById("edad").value,
+  sexo: document.getElementById("sexo").value,
+  estadoCivil: document.getElementById("estadoCivil")?.value || "",
+  direccion: document.getElementById("direccion")?.value || "",
+  fecha: document.getElementById("fecha").value,
+  observaciones: document.getElementById("observaciones").value,
+  puntajeTotal: document.getElementById("puntajeTotal").textContent,
+  nivel: document.getElementById("nivel").textContent
+});
+
+if (!guardado) return;
+
+
 
 const mensaje =
 document.getElementById("mensajeFinalPericiado");
