@@ -95,10 +95,16 @@ onAuthStateChanged(auth, async (user) => {
     pagina.endsWith("/login.html") ||
     pagina.endsWith("/");
 
-  if (!user && !esLogin) {
-    window.location.href = "login.html";
-    return;
-  }
+const paginasPublicas = [
+  "biblioteca-profesional.html"
+];
+
+const esPaginaPublica = paginasPublicas.some(p => pagina.includes(p));
+
+if (!user && !esLogin && !esPaginaPublica) {
+  window.location.href = "login.html";
+  return;
+}
 
   if (!user) return;
 

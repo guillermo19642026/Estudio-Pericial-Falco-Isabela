@@ -32,10 +32,13 @@
     <img src="img/logo.png" alt="Estudio Pericial Psicológico">
   </div>
 
-  <h1>Acceso a Tests Psicométricos</h1>
-<p class="login-subtitle">
-  Plataforma de evaluación psicológica Falco®
+ <h1 id="loginTitulo">Acceso</h1>
+
+<p id="loginDescripcion">
+  Ingrese sus credenciales para continuar.
 </p>
+
+
 
   <div class="login-form">
     <input type="email" id="email" placeholder="Correo electrónico">
@@ -148,6 +151,35 @@ Fecha: ${new Date().toLocaleString()}`;
   window.location.href = url;
 }
 </script>
+
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const destino = params.get("destino");
+
+  const titulo = document.getElementById("loginTitulo");
+  const descripcion = document.getElementById("loginDescripcion");
+
+  if (destino === "biblioteca") {
+    titulo.textContent = "Acceso a Biblioteca Profesional";
+    descripcion.textContent =
+      "Ingrese con su usuario profesional para acceder a los recursos exclusivos del Centro de Recursos Profesionales.";
+  } else if (destino === "periciados") {
+    titulo.textContent = "Acceso a Evaluación Psicológica";
+    descripcion.textContent =
+      "Ingrese para completar los instrumentos de evaluación asignados.";
+  } else if (destino === "escuela") {
+    titulo.textContent = "Acceso a Escuela para Padres FALCO®";
+    descripcion.textContent =
+      "Ingrese para continuar con su formación.";
+  } else {
+    titulo.textContent = "Acceso Profesional";
+    descripcion.textContent =
+      "Ingrese sus credenciales para continuar.";
+  }
+</script>
+
+
 
 </body>
 </html>

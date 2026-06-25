@@ -58,6 +58,18 @@
 
   </div>
 
+  <div class="usuario-profesional">
+
+  <span id="nombreUsuarioBarra"></span>
+
+  <button
+    id="btnCerrarSesion"
+    class="btn-cerrar-sesion">
+    Cerrar sesión
+  </button>
+
+</div>
+
 </header>
 
 
@@ -101,7 +113,7 @@
 
 
 
-<div class="recurso-card recurso-destacado-home">
+<div id="bloqueDestacado" class="recurso-card recurso-destacado-home">
 
   <div class="recurso-ficha-top">
     <span class="recurso-clase">
@@ -147,7 +159,7 @@
 </div>
 
 
-<div class="coleccion-destacada">
+<div id="bloqueColeccion" class="coleccion-destacada">
 
   <div class="coleccion-header">
     <span>⚡ Colección destacada</span>
@@ -176,7 +188,7 @@
 
 
 
-<div class="resumen-recursos">
+<div id="bloqueContadores" class="resumen-recursos">
   <h3>📊 Recursos disponibles</h3>
   <div id="contadorCategorias" class="resumen-grid"></div>
 </div>
@@ -193,14 +205,18 @@
   >
 </div>
 
-<div class="filtros-recursos">
+<div id="bloqueFiltros" class="filtros-recursos">
   <select id="filtroCategoria" class="input-biblioteca">
     <option value="">Todas las categorías</option>
   </select>
 </div>
 
 
+    <div id="bloqueRecursos">
+
     <div id="biblioteca-container"></div>
+
+</div>
 
   </div>
 

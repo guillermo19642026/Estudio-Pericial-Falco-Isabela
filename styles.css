@@ -4095,18 +4095,30 @@ border:
 }
 
 
-.recurso-footer{
-  margin-top:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
+
+.usuario-profesional{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-left:auto;
 }
 
-.btn-acceso-mini{
-  padding:6px 14px;
-  border-radius:999px;
-  text-decoration:none;
-  font-size:0.85rem;
-  font-weight:600;
+#nombreUsuarioBarra{
+    color:#fff;
+    font-weight:600;
+    font-size:.95rem;
+}
+
+.btn-cerrar-sesion{
+    padding:8px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#b32025;
+    color:white;
+    transition:.25s;
+}
+
+.btn-cerrar-sesion:hover{
+    background:#8d161b;
 }

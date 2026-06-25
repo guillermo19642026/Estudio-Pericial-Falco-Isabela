@@ -3,7 +3,8 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/
 
 console.log("🔥 JS biblioteca cargado");
 
-setTimeout(async () => {
+window.addEventListener("centroRecursosListo", async (event) => {
+
 
   const container = document.getElementById("biblioteca-container");
   const buscador = document.getElementById("buscadorBiblioteca");
@@ -45,6 +46,10 @@ setTimeout(async () => {
     .join("");
 }
       container.innerHTML = "";
+
+
+     const puedeAbrir = window.centroRecursosPuedeAbrir === true;
+
 
       lista.forEach(item => {
         if (item.modulo === moduloActual && item.activo !== false) {
@@ -106,22 +111,40 @@ card.innerHTML = `
   <div class="recurso-accion recurso-botones">
 
   ${
-    item.urlPdf
-      ? `<a href="${item.urlPdf}" target="_blank" class="btn-acceso-mini">📄 PDF</a>`
-      : ""
-  }
+  item.urlPdf
+    ? `<a
+        href="${puedeAbrir ? item.urlPdf : "login.html?destino=biblioteca"}"
+        target="${puedeAbrir ? "_blank" : "_self"}"
+        class="btn-acceso-mini"
+      >
+        ${puedeAbrir ? "📄 PDF" : "🔒 Acceder para abrir"}
+      </a>`
+    : ""
+}
 
-  ${
-    item.urlWord
-      ? `<a href="${item.urlWord}" target="_blank" class="btn-acceso-mini">📝 Word</a>`
-      : ""
-  }
+ ${
+  item.urlWord
+    ? `<a
+       href="${puedeAbrir ? item.urlWord : "login.html?destino=biblioteca"}"
+        target="${puedeAbrir ? "_blank" : "_self"}"
+        class="btn-acceso-mini"
+      >
+        ${puedeAbrir ? "📝 Word" : "🔒 Acceder para abrir"}
+      </a>`
+    : ""
+}
 
-  ${
-    item.urlVideo
-      ? `<a href="${item.urlVideo}" target="_blank" class="btn-acceso-mini">🎥 Video</a>`
-      : ""
-  }
+${
+  item.urlVideo
+    ? `<a
+       href="${puedeAbrir ? item.urlVideo : "login.html?destino=biblioteca"}"
+        target="${puedeAbrir ? "_blank" : "_self"}"
+        class="btn-acceso-mini"
+      >
+        ${puedeAbrir ? "🎥 Video" : "🔒 Acceder para abrir"}
+      </a>`
+    : ""
+}
 
   ${
     !item.urlPdf && !item.urlWord && !item.urlVideo
@@ -161,4 +184,4 @@ card.innerHTML = `
     console.error("❌ ERROR FIRESTORE:", error);
   }
 
-}, 500);
+});
