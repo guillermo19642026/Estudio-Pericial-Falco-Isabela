@@ -46,6 +46,28 @@ window.login = async function () {
       }
     }
 
+const params = new URLSearchParams(window.location.search);
+const destino = params.get("destino");
+
+if (destino === "biblioteca") {
+  if (
+    rol === "admin" ||
+    rol === "profesional" ||
+    rol === "biblioteca"
+  ) {
+    window.location.href = "biblioteca-profesional.html";
+    return;
+  } else {
+    await signOut(auth);
+    if (errorBox) {
+      errorBox.textContent = "Este usuario no tiene acceso a la Biblioteca Profesional.";
+    }
+    return;
+  }
+}
+
+
+
     if (rol === "admin") {
       window.location.href = "dashboard.html";
       return;

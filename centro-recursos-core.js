@@ -1,6 +1,7 @@
 import { auth, db } from "./firebase-config.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { renderBarraUsuario } from "./componentes/barra-usuario.js";
 
 console.log("⚙️ Centro Recursos Core cargado");
 
@@ -85,23 +86,12 @@ onAuthStateChanged(auth, async (user) => {
     window.centroRecursosPuedeAbrir = puedeAbrirRecursos(usuario);
 
 
-const nombreUsuarioBarra = document.getElementById("nombreUsuarioBarra");
-const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
-if (nombreUsuarioBarra) {
-  nombreUsuarioBarra.textContent = usuario.autenticado
-   ? `👤 ${usuario.rol}`
-    : "Visitante";
-}
 
-if (btnCerrarSesion) {
-  btnCerrarSesion.style.display = usuario.autenticado ? "inline-block" : "none";
 
-  btnCerrarSesion.onclick = async () => {
-    await auth.signOut();
-    window.location.href = "biblioteca-profesional.html";
-  };
-}
+
+
+renderBarraUsuario(usuario);
 
 
     console.log("👤 Usuario Centro Recursos:", usuario);

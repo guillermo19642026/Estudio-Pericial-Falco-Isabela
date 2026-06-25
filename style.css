@@ -13596,3 +13596,46 @@ transform: translateY(-8px);
 .btn-cerrar-sesion:hover{
     background:#8d161b;
 }
+
+
+.usuario-profesional {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+#nombreUsuarioBarra {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.barra-estado-titulo {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.barra-estado-detalle {
+  color: #d6d6d6;
+  font-size: 0.75rem;
+}
+
+.btn-cerrar-sesion {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(194,160,82,0.35);
+  background: rgba(194,160,82,0.16);
+  color: #f4dfaa;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-cerrar-sesion:hover {
+  background: rgba(194,160,82,0.26);
+}
