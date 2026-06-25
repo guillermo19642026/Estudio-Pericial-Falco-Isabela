@@ -147,13 +147,58 @@
 </div>
 
 
+<div class="coleccion-destacada">
 
-    <input
-      type="text"
-      id="buscadorBiblioteca"
-      placeholder="Buscar por título, categoría, fuero o palabra clave..."
-      class="input-biblioteca"
-    >
+  <div class="coleccion-header">
+    <span>⚡ Colección destacada</span>
+    <h3>Escritos Judiciales para la práctica pericial</h3>
+    <p>
+      Accesos rápidos a los principales modelos utilizados por peritos psicólogos
+      en presentaciones judiciales.
+    </p>
+  </div>
+
+  <div class="coleccion-grid">
+
+    <a href="#" class="coleccion-item">📄 Aceptación de cargo</a>
+    <a href="#" class="coleccion-item">📌 Pedidos de prórroga</a>
+    <a href="#" class="coleccion-item">💼 Honorarios</a>
+    <a href="#" class="coleccion-item">⚖️ Impugnaciones</a>
+    <a href="#" class="coleccion-item">📝 Aclaraciones</a>
+    <a href="#" class="coleccion-item">📨 Oficios</a>
+    <a href="#" class="coleccion-item">📂 Presentaciones varias</a>
+    <a href="#" class="coleccion-item">📑 Recursos</a>
+
+  </div>
+
+</div>
+
+
+
+
+<div class="resumen-recursos">
+  <h3>📊 Recursos disponibles</h3>
+  <div id="contadorCategorias" class="resumen-grid"></div>
+</div>
+
+
+
+
+    <div id="bloqueBuscador">
+  <input
+    type="text"
+    id="buscadorBiblioteca"
+    placeholder="Buscar por título, categoría, fuero o palabra clave..."
+    class="input-biblioteca"
+  >
+</div>
+
+<div class="filtros-recursos">
+  <select id="filtroCategoria" class="input-biblioteca">
+    <option value="">Todas las categorías</option>
+  </select>
+</div>
+
 
     <div id="biblioteca-container"></div>
 
@@ -161,8 +206,7 @@
 
 
 </section>
-  </div>
-</section>
+
 
 
 
@@ -333,7 +377,7 @@
 
 <script src="script.js"></script>
 <script type="module" src="auth.js"></script>
-
+<script type="module" src="centro-recursos-core.js"></script>
 <script type="module" src="biblioteca-dinamica.js"></script>
 
 

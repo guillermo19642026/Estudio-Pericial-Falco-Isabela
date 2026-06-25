@@ -7,6 +7,9 @@ setTimeout(async () => {
 
   const container = document.getElementById("biblioteca-container");
   const buscador = document.getElementById("buscadorBiblioteca");
+
+  const contadorCategorias = document.getElementById("contadorCategorias");
+
   const moduloActual = document.body.dataset.modulo || "biblioteca";
 
   if (!container) {
@@ -18,7 +21,29 @@ setTimeout(async () => {
     const snap = await getDocs(collection(db, "contenidos"));
     const datos = snap.docs.map(doc => doc.data());
 
-    function render(lista) {
+
+
+    function render(lista) {if (contadorCategorias) {
+  const activos = datos.filter(item =>
+    item.modulo === moduloActual && item.activo !== false
+  );
+
+  const conteo = {};
+
+  activos.forEach(item => {
+    const categoria = item.categoria || "General";
+    conteo[categoria] = (conteo[categoria] || 0) + 1;
+  });
+
+  contadorCategorias.innerHTML = Object.entries(conteo)
+    .map(([categoria, total]) => `
+      <div class="resumen-item">
+        <strong>${total}</strong>
+        <span>${categoria}</span>
+      </div>
+    `)
+    .join("");
+}
       container.innerHTML = "";
 
       lista.forEach(item => {
@@ -78,11 +103,33 @@ card.innerHTML = `
       .join("")}
   </div>
 
-  <div class="recurso-accion">
-    <a href="${item.url}" target="_blank" class="btn-acceso-mini">
-      Abrir documento
-    </a>
-  </div>
+  <div class="recurso-accion recurso-botones">
+
+  ${
+    item.urlPdf
+      ? `<a href="${item.urlPdf}" target="_blank" class="btn-acceso-mini">📄 PDF</a>`
+      : ""
+  }
+
+  ${
+    item.urlWord
+      ? `<a href="${item.urlWord}" target="_blank" class="btn-acceso-mini">📝 Word</a>`
+      : ""
+  }
+
+  ${
+    item.urlVideo
+      ? `<a href="${item.urlVideo}" target="_blank" class="btn-acceso-mini">🎥 Video</a>`
+      : ""
+  }
+
+  ${
+    !item.urlPdf && !item.urlWord && !item.urlVideo
+      ? `<span class="badge-bloqueado">Disponible próximamente</span>`
+      : ""
+  }
+
+</div>
 `;
 
           container.appendChild(card);
