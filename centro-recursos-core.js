@@ -45,8 +45,9 @@ async function obtenerUsuarioActual(user) {
 function puedeAbrirRecursos(usuario) {
   return (
     usuario.esAdmin ||
+    usuario.rol === "biblioteca" ||
     usuario.rol === "profesional" ||
-    usuario.rol === "biblioteca"
+    usuario.rol === "perito"
   );
 }
 
@@ -84,10 +85,6 @@ onAuthStateChanged(auth, async (user) => {
 
     window.centroRecursosUsuario = usuario;
     window.centroRecursosPuedeAbrir = puedeAbrirRecursos(usuario);
-
-
-
-
 
 
 

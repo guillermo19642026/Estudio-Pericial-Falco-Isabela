@@ -53,7 +53,8 @@ if (destino === "biblioteca") {
   if (
     rol === "admin" ||
     rol === "profesional" ||
-    rol === "biblioteca"
+    rol === "biblioteca" ||
+    rol === "perito"
   ) {
     window.location.href = "biblioteca-profesional.html";
     return;

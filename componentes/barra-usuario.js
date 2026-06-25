@@ -19,6 +19,12 @@ export function renderBarraUsuario(usuario) {
       texto: "👨‍⚖️ Profesional",
       detalle: "Área profesional"
     },
+
+    perito: {
+    texto: "⚖️ Perito",
+    detalle: "Herramientas periciales"
+    },
+
     admin: {
       texto: "⚙️ Administrador",
       detalle: "Acceso completo"
