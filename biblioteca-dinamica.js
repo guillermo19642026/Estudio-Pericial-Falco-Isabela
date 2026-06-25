@@ -3,70 +3,111 @@ import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/
 
 console.log("🔥 JS biblioteca cargado");
 
-// 🔥 ejecución inmediata pero segura
 setTimeout(async () => {
 
-  console.log("🔥 INICIO BIBLIOTECA");
-
   const container = document.getElementById("biblioteca-container");
-
-  console.log("📦 container:", container);
+  const buscador = document.getElementById("buscadorBiblioteca");
+  const moduloActual = document.body.dataset.modulo || "biblioteca";
 
   if (!container) {
-    console.log("❌ ERROR: container no encontrado en DOM final");
+    console.log("❌ ERROR: container no encontrado");
     return;
   }
 
   try {
-
     const snap = await getDocs(collection(db, "contenidos"));
-
-    console.log("📡 snap size:", snap.size);
-
     const datos = snap.docs.map(doc => doc.data());
 
-    container.innerHTML = "";
+    function render(lista) {
+      container.innerHTML = "";
 
-    datos.forEach(item => {
+      lista.forEach(item => {
+        if (item.modulo === moduloActual && item.activo !== false) {
+          const card = document.createElement("div");
+          card.className = "recurso-card";
 
-      if (item.modulo === "biblioteca") {
 
-        const card = document.createElement("div");
-      card.className = "recurso-card";
 
-    
-
-       card.innerHTML = `
-  <h3>📄 ${item.titulo}</h3>
-
-  <p class="bloque-tests-texto">
-    <strong>Categoría:</strong> ${item.categoria || "General"}
-  </p>
-
-  <p class="bloque-tests-nota">
-    ${item.tags || ""}
-  </p>
-
-  <div class="recurso-footer">
-
-    <span class="badge-bloqueado">
-      📚 Biblioteca Profesional
+card.innerHTML = `
+  <div class="recurso-ficha-top">
+    <span class="recurso-clase">
+      ${item.categoria || "RECURSO PROFESIONAL"}
     </span>
 
-    <a
-      href="${item.url}"
-      target="_blank"
-      class="btn-acceso-mini"
-    >
-      Ver documento
-    </a>
+    <span class="recurso-formato">
+      ${item.icono || "📄"} ${item.tipo?.toUpperCase() || "PDF"}
+    </span>
+  </div>
 
+  <h3 class="recurso-titulo">
+    ${item.titulo}
+  </h3>
+
+  <p class="recurso-descripcion">
+    ${item.descripcion || "Recurso profesional disponible para consulta."}
+  </p>
+
+  <div class="recurso-separador"></div>
+
+  <div class="recurso-info-grid">
+    <div>
+      <small>Fuero</small>
+      <strong>${item.fuero || "General"}</strong>
+    </div>
+
+    <div>
+      <small>Subcategoría</small>
+      <strong>${item.subcategoria || "-"}</strong>
+    </div>
+
+    <div>
+      <small>Autor</small>
+      <strong>${item.autor || "Centro Profesional Falco®"}</strong>
+    </div>
+
+    <div>
+      <small>Actualización</small>
+      <strong>${item.fechaActualizacion || "-"}</strong>
+    </div>
+  </div>
+
+  <div class="recurso-tags">
+    ${(item.tags || "")
+      .split(",")
+      .map(tag => `<span>${tag.trim()}</span>`)
+      .join("")}
+  </div>
+
+  <div class="recurso-accion">
+    <a href="${item.url}" target="_blank" class="btn-acceso-mini">
+      Abrir documento
+    </a>
   </div>
 `;
 
-        container.appendChild(card);
-      }
+          container.appendChild(card);
+        }
+      });
+    }
 
+    render(datos);
+
+    buscador?.addEventListener("input", () => {
+      const texto = buscador.value.toLowerCase();
+
+      const filtrados = datos.filter(item => {
+        const contenido = `
+          ${item.titulo || ""}
+          ${item.categoria || ""}
+          ${item.subcategoria || ""}
+          ${item.fuero || ""}
+          ${item.tags || ""}
+        `.toLowerCase();
+
+        return contenido.includes(texto);
+      });
+
+      render(filtrados);
     });
 
   } catch (error) {
