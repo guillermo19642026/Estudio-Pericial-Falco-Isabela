@@ -7,41 +7,40 @@ export function renderBarraUsuario(usuario) {
   if (!nombreUsuarioBarra) return;
 
   const estados = {
-    visitante: {
-      texto: "🔓 Acceso público",
-      detalle: "Vista de catálogo"
-    },
-    biblioteca: {
-      texto: "📚 Biblioteca Profesional",
-      detalle: "Acceso a recursos"
-    },
-    profesional: {
-      texto: "👨‍⚖️ Profesional",
-      detalle: "Área profesional"
-    },
-
-    perito: {
-    texto: "⚖️ Perito",
+  visitante: {
+    texto: "🟢 Acceso público",
+    detalle: "Vista de catálogo"
+  },
+  biblioteca: {
+    texto: "🔵 Biblioteca Profesional",
+    detalle: "Acceso a recursos"
+  },
+  profesional: {
+    texto: "🟣 Profesional",
+    detalle: "Área profesional"
+  },
+  perito: {
+    texto: "🟠 Perito",
     detalle: "Herramientas periciales"
-    },
-
-    admin: {
-      texto: "⚙️ Administrador",
-      detalle: "Acceso completo"
-    }
-  };
+  },
+  admin: {
+    texto: "🔴 Administrador",
+    detalle: "Acceso completo"
+  }
+};
 
   const estado = estados[usuario.rol] || estados.visitante;
 
-  nombreUsuarioBarra.innerHTML = `
-    <span class="barra-estado-titulo">${estado.texto}</span>
-    <small class="barra-estado-detalle">${estado.detalle}</small>
-  `;
+ nombreUsuarioBarra.innerHTML = `
+  <small class="barra-saludo">👋 Bienvenido</small>
+  <span class="barra-estado-titulo">${estado.texto}</span>
+  <small class="barra-estado-detalle">${estado.detalle}</small>
+`;
 
   if (btnCerrarSesion) {
     btnCerrarSesion.textContent = usuario.autenticado
-      ? "Cerrar sesión"
-      : "Iniciar sesión";
+  ? "🚪 Cerrar sesión"
+  : "🔑 Iniciar sesión";
 
     btnCerrarSesion.style.display = "inline-block";
 

@@ -13639,3 +13639,40 @@ transform: translateY(-8px);
 .btn-cerrar-sesion:hover {
   background: rgba(194,160,82,0.26);
 }
+
+
+.barra-saludo {
+  color: #f4dfaa;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+
+.usuario-profesional {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#nombreUsuarioBarra {
+  min-width: 180px;
+}
+
+.barra-saludo {
+  display: block;
+  margin-bottom: 3px;
+  color: #f4dfaa;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.barra-estado-titulo {
+  display: block;
+  line-height: 1.25;
+}
+
+.barra-estado-detalle {
+  display: block;
+  margin-top: 2px;
+}
