@@ -48,11 +48,23 @@ window.addEventListener("centroRecursosListo", async (event) => {
       container.innerHTML = "";
 
 
-     const puedeAbrir = window.centroRecursosPuedeAbrir === true;
 
 
       lista.forEach(item => {
         if (item.modulo === moduloActual && item.activo !== false) {
+
+const usuario = window.centroRecursosUsuario || {
+  rol: "visitante",
+  esAdmin: false
+};
+
+const rolesPermitidos = item.rolesPermitidos || [];
+
+const puedeAbrir =
+  usuario.esAdmin ||
+  window.centroRecursosPuedeAbrir === true ||
+  rolesPermitidos.includes(usuario.rol);
+
           const card = document.createElement("div");
           card.className = "recurso-card";
 
@@ -79,16 +91,15 @@ card.innerHTML = `
 
   <div class="recurso-separador"></div>
 
-  <div class="recurso-info-grid">
-    <div>
-      <small>Fuero</small>
-      <strong>${item.fuero || "General"}</strong>
-    </div>
+ <div>
+  <small>Fuero / Categoría</small>
+  <strong>${item.fuero || item.categoria || "General"}</strong>
+</div>
 
-    <div>
-      <small>Subcategoría</small>
-      <strong>${item.subcategoria || "-"}</strong>
-    </div>
+<div>
+  <small>Tipo / Subcategoría</small>
+  <strong>${item.tipoEscrito || item.subcategoria || "-"}</strong>
+</div>
 
     <div>
       <small>Autor</small>
@@ -167,12 +178,17 @@ ${
 
       const filtrados = datos.filter(item => {
         const contenido = `
-          ${item.titulo || ""}
-          ${item.categoria || ""}
-          ${item.subcategoria || ""}
-          ${item.fuero || ""}
-          ${item.tags || ""}
-        `.toLowerCase();
+  ${item.titulo || ""}
+  ${item.descripcion || ""}
+  ${item.modulo || ""}
+  ${item.tipoContenido || ""}
+  ${item.categoria || ""}
+  ${item.subcategoria || ""}
+  ${item.fuero || ""}
+  ${item.tipoEscrito || ""}
+  ${item.autor || ""}
+  ${item.tags || ""}
+`.toLowerCase();
 
         return contenido.includes(texto);
       });

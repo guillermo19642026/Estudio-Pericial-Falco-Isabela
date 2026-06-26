@@ -13676,3 +13676,68 @@ transform: translateY(-8px);
   display: block;
   margin-top: 2px;
 }
+
+
+.input-biblioteca,
+.input-biblioteca option {
+  color: #ffffff;
+}
+
+.input-biblioteca option {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+
+select.input-biblioteca {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+}
+
+select.input-biblioteca option {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.modal-header h2{
+    margin:0;
+}
+
+.modal-cerrar{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:1.4rem;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.modal-cerrar:hover{
+
+    background:#c7a64b;
+
+    color:#111;
+
+    transform:rotate(90deg);
+
+}

@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Escritos Judiciales | Área Profesional</title>
+<meta name="description" content="Escritos Judiciales para psicólogos y peritos psicólogos. Recursos técnicos, bibliografía especializada, daño psíquico, psicodiagnóstico, evaluación psicológica y práctica pericial.">
+
+<link rel="stylesheet" href="style.css">
+<meta name="robots" content="noindex, nofollow">
+
+</head>
+
+<body class="pagina-interna fondo-neuronal" data-modulo="escritos">
+
+<canvas id="neuronal-bg"></canvas>
+
+<header>
+
+  <div class="nav-container">
+
+    <div class="header-izquierda">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+        </a>
+      </div>
+    </div>
+
+    <div class="header-derecha">
+
+      <div class="header-texto">
+        ESTUDIO PERICIAL PSICOLÓGICO<br>
+        <span>Lic. en Psicología ISABELA FALCO</span>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+        <b class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </b>
+        <em>Menú</em>
+      </button>
+
+      <nav id="menu">
+        <a href="dashboard-profesional.html">Panel Profesional</a>
+        <a href="area-profesional-psicologos.html">Área Profesional</a>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#consultas">Consultas</a>
+      </nav>
+
+
+<div class="usuario-profesional">
+
+  <span id="nombreUsuarioBarra"></span>
+
+  <button
+    id="btnCerrarSesion"
+    class="btn-cerrar-sesion">
+    Cerrar sesión
+  </button>
+
+</div>
+
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<section class="hero-interno">
+  <div class="hero-contenido">
+    <div class="hero-top">
+
+     <h1 class="hero-titulo-principal">
+  Escritos Judiciales
+</h1>
+
+<h2 class="hero-subtitulo-fuerte">
+  Psicología clínica · Psicodiagnóstico · Psicología forense · Daño psíquico · Legislación · Artículos científicos
+</h2>
+
+<p class="hero-sello">
+  Biblioteca técnica del Centro Profesional Falco®
+</p>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="seccion-definicion">
+  <div class="danio-contenedor">
+
+   <section class="seccion-definicion">
+  <div class="danio-contenedor">
+
+   <h2>Centro de Escritos Judiciales</h2>
+
+<p>
+  Modelos de escritos judiciales para la práctica profesional y pericial:
+  aceptaciones de cargo, pedidos de prórroga, impugnaciones, honorarios,
+  oficios, presentaciones y recursos.
+</p>
+
+
+
+
+<div id="bloqueDestacado" class="recurso-card recurso-destacado-home">
+
+  <div class="recurso-ficha-top">
+    <span class="recurso-clase">
+      ⭐ Recurso Profesional Destacado
+    </span>
+
+    <span class="recurso-formato">
+      📄 PDF
+    </span>
+  </div>
+
+  <h3 class="recurso-titulo">
+    Aceptación de cargo del perito psicólogo
+  </h3>
+
+  <p class="recurso-descripcion">
+    Modelo de escrito para la aceptación del cargo de perito psicólogo,
+    adaptable a procesos civiles, laborales y de familia.
+  </p>
+
+  <div class="recurso-info-grid">
+    <div>
+      <small>Categoría</small>
+      <strong>Escritos Judiciales</strong>
+    </div>
+
+    <div>
+      <small>Fuero</small>
+      <strong>Civil</strong>
+    </div>
+
+    <div>
+      <small>Subcategoría</small>
+      <strong>Aceptación de cargo</strong>
+    </div>
+
+    <div>
+      <small>Actualización</small>
+      <strong>Junio 2026</strong>
+    </div>
+  </div>
+
+</div>
+
+
+<div id="bloqueColeccion" class="coleccion-destacada">
+
+  <div class="coleccion-header">
+    <span>⚡ Colección destacada</span>
+    <h3>Escritos Judiciales para la práctica pericial</h3>
+    <p>
+      Accesos rápidos a los principales modelos utilizados por peritos psicólogos
+      en presentaciones judiciales.
+    </p>
+  </div>
+
+  <div class="coleccion-grid">
+
+    <a href="#" class="coleccion-item">📄 Aceptación de cargo</a>
+    <a href="#" class="coleccion-item">📌 Pedidos de prórroga</a>
+    <a href="#" class="coleccion-item">💼 Honorarios</a>
+    <a href="#" class="coleccion-item">⚖️ Impugnaciones</a>
+    <a href="#" class="coleccion-item">📝 Aclaraciones</a>
+    <a href="#" class="coleccion-item">📨 Oficios</a>
+    <a href="#" class="coleccion-item">📂 Presentaciones varias</a>
+    <a href="#" class="coleccion-item">📑 Recursos</a>
+
+  </div>
+
+</div>
+
+
+
+
+<div id="bloqueContadores" class="resumen-recursos">
+  <h3>📊 Recursos disponibles</h3>
+  <div id="contadorCategorias" class="resumen-grid"></div>
+</div>
+
+
+
+
+    <div id="bloqueBuscador">
+  <input
+    type="text"
+    id="buscadorBiblioteca"
+    placeholder="Buscar por título, categoría, fuero o palabra clave..."
+    class="input-biblioteca"
+  >
+</div>
+
+<div id="bloqueFiltros" class="filtros-recursos">
+  <select id="filtroCategoria" class="input-biblioteca">
+    <option value="">Todas las categorías</option>
+  </select>
+</div>
+
+
+    <div id="bloqueRecursos">
+
+    <div id="biblioteca-container"></div>
+
+</div>
+
+  </div>
+
+
+</section>
+
+
+
+
+<section class="servicios-relacionados">
+
+  <h2 class="titulo-seccion">
+    Navegación rápida
+  </h2>
+
+  <div class="servicios-rel-grid">
+
+    <a href="dashboard-profesional.html" class="servicio-rel-item">
+      🏠 Panel Profesional
+    </a>
+
+    <a href="novedades-profesionales.html" class="servicio-rel-item">
+      🔔 Novedades Profesionales
+    </a>
+
+    <a href="biblioteca-profesional.html" class="servicio-rel-item">
+      📚 Biblioteca
+    </a>
+
+
+ <a href="evaluacion-psicologica.html" class="servicio-rel-item">
+  🧠 Evaluación Psicológica
+</a>
+
+<a href="informes-modelos.html" class="servicio-rel-item">
+  📄 Informes y Modelos
+</a>
+
+<a href="area-pericial.html" class="servicio-rel-item">
+  ⚖️ Área Pericial
+</a>
+
+<a href="formacion-profesional.html" class="servicio-rel-item">
+  🎓 Formación Profesional
+</a>
+
+
+
+    <a href="consultoria-profesional.html" class="servicio-rel-item">
+      💼 Consultoría
+    </a>
+
+    <a href="recursos-tecnicos.html" class="servicio-rel-item">
+      📋 Recursos
+    </a>
+
+    <a href="perfil-profesional.html" class="servicio-rel-item">
+      👤 Perfil
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<footer class="footer">
+
+  <div class="footer-contenido">
+
+    <div class="footer-col">
+
+      <p class="footer-titulo">
+        Lic. Isabela Falco
+      </p>
+
+      <p class="footer-texto">
+        Área Profesional para Psicólogos y Peritos Psicólogos
+      </p>
+
+    </div>
+
+    <div class="footer-col">
+
+      <p class="footer-subtitulo">
+        Contacto
+      </p>
+
+      <p class="footer-item">
+        WhatsApp<br>
+        <a href="https://wa.me/5491132049521"
+           target="_blank"
+           rel="noopener noreferrer">
+          11 3204 9521
+        </a>
+      </p>
+
+      <p class="footer-item">
+        Email<br>
+        <a href="mailto:estudiopericialpsicologico@gmail.com">
+          estudiopericialpsicologico@gmail.com
+        </a>
+      </p>
+
+    </div>
+
+    <div class="footer-col">
+
+      <p class="footer-subtitulo">
+        Área Profesional
+      </p>
+
+      <p class="footer-item">
+        Escritos Judiciales<br>
+        Tests Psicométricos<br>
+        Modelos de Informes
+      </p>
+
+      <p class="footer-item">
+        Escritos Judiciales<br>
+        Cursos y Capacitaciones<br>
+        Consultoría Profesional
+      </p>
+
+    </div>
+
+    <div class="footer-col">
+
+      <p class="footer-subtitulo">
+        Acceso
+      </p>
+
+      <p class="footer-item">
+        Uso exclusivo para profesionales de la psicología y peritos psicólogos.
+      </p>
+
+      <p class="footer-nota">
+        Recursos técnicos en desarrollo
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="footer-separador"></div>
+
+  <div class="footer-bottom">
+    © 2026 Lic. Isabela Falco — Área Profesional para Psicólogos y Peritos Psicólogos
+  </div>
+
+  <div class="credito-card">
+
+    <p class="credito-titulo">
+      Diseño y desarrollo web
+    </p>
+
+    <a
+      href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="credito-nombre"
+    >
+      <span class="icono-whatsapp">🟢</span>
+      Guillermo Hechem
+    </a>
+
+    <p class="credito-descripcion">
+      Desarrollo web profesional · Sitios modernos y optimizados
+    </p>
+
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="centro-recursos-core.js"></script>
+<script type="module" src="biblioteca-dinamica.js"></script>
+
+
+</body>
+</html>
