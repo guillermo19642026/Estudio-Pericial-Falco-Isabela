@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Motor de Contenidos Falco® | CMS</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cms.css">
+
+</head>
+
+<body class="cms-body">
+
+<canvas id="neuronal-bg"></canvas>
+
+<div class="cms-shell">
+
+  <aside class="cms-sidebar">
+
+    <div class="cms-sidebar-brand">
+      <div class="cms-logo-f">F</div>
+      <strong>FALCO®</strong>
+      <span>Centro Profesional</span>
+    </div>
+
+    <nav class="cms-sidebar-menu">
+      <a href="#dashboard-cms" class="activo"><span>◷</span>Dashboard</a>
+      <a href="#contenidos-cms"><span>▤</span>Contenidos</a>
+      <a href="#nuevo-recurso"><span>＋</span>Nuevo recurso</a>
+      <a href="#recursoModulo"><span>□</span>Módulos</a>
+      <a href="#recursoTipoContenido"><span>▥</span>Tipos</a>
+      <a href="#recursoTags"><span>◇</span>Etiquetas</a>
+      <a href="biblioteca-falco.html" target="_blank"><span>▣</span>Biblioteca</a>
+    </nav>
+
+    <div class="cms-sidebar-extra">
+      <p>ACCESOS RÁPIDOS</p>
+      <a href="index.html" target="_blank"><span>⌂</span>Sitio principal</a>
+      <a href="biblioteca-falco.html" target="_blank"><span>↗</span>Biblioteca pública</a>
+      <a href="#dashboard-cms"><span>◴</span>Estadísticas</a>
+    </div>
+
+    <div class="cms-sidebar-user">
+      <p>ADMINISTRADOR</p>
+
+      <div class="cms-user-card">
+        <div class="cms-user-icon">◎</div>
+        <div>
+          <strong>Isabela Falco</strong>
+          <span id="nombreUsuarioBarra">Administrador</span>
+        </div>
+      </div>
+
+      <button id="btnCerrarSesion" class="cms-logout-btn">
+        ⇥ Cerrar sesión
+      </button>
+    </div>
+
+  </aside>
+
+  <main class="cms-main-panel">
+
+    <header class="cms-topbar">
+
+      <div class="cms-topbar-title">
+        <span>☰</span>
+        <strong>Motor de Contenidos Falco®</strong>
+      </div>
+
+      <div class="cms-topbar-actions">
+        <a href="#nuevo-recurso" class="btn-cms-dorado">＋ Nuevo contenido</a>
+        <a href="biblioteca-falco.html" target="_blank" class="btn-cms-outline">Ver biblioteca</a>
+      </div>
+
+    </header>
+
+    <section class="cms-dashboard-section" id="dashboard-cms">
+
+      <div class="cms-dashboard-title">
+        <span>◷</span>
+        <div>
+          <h2>Dashboard</h2>
+          <p>Resumen general del sistema</p>
+        </div>
+      </div>
+
+    </section>
+
+
+<div class="cms-kpi-grid">
+
+  <div class="cms-kpi-card">
+    <span>▣</span>
+    <div>
+      <small>TOTAL RECURSOS</small>
+      <strong id="statTotal">0</strong>
+      <p>Recursos</p>
+    </div>
+  </div>
+
+  <div class="cms-kpi-card verde">
+    <span>✓</span>
+    <div>
+      <small>ACTIVOS</small>
+      <strong id="statActivos">0</strong>
+      <p>Visibles</p>
+    </div>
+  </div>
+
+  <div class="cms-kpi-card naranja">
+    <span>◌</span>
+    <div>
+      <small>OCULTOS</small>
+      <strong id="statOcultos">0</strong>
+      <p>No visibles</p>
+    </div>
+  </div>
+
+  <div class="cms-kpi-card celeste">
+    <span>▤</span>
+    <div>
+      <small>ARCHIVADOS</small>
+      <strong id="statArchivados">0</strong>
+      <p>Guardados</p>
+    </div>
+  </div>
+
+  <div class="cms-kpi-card violeta">
+    <span>☆</span>
+    <div>
+      <small>DESTACADOS</small>
+      <strong id="statDestacados">0</strong>
+      <p>Prioritarios</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="cms-summary-grid">
+
+  <div class="cms-panel-card">
+    <h3>Distribución por módulo</h3>
+    <div id="resumenModulos" class="cms-resumen-lista">
+      Cargando módulos...
+    </div>
+  </div>
+
+  <div class="cms-panel-card">
+    <h3>Tipos de contenido</h3>
+    <div id="resumenTipos" class="cms-resumen-lista">
+      Cargando tipos...
+    </div>
+  </div>
+
+  <div class="cms-panel-card">
+    <h3>Formatos de archivo</h3>
+    <div id="resumenFormatos" class="cms-resumen-lista">
+      Cargando formatos...
+    </div>
+  </div>
+
+</div>
+
+
+<div class="cms-alertas-card">
+
+  <div class="cms-panel-header">
+    <div>
+      <h3>Alertas inteligentes</h3>
+      <p>Detectamos recursos que necesitan tu atención</p>
+    </div>
+  </div>
+
+  <div id="cmsAlertas" class="cms-alertas-lista">
+    Analizando recursos...
+  </div>
+
+</div>
+
+
+
+<div class="cms-bottom-grid">
+
+  <!-- ACTIVIDAD -->
+
+  <div class="cms-panel-card">
+
+    <h3>Actividad reciente</h3>
+
+    <div id="cmsActividad" class="cms-actividad-lista">
+
+      Cargando actividad...
+
+    </div>
+
+  </div>
+
+  <!-- ACCESOS -->
+
+  <div class="cms-panel-card">
+
+    <h3>Accesos rápidos</h3>
+
+    <div class="cms-accesos-grid">
+
+      <a href="#nuevo-recurso">
+        <span>＋</span>
+        <small>Nuevo</small>
+      </a>
+
+      <a href="#contenidos-cms">
+        <span>▤</span>
+        <small>Contenidos</small>
+      </a>
+
+      <a href="#recursoModulo">
+        <span>□</span>
+        <small>Módulos</small>
+      </a>
+
+      <a href="#recursoTags">
+        <span>◇</span>
+        <small>Etiquetas</small>
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<section class="cms-section-card" id="contenidos-cms">
+
+  <div class="cms-section-heading">
+    <div>
+      <h2>Explorador Inteligente de Contenidos</h2>
+      <p>Buscá recursos por título, módulo, tipo, fuero o palabras clave.</p>
+    </div>
+
+    <a href="#nuevo-recurso" class="btn-cms-dorado">＋ Nuevo recurso</a>
+  </div>
+
+  <div class="cms-toolbar cms-toolbar-explorador">
+
+    <input
+      type="text"
+      id="buscarRecurso"
+      class="input-biblioteca"
+      placeholder="Buscar contenido...">
+
+    <select id="filtroModulo" class="input-biblioteca">
+      <option value="">Todos los módulos</option>
+      <option value="biblioteca">Biblioteca</option>
+      <option value="escritos">Escritos</option>
+      <option value="informes">Informes</option>
+      <option value="legislacion">Legislación</option>
+      <option value="jurisprudencia">Jurisprudencia</option>
+      <option value="videos">Videos</option>
+      <option value="cursos">Cursos</option>
+    </select>
+
+  </div>
+
+  <div class="cms-explorer-empty" id="exploradorVacio">
+    <div class="cms-empty-icon">⌕</div>
+    <h3>No hay resultados para mostrar</h3>
+    <p>Comenzá escribiendo un título o seleccioná un módulo para localizar contenidos.</p>
+  </div>
+
+  <div id="listaRecursosCMS" class="cms-listado-recursos cms-listado-oculto"></div>
+
+</section>
+
+
+
+<section class="cms-section-card" id="nuevo-recurso">
+
+  <div class="cms-section-heading">
+    <div>
+      <h2>Nuevo recurso</h2>
+      <p>Completá el contenido por etapas.</p>
+    </div>
+  </div>
+
+  <div class="cms-tabs">
+
+    <button class="cms-tab activo" type="button" data-tab="info">Información</button>
+    <button class="cms-tab" type="button" data-tab="clasificacion">Clasificación</button>
+    <button class="cms-tab" type="button" data-tab="archivos">Archivos</button>
+    <button class="cms-tab" type="button" data-tab="publicacion">Publicación</button>
+
+  </div>
+
+  <div class="cms-tab-panel activo" id="tab-info">
+
+    <div class="cms-form-grid compacta">
+      <input type="text" id="recursoTitulo" placeholder="Título del recurso" class="input-biblioteca">
+
+      <textarea id="recursoDescripcion" placeholder="Descripción del recurso" class="input-biblioteca" rows="3"></textarea>
+
+      <select id="recursoModulo" class="input-biblioteca">
+        <option value="">Seleccionar módulo</option>
+        <option value="biblioteca">Biblioteca</option>
+        <option value="escritos">Escritos Judiciales</option>
+        <option value="informes">Informes y Modelos</option>
+        <option value="legislacion">Legislación</option>
+        <option value="jurisprudencia">Jurisprudencia</option>
+        <option value="videos">Videos</option>
+        <option value="cursos">Cursos</option>
+      </select>
+
+      <select id="recursoTipoContenido" class="input-biblioteca">
+        <option value="">Tipo de contenido</option>
+        <option value="escrito">Escrito</option>
+        <option value="modelo">Modelo</option>
+        <option value="informe">Informe</option>
+        <option value="libro">Libro</option>
+        <option value="video">Video</option>
+        <option value="curso">Curso</option>
+        <option value="jurisprudencia">Jurisprudencia</option>
+        <option value="legislacion">Legislación</option>
+        <option value="formulario">Formulario</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="cms-tab-panel" id="tab-clasificacion">
+
+    <div class="cms-form-grid compacta">
+
+      <select id="recursoFuero" class="input-biblioteca">
+        <option value="">Seleccionar fuero</option>
+        <option value="Civil">Civil</option>
+        <option value="Laboral">Laboral</option>
+        <option value="Familia">Familia</option>
+        <option value="Penal">Penal</option>
+        <option value="Comercial">Comercial</option>
+        <option value="Contencioso Administrativo">Contencioso Administrativo</option>
+        <option value="Previsional">Previsional</option>
+        <option value="Otros">Otros</option>
+      </select>
+
+      <select id="recursoTipoEscrito" class="input-biblioteca">
+        <option value="">Seleccionar tipo de escrito</option>
+        <option value="Aceptación de cargo">Aceptación de cargo</option>
+        <option value="Solicitud de anticipo">Solicitud de anticipo</option>
+        <option value="Pedido de explicaciones">Pedido de explicaciones</option>
+        <option value="Contestación de impugnación">Contestación de impugnación</option>
+        <option value="Impugnación">Impugnación</option>
+        <option value="Ampliación de pericia">Ampliación de pericia</option>
+        <option value="Informe complementario">Informe complementario</option>
+        <option value="Designación de consultor técnico">Designación de consultor técnico</option>
+        <option value="Excusación">Excusación</option>
+        <option value="Renuncia al cargo">Renuncia al cargo</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <select id="recursoIcono" class="input-biblioteca">
+        <option value="documento">Documento</option>
+        <option value="manual">Manual</option>
+        <option value="biblioteca">Biblioteca</option>
+        <option value="video">Video</option>
+        <option value="audio">Audio</option>
+        <option value="pericia">Pericia</option>
+        <option value="psicologia">Psicología</option>
+        <option value="modelo">Modelo</option>
+        <option value="formulario">Formulario</option>
+      </select>
+
+      <input type="text" id="recursoTags" placeholder="Palabras clave separadas por coma" class="input-biblioteca">
+
+    </div>
+
+  </div>
+
+  <div class="cms-tab-panel" id="tab-archivos">
+
+    <div class="cms-form-grid compacta">
+
+      <select id="recursoTipo" class="input-biblioteca">
+        <option value="pdf">PDF</option>
+        <option value="word">Word</option>
+        <option value="video">Video</option>
+        <option value="audio">Audio</option>
+        <option value="imagen">Imagen</option>
+        <option value="excel">Excel</option>
+        <option value="ppt">PowerPoint</option>
+        <option value="zip">ZIP</option>
+      </select>
+
+      <input type="text" id="recursoUrlPdf" placeholder="URL principal del recurso" class="input-biblioteca">
+
+      <input type="text" id="recursoUrlWord" placeholder="URL alternativa opcional" class="input-biblioteca">
+
+      <input type="text" id="recursoUrlVideo" placeholder="URL de video opcional" class="input-biblioteca">
+
+    </div>
+
+  </div>
+
+  <div class="cms-tab-panel" id="tab-publicacion">
+
+    <div class="cms-form-grid compacta">
+
+      <select id="recursoActivo" class="input-biblioteca">
+        <option value="true">Activo / visible</option>
+        <option value="false">Oculto / no visible</option>
+      </select>
+
+      <select id="recursoDestacado" class="input-biblioteca">
+        <option value="false">No destacado</option>
+        <option value="true">Destacado</option>
+      </select>
+
+      <select id="recursoNivelAcceso" class="input-biblioteca">
+        <option value="biblioteca">Biblioteca</option>
+        <option value="profesional">Profesional</option>
+        <option value="perito">Perito</option>
+        <option value="admin">Administrador</option>
+      </select>
+
+    </div>
+
+  </div>
+
+  <button id="btnGuardarRecurso" class="btn-cms-dorado cms-btn-guardar">
+    Guardar recurso
+  </button>
+
+  <p id="mensajeRecurso" class="bloque-tests-nota"></p>
+
+</section>
+
+
+
+<section class="cms-section-card" id="actividad-sistema">
+
+  <div class="cms-section-heading">
+    <div>
+      <h2>Actividad del sistema</h2>
+      <p>Registro general de movimientos recientes del Motor de Contenidos.</p>
+    </div>
+  </div>
+
+  <div class="cms-system-grid">
+
+    <div class="cms-system-card">
+      <span>✓</span>
+      <div>
+        <strong>Recursos sincronizados</strong>
+        <p>El panel se actualiza automáticamente desde Firestore.</p>
+      </div>
+    </div>
+
+    <div class="cms-system-card">
+      <span>◷</span>
+      <div>
+        <strong>Última actividad</strong>
+        <p>Los últimos cambios aparecen en el dashboard principal.</p>
+      </div>
+    </div>
+
+    <div class="cms-system-card">
+      <span>▣</span>
+      <div>
+        <strong>Biblioteca conectada</strong>
+        <p>Los contenidos activos se integran con la Biblioteca Falco®.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="cms-system-footer">
+  <span>Motor de Contenidos Falco®</span>
+  <span>Versión 1.0</span>
+  <span>Centro Profesional Falco®</span>
+</div>
+
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="centro-recursos-core.js"></script>
+<script type="module" src="motor-contenidos.js"></script>
+
+
+<script>
+document.querySelectorAll(".cms-tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const destino = tab.dataset.tab;
+
+    document.querySelectorAll(".cms-tab").forEach((btn) => {
+      btn.classList.remove("activo");
+    });
+
+    document.querySelectorAll(".cms-tab-panel").forEach((panel) => {
+      panel.classList.remove("activo");
+    });
+
+    tab.classList.add("activo");
+    document.getElementById("tab-" + destino)?.classList.add("activo");
+  });
+});
+</script>
+
+
+</body>
+</html>
