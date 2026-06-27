@@ -852,15 +852,12 @@
 /* VISTA PREVIA RECURSO */
 
 .cms-preview-card {
-  margin-top: 18px;
-  margin-bottom: 18px;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.045);
-  border: 1px solid rgba(240,185,79,.28);
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 16px;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(198, 163, 89, 0.35);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: 0 18px 42px rgba(31, 36, 48, 0.12);
 }
 
 .cms-preview-icon {
@@ -925,4 +922,464 @@
   color: rgba(255,255,255,.72);
   font-size: .75rem;
   font-weight: 800;
+}
+
+
+/* EDITOR VISUAL — VISTA PREVIA LATERAL */
+
+.cms-editor-preview .cms-preview-card {
+  margin: 0;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cms-editor-preview .cms-preview-icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 22px;
+}
+
+.cms-editor-preview .cms-preview-content h3 {
+  font-size: 1.35rem;
+}
+
+.cms-editor-preview .cms-preview-meta {
+  margin-top: auto;
+}
+
+.cms-editor-preview::before {
+  content: "Vista previa";
+  display: block;
+  margin-bottom: 10px;
+  color: #f0b94f;
+  font-weight: 900;
+  letter-spacing: .08em;
+  font-size: .78rem;
+  text-transform: uppercase;
+}
+
+
+/* ================================
+   ESPACIADO GENERAL DEL CMS
+================================ */
+
+.cms-main section,
+.cms-section-card,
+.cms-panel,
+.cms-dashboard,
+.cms-dashboard-extra,
+.cms-dashboard-bottom,
+.cms-alertas-panel {
+    margin-bottom: 32px !important;
+}
+
+/* separación entre paneles superiores */
+
+.cms-dashboard-bottom{
+    margin-top:32px !important;
+}
+
+/* Explorador */
+
+.cms-explorer{
+    margin-top:34px !important;
+}
+
+/* Nuevo recurso */
+
+#nuevo-recurso{
+    margin-top:34px !important;
+}
+
+/* Actividad del sistema */
+
+.cms-system-activity{
+    margin-top:34px !important;
+}
+
+/* Footer */
+
+.cms-footer{
+    margin-top:40px !important;
+}
+
+
+/* ================================
+   MÁS AIRE EN LAS TARJETAS
+================================ */
+
+.premium-panel,
+.cms-section-card,
+.cms-panel{
+    padding:26px !important;
+}
+
+.cms-section-heading{
+    margin-bottom:22px;
+}
+
+.cms-section-heading h2{
+    margin-bottom:8px;
+}
+
+.cms-dashboard{
+    gap:22px;
+}
+
+.cms-dashboard-extra{
+    gap:22px;
+}
+
+.cms-dashboard-bottom{
+    gap:22px;
+}
+
+
+/* =========================================================
+   EDITOR VISUAL FALCO CMS®
+   ========================================================= */
+
+.cms-editor-section {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding-bottom: 34px;
+}
+
+.cms-editor-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 28px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.cms-editor-form,
+.cms-editor-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cms-editor-card,
+.cms-preview-card,
+.cms-preview-side-card {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(198, 163, 89, 0.28);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 14px 34px rgba(31, 36, 48, 0.08);
+}
+
+.cms-editor-card h3,
+.cms-preview-side-card h4 {
+  margin: 0 0 16px;
+  font-size: 17px;
+  color: #1f2430;
+}
+
+.cms-editor-card .input-biblioteca {
+  width: 100%;
+  margin-bottom: 14px;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.cms-editor-card .input-biblioteca:last-child {
+  margin-bottom: 0;
+}
+
+.cms-editor-preview {
+  position: sticky;
+  top: 24px;
+}
+
+.cms-preview-card {
+  min-height: 300px !important;
+}
+
+.cms-preview-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cms-preview-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: #1f2430;
+  color: #d8b66a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.cms-preview-badge {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(198, 163, 89, 0.16);
+  color: #8a6a24;
+  border-radius: 999px;
+  padding: 8px 12px;
+}
+
+.cms-preview-card h3 {
+  margin: 0 0 14px;
+  font-size: 23px;
+  line-height: 1.25;
+  color: #1f2430;
+}
+
+.cms-preview-card p,
+.cms-preview-side-card p {
+  margin: 0;
+  color: #5c6472;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.cms-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.cms-preview-tags span {
+  font-size: 12px;
+  background: rgba(198, 163, 89, 0.18);
+  color: #7d6122;
+  border-radius: 999px;
+  padding: 7px 11px;
+}
+
+.cms-preview-meta {
+  display: grid;
+  gap: 10px;
+}
+
+.cms-preview-meta span {
+  font-size: 13px;
+  color: #3d4350;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(198, 163, 89, 0.18);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.cms-btn-guardar {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 13px 24px;
+  font-size: 15px;
+}
+
+@media (max-width: 1050px) {
+  .cms-editor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cms-editor-preview {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .cms-editor-card,
+  .cms-preview-card,
+  .cms-preview-side-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .cms-preview-card h3 {
+    font-size: 21px;
+  }
+}
+
+
+/* Corrección vista previa editor */
+
+/* AJUSTE FINAL EDITOR VISUAL */
+
+.cms-editor-section {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+.cms-editor-layout {
+  grid-template-columns: minmax(0, 1.15fr) 390px !important;
+  gap: 24px !important;
+}
+
+.cms-editor-form {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(198,163,89,0.25);
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: 0 18px 42px rgba(31,36,48,0.10);
+}
+
+.cms-editor-card {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 0 22px !important;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(198,163,89,0.22) !important;
+}
+
+.cms-editor-card:last-of-type {
+  margin-bottom: 0;
+  border-bottom: 0 !important;
+}
+
+.cms-editor-card h3 {
+  font-size: 15px !important;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #8a6a24 !important;
+  margin-bottom: 14px !important;
+}
+
+.cms-editor-card .input-biblioteca {
+  margin-bottom: 12px !important;
+  background: rgba(255,255,255,0.92) !important;
+}
+
+.cms-editor-preview {
+  gap: 16px !important;
+}
+
+.cms-editor-preview .cms-preview-card,
+.cms-preview-side-card {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(198,163,89,0.25) !important;
+}
+
+.cms-preview-card {
+  min-height: auto !important;
+}
+
+
+/* RESET LIMPIO EDITOR VISUAL */
+
+#nuevo-recurso,
+#nuevo-recurso * {
+  box-sizing: border-box;
+}
+
+#nuevo-recurso {
+  background: rgba(255,255,255,0.06) !important;
+}
+
+#nuevo-recurso .cms-editor-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.25fr) 420px !important;
+  gap: 26px !important;
+  align-items: start !important;
+  margin-top: 24px !important;
+}
+
+#nuevo-recurso .cms-editor-form,
+#nuevo-recurso .cms-editor-card,
+#nuevo-recurso .cms-editor-preview,
+#nuevo-recurso .cms-preview-card,
+#nuevo-recurso .cms-preview-side-card {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#nuevo-recurso .cms-editor-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+}
+
+#nuevo-recurso .cms-editor-card {
+  border: 1px solid rgba(198,163,89,0.28) !important;
+  border-radius: 22px !important;
+  padding: 22px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+#nuevo-recurso .cms-editor-card h3 {
+  margin: 0 0 16px !important;
+  font-size: 16px !important;
+  color: #1f2430 !important;
+}
+
+#nuevo-recurso .input-biblioteca,
+#nuevo-recurso input,
+#nuevo-recurso textarea,
+#nuevo-recurso select {
+  width: 100% !important;
+  margin-bottom: 12px !important;
+  background: rgba(255,255,255,0.18) !important;
+  border: 1px solid rgba(198,163,89,0.32) !important;
+  color: #1f2430 !important;
+  border-radius: 14px !important;
+}
+
+#nuevo-recurso .input-biblioteca::placeholder,
+#nuevo-recurso textarea::placeholder,
+#nuevo-recurso input::placeholder {
+  color: rgba(31,36,48,0.58) !important;
+}
+
+#nuevo-recurso .cms-editor-preview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  position: sticky !important;
+  top: 24px !important;
+}
+
+#nuevo-recurso .cms-preview-card,
+#nuevo-recurso .cms-preview-side-card {
+  border: 1px solid rgba(198,163,89,0.28) !important;
+  border-radius: 22px !important;
+  padding: 24px !important;
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+#nuevo-recurso .cms-preview-card {
+  min-height: 280px !important;
+}
+
+#nuevo-recurso .cms-btn-guardar {
+  align-self: flex-start !important;
+  margin-top: 4px !important;
+}
+
+
+/* CONTRASTE VISTA PREVIA */
+
+#nuevo-recurso .cms-preview-badge {
+  background: rgba(31, 36, 48, 0.88) !important;
+  color: #f4d98b !important;
+  border: 1px solid rgba(244, 217, 139, 0.35) !important;
+}
+
+#nuevo-recurso .cms-preview-tags span {
+  background: rgba(31, 36, 48, 0.82) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(198, 163, 89, 0.35) !important;
+}
+
+#nuevo-recurso .cms-preview-meta span {
+  background: rgba(31, 36, 48, 0.82) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(198, 163, 89, 0.35) !important;
 }

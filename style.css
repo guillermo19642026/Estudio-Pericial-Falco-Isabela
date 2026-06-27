@@ -14331,3 +14331,53 @@ select.input-biblioteca option {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* AJUSTE FINAL DE ESPACIADO CMS */
+
+.cms-main-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 34px !important;
+  padding: 28px 34px 50px !important;
+}
+
+.cms-dashboard-section,
+.cms-kpi-grid,
+.cms-summary-grid,
+.cms-alertas-card,
+.cms-bottom-grid,
+.cms-section-card,
+.cms-system-footer {
+  margin: 0 !important;
+}
+
+/* ACCESOS RÁPIDOS MÁS PROLIJOS */
+
+.cms-accesos-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 18px !important;
+}
+
+.cms-accesos-grid a {
+  padding: 22px 16px !important;
+  min-height: 118px !important;
+  border-radius: 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.cms-accesos-grid a span {
+  font-size: 26px !important;
+  margin-bottom: 10px !important;
+}
+
+.cms-accesos-grid a small {
+  font-size: .92rem !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+}
