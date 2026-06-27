@@ -847,3 +847,82 @@
   cursor: not-allowed;
   filter: grayscale(1);
 }
+
+
+/* VISTA PREVIA RECURSO */
+
+.cms-preview-card {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(240,185,79,.28);
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+}
+
+.cms-preview-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: #111;
+  background: linear-gradient(135deg, #efb750, #ffd98b);
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.cms-preview-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(240,185,79,.14);
+  border: 1px solid rgba(240,185,79,.35);
+  color: #ffd98b;
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+.cms-preview-content h3 {
+  margin: 0 0 6px;
+  color: #fff;
+}
+
+.cms-preview-content p {
+  margin: 0 0 12px;
+  color: rgba(255,255,255,.68);
+}
+
+.cms-preview-tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.cms-preview-tags span {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.75);
+  font-size: .75rem;
+}
+
+.cms-preview-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cms-preview-meta span {
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.055);
+  color: rgba(255,255,255,.72);
+  font-size: .75rem;
+  font-weight: 800;
+}

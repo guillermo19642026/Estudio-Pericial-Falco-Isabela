@@ -95,8 +95,10 @@ function actualizarEstadoBotonGuardar() {
     Boolean(tags) &&
     Boolean(nivelAcceso);
 
-  btnGuardar.disabled = !formularioCompleto;
-}
+ btnGuardar.disabled = !formularioCompleto;
+
+ actualizarVistaPreviaRecurso();
+ }
 
 
 async function guardarRecurso() {
