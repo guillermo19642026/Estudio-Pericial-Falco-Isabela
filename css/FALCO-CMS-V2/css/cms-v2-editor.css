@@ -1,0 +1,309 @@
+/* =========================
+   FALCO CMS® v2 — EDITOR
+========================= */
+
+.falco-editor-hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    margin-bottom:24px;
+}
+
+.falco-editor-hero h1{
+    margin:8px 0 10px;
+    font-size:34px;
+    line-height:1.1;
+}
+
+.falco-editor-hero p{
+    max-width:780px;
+    color:var(--falco-text-muted);
+    line-height:1.6;
+}
+
+.falco-editor-grid{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) 360px;
+    gap:24px;
+    align-items:start;
+}
+
+.falco-editor-form{
+    display:grid;
+    gap:20px;
+}
+
+.falco-editor-card{
+    display:grid;
+    gap:14px;
+}
+
+.falco-editor-card h2{
+    margin:0 0 6px;
+    font-size:18px;
+    font-weight:800;
+}
+
+.falco-editor-card label{
+    margin-top:6px;
+    color:var(--falco-text-muted);
+    font-size:13px;
+    font-weight:700;
+}
+
+.falco-textarea{
+    width:100%;
+    min-height:120px;
+    resize:vertical;
+    padding:14px 16px;
+
+    color:var(--falco-text);
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+
+    font-family:inherit;
+    font-size:14px;
+    line-height:1.5;
+
+    outline:none;
+}
+
+.falco-textarea:focus{
+    border-color:rgba(212,175,55,.65);
+    box-shadow:0 0 0 3px rgba(212,175,55,.12);
+}
+
+.falco-editor-preview{
+    position:sticky;
+    top:24px;
+    display:grid;
+    gap:16px;
+}
+
+.falco-editor-preview h2{
+    margin:4px 0 0;
+    font-size:24px;
+    line-height:1.15;
+}
+
+.falco-editor-preview p{
+    color:var(--falco-text-muted);
+    line-height:1.6;
+}
+
+.falco-preview-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.falco-preview-meta span{
+    padding:7px 10px;
+    border-radius:999px;
+
+    font-size:12px;
+    font-weight:800;
+
+    color:#f7e7a7;
+    background:rgba(212,175,55,.12);
+    border:1px solid rgba(212,175,55,.28);
+}
+
+.falco-preview-box{
+    padding:16px;
+    border-radius:18px;
+
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.falco-preview-box strong{
+    display:block;
+    margin-bottom:6px;
+    color:var(--falco-text);
+}
+
+.falco-preview-box p{
+    margin:0;
+    font-size:13px;
+}
+
+/* Estado visual */
+
+#estadoVisual{
+    white-space:nowrap;
+}
+
+/* Botones topbar */
+
+.cms-v2-topbar-actions .falco-button{
+    min-height:40px;
+}
+
+/* Responsive */
+
+@media (max-width:1100px){
+    .falco-editor-grid{
+        grid-template-columns:1fr;
+    }
+
+    .falco-editor-preview{
+        position:relative;
+        top:auto;
+    }
+}
+
+@media (max-width:720px){
+    .falco-editor-hero{
+        flex-direction:column;
+    }
+
+    .falco-editor-hero h1{
+        font-size:28px;
+    }
+
+    .cms-v2-topbar{
+        gap:16px;
+    }
+
+    .cms-v2-topbar-actions{
+        width:100%;
+        justify-content:flex-start;
+        flex-wrap:wrap;
+    }
+}
+
+
+/* =========================
+   CORRECCIÓN DE FORMULARIOS
+========================= */
+
+.falco-editor-card{
+    padding:28px;
+}
+
+.falco-editor-card h2{
+    margin-bottom:12px;
+}
+
+.falco-editor-card label{
+    display:block;
+    margin-top:14px;
+    margin-bottom:8px;
+    padding-left:2px;
+}
+
+.falco-editor-card .falco-input,
+.falco-editor-card .falco-select-dark,
+.falco-editor-card .falco-textarea{
+    width:100%;
+    min-height:48px;
+    padding:13px 16px;
+
+    border-radius:14px;
+    font-size:14px;
+    line-height:1.4;
+}
+
+.falco-editor-card .falco-select-dark{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    color:var(--falco-text);
+    background:
+        linear-gradient(45deg, transparent 50%, #d4af37 50%),
+        linear-gradient(135deg, #d4af37 50%, transparent 50%),
+        rgba(255,255,255,.04);
+
+    background-position:
+        calc(100% - 20px) 50%,
+        calc(100% - 14px) 50%,
+        0 0;
+
+    background-size:
+        6px 6px,
+        6px 6px,
+        100% 100%;
+
+    background-repeat:no-repeat;
+
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.falco-editor-card .falco-select-dark:focus{
+    border-color:rgba(212,175,55,.65);
+    box-shadow:0 0 0 3px rgba(212,175,55,.12);
+    outline:none;
+}
+
+.falco-editor-card .falco-select-dark option{
+    background:#111318;
+    color:#f5f5f5;
+}
+
+.falco-editor-card .falco-input::placeholder,
+.falco-editor-card .falco-textarea::placeholder{
+    color:rgba(245,245,245,.42);
+}
+
+.falco-editor-form{
+    gap:24px;
+}
+
+
+/* =========================
+   AIRE Y ESPACIADO GENERAL
+========================= */
+
+.falco-editor-hero,
+.falco-editor-card,
+.falco-editor-preview{
+    padding:32px !important;
+}
+
+.falco-editor-hero > div,
+.falco-editor-card,
+.falco-editor-preview{
+    box-sizing:border-box;
+}
+
+.falco-editor-card{
+    gap:18px;
+}
+
+.falco-editor-card h2{
+    margin-bottom:18px;
+}
+
+.falco-editor-card label{
+    margin-top:18px;
+    margin-bottom:10px;
+}
+
+.falco-editor-card input,
+.falco-editor-card select,
+.falco-editor-card textarea{
+    margin-bottom:8px;
+}
+
+.falco-editor-preview{
+    gap:20px;
+}
+
+.falco-editor-preview h2{
+    margin-top:10px;
+    margin-bottom:8px;
+}
+
+.falco-editor-preview p{
+    margin-bottom:12px;
+}
+
+.falco-preview-box{
+    margin-top:8px;
+    padding:22px;
+}
