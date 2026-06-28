@@ -289,6 +289,26 @@
     </div>
   </div>
 
+
+<div class="cms-editor-statusbar">
+
+  <div class="cms-editor-status-left">
+    <span class="cms-editor-doc-icon">📄</span>
+
+    <div>
+      <strong>Nuevo recurso</strong>
+      <p id="estadoEditorTexto">Borrador sin guardar</p>
+    </div>
+  </div>
+
+  <div class="cms-editor-status-actions">
+    <button type="button" class="btn-cms-outline" id="btnIrVistaPrevia">Vista previa</button>
+    <button type="button" class="btn-cms-dorado" id="btnPublicarDesdeBarra">Guardar</button>
+  </div>
+
+</div>
+
+
   <div class="cms-editor-layout">
 
     <div class="cms-editor-form">
@@ -542,6 +562,170 @@
 <script type="module" src="motor-contenidos.js"></script>
 
 
+<script>
+function actualizarVistaPreviaRecurso() {
+  const titulo = document.getElementById("recursoTitulo")?.value.trim();
+  const descripcion = document.getElementById("recursoDescripcion")?.value.trim();
+  const modulo = document.getElementById("recursoModulo")?.value;
+  const tags = document.getElementById("recursoTags")?.value.trim();
+  const activo = document.getElementById("recursoActivo")?.value;
+  const destacado = document.getElementById("recursoDestacado")?.value;
+  const acceso = document.getElementById("recursoNivelAcceso")?.value;
+  const icono = document.getElementById("recursoIcono")?.value;
+
+  const iconos = {
+    documento: "▤",
+    manual: "▣",
+    biblioteca: "▥",
+    video: "▶",
+    audio: "♪",
+    pericia: "⚖",
+    psicologia: "◆",
+    modelo: "□",
+    formulario: "✎"
+  };
+
+  document.getElementById("previewTitulo").textContent =
+    titulo || "Título del recurso";
+
+  document.getElementById("previewDescripcion").textContent =
+    descripcion || "La descripción del recurso aparecerá aquí mientras completás el formulario.";
+
+  document.getElementById("previewModulo").textContent =
+    modulo ? modulo.toUpperCase() : "Sin módulo";
+
+  document.getElementById("previewIcono").textContent =
+    iconos[icono] || "▣";
+
+  document.getElementById("previewEstado").textContent =
+    activo === "false" ? "Oculto" : "Activo";
+
+  document.getElementById("previewDestacado").textContent =
+    destacado === "true" ? "Destacado" : "No destacado";
+
+  document.getElementById("previewAcceso").textContent =
+    acceso ? acceso.charAt(0).toUpperCase() + acceso.slice(1) : "Biblioteca";
+
+  const contenedorTags = document.getElementById("previewTags");
+
+  if (contenedorTags) {
+    contenedorTags.innerHTML = "";
+
+    if (tags) {
+      tags.split(",").forEach(tag => {
+        const limpio = tag.trim();
+
+        if (limpio) {
+          const span = document.createElement("span");
+          span.textContent = limpio;
+          contenedorTags.appendChild(span);
+        }
+      });
+    } else {
+      contenedorTags.innerHTML = "<span>Sin etiquetas</span>";
+    }
+  }
+}
+
+[
+  "recursoTitulo",
+  "recursoDescripcion",
+  "recursoModulo",
+  "recursoTipoContenido",
+  "recursoFuero",
+  "recursoTipoEscrito",
+  "recursoIcono",
+  "recursoTags",
+  "recursoActivo",
+  "recursoDestacado",
+  "recursoNivelAcceso"
+].forEach(id => {
+  const campo = document.getElementById(id);
+
+  if (campo) {
+    campo.addEventListener("input", actualizarVistaPreviaRecurso);
+    campo.addEventListener("change", actualizarVistaPreviaRecurso);
+  }
+});
+
+actualizarVistaPreviaRecurso();
+</script>
+
+
+<script>
+document.getElementById("btnPublicarDesdeBarra")?.addEventListener("click", () => {
+  document.getElementById("btnGuardarRecurso")?.click();
+});
+
+document.querySelectorAll("#nuevo-recurso input, #nuevo-recurso textarea, #nuevo-recurso select").forEach((campo) => {
+  campo.addEventListener("input", () => {
+    const estado = document.getElementById("estadoEditorTexto");
+    if (estado) estado.textContent = "Cambios sin guardar";
+  });
+
+  campo.addEventListener("change", () => {
+    const estado = document.getElementById("estadoEditorTexto");
+    if (estado) estado.textContent = "Cambios sin guardar";
+  });
+});
+</script>
+
+
+
+<script>
+const btnGuardarOriginal = document.getElementById("btnGuardarRecurso");
+const btnGuardarBarra = document.getElementById("btnPublicarDesdeBarra");
+
+function mostrarEstadoGuardadoCMS() {
+  const mensaje = document.getElementById("mensajeRecurso");
+  const estado = document.getElementById("estadoEditorTexto");
+
+  if (mensaje) {
+    mensaje.textContent = "✅ Recurso guardado correctamente.";
+    mensaje.style.color = "#2f7d4f";
+    mensaje.style.fontWeight = "600";
+  }
+
+  if (estado) {
+    estado.textContent = "Guardado correctamente";
+  }
+
+  setTimeout(() => {
+    if (mensaje) mensaje.textContent = "";
+  }, 4000);
+}
+
+if (btnGuardarOriginal) {
+  btnGuardarOriginal.addEventListener("click", () => {
+    setTimeout(mostrarEstadoGuardadoCMS, 700);
+  });
+}
+
+if (btnGuardarBarra) {
+  btnGuardarBarra.addEventListener("click", () => {
+    btnGuardarOriginal?.click();
+  });
+}
+</script>
+
+
+<script>
+document.getElementById("btnIrVistaPrevia")?.addEventListener("click", () => {
+  document.getElementById("vistaPreviaRecurso")?.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+});
+</script>
+
+
+<script type="module" src="motor-contenidos.js"></script>
+
+<script type="module" src="cms-editor.js"></script>
+<script type="module" src="cms-dashboard.js"></script>
+<script type="module" src="cms-explorer.js"></script>
+<script type="module" src="cms-preview.js"></script>
+<script type="module" src="cms-validaciones.js"></script>
 
 
 
