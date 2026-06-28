@@ -1,0 +1,499 @@
+/* ================================
+   FALCO CMS® v2 — CENTRO DE CONTROL v1.0
+================================ */
+
+/* PENDING */
+
+.falco-pending-panel{
+  padding:26px 30px;
+  border-radius:30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  background:
+    radial-gradient(circle at 92% 20%, rgba(216,180,106,.14), transparent 28%),
+    linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.022));
+  box-shadow:var(--shadow-md);
+}
+
+.falco-pending-panel h1{
+  margin-top:8px;
+  font-size:clamp(28px,3vw,42px);
+  line-height:1.05;
+  letter-spacing:-.055em;
+  font-weight:900;
+}
+
+.falco-pending-panel p{
+  margin-top:10px;
+  color:var(--soft);
+  font-size:14px;
+  line-height:1.65;
+  max-width:620px;
+}
+
+.falco-pending-panel i{
+  width:18px;
+  height:18px;
+}
+
+/* ECOSYSTEM */
+
+.falco-ecosystem-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.falco-eco-card{
+  min-height:145px;
+  padding:22px;
+  border-radius:26px;
+  text-decoration:none;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(216,180,106,.11), transparent 35%),
+    rgba(8,14,22,.74);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform var(--ease), border-color var(--ease), background var(--ease);
+}
+
+.falco-eco-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(216,180,106,.26);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(216,180,106,.16), transparent 35%),
+    rgba(10,17,26,.82);
+}
+
+.falco-eco-card i{
+  width:24px;
+  height:24px;
+  color:var(--gold-2);
+}
+
+.falco-eco-card span{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:850;
+}
+
+.falco-eco-card strong{
+  font-size:23px;
+  letter-spacing:-.045em;
+  font-weight:900;
+}
+
+.falco-eco-card small{
+  color:var(--gold-2);
+  font-size:12px;
+  font-weight:850;
+}
+
+/* HERO */
+
+.falco-control-hero{
+  min-height:230px;
+  padding:30px;
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) 330px;
+  gap:26px;
+  align-items:stretch;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(216,180,106,.13), transparent 30%),
+    linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+}
+
+.falco-control-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:13px;
+}
+
+.falco-control-copy h2{
+  font-size:clamp(30px,3vw,44px);
+  line-height:1.05;
+  letter-spacing:-.055em;
+  font-weight:900;
+}
+
+.falco-control-copy p{
+  color:var(--soft);
+  font-size:14.5px;
+  line-height:1.65;
+}
+
+.falco-control-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:8px;
+}
+
+.falco-control-actions i{
+  width:18px;
+  height:18px;
+}
+
+/* SYSTEM CARD */
+
+.falco-system-card{
+  padding:24px;
+  border-radius:24px;
+  background:rgba(5,7,11,.42);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.falco-system-lines{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.falco-system-lines div{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding-top:13px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+.falco-system-lines span{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.falco-system-lines strong{
+  font-size:13px;
+}
+
+/* GRID */
+
+.falco-dashboard-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(320px,.85fr);
+  gap:22px;
+}
+
+/* PANELS */
+
+.falco-panel{
+  padding:24px;
+  border-radius:28px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.02)),
+    rgba(8,14,22,.74);
+  backdrop-filter:blur(18px);
+}
+
+.falco-panel-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(255,255,255,.065);
+}
+
+.falco-panel-header h2{
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-.03em;
+}
+
+.falco-mini-link{
+  color:var(--gold-2);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:850;
+}
+
+/* TIMELINE */
+
+.falco-timeline{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.falco-timeline-item{
+  display:grid;
+  grid-template-columns:14px 1fr auto;
+  gap:14px;
+  align-items:start;
+  padding:15px;
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.falco-timeline-item > span{
+  width:10px;
+  height:10px;
+  margin-top:5px;
+  border-radius:50%;
+  background:var(--gold-2);
+  box-shadow:0 0 0 5px rgba(216,180,106,.10);
+}
+
+.falco-timeline-item > span.is-created{
+  background:#66d9ef;
+  box-shadow:0 0 0 5px rgba(102,217,239,.10);
+}
+
+.falco-timeline-item > span.is-edited{
+  background:var(--warning);
+  box-shadow:0 0 0 5px rgba(245,184,75,.10);
+}
+
+.falco-timeline-item > span.is-published{
+  background:var(--success);
+  box-shadow:0 0 0 5px rgba(73,209,125,.10);
+}
+
+.falco-timeline-item strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.falco-timeline-item p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.falco-timeline-item small{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* STATUS */
+
+.falco-status-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.falco-status-list div{
+  padding:16px;
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.06);
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.falco-status-list span{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.falco-status-list strong{
+  font-size:13px;
+}
+
+/* CONTENT TABLE */
+
+.falco-content-table{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.falco-content-row{
+  display:grid;
+  grid-template-columns:minmax(260px,1.6fr) .8fr 130px .7fr 70px;
+  align-items:center;
+  gap:16px;
+  padding:14px 16px;
+  border-radius:18px;
+  font-size:13.5px;
+  color:var(--soft);
+}
+
+.falco-content-head{
+  color:var(--gold-2);
+  background:rgba(216,180,106,.08);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+
+.falco-content-row:not(.falco-content-head){
+  background:rgba(255,255,255,.032);
+  border:1px solid rgba(255,255,255,.055);
+}
+
+.falco-content-row:not(.falco-content-head):hover{
+  background:rgba(255,255,255,.052);
+  border-color:rgba(216,180,106,.20);
+}
+
+.falco-content-row > span:first-child{
+  color:var(--text);
+  font-weight:800;
+}
+
+.falco-content-row a{
+  color:var(--gold-2);
+  text-decoration:none;
+  font-weight:850;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+  .falco-control-hero,
+  .falco-dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .falco-ecosystem-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:760px){
+  .falco-pending-panel{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .falco-ecosystem-grid{
+    grid-template-columns:1fr;
+  }
+
+  .falco-control-hero{
+    padding:24px;
+  }
+
+  .falco-content-row,
+  .falco-timeline-item{
+    grid-template-columns:1fr;
+  }
+
+  .falco-content-head{
+    display:none;
+  }
+}
+
+
+/* COMPACTADO GENERAL CENTRO DE CONTROL */
+
+.cms-v2-container{
+  gap:18px;
+}
+
+.falco-pending-panel{
+  padding:22px 26px;
+  border-radius:26px;
+}
+
+.falco-pending-panel h1{
+  font-size:clamp(26px,2.6vw,36px);
+}
+
+.falco-eco-card{
+  min-height:128px;
+  padding:19px;
+  border-radius:22px;
+}
+
+.falco-eco-card strong{
+  font-size:21px;
+}
+
+.falco-control-hero{
+  min-height:205px;
+  padding:26px;
+  border-radius:26px;
+}
+
+.falco-control-copy h2{
+  font-size:clamp(28px,2.6vw,38px);
+}
+
+.falco-panel{
+  padding:20px;
+  border-radius:24px;
+}
+
+.falco-timeline-item,
+.falco-status-list div,
+.falco-content-row{
+  padding:12px 14px;
+}
+
+
+/* ÚLTIMOS CONTENIDOS — REFINAMIENTO */
+
+.falco-content-table{
+  gap:8px;
+}
+
+.falco-content-row{
+  min-height:52px;
+}
+
+.falco-content-row:not(.falco-content-head){
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.falco-content-row:not(.falco-content-head):hover{
+  transform:translateY(-1px);
+}
+
+.falco-content-row a{
+  justify-self:end;
+}
+
+.falco-content-head{
+  min-height:42px;
+}
+
+
+/* MEMBRESÍAS PREMIUM */
+
+.falco-ecosystem-grid{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+
+.falco-eco-card-premium{
+  border-color:rgba(216,180,106,.32);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(216,180,106,.18), transparent 35%),
+    rgba(12,18,28,.86);
+}
+
+@media(max-width:1300px){
+  .falco-ecosystem-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:900px){
+  .falco-ecosystem-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:640px){
+  .falco-ecosystem-grid{
+    grid-template-columns:1fr;
+  }
+}

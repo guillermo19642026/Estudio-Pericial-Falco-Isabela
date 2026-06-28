@@ -1,0 +1,402 @@
+/* ================================
+   FALCO CMS® v2 — LAYOUT
+================================ */
+
+.cms-v2-shell{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(216,180,106,.13), transparent 28%),
+    radial-gradient(circle at 86% 10%, rgba(18,63,77,.42), transparent 34%),
+    radial-gradient(circle at 70% 85%, rgba(216,180,106,.06), transparent 30%),
+    linear-gradient(180deg,#05070b 0%,#07111b 100%);
+}
+
+/* SIDEBAR */
+
+.cms-v2-sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  width:var(--sidebar);
+  height:100vh;
+  padding:22px;
+  background:rgba(5,7,11,.76);
+  border-right:1px solid var(--border);
+  backdrop-filter:blur(24px);
+  z-index:60;
+
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.cms-v2-brand{
+  height:58px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:24px;
+}
+
+.cms-v2-brand-mark{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  color:#120f08;
+  font-size:19px;
+  font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  box-shadow:0 18px 42px rgba(216,180,106,.20);
+}
+
+.cms-v2-brand-text strong{
+  display:block;
+  font-size:15px;
+  font-weight:900;
+}
+
+.cms-v2-brand-text span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.cms-v2-nav-label{
+  margin:18px 0 8px;
+  color:var(--gold-2);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.cms-v2-nav{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.cms-v2-nav a{
+  min-height:42px;
+  padding:0 13px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:var(--soft);
+  text-decoration:none;
+  font-size:13.5px;
+  font-weight:800;
+  border:1px solid transparent;
+}
+
+.cms-v2-nav a.is-active{
+  color:var(--gold-2);
+  background:rgba(216,180,106,.13);
+  border-color:rgba(216,180,106,.22);
+}
+
+.cms-v2-nav i{
+  width:17px;
+  height:17px;
+  flex-shrink:0;
+}
+
+.cms-v2-sidebar-footer{
+  margin-top:auto;
+  padding:14px;
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  flex-shrink:0;
+}
+
+.cms-v2-sidebar-footer strong{
+  display:block;
+  font-size:13px;
+}
+
+.cms-v2-sidebar-footer span{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+}
+
+/* MAIN */
+
+.cms-v2-main{
+  min-height:100vh;
+  margin-left:var(--sidebar);
+}
+
+/* TOPBAR */
+
+.cms-v2-topbar{
+  position:sticky;
+  top:0;
+  height:var(--topbar);
+  padding:0 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  background:rgba(5,7,11,.62);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(22px);
+  z-index:50;
+}
+
+.cms-v2-topbar-left{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.cms-v2-topbar-left strong{
+  font-size:14px;
+  font-weight:900;
+}
+
+.cms-v2-topbar-left span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.cms-v2-topbar-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.cms-v2-search{
+  width:320px;
+}
+
+/* CONTENT */
+
+.cms-v2-content{
+  padding:34px;
+}
+
+.cms-v2-container{
+  max-width:1420px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+  .cms-v2-search{
+    display:none;
+  }
+}
+
+@media(max-width:900px){
+  .cms-v2-sidebar{
+    display:none;
+  }
+
+  .cms-v2-main{
+    margin-left:0;
+  }
+
+  .cms-v2-topbar{
+    padding:0 18px;
+  }
+
+  .cms-v2-content{
+    padding:22px 16px 36px;
+  }
+}
+
+
+/* TOPBAR PREMIUM */
+
+.cms-v2-topbar{
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.cms-v2-topbar-left strong{
+  color:var(--text);
+  letter-spacing:-.01em;
+}
+
+.cms-v2-search{
+  min-height:40px;
+  padding:0 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.045);
+  color:var(--text);
+  outline:none;
+}
+
+.cms-v2-search:focus{
+  border-color:rgba(216,180,106,.36);
+  box-shadow:0 0 0 4px rgba(216,180,106,.08);
+}
+
+
+
+/* TOPBAR — CENTRO DE CONTROL */
+
+.cms-v2-topbar{
+  height:72px;
+  padding:0 30px;
+}
+
+.cms-v2-topbar-left strong{
+  font-size:15px;
+}
+
+.cms-v2-topbar-left span{
+  font-size:12px;
+}
+
+.cms-v2-topbar-actions{
+  gap:12px;
+}
+
+.cms-v2-search{
+  width:min(420px,40vw);
+}
+
+.cms-v2-icon-button,
+.cms-v2-profile-button{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.045);
+  color:var(--text);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.cms-v2-icon-button:hover,
+.cms-v2-profile-button:hover{
+  border-color:rgba(216,180,106,.26);
+  background:rgba(255,255,255,.07);
+  transform:translateY(-1px);
+}
+
+.cms-v2-icon-button i{
+  width:18px;
+  height:18px;
+}
+
+.cms-v2-profile-button{
+  font-size:13px;
+  font-weight:900;
+  color:#120f08;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+}
+
+
+/* Hace que el footer siempre quede abajo */
+
+.cms-v2-sidebar-footer{
+    margin-top:auto;
+
+    padding-top:22px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    font-size:12px;
+
+    color:var(--muted);
+}
+
+.cms-v2-sidebar-footer strong{
+    display:block;
+    margin-bottom:4px;
+    color:var(--text);
+}
+
+
+/* AJUSTE FOOTER SIDEBAR */
+
+.cms-v2-sidebar{
+  padding-bottom:18px;
+}
+
+.cms-v2-sidebar-footer{
+  margin-bottom:0;
+  padding:12px 14px;
+}
+
+.cms-v2-sidebar-footer span{
+  font-size:11.5px;
+  line-height:1.3;
+}
+
+
+/* FOOTER SIDEBAR — AJUSTE FINAL */
+
+.cms-v2-sidebar{
+  padding-top:18px;
+  padding-bottom:14px;
+}
+
+.cms-v2-brand{
+  margin-bottom:18px;
+}
+
+.cms-v2-nav-label{
+  margin:14px 0 6px;
+}
+
+.cms-v2-nav{
+  gap:4px;
+}
+
+.cms-v2-nav a{
+  min-height:38px;
+}
+
+.cms-v2-sidebar-footer{
+  padding:10px 12px;
+  border-radius:16px;
+}
+
+.cms-v2-sidebar-footer strong{
+  font-size:12px;
+}
+
+.cms-v2-sidebar-footer span{
+  font-size:11px;
+  line-height:1.25;
+}
+
+
+/* SIDEBAR SCROLL INTERNO */
+
+.cms-v2-sidebar-scroll{
+  flex:1;
+  overflow-y:auto;
+  padding-right:4px;
+  margin-right:-4px;
+}
+
+.cms-v2-sidebar-scroll::-webkit-scrollbar{
+  width:4px;
+}
+
+.cms-v2-sidebar-scroll::-webkit-scrollbar-thumb{
+  background:rgba(216,180,106,.24);
+  border-radius:999px;
+}
+
+.cms-v2-sidebar-scroll::-webkit-scrollbar-track{
+  background:transparent;
+}

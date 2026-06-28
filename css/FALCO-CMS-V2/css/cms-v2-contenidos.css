@@ -1,0 +1,178 @@
+/* ================================
+   FALCO CMS® v2 — CONTENIDOS
+================================ */
+
+/* TOOLBAR */
+
+.falco-content-toolbar{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:16px;
+  align-items:center;
+  margin:8px 0 24px;
+  padding:18px;
+  border-radius:22px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.falco-content-toolbar .falco-input,
+.falco-select-dark{
+  width:100%;
+  min-height:46px;
+}
+
+/* SELECTS */
+
+.falco-select-dark{
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#0b111a;
+  color:#f7f7f4;
+  font:inherit;
+  font-weight:700;
+  outline:none;
+  cursor:pointer;
+}
+
+.falco-select-dark option{
+  background:#ffffff;
+  color:#111111;
+}
+
+/* LISTA */
+
+.falco-editorial-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.falco-editorial-item{
+  min-height:82px;
+  padding:18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.06);
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr) 120px 80px 70px;
+  align-items:center;
+  gap:14px;
+  transition:.2s ease;
+}
+
+.falco-editorial-item:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.055);
+  border-color:rgba(216,180,106,.22);
+}
+
+.falco-editorial-icon{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  color:var(--gold-2);
+  background:rgba(216,180,106,.11);
+  border:1px solid rgba(216,180,106,.18);
+}
+
+.falco-editorial-icon i{
+  width:20px;
+  height:20px;
+}
+
+.falco-editorial-item strong{
+  display:block;
+  font-size:14.5px;
+  margin-bottom:5px;
+}
+
+.falco-editorial-item span{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.falco-editorial-item small{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.falco-editorial-item a{
+  color:var(--gold-2);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:850;
+  justify-self:end;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+  .falco-content-toolbar{
+    grid-template-columns:1fr;
+  }
+
+  .falco-editorial-item{
+    grid-template-columns:44px 1fr;
+  }
+
+  .falco-editorial-item .falco-badge,
+  .falco-editorial-item small,
+  .falco-editorial-item a{
+    grid-column:2;
+    justify-self:start;
+  }
+}
+
+
+/* EMPTY STATE */
+
+.falco-empty-state{
+  min-height:360px;
+  padding:42px;
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(216,180,106,.12), transparent 34%),
+    rgba(255,255,255,.025);
+  border:1px dashed rgba(216,180,106,.26);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.falco-empty-icon{
+  width:70px;
+  height:70px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  color:var(--gold-2);
+  background:rgba(216,180,106,.12);
+  border:1px solid rgba(216,180,106,.22);
+  margin-bottom:20px;
+}
+
+.falco-empty-icon i{
+  width:30px;
+  height:30px;
+}
+
+.falco-empty-state h3{
+  margin-top:14px;
+  font-size:26px;
+  letter-spacing:-.04em;
+}
+
+.falco-empty-state p{
+  max-width:520px;
+  margin:12px 0 24px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.65;
+}
