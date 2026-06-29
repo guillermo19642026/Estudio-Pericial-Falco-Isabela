@@ -5,7 +5,7 @@
  * ==========================================================
  */
 
-import { db } from "../firebase.js";
+import { db } from "../../firebase.js";
 
 import {
     collection,
@@ -81,16 +81,17 @@ export async function listarContenidos() {
 
     const consulta = query(
         collection(db, COLECCION_CONTENIDOS),
-        where("eliminado", "==", false),
         orderBy("actualizadoEn", "desc")
     );
 
     const snapshot = await getDocs(consulta);
 
-    return snapshot.docs.map(documento => ({
-        id: documento.id,
-        ...documento.data()
-    }));
+    return snapshot.docs
+    .map(documento => ({
+        ...documento.data(),
+        id: documento.id
+    }))
+    .filter(contenido => contenido.eliminado !== true);
 }
 
 /**

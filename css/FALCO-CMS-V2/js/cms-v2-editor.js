@@ -1,11 +1,13 @@
-import Contenido from "./models/contenido.model.js";
+import Contenido from "./models/contenido-model.js";
 
 import {
-    crearContenido
+    crearContenido,
+    obtenerContenido as obtenerContenidoFirestore,
+    actualizarContenido
 } from "./services/contenido.service.js";
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     if (window.lucide) {
         lucide.createIcons();
@@ -36,6 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const slug = document.getElementById("contenidoSlug");
 
     const camposDinamicos = document.getElementById("camposDinamicos");
+
+    const params = new URLSearchParams(window.location.search);
+    const contenidoId = params.get("id");
+
+
+console.log("ID recibido:", contenidoId);
+
 
     function textoBonito(valor) {
         if (!valor) return "";
@@ -189,6 +198,68 @@ function generarSlug(texto) {
 }
 
 
+   async function cargarContenidoExistente() {
+    if (!contenidoId) return;
+
+    try {
+        const contenido = await obtenerContenidoFirestore(contenidoId);
+
+
+
+console.log(JSON.stringify(contenido, null, 2));
+
+
+
+        if (!contenido) {
+            alert("No se encontró el contenido.");
+            return;
+        }
+
+        titulo.value = contenido.titulo || "";
+        descripcion.value = contenido.descripcion || "";
+        tipo.value = contenido.tipo || "";
+        modulo.value = contenido.modulo || "";
+        fuero.value = contenido.fuero || "";
+        etiquetas.value = Array.isArray(contenido.etiquetas)
+            ? contenido.etiquetas.join(", ")
+            : "";
+
+        acceso.value = contenido.acceso || "premium";
+        estado.value = contenido.estado || "borrador";
+
+        archivoUrl.value = contenido.archivoUrl || "";
+        videoUrl.value = contenido.videoUrl || "";
+        notas.value = contenido.notas || "";
+
+        document.getElementById("contenidoFechaPublicacion").value =
+            contenido.fechaPublicacion || "";
+
+        document.getElementById("contenidoFechaVencimiento").value =
+            contenido.fechaVencimiento || "";
+
+        document.getElementById("contenidoProgramado").value =
+            contenido.programado || "no";
+
+        document.getElementById("contenidoSlug").value =
+            contenido.slug || "";
+
+        document.getElementById("contenidoMetaTitulo").value =
+            contenido.metaTitulo || "";
+
+        document.getElementById("contenidoMetaDescripcion").value =
+            contenido.metaDescripcion || "";
+
+        renderCamposDinamicos();
+actualizarPreview();
+estadoVisual.textContent = "Contenido cargado";
+
+    } catch (error) {
+        console.error(error);
+        alert("No fue posible cargar el contenido.");
+    }
+}
+
+
 
 
     function actualizarPreview() {
@@ -234,26 +305,36 @@ function generarSlug(texto) {
         return true;
     }
 
-    function guardarContenido() {
-        const contenido = obtenerContenido();
 
-        if (!validarContenido(contenido)) return;
 
-       const contenidoLocal = new Contenido({
-    ...contenido,
-    idTemporal: `contenido_${Date.now()}`,
-    creadoEn: new Date().toISOString()
-});
 
-        localStorage.setItem(
-            "falco_cms_v2_contenido_borrador",
-            JSON.stringify(contenidoLocal)
-        );
 
-        alert("Contenido guardado como borrador local. Luego lo conectamos con Firestore.");
+   async function guardarContenido() {
 
-        console.log("Contenido preparado:", contenidoLocal);
+    const contenido = obtenerContenido();
+
+    if (!validarContenido(contenido)) return;
+
+    const contenidoLocal = new Contenido({
+        ...contenido,
+        creadoEn: new Date().toISOString()
+    });
+
+    try {
+
+        const id = await crearContenido(contenidoLocal);
+
+        alert("Contenido guardado correctamente.");
+
+        console.log("ID Firestore:", id);
+
+    } catch(error){
+
+        console.error(error);
+
+        alert("No fue posible guardar el contenido.");
     }
+}
 
     function mostrarVistaPrevia() {
         actualizarPreview();
@@ -284,7 +365,11 @@ function generarSlug(texto) {
     btnVistaPrevia?.addEventListener("click", mostrarVistaPrevia);
     tipo?.addEventListener("change", renderCamposDinamicos);
 
-    actualizarPreview();
+  if (contenidoId) {
+    await cargarContenidoExistente();
+} else {
     renderCamposDinamicos();
+    actualizarPreview();
+}
 
 });
