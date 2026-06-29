@@ -307,3 +307,52 @@
     margin-top:8px;
     padding:22px;
 }
+
+
+/* =========================
+   AJUSTE FINAL EDITOR v2
+========================= */
+
+.falco-editor-hero{
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 90% 18%, rgba(216,180,106,.14), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.022));
+    box-shadow:var(--shadow-md);
+}
+
+.falco-editor-card,
+.falco-editor-preview{
+    border-radius:26px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.02)),
+        rgba(8,14,22,.74);
+    backdrop-filter:blur(18px);
+}
+
+.falco-editor-grid{
+    grid-template-columns:minmax(0,1.45fr) 380px;
+}
+
+.falco-editor-preview{
+    top:96px;
+}
+
+
+/* FILE INPUT PREMIUM */
+
+input[type="file"].falco-input{
+    padding:11px;
+    cursor:pointer;
+}
+
+input[type="file"].falco-input::file-selector-button{
+    margin-right:14px;
+    padding:10px 14px;
+    border:0;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:#111;
+    font-weight:900;
+    cursor:pointer;
+}

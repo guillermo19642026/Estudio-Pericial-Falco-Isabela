@@ -134,88 +134,144 @@
 
                 <section class="falco-editor-grid">
 
-                    <form class="falco-editor-form" id="formContenido">
 
-                        <div class="falco-card falco-editor-card">
-                            <h2>Información general</h2>
 
-                            <label for="contenidoTitulo">Título del contenido</label>
-                            <input id="contenidoTitulo" class="falco-input" type="text" placeholder="Ej: Aceptación de cargo de perito psicólogo">
+<form class="falco-editor-form" id="formContenido">
 
-                            <label for="contenidoDescripcion">Descripción breve</label>
-                            <textarea id="contenidoDescripcion" class="falco-textarea" rows="4" placeholder="Resumen del contenido, finalidad o uso profesional"></textarea>
+    <div class="falco-card falco-editor-card">
+        <h2>Información general</h2>
 
-                            <label for="contenidoTipo">Tipo de contenido</label>
-                            <select id="contenidoTipo" class="falco-select-dark">
-                                <option value="">Seleccionar tipo</option>
-                                <option value="escrito">Escrito judicial</option>
-                                <option value="biblioteca">Biblioteca</option>
-                                <option value="curso">Curso</option>
-                                <option value="test">Test psicométrico</option>
-                                <option value="video">Video</option>
-                                <option value="documento">Documento institucional</option>
-                            </select>
-                        </div>
+        <label for="contenidoTitulo">Título del contenido</label>
+        <input id="contenidoTitulo" class="falco-input" type="text" placeholder="Ej: Aceptación de cargo de perito psicólogo">
 
-                        <div class="falco-card falco-editor-card">
-                            <h2>Clasificación</h2>
+        <label for="contenidoDescripcion">Descripción breve</label>
+        <textarea id="contenidoDescripcion" class="falco-textarea" rows="4" placeholder="Resumen del contenido, finalidad o uso profesional"></textarea>
 
-                            <label for="contenidoModulo">Módulo</label>
-                            <select id="contenidoModulo" class="falco-select-dark">
-                                <option value="">Seleccionar módulo</option>
-                                <option value="danio-psiquico">Daño psíquico</option>
-                                <option value="pericias">Pericias psicológicas</option>
-                                <option value="impugnaciones">Impugnaciones</option>
-                                <option value="biblioteca-falco">Biblioteca FALCO®</option>
-                                <option value="escuela-padres">Escuela para Padres</option>
-                            </select>
+        <label for="contenidoTipo">Tipo de contenido</label>
+        <select id="contenidoTipo" class="falco-select-dark">
+            <option value="">Seleccionar tipo</option>
+            <option value="escrito">Escrito judicial</option>
+            <option value="biblioteca">Biblioteca</option>
+            <option value="curso">Curso</option>
+            <option value="test">Test psicométrico</option>
+            <option value="video">Video</option>
+            <option value="documento">Documento institucional</option>
+        </select>
+    </div>
 
-                            <label for="contenidoFuero">Fuero</label>
-                            <select id="contenidoFuero" class="falco-select-dark">
-                                <option value="">Seleccionar fuero</option>
-                                <option value="civil">Civil</option>
-                                <option value="laboral">Laboral</option>
-                                <option value="familia">Familia</option>
-                                <option value="penal">Penal</option>
-                                <option value="general">General</option>
-                            </select>
 
-                            <label for="contenidoEtiquetas">Etiquetas</label>
-                            <input id="contenidoEtiquetas" class="falco-input" type="text" placeholder="pericia, daño psíquico, laboral">
-                        </div>
 
-                        <div class="falco-card falco-editor-card">
-                            <h2>Acceso y membresía</h2>
 
-                            <label for="contenidoAcceso">Tipo de acceso</label>
-                            <select id="contenidoAcceso" class="falco-select-dark">
-                                <option value="premium">Premium</option>
-                                <option value="privado">Privado</option>
-                                <option value="publico">Público</option>
-                            </select>
+<div id="camposDinamicos"></div>
 
-                            <label for="contenidoEstado">Estado editorial</label>
-                            <select id="contenidoEstado" class="falco-select-dark">
-                                <option value="borrador">Borrador</option>
-                                <option value="publicado">Publicado</option>
-                                <option value="archivado">Archivado</option>
-                            </select>
-                        </div>
 
-                        <div class="falco-card falco-editor-card">
-                            <h2>Recurso principal</h2>
 
-                            <label for="contenidoArchivoUrl">URL del archivo</label>
-                            <input id="contenidoArchivoUrl" class="falco-input" type="url" placeholder="https://...">
 
-                            <label for="contenidoVideoUrl">URL del video</label>
-                            <input id="contenidoVideoUrl" class="falco-input" type="url" placeholder="https://...">
 
-                            <label for="contenidoNotas">Notas internas</label>
-                            <textarea id="contenidoNotas" class="falco-textarea" rows="6" placeholder="Notas de uso interno del CMS"></textarea>
-                        </div>
+    <div class="falco-card falco-editor-card">
+        <h2>Clasificación</h2>
 
-                    </form>
+        <label for="contenidoModulo">Módulo</label>
+        <select id="contenidoModulo" class="falco-select-dark">
+            <option value="">Seleccionar módulo</option>
+            <option value="danio-psiquico">Daño psíquico</option>
+            <option value="pericias">Pericias psicológicas</option>
+            <option value="impugnaciones">Impugnaciones</option>
+            <option value="biblioteca-falco">Biblioteca FALCO®</option>
+            <option value="escuela-padres">Escuela para Padres</option>
+        </select>
+
+        <label for="contenidoFuero">Fuero</label>
+        <select id="contenidoFuero" class="falco-select-dark">
+            <option value="">Seleccionar fuero</option>
+            <option value="civil">Civil</option>
+            <option value="laboral">Laboral</option>
+            <option value="familia">Familia</option>
+            <option value="penal">Penal</option>
+            <option value="general">General</option>
+        </select>
+
+        <label for="contenidoEtiquetas">Etiquetas</label>
+        <input id="contenidoEtiquetas" class="falco-input" type="text" placeholder="pericia, daño psíquico, laboral">
+    </div>
+
+    <div class="falco-card falco-editor-card">
+        <h2>Recurso principal</h2>
+
+        <label for="contenidoArchivoUrl">URL del archivo</label>
+        <input id="contenidoArchivoUrl" class="falco-input" type="url" placeholder="https://...">
+
+        <label for="contenidoVideoUrl">URL del video</label>
+        <input id="contenidoVideoUrl" class="falco-input" type="url" placeholder="https://...">
+
+        <label for="contenidoNotas">Notas internas</label>
+        <textarea id="contenidoNotas" class="falco-textarea" rows="6" placeholder="Notas de uso interno del CMS"></textarea>
+    </div>
+
+    <div class="falco-card falco-editor-card">
+        <h2>Multimedia</h2>
+
+        <label for="contenidoImagen">Imagen destacada</label>
+        <input id="contenidoImagen" class="falco-input" type="file" accept="image/*">
+
+        <label for="contenidoPdf">Documento PDF</label>
+        <input id="contenidoPdf" class="falco-input" type="file" accept=".pdf">
+
+        <label for="contenidoVideo">Video</label>
+        <input id="contenidoVideo" class="falco-input" type="file" accept="video/*">
+
+        <label for="contenidoAudio">Audio</label>
+        <input id="contenidoAudio" class="falco-input" type="file" accept="audio/*">
+    </div>
+
+    <div class="falco-card falco-editor-card">
+        <h2>Acceso y membresía</h2>
+
+        <label for="contenidoAcceso">Tipo de acceso</label>
+        <select id="contenidoAcceso" class="falco-select-dark">
+            <option value="premium">Premium</option>
+            <option value="privado">Privado</option>
+            <option value="publico">Público</option>
+        </select>
+
+        <label for="contenidoEstado">Estado editorial</label>
+        <select id="contenidoEstado" class="falco-select-dark">
+            <option value="borrador">Borrador</option>
+            <option value="publicado">Publicado</option>
+            <option value="archivado">Archivado</option>
+        </select>
+    </div>
+
+    <div class="falco-card falco-editor-card">
+        <h2>Programación editorial</h2>
+
+        <label for="contenidoFechaPublicacion">Fecha de publicación</label>
+        <input id="contenidoFechaPublicacion" class="falco-input" type="date">
+
+        <label for="contenidoFechaVencimiento">Fecha de vencimiento opcional</label>
+        <input id="contenidoFechaVencimiento" class="falco-input" type="date">
+
+        <label for="contenidoProgramado">Programar publicación</label>
+        <select id="contenidoProgramado" class="falco-select-dark">
+            <option value="no">No programar</option>
+            <option value="si">Programar automáticamente</option>
+        </select>
+    </div>
+
+    <div class="falco-card falco-editor-card">
+        <h2>SEO y publicación web</h2>
+
+        <label for="contenidoSlug">URL amigable</label>
+        <input id="contenidoSlug" class="falco-input" type="text" placeholder="aceptacion-cargo-perito-psicologo">
+
+        <label for="contenidoMetaTitulo">Meta título</label>
+        <input id="contenidoMetaTitulo" class="falco-input" type="text" placeholder="Título para Google">
+
+        <label for="contenidoMetaDescripcion">Meta descripción</label>
+        <textarea id="contenidoMetaDescripcion" class="falco-textarea" rows="4" placeholder="Descripción breve para buscadores"></textarea>
+    </div>
+
+</form>
 
                     <aside class="falco-card falco-editor-preview">
                         <span class="falco-eyebrow">Vista previa</span>
