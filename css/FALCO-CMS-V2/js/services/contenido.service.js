@@ -143,3 +143,43 @@ export async function enviarAPapelera(id) {
 
     return true;
 }
+
+
+/**
+ * Listar contenidos en papelera
+ */
+export async function listarPapelera() {
+
+    const consulta = query(
+        collection(db, COLECCION_CONTENIDOS),
+        orderBy("actualizadoEn", "desc")
+    );
+
+    const snapshot = await getDocs(consulta);
+
+    return snapshot.docs
+        .map(documento => ({
+            ...documento.data(),
+            id: documento.id
+        }))
+        .filter(contenido => contenido.eliminado === true);
+}
+
+
+/**
+ * Restaurar contenido
+ */
+export async function restaurarContenido(id) {
+
+    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+
+    await updateDoc(referencia, {
+
+        eliminado: false,
+        eliminadoEn: null,
+        actualizadoEn: serverTimestamp()
+
+    });
+
+    return true;
+}

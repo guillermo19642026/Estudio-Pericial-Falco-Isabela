@@ -6,6 +6,11 @@ import {
     actualizarContenido
 } from "./services/contenido.service.js";
 
+import {
+    subirArchivo
+} from "./services/storage.service.js";
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -89,11 +94,11 @@ function generarSlug(texto) {
             metaTitulo: document.getElementById("contenidoMetaTitulo")?.value.trim() || "",
             metaDescripcion: document.getElementById("contenidoMetaDescripcion")?.value.trim() || "",
             actualizadoEn: new Date().toISOString(),
-            multimedia: {
-            imagen: document.getElementById("contenidoImagen")?.files[0]?.name || "",
-            pdf: document.getElementById("contenidoPdf")?.files[0]?.name || "",
-            video: document.getElementById("contenidoVideo")?.files[0]?.name || "",
-            audio: document.getElementById("contenidoAudio")?.files[0]?.name || ""
+multimedia: {
+    imagen: null,
+    pdf: null,
+    video: null,
+    audio: null
 },
         };
     }
@@ -215,6 +220,44 @@ console.log(JSON.stringify(contenido, null, 2));
             return;
         }
 
+
+     // ==========================
+        // VISTA PREVIA DE LA IMAGEN
+        // ==========================
+
+        const previewImagenActual =
+            document.getElementById("previewImagenActual");
+
+        if (
+            previewImagenActual &&
+            contenido.multimedia?.imagen?.url
+        ) {
+
+            previewImagenActual.innerHTML = `
+                <img
+                    src="${contenido.multimedia.imagen.url}"
+                    alt="Imagen destacada">
+            `;
+
+        }
+
+        // ==========================
+        // CARGA DE LOS CAMPOS
+        // ==========================
+
+        titulo.value = contenido.titulo || "";
+        descripcion.value = contenido.descripcion || "";
+        tipo.value = contenido.tipo || "";
+        modulo.value = contenido.modulo || "";
+        fuero.value = contenido.fuero || "";
+
+        etiquetas.value = Array.isArray(contenido.etiquetas)
+            ? contenido.etiquetas.join(", ")
+            : "";
+
+
+
+
         titulo.value = contenido.titulo || "";
         descripcion.value = contenido.descripcion || "";
         tipo.value = contenido.tipo || "";
@@ -309,32 +352,70 @@ estadoVisual.textContent = "Contenido cargado";
 
 
 
-   async function guardarContenido() {
+
+
+async function guardarContenido() {
 
     const contenido = obtenerContenido();
 
+    const archivoImagen = document.getElementById("contenidoImagen")?.files[0] || null;
+const archivoPdf = document.getElementById("contenidoPdf")?.files[0] || null;
+const archivoVideo = document.getElementById("contenidoVideo")?.files[0] || null;
+const archivoAudio = document.getElementById("contenidoAudio")?.files[0] || null;
+
+contenido.multimedia.imagen = await subirArchivo(archivoImagen, "cms/imagenes");
+contenido.multimedia.pdf = await subirArchivo(archivoPdf, "cms/pdf");
+contenido.multimedia.video = await subirArchivo(archivoVideo, "cms/videos");
+contenido.multimedia.audio = await subirArchivo(archivoAudio, "cms/audios");
+
+
+
+    console.log("Contenido del formulario:", contenido);
+
+
     if (!validarContenido(contenido)) return;
 
-    const contenidoLocal = new Contenido({
+    const contenidoFirestore = new Contenido({
+
         ...contenido,
-        creadoEn: new Date().toISOString()
+
+        actualizadoEn: new Date().toISOString()
+
     });
 
     try {
 
-        const id = await crearContenido(contenidoLocal);
+        if (contenidoId) {
 
-        alert("Contenido guardado correctamente.");
+            await actualizarContenido(
+                contenidoId,
+                contenidoFirestore
+            );
 
-        console.log("ID Firestore:", id);
+            alert("Contenido actualizado correctamente.");
 
-    } catch(error){
+        } else {
+
+            const id = await crearContenido(
+                contenidoFirestore
+            );
+
+            console.log("Nuevo ID:", id);
+
+            alert("Contenido creado correctamente.");
+
+        }
+
+    } catch (error) {
 
         console.error(error);
 
         alert("No fue posible guardar el contenido.");
+
     }
+
 }
+
 
     function mostrarVistaPrevia() {
         actualizarPreview();

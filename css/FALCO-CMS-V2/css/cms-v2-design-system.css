@@ -207,3 +207,58 @@ h1,h2,h3,p{
   border-color:rgba(216,180,106,.46);
   box-shadow:0 0 0 4px rgba(216,180,106,.09);
 }
+
+
+
+/* =====================================================
+   FALCO UI KIT · BOTONES
+===================================================== */
+
+.falco-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:38px;
+    padding:9px 16px;
+    border:0;
+    border-radius:999px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:13px;
+    font-weight:850;
+    text-decoration:none;
+    transition:.22s ease;
+}
+
+.falco-btn:hover{
+    transform:translateY(-1px);
+}
+
+.falco-btn i{
+    width:15px;
+    height:15px;
+}
+
+.falco-btn-primary{
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:#111;
+}
+
+.falco-btn-dark{
+    background:rgba(255,255,255,.06);
+    color:var(--soft);
+    border:1px solid rgba(255,255,255,.09);
+}
+
+.falco-btn-danger{
+    background:rgba(220,38,38,.14);
+    color:#ffb4b4;
+    border:1px solid rgba(220,38,38,.28);
+}
+
+.falco-btn-success{
+    background:rgba(22,163,74,.14);
+    color:#b8ffd0;
+    border:1px solid rgba(22,163,74,.28);
+}

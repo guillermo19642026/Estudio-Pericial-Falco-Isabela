@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contenidos | FALCO CMS® v2</title>
+<title>Papelera | FALCO CMS® v2</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -107,7 +107,7 @@
 
         <header class="cms-v2-topbar">
             <div class="cms-v2-topbar-left">
-                <strong>Contenidos</strong>
+                <strong>Papelera</strong>
                 <span>Gestión editorial del ecosistema FALCO®</span>
             </div>
 
@@ -131,11 +131,12 @@
                     <div>
                         <span class="falco-eyebrow">Workspace editorial</span>
 
-                        <h1>Contenidos</h1>
+                        <h1>Papelera</h1>
 
-                        <p>
-                            Administrá escritos, biblioteca, cursos, recursos, documentos premium y materiales del ecosistema FALCO®.
-                        </p>
+<p>
+Todos los contenidos eliminados temporalmente.
+Desde aquí pueden restaurarse o eliminarse definitivamente.
+</p>
                     </div>
 
                     <a href="editor.html" class="falco-button falco-button-primary">
@@ -152,47 +153,28 @@
                         <span class="falco-badge falco-badge-gold">Datos simulados</span>
                     </div>
 
+                    <div class="falco-content-toolbar">
 
-<div class="falco-content-toolbar falco-toolbar-pro">
+    <input
+    id="filtroTexto"
+    class="falco-input"
+    type="search"
+    placeholder="Buscar por título, tipo o etiqueta...">
 
-    <div class="falco-toolbar-search">
+    <select id="filtroEstado" class="falco-select-dark">
+        <option>Todos los estados</option>
+        <option>Publicado</option>
+        <option>Borrador</option>
+        <option>Premium</option>
+    </select>
 
-        <input
-            id="filtroTexto"
-            class="falco-input"
-            type="search"
-            placeholder="Buscar por título, tipo o etiqueta...">
-
-    </div>
-
-    <div class="falco-toolbar-filters">
-
-        <select id="filtroEstado" class="falco-select-dark">
-            <option>Todos los estados</option>
-            <option>Publicado</option>
-            <option>Borrador</option>
-            <option>Premium</option>
-        </select>
-
-        <select id="filtroTipo" class="falco-select-dark">
-            <option>Todos los tipos</option>
-            <option>Escrito</option>
-            <option>Biblioteca</option>
-            <option>Curso</option>
-            <option>Test</option>
-            <option>Video</option>
-        </select>
-
-        <a
-            href="editor.html"
-            class="falco-btn falco-btn-primary">
-
-            <i data-lucide="plus"></i>
-            Nuevo contenido
-
-        </a>
-
-    </div>
+    <select id="filtroTipo" class="falco-select-dark">
+        <option>Todos los tipos</option>
+        <option>Escrito</option>
+        <option>Biblioteca</option>
+        <option>Curso</option>
+        <option>Test</option>
+    </select>
 
 </div>
 
@@ -277,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<script type="module" src="js/cms-v2-contenidos.js"></script>
+<script type="module" src="js/cms-v2-papelera.js"></script>
 
 
 </body>

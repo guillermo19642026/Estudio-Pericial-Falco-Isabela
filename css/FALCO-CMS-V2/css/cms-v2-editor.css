@@ -356,3 +356,20 @@ input[type="file"].falco-input::file-selector-button{
     font-weight:900;
     cursor:pointer;
 }
+
+
+/* PREVIEW IMAGEN EDITOR */
+
+.falco-image-preview{
+    margin-top:14px;
+}
+
+.falco-image-preview img{
+    width:100%;
+    max-width:360px;
+    height:190px;
+    object-fit:cover;
+    border-radius:18px;
+    border:1px solid rgba(216,180,106,.25);
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+}

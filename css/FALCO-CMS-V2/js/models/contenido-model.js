@@ -100,6 +100,13 @@ export default class Contenido {
 
         this.audio = datos.audio || "";
 
+        this.multimedia = datos.multimedia || {
+        imagen: null,
+        pdf: null,
+        video: null,
+        audio: null
+        };
+
         /*=========================================
         SEO
         =========================================*/
