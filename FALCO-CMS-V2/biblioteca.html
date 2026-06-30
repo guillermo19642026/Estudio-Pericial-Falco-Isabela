@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Biblioteca | FALCO CMS® v2</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/cms-v2-design-system.css">
+<link rel="stylesheet" href="css/cms-v2-layout.css">
+<link rel="stylesheet" href="css/cms-v2-dashboard.css">
+<link rel="stylesheet" href="css/cms-v2-contenidos.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="cms-v2-shell">
+
+    <aside class="cms-v2-sidebar">
+
+        <div class="cms-v2-brand">
+            <div class="cms-v2-brand-mark">F</div>
+            <div class="cms-v2-brand-text">
+                <strong>FALCO CMS®</strong>
+                <span>Workspace profesional</span>
+            </div>
+        </div>
+
+        <div class="cms-v2-sidebar-scroll">
+
+            <div class="cms-v2-nav-label">Dashboard</div>
+            <nav class="cms-v2-nav">
+                <a href="dashboard.html">
+                    <i data-lucide="layout-dashboard"></i>
+                    Centro de Control
+                </a>
+            </nav>
+
+           <div class="cms-v2-nav-label">Contenido</div>
+
+<nav class="cms-v2-nav">
+
+    <a href="contenidos.html" class="is-active">
+        <i data-lucide="file-text"></i>
+        Contenidos
+    </a>
+
+    <a href="editor.html">
+        <i data-lucide="edit-3"></i>
+        Editor
+    </a>
+
+<a href="papelera.html">
+    <i data-lucide="trash-2"></i>
+    Papelera
+</a>
+
+
+    <a href="#">
+        <i data-lucide="library"></i>
+        Biblioteca
+    </a>
+
+    <a href="#">
+        <i data-lucide="send"></i>
+        Publicaciones
+    </a>
+
+</nav>
+
+            <div class="cms-v2-nav-label">Ecosistema</div>
+            <nav class="cms-v2-nav">
+                <a href="#"><i data-lucide="graduation-cap"></i>Formación</a>
+                <a href="#"><i data-lucide="clipboard-check"></i>Evaluaciones</a>
+            </nav>
+
+            <div class="cms-v2-nav-label">Estructura</div>
+            <nav class="cms-v2-nav">
+                <a href="#"><i data-lucide="layers"></i>Módulos</a>
+                <a href="#"><i data-lucide="folder-tree"></i>Categorías</a>
+                <a href="#"><i data-lucide="tags"></i>Etiquetas</a>
+            </nav>
+
+            <div class="cms-v2-nav-label">Sistema</div>
+            <nav class="cms-v2-nav">
+                <a href="#"><i data-lucide="users"></i>Usuarios</a>
+                <a href="#"><i data-lucide="settings"></i>Configuración</a>
+            </nav>
+
+        </div>
+
+        <div class="cms-v2-sidebar-footer">
+            <div class="cms-v2-user-avatar">IF</div>
+            <div class="cms-v2-user-info">
+                <strong>Invitado</strong>
+                <span>Acceso no autenticado</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="cms-v2-main">
+
+        <header class="cms-v2-topbar">
+            <div class="cms-v2-topbar-left">
+                <strong>Biblioteca</strong>
+                <span>Gestión editorial del ecosistema FALCO®</span>
+            </div>
+
+            <div class="cms-v2-topbar-actions">
+                <input class="falco-input cms-v2-search" type="search" placeholder="Buscar contenido...">
+
+                <button class="cms-v2-icon-button" aria-label="Notificaciones">
+                    <i data-lucide="bell"></i>
+                </button>
+
+                <button class="cms-v2-profile-button">IF</button>
+            </div>
+        </header>
+
+        <section class="cms-v2-content">
+
+            <div class="cms-v2-container">
+
+                <section class="falco-card falco-pending-panel">
+
+                    <div>
+                        <span class="falco-eyebrow">Workspace editorial</span>
+
+                        <h1>Biblioteca</h1>
+
+                        
+                           <p> 
+                            Recursos profesionales cargados desde el CMS FALCO®: escritos, biblioteca,
+                           modelos, manuales y materiales premium.
+                           </p>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <a href="editor.html" class="falco-button falco-button-primary">
+    <i data-lucide="plus-circle"></i>
+    Crear contenido
+</a>
+
+                </section>
+
+
+
+                <section class="falco-library-kpis">
+
+    <article class="falco-library-kpi">
+        <span>Total de recursos</span>
+        <strong id="kpiTotalBiblioteca">0</strong>
+    </article>
+
+    <article class="falco-library-kpi">
+        <span>Premium</span>
+        <strong id="kpiPremiumBiblioteca">0</strong>
+    </article>
+
+    <article class="falco-library-kpi">
+        <span>Públicos</span>
+        <strong id="kpiPublicosBiblioteca">0</strong>
+    </article>
+
+    <article class="falco-library-kpi">
+        <span>Publicados</span>
+        <strong id="kpiPublicadosBiblioteca">0</strong>
+    </article>
+
+</section>
+
+                <section class="falco-card falco-panel">
+
+                    <div class="falco-panel-header">
+                        <h2>Biblioteca visual</h2>
+                        <span class="falco-badge falco-badge-gold">Recursos dinámicos</span>
+                    </div>
+
+
+<div class="falco-content-toolbar falco-toolbar-pro">
+
+    <div class="falco-toolbar-search">
+
+        <input
+            id="filtroTexto"
+            class="falco-input"
+            type="search"
+            placeholder="Buscar por título, tipo o etiqueta...">
+
+    </div>
+
+    <div class="falco-toolbar-filters">
+
+        <select id="filtroEstado" class="falco-select-dark">
+            <option>Todos los estados</option>
+            <option>Publicado</option>
+            <option>Borrador</option>
+            <option>Premium</option>
+        </select>
+
+        <select id="filtroTipo" class="falco-select-dark">
+            <option>Todos los tipos</option>
+            <option>Escrito</option>
+            <option>Biblioteca</option>
+            <option>Curso</option>
+            <option>Test</option>
+            <option>Video</option>
+        </select>
+
+        <a
+            href="editor.html"
+            class="falco-btn falco-btn-primary">
+
+            <i data-lucide="plus"></i>
+            Nuevo contenido
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="falco-empty-state">
+
+    <div class="falco-empty-icon">
+        <i data-lucide="folder-open"></i>
+    </div>
+
+    <span class="falco-eyebrow">Gestor Editorial FALCO®</span>
+
+    <h3>No hay contenidos todavía</h3>
+
+    <p>
+        Cuando crees tu primer contenido, aparecerá aquí para editarlo, publicarlo,
+        clasificarlo o convertirlo en recurso premium.
+    </p>
+
+    <a href="#" class="falco-button falco-button-primary">
+        <i data-lucide="plus-circle"></i>
+        Crear primer contenido
+    </a>
+
+</div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+console.log("FILTROS CARGADOS");
+
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    lucide.createIcons();
+
+    const filtroTexto = document.getElementById("filtroTexto");
+    const filtroEstado = document.getElementById("filtroEstado");
+    const filtroTipo = document.getElementById("filtroTipo");
+    const items = document.querySelectorAll(".falco-editorial-item");
+
+    if (!filtroTexto || !filtroEstado || !filtroTipo || !items.length) {
+        console.warn("Filtros no encontrados");
+        return;
+    }
+
+    function filtrarContenidos(){
+        const texto = filtroTexto.value.toLowerCase().trim();
+        const estado = filtroEstado.value.toLowerCase();
+        const tipo = filtroTipo.value.toLowerCase();
+
+        items.forEach(item => {
+            const contenido = item.innerText.toLowerCase();
+
+            const coincideTexto = contenido.includes(texto);
+            const coincideEstado = estado.includes("todos") || contenido.includes(estado);
+            const coincideTipo = tipo.includes("todos") || contenido.includes(tipo);
+
+            item.style.display =
+                coincideTexto && coincideEstado && coincideTipo
+                ? "grid"
+                : "none";
+        });
+    }
+
+    filtroTexto.addEventListener("input", filtrarContenidos);
+    filtroEstado.addEventListener("change", filtrarContenidos);
+    filtroTipo.addEventListener("change", filtrarContenidos);
+});
+</script>
+
+<script type="module" src="js/cms-v2-biblioteca.js"></script>
+
+</body>
+</html>
