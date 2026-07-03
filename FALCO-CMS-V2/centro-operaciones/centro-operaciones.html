@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Centro de Operaciones FALCO®</title>
+
+  <link rel="stylesheet" href="centro-operaciones.css">
+</head>
+
+<body>
+
+<div class="co-app">
+
+  <aside class="co-sidebar">
+
+    <div class="co-sidebar-brand">
+      <img src="https://periciapsicologicafalco.ar/img/logo.png" alt="FALCO®">
+      <div>
+        <strong>FALCO®</strong>
+        <span>Operaciones</span>
+      </div>
+    </div>
+
+    <nav class="co-sidebar-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#indicadores">Indicadores</a>
+      <a href="#modulos">Mis módulos</a>
+      <a href="#accesos">Accesos rápidos</a>
+      <a href="#actividad">Actividad</a>
+    </nav>
+
+    <div class="co-sidebar-footer">
+      <span>Ecosistema FALCO®</span>
+      <small>Versión 2.0</small>
+    </div>
+
+  </aside>
+
+  <div class="co-workspace">
+
+    <header class="co-topbar">
+
+      <div>
+        <span class="co-topbar-label">Centro de Operaciones</span>
+        <h1>Escritorio FALCO®</h1>
+      </div>
+
+      <div class="co-user">
+        <div>
+          <strong id="nombreUsuario">Usuario</strong>
+          <span id="rolUsuario">Rol</span>
+        </div>
+
+        <button id="btnCerrarSesion">Cerrar sesión</button>
+      </div>
+
+    </header>
+
+    <main class="co-main">
+
+      <section class="co-welcome" id="inicio">
+        <span>Sistema operativo</span>
+        <h2>Bienvenido al Centro de Operaciones FALCO®</h2>
+        <p id="mensajeBienvenida">
+          Desde este espacio podrás acceder a los módulos habilitados según tu perfil.
+        </p>
+      </section>
+
+      <section class="co-status">
+
+        <article class="co-status-card">
+          <span>Perfil</span>
+          <strong id="estadoPerfil">Activo</strong>
+        </article>
+
+        <article class="co-status-card">
+          <span>Rol</span>
+          <strong id="estadoRol">Usuario</strong>
+        </article>
+
+        <article class="co-status-card">
+          <span>Último acceso</span>
+          <strong id="ultimoAcceso">Hoy</strong>
+        </article>
+
+        <article class="co-status-card">
+          <span>Plataforma</span>
+          <strong>Operativa</strong>
+        </article>
+
+      </section>
+
+      <section class="co-section" id="indicadores">
+
+        <div class="co-section-title">
+          <span>Indicadores</span>
+          <h2>Resumen del Ecosistema</h2>
+        </div>
+
+        <div class="co-kpi-grid">
+
+          <article class="co-kpi-card">
+            <span>👥 Usuarios</span>
+            <strong id="kpiUsuarios">--</strong>
+            <p>Registrados</p>
+          </article>
+
+          <article class="co-kpi-card">
+            <span>📚 Biblioteca</span>
+            <strong id="kpiBiblioteca">--</strong>
+            <p>Recursos</p>
+          </article>
+
+          <article class="co-kpi-card">
+            <span>🧠 Evaluaciones</span>
+            <strong id="kpiEvaluaciones">--</strong>
+            <p>Activas</p>
+          </article>
+
+          <article class="co-kpi-card">
+            <span>🎓 Cursos</span>
+            <strong id="kpiCursos">--</strong>
+            <p>Disponibles</p>
+          </article>
+
+        </div>
+
+      </section>
+
+     <section class="co-section" id="modulos">
+
+  <div class="co-section-title">
+    <span>Aplicaciones habilitadas</span>
+    <h2>Launcher FALCO®</h2>
+  </div>
+
+  <div class="co-search-box">
+    <input
+      type="search"
+      id="buscadorModulos"
+      placeholder="Buscar módulo, herramienta o sección..."
+      autocomplete="off"
+    >
+  </div>
+
+  <div id="modulosUsuario"></div>
+
+</section>
+
+      <section class="co-section" id="accesos">
+
+        <div class="co-section-title">
+          <span>Accesos rápidos</span>
+          <h2>Herramientas frecuentes</h2>
+        </div>
+
+        <div class="co-quick-grid" id="accesosRapidos"></div>
+
+      </section>
+
+      <section class="co-panel-grid" id="actividad">
+
+        <article class="co-panel">
+          <span>Actividad</span>
+          <h3>Actividad reciente</h3>
+          <ul class="co-feed" id="actividadReciente"></ul>
+        </article>
+
+        <article class="co-panel">
+          <span>Notificaciones</span>
+          <h3>Estado del sistema</h3>
+          <ul class="co-feed" id="notificacionesSistema"></ul>
+
+          <a href="https://wa.me/5491132049521?text=Hola.%0A%0ANecesito%20asistencia%20t%C3%A9cnica.%0A%0AM%C3%B3dulo:%20Centro%20de%20Operaciones%20FALCO%C2%AE.%0AUsuario:%20%0ARol:%20%0A%0ADetalle%20de%20la%20consulta:" target="_blank">
+            Solicitar asistencia →
+          </a>
+        </article>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+<script type="module" src="centro-operaciones.js?v=3"></script>
+
+</body>
+</html>

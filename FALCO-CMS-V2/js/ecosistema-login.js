@@ -37,37 +37,21 @@ formLogin.addEventListener("submit", async (e) => {
     const usuario = snapUsuario.data();
     const rol = usuario.rol;
 
-    if (rol === "admin") {
-      window.location.href = "FALCO-CMS-V2/cms-dashboard.html";
+    if (!rol) {
+      alert("El usuario no tiene un rol asignado.");
       return;
     }
 
-    if (rol === "perito") {
-      window.location.href = "dashboard-perito.html";
+    if (rol === "periciado" && usuario.usado === true) {
+      alert("Este acceso ya fue utilizado o finalizado.");
       return;
     }
 
-    if (rol === "biblioteca") {
-      window.location.href = "biblioteca-falco.html";
-      return;
-    }
+    localStorage.setItem("falcoUidUsuario", uid);
+    localStorage.setItem("falcoRolUsuario", rol);
+    localStorage.setItem("falcoEmailUsuario", email);
 
-    if (rol === "alumno") {
-      window.location.href = "escuela-panel.html";
-      return;
-    }
-
-    if (rol === "periciado") {
-      if (usuario.usado === true) {
-        alert("Este acceso ya fue utilizado o finalizado.");
-        return;
-      }
-
-      window.location.href = "dashboard-periciado.html";
-      return;
-    }
-
-    alert("Rol no reconocido. Consultá con administración.");
+    window.location.href = "centro-operaciones/centro-operaciones.html";
 
   } catch (error) {
     console.error(error);

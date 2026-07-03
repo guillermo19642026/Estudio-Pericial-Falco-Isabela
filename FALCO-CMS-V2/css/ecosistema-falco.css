@@ -585,3 +585,260 @@ a { text-decoration: none; }
     height:34px;
     stroke-width:1.8;
 }
+
+
+.eco-status-panel{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.eco-status-panel div{
+  padding:10px 6px;
+  border-radius:8px;
+  background:rgba(212,175,55,.08);
+  border:1px solid rgba(212,175,55,.25);
+  text-align:center;
+}
+
+.eco-status-panel strong{
+  display:block;
+  color:#d4af37;
+  font-size:15px;
+  font-weight:900;
+  line-height:1.1;
+}
+
+.eco-status-panel span{
+  display:block;
+  margin-top:4px;
+  color:#cbd5e1;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+
+.eco-quick-access{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:rgba(212,175,55,.22);
+  border-top:1px solid rgba(212,175,55,.25);
+  border-bottom:1px solid rgba(212,175,55,.25);
+}
+
+.eco-quick-access a{
+  padding:18px 14px;
+  background:#050505;
+  text-align:center;
+  transition:.25s ease;
+}
+
+.eco-quick-access a:hover{
+  background:rgba(212,175,55,.09);
+}
+
+.eco-quick-access strong{
+  display:block;
+  color:#d4af37;
+  font-size:14px;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+
+.eco-quick-access span{
+  color:#cbd5e1;
+  font-size:12px;
+}
+
+@media(max-width:900px){
+  .eco-quick-access{
+    grid-template-columns:1fr;
+  }
+}
+
+
+.eco-system-status{
+  padding:18px 5%;
+  background:#030303;
+  border-top:1px solid rgba(212,175,55,.25);
+  border-bottom:1px solid rgba(212,175,55,.25);
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.eco-system-status div{
+  padding:14px 12px;
+  border-radius:10px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(212,175,55,.18);
+  text-align:center;
+}
+
+.eco-system-status span{
+  display:block;
+  color:#94a3b8;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:5px;
+}
+
+.eco-system-status strong{
+  display:block;
+  color:#d4af37;
+  font-size:15px;
+  font-weight:900;
+}
+
+@media(max-width:900px){
+  .eco-system-status{
+    grid-template-columns:1fr;
+  }
+}
+
+
+.eco-news{
+  padding:36px 5%;
+  background:#050505;
+  border-bottom:1px solid rgba(212,175,55,.16);
+}
+
+.eco-news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.eco-news-card{
+  padding:22px;
+  border-radius:12px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(212,175,55,.22);
+}
+
+.eco-news-card span{
+  display:inline-block;
+  margin-bottom:10px;
+  color:#d4af37;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+.eco-news-card h3{
+  color:#fff;
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.eco-news-card p{
+  color:#cbd5e1;
+  font-size:13px;
+  line-height:1.6;
+}
+
+@media(max-width:900px){
+  .eco-news-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+
+
+.eco-role-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  width:100%;
+}
+
+.eco-role{
+  min-height:120px;
+  padding:20px 16px;
+  border-radius:12px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(212,175,55,.18);
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.eco-role strong{
+  display:block;
+  color:#d4af37;
+  font-size:13px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.eco-role p{
+  color:#cbd5e1;
+  font-size:12px;
+  line-height:1.45;
+  margin:0;
+}
+
+@media(max-width:1100px){
+  .eco-role-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .eco-role-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+.eco-profile-table{
+  width:100%;
+  max-width:1180px;
+  margin:24px auto 0;
+  border:1px solid rgba(212,175,55,.22);
+  border-radius:14px;
+  overflow:hidden;
+  background:rgba(255,255,255,.025);
+}
+
+.eco-profile-row{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:20px;
+  padding:18px 22px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.eco-profile-row:last-child{
+  border-bottom:none;
+}
+
+.eco-profile-row strong{
+  color:#d4af37;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+}
+
+.eco-profile-row span{
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.5;
+}
+
+@media(max-width:700px){
+  .eco-profile-row{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+}

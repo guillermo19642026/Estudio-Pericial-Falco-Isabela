@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FALCO Experience™ v3</title>
+  <link rel="stylesheet" href="falco-experience.css">
+</head>
+
+<body>
+
+<section class="falco-experience fx-v3">
+
+  <canvas id="falcoParticles"></canvas>
+  <div class="fx-overlay"></div>
+
+  <div class="fx-act-indicator">
+    <span id="fxActNumber">01</span>
+    <div class="fx-act-divider"></div>
+    <strong id="fxActTitle">Introducción</strong>
+  </div>
+
+  <div class="fx-progress-line">
+    <span id="fxProgressBar"></span>
+  </div>
+
+  <a class="fx-skip-link" href="../FALCO-CMS-V2/ecosistema-falco.html">
+    Ingresar al Ecosistema
+  </a>
+
+  <div class="fx-controls">
+    <button type="button" id="fxPrevAct">‹</button>
+    <button type="button" id="fxPlayPause">Pausar</button>
+    <button type="button" id="fxNextAct">›</button>
+
+    <button type="button" class="fx-audio-toggle" id="fxAudioToggle">
+  Audio off
+</button>
+
+<audio
+    id="fxAmbientAudio"
+    src="assets/audio/falco-theme.mp3"
+    preload="auto"
+    loop>
+</audio>
+
+
+
+    
+  </div>
+
+  <div class="fx-camera">
+
+    <main class="fx-film">
+
+      <section class="fx-act fx-act-active fx-act-intro" data-act="0" data-camera="1">
+        <div class="fx-logo-pulse"></div>
+        <span>ESTUDIO PERICIAL PSICOLÓGICO</span>
+        <h1>FALCO®</h1>
+        <p>Rigor científico · Valor judicial</p>
+      </section>
+
+      <section class="fx-act fx-act-core" data-act="1" data-camera="1.03">
+        <span>FALCO CORE®</span>
+        <h2>El corazón del Ecosistema</h2>
+
+        <div class="fx-core-system">
+          <svg class="fx-core-lines" viewBox="0 0 700 700">
+            <line x1="350" y1="350" x2="350" y2="95"/>
+            <line x1="350" y1="350" x2="605" y2="350"/>
+            <line x1="350" y1="350" x2="350" y2="605"/>
+            <line x1="350" y1="350" x2="95" y2="350"/>
+
+            <line x1="350" y1="350" x2="350" y2="45"/>
+            <line x1="350" y1="350" x2="655" y2="350"/>
+            <line x1="350" y1="350" x2="350" y2="655"/>
+            <line x1="350" y1="350" x2="45" y2="350"/>
+
+            <circle class="fx-pulse-dot dot-1" r="5"></circle>
+            <circle class="fx-pulse-dot dot-2" r="5"></circle>
+            <circle class="fx-pulse-dot dot-3" r="5"></circle>
+            <circle class="fx-pulse-dot dot-4" r="5"></circle>
+          </svg>
+
+          <div class="fx-core-center">
+            <small>CORE</small>
+            <strong>FALCO®</strong>
+          </div>
+
+          <div class="fx-orbit fx-orbit-one">
+            <div class="fx-orbit-item item-1">Periciados</div>
+            <div class="fx-orbit-item item-2">Escuela</div>
+            <div class="fx-orbit-item item-3">Biblioteca</div>
+            <div class="fx-orbit-item item-4">Profesionales</div>
+          </div>
+
+          <div class="fx-orbit fx-orbit-two">
+            <div class="fx-orbit-item item-5">CMS</div>
+            <div class="fx-orbit-item item-6">Tests</div>
+            <div class="fx-orbit-item item-7">Informes</div>
+            <div class="fx-orbit-item item-8">Admin</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fx-act fx-act-ecosystem" data-act="2" data-camera="1.06">
+        <span>ECOSISTEMA FALCO®</span>
+        <h2>Una plataforma profesional integrada</h2>
+
+        <div class="fx-cinema-screen fx-ecosystem-screen">
+          <div class="fx-window-bar">
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="fx-real-image">
+            <img src="assets/images/hero-ecosistema.png" alt="Ecosistema FALCO">
+          </div>
+        </div>
+      </section>
+
+      <section class="fx-act fx-act-triple" data-act="3" data-camera="1.08">
+        <span>INTERFACES REALES</span>
+        <h2>El Ecosistema en funcionamiento</h2>
+
+        <div class="fx-triple-stage">
+          <article class="fx-triple-card fx-triple-main">
+            <div class="fx-window-bar"><span></span><span></span><span></span></div>
+            <h3>Centro de Operaciones</h3>
+            <div class="fx-real-image">
+              <img src="assets/images/centro-operaciones.png" alt="Centro de Operaciones FALCO">
+            </div>
+          </article>
+
+          <article class="fx-triple-card fx-triple-left">
+            <div class="fx-window-bar"><span></span><span></span><span></span></div>
+            <h3>Ecosistema FALCO®</h3>
+            <div class="fx-real-image">
+              <img src="assets/images/hero-ecosistema.png" alt="Ecosistema FALCO">
+            </div>
+          </article>
+
+          <article class="fx-triple-card fx-triple-right">
+            <div class="fx-window-bar"><span></span><span></span><span></span></div>
+            <h3>Acceso Inteligente</h3>
+            <div class="fx-live-status"><span></span>Sistema activo</div>
+            <div class="fx-mini-grid">
+              <div>📚 Biblioteca</div>
+              <div>📂 CMS</div>
+              <div>🧠 Evaluación</div>
+              <div>👨‍⚕️ Profesional</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="fx-act fx-act-operations" data-act="4" data-camera="1.12">
+        <span>CENTRO DE OPERACIONES</span>
+        <h2>El sistema cobra vida</h2>
+
+        <div class="fx-cinema-screen fx-operations-screen">
+          <div class="fx-window-bar">
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="fx-real-image">
+            <img src="assets/images/centro-operaciones.png" alt="Centro de Operaciones FALCO">
+          </div>
+
+          <div class="fx-hotspot fx-hotspot-1">
+            <small>Biblioteca</small>
+          </div>
+
+          <div class="fx-hotspot fx-hotspot-2">
+            <small>CMS</small>
+          </div>
+
+          <div class="fx-hotspot fx-hotspot-3">
+            <small>Evaluación</small>
+          </div>
+
+
+<div class="fx-live-notification">
+  <strong>Sistema FALCO®</strong>
+  <span id="fxLiveMessage">Biblioteca sincronizada</span>
+</div>
+
+<div class="fx-live-search-overlay">
+  Buscar: <strong id="fxLiveSearch">biblioteca</strong>
+</div>
+
+
+
+        </div>
+      </section>
+
+      <section class="fx-act fx-act-final" data-act="5" data-camera="1">
+        <span>FALCO EXPERIENCE™</span>
+        <h2>Tecnología al servicio de la Psicología Forense.</h2>
+        <p>Un Ecosistema Profesional.</p>
+
+        <div class="fx-actions">
+          <a href="../FALCO-CMS-V2/ecosistema-falco.html">Ingresar al Ecosistema</a>
+          <a href="../metodo-falco.html">Conocer el Método FALCO®</a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+
+<div class="fx-scene-flash"></div>
+
+
+
+
+</section>
+
+<script src="falco-experience.js"></script>
+
+</body>
+</html>

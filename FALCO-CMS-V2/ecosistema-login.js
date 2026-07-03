@@ -38,39 +38,23 @@ formLogin.addEventListener("submit", async (e) => {
         ? "admin"
         : (dataUsuario.rol || "periciado");
 
-    if (rol === "admin") {
-    window.location.href = "cms-dashboard.html";
-    return;
-}
+    if (!rol) {
+      alert("Este usuario no tiene un rol asignado.");
+      await signOut(auth);
+      return;
+    }
 
-    if (rol === "perito" || rol === "profesional") {
-  window.location.href = "../dashboard-perito.html";
-  return;
-}
+    if (rol === "periciado" && snap.exists() && dataUsuario.usado === true) {
+      alert("Este usuario ya fue utilizado.");
+      await signOut(auth);
+      return;
+    }
 
-if (rol === "biblioteca") {
-  window.location.href = "../biblioteca-falco.html";
-  return;
-}
+    localStorage.setItem("falcoUidUsuario", user.uid);
+    localStorage.setItem("falcoRolUsuario", rol);
+    localStorage.setItem("falcoEmailUsuario", user.email);
 
-if (rol === "alumno") {
-  window.location.href = "../escuela-panel.html";
-  return;
-}
-
-if (rol === "periciado") {
-  if (snap.exists() && dataUsuario.usado === true) {
-    alert("Este usuario ya fue utilizado.");
-    await signOut(auth);
-    return;
-  }
-
-  window.location.href = "../dashboard-periciado.html";
-  return;
-}
-
-    alert("Este usuario no tiene un rol autorizado.");
-    await signOut(auth);
+    window.location.href = "centro-operaciones/centro-operaciones.html";
 
   } catch (error) {
     console.error(error);

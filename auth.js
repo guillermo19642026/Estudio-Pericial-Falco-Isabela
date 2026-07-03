@@ -194,10 +194,10 @@ if (!(esProfesional || esAdmin) && paginasProfesional.some(p => pagina.includes(
     return;
   }
 
-  if ((esAdmin || esPerito) && pagina.includes("dashboard-periciado.html")) {
-    window.location.href = esAdmin ? "dashboard.html" : "dashboard-perito.html";
-    return;
-  }
+if (esPerito && pagina.includes("dashboard-periciado.html")) {
+  window.location.href = "dashboard-perito.html";
+  return;
+}
 
   if ((esAdmin || esPerito) && pagina.includes("panel-informe.html")) {
     window.location.href = esAdmin ? "dashboard.html" : "dashboard-perito.html";
