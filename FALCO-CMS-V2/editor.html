@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/cms-v2-design-system.css">
 <link rel="stylesheet" href="css/cms-v2-layout.css">
 <link rel="stylesheet" href="css/cms-v2-dashboard.css">
-<link rel="stylesheet" href="css/cms-v2-editor.css">
+<link rel="stylesheet" href="css/cms-v2-contenidos.css">
 
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -20,304 +20,201 @@
 
 <div class="cms-v2-shell">
 
-    <aside class="cms-v2-sidebar">
+<aside class="cms-v2-sidebar">
 
-        <div class="cms-v2-brand">
-            <div class="cms-v2-brand-mark">F</div>
-            <div class="cms-v2-brand-text">
-                <strong>FALCO CMS®</strong>
-                <span>Workspace profesional</span>
-            </div>
-        </div>
+<div class="cms-v2-brand">
+<div class="cms-v2-brand-mark">F</div>
+<div class="cms-v2-brand-text">
+<strong>FALCO CMS®</strong>
+<span>Workspace profesional</span>
+</div>
+</div>
 
-        <div class="cms-v2-sidebar-scroll">
+<div class="cms-v2-sidebar-scroll">
 
-            <div class="cms-v2-nav-label">Dashboard</div>
-            <nav class="cms-v2-nav">
-                <a href="dashboard.html">
-                    <i data-lucide="layout-dashboard"></i>
-                    Centro de Control
-                </a>
-            </nav>
+<div class="cms-v2-nav-label">Dashboard</div>
+<nav class="cms-v2-nav">
+<a href="cms-dashboard.html"><i data-lucide="layout-dashboard"></i>Centro de Control</a>
+</nav>
 
-            <div class="cms-v2-nav-label">Contenido</div>
-            <nav class="cms-v2-nav">
-                <a href="contenidos.html">
-                    <i data-lucide="file-text"></i>
-                    Contenidos
-                </a>
 
-                <a href="editor.html" class="is-active">
-                    <i data-lucide="plus-circle"></i>
-                    Editor
-                </a>
+
+
+
+<div class="cms-v2-nav-label">Contenido</div>
+<nav class="cms-v2-nav">
+
+<a href="contenidos.html">
+    <i data-lucide="file-text"></i>
+    Contenidos
+</a>
+
+<a href="editor.html" class="is-active">
+    <i data-lucide="edit-3"></i>
+    Editor
+</a>
 
 <a href="papelera.html">
     <i data-lucide="trash-2"></i>
     Papelera
 </a>
 
+<a href="biblioteca.html">
+    <i data-lucide="library"></i>
+    Biblioteca
+</a>
 
-                <a href="#">
-                    <i data-lucide="library"></i>
-                    Biblioteca
-                </a>
-
-                <a href="#">
-                    <i data-lucide="send"></i>
-                    Publicaciones
-                </a>
-            </nav>
+<a href="publicaciones.html">
+    <i data-lucide="send"></i>
+    Publicaciones
+</a>
 
-            <div class="cms-v2-nav-label">Ecosistema</div>
-            <nav class="cms-v2-nav">
-                <a href="#"><i data-lucide="graduation-cap"></i>Formación</a>
-                <a href="#"><i data-lucide="clipboard-check"></i>Evaluaciones</a>
-            </nav>
+</nav>
 
-            <div class="cms-v2-nav-label">Estructura</div>
-            <nav class="cms-v2-nav">
-                <a href="#"><i data-lucide="layers"></i>Módulos</a>
-                <a href="#"><i data-lucide="folder-tree"></i>Categorías</a>
-                <a href="#"><i data-lucide="tags"></i>Etiquetas</a>
-            </nav>
+<div class="cms-v2-nav-label">Ecosistema</div>
 
-            <div class="cms-v2-nav-label">Sistema</div>
-            <nav class="cms-v2-nav">
-                <a href="#"><i data-lucide="users"></i>Usuarios</a>
-                <a href="#"><i data-lucide="settings"></i>Configuración</a>
-            </nav>
+<nav class="cms-v2-nav">
 
-        </div>
+<a href="formacion.html">
+    <i data-lucide="graduation-cap"></i>
+    Formación
+</a>
 
-        <div class="cms-v2-sidebar-footer">
-            <div class="cms-v2-user-avatar">IF</div>
-            <div class="cms-v2-user-info">
-                <strong>Invitado</strong>
-                <span>Acceso no autenticado</span>
-            </div>
-        </div>
+<a href="evaluaciones.html">
+    <i data-lucide="clipboard-check"></i>
+    Evaluaciones
+</a>
 
-    </aside>
+</nav>
 
-    <main class="cms-v2-main">
+<div class="cms-v2-nav-label">Estructura</div>
 
-        <header class="cms-v2-topbar">
-            <div class="cms-v2-topbar-left">
-                <strong>Editor de Contenidos</strong>
-                <span>Crear, clasificar y preparar recursos del ecosistema FALCO®</span>
-            </div>
+<nav class="cms-v2-nav">
 
-            <div class="cms-v2-topbar-actions">
-                <button class="falco-button falco-button-secondary" id="btnVistaPrevia">
-                    Vista previa
-                </button>
+<a href="modulos.html">
+    <i data-lucide="layers"></i>
+    Módulos
+</a>
 
-                <button class="falco-button falco-button-primary" id="btnGuardarContenido">
-                    Guardar contenido
-                </button>
-            </div>
-        </header>
+<a href="categorias.html">
+    <i data-lucide="folder-tree"></i>
+    Categorías
+</a>
 
-        <section class="cms-v2-content">
+<a href="etiquetas.html">
+    <i data-lucide="tags"></i>
+    Etiquetas
+</a>
 
-            <div class="cms-v2-container">
+</nav>
 
-                <section class="falco-card falco-editor-hero">
-                    <div>
-                        <span class="falco-eyebrow">Workspace editorial</span>
-                        <h1>Nuevo contenido</h1>
-                        <p>
-                            Cargá escritos, biblioteca, cursos, tests, videos, documentos premium
-                            y recursos profesionales desde un único modelo editorial.
-                        </p>
-                    </div>
+<div class="cms-v2-nav-label">Sistema</div>
 
-                    <span class="falco-badge falco-badge-gold" id="estadoVisual">
-                        Borrador
-                    </span>
-                </section>
+<nav class="cms-v2-nav">
 
-                <section class="falco-editor-grid">
+<a href="usuarios.html">
+    <i data-lucide="users"></i>
+    Usuarios
+</a>
 
+<a href="configuracion.html">
+    <i data-lucide="settings"></i>
+    Configuración
+</a>
 
-
-<form class="falco-editor-form" id="formContenido">
-
-    <div class="falco-card falco-editor-card">
-        <h2>Información general</h2>
-
-        <label for="contenidoTitulo">Título del contenido</label>
-        <input id="contenidoTitulo" class="falco-input" type="text" placeholder="Ej: Aceptación de cargo de perito psicólogo">
-
-        <label for="contenidoDescripcion">Descripción breve</label>
-        <textarea id="contenidoDescripcion" class="falco-textarea" rows="4" placeholder="Resumen del contenido, finalidad o uso profesional"></textarea>
-
-        <label for="contenidoTipo">Tipo de contenido</label>
-        <select id="contenidoTipo" class="falco-select-dark">
-            <option value="">Seleccionar tipo</option>
-            <option value="escrito">Escrito judicial</option>
-            <option value="biblioteca">Biblioteca</option>
-            <option value="curso">Curso</option>
-            <option value="test">Test psicométrico</option>
-            <option value="video">Video</option>
-            <option value="documento">Documento institucional</option>
-        </select>
-    </div>
-
-
-
-
-<div id="camposDinamicos"></div>
-
-
-
-
-
-    <div class="falco-card falco-editor-card">
-        <h2>Clasificación</h2>
-
-        <label for="contenidoModulo">Módulo</label>
-        <select id="contenidoModulo" class="falco-select-dark">
-            <option value="">Seleccionar módulo</option>
-            <option value="danio-psiquico">Daño psíquico</option>
-            <option value="pericias">Pericias psicológicas</option>
-            <option value="impugnaciones">Impugnaciones</option>
-            <option value="biblioteca-falco">Biblioteca FALCO®</option>
-            <option value="escuela-padres">Escuela para Padres</option>
-        </select>
-
-        <label for="contenidoFuero">Fuero</label>
-        <select id="contenidoFuero" class="falco-select-dark">
-            <option value="">Seleccionar fuero</option>
-            <option value="civil">Civil</option>
-            <option value="laboral">Laboral</option>
-            <option value="familia">Familia</option>
-            <option value="penal">Penal</option>
-            <option value="general">General</option>
-        </select>
-
-        <label for="contenidoEtiquetas">Etiquetas</label>
-        <input id="contenidoEtiquetas" class="falco-input" type="text" placeholder="pericia, daño psíquico, laboral">
-    </div>
-
-    <div class="falco-card falco-editor-card">
-        <h2>Recurso principal</h2>
-
-        <label for="contenidoArchivoUrl">URL del archivo</label>
-        <input id="contenidoArchivoUrl" class="falco-input" type="url" placeholder="https://...">
-
-        <label for="contenidoVideoUrl">URL del video</label>
-        <input id="contenidoVideoUrl" class="falco-input" type="url" placeholder="https://...">
-
-        <label for="contenidoNotas">Notas internas</label>
-        <textarea id="contenidoNotas" class="falco-textarea" rows="6" placeholder="Notas de uso interno del CMS"></textarea>
-    </div>
-
-    <div class="falco-card falco-editor-card">
-        <h2>Multimedia</h2>
-
-        <label for="contenidoImagen">Imagen destacada</label>
-        <input id="contenidoImagen" class="falco-input" type="file" accept="image/*">
-
-
-    
-        <div id="previewImagenActual" class="falco-image-preview"></div>
-
-        <label for="contenidoPdf">Documento PDF</label>
-        <input id="contenidoPdf" class="falco-input" type="file" accept=".pdf">
-
-        <label for="contenidoVideo">Video</label>
-        <input id="contenidoVideo" class="falco-input" type="file" accept="video/*">
-
-        <label for="contenidoAudio">Audio</label>
-        <input id="contenidoAudio" class="falco-input" type="file" accept="audio/*">
-    </div>
-
-    <div class="falco-card falco-editor-card">
-        <h2>Acceso y membresía</h2>
-
-        <label for="contenidoAcceso">Tipo de acceso</label>
-        <select id="contenidoAcceso" class="falco-select-dark">
-            <option value="premium">Premium</option>
-            <option value="privado">Privado</option>
-            <option value="publico">Público</option>
-        </select>
-
-        <label for="contenidoEstado">Estado editorial</label>
-        <select id="contenidoEstado" class="falco-select-dark">
-            <option value="borrador">Borrador</option>
-            <option value="publicado">Publicado</option>
-            <option value="archivado">Archivado</option>
-        </select>
-    </div>
-
-    <div class="falco-card falco-editor-card">
-        <h2>Programación editorial</h2>
-
-        <label for="contenidoFechaPublicacion">Fecha de publicación</label>
-        <input id="contenidoFechaPublicacion" class="falco-input" type="date">
-
-        <label for="contenidoFechaVencimiento">Fecha de vencimiento opcional</label>
-        <input id="contenidoFechaVencimiento" class="falco-input" type="date">
-
-        <label for="contenidoProgramado">Programar publicación</label>
-        <select id="contenidoProgramado" class="falco-select-dark">
-            <option value="no">No programar</option>
-            <option value="si">Programar automáticamente</option>
-        </select>
-    </div>
-
-    <div class="falco-card falco-editor-card">
-        <h2>SEO y publicación web</h2>
-
-        <label for="contenidoSlug">URL amigable</label>
-        <input id="contenidoSlug" class="falco-input" type="text" placeholder="aceptacion-cargo-perito-psicologo">
-
-        <label for="contenidoMetaTitulo">Meta título</label>
-        <input id="contenidoMetaTitulo" class="falco-input" type="text" placeholder="Título para Google">
-
-        <label for="contenidoMetaDescripcion">Meta descripción</label>
-        <textarea id="contenidoMetaDescripcion" class="falco-textarea" rows="4" placeholder="Descripción breve para buscadores"></textarea>
-    </div>
-
-</form>
-
-                    <aside class="falco-card falco-editor-preview">
-                        <span class="falco-eyebrow">Vista previa</span>
-
-                        <h2 id="previewTitulo">Sin título</h2>
-
-                        <p id="previewDescripcion">
-                            La descripción del contenido aparecerá aquí.
-                        </p>
-
-                        <div class="falco-preview-meta">
-                            <span id="previewTipo">Sin tipo</span>
-                            <span id="previewAcceso">Premium</span>
-                            <span id="previewEstado">Borrador</span>
-                        </div>
-
-                        <div class="falco-preview-box">
-                            <strong>Modelo único de contenido</strong>
-                            <p>
-                                Este recurso podrá funcionar como escrito, biblioteca,
-                                curso, test, video o documento premium.
-                            </p>
-                        </div>
-                    </aside>
-
-                </section>
-
-            </div>
-
-        </section>
-
-    </main>
+</nav>
 
 </div>
 
-<script type="module" src="js/cms-v2-editor.js"></script>
+<div class="cms-v2-sidebar-footer">
+<div class="cms-v2-user-avatar">IF</div>
+<div class="cms-v2-user-info">
+<strong>Invitado</strong>
+<span>Acceso no autenticado</span>
+</div>
+</div>
+
+</aside>
+
+<main class="cms-v2-main">
+
+<header class="cms-v2-topbar">
+<div class="cms-v2-topbar-left">
+<strong>Editor</strong>
+<span>Creación y edición de recursos del CMS</span>
+</div>
+
+<div class="cms-v2-topbar-actions">
+<input class="falco-input cms-v2-search" type="search" placeholder="Buscar recurso...">
+
+<button class="cms-v2-icon-button" aria-label="Notificaciones">
+<i data-lucide="bell"></i>
+</button>
+
+<button class="cms-v2-profile-button">IF</button>
+</div>
+</header>
+
+<section class="cms-v2-content">
+<div class="cms-v2-container">
+
+<section class="falco-card falco-pending-panel">
+<div>
+<span class="falco-eyebrow">Editor visual</span>
+
+<h1>Nuevo recurso</h1>
+
+<p>
+Cargá, clasificá y prepará contenidos para Biblioteca, Publicaciones, Formación, Evaluaciones o Recursos Profesionales.
+</p>
+</div>
+
+<a href="contenidos.html" class="falco-button falco-button-primary">
+<i data-lucide="save"></i>
+Guardar recurso
+</a>
+</section>
+
+<section class="falco-card falco-panel">
+
+<div class="falco-panel-header">
+<h2>Editor de contenido</h2>
+<span class="falco-badge falco-badge-gold">Borrador</span>
+</div>
+
+<div class="falco-empty-state">
+
+<div class="falco-empty-icon">
+<i data-lucide="edit-3"></i>
+</div>
+
+<span class="falco-eyebrow">Editor FALCO®</span>
+
+<h3>Formulario preparado</h3>
+
+<p>
+Aquí se cargará el formulario completo del recurso: título, descripción, módulo, categoría, etiquetas, archivo, URL, estado y nivel de acceso.
+</p>
+
+<a href="contenidos.html" class="falco-button falco-button-primary">
+<i data-lucide="file-text"></i>
+Volver a contenidos
+</a>
+
+</div>
+
+</section>
+
+</div>
+</section>
+
+</main>
+
+</div>
+
+<script>
+lucide.createIcons();
+</script>
 
 </body>
 </html>
