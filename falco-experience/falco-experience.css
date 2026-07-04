@@ -2026,38 +2026,86 @@ letter-spacing:.08em;
 
 
 
-
-
 /* =========================================================
    UNIVERSO FALCO® - GALERÍA 3D CINEMATOGRÁFICA
 ========================================================= */
 
 .fx-act-showcase {
   overflow: hidden;
+  padding-top: 40px;
 }
 
-.fx-act-showcase h2 {
-  font-size: clamp(22px, 3vw, 42px);
-  margin-bottom: 18px;
+.fx-showcase-title {
+  font-size: clamp(24px, 3.4vw, 48px);
+  margin-bottom: 12px;
+}
+
+.fx-showcase-text {
+  max-width: 920px;
+  margin: 10px auto 0;
+  color: rgba(255,255,255,.72);
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 1.7;
+  text-align: center;
+}
+
+#fxModuleCounter {
+  display: inline-block;
+  min-width: 90px;
+  color: #d4af37;
+  font-size: 1.35em;
+  font-weight: 900;
+  text-shadow:
+    0 0 18px rgba(212,175,55,.55),
+    0 0 46px rgba(212,175,55,.25);
+}
+
+.fx-counter-pop {
+  animation: fxCounterPop .45s ease;
+}
+
+@keyframes fxCounterPop {
+  0% {
+    transform: scale(.75);
+    filter: blur(8px);
+    opacity: .2;
+  }
+
+  60% {
+    transform: scale(1.22);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    filter: blur(0);
+  }
 }
 
 .fx-showcase-wall {
   position: relative;
   width: min(1180px, 94vw);
-
-  height:560px;
-  margin:90px auto 0;
-
+  height: 560px;
+  margin: 90px auto 0;
   perspective: 1800px;
   transform-style: preserve-3d;
+  animation: fxShowcaseCamera 26s ease-in-out infinite;
+}
+
+.fx-showcase-wall::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(212,175,55,.24), transparent 64%);
+  opacity: .55;
+  animation: fxShowcaseGlow 6s ease-in-out infinite;
 }
 
 .fx-shot {
   position: absolute;
-
   width: 250px;
   aspect-ratio: 16 / 10;
-
   object-fit: cover;
 
   border-radius: 22px;
@@ -2069,7 +2117,6 @@ letter-spacing:.08em;
     inset 0 1px 0 rgba(255,255,255,.16);
 
   opacity: 0;
-
   transform-style: preserve-3d;
 
   transition:
@@ -2080,16 +2127,17 @@ letter-spacing:.08em;
   filter: blur(18px) brightness(.65);
 }
 
-.fx-act-active .fx-shot {
+.fx-shot.fx-shot-live {
+  opacity: 1;
+}
+
+.fx-act-showcase.fx-act-active .fx-shot {
   opacity: 1;
   filter: blur(0) brightness(1);
+  animation: fxShotBreathe 7s ease-in-out infinite;
 }
 
-.fx-shot::after {
-  content: "";
-}
-
-/* Posición inicial dispersa */
+/* Posiciones base */
 
 .s1  { left: 5%;  top: 5%;  }
 .s2  { left: 25%; top: 0%;  }
@@ -2109,31 +2157,25 @@ letter-spacing:.08em;
 .s14 { left: 66%; top: 67%; }
 .s15 { left: 81%; top: 63%; }
 
-/* Efecto de profundidad cuando el acto está activo */
+/* Profundidad cinematográfica */
 
-.fx-act-showcase.fx-act-active .s1  { transform: translate3d(-80px, -20px, 120px) rotateY(14deg) rotateZ(-4deg); transition-delay: 0s; }
-.fx-act-showcase.fx-act-active .s2  { transform: translate3d(-20px, -40px, 260px) rotateY(-8deg) rotateZ(3deg); transition-delay: .12s; }
-.fx-act-showcase.fx-act-active .s3  { transform: translate3d(20px, -10px, 80px) rotateY(10deg) rotateZ(-2deg); transition-delay: .24s; }
-.fx-act-showcase.fx-act-active .s4  { transform: translate3d(40px, -36px, 230px) rotateY(-12deg) rotateZ(4deg); transition-delay: .36s; }
-.fx-act-showcase.fx-act-active .s5  { transform: translate3d(90px, -8px, 100px) rotateY(15deg) rotateZ(2deg); transition-delay: .48s; }
+.fx-act-showcase.fx-act-active .s1  { transform: translate3d(-90px, -26px, 90px) scale(.92) rotateY(14deg) rotateZ(-4deg); transition-delay: 0s; }
+.fx-act-showcase.fx-act-active .s2  { transform: translate3d(-24px, -46px, 260px) scale(1.02) rotateY(-8deg) rotateZ(3deg); transition-delay: .12s; }
+.fx-act-showcase.fx-act-active .s3  { transform: translate3d(20px, -14px, 40px) scale(.88) rotateY(10deg) rotateZ(-2deg); transition-delay: .24s; }
+.fx-act-showcase.fx-act-active .s4  { transform: translate3d(44px, -42px, 290px) scale(1.04) rotateY(-12deg) rotateZ(4deg); transition-delay: .36s; }
+.fx-act-showcase.fx-act-active .s5  { transform: translate3d(105px, -10px, 80px) scale(.90) rotateY(15deg) rotateZ(2deg); transition-delay: .48s; }
 
-.fx-act-showcase.fx-act-active .s6  { transform: translate3d(-90px, 12px, 320px) rotateY(18deg) rotateZ(-3deg); transition-delay: .60s; }
-.fx-act-showcase.fx-act-active .s7  { transform: translate3d(-40px, 8px, 130px) rotateY(-8deg) rotateZ(2deg); transition-delay: .72s; }
-.fx-act-showcase.fx-act-active .s8  { transform: translate3d(0, 0, 420px) scale(1.08) rotateY(0deg); transition-delay: .84s; }
-.fx-act-showcase.fx-act-active .s9  { transform: translate3d(42px, 10px, 150px) rotateY(8deg) rotateZ(-2deg); transition-delay: .96s; }
-.fx-act-showcase.fx-act-active .s10 { transform: translate3d(90px, 14px, 300px) rotateY(-18deg) rotateZ(3deg); transition-delay: 1.08s; }
+.fx-act-showcase.fx-act-active .s6  { transform: translate3d(-110px, 16px, 360px) scale(1.08) rotateY(18deg) rotateZ(-3deg); transition-delay: .60s; }
+.fx-act-showcase.fx-act-active .s7  { transform: translate3d(-44px, 8px, 130px) scale(.96) rotateY(-8deg) rotateZ(2deg); transition-delay: .72s; }
+.fx-act-showcase.fx-act-active .s8  { transform: translate3d(0, 0, 460px) scale(1.14) rotateY(0deg); transition-delay: .84s; }
+.fx-act-showcase.fx-act-active .s9  { transform: translate3d(48px, 10px, 150px) scale(.98) rotateY(8deg) rotateZ(-2deg); transition-delay: .96s; }
+.fx-act-showcase.fx-act-active .s10 { transform: translate3d(112px, 18px, 340px) scale(1.07) rotateY(-18deg) rotateZ(3deg); transition-delay: 1.08s; }
 
-.fx-act-showcase.fx-act-active .s11 { transform: translate3d(-70px, 36px, 100px) rotateY(12deg) rotateZ(4deg); transition-delay: 1.20s; }
-.fx-act-showcase.fx-act-active .s12 { transform: translate3d(-30px, 50px, 240px) rotateY(-10deg) rotateZ(-3deg); transition-delay: 1.32s; }
-.fx-act-showcase.fx-act-active .s13 { transform: translate3d(20px, 34px, 120px) rotateY(10deg) rotateZ(2deg); transition-delay: 1.44s; }
-.fx-act-showcase.fx-act-active .s14 { transform: translate3d(52px, 48px, 260px) rotateY(-12deg) rotateZ(-2deg); transition-delay: 1.56s; }
-.fx-act-showcase.fx-act-active .s15 { transform: translate3d(90px, 38px, 140px) rotateY(16deg) rotateZ(4deg); transition-delay: 1.68s; }
-
-/* Cámara interna del mural */
-
-.fx-showcase-wall {
-  animation: fxShowcaseCamera 26s ease-in-out infinite;
-}
+.fx-act-showcase.fx-act-active .s11 { transform: translate3d(-82px, 44px, 70px) scale(.88) rotateY(12deg) rotateZ(4deg); transition-delay: 1.20s; }
+.fx-act-showcase.fx-act-active .s12 { transform: translate3d(-34px, 58px, 250px) scale(1.02) rotateY(-10deg) rotateZ(-3deg); transition-delay: 1.32s; }
+.fx-act-showcase.fx-act-active .s13 { transform: translate3d(22px, 40px, 110px) scale(.94) rotateY(10deg) rotateZ(2deg); transition-delay: 1.44s; }
+.fx-act-showcase.fx-act-active .s14 { transform: translate3d(58px, 56px, 280px) scale(1.04) rotateY(-12deg) rotateZ(-2deg); transition-delay: 1.56s; }
+.fx-act-showcase.fx-act-active .s15 { transform: translate3d(108px, 44px, 90px) scale(.90) rotateY(16deg) rotateZ(4deg); transition-delay: 1.68s; }
 
 @keyframes fxShowcaseCamera {
   0% {
@@ -2157,21 +2199,6 @@ letter-spacing:.08em;
   }
 }
 
-/* Brillo general */
-
-.fx-showcase-wall::before {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  pointer-events: none;
-
-  background:
-    radial-gradient(circle at center, rgba(212,175,55,.24), transparent 64%);
-
-  opacity: .55;
-  animation: fxShowcaseGlow 6s ease-in-out infinite;
-}
-
 @keyframes fxShowcaseGlow {
   0%, 100% {
     opacity: .25;
@@ -2182,12 +2209,6 @@ letter-spacing:.08em;
     opacity: .8;
     transform: scale(1.08);
   }
-}
-
-/* Momento mural final */
-
-.fx-act-showcase.fx-act-active .fx-shot {
-  animation: fxShotBreathe 7s ease-in-out infinite;
 }
 
 @keyframes fxShotBreathe {
@@ -2203,28 +2224,6 @@ letter-spacing:.08em;
       0 0 52px rgba(212,175,55,.30);
   }
 }
-
-@media (max-width: 900px) {
-  .fx-showcase-wall {
-    width: 92vw;
-    height: 560px;
-  }
-
-  .fx-shot {
-    width: 170px;
-  }
-}
-
-@media (max-width: 620px) {
-  .fx-showcase-wall {
-    height: 580px;
-  }
-
-  .fx-shot {
-    width: 140px;
-  }
-}
-
 
 /* =========================================================
    GRAN FINAL
@@ -2353,114 +2352,4 @@ letter-spacing:.08em;
   .fx-shot {
     width: 145px;
   }
-}
-
-
-.fx-act-showcase{
-    padding-top:40px;
-}
-
-
-
-.fx-showcase-text{
-
-max-width:900px;
-
-margin:18px auto 60px;
-
-text-align:center;
-
-font-size:18px;
-
-line-height:1.8;
-
-color:rgba(255,255,255,.72);
-
-}
-
-
-#fxModuleCounter{
-
-display:inline-block;
-
-min-width:90px;
-
-color:#d4af37;
-
-font-size:1.3em;
-
-font-weight:900;
-
-text-shadow:
-
-0 0 18px rgba(212,175,55,.55);
-
-}
-
-
-/* =========================================================
-   CONTADOR UNIVERSO FALCO®
-========================================================= */
-
-.fx-act-showcase {
-  padding-top: 40px;
-}
-
-.fx-act-showcase .fx-showcase-wall {
-  margin: 90px auto 0;
-}
-
-.fx-showcase-title {
-  font-size: clamp(24px, 3.4vw, 48px);
-  margin-bottom: 12px;
-}
-
-#fxModuleCounter {
-  display: inline-block;
-  min-width: 90px;
-  color: #d4af37;
-  font-size: 1.35em;
-  font-weight: 900;
-  text-shadow:
-    0 0 18px rgba(212,175,55,.55),
-    0 0 46px rgba(212,175,55,.25);
-}
-
-.fx-counter-pop {
-  animation: fxCounterPop .45s ease;
-}
-
-.fx-showcase-text {
-  max-width: 920px;
-  margin: 10px auto 0;
-  color: rgba(255,255,255,.72);
-  font-size: clamp(14px, 1.3vw, 18px);
-  line-height: 1.7;
-}
-
-@keyframes fxCounterPop {
-  0% {
-    transform: scale(.75);
-    filter: blur(8px);
-    opacity: .2;
-  }
-
-  60% {
-    transform: scale(1.22);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    filter: blur(0);
-  }
-}
-
-
-.fx-shot {
-  opacity: 0;
-}
-
-.fx-shot.fx-shot-live {
-  opacity: 1;
 }

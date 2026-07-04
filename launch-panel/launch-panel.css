@@ -1,0 +1,445 @@
+/* =========================================================
+   FALCO LAUNCH PANEL
+========================================================= */
+
+.falco-launch-panel {
+  width: 100%;
+  max-width: 1220px;
+  margin: 70px auto 90px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+}
+
+.launch-shell {
+  position: relative;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 50px;
+  align-items: center;
+
+  padding: 60px 64px;
+  border-radius: 36px;
+
+  background:
+    radial-gradient(circle at 82% 45%, rgba(212,175,55,.17), transparent 35%),
+    linear-gradient(145deg, rgba(18,18,18,.98), rgba(4,4,4,.98));
+
+  border: 1px solid rgba(212,175,55,.32);
+
+  box-shadow:
+    0 45px 130px rgba(0,0,0,.50),
+    0 0 80px rgba(212,175,55,.12);
+}
+
+.launch-shell::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(212,175,55,.12), transparent 62%);
+  animation: launchGlow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.launch-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255,255,255,.08) 49%,
+      transparent 60%,
+      transparent 100%
+    );
+  transform: translateX(-120%);
+  animation: launchShine 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.launch-left,
+.launch-right {
+  position: relative;
+  z-index: 2;
+}
+
+.launch-left {
+  text-align: left;
+}
+
+.launch-kicker {
+  display: inline-flex;
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: rgba(212,175,55,.10);
+  border: 1px solid rgba(212,175,55,.30);
+
+  color: #d4af37;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  margin-bottom: 24px;
+}
+
+.launch-left h2 {
+  font-family: Playfair Display, serif;
+  font-size: clamp(36px, 4.3vw, 68px);
+  line-height: 1.02;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.launch-left h3 {
+  color: #d4af37;
+  font-size: clamp(18px, 2vw, 25px);
+  margin-bottom: 24px;
+}
+
+.launch-left p {
+  max-width: 620px;
+  color: rgba(255,255,255,.76);
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 34px;
+}
+
+.launch-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px 38px;
+  border-radius: 999px;
+
+  background: #d4af37;
+  color: #111;
+
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .04em;
+
+  box-shadow:
+    0 14px 45px rgba(212,175,55,.34);
+
+  transition: .45s ease;
+}
+
+.launch-button:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow:
+    0 22px 70px rgba(212,175,55,.48);
+}
+
+.launch-right {
+  display: flex;
+  justify-content: center;
+}
+
+.launch-core {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+
+  padding: 32px;
+  border-radius: 28px;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+
+  border: 1px solid rgba(212,175,55,.28);
+
+  box-shadow:
+    inset 0 0 40px rgba(212,175,55,.08),
+    0 30px 90px rgba(0,0,0,.45);
+
+  animation: launchCoreFloat 6s ease-in-out infinite;
+}
+
+.launch-title {
+  color: #fff;
+  font-family: Playfair Display, serif;
+  font-size: 30px;
+  letter-spacing: .08em;
+  text-align: center;
+
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+
+  border-bottom: 1px solid rgba(212,175,55,.22);
+
+  text-shadow:
+    0 0 24px rgba(212,175,55,.25);
+}
+
+.launch-status {
+  display: grid;
+  gap: 13px;
+}
+
+.launch-status div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+
+  padding: 13px 15px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.07);
+}
+
+.launch-status span {
+  color: rgba(255,255,255,.78);
+  font-size: 14px;
+}
+
+.launch-status b {
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.launch-status .online {
+  color: #d4af37;
+  text-shadow:
+    0 0 14px rgba(212,175,55,.65);
+  animation: launchOnlinePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes launchGlow {
+  0%, 100% {
+    opacity: .35;
+    transform: scale(.94) rotate(0deg);
+  }
+
+  50% {
+    opacity: .9;
+    transform: scale(1.10) rotate(8deg);
+  }
+}
+
+@keyframes launchShine {
+  0%, 55% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes launchCoreFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes launchOnlinePulse {
+  0%, 100% {
+    opacity: .65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .launch-shell {
+    grid-template-columns: 1fr;
+    padding: 48px 34px;
+  }
+
+  .launch-left {
+    text-align: center;
+  }
+
+  .launch-left p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .falco-launch-panel {
+    margin: 50px auto 70px;
+  }
+
+  .launch-shell {
+    padding: 42px 22px;
+    border-radius: 26px;
+  }
+
+  .launch-button {
+    width: 100%;
+  }
+
+  .launch-core {
+    padding: 24px 18px;
+  }
+
+  .launch-status div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* Módulo activo */
+
+.launch-status div {
+  transition:
+    border-color .45s ease,
+    background .45s ease,
+    box-shadow .45s ease,
+    transform .45s ease;
+}
+
+.launch-status div.launch-active {
+  background: rgba(212,175,55,.10);
+  border-color: rgba(212,175,55,.42);
+  box-shadow:
+    0 0 28px rgba(212,175,55,.14),
+    inset 0 0 24px rgba(212,175,55,.06);
+  transform: translateX(6px);
+}
+
+.launch-status div.launch-active span {
+  color: #fff;
+}
+
+.launch-status div.launch-active b {
+  color: #fff;
+}
+
+
+/* =====================================
+   Estado del sistema
+===================================== */
+
+.launch-system-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:22px;
+
+    color:#9fa7b3;
+
+    font-size:13px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+.launch-led{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#777;
+
+    transition:.4s;
+
+}
+
+.launch-led.online{
+
+    background:#d4af37;
+
+    box-shadow:
+        0 0 14px rgba(212,175,55,.8),
+        0 0 28px rgba(212,175,55,.4);
+
+}
+
+
+/* =====================================
+   Mini consola holográfica
+===================================== */
+
+.launch-core::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  pointer-events: none;
+
+  background:
+    linear-gradient(rgba(212,175,55,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.035) 1px, transparent 1px);
+
+  background-size: 34px 34px;
+  opacity: .45;
+
+  animation: launchGridMove 18s linear infinite;
+}
+
+.launch-core::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 270deg,
+      rgba(212,175,55,.18) 315deg,
+      transparent 360deg
+    );
+
+  opacity: .28;
+  animation: launchRadar 9s linear infinite;
+}
+
+.launch-title,
+.launch-system-status,
+.launch-status {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes launchGridMove {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 34px 34px;
+  }
+}
+
+@keyframes launchRadar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

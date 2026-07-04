@@ -14381,3 +14381,643 @@ select.input-biblioteca option {
   line-height: 1.25 !important;
   font-weight: 700 !important;
 }
+
+
+
+
+/* =========================================================
+   FALCO EXPERIENCE™
+   HOME CTA
+========================================================= */
+
+.falco-experience-home{
+
+    width:100%;
+    max-width:1200px;
+    padding:0 20px;
+    box-sizing:border-box;
+
+    margin:70px auto 90px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.falco-experience-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:60px 70px;
+
+    box-sizing:border-box;
+
+    text-align:center;
+
+    border-radius:34px;
+
+    background:
+        linear-gradient(145deg,
+        rgba(22,22,22,.96),
+        rgba(8,8,8,.96));
+
+    border:1px solid rgba(212,175,55,.30);
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.45),
+        0 0 70px rgba(212,175,55,.10);
+
+    backdrop-filter:blur(14px);
+
+}
+
+.falco-experience-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-40%;
+
+    background:
+    radial-gradient(circle,
+    rgba(212,175,55,.10),
+    transparent 65%);
+
+    animation:falcoExperienceGlow 8s ease-in-out infinite;
+
+}
+
+.falco-experience-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(212,175,55,.10);
+
+    border:1px solid rgba(212,175,55,.30);
+
+    color:#d4af37;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    margin-bottom:28px;
+
+}
+
+.falco-experience-card h2{
+
+    font-family:Playfair Display,serif;
+
+    font-size:clamp(34px,4vw,64px);
+
+    color:#fff;
+
+    margin-bottom:18px;
+
+}
+
+.falco-experience-subtitle{
+
+    font-size:clamp(18px,2vw,24px);
+
+    color:#d4af37;
+
+    margin-bottom:24px;
+
+    font-weight:600;
+
+}
+
+.falco-experience-text{
+
+    max-width:820px;
+
+    margin:0 auto 40px;
+
+    color:rgba(255,255,255,.78);
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+.falco-experience-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    padding:20px 42px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    font-size:17px;
+
+    color:#111;
+
+    background:#d4af37;
+
+    transition:.45s;
+
+    box-shadow:
+    0 12px 45px rgba(212,175,55,.35);
+
+}
+
+.falco-experience-btn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.04);
+
+    box-shadow:
+    0 18px 60px rgba(212,175,55,.45);
+
+}
+
+@keyframes falcoExperienceGlow{
+
+    0%,100%{
+
+        opacity:.35;
+
+        transform:
+        scale(.95)
+        rotate(0deg);
+
+    }
+
+    50%{
+
+        opacity:.9;
+
+        transform:
+        scale(1.10)
+        rotate(10deg);
+
+    }
+
+}
+
+@media(max-width:900px){
+
+.falco-experience-card{
+
+padding:45px 30px;
+
+}
+
+.falco-experience-text{
+
+font-size:16px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.falco-experience-home{
+
+margin:50px auto 70px;
+
+}
+
+.falco-experience-btn{
+
+width:100%;
+
+}
+
+}
+
+
+
+
+
+/* =========================================================
+   FALCO EXPERIENCE™
+   HOME LAUNCH PANEL
+========================================================= */
+
+.falco-experience-home {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 70px auto 90px;
+  position: relative;
+  z-index: 2;
+}
+
+.falco-experience-card {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap: 46px;
+  align-items: center;
+
+  padding: 58px 64px;
+  border-radius: 34px;
+
+  background:
+    radial-gradient(circle at 82% 50%, rgba(212,175,55,.16), transparent 34%),
+    linear-gradient(145deg, rgba(22,22,22,.97), rgba(6,6,6,.98));
+
+  border: 1px solid rgba(212,175,55,.30);
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.45),
+    0 0 70px rgba(212,175,55,.10);
+
+  backdrop-filter: blur(14px);
+}
+
+.falco-experience-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle, rgba(212,175,55,.10), transparent 65%);
+  animation: falcoExperienceGlow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.falco-experience-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255,255,255,.08) 49%,
+      transparent 60%,
+      transparent 100%
+    );
+  transform: translateX(-120%);
+  animation: falcoExperienceShine 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.falco-exp-left,
+.falco-exp-right {
+  position: relative;
+  z-index: 2;
+}
+
+.falco-exp-left {
+  text-align: left;
+}
+
+.falco-experience-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: rgba(212,175,55,.10);
+  border: 1px solid rgba(212,175,55,.30);
+
+  color: #d4af37;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+
+  margin-bottom: 24px;
+}
+
+.falco-experience-card h2 {
+  font-family: Playfair Display, serif;
+  font-size: clamp(36px, 4.2vw, 66px);
+  color: #fff;
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+
+.falco-experience-subtitle {
+  font-size: clamp(18px, 2vw, 24px);
+  color: #d4af37;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+.falco-experience-text {
+  max-width: 620px;
+  margin: 0 0 34px;
+  color: rgba(255,255,255,.78);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.falco-experience-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  padding: 18px 36px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+
+  color: #111;
+  background: #d4af37;
+
+  transition: .45s;
+
+  box-shadow:
+    0 12px 45px rgba(212,175,55,.35);
+}
+
+.falco-experience-btn:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow:
+    0 18px 60px rgba(212,175,55,.45);
+}
+
+.falco-exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.falco-exp-tags span {
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  color: rgba(255,255,255,.76);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(212,175,55,.18);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.falco-exp-right {
+  display: flex;
+  justify-content: center;
+}
+
+.falco-exp-preview {
+  position: relative;
+  width: min(360px, 100%);
+  aspect-ratio: 1 / 1;
+  border-radius: 34px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at center, rgba(212,175,55,.22), transparent 38%),
+    linear-gradient(145deg, rgba(18,18,18,.98), rgba(0,0,0,.98));
+
+  border: 1px solid rgba(212,175,55,.34);
+
+  box-shadow:
+    inset 0 0 40px rgba(212,175,55,.08),
+    0 34px 90px rgba(0,0,0,.52),
+    0 0 54px rgba(212,175,55,.16);
+
+  animation: falcoPreviewFloat 6s ease-in-out infinite;
+}
+
+.falco-exp-preview::before,
+.falco-exp-preview::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.falco-exp-preview::before {
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(212,175,55,.26);
+  animation: falcoOrbitSpin 18s linear infinite;
+}
+
+.falco-exp-preview::after {
+  width: 285px;
+  height: 285px;
+  border: 1px solid rgba(255,255,255,.08);
+  animation: falcoOrbitSpinReverse 26s linear infinite;
+}
+
+.falco-exp-orbit {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow:
+    0 0 18px rgba(212,175,55,.75),
+    0 0 40px rgba(212,175,55,.35);
+
+  animation: falcoParticleOrbit 7s linear infinite;
+}
+
+.falco-exp-logo {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+
+  color: #fff;
+  font-family: Playfair Display, serif;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 700;
+  letter-spacing: .04em;
+
+  text-shadow:
+    0 0 24px rgba(212,175,55,.28);
+}
+
+.falco-exp-logo small {
+  display: block;
+  margin-top: 8px;
+
+  font-family: inherit;
+  font-size: 15px;
+  color: #d4af37;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.falco-exp-play {
+  position: absolute;
+  z-index: 4;
+  bottom: 34px;
+  right: 34px;
+
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #111;
+  background: #d4af37;
+
+  box-shadow:
+    0 0 30px rgba(212,175,55,.50);
+
+  animation: falcoPlayPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes falcoExperienceGlow {
+  0%, 100% {
+    opacity: .35;
+    transform: scale(.95) rotate(0deg);
+  }
+
+  50% {
+    opacity: .9;
+    transform: scale(1.10) rotate(10deg);
+  }
+}
+
+@keyframes falcoExperienceShine {
+  0%, 55% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes falcoPreviewFloat {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotateX(3deg) rotateY(-4deg);
+  }
+}
+
+@keyframes falcoOrbitSpin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes falcoOrbitSpinReverse {
+  from {
+    transform: rotate(360deg) scale(1);
+  }
+
+  to {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes falcoParticleOrbit {
+  0% {
+    transform: rotate(0deg) translateX(118px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(118px) rotate(-360deg);
+  }
+}
+
+@keyframes falcoPlayPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(212,175,55,.50);
+  }
+
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 48px rgba(212,175,55,.78);
+  }
+}
+
+@media (max-width: 950px) {
+  .falco-experience-card {
+    grid-template-columns: 1fr;
+    padding: 48px 34px;
+    text-align: center;
+  }
+
+  .falco-exp-left {
+    text-align: center;
+  }
+
+  .falco-experience-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .falco-exp-tags {
+    justify-content: center;
+  }
+
+  .falco-exp-preview {
+    width: min(320px, 100%);
+  }
+}
+
+@media (max-width: 600px) {
+  .falco-experience-home {
+    margin: 50px auto 70px;
+  }
+
+  .falco-experience-card {
+    padding: 42px 22px;
+    border-radius: 26px;
+  }
+
+  .falco-experience-btn {
+    width: 100%;
+  }
+
+  .falco-exp-preview {
+    width: min(280px, 100%);
+  }
+}
