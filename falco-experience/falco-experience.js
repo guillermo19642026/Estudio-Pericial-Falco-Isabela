@@ -8,17 +8,21 @@ const actTitles = [
   "Ecosistema",
   "Interfaces",
   "Centro de Operaciones",
-  "Final"
+  "Universo FALCO",
+  "Gran Final",
+  "Cierre"
 ];
 
 /* tiempos en segundos */
 const timeline = [
-  0,   // Intro
-  12,  // Core
-  28,  // Ecosistema
-  44,  // Interfaces
-  62,  // Centro Operaciones
-  82   // Final
+  0,    // Intro
+  12,   // Core
+  28,   // Ecosistema
+  44,   // Interfaces
+  62,   // Centro Operaciones
+  84,   // Universo FALCO
+  114,  // Gran Final
+  132   // Cierre
 ];
 
 let currentAct = 0;
@@ -72,6 +76,10 @@ function flashScene() {
   flash.classList.add("active");
 }
 
+
+
+
+
 function showAct(index) {
   if (!acts[index]) return;
 
@@ -84,6 +92,18 @@ function showAct(index) {
   updateIndicator(index);
   updateCamera(index);
   flashScene();
+
+if (acts[index]?.classList.contains("fx-act-showcase")) {
+  activateShowcase3D();
+} else {
+  resetShowcase3D();
+}
+
+if (acts[index]?.classList.contains("fx-act-showcase")) {
+  startModuleCounter();
+}
+
+
 }
 
 function getActFromTime(time) {
@@ -414,3 +434,72 @@ window.addEventListener("load", async () => {
     }
   }
 });
+
+
+
+
+/* ===============================
+   SHOWCASE 3D - UNIVERSO FALCO
+================================ */
+
+function activateShowcase3D() {
+  const showcase = document.querySelector(".fx-act-showcase");
+  if (!showcase) return;
+
+  const shots = showcase.querySelectorAll(".fx-shot");
+
+  shots.forEach((shot, index) => {
+    const delay = index * 110;
+
+    setTimeout(() => {
+      shot.classList.add("fx-shot-live");
+    }, delay);
+  });
+}
+
+function resetShowcase3D() {
+  document.querySelectorAll(".fx-shot").forEach(shot => {
+    shot.classList.remove("fx-shot-live");
+  });
+}
+
+
+/* ===============================
+   CONTADOR UNIVERSO FALCO
+================================ */
+
+let moduleCounterStarted = false;
+
+function startModuleCounter() {
+  const counter = document.getElementById("fxModuleCounter");
+
+  if (!counter || moduleCounterStarted) return;
+
+  moduleCounterStarted = true;
+
+  let value = 1;
+
+  counter.textContent = "01";
+
+  const timer = setInterval(() => {
+    value++;
+
+    counter.textContent =
+      value < 10 ? "0" + value : value;
+
+    counter.classList.remove("fx-counter-pop");
+    void counter.offsetWidth;
+    counter.classList.add("fx-counter-pop");
+
+    if (value >= 15) {
+      clearInterval(timer);
+
+      setTimeout(() => {
+        counter.textContent = "15+";
+        counter.classList.remove("fx-counter-pop");
+        void counter.offsetWidth;
+        counter.classList.add("fx-counter-pop");
+      }, 250);
+    }
+  }, 180);
+}
