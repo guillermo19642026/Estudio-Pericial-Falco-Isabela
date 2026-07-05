@@ -1,0 +1,44 @@
+{
+  "id": "INS-000001",
+  "titulo": "SCL-90",
+  "version": "1.0",
+  "estado": "validado",
+  "tipo": "Instrumento",
+  "categoria": "Psicodiagnóstico",
+  "subcategoria": "Técnicas psicométricas",
+
+  "descripcion_corta": "",
+
+  "descripcion": "",
+
+  "aplicacion_pericial": "",
+
+  "dimensiones": [],
+
+  "indicadores": [],
+
+  "usos": [],
+
+  "limitaciones": [],
+
+  "criterios_falco": [],
+
+  "relaciones": [
+    "UCF-000001"
+  ],
+
+  "palabras_clave": [
+    "SCL-90",
+    "psicodiagnóstico",
+    "síntomas",
+    "daño psíquico"
+  ],
+
+  "nivel_acceso": "profesional",
+
+  "fecha_creacion": "",
+
+  "ultima_actualizacion": "",
+
+  "autor": "Lic. Isabela Falco"
+}

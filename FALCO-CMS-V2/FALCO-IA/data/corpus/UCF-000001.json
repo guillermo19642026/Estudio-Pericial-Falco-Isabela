@@ -1,0 +1,45 @@
+{
+  "id": "UCF-000001",
+  "titulo": "Daño Psíquico",
+  "version": "1.0",
+  "estado": "validado",
+  "tipo": "Unidad de Conocimiento",
+  "categoria": "Psicología Forense",
+  "subcategoria": "Daño Psíquico",
+
+  "descripcion_corta": "",
+
+  "descripcion": "",
+
+  "objetivos": [],
+
+  "conceptos_clave": [],
+
+  "criterios_falco": [],
+
+  "instrumentos": [],
+
+  "escritos": [],
+
+  "informes": [],
+
+  "libros": [],
+
+  "cursos": [],
+
+  "jurisprudencia": [],
+
+  "bibliografia": [],
+
+  "relaciones": [],
+
+  "palabras_clave": [],
+
+  "nivel_acceso": "profesional",
+
+  "fecha_creacion": "",
+
+  "ultima_actualizacion": "",
+
+  "autor": "Lic. Isabela Falco"
+}

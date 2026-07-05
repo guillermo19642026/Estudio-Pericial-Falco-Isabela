@@ -1,0 +1,29 @@
+{
+  "corpus": "Corpus FALCO®",
+  "version": "1.0",
+  "estado": "estructura_inicial",
+  "autor": "Estudio Pericial Psicológico – Lic. Isabela Falco",
+  "descripcion": "Base estructural del conocimiento institucional del Sistema FALCO®.",
+  "colecciones": {
+    "unidades_conocimiento": [],
+    "escritos": [],
+    "informes": [],
+    "instrumentos": [],
+    "libros": [],
+    "cursos": [],
+    "jurisprudencia": [],
+    "bibliografia": [],
+    "criterios_falco": []
+  },
+  "tipos_id": {
+    "UCF": "Unidad de Conocimiento FALCO®",
+    "ESC": "Escrito Judicial",
+    "INF": "Informe Pericial",
+    "INS": "Instrumento",
+    "LIB": "Libro",
+    "CUR": "Curso",
+    "JUR": "Jurisprudencia",
+    "BIB": "Bibliografía",
+    "CRI": "Criterio FALCO®"
+  }
+}
