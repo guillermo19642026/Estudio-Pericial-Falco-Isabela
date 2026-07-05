@@ -1,0 +1,81 @@
+{
+  "corpus": "Corpus FALCO®",
+  "version": "1.0",
+  "estado": "demo",
+  "autor": "Estudio Pericial Psicológico – Lic. Isabela Falco",
+  "nodos": [
+    {
+      "id": "FALCO-DP-0001",
+      "titulo": "Daño Psíquico",
+      "tipo": "concepto",
+      "categoria": "Psicología Pericial",
+      "subcategoria": "Daño Psíquico",
+      "nivelAcceso": "publico",
+      "estado": "validado",
+      "descripcion": "Concepto central para la evaluación pericial psicológica del impacto subjetivo derivado de un hecho jurídicamente relevante.",
+      "relaciones": [
+        "FALCO-INS-0001",
+        "FALCO-INF-0001",
+        "FALCO-ESC-0001"
+      ]
+    },
+    {
+      "id": "FALCO-INS-0001",
+      "titulo": "SCL-90",
+      "tipo": "instrumento",
+      "categoria": "Psicodiagnóstico",
+      "subcategoria": "Técnicas psicométricas",
+      "nivelAcceso": "profesional",
+      "estado": "validado",
+      "descripcion": "Instrumento psicométrico utilizado para explorar sintomatología psicológica y dimensiones clínicas relevantes.",
+      "relaciones": [
+        "FALCO-DP-0001",
+        "FALCO-INF-0001"
+      ]
+    },
+    {
+      "id": "FALCO-INF-0001",
+      "titulo": "Informe Pericial Psicológico",
+      "tipo": "modelo",
+      "categoria": "Informes Periciales",
+      "subcategoria": "Estructura de informe",
+      "nivelAcceso": "profesional",
+      "estado": "validado",
+      "descripcion": "Modelo técnico para organizar antecedentes, metodología, resultados, integración diagnóstica y conclusiones periciales.",
+      "relaciones": [
+        "FALCO-DP-0001",
+        "FALCO-INS-0001",
+        "FALCO-ESC-0001"
+      ]
+    },
+    {
+      "id": "FALCO-ESC-0001",
+      "titulo": "Impugnación de Informe Psicológico",
+      "tipo": "escrito",
+      "categoria": "Escritos Judiciales",
+      "subcategoria": "Impugnaciones",
+      "nivelAcceso": "profesional",
+      "estado": "borrador",
+      "descripcion": "Modelo de escrito destinado a cuestionar técnicamente un informe psicológico por deficiencias metodológicas, diagnósticas o conclusivas.",
+      "relaciones": [
+        "FALCO-DP-0001",
+        "FALCO-INF-0001"
+      ]
+    },
+    {
+      "id": "FALCO-MET-0001",
+      "titulo": "Metodología FALCO®",
+      "tipo": "metodologia",
+      "categoria": "Método FALCO®",
+      "subcategoria": "Criterio técnico",
+      "nivelAcceso": "interno",
+      "estado": "borrador",
+      "descripcion": "Conjunto de criterios profesionales para ordenar la evaluación, interpretación e integración del conocimiento pericial.",
+      "relaciones": [
+        "FALCO-DP-0001",
+        "FALCO-INF-0001",
+        "FALCO-ESC-0001"
+      ]
+    }
+  ]
+}

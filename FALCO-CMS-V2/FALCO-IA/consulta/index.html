@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Consulta al Corpus FALCO®</title>
+
+  <link rel="stylesheet" href="consulta.css">
+</head>
+
+<body>
+
+<main class="consulta-corpus">
+
+  <canvas id="consultaCanvas"></canvas>
+
+  <div class="consulta-vignette"></div>
+  <div class="consulta-glow"></div>
+
+  <header class="consulta-header">
+    <a href="../index.html" class="consulta-back">Volver</a>
+
+    <div class="consulta-brand">
+      <span>◆</span>
+      <div>
+        <strong>FALCO IA®</strong>
+        <small>Consulta al Corpus</small>
+      </div>
+    </div>
+  </header>
+
+  <section class="consulta-hero">
+
+    <span class="consulta-kicker">Corpus FALCO®</span>
+
+    <h1>Consulta al Corpus.</h1>
+
+    <p>
+      Toda respuesta será construida utilizando conocimiento validado,
+      estructurado y trazable del Sistema FALCO®.
+    </p>
+
+    <div class="consulta-box">
+
+      <label for="consultaInput">
+        ¿Sobre qué tema desea consultar?
+      </label>
+
+      <textarea
+        id="consultaInput"
+        placeholder="Ejemplo: ¿Qué es el daño psíquico?"
+      ></textarea>
+
+      <button id="consultarCorpusBtn">
+        Consultar el Corpus
+      </button>
+
+    </div>
+
+    <div class="consulta-suggestions">
+      <button>Daño Psíquico</button>
+      <button>SCL-90</button>
+      <button>Informe Pericial</button>
+      <button>Impugnación</button>
+    </div>
+
+  </section>
+
+  <section class="consulta-process" id="consultaProcess">
+
+    <h2>Consultando el Corpus FALCO®</h2>
+
+    <ul id="processList">
+
+        <li id="step1">○ Localizando Unidades de Conocimiento</li>
+
+        <li id="step2">○ Analizando relaciones</li>
+
+        <li id="step3">○ Integrando criterios FALCO®</li>
+
+        <li id="step4">○ Construyendo respuesta</li>
+
+    </ul>
+
+
+<div class="research-visualizer" id="researchVisualizer"></div>
+
+
+</section>
+
+  <section class="consulta-result" id="consultaResult">
+
+    <div class="result-main">
+      <span>Ficha técnica de conocimiento</span>
+      <h2 id="resultTitle">Daño Psíquico</h2>
+
+      <div id="resultBody">
+        <p>
+          La respuesta aparecerá aquí una vez consultado el Corpus FALCO®.
+        </p>
+      </div>
+    </div>
+
+    <aside class="result-sources">
+      <h3>Fuentes utilizadas</h3>
+      <div id="resultSources">
+        <p>Sin fuentes seleccionadas todavía.</p>
+      </div>
+    </aside>
+
+  </section>
+
+</main>
+
+<script src="../corpus/node.js"></script>
+<script src="../corpus/loader.js"></script>
+
+<script src="../engines/investigation.js"></script>
+<script src="../engines/research-engine.js"></script>
+<script src="../engines/response-engine.js"></script>
+
+<script src="../engines/corpus-graph.js"></script>
+
+<script src="../engines/research-visualizer.js"></script>
+
+
+<script src="components/search.js"></script>
+<script src="components/response.js"></script>
+<script src="components/sources.js"></script>
+<script src="components/history.js"></script>
+
+<script src="consulta.js"></script>
+
+
+</body>
+</html>

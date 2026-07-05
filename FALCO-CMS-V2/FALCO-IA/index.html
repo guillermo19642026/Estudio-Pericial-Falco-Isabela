@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FALCO IA® | Corpus FALCO®</title>
+
+  <link rel="stylesheet" href="css/falco-ia.css">
+</head>
+
+<body>
+
+<main class="falco-ia-cinematic">
+
+  <canvas id="falcoIaCanvas"></canvas>
+
+  <div class="ia-vignette"></div>
+  <div class="ia-light"></div>
+
+  <header class="ia-header">
+    <div class="ia-brand">
+      <span>◆</span>
+      <div>
+        <strong>FALCO IA®</strong>
+        <small>Corpus FALCO®</small>
+      </div>
+    </div>
+
+    <div class="ia-act-counter" id="iaActCounter">
+      ACTO I / V
+    </div>
+  </header>
+
+  <section class="ia-scene ia-scene-active" data-scene="0">
+    <div class="ia-act-label">
+      <span>ACTO I</span>
+      <strong>El primer pulso</strong>
+    </div>
+
+    <div class="ia-center">
+      <span class="ia-pulse-dot"></span>
+      <p class="ia-whisper">Toda inteligencia necesita una memoria.</p>
+    </div>
+  </section>
+
+  <section class="ia-scene" data-scene="1">
+    <div class="ia-act-label">
+      <span>ACTO II</span>
+      <strong>El despertar</strong>
+    </div>
+
+    <div class="ia-title-block">
+      <h1>El Corpus despierta.</h1>
+      <p>
+        Una red viva de conocimiento propio, técnico y validado.
+      </p>
+    </div>
+  </section>
+
+  <section class="ia-scene" data-scene="2">
+    <div class="ia-act-label">
+      <span>ACTO III</span>
+      <strong>La red del conocimiento</strong>
+    </div>
+
+    <div class="ia-knowledge-cloud">
+      <span>Daño Psíquico</span>
+      <span>Psicodiagnóstico</span>
+      <span>SCL-90</span>
+      <span>BDI</span>
+      <span>BAI</span>
+      <span>Bender</span>
+      <span>HTP</span>
+      <span>Informe Pericial</span>
+      <span>Impugnación</span>
+      <span>Jurisprudencia</span>
+      <span>Metodología FALCO®</span>
+      <span>Bibliografía</span>
+    </div>
+  </section>
+
+  <section class="ia-scene" data-scene="3">
+    <div class="ia-act-label">
+      <span>ACTO IV</span>
+      <strong>El sistema conectado</strong>
+    </div>
+
+    <div class="ia-system-map">
+      <h2>Una misma fuente. Todo el sistema conectado.</h2>
+
+      <div class="ia-orbit">
+        <div class="ia-core">Corpus<br>FALCO®</div>
+
+        <span style="--i:0;">Sitio Web</span>
+        <span style="--i:1;">Biblioteca</span>
+        <span style="--i:2;">Escuela</span>
+        <span style="--i:3;">Centro Profesional</span>
+        <span style="--i:4;">Informes</span>
+        <span style="--i:5;">FALCO IA®</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ia-scene" data-scene="4">
+    <div class="ia-act-label">
+      <span>ACTO V</span>
+      <strong>El ingreso al Corpus</strong>
+    </div>
+
+    <div class="ia-final">
+      <h2>El conocimiento se escribe una sola vez.</h2>
+      <p>El Sistema FALCO® lo reutiliza para siempre.</p>
+
+      <button class="ia-enter-btn" id="enterCorpusRoom">
+  Ingresar al Corpus FALCO®
+</button>
+    </div>
+  </section>
+
+
+<section class="ia-corpus-room" id="iaCorpusRoom">
+
+  <button class="corpus-close" id="closeCorpusRoom">Cerrar</button>
+
+  <div class="corpus-room-header">
+    <span>FALCO IA®</span>
+    <h2>Sala del Corpus FALCO®</h2>
+    <p>
+      Primer espacio de exploración del conocimiento institucional validado.
+    </p>
+  </div>
+
+  <div class="corpus-room-layout">
+
+    <aside class="corpus-panel">
+      <h3>Corpus FALCO®</h3>
+
+      <div class="corpus-stat">
+        <strong id="corpusTotalNodes">0</strong>
+        <span>Unidades de conocimiento</span>
+      </div>
+
+      <div class="corpus-stat">
+        <strong>v1.0</strong>
+        <span>Versión demo</span>
+      </div>
+
+      <div class="corpus-stat">
+        <strong>Validado</strong>
+        <span>Uso institucional controlado</span>
+      </div>
+    </aside>
+
+    <section class="corpus-explorer">
+      <div class="corpus-explorer-title">
+        <h3>Unidades iniciales</h3>
+        <p>Conocimiento base disponible para FALCO IA®.</p>
+      </div>
+
+      <div class="corpus-node-list" id="corpusNodeList">
+        <!-- Nodos cargados por JS -->
+      </div>
+    </section>
+
+    <aside class="corpus-detail" id="corpusDetail">
+      <span>Seleccione una unidad</span>
+      <h3>Explorar conocimiento</h3>
+      <p>
+        Al seleccionar una unidad del Corpus, se visualizará su descripción,
+        estado, tipo, nivel de acceso y relaciones.
+      </p>
+    </aside>
+
+  </div>
+
+</section>
+
+
+
+
+  <footer class="ia-controls">
+    <button id="iaPrev">Anterior</button>
+
+    <div class="ia-progress">
+      <span id="iaProgressBar"></span>
+    </div>
+
+    <button id="iaNext">Siguiente</button>
+  </footer>
+
+</main>
+
+
+<!-- =========================
+     MOTOR CINEMATOGRÁFICO
+========================= -->
+
+<script src="cinematic/camera.js"></script>
+<script src="cinematic/timeline.js"></script>
+<script src="cinematic/transitions.js"></script>
+<script src="cinematic/particles.js"></script>
+
+
+
+<!-- =========================
+     MOTOR DEL CORPUS FALCO®
+========================= -->
+
+<script src="corpus/node.js"></script>
+<script src="corpus/relation.js"></script>
+<script src="corpus/loader.js"></script>
+<script src="corpus/search.js"></script>
+<script src="corpus/validator.js"></script>
+<script src="corpus/generator.js"></script>
+
+
+<script src="../engines/investigation.js"></script>
+<script src="../engines/research-engine.js"></script>
+<script src="../engines/response-engine.js"></script>
+
+<script src="../engines/research-visualizer.js"></script>
+
+
+<script src="consulta.js"></script>
+
+
+
+<!-- =========================
+     MOTOR PRINCIPAL
+========================= -->
+
+<script src="js/falco-ia.js"></script>
+
+</body>
+</html>
