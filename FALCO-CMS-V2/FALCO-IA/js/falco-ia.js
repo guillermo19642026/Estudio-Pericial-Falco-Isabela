@@ -419,34 +419,7 @@ window.addEventListener("resize", initAwakeningCanvas);
 
 
 
-/* =========================
-   FALCO LIFE ENGINE™
-========================= */
 
-function animateLife() {
-  const knowledgeNodes = document.querySelectorAll(".ia-knowledge-cloud span");
-  const modules = document.querySelectorAll(".ia-orbit span");
-  const titles = document.querySelectorAll(".ia-title-block h1, .ia-system-map h2, .ia-final h2");
-  const finalButton = document.querySelector(".ia-enter-btn");
-
-  knowledgeNodes.forEach((node, index) => {
-    node.classList.add("life-breath");
-    node.style.animationDelay = `${index * 0.18}s`;
-  });
-
-  modules.forEach((module, index) => {
-    module.classList.add("life-breath");
-    module.style.animationDelay = `${index * 0.25}s`;
-  });
-
-  titles.forEach((title) => {
-    title.classList.add("life-glow");
-  });
-
-  if (finalButton) {
-    finalButton.classList.add("life-float");
-  }
-}
 
 
 /* =========================
@@ -484,7 +457,13 @@ if (enterCorpusRoom) {
     iaCorpusRoom.classList.add("active");
 
     const corpus = await FalcoCorpusLoader.load();
-    renderCorpusRoom(corpus.nodos || []);
+
+
+console.log(corpus);
+console.log(corpus.nodos);
+
+
+    FalcoCorpusRoom.render(corpus.nodos || []);
   });
 }
 
@@ -508,61 +487,9 @@ if (closeCorpusRoom) {
 
 
 
-function renderCorpusRoom(nodes) {
-  corpusNodeList.innerHTML = "";
 
-  if (corpusTotalNodes) {
-    corpusTotalNodes.textContent = nodes.length;
-  }
 
-  nodes.forEach((node, index) => {
-    const card = document.createElement("article");
-    card.className = "corpus-node-card";
 
-    card.innerHTML = `
-      <span>${node.tipo || "Unidad"}</span>
-      <h4>${node.titulo || "Sin título"}</h4>
-      <p>${node.descripcion || "Sin descripción disponible."}</p>
-    `;
-
-    card.addEventListener("click", () => {
-      document.querySelectorAll(".corpus-node-card").forEach((item) => {
-        item.classList.remove("active");
-      });
-
-      card.classList.add("active");
-      renderCorpusDetail(node);
-    });
-
-    corpusNodeList.appendChild(card);
-
-    if (index === 0) {
-      card.classList.add("active");
-      renderCorpusDetail(node);
-    }
-  });
-}
-
-function renderCorpusDetail(node) {
-  corpusDetail.innerHTML = `
-    <span>${node.id || "UCF"}</span>
-    <h3>${node.titulo || "Unidad de Conocimiento"}</h3>
-    <p>${node.descripcion || "Sin descripción disponible."}</p>
-
-    <div class="corpus-meta">
-      <div><strong>Tipo:</strong> ${node.tipo || "-"}</div>
-      <div><strong>Categoría:</strong> ${node.categoria || "-"}</div>
-      <div><strong>Subcategoría:</strong> ${node.subcategoria || "-"}</div>
-      <div><strong>Acceso:</strong> ${node.nivelAcceso || "-"}</div>
-      <div><strong>Estado:</strong> ${node.estado || "-"}</div>
-      <div><strong>Relaciones:</strong> ${
-        node.relaciones && node.relaciones.length
-          ? node.relaciones.join(", ")
-          : "Sin relaciones registradas"
-      }</div>
-    </div>
-  `;
-}
 
 
 
@@ -575,7 +502,9 @@ showScene(0);
 
 drawScene();
 
-animateLife();
+FalcoLifeEngine.init();
+
+
 
 FalcoCorpusRoom.init();
 
