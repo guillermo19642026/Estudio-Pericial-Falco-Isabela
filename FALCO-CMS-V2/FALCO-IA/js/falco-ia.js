@@ -295,29 +295,7 @@ function initAwakeningCanvas() {
   awakeningCanvas.height = window.innerHeight;
 }
 
-function createAwakeningNodes(total = 1) {
-  awakeningNodes = [];
 
-  const cx = awakeningCanvas.width / 2;
-  const cy = awakeningCanvas.height / 2;
-
-  for (let i = 0; i < total; i++) {
-    awakeningNodes.push({
-      x: cx + (Math.random() - 0.5) * awakeningCanvas.width * 0.62,
-      y: cy + (Math.random() - 0.5) * awakeningCanvas.height * 0.48,
-      r: Math.random() * 2.4 + 1.8,
-      pulse: Math.random() * Math.PI * 2,
-      label: null
-    });
-  }
-
-  if (awakeningNodes[0]) {
-    awakeningNodes[0].x = cx;
-    awakeningNodes[0].y = cy;
-    awakeningNodes[0].r = 7;
-    awakeningNodes[0].label = "Corpus FALCO®";
-  }
-}
 
 function drawAwakening() {
   if (!awakeningCtx) return;
@@ -382,7 +360,7 @@ async function runCorpusAwakening() {
   corpusAwakening.classList.add("active");
 
   initAwakeningCanvas();
-  createAwakeningNodes(130);
+  FalcoAwakening.createNodes(130);
   awakeningPhase = 0;
 
   if (awakeningAnimation) {
@@ -459,8 +437,6 @@ if (enterCorpusRoom) {
     const corpus = await FalcoCorpusLoader.load();
 
 
-console.log(corpus);
-console.log(corpus.nodos);
 
 
     FalcoCorpusRoom.render(corpus.nodos || []);
@@ -504,7 +480,7 @@ drawScene();
 
 FalcoLifeEngine.init();
 
-
+FalcoAwakening.init();
 
 FalcoCorpusRoom.init();
 
