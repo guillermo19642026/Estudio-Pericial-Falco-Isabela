@@ -20,6 +20,8 @@ FalcoTimeline.init(scenes.length);
 FalcoCamera.init(".falco-ia-cinematic");
 
 
+
+
 function showScene(index) {
   scenes.forEach((scene, i) => {
     scene.classList.toggle("ia-scene-active", i === index);
@@ -574,5 +576,7 @@ showScene(0);
 drawScene();
 
 animateLife();
+
+FalcoCorpusRoom.init();
 
 startAutoPlay();
