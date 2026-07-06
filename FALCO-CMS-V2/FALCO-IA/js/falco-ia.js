@@ -1,4 +1,3 @@
-
 /* =========================
    FALCO IA® CINEMATIC
 ========================= */
@@ -9,18 +8,18 @@ const prevButton = document.getElementById("iaPrev");
 const progressBar = document.getElementById("iaProgressBar");
 const actCounter = document.getElementById("iaActCounter");
 
-
 let presentationRunning = true;
 let autoPlayScenes = null;
 let animationFrameId = null;
 
-
 FalcoTimeline.init(scenes.length);
-
 FalcoCamera.init(".falco-ia-cinematic");
 
-
-
+function syncCanvasParticles(act = 1) {
+  FalcoCanvasEngine.createParticlesForAct(act);
+  particles = FalcoCanvasEngine.particles;
+  connections = FalcoCanvasEngine.connections;
+}
 
 function showScene(index) {
   scenes.forEach((scene, i) => {
@@ -34,37 +33,32 @@ function showScene(index) {
     actCounter.textContent = `ACTO ${index + 1} / ${scenes.length}`;
   }
 
-FalcoCamera.moveTo(index);
+  FalcoCamera.moveTo(index);
 
-if (index === 0) {
-  createParticlesForAct(1);
-} else {
-  createParticlesForAct(2);
-}
-
+  if (index === 0) {
+    syncCanvasParticles(1);
+  } else {
+    syncCanvasParticles(2);
+  }
 }
 
 nextButton.addEventListener("click", () => {
-    FalcoTimeline.next(showScene);
+  FalcoTimeline.next(showScene);
 });
 
 prevButton.addEventListener("click", () => {
-    FalcoTimeline.prev(showScene);
+  FalcoTimeline.prev(showScene);
 });
 
 document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    FalcoTimeline.next(showScene);
+  }
 
-    if (event.key === "ArrowRight") {
-        FalcoTimeline.next(showScene);
-    }
-
-    if (event.key === "ArrowLeft") {
-        FalcoTimeline.prev(showScene);
-    }
-
+  if (event.key === "ArrowLeft") {
+    FalcoTimeline.prev(showScene);
+  }
 });
-
-
 
 function startAutoPlay() {
   stopAutoPlay();
@@ -82,11 +76,6 @@ function stopAutoPlay() {
     autoPlayScenes = null;
   }
 }
-
-
-
-
-
 
 /* =========================
    CANVAS CORPUS VIVO
@@ -112,12 +101,12 @@ async function loadCorpusDemo() {
     }
 
     corpusData = await response.json();
-
     knowledgeNodes = corpusData.nodos.map((nodo) => nodo.titulo);
 
-createParticlesForAct(1);
+    FalcoCanvasEngine.setKnowledgeNodes(knowledgeNodes);
 
-} catch (error) {
+    syncCanvasParticles(1);
+  } catch (error) {
     console.error("Error cargando Corpus FALCO®:", error);
 
     knowledgeNodes = [
@@ -128,160 +117,40 @@ createParticlesForAct(1);
       "Metodología FALCO®"
     ];
 
-    createParticlesForAct(1);
+    FalcoCanvasEngine.setKnowledgeNodes(knowledgeNodes);
+
+    syncCanvasParticles(1);
   }
 }
 
 function resizeCanvas() {
   width = canvas.width = window.innerWidth;
   height = canvas.height = window.innerHeight;
-}
 
-function createParticlesForAct(act = 1) {
-  particles = [];
-  connections = [];
-
-
-
-
-
-let total = act === 1 ? 1 : Math.min(110, Math.floor((width * height) / 9000));
-
-
-
-  for (let i = 0; i < total; i++) {
-    const isKnowledgeNode = i < knowledgeNodes.length;
-
-    particles.push({
-      x: total === 1 ? width / 2 : width / 2 + (Math.random() - 0.5) * width * 0.72,
-      y: total === 1 ? height / 2 : height / 2 + (Math.random() - 0.5) * height * 0.62,
-      radius: total === 1 ? 7 : isKnowledgeNode ? Math.random() * 2.6 + 2.2 : Math.random() * 1.7 + 0.4,
-      vx: total === 1 ? 0 : (Math.random() - 0.5) * 0.22,
-      vy: total === 1 ? 0 : (Math.random() - 0.5) * 0.22,
-      alpha: total === 1 ? 0.95 : isKnowledgeNode ? 0.95 : Math.random() * 0.5 + 0.18,
-      label: isKnowledgeNode ? knowledgeNodes[i] : null,
-      pulse: Math.random() * Math.PI * 2
-    });
-  }
-
-  if (total > 1) {
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 150 && Math.random() > 0.55) {
-          connections.push([i, j]);
-        }
-      }
-    }
+  if (FalcoCanvasEngine) {
+    FalcoCanvasEngine.resize();
   }
 }
 
 function drawScene() {
   ctx.clearRect(0, 0, width, height);
 
-  drawCorpusGlow();
-  updateParticles();
-  drawConnections();
-  drawParticles();
+  FalcoCanvasEngine.drawCorpusGlow();
+  FalcoCanvasEngine.updateParticles();
+  particles = FalcoCanvasEngine.particles;
+  FalcoCanvasEngine.drawConnections();
+  FalcoCanvasEngine.drawParticles();
 
   if (presentationRunning) {
-  animationFrameId = requestAnimationFrame(drawScene);
-}
-}
-
-function drawCorpusGlow() {
-  const gradient = ctx.createRadialGradient(
-    width / 2,
-    height / 2,
-    20,
-    width / 2,
-    height / 2,
-    Math.min(width, height) * 0.45
-  );
-
-  gradient.addColorStop(0, "rgba(212,175,55,0.16)");
-  gradient.addColorStop(0.45, "rgba(212,175,55,0.06)");
-  gradient.addColorStop(1, "rgba(212,175,55,0)");
-
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
+    animationFrameId = requestAnimationFrame(drawScene);
+  }
 }
 
-function updateParticles() {
-  particles.forEach((particle) => {
-    particle.x += particle.vx;
-    particle.y += particle.vy;
-    particle.pulse += 0.025;
-
-    const marginX = width * 0.12;
-    const marginY = height * 0.16;
-
-    if (particle.x < marginX || particle.x > width - marginX) {
-      particle.vx *= -1;
-    }
-
-    if (particle.y < marginY || particle.y > height - marginY) {
-      particle.vy *= -1;
-    }
-  });
-}
-
-function drawConnections() {
-  connections.forEach(([a, b]) => {
-    const p1 = particles[a];
-    const p2 = particles[b];
-
-    const dx = p1.x - p2.x;
-    const dy = p1.y - p2.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    const opacity = Math.max(0, 0.13 - distance / 1500);
-
-    ctx.beginPath();
-    ctx.moveTo(p1.x, p1.y);
-    ctx.lineTo(p2.x, p2.y);
-    ctx.strokeStyle = `rgba(212,175,55,${opacity})`;
-    ctx.lineWidth = 1;
-    ctx.stroke();
-  });
-}
-
-function drawParticles() {
-  particles.forEach((particle) => {
-    const pulseSize = Math.sin(particle.pulse) * 0.8;
-    const radius = Math.max(0.5, particle.radius + pulseSize);
-
-    ctx.beginPath();
-    ctx.arc(particle.x, particle.y, radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(212,175,55,${particle.alpha})`;
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(particle.x, particle.y, radius * 4.8, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(212,175,55,${particle.alpha * 0.06})`;
-    ctx.fill();
-  });
-}
 
 window.addEventListener("resize", () => {
   resizeCanvas();
-  createParticlesForAct(1);
+  syncCanvasParticles(1);
 });
-
-
-
-/* =========================
-   CORPUS AWAKENING™
-========================= */
-
-
-
-
-
-
 
 /* =========================
    SALA DEL CORPUS
@@ -290,12 +159,6 @@ window.addEventListener("resize", () => {
 const enterCorpusRoom = document.getElementById("enterCorpusRoom");
 const closeCorpusRoom = document.getElementById("closeCorpusRoom");
 const iaCorpusRoom = document.getElementById("iaCorpusRoom");
-const corpusNodeList = document.getElementById("corpusNodeList");
-const corpusDetail = document.getElementById("corpusDetail");
-const corpusTotalNodes = document.getElementById("corpusTotalNodes");
-
-
-
 
 if (enterCorpusRoom) {
   enterCorpusRoom.addEventListener("click", async () => {
@@ -310,23 +173,13 @@ if (enterCorpusRoom) {
       stopAudio();
     }
 
-      
-
-
-
-
     iaCorpusRoom.classList.add("active");
 
     const corpus = await FalcoCorpusLoader.load();
 
-
-
-
     FalcoCorpusRoom.render(corpus.nodos || []);
   });
 }
-
-
 
 if (closeCorpusRoom) {
   closeCorpusRoom.addEventListener("click", () => {
@@ -344,14 +197,7 @@ if (closeCorpusRoom) {
   });
 }
 
-
-
-
-
-
-
-
-
+FalcoCanvasEngine.init();
 
 resizeCanvas();
 
