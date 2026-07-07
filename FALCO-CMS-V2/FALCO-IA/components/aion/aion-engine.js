@@ -1,6 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v1.0
+   AION ENGINE™ v1.2
    Sistema FALCO®
+   Core + estados + panel + mouse follow + interacción
 ========================================================= */
 
 class AionEngine {
@@ -8,7 +9,21 @@ class AionEngine {
     this.state = config.state || "gold";
     this.title = config.title || "AION";
     this.message = config.message || "Sistema FALCO® activo.";
+
     this.container = null;
+    this.inner = null;
+
+    this.mouse = {
+      enabled: config.mouseFollow !== false,
+      targetX: 0,
+      targetY: 0,
+      currentX: 0,
+      currentY: 0,
+      strength: 0.035,
+      max: 22
+    };
+
+    this.animationFrame = null;
   }
 
   init() {
@@ -17,6 +32,13 @@ class AionEngine {
     this.create();
     this.setState(this.state);
     this.setMessage(this.title, this.message);
+
+    if (this.mouse.enabled) {
+      this.bindMouseFollow();
+      this.animateMouseFollow();
+    }
+
+    this.bindInteraction();
   }
 
   create() {
@@ -25,20 +47,23 @@ class AionEngine {
     this.container.dataset.state = this.state;
 
     this.container.innerHTML = `
-      <div class="aion-orb-wrapper" aria-label="AION Engine">
-        <div class="aion-orbit one"></div>
-        <div class="aion-orbit two"></div>
-        <div class="aion-orbit three"></div>
-        <div class="aion-core"></div>
-      </div>
+      <div class="aion-engine-inner">
+        <div class="aion-orb-wrapper" aria-label="AION Engine">
+          <div class="aion-orbit one"></div>
+          <div class="aion-orbit two"></div>
+          <div class="aion-orbit three"></div>
+          <div class="aion-core"></div>
+        </div>
 
-      <div class="aion-panel">
-        <strong class="aion-title"></strong>
-        <span class="aion-message"></span>
+        <div class="aion-panel">
+          <strong class="aion-title"></strong>
+          <span class="aion-message"></span>
+        </div>
       </div>
     `;
 
     document.body.appendChild(this.container);
+    this.inner = this.container.querySelector(".aion-engine-inner");
   }
 
   setState(state = "gold") {
@@ -92,6 +117,59 @@ class AionEngine {
 
     this.setState(selected.state);
     this.setMessage(selected.title, selected.message);
+  }
+
+  bindInteraction() {
+    if (!this.container) return;
+
+    const orb = this.container.querySelector(".aion-orb-wrapper");
+
+    if (!orb) return;
+
+    orb.addEventListener("click", () => {
+      const sequence = ["gold", "blue", "green", "violet", "white"];
+      const currentIndex = sequence.indexOf(this.state);
+      const nextState = sequence[(currentIndex + 1) % sequence.length];
+
+      this.setState(nextState);
+      this.setMessage("AION", `Estado ${nextState} activado.`);
+    });
+  }
+
+  bindMouseFollow() {
+    window.addEventListener("mousemove", (event) => {
+      if (!this.container) return;
+
+      const rect = this.container.getBoundingClientRect();
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const distanceX = event.clientX - centerX;
+      const distanceY = event.clientY - centerY;
+
+      const nextX = distanceX * this.mouse.strength;
+      const nextY = distanceY * this.mouse.strength;
+
+      this.mouse.targetX = this.clamp(nextX, -this.mouse.max, this.mouse.max);
+      this.mouse.targetY = this.clamp(nextY, -this.mouse.max, this.mouse.max);
+    });
+  }
+
+  animateMouseFollow() {
+    if (!this.inner) return;
+
+    this.mouse.currentX += (this.mouse.targetX - this.mouse.currentX) * 0.08;
+    this.mouse.currentY += (this.mouse.targetY - this.mouse.currentY) * 0.08;
+
+    this.inner.style.setProperty("--aion-follow-x", `${this.mouse.currentX}px`);
+    this.inner.style.setProperty("--aion-follow-y", `${this.mouse.currentY}px`);
+
+    this.animationFrame = requestAnimationFrame(() => this.animateMouseFollow());
+  }
+
+  clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
   }
 }
 

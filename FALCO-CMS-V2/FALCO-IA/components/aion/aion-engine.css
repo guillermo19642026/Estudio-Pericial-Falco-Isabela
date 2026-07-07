@@ -1,7 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v1.0
+   AION ENGINE™ v1.4
    Sistema FALCO®
-   Núcleo energético institucional
+   Núcleo energético + doble latido + eye tracking
 ========================================================= */
 
 .aion-engine {
@@ -15,7 +15,16 @@
   font-family: "Inter", system-ui, sans-serif;
 }
 
-/* CONTENEDOR VISUAL */
+.aion-engine-inner {
+  width: 100%;
+  height: 100%;
+  transform: translate3d(
+    var(--aion-follow-x, 0px),
+    var(--aion-follow-y, 0px),
+    0
+  );
+  will-change: transform;
+}
 
 .aion-orb-wrapper {
   position: relative;
@@ -24,23 +33,36 @@
   margin-left: auto;
   margin-right: auto;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 /* NÚCLEO */
 
 .aion-core {
   position: absolute;
-  inset: 50%;
-  width: 44px;
-  height: 44px;
-  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  transform:
+    translate(
+      calc(-50% + var(--aion-eye-x, 0px)),
+      calc(-50% + var(--aion-eye-y, 0px))
+    );
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, var(--aion-main) 42%, transparent 72%);
+  background:
+    radial-gradient(circle at 38% 32%,
+      #ffffff 0%,
+      var(--aion-main) 32%,
+      var(--aion-soft) 58%,
+      transparent 76%
+    );
   box-shadow:
-    0 0 18px var(--aion-main),
-    0 0 36px var(--aion-soft),
-    0 0 70px var(--aion-soft);
-  animation: aionPulsePrimary 3.2s ease-in-out infinite;
+    0 0 16px var(--aion-main),
+    0 0 34px var(--aion-soft),
+    0 0 72px var(--aion-soft);
+  animation: aionHeartbeat 2.4s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 /* DOBLE LATIDO */
@@ -49,31 +71,34 @@
 .aion-core::after {
   content: "";
   position: absolute;
-  inset: -18px;
+  inset: -16px;
   border-radius: 50%;
   border: 1px solid var(--aion-ring);
-  opacity: .55;
+  box-shadow: 0 0 18px var(--aion-soft);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .aion-core::before {
-  animation: aionPulseRing 3.2s ease-in-out infinite;
+  animation: aionHeartbeatRing 2.4s ease-out infinite;
 }
 
 .aion-core::after {
-  inset: -34px;
-  opacity: .28;
-  animation: aionPulseRing 4.8s ease-in-out infinite;
+  inset: -30px;
+  animation: aionHeartbeatRing 2.4s ease-out infinite;
+  animation-delay: .28s;
 }
 
 /* ÓRBITAS */
 
 .aion-orbit {
   position: absolute;
-  inset: 50%;
+  left: 50%;
+  top: 50%;
   border-radius: 50%;
   border: 1px solid var(--aion-ring);
   transform: translate(-50%, -50%);
-  opacity: .72;
+  opacity: .7;
 }
 
 .aion-orbit.one {
@@ -106,10 +131,12 @@
   transform: translateX(-50%);
   border-radius: 50%;
   background: var(--aion-main);
-  box-shadow: 0 0 14px var(--aion-main);
+  box-shadow:
+    0 0 12px var(--aion-main),
+    0 0 24px var(--aion-soft);
 }
 
-/* PANEL CONTEXTUAL */
+/* PANEL */
 
 .aion-panel {
   width: 190px;
@@ -117,7 +144,7 @@
   padding: 13px 14px;
   border-radius: 18px;
   background: rgba(10, 12, 18, .82);
-  border: 1px solid rgba(212, 175, 55, .26);
+  border: 1px solid var(--aion-ring);
   box-shadow:
     0 18px 42px rgba(0,0,0,.35),
     inset 0 0 18px rgba(255,255,255,.035);
@@ -148,61 +175,80 @@
 
 .aion-engine[data-state="gold"] {
   --aion-main: #d4af37;
-  --aion-soft: rgba(212,175,55,.55);
+  --aion-soft: rgba(212,175,55,.58);
   --aion-ring: rgba(212,175,55,.48);
 }
 
 .aion-engine[data-state="blue"] {
   --aion-main: #5bbcff;
-  --aion-soft: rgba(91,188,255,.55);
+  --aion-soft: rgba(91,188,255,.58);
   --aion-ring: rgba(91,188,255,.46);
 }
 
 .aion-engine[data-state="green"] {
   --aion-main: #62e6a3;
-  --aion-soft: rgba(98,230,163,.5);
+  --aion-soft: rgba(98,230,163,.56);
   --aion-ring: rgba(98,230,163,.42);
 }
 
 .aion-engine[data-state="violet"] {
   --aion-main: #b58cff;
-  --aion-soft: rgba(181,140,255,.52);
+  --aion-soft: rgba(181,140,255,.58);
   --aion-ring: rgba(181,140,255,.44);
 }
 
 .aion-engine[data-state="white"] {
   --aion-main: #ffffff;
-  --aion-soft: rgba(255,255,255,.48);
+  --aion-soft: rgba(255,255,255,.52);
   --aion-ring: rgba(255,255,255,.38);
 }
 
 /* ANIMACIONES */
 
-@keyframes aionPulsePrimary {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+@keyframes aionHeartbeat {
+  0% {
+    scale: 1;
     filter: brightness(1);
   }
-  45% {
-    transform: translate(-50%, -50%) scale(1.12);
+
+  18% {
+    scale: 1.18;
+    filter: brightness(1.45);
+  }
+
+  28% {
+    scale: .96;
+    filter: brightness(.95);
+  }
+
+  42% {
+    scale: 1.1;
     filter: brightness(1.25);
   }
-  62% {
-    transform: translate(-50%, -50%) scale(.96);
-    filter: brightness(.95);
+
+  58% {
+    scale: 1;
+    filter: brightness(1);
+  }
+
+  100% {
+    scale: 1;
+    filter: brightness(1);
   }
 }
 
-@keyframes aionPulseRing {
+@keyframes aionHeartbeatRing {
   0% {
-    transform: scale(.82);
-    opacity: .1;
+    transform: scale(.6);
+    opacity: 0;
   }
-  45% {
-    opacity: .58;
+
+  20% {
+    opacity: .65;
   }
+
   100% {
-    transform: scale(1.42);
+    transform: scale(1.85);
     opacity: 0;
   }
 }
@@ -211,6 +257,7 @@
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -220,9 +267,16 @@
   from {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+
   to {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+}
+
+/* HOVER */
+
+.aion-engine:hover .aion-engine-inner {
+  filter: brightness(1.12);
 }
 
 /* RESPONSIVE */
