@@ -1,7 +1,7 @@
 /* =========================================================
-   AION DEBUG™ v2.6
+   AION DEBUG™ v4.0
    Sistema FALCO®
-   Diagnóstico interno del motor
+   Diagnóstico interno del motor + observer
 ========================================================= */
 
 (function () {
@@ -19,12 +19,15 @@
       const memory = this.engine.memory ? this.engine.memory.read() : {};
 
       const report = {
-        version: "2.6",
+        version: "4.0",
         context: this.engine.currentContext,
         state: this.engine.state,
         title: this.engine.title,
         message: this.engine.message,
         behavior: this.engine.container?.dataset.behavior || null,
+        workflow: this.engine.container?.dataset.workflow || "idle",
+        activeWorkflow: this.engine.workflow?.activeWorkflow || null,
+        observer: !!this.engine.observer,
         lastEvent: memory.lastEvent || null,
         lastDecision: memory.lastDecision || null,
         memory,
@@ -35,7 +38,11 @@
           memory: !!this.engine.memory,
           brain: !!this.engine.brain,
           systemEvents: !!this.engine.systemEvents,
-          presence: !!this.engine.presence
+          presence: !!this.engine.presence,
+          workflow: !!this.engine.workflow,
+          bridge: !!this.engine.bridge,
+          observer: !!this.engine.observer,
+          api: !!window.AionAPI
         }
       };
 
@@ -44,6 +51,9 @@
         context: report.context,
         state: report.state,
         behavior: report.behavior,
+        workflow: report.workflow,
+        activeWorkflow: report.activeWorkflow,
+        observer: report.observer,
         title: report.title,
         message: report.message,
         lastEvent: report.lastEvent

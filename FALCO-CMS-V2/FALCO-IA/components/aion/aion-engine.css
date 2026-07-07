@@ -328,3 +328,36 @@
     opacity: 0;
   }
 }
+
+
+/* =========================================================
+   AION ENGINE™ v3.6
+   Workflow visual states
+========================================================= */
+
+.aion-engine[data-workflow="search"] .aion-orbit.one {
+  animation-duration: 6s;
+}
+
+.aion-engine[data-workflow="search"] .aion-orbit.two {
+  animation-duration: 9s;
+}
+
+.aion-engine[data-workflow="search"] .aion-orbit.three {
+  animation-duration: 13s;
+}
+
+.aion-engine[data-workflow="corpus"] .aion-core {
+  box-shadow:
+    0 0 22px var(--aion-main),
+    0 0 52px var(--aion-soft),
+    0 0 96px var(--aion-soft);
+}
+
+.aion-engine[data-workflow="document"] .aion-panel {
+  border-color: var(--aion-main);
+}
+
+.aion-engine[data-workflow="warning"] .aion-core {
+  animation-duration: 1.4s;
+}

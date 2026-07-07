@@ -1,7 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v2.6
+   AION ENGINE™ v4.0
    Sistema FALCO®
-   Engine + Brain + Debug
+   Engine + Observer
 ========================================================= */
 
 class AionEngine {
@@ -21,6 +21,9 @@ class AionEngine {
     this.systemEvents = null;
     this.presence = null;
     this.debug = null;
+    this.workflow = null;
+    this.bridge = null;
+    this.observer = null;
 
     this.currentContext = "default";
 
@@ -42,43 +45,21 @@ class AionEngine {
 
     this.create();
 
-    if (window.AionBehavior) {
-      this.behavior = new AionBehavior(this);
-    }
-
-    if (window.AionContext) {
-      this.context = new AionContext();
-    }
-
-    if (window.AionEvents) {
-      this.events = new AionEvents(this);
-    }
-
-    if (window.AionMemory) {
-      this.memory = new AionMemory();
-    }
-
-    if (window.AionBrain) {
-      this.brain = new AionBrain(this);
-    }
-
-    if (window.AionSystemEvents) {
-      this.systemEvents = new AionSystemEvents(this);
-    }
-
-    if (window.AionPresence) {
-      this.presence = new AionPresence(this);
-    }
-
-    if (window.AionDebug) {
-      this.debug = new AionDebug(this);
-    }
+    if (window.AionBehavior) this.behavior = new AionBehavior(this);
+    if (window.AionContext) this.context = new AionContext();
+    if (window.AionEvents) this.events = new AionEvents(this);
+    if (window.AionMemory) this.memory = new AionMemory();
+    if (window.AionBrain) this.brain = new AionBrain(this);
+    if (window.AionSystemEvents) this.systemEvents = new AionSystemEvents(this);
+    if (window.AionPresence) this.presence = new AionPresence(this);
+    if (window.AionDebug) this.debug = new AionDebug(this);
+    if (window.AionWorkflow) this.workflow = new AionWorkflow(this);
+    if (window.AionBridge) this.bridge = new AionBridge(this);
+    if (window.AionObserver) this.observer = new AionObserver(this);
 
     this.applyPageContext();
 
-    if (this.behavior) {
-      this.behavior.guide();
-    }
+    if (this.behavior) this.behavior.guide();
 
     this.remember();
 
@@ -87,9 +68,9 @@ class AionEngine {
       this.animateMouseFollow();
     }
 
-    if (this.events) {
-      this.events.init();
-    }
+    if (this.events) this.events.init();
+    if (this.bridge) this.bridge.init();
+    if (this.observer) this.observer.init();
   }
 
   create() {
@@ -98,6 +79,7 @@ class AionEngine {
     this.container.dataset.state = this.state;
     this.container.dataset.behavior = "idle";
     this.container.dataset.context = "default";
+    this.container.dataset.workflow = "idle";
 
     this.container.innerHTML = `
       <div class="aion-engine-inner">
@@ -150,6 +132,11 @@ class AionEngine {
     this.systemEvents.emit(eventName, payload);
   }
 
+  run(workflowName, payload = {}) {
+    if (!this.workflow) return;
+    this.workflow.run(workflowName, payload);
+  }
+
   decide(eventName, payload = {}) {
     if (!this.brain) return null;
     return this.brain.decide(eventName, payload);
@@ -170,19 +157,12 @@ class AionEngine {
       return;
     }
 
-    if (options.wave) {
-      this.emitEnergyWave();
-    }
-
-    if (options.state) {
-      this.setState(options.state);
-    }
+    if (options.wave) this.emitEnergyWave();
+    if (options.state) this.setState(options.state);
   }
 
   status() {
-    if (this.debug) {
-      return this.debug.status();
-    }
+    if (this.debug) return this.debug.status();
 
     return {
       context: this.currentContext,
@@ -193,9 +173,7 @@ class AionEngine {
   }
 
   clearMemory() {
-    if (this.debug) {
-      this.debug.clearMemory();
-    }
+    if (this.debug) this.debug.clearMemory();
   }
 
   setState(state = "gold") {
@@ -231,7 +209,8 @@ class AionEngine {
       state: this.state,
       title: this.title,
       message: this.message,
-      behavior: this.container?.dataset.behavior || "idle"
+      behavior: this.container?.dataset.behavior || "idle",
+      workflow: this.container?.dataset.workflow || "idle"
     });
   }
 
