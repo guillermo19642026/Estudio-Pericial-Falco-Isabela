@@ -1,7 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v1.2
+   AION ENGINE™ v1.9
    Sistema FALCO®
-   Core + estados + panel + mouse follow + interacción
+   Engine + Behavior + Context + Events
 ========================================================= */
 
 class AionEngine {
@@ -12,6 +12,12 @@ class AionEngine {
 
     this.container = null;
     this.inner = null;
+
+    this.behavior = null;
+    this.context = null;
+    this.events = null;
+
+    this.currentContext = "default";
 
     this.mouse = {
       enabled: config.mouseFollow !== false,
@@ -30,21 +36,41 @@ class AionEngine {
     if (document.querySelector(".aion-engine")) return;
 
     this.create();
-    this.setState(this.state);
-    this.setMessage(this.title, this.message);
+
+    if (window.AionBehavior) {
+      this.behavior = new AionBehavior(this);
+    }
+
+    if (window.AionContext) {
+      this.context = new AionContext();
+    }
+
+    if (window.AionEvents) {
+      this.events = new AionEvents(this);
+    }
+
+    this.applyPageContext();
+
+    if (this.behavior) {
+      this.behavior.guide();
+    }
 
     if (this.mouse.enabled) {
       this.bindMouseFollow();
       this.animateMouseFollow();
     }
 
-    this.bindInteraction();
+    if (this.events) {
+      this.events.init();
+    }
   }
 
   create() {
     this.container = document.createElement("div");
     this.container.className = "aion-engine";
     this.container.dataset.state = this.state;
+    this.container.dataset.behavior = "idle";
+    this.container.dataset.context = "default";
 
     this.container.innerHTML = `
       <div class="aion-engine-inner">
@@ -66,6 +92,30 @@ class AionEngine {
     this.inner = this.container.querySelector(".aion-engine-inner");
   }
 
+  applyPageContext() {
+    const detectedContext = this.context ? this.context.detect() : "default";
+    this.activateContext(detectedContext);
+  }
+
+  activateContext(contextName = "default") {
+    const selected = this.context
+      ? this.context.get(contextName)
+      : {
+          state: "gold",
+          title: "AION",
+          message: "Sistema FALCO® activo."
+        };
+
+    this.currentContext = contextName;
+
+    if (this.container) {
+      this.container.dataset.context = contextName;
+    }
+
+    this.setState(selected.state);
+    this.setMessage(selected.title, selected.message);
+  }
+
   setState(state = "gold") {
     if (!this.container) return;
 
@@ -84,56 +134,20 @@ class AionEngine {
     if (messageEl) messageEl.textContent = message;
   }
 
-  activateContext(context = "default") {
-    const contexts = {
-      default: {
-        state: "gold",
-        title: "AION",
-        message: "Sistema FALCO® activo."
-      },
-      pericial: {
-        state: "blue",
-        title: "Modo pericial",
-        message: "Acompañamiento técnico activado."
-      },
-      biblioteca: {
-        state: "green",
-        title: "Biblioteca FALCO®",
-        message: "Recursos profesionales disponibles."
-      },
-      alerta: {
-        state: "violet",
-        title: "Atención",
-        message: "Hay información contextual relevante."
-      },
-      neutral: {
-        state: "white",
-        title: "AION",
-        message: "Presencia institucional activa."
-      }
-    };
-
-    const selected = contexts[context] || contexts.default;
-
-    this.setState(selected.state);
-    this.setMessage(selected.title, selected.message);
-  }
-
-  bindInteraction() {
+  emitEnergyWave() {
     if (!this.container) return;
 
     const orb = this.container.querySelector(".aion-orb-wrapper");
-
     if (!orb) return;
 
-    orb.addEventListener("click", () => {
-      const sequence = ["gold", "blue", "green", "violet", "white"];
-      const currentIndex = sequence.indexOf(this.state);
-      const nextState = sequence[(currentIndex + 1) % sequence.length];
+    const wave = document.createElement("span");
+    wave.className = "aion-energy-wave";
 
-      this.setState(nextState);
-      this.setMessage("AION", `Estado ${nextState} activado.`);
-    });
+    orb.appendChild(wave);
+
+    window.setTimeout(() => {
+      wave.remove();
+    }, 900);
   }
 
   bindMouseFollow() {

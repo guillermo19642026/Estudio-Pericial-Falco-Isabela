@@ -289,3 +289,42 @@
     transform-origin: bottom right;
   }
 }
+
+
+/* =========================================================
+   AION ENGINE™ v1.6
+   Energy Wave
+========================================================= */
+
+.aion-energy-wave {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--aion-ring);
+  box-shadow:
+    0 0 18px var(--aion-main),
+    0 0 42px var(--aion-soft);
+  transform: translate(-50%, -50%) scale(.6);
+  opacity: .8;
+  pointer-events: none;
+  animation: aionEnergyWave .9s ease-out forwards;
+}
+
+@keyframes aionEnergyWave {
+  0% {
+    transform: translate(-50%, -50%) scale(.6);
+    opacity: .8;
+  }
+
+  70% {
+    opacity: .35;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(3.4);
+    opacity: 0;
+  }
+}
