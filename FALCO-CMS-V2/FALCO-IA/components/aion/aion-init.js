@@ -1,5 +1,5 @@
 /* =========================================================
-   AION ENGINE™ INIT
+   AION ENGINE™ INIT v2.1
    Sistema FALCO®
 ========================================================= */
 
@@ -13,15 +13,37 @@ document.addEventListener("DOMContentLoaded", () => {
   window.AION.init();
 
   /*
-    Pruebas rápidas desde consola:
+    =========================
+    PRUEBAS DESDE CONSOLA
+    =========================
 
+    Contextos:
+    AION.activateContext("corpus");
     AION.activateContext("pericial");
     AION.activateContext("biblioteca");
-    AION.activateContext("alerta");
-    AION.activateContext("neutral");
+    AION.activateContext("escuela");
+    AION.activateContext("centro");
     AION.activateContext("default");
 
+    Estados:
+    AION.setState("gold");
     AION.setState("blue");
+    AION.setState("green");
+    AION.setState("violet");
+    AION.setState("white");
+
+    Mensajes:
     AION.setMessage("AION", "Mensaje personalizado.");
+
+    Eventos del sistema:
+    AION.emit("corpus:loaded");
+    AION.emit("search:started");
+    AION.emit("search:finished");
+    AION.emit("document:opened", { title: "Informe pericial psicológico" });
+    AION.emit("warning");
+    AION.emit("reset");
+
+    Memoria:
+    sessionStorage.getItem("AION_SESSION_MEMORY");
   */
 });

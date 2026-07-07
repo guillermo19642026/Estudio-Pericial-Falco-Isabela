@@ -1,7 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v2.0
+   AION ENGINE™ v2.6
    Sistema FALCO®
-   Engine + Behavior + Context + Events + Memory
+   Engine + Brain + Debug
 ========================================================= */
 
 class AionEngine {
@@ -17,6 +17,10 @@ class AionEngine {
     this.context = null;
     this.events = null;
     this.memory = null;
+    this.brain = null;
+    this.systemEvents = null;
+    this.presence = null;
+    this.debug = null;
 
     this.currentContext = "default";
 
@@ -52,6 +56,22 @@ class AionEngine {
 
     if (window.AionMemory) {
       this.memory = new AionMemory();
+    }
+
+    if (window.AionBrain) {
+      this.brain = new AionBrain(this);
+    }
+
+    if (window.AionSystemEvents) {
+      this.systemEvents = new AionSystemEvents(this);
+    }
+
+    if (window.AionPresence) {
+      this.presence = new AionPresence(this);
+    }
+
+    if (window.AionDebug) {
+      this.debug = new AionDebug(this);
     }
 
     this.applyPageContext();
@@ -123,6 +143,59 @@ class AionEngine {
     this.setMessage(selected.title, selected.message);
 
     this.remember();
+  }
+
+  emit(eventName, payload = {}) {
+    if (!this.systemEvents) return;
+    this.systemEvents.emit(eventName, payload);
+  }
+
+  decide(eventName, payload = {}) {
+    if (!this.brain) return null;
+    return this.brain.decide(eventName, payload);
+  }
+
+  say(title, message, options = {}) {
+    if (this.presence) {
+      this.presence.speak(title, message, options);
+      return;
+    }
+
+    this.setMessage(title, message);
+  }
+
+  pulse(options = {}) {
+    if (this.presence) {
+      this.presence.silentPulse(options);
+      return;
+    }
+
+    if (options.wave) {
+      this.emitEnergyWave();
+    }
+
+    if (options.state) {
+      this.setState(options.state);
+    }
+  }
+
+  status() {
+    if (this.debug) {
+      return this.debug.status();
+    }
+
+    return {
+      context: this.currentContext,
+      state: this.state,
+      title: this.title,
+      message: this.message
+    };
+  }
+
+  clearMemory() {
+    if (this.debug) {
+      this.debug.clearMemory();
+    }
   }
 
   setState(state = "gold") {

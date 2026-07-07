@@ -144,4 +144,6 @@ AionRenderer.init();
 
 AionUI.init();
 
-AionGuide.init();
+if (window.AionGuide && typeof AionGuide.init === "function") {
+  AionGuide.init();
+}

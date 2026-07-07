@@ -1,65 +1,37 @@
 /* =========================================================
-   AION EVENTS™ v1.9
+   AION SYSTEM EVENTS™ v2.4
    Sistema FALCO®
-   Eventos de usuario + inactividad
+   Eventos internos delegados al Brain
 ========================================================= */
 
-class AionEvents {
-  constructor(engine) {
-    this.engine = engine;
-    this.idleTimer = null;
-  }
+(function () {
+  class AionSystemEvents {
+    constructor(engine) {
+      this.engine = engine;
+    }
 
-  init() {
-    this.bindClick();
-    this.bindActivity();
-  }
+    emit(eventName, payload = {}) {
+      if (!this.engine || !eventName) return;
 
-  bindClick() {
-    if (!this.engine || !this.engine.container) return;
+      let decision = null;
 
-    const orb = this.engine.container.querySelector(".aion-orb-wrapper");
-    if (!orb) return;
-
-    orb.addEventListener("click", () => {
-      this.engine.emitEnergyWave();
-
-      if (this.engine.behavior) {
-        this.engine.behavior.process();
+      if (this.engine.brain) {
+        decision = this.engine.brain.handle(eventName, payload);
       }
 
-      const sequence = ["gold", "blue", "green", "violet", "white"];
-      const currentIndex = sequence.indexOf(this.engine.state);
-      const nextState = sequence[(currentIndex + 1) % sequence.length];
+      this.rememberEvent(eventName, payload, decision);
+    }
 
-      this.engine.setState(nextState);
+    rememberEvent(eventName, payload = {}, decision = null) {
+      if (!this.engine.memory) return;
 
-      window.setTimeout(() => {
-        if (this.engine.behavior) {
-          this.engine.behavior.guide();
-        }
-      }, 1400);
-    });
+      this.engine.memory.write({
+        lastEvent: eventName,
+        lastPayload: payload,
+        lastDecision: decision
+      });
+    }
   }
 
-  bindActivity() {
-    const activateListening = () => {
-      if (this.engine.behavior) {
-        this.engine.behavior.listen();
-      }
-
-      clearTimeout(this.idleTimer);
-
-      this.idleTimer = window.setTimeout(() => {
-        if (this.engine.behavior) {
-          this.engine.behavior.idle();
-        }
-      }, 6000);
-    };
-
-    window.addEventListener("mousemove", activateListening);
-    window.addEventListener("keydown", activateListening);
-  }
-}
-
-window.AionEvents = AionEvents;
+  window.AionSystemEvents = AionSystemEvents;
+})();
