@@ -1,0 +1,237 @@
+/* =========================================================
+   AION ENGINE™ v1.0
+   Sistema FALCO®
+   Núcleo energético institucional
+========================================================= */
+
+.aion-engine {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9999;
+  width: 190px;
+  height: 230px;
+  pointer-events: none;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* CONTENEDOR VISUAL */
+
+.aion-orb-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: auto;
+}
+
+/* NÚCLEO */
+
+.aion-core {
+  position: absolute;
+  inset: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, var(--aion-main) 42%, transparent 72%);
+  box-shadow:
+    0 0 18px var(--aion-main),
+    0 0 36px var(--aion-soft),
+    0 0 70px var(--aion-soft);
+  animation: aionPulsePrimary 3.2s ease-in-out infinite;
+}
+
+/* DOBLE LATIDO */
+
+.aion-core::before,
+.aion-core::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  border: 1px solid var(--aion-ring);
+  opacity: .55;
+}
+
+.aion-core::before {
+  animation: aionPulseRing 3.2s ease-in-out infinite;
+}
+
+.aion-core::after {
+  inset: -34px;
+  opacity: .28;
+  animation: aionPulseRing 4.8s ease-in-out infinite;
+}
+
+/* ÓRBITAS */
+
+.aion-orbit {
+  position: absolute;
+  inset: 50%;
+  border-radius: 50%;
+  border: 1px solid var(--aion-ring);
+  transform: translate(-50%, -50%);
+  opacity: .72;
+}
+
+.aion-orbit.one {
+  width: 88px;
+  height: 88px;
+  animation: aionRotate 12s linear infinite;
+}
+
+.aion-orbit.two {
+  width: 118px;
+  height: 118px;
+  opacity: .42;
+  animation: aionRotateReverse 18s linear infinite;
+}
+
+.aion-orbit.three {
+  width: 145px;
+  height: 145px;
+  opacity: .24;
+  animation: aionRotate 26s linear infinite;
+}
+
+.aion-orbit::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--aion-main);
+  box-shadow: 0 0 14px var(--aion-main);
+}
+
+/* PANEL CONTEXTUAL */
+
+.aion-panel {
+  width: 190px;
+  margin-top: 12px;
+  padding: 13px 14px;
+  border-radius: 18px;
+  background: rgba(10, 12, 18, .82);
+  border: 1px solid rgba(212, 175, 55, .26);
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.35),
+    inset 0 0 18px rgba(255,255,255,.035);
+  backdrop-filter: blur(14px);
+  color: #f4efe3;
+  text-align: center;
+  opacity: .96;
+  pointer-events: auto;
+}
+
+.aion-panel strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--aion-main);
+  margin-bottom: 5px;
+}
+
+.aion-panel span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(255,255,255,.78);
+}
+
+/* ESTADOS */
+
+.aion-engine[data-state="gold"] {
+  --aion-main: #d4af37;
+  --aion-soft: rgba(212,175,55,.55);
+  --aion-ring: rgba(212,175,55,.48);
+}
+
+.aion-engine[data-state="blue"] {
+  --aion-main: #5bbcff;
+  --aion-soft: rgba(91,188,255,.55);
+  --aion-ring: rgba(91,188,255,.46);
+}
+
+.aion-engine[data-state="green"] {
+  --aion-main: #62e6a3;
+  --aion-soft: rgba(98,230,163,.5);
+  --aion-ring: rgba(98,230,163,.42);
+}
+
+.aion-engine[data-state="violet"] {
+  --aion-main: #b58cff;
+  --aion-soft: rgba(181,140,255,.52);
+  --aion-ring: rgba(181,140,255,.44);
+}
+
+.aion-engine[data-state="white"] {
+  --aion-main: #ffffff;
+  --aion-soft: rgba(255,255,255,.48);
+  --aion-ring: rgba(255,255,255,.38);
+}
+
+/* ANIMACIONES */
+
+@keyframes aionPulsePrimary {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: brightness(1);
+  }
+  45% {
+    transform: translate(-50%, -50%) scale(1.12);
+    filter: brightness(1.25);
+  }
+  62% {
+    transform: translate(-50%, -50%) scale(.96);
+    filter: brightness(.95);
+  }
+}
+
+@keyframes aionPulseRing {
+  0% {
+    transform: scale(.82);
+    opacity: .1;
+  }
+  45% {
+    opacity: .58;
+  }
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
+}
+
+@keyframes aionRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes aionRotateReverse {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 680px) {
+  .aion-engine {
+    right: 18px;
+    bottom: 18px;
+    transform: scale(.88);
+    transform-origin: bottom right;
+  }
+}

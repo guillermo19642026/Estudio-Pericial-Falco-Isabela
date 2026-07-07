@@ -138,7 +138,9 @@ FalcoCorpusRoom.init();
 
 FalcoPresentationController.init();
 
-AionGuide.init();
+AionCore.init();
+
+AionRenderer.init();
 
 AionUI.init();
 
