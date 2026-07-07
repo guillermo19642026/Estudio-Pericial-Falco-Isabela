@@ -1,7 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v1.9
+   AION ENGINE™ v2.0
    Sistema FALCO®
-   Engine + Behavior + Context + Events
+   Engine + Behavior + Context + Events + Memory
 ========================================================= */
 
 class AionEngine {
@@ -16,6 +16,7 @@ class AionEngine {
     this.behavior = null;
     this.context = null;
     this.events = null;
+    this.memory = null;
 
     this.currentContext = "default";
 
@@ -49,11 +50,17 @@ class AionEngine {
       this.events = new AionEvents(this);
     }
 
+    if (window.AionMemory) {
+      this.memory = new AionMemory();
+    }
+
     this.applyPageContext();
 
     if (this.behavior) {
       this.behavior.guide();
     }
+
+    this.remember();
 
     if (this.mouse.enabled) {
       this.bindMouseFollow();
@@ -114,6 +121,8 @@ class AionEngine {
 
     this.setState(selected.state);
     this.setMessage(selected.title, selected.message);
+
+    this.remember();
   }
 
   setState(state = "gold") {
@@ -122,16 +131,35 @@ class AionEngine {
     const allowedStates = ["gold", "blue", "green", "violet", "white"];
     this.state = allowedStates.includes(state) ? state : "gold";
     this.container.dataset.state = this.state;
+
+    this.remember();
   }
 
   setMessage(title = "AION", message = "Sistema FALCO® activo.") {
     if (!this.container) return;
+
+    this.title = title;
+    this.message = message;
 
     const titleEl = this.container.querySelector(".aion-title");
     const messageEl = this.container.querySelector(".aion-message");
 
     if (titleEl) titleEl.textContent = title;
     if (messageEl) messageEl.textContent = message;
+
+    this.remember();
+  }
+
+  remember() {
+    if (!this.memory) return;
+
+    this.memory.write({
+      context: this.currentContext,
+      state: this.state,
+      title: this.title,
+      message: this.message,
+      behavior: this.container?.dataset.behavior || "idle"
+    });
   }
 
   emitEnergyWave() {
