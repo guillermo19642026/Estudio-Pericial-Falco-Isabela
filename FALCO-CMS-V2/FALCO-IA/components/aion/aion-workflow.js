@@ -1,7 +1,7 @@
 /* =========================================================
-   AION WORKFLOW™ v3.6
+   AION WORKFLOW™ v5.7
    Sistema FALCO®
-   Flujos institucionales + visual workflow states
+   Flujos institucionales + permanencia visual
 ========================================================= */
 
 (function () {
@@ -13,8 +13,6 @@
     }
 
     run(workflowName, payload = {}) {
-      if (!this.engine || !workflowName) return;
-
       const workflows = {
         corpus: () => this.runCorpus(payload),
         search: () => this.runSearch(payload),
@@ -23,17 +21,12 @@
         reset: () => this.runReset(payload)
       };
 
-      const workflow = workflows[workflowName];
-
-      if (!workflow) {
-        console.warn(`AION Workflow: flujo no registrado: ${workflowName}`);
-        return;
-      }
+      if (!workflows[workflowName]) return;
 
       this.setActive(workflowName);
       this.remember(workflowName, payload, "started");
 
-      workflow();
+      workflows[workflowName]();
     }
 
     setActive(workflowName) {
@@ -46,10 +39,12 @@
       clearTimeout(this.workflowTimer);
     }
 
-    complete(workflowName, payload = {}) {
+    complete(workflowName, payload = {}, options = {}) {
       this.remember(workflowName, payload, "completed");
 
       clearTimeout(this.workflowTimer);
+
+      const hold = options.hold ?? 2800;
 
       this.workflowTimer = window.setTimeout(() => {
         if (this.engine.container) {
@@ -57,49 +52,90 @@
         }
 
         this.activeWorkflow = null;
-      }, 1800);
+
+        if (options.returnToGuide !== false && this.engine.behavior) {
+          this.engine.behavior.guide();
+        }
+      }, hold);
     }
 
     runCorpus(payload = {}) {
-      this.engine.emit("corpus:loaded");
-      this.complete("corpus", payload);
+      this.engine.emit("corpus:loaded", {
+        voice: false
+      });
+
+      this.complete("corpus", payload, {
+        hold: 2200
+      });
     }
 
     runSearch(payload = {}) {
       const query = payload.query || "consulta institucional";
 
       this.engine.emit("search:started", {
-        message: `Analizando: ${query}`
+        message: `Analizando: ${query}`,
+        voice: false,
+        priority: "high"
       });
 
       window.setTimeout(() => {
-        this.engine.emit("search:finished", {
-          message: payload.resultMessage || "La búsqueda finalizó correctamente."
-        });
+        
+  
+  const resultMessage =
+  payload.resultMessage ||
+  payload.resultsMessage ||
+  this.engine.language?.searchResult({
+    query,
+    count: payload.count,
+    resultsCount: payload.resultsCount,
+    area: payload.area,
+    context: payload.context
+  }) ||
+  `Encontré recursos relacionados con ${query} para revisar.`;
 
-        this.complete("search", payload);
-      }, payload.delay || 1200);
+this.engine.emit("search:finished", {
+  message: resultMessage,
+  voice: true,
+  priority: "high"
+});
+
+        this.complete("search", payload, {
+          hold: payload.hold || 4200
+        });
+      }, payload.delay || 3000);
     }
 
     runDocument(payload = {}) {
       this.engine.emit("document:opened", {
-        title: payload.title || "Documento institucional abierto"
+        title: payload.title || "Documento institucional abierto",
+        voice: false
       });
 
-      this.complete("document", payload);
+      this.complete("document", payload, {
+        hold: 3000
+      });
     }
 
     runWarning(payload = {}) {
       this.engine.emit("warning", {
-        message: payload.message || "Hay información contextual relevante."
+        message: payload.message || "Hay información contextual relevante.",
+        voice: true,
+        priority: "critical"
       });
 
-      this.complete("warning", payload);
+      this.complete("warning", payload, {
+        hold: 5000
+      });
     }
 
     runReset(payload = {}) {
-      this.engine.emit("reset");
-      this.complete("reset", payload);
+      this.engine.emit("reset", {
+        voice: false
+      });
+
+      this.complete("reset", payload, {
+        hold: 1200
+      });
     }
 
     remember(workflowName, payload = {}, status = "active") {

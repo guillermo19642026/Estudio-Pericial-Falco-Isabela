@@ -72,6 +72,9 @@ class AionEvents {
       this.engine.emit(eventName, payload);
     });
 
+
+
+
     window.addEventListener("aion:run", (event) => {
       const workflowName = event.detail?.workflowName;
       const payload = event.detail?.payload || {};
@@ -80,6 +83,17 @@ class AionEvents {
 
       this.engine.run(workflowName, payload);
     });
+
+
+window.addEventListener("aion:action", (event) => {
+  const actionName = event.detail?.actionName;
+  const payload = event.detail?.payload || {};
+
+  if (!actionName) return;
+
+  this.engine.action(actionName, payload);
+});
+
 
     window.addEventListener("aion:say", (event) => {
       const title = event.detail?.title || "AION";

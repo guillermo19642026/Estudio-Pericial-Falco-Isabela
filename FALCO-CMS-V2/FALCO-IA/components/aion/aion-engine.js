@@ -1,7 +1,7 @@
 /* =========================================================
-   AION ENGINE™ v4.0
+   AION ENGINE™ v5.0
    Sistema FALCO®
-   Engine + Observer
+   Engine + Observer + Voice
 ========================================================= */
 
 class AionEngine {
@@ -17,13 +17,18 @@ class AionEngine {
     this.context = null;
     this.events = null;
     this.memory = null;
+    this.personality = null;
     this.brain = null;
     this.systemEvents = null;
     this.presence = null;
     this.debug = null;
     this.workflow = null;
+    this.language = null;
+    this.attention = null;
+    this.actions = null;
     this.bridge = null;
     this.observer = null;
+    this.voice = null;
 
     this.currentContext = "default";
 
@@ -49,15 +54,26 @@ class AionEngine {
     if (window.AionContext) this.context = new AionContext();
     if (window.AionEvents) this.events = new AionEvents(this);
     if (window.AionMemory) this.memory = new AionMemory();
+    if (window.AionPersonality) this.personality = new AionPersonality(this);
     if (window.AionBrain) this.brain = new AionBrain(this);
     if (window.AionSystemEvents) this.systemEvents = new AionSystemEvents(this);
     if (window.AionPresence) this.presence = new AionPresence(this);
     if (window.AionDebug) this.debug = new AionDebug(this);
+    if (window.AionLanguage) this.language = new AionLanguage(this);
+    if (window.AionAttention) this.attention = new AionAttention(this);
+    if (window.AionActions) this.actions = new AionActions(this);
     if (window.AionWorkflow) this.workflow = new AionWorkflow(this);
     if (window.AionBridge) this.bridge = new AionBridge(this);
     if (window.AionObserver) this.observer = new AionObserver(this);
 
+    if (window.AionVoice) {
+      this.voice = new AionVoice(this);
+      this.voice.init();
+    }
+
     this.applyPageContext();
+
+    this.applyPersonality();
 
     if (this.behavior) this.behavior.guide();
 
@@ -71,6 +87,7 @@ class AionEngine {
     if (this.events) this.events.init();
     if (this.bridge) this.bridge.init();
     if (this.observer) this.observer.init();
+    if (this.attention) this.attention.init();
   }
 
   create() {
@@ -127,29 +144,69 @@ class AionEngine {
     this.remember();
   }
 
-  emit(eventName, payload = {}) {
-    if (!this.systemEvents) return;
-    this.systemEvents.emit(eventName, payload);
-  }
 
-  run(workflowName, payload = {}) {
-    if (!this.workflow) return;
-    this.workflow.run(workflowName, payload);
-  }
+applyPersonality() {
+  if (!this.personality) return;
 
-  decide(eventName, payload = {}) {
-    if (!this.brain) return null;
-    return this.brain.decide(eventName, payload);
-  }
+  const contextProfiles = {
+    corpus: "professional",
+    pericial: "pericial",
+    biblioteca: "professional",
+    escuela: "tutor",
+    centro: "institutional",
+    home: "institutional",
+    ecosistema: "institutional"
+  };
+
+  const profile = contextProfiles[this.currentContext] || "institutional";
+  this.personality.setProfile(profile);
+}
+
+
+
+
+emit(eventName, payload = {}) {
+  if (!this.systemEvents) return;
+  this.systemEvents.emit(eventName, payload);
+}
+
+run(workflowName, payload = {}) {
+  if (!this.workflow) return;
+  this.workflow.run(workflowName, payload);
+}
+
+action(actionName, payload = {}) {
+  if (!this.actions) return;
+  this.actions.run(actionName, payload);
+}
+
+decide(eventName, payload = {}) {
+  if (!this.brain) return null;
+  return this.brain.decide(eventName, payload);
+}
+
+
+
+
 
   say(title, message, options = {}) {
-    if (this.presence) {
-      this.presence.speak(title, message, options);
-      return;
-    }
-
-    this.setMessage(title, message);
+  if (options.behavior && this.behavior) {
+    this.behavior.setMode(options.behavior);
   }
+
+  this.setMessage(title, message);
+
+  if (options.wave) {
+    this.emitEnergyWave();
+  }
+
+  if (options.state) {
+    this.setState(options.state);
+  }
+}
+
+
+
 
   pulse(options = {}) {
     if (this.presence) {
@@ -159,6 +216,39 @@ class AionEngine {
 
     if (options.wave) this.emitEnergyWave();
     if (options.state) this.setState(options.state);
+  }
+
+  speak(text = "", options = {}) {
+    if (!this.voice) return;
+    this.voice.speak(text, options);
+  }
+
+  voiceOn() {
+    if (!this.voice) return;
+
+    this.voice.enable();
+
+    this.say("AION Voice™", "Voz institucional activada.", {
+      wave: true,
+      state: "gold",
+      behavior: "guiding",
+      force: true
+    });
+
+    this.voice.speak("Voz institucional activada.");
+  }
+
+  voiceOff() {
+    if (!this.voice) return;
+
+    this.voice.disable();
+
+    this.say("AION Voice™", "Voz institucional desactivada.", {
+      wave: true,
+      state: "white",
+      behavior: "idle",
+      force: true
+    });
   }
 
   status() {
@@ -175,6 +265,24 @@ class AionEngine {
   clearMemory() {
     if (this.debug) this.debug.clearMemory();
   }
+
+  attentionPause() {
+  if (this.attention) {
+    this.attention.pause();
+  }
+}
+
+attentionResume() {
+  if (this.attention) {
+    this.attention.resume();
+  }
+}
+
+attentionDelay(ms = 45000) {
+  if (this.attention) {
+    this.attention.setIdleDelay(ms);
+  }
+}
 
   setState(state = "gold") {
     if (!this.container) return;
@@ -210,7 +318,8 @@ class AionEngine {
       title: this.title,
       message: this.message,
       behavior: this.container?.dataset.behavior || "idle",
-      workflow: this.container?.dataset.workflow || "idle"
+      workflow: this.container?.dataset.workflow || "idle",
+      voiceEnabled: this.voice?.enabled || false
     });
   }
 

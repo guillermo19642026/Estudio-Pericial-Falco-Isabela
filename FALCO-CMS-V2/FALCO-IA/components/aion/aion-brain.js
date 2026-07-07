@@ -1,7 +1,7 @@
 /* =========================================================
-   AION BRAIN™ v2.5
+   AION BRAIN™ v5.6
    Sistema FALCO®
-   Decisión institucional + control de intervención
+   Brain + Personality
 ========================================================= */
 
 class AionBrain {
@@ -25,7 +25,8 @@ class AionBrain {
         message: "El conocimiento institucional fue cargado.",
         state: "violet",
         behavior: "guiding",
-        wave: true
+        wave: true,
+        voice: false
       },
 
       "search:started": {
@@ -35,7 +36,8 @@ class AionBrain {
         message: "Analizando conocimiento del Corpus FALCO®.",
         state: "blue",
         behavior: "thinking",
-        wave: true
+        wave: true,
+        voice: false
       },
 
       "search:finished": {
@@ -45,7 +47,8 @@ class AionBrain {
         message: "Se encontraron resultados disponibles para revisión.",
         state: "green",
         behavior: "guiding",
-        wave: true
+        wave: true,
+        voice: true
       },
 
       "document:opened": {
@@ -55,7 +58,8 @@ class AionBrain {
         message: "Recurso institucional en lectura.",
         state: "gold",
         behavior: "guiding",
-        wave: false
+        wave: false,
+        voice: false
       },
 
       "warning": {
@@ -65,7 +69,8 @@ class AionBrain {
         message: "Hay información contextual relevante.",
         state: "violet",
         behavior: "warning",
-        wave: true
+        wave: true,
+        voice: true
       },
 
       "silent:pulse": {
@@ -73,12 +78,14 @@ class AionBrain {
         priority: "low",
         state: null,
         behavior: "guiding",
-        wave: true
+        wave: true,
+        voice: false
       },
 
       "reset": {
         action: "reset",
-        priority: "medium"
+        priority: "medium",
+        voice: false
       }
     };
   }
@@ -108,12 +115,18 @@ class AionBrain {
       };
     }
 
-    return {
+    let decision = {
       ...rule,
       priority,
       eventName,
       payload
     };
+
+    if (this.engine.personality) {
+      decision = this.engine.personality.shapeDecision(decision);
+    }
+
+    return decision;
   }
 
   canIntervene(priority = "medium") {
@@ -130,9 +143,7 @@ class AionBrain {
   execute(decision) {
     if (!this.engine || !decision) return;
 
-    if (decision.action === "ignore") {
-      return;
-    }
+    if (decision.action === "ignore") return;
 
     this.markIntervention();
 
@@ -169,6 +180,7 @@ class AionBrain {
           state: decision.payload?.state || decision.state,
           behavior: decision.payload?.behavior || decision.behavior,
           wave: decision.wave,
+          voice: decision.payload?.voice ?? decision.voice,
           force: decision.priority === "high" || decision.priority === "critical"
         }
       );

@@ -361,3 +361,149 @@
 .aion-engine[data-workflow="warning"] .aion-core {
   animation-duration: 1.4s;
 }
+
+
+/* =========================================================
+   AION VOICE MOTION™ v5.1
+   Movimiento sincronizado con voz
+========================================================= */
+
+.aion-engine[data-voice="speaking"] .aion-core {
+  animation-duration: 1.25s;
+  filter: brightness(1.28);
+}
+
+.aion-engine[data-voice="speaking"] .aion-orbit.one {
+  animation-duration: 7s;
+}
+
+.aion-engine[data-voice="speaking"] .aion-orbit.two {
+  animation-duration: 10s;
+}
+
+.aion-engine[data-voice="speaking"] .aion-orbit.three {
+  animation-duration: 15s;
+}
+
+.aion-engine[data-voice="speaking"] .aion-panel {
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.35),
+    0 0 24px var(--aion-soft),
+    inset 0 0 18px rgba(255,255,255,.05);
+}
+
+.aion-engine.aion-speaking-pulse .aion-core {
+  scale: 1.16;
+}
+
+.aion-engine.aion-speaking-pulse .aion-orbit {
+  border-color: var(--aion-main);
+  opacity: .9;
+}
+
+.aion-engine.aion-speaking-pulse .aion-panel {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   AION EXPRESSION™ v5.5
+   Expresión visual por comportamiento interno
+========================================================= */
+
+/* THINKING */
+
+.aion-engine[data-behavior="thinking"] .aion-core {
+  animation-duration: 1.8s;
+  filter: brightness(1.22);
+}
+
+.aion-engine[data-behavior="thinking"] .aion-orbit.one {
+  animation-duration: 8s;
+}
+
+.aion-engine[data-behavior="thinking"] .aion-orbit.two {
+  animation-duration: 12s;
+}
+
+.aion-engine[data-behavior="thinking"] .aion-orbit.three {
+  animation-duration: 18s;
+}
+
+/* SPEAKING */
+
+.aion-engine[data-behavior="speaking"] .aion-core {
+  animation-duration: 1.1s;
+  filter: brightness(1.35);
+}
+
+.aion-engine[data-behavior="speaking"] .aion-panel {
+  transform: translateY(-2px);
+}
+
+/* GUIDING */
+
+.aion-engine[data-behavior="guiding"] .aion-core {
+  animation-duration: 2.4s;
+}
+
+.aion-engine[data-behavior="guiding"] .aion-orbit.one {
+  animation-duration: 12s;
+}
+
+.aion-engine[data-behavior="guiding"] .aion-orbit.two {
+  animation-duration: 18s;
+}
+
+.aion-engine[data-behavior="guiding"] .aion-orbit.three {
+  animation-duration: 26s;
+}
+
+/* WARNING */
+
+.aion-engine[data-behavior="warning"] .aion-core {
+  animation-duration: .95s;
+  filter: brightness(1.45);
+}
+
+.aion-engine[data-behavior="warning"] .aion-orbit {
+  border-color: var(--aion-main);
+  opacity: .9;
+}
+
+.aion-engine[data-behavior="warning"] .aion-panel {
+  border-color: var(--aion-main);
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.38),
+    0 0 30px var(--aion-soft),
+    inset 0 0 20px rgba(255,255,255,.06);
+}
+
+/* PROCESSING */
+
+.aion-engine[data-behavior="processing"] .aion-core {
+  animation-duration: 1.35s;
+}
+
+.aion-engine[data-behavior="processing"] .aion-orbit.one {
+  animation-duration: 5.5s;
+}
+
+.aion-engine[data-behavior="processing"] .aion-orbit.two {
+  animation-duration: 8.5s;
+}
+
+.aion-engine[data-behavior="processing"] .aion-orbit.three {
+  animation-duration: 12s;
+}
+
+/* IDLE */
+
+.aion-engine[data-behavior="idle"] .aion-core {
+  animation-duration: 3.2s;
+  filter: brightness(.95);
+}
+
+.aion-engine[data-behavior="idle"] .aion-panel {
+  opacity: .88;
+}

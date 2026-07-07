@@ -1,87 +1,109 @@
 /* =========================================================
-   AION SYSTEM EVENTS™ v2.1
+   AION EVENTS™ v6.3
    Sistema FALCO®
-   Eventos internos del ecosistema
+   Eventos de usuario + eventos DOM del ecosistema
 ========================================================= */
 
-class AionSystemEvents {
+class AionEvents {
   constructor(engine) {
     this.engine = engine;
+    this.idleTimer = null;
   }
 
-  emit(eventName, payload = {}) {
-    if (!this.engine || !eventName) return;
+  init() {
+    this.bindClick();
+    this.bindActivity();
+    this.bindSystemDomEvents();
+  }
 
-    const handlers = {
-      "corpus:loaded": () => {
-        this.engine.setState("violet");
-        this.engine.setMessage(
-          "Corpus FALCO®",
-          "El conocimiento institucional fue cargado."
-        );
-        this.engine.emitEnergyWave();
-      },
+  bindClick() {
+    if (!this.engine || !this.engine.container) return;
 
-      "search:started": () => {
-        if (this.engine.behavior) {
-          this.engine.behavior.think();
-        }
+    const orb = this.engine.container.querySelector(".aion-orb-wrapper");
+    if (!orb) return;
 
-        this.engine.setState("blue");
-        this.engine.emitEnergyWave();
-      },
+    orb.addEventListener("click", () => {
+      this.engine.emitEnergyWave();
 
-      "search:finished": () => {
-        this.engine.setState("green");
-        this.engine.setMessage(
-          "Búsqueda finalizada",
-          "Se encontraron resultados disponibles para revisión."
-        );
-        this.engine.emitEnergyWave();
-      },
+      if (this.engine.behavior) {
+        this.engine.behavior.process();
+      }
 
-      "document:opened": () => {
-        this.engine.setState("gold");
-        this.engine.setMessage(
-          "Documento abierto",
-          payload.title || "Recurso institucional en lectura."
-        );
-      },
+      const sequence = ["gold", "blue", "green", "violet", "white"];
+      const currentIndex = sequence.indexOf(this.engine.state);
+      const nextState = sequence[(currentIndex + 1) % sequence.length];
 
-      "warning": () => {
-        if (this.engine.behavior) {
-          this.engine.behavior.warn();
-        }
+      this.engine.setState(nextState);
 
-        this.engine.setState("violet");
-        this.engine.emitEnergyWave();
-      },
-
-      "reset": () => {
-        this.engine.applyPageContext();
-
+      window.setTimeout(() => {
         if (this.engine.behavior) {
           this.engine.behavior.guide();
         }
-      }
-    };
-
-    const handler = handlers[eventName];
-
-    if (handler) {
-      handler();
-      this.rememberEvent(eventName, payload);
-    }
+      }, 1400);
+    });
   }
 
-  rememberEvent(eventName, payload = {}) {
-    if (!this.engine.memory) return;
+  bindActivity() {
+    const activateListening = () => {
+      if (this.engine.behavior) {
+        this.engine.behavior.listen();
+      }
 
-    this.engine.memory.write({
-      lastEvent: eventName,
-      lastPayload: payload
+      clearTimeout(this.idleTimer);
+
+      this.idleTimer = window.setTimeout(() => {
+        if (this.engine.behavior) {
+          this.engine.behavior.idle();
+        }
+      }, 6000);
+    };
+
+    window.addEventListener("mousemove", activateListening);
+    window.addEventListener("keydown", activateListening);
+  }
+
+  bindSystemDomEvents() {
+    window.addEventListener("aion:emit", (event) => {
+      const eventName = event.detail?.eventName;
+      const payload = event.detail?.payload || {};
+
+      if (!eventName) return;
+
+      this.engine.emit(eventName, payload);
+    });
+
+    window.addEventListener("aion:run", (event) => {
+      const workflowName = event.detail?.workflowName;
+      const payload = event.detail?.payload || {};
+
+      if (!workflowName) return;
+
+      this.engine.run(workflowName, payload);
+    });
+
+    window.addEventListener("aion:action", (event) => {
+      const actionName = event.detail?.actionName;
+      const payload = event.detail?.payload || {};
+
+      if (!actionName) return;
+
+      this.engine.action(actionName, payload);
+    });
+
+    window.addEventListener("aion:say", (event) => {
+      const title = event.detail?.title || "AION";
+      const message = event.detail?.message || "Sistema FALCO® activo.";
+      const options = event.detail?.options || {};
+
+      this.engine.say(title, message, options);
+    });
+
+    window.addEventListener("aion:pulse", (event) => {
+      const options = event.detail || {};
+
+      this.engine.pulse(options);
     });
   }
 }
 
-window.AionSystemEvents = AionSystemEvents;
+window.AionEvents = AionEvents;

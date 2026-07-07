@@ -1,5 +1,5 @@
 /* =========================================================
-   AION API™ v3.9
+   AION API™ v6.3
    Sistema FALCO®
    API pública liviana para módulos externos
 ========================================================= */
@@ -19,6 +19,15 @@
       window.dispatchEvent(new CustomEvent("aion:emit", {
         detail: {
           eventName,
+          payload
+        }
+      }));
+    },
+
+    action(actionName, payload = {}) {
+      window.dispatchEvent(new CustomEvent("aion:action", {
+        detail: {
+          actionName,
           payload
         }
       }));
