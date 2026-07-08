@@ -719,3 +719,466 @@ body {
   transform: scale(1.22);
   filter: brightness(1.65);
 }
+
+
+
+
+
+
+/* =========================================================
+   AION LAB™ v2 VISUAL
+   Esfera principal estilo AION Engine™
+========================================================= */
+
+body {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(0, 194, 255, .26), transparent 28%),
+    radial-gradient(circle at 50% 78%, rgba(0, 160, 255, .18), transparent 26%),
+    linear-gradient(180deg, #02101f 0%, #020711 48%, #010309 100%);
+  color: #dff7ff;
+}
+
+.lab-stage {
+  border: 1px solid rgba(0, 200, 255, .22);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(0, 200, 255, .08), transparent 34%),
+    linear-gradient(180deg, rgba(10, 28, 46, .86), rgba(2, 7, 16, .94));
+  box-shadow:
+    0 0 80px rgba(0, 180, 255, .14),
+    inset 0 0 80px rgba(0, 210, 255, .06);
+}
+
+.lab-header span,
+.director-title span,
+.control-group label span,
+.state-label strong {
+  color: #39d8ff;
+}
+
+.lab-header h1 {
+  color: #dff8ff;
+  text-shadow:
+    0 0 18px rgba(0, 210, 255, .55),
+    0 0 42px rgba(0, 130, 255, .35);
+}
+
+.lab-header p {
+  color: rgba(210, 245, 255, .72);
+}
+
+/* tamaño general */
+
+.aion-being {
+  width: 440px;
+  height: 440px;
+  margin-top: 8px;
+  transform: none;
+  --aion-color: #dffcff;
+  --aion-soft: rgba(0, 210, 255, .72);
+}
+
+/* halo múltiple */
+
+.aion-halo {
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(95, 225, 255, .24);
+  box-shadow:
+    0 0 42px rgba(0, 220, 255, .34),
+    inset 0 0 54px rgba(0, 190, 255, .16);
+}
+
+.aion-halo::before {
+  inset: 34px;
+  border: 1px solid rgba(120, 235, 255, .16);
+  box-shadow: inset 0 0 40px rgba(0, 210, 255, .08);
+}
+
+.aion-halo::after {
+  inset: 74px;
+  border: 1px solid rgba(255, 255, 255, .10);
+}
+
+/* esfera vidrio */
+
+.aion-sphere {
+  width: 330px;
+  height: 330px;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255,255,255,.95), transparent 8%),
+    radial-gradient(circle at 72% 20%, rgba(180,245,255,.55), transparent 12%),
+    radial-gradient(circle at 50% 52%, rgba(0,155,255,.18), transparent 38%),
+    radial-gradient(circle at 50% 50%, rgba(6,22,42,.86), rgba(0,5,14,.96) 70%);
+  box-shadow:
+    inset 18px 22px 38px rgba(255,255,255,.16),
+    inset -28px -36px 70px rgba(0,0,0,.64),
+    inset 0 0 42px rgba(0,200,255,.28),
+    0 0 28px rgba(160,245,255,.92),
+    0 0 68px rgba(0,210,255,.62),
+    0 0 150px rgba(0,140,255,.36);
+  border: 1px solid rgba(190, 250, 255, .72);
+}
+
+/* borde interior tipo vidrio */
+
+.aion-sphere::before {
+  content: "";
+  position: absolute;
+  inset: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(80, 185, 255, .36);
+  box-shadow:
+    inset 0 0 28px rgba(0, 170, 255, .18),
+    0 0 16px rgba(0, 200, 255, .22);
+  pointer-events: none;
+}
+
+/* brillo inferior/base */
+
+.aion-sphere::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  width: 78%;
+  height: 30%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0,220,255,.46), transparent 68%);
+  filter: blur(18px);
+  opacity: .9;
+  pointer-events: none;
+}
+
+.aion-light {
+  inset: 18px;
+  background:
+    radial-gradient(circle at 50% 55%, rgba(0, 210, 255, .22), transparent 54%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.10), transparent 70%);
+  filter: blur(8px);
+  opacity: .9;
+}
+
+/* reflejos */
+
+.aion-reflection {
+  left: 74px;
+  top: 42px;
+  width: 116px;
+  height: 34px;
+  background: rgba(255,255,255,.34);
+  filter: blur(10px);
+  transform: rotate(-28deg);
+}
+
+.aion-reflection::before {
+  content: "";
+  position: absolute;
+  left: 122px;
+  top: 14px;
+  width: 54px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.24);
+  filter: blur(8px);
+}
+
+/* ojos estilo referencia */
+
+.aion-eyes {
+  width: 138px;
+  height: 78px;
+  top: 50%;
+}
+
+.eye {
+  width: 34px;
+  height: 78px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 42% 28%, #ffffff 0%, #ecffff 38%, #9df5ff 62%, rgba(0, 200, 255, .7) 100%);
+  box-shadow:
+    0 0 18px rgba(255,255,255,.95),
+    0 0 38px rgba(0,220,255,.85),
+    0 0 72px rgba(0,150,255,.52);
+}
+
+/* base luminosa debajo de AION */
+
+.aion-zone::after {
+  content: "";
+  width: 520px;
+  height: 86px;
+  margin-top: -58px;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse, rgba(0, 220, 255, .38), rgba(0, 120, 255, .14) 42%, transparent 72%);
+  border: 1px solid rgba(100, 230, 255, .24);
+  filter: blur(.2px);
+  box-shadow:
+    0 0 38px rgba(0, 210, 255, .35),
+    inset 0 0 36px rgba(0, 210, 255, .18);
+  z-index: 1;
+}
+
+/* panel futurista */
+
+.director-panel {
+  border: 1px solid rgba(0, 200, 255, .24);
+  background:
+    linear-gradient(180deg, rgba(4, 20, 34, .86), rgba(1, 8, 17, .92));
+  box-shadow:
+    0 0 34px rgba(0, 180, 255, .12),
+    inset 0 0 34px rgba(0, 210, 255, .06);
+}
+
+.state-grid button,
+.gesture-grid button {
+  border: 1px solid rgba(0, 200, 255, .22);
+  background: rgba(0, 120, 180, .08);
+  color: #dff8ff;
+}
+
+.state-grid button:hover,
+.gesture-grid button:hover {
+  background: rgba(0, 210, 255, .18);
+}
+
+.control-group input[type="range"] {
+  accent-color: #28d8ff;
+}
+
+/* estados conservados pero más azules */
+
+.aion-being[data-state="idle"],
+.aion-being[data-state="listening"],
+.aion-being[data-state="thinking"],
+.aion-being[data-state="speaking"] {
+  --aion-color: #dffcff;
+  --aion-soft: rgba(0, 210, 255, .72);
+}
+
+.aion-being[data-state="warning"] {
+  --aion-color: #b58cff;
+  --aion-soft: rgba(181, 140, 255, .72);
+}
+
+.aion-being[data-state="success"] {
+  --aion-color: #62e6a3;
+  --aion-soft: rgba(98, 230, 163, .72);
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .aion-being {
+    width: 360px;
+    height: 360px;
+    transform: scale(.9);
+  }
+
+  .aion-halo {
+    width: 360px;
+    height: 360px;
+  }
+
+  .aion-sphere {
+    width: 280px;
+    height: 280px;
+  }
+
+  .aion-zone::after {
+    width: 360px;
+  }
+}
+
+@media (max-height: 760px) {
+  .aion-being {
+    transform: scale(.78);
+  }
+}
+
+
+/* =========================================================
+   AION LAB™ v2 FIX
+   Ajuste vertical del contenedor
+========================================================= */
+
+.aion-lab {
+  padding: 12px 18px;
+}
+
+.lab-stage {
+  min-height: auto;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+}
+
+.lab-header {
+  padding-top: 20px;
+}
+
+.lab-layout {
+  padding: 10px 26px 20px;
+  gap: 18px;
+}
+
+.aion-being {
+  margin-top: -8px;
+  transform: scale(.86);
+}
+
+.aion-zone::after {
+  margin-top: -86px;
+}
+
+.state-label {
+  margin-top: -4px;
+}
+
+.director-panel {
+  max-height: calc(100vh - 120px);
+}
+
+
+/* Ajuste fino vertical AION */
+
+.lab-stage {
+  max-height: calc(100vh - 12px);
+}
+
+.lab-header {
+  padding-top: 14px;
+}
+
+.lab-header p {
+  margin-top: 6px;
+}
+
+.lab-layout {
+  padding-top: 2px;
+  padding-bottom: 12px;
+}
+
+.aion-being {
+  transform: scale(.80);
+  margin-top: -24px;
+}
+
+.aion-zone::after {
+  margin-top: -112px;
+}
+
+.state-label {
+  margin-top: -18px;
+}
+
+
+/* =========================================================
+   AION LAB™ v2.1 VISUAL FINAL
+   Plataforma + fondo vivo + microflotación
+========================================================= */
+
+.lab-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 210, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, .035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at 50% 45%, black 0%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aion-zone {
+  position: relative;
+}
+
+.aion-being {
+  animation: aionFloatBody 9s ease-in-out infinite;
+}
+
+.aion-zone::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  width: 440px;
+  height: 118px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      ellipse at center,
+      rgba(0, 225, 255, .32) 0 1px,
+      transparent 2px 16px
+    );
+  box-shadow:
+    0 0 38px rgba(0, 210, 255, .28),
+    inset 0 0 34px rgba(0, 210, 255, .18);
+  opacity: .46;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.aion-zone::after {
+  animation: aionPlatformPulse 5.6s ease-in-out infinite;
+}
+
+.director-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.director-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(0, 220, 255, .08) 45%, transparent 70%);
+  transform: translateX(-120%);
+  animation: aionPanelScan 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.state-label {
+  padding: 8px 14px;
+  border: 1px solid rgba(0, 210, 255, .18);
+  border-radius: 999px;
+  background: rgba(0, 20, 36, .42);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes aionFloatBody {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes aionPlatformPulse {
+  0%, 100% {
+    opacity: .72;
+    transform: scaleX(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1.04);
+  }
+}
+
+@keyframes aionPanelScan {
+  0%, 60% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
