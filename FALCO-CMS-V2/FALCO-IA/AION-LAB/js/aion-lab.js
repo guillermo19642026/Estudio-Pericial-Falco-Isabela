@@ -9,12 +9,15 @@ const AionLab = {
   eyes: null,
   stateName: null,
 
-  presence: null,
-  gestures: null,
-  eyesEngine: null,
-  directorPanel: null,
-  animationEngine: null,
-  brain: null,
+  
+ presence: null,
+ gestures: null,
+ eyesEngine: null,
+ directorPanel: null,
+ animationEngine: null,
+ brain: null,
+ memory: null,
+ perception: null,
 
   currentState: "idle",
 
@@ -51,13 +54,26 @@ const AionLab = {
         })
       : null;
 
+this.memory = window.MemoryEngine
+  ? new MemoryEngine()
+  : null;
+
+
     this.brain = window.BrainEngine
-      ? new BrainEngine({
-          presence: this.presence,
-          eyesEngine: this.eyesEngine,
-          gestures: this.gestures
-        })
-      : null;
+  ? new BrainEngine({
+      presence: this.presence,
+      eyesEngine: this.eyesEngine,
+      gestures: this.gestures,
+      memory: this.memory
+    })
+  : null;
+
+
+     this.perception = window.PerceptionEngine && this.brain
+  ? new PerceptionEngine(this.brain)
+  : null;
+
+
 
     this.bindControls();
     this.bindMouseFollow();

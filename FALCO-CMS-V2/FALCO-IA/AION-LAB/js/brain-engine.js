@@ -1,13 +1,14 @@
 /* =========================================================
-   AION Brain Engine™ v1.0
-   Decide intención y estado de presencia
+   AION Brain Engine™ v1.1
+   Decide intención + registra memoria corta
 ========================================================= */
 
 class BrainEngine {
-  constructor({ presence, eyesEngine, gestures }) {
+  constructor({ presence, eyesEngine, gestures, memory = null }) {
     this.presence = presence;
     this.eyesEngine = eyesEngine;
     this.gestures = gestures;
+    this.memory = memory;
 
     this.lastEvent = null;
     this.lastEventAt = 0;
@@ -16,6 +17,10 @@ class BrainEngine {
   handle(eventName, payload = {}) {
     this.lastEvent = eventName;
     this.lastEventAt = Date.now();
+
+    if (this.memory) {
+      this.memory.rememberEvent(eventName, payload);
+    }
 
     const handlers = {
       "user:move": () => this.onUserMove(payload),
@@ -30,10 +35,7 @@ class BrainEngine {
     };
 
     const handler = handlers[eventName];
-
-    if (handler) {
-      handler();
-    }
+    if (handler) handler();
   }
 
   onUserMove() {
@@ -61,6 +63,10 @@ class BrainEngine {
   onStateChange(payload = {}) {
     const state = payload.state || "idle";
 
+    if (this.memory) {
+      this.memory.rememberState(state);
+    }
+
     if (!this.presence) return;
 
     this.presence.setState(state);
@@ -69,13 +75,8 @@ class BrainEngine {
     this.presence.warning(state === "warning");
     this.presence.sleep(state === "sleep");
 
-    if (state === "idle") {
-      this.presence.relax();
-    }
-
-    if (state === "listening") {
-      this.presence.focus(0.8);
-    }
+    if (state === "idle") this.presence.relax();
+    if (state === "listening") this.presence.focus(0.8);
 
     if (state === "reading") {
       this.presence.focus(0.45);
