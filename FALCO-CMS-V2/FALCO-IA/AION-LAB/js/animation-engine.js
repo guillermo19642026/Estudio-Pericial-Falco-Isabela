@@ -1,13 +1,13 @@
 /* =========================================================
-   AION Animation Engine™ v1.0
-   Respiración, brillo y halo
+   AION Animation Engine™ v1.1
+   Respiración, brillo, halo y memoria de mood
 ========================================================= */
 
 class AnimationEngine {
-  constructor({ being, presence }) {
+  constructor({ being, presence, memory = null }) {
     this.being = being;
     this.presence = presence;
-
+    this.memory = memory;
     this.timer = null;
   }
 
@@ -27,6 +27,10 @@ class AnimationEngine {
     if (!this.being || !this.presence) return;
 
     const mood = this.presence.getMood();
+
+    if (this.memory) {
+      this.memory.rememberMood(mood);
+    }
 
     const glow = 1 + mood.attention * 0.18 + mood.curiosity * 0.08;
 

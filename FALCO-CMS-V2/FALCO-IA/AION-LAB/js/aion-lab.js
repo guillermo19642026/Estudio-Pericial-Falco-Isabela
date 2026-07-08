@@ -1,7 +1,7 @@
 /* =========================================================
-   AION LAB™ v2.1
+   AION LAB™ v2.2
    Living Presence Project
-   Core modular + Brain Engine
+   Core modular + Identity + Memory
 ========================================================= */
 
 const AionLab = {
@@ -9,15 +9,17 @@ const AionLab = {
   eyes: null,
   stateName: null,
 
-  
- presence: null,
- gestures: null,
- eyesEngine: null,
- directorPanel: null,
- animationEngine: null,
- brain: null,
- memory: null,
- perception: null,
+  presence: null,
+  gestures: null,
+  eyesEngine: null,
+  directorPanel: null,
+  animationEngine: null,
+  brain: null,
+  memory: null,
+  identity: null,
+  contextEngine: null,
+  perception: null,
+  demoEngine: null,
 
   currentState: "idle",
 
@@ -36,9 +38,42 @@ const AionLab = {
 
     if (!this.being || !this.eyes) return;
 
-    this.presence = window.PresenceEngine ? new PresenceEngine() : null;
-    this.gestures = window.GestureEngine ? new GestureEngine(this.being) : null;
-    this.eyesEngine = window.EyeEngine ? new EyeEngine(this.being, this.presence) : null;
+    this.presence = window.PresenceEngine
+      ? new PresenceEngine()
+      : null;
+
+    this.gestures = window.GestureEngine
+      ? new GestureEngine(this.being)
+      : null;
+
+    this.eyesEngine = window.EyeEngine
+      ? new EyeEngine(this.being, this.presence)
+      : null;
+
+    this.memory = window.MemoryEngine
+      ? new MemoryEngine()
+      : null;
+
+    this.contextEngine = window.ContextEngine
+      ? new ContextEngine()
+      : null;
+
+    if (this.contextEngine) {
+      this.contextEngine.detect();
+
+      if (this.memory) {
+        this.memory.write("context", this.contextEngine.context);
+        this.memory.write("contextProfile", this.contextEngine.getProfile());
+      }
+    }
+
+    this.identity = window.IdentityEngine
+      ? new IdentityEngine(this.contextEngine)
+      : null;
+
+    if (this.memory && this.identity) {
+      this.memory.write("identity", this.identity.get());
+    }
 
     this.directorPanel = window.DirectorPanel
       ? new DirectorPanel({
@@ -50,30 +85,29 @@ const AionLab = {
     this.animationEngine = window.AnimationEngine
       ? new AnimationEngine({
           being: this.being,
-          presence: this.presence
+          presence: this.presence,
+          memory: this.memory
         })
       : null;
 
-this.memory = window.MemoryEngine
-  ? new MemoryEngine()
-  : null;
-
-
     this.brain = window.BrainEngine
-  ? new BrainEngine({
-      presence: this.presence,
-      eyesEngine: this.eyesEngine,
-      gestures: this.gestures,
-      memory: this.memory
-    })
-  : null;
+      ? new BrainEngine({
+          presence: this.presence,
+          eyesEngine: this.eyesEngine,
+          gestures: this.gestures,
+          memory: this.memory
+        })
+      : null;
 
+    this.perception = window.PerceptionEngine && this.brain
+      ? new PerceptionEngine(this.brain)
+      : null;
 
-     this.perception = window.PerceptionEngine && this.brain
-  ? new PerceptionEngine(this.brain)
-  : null;
-
-
+    /*
+    this.demoEngine = window.DemoEngine
+      ? new DemoEngine(this)
+      : null;
+    */
 
     this.bindControls();
     this.bindMouseFollow();
@@ -87,6 +121,13 @@ this.memory = window.MemoryEngine
     this.startMicroLook();
 
     this.setState("idle");
+    this.renderIdentity();
+
+    /*
+    if (this.demoEngine) {
+      this.demoEngine.autoStart(2200);
+    }
+    */
   },
 
   bindControls() {
@@ -111,6 +152,19 @@ this.memory = window.MemoryEngine
     if (doubleBlinkBtn && this.gestures) {
       doubleBlinkBtn.addEventListener("click", () => this.gestures.doubleBlink());
     }
+
+    /*
+    const startDemoBtn = document.getElementById("startDemoBtn");
+    const stopDemoBtn = document.getElementById("stopDemoBtn");
+
+    if (startDemoBtn && this.demoEngine) {
+      startDemoBtn.addEventListener("click", () => this.demoEngine.start());
+    }
+
+    if (stopDemoBtn && this.demoEngine) {
+      stopDemoBtn.addEventListener("click", () => this.demoEngine.stop());
+    }
+    */
   },
 
   bindMouseFollow() {
@@ -281,6 +335,24 @@ this.memory = window.MemoryEngine
 
   stopSpeakingPulse() {
     clearInterval(this.speechTimer);
+  },
+
+  renderIdentity() {
+    if (!this.identity) return;
+
+    const identity = this.identity.get();
+
+    const ownerEl = document.getElementById("identityOwner");
+    const titleEl = document.getElementById("identityTitle");
+    const subtitleEl = document.getElementById("identitySubtitle");
+
+    if (ownerEl) ownerEl.textContent = identity.owner;
+    if (titleEl) titleEl.textContent = identity.fullName;
+
+    if (subtitleEl) {
+      subtitleEl.textContent =
+        `${identity.project} · ${identity.contextProfile?.name || "AION LAB™"} · v${identity.version}`;
+    }
   },
 
   random(min, max) {
