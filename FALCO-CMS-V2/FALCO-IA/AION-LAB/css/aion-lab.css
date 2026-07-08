@@ -1,0 +1,721 @@
+/* =========================================================
+   AION LAB™
+   Living Presence Project
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at center, rgba(45, 70, 120, .35), transparent 38%),
+    linear-gradient(135deg, #05070d, #0b1020 45%, #02030a);
+  color: #f8f3e7;
+  overflow: hidden;
+}
+
+.aion-lab {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+}
+
+.lab-stage {
+  width: min(960px, 92vw);
+
+    min-height: min(720px, 92vh);
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+  border: 1px solid rgba(212, 175, 55, .22);
+  border-radius: 36px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)),
+    rgba(4, 6, 14, .78);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.55),
+    inset 0 0 60px rgba(255,255,255,.03);
+  backdrop-filter: blur(18px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lab-stage::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(212,175,55,.08), transparent 18%),
+    radial-gradient(circle at 30% 60%, rgba(91,188,255,.09), transparent 20%),
+    radial-gradient(circle at 70% 65%, rgba(181,140,255,.08), transparent 20%);
+  animation: labAtmosphere 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.lab-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 48px;
+}
+
+.lab-header span {
+  display: inline-block;
+  color: #d4af37;
+  letter-spacing: .28em;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.lab-header h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: -.04em;
+}
+
+.lab-header p {
+  margin: 12px auto 0;
+  max-width: 580px;
+  color: rgba(255,255,255,.68);
+  line-height: 1.6;
+}
+
+/* AION */
+
+.aion-being {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin-top: 40px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  --aion-color: #d4af37;
+  --aion-soft: rgba(212,175,55,.45);
+  --eye-y: 0px;
+  --eye-x: 0px;
+}
+
+.aion-halo {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,175,55,.24);
+  box-shadow:
+    0 0 30px var(--aion-soft),
+    inset 0 0 40px rgba(255,255,255,.03);
+  animation: haloRotate 18s linear infinite;
+}
+
+.aion-halo::before,
+.aion-halo::after {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.aion-halo::after {
+  inset: 54px;
+  border-color: rgba(255,255,255,.05);
+}
+
+.aion-sphere {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  position: relative;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,.65), transparent 12%),
+    radial-gradient(circle at center, rgba(255,255,255,.16), rgba(120,160,255,.11) 38%, rgba(8,12,24,.88) 72%);
+  box-shadow:
+    inset 0 0 40px rgba(255,255,255,.08),
+    inset 0 -40px 80px rgba(0,0,0,.45),
+    0 0 36px var(--aion-soft),
+    0 0 90px rgba(91,188,255,.12);
+  animation: breathe 4.8s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.aion-light {
+  position: absolute;
+  inset: 22px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--aion-soft), transparent 60%);
+  filter: blur(10px);
+  opacity: .55;
+  animation: innerGlow 4.8s ease-in-out infinite;
+}
+
+.aion-eyes {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 96px;
+  height: 34px;
+  transform:
+    translate(-50%, -50%)
+    translate(var(--eye-x), var(--eye-y));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform .18s ease;
+}
+
+.eye {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 35%, #ffffff, var(--aion-color) 45%, rgba(255,255,255,.12) 72%);
+  box-shadow:
+    0 0 14px var(--aion-color),
+    0 0 34px var(--aion-soft);
+  transform-origin: center;
+  transition:
+    width .28s ease,
+    height .28s ease,
+    border-radius .28s ease,
+    transform .28s ease,
+    opacity .28s ease,
+    filter .28s ease;
+}
+
+.aion-reflection {
+  position: absolute;
+  left: 38px;
+  top: 28px;
+  width: 56px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  filter: blur(8px);
+  transform: rotate(-28deg);
+}
+
+/* ESTADOS */
+
+.aion-being[data-state="idle"] {
+  --aion-color: #d4af37;
+  --aion-soft: rgba(212,175,55,.42);
+}
+
+.aion-being[data-state="listening"] {
+  --aion-color: #5bbcff;
+  --aion-soft: rgba(91,188,255,.52);
+}
+
+.aion-being[data-state="thinking"] {
+  --aion-color: #7cc8ff;
+  --aion-soft: rgba(124,200,255,.45);
+}
+
+.aion-being[data-state="speaking"] {
+  --aion-color: #ffffff;
+  --aion-soft: rgba(255,255,255,.58);
+}
+
+.aion-being[data-state="warning"] {
+  --aion-color: #b58cff;
+  --aion-soft: rgba(181,140,255,.62);
+}
+
+.aion-being[data-state="success"] {
+  --aion-color: #62e6a3;
+  --aion-soft: rgba(98,230,163,.58);
+}
+
+.aion-being[data-state="sleep"] {
+  --aion-color: #d8d8d8;
+  --aion-soft: rgba(255,255,255,.18);
+}
+
+/* Expresiones de ojos */
+
+.aion-being[data-state="thinking"] .eye {
+  height: 12px;
+  border-radius: 999px;
+  filter: brightness(1.15);
+}
+
+.aion-being[data-state="speaking"] .eye {
+  animation: speakingEyes .55s ease-in-out infinite alternate;
+}
+
+.aion-being[data-state="warning"] .eye {
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  filter: brightness(1.35);
+}
+
+.aion-being[data-state="success"] .eye {
+  width: 30px;
+  height: 30px;
+  animation: successBlink .9s ease;
+}
+
+.aion-being[data-state="sleep"] .eye {
+  height: 5px;
+  width: 32px;
+  border-radius: 999px;
+  opacity: .72;
+}
+
+/* Guiño y parpadeo */
+
+.aion-being.is-blinking .eye {
+  height: 4px;
+  border-radius: 999px;
+}
+
+.aion-being.is-winking .left-eye {
+  height: 4px;
+  border-radius: 999px;
+}
+
+.aion-being.is-speaking-pulse .eye {
+  transform: scale(1.18);
+}
+
+/* CONTROLES */
+
+.state-label {
+  position: relative;
+  z-index: 2;
+  margin-top: 24px;
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+}
+
+.state-label strong {
+  color: #d4af37;
+  letter-spacing: .18em;
+  margin-left: 6px;
+}
+
+.lab-controls {
+  position: relative;
+  z-index: 2;
+   margin-top:18px;
+    margin-bottom:28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 680px;
+}
+
+.lab-controls button {
+  border: 1px solid rgba(212,175,55,.28);
+  background: rgba(255,255,255,.045);
+  color: #f8f3e7;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: .25s ease;
+}
+
+.lab-controls button:hover {
+  background: rgba(212,175,55,.16);
+  transform: translateY(-2px);
+}
+
+/* ANIMACIONES */
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(.985);
+    filter: brightness(.95);
+  }
+
+  50% {
+    transform: scale(1.025);
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes innerGlow {
+  0%, 100% {
+    opacity: .42;
+  }
+
+  50% {
+    opacity: .75;
+  }
+}
+
+@keyframes haloRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes labAtmosphere {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.08) rotate(8deg);
+  }
+}
+
+@keyframes speakingEyes {
+  from {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+
+  to {
+    filter: brightness(1.5);
+    transform: scale(1.12);
+  }
+}
+
+@keyframes successBlink {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.35);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 680px) {
+  .lab-stage {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  .aion-being {
+    transform: scale(.86);
+    margin-top: 44px;
+  }
+}
+
+
+/* =========================================================
+   AION LAB™ v0.3
+   Panel del Director™
+========================================================= */
+
+.lab-layout {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 42px 34px;
+}
+
+.aion-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.director-panel {
+  border: 1px solid rgba(212,175,55,.22);
+  border-radius: 26px;
+  background: rgba(8, 10, 18, .74);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,.35),
+    inset 0 0 24px rgba(255,255,255,.035);
+  padding: 22px;
+  backdrop-filter: blur(12px);
+}
+
+.director-title span {
+  color: #d4af37;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.director-title h2 {
+  margin: 8px 0 18px;
+  font-size: 22px;
+}
+
+.control-group {
+  margin-top: 18px;
+}
+
+.control-group label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.control-group label span {
+  color: #d4af37;
+}
+
+.state-grid,
+.gesture-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.state-grid button,
+.gesture-grid button {
+  border: 1px solid rgba(212,175,55,.22);
+  background: rgba(255,255,255,.05);
+  color: #f8f3e7;
+  border-radius: 14px;
+  padding: 9px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .22s ease;
+}
+
+.state-grid button:hover,
+.gesture-grid button:hover {
+  background: rgba(212,175,55,.16);
+  transform: translateY(-1px);
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  accent-color: #d4af37;
+}
+
+.aion-being {
+  --breath-speed: 4.8s;
+  --halo-speed: 18s;
+  --glow-strength: 1;
+}
+
+.aion-sphere {
+  animation-duration: var(--breath-speed);
+  filter: brightness(var(--glow-strength));
+}
+
+.aion-light {
+  animation-duration: var(--breath-speed);
+}
+
+.aion-halo {
+  animation-duration: var(--halo-speed);
+}
+
+@media (max-width: 900px) {
+  .lab-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .director-panel {
+    width: min(520px, 100%);
+    margin: 0 auto;
+  }
+}
+
+
+/* =========================================================
+   AION LAB™ FIX
+   Ajuste de pantalla para Panel del Director
+========================================================= */
+
+body {
+  overflow-y: auto;
+}
+
+.aion-lab {
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.lab-stage {
+  width: min(1180px, 96vw);
+  min-height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.lab-header {
+  padding-top: 28px;
+}
+
+.lab-layout {
+  padding: 18px 28px 28px;
+  gap: 24px;
+  align-items: start;
+}
+
+.aion-being {
+  width: 280px;
+  height: 280px;
+  margin-top: 20px;
+  transform: scale(.9);
+}
+
+.state-label {
+  margin-top: 10px;
+}
+
+.director-panel {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+@media (max-height: 760px) {
+  .lab-header h1 {
+    font-size: 32px;
+  }
+
+  .lab-header p {
+    display: none;
+  }
+
+  .aion-being {
+    transform: scale(.78);
+    margin-top: 0;
+  }
+
+  .lab-layout {
+    padding-top: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .lab-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .director-panel {
+    max-height: none;
+  }
+}
+
+
+/* =========================================================
+   AION LAB™ v0.6
+   Respiración ocular
+========================================================= */
+
+.aion-being[data-state="idle"] .eye,
+.aion-being[data-state="listening"] .eye {
+  animation:
+    eyeBreath var(--breath-speed, 4.8s) ease-in-out infinite;
+}
+
+.aion-being[data-state="sleep"] .eye {
+  animation: sleepEyeBreath 7.6s ease-in-out infinite;
+}
+
+@keyframes eyeBreath {
+  0%, 100% {
+    transform: scale(.96);
+    filter: brightness(.95);
+  }
+
+  50% {
+    transform: scale(1.04);
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes sleepEyeBreath {
+  0%, 100% {
+    opacity: .52;
+    filter: brightness(.8);
+  }
+
+  50% {
+    opacity: .78;
+    filter: brightness(1);
+  }
+}
+
+
+/* =========================================================
+   AION LAB™ v0.8
+   Reading state
+========================================================= */
+
+.aion-being[data-state="reading"] {
+  --aion-color: #d4af37;
+  --aion-soft: rgba(212,175,55,.34);
+}
+
+.aion-being[data-state="reading"] .eye {
+  height: 16px;
+  width: 30px;
+  border-radius: 999px;
+  filter: brightness(1.05);
+  transform: translateY(3px);
+}
+
+.aion-being[data-state="reading"] .aion-halo {
+  animation-duration: 32s;
+  opacity: .72;
+}
+
+.aion-being[data-state="reading"] .aion-sphere {
+  animation-duration: 6.8s;
+}
+
+
+/* =========================================================
+   AION LAB™ v0.9
+   Success gesture
+========================================================= */
+
+.aion-being[data-state="success"] .aion-sphere {
+  animation-duration: 2.2s;
+  box-shadow:
+    inset 0 0 40px rgba(255,255,255,.12),
+    inset 0 -40px 80px rgba(0,0,0,.38),
+    0 0 42px var(--aion-soft),
+    0 0 110px rgba(98,230,163,.32);
+}
+
+.aion-being[data-state="success"] .aion-halo {
+  animation-duration: 9s;
+  border-color: rgba(98,230,163,.42);
+}
+
+.aion-being.success-flash .aion-sphere {
+  filter: brightness(1.55);
+}
+
+.aion-being.success-flash .eye {
+  transform: scale(1.22);
+  filter: brightness(1.65);
+}

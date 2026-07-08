@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AION LAB™ | Living Presence Project</title>
+
+  <link rel="stylesheet" href="css/aion-lab.css">
+</head>
+
+<body>
+
+<main class="aion-lab">
+
+  <section class="lab-stage">
+
+    <div class="lab-header">
+      <span>AION LAB™</span>
+      <h1>Living Presence Project</h1>
+      <p>Laboratorio visual independiente para diseñar la presencia institucional de AION™.</p>
+    </div>
+
+    <div class="lab-layout">
+
+      <section class="aion-zone">
+
+        <div class="aion-being" id="aionBeing" data-state="idle">
+
+          <div class="aion-halo"></div>
+
+          <div class="aion-sphere">
+            <div class="aion-light"></div>
+
+            <div class="aion-eyes" id="aionEyes">
+              <span class="eye left-eye"></span>
+              <span class="eye right-eye"></span>
+            </div>
+
+            <div class="aion-reflection"></div>
+          </div>
+
+        </div>
+
+        <div class="state-label">
+          Estado actual:
+          <strong id="stateName">IDLE</strong>
+        </div>
+
+      </section>
+
+      <aside class="director-panel">
+
+        <div class="director-title">
+          <span>Director Panel</span>
+          <h2>Control de presencia</h2>
+        </div>
+
+        <div class="control-group">
+          <label>Estado</label>
+          <div class="state-grid">
+            <button data-state="idle">Idle</button>
+            <button data-state="listening">Listening</button>
+            <button data-state="thinking">Thinking</button>
+            <button data-state="speaking">Speaking</button>
+            <button data-state="reading">Reading</button>
+            <button data-state="warning">Warning</button>
+            <button data-state="success">Success</button>
+            <button data-state="sleep">Sleep</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>Gestos</label>
+          <div class="gesture-grid">
+            <button id="winkBtn">Guiño</button>
+            <button id="blinkBtn">Parpadeo</button>
+            <button id="doubleBlinkBtn">Doble parpadeo</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="breathRange">
+            Respiración
+            <span id="breathValue">4.8s</span>
+          </label>
+          <input id="breathRange" type="range" min="2" max="9" step="0.1" value="4.8">
+        </div>
+
+        <div class="control-group">
+          <label for="glowRange">
+            Brillo
+            <span id="glowValue">1.00</span>
+          </label>
+          <input id="glowRange" type="range" min="0.7" max="1.7" step="0.05" value="1">
+        </div>
+
+        <div class="control-group">
+          <label for="eyeRange">
+            Sensibilidad mirada
+            <span id="eyeValue">1.00</span>
+          </label>
+          <input id="eyeRange" type="range" min="0.3" max="2.2" step="0.05" value="1">
+        </div>
+
+        <div class="control-group">
+          <label for="haloRange">
+            Velocidad halo
+            <span id="haloValue">18s</span>
+          </label>
+          <input id="haloRange" type="range" min="6" max="40" step="1" value="18">
+        </div>
+
+      </aside>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script src="js/presence-engine.js"></script>
+<script src="js/gesture-engine.js"></script>
+<script src="js/eye-engine.js"></script>
+<script src="js/director-panel.js"></script>
+<script src="js/animation-engine.js"></script>
+<script src="js/aion-lab.js"></script>
+
+
+</body>
+</html>
