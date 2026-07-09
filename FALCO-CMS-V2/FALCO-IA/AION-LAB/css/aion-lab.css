@@ -1375,3 +1375,299 @@ body {
 .aion-halo {
   opacity: calc(.58 + (var(--mood-curiosity, .2) * .42));
 }
+/* =========================================================
+   AION Identity™
+   Living Sensors v0.3
+   Sensores gobernados por el estado interno de AION
+========================================================= */
+
+.aion-sensors {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.aion-sensor {
+  position: absolute;
+  top: 50%;
+
+  width: 72px;
+  height: 168px;
+
+  opacity: .32;
+
+  transform: translateY(-50%);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease,
+    filter .8s ease;
+
+    scale:var(--visual-sensor-scale,1);
+
+    scale: var(--visual-sensor-scale, 1);
+}
+
+.aion-sensor::before,
+.aion-sensor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* Línea principal de percepción */
+
+.aion-sensor::before {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255,255,255,.04) 14%,
+      var(--aion-soft) 50%,
+      rgba(255,255,255,.04) 86%,
+      transparent 100%
+    );
+
+  filter:
+    blur(.25px)
+    drop-shadow(0 0 14px var(--aion-soft))
+    drop-shadow(0 0 32px var(--aion-soft));
+}
+
+/* Aura perceptiva */
+
+.aion-sensor::after {
+  background:
+    radial-gradient(
+      ellipse at center,
+      var(--aion-soft),
+      transparent 66%
+    );
+
+  filter: blur(22px);
+  opacity: .48;
+}
+
+.aion-sensor-left {
+  left: 8px;
+  clip-path: polygon(0 0, 58% 0, 38% 100%, 0 100%);
+}
+
+.aion-sensor-right {
+  right: 8px;
+  clip-path: polygon(42% 0, 100% 0, 100% 100%, 62% 100%);
+  animation-delay: .45s;
+}
+
+/* Estados internos */
+
+.aion-being[data-state="idle"] .aion-sensor {
+  opacity: .24;
+  filter: brightness(.9);
+}
+
+.aion-being[data-state="listening"] .aion-sensor {
+  opacity: .62;
+  filter: brightness(1.18);
+}
+
+.aion-being[data-state="thinking"] .aion-sensor {
+  opacity: .44;
+  animation: aionSensorBreath 4.8s ease-in-out infinite;
+}
+
+.aion-being[data-state="speaking"] .aion-sensor {
+  opacity: .58;
+  animation: aionSensorSpeak 1.4s ease-in-out infinite;
+}
+
+.aion-being[data-state="reading"] .aion-sensor {
+  opacity: .26;
+  transform: translateY(-50%) scaleY(.94);
+}
+
+.aion-being[data-state="warning"] .aion-sensor {
+  opacity: .72;
+  filter: brightness(1.28);
+}
+
+.aion-being[data-state="success"] .aion-sensor {
+  opacity: .66;
+  filter: brightness(1.18);
+}
+
+.aion-being[data-state="sleep"] .aion-sensor {
+  opacity: .10;
+  filter: grayscale(1) brightness(.7);
+}
+
+/* Respiración de campo */
+
+@keyframes aionSensorBreath {
+  0%, 100% {
+    opacity: .34;
+
+    transform:
+      translateY(-50%)
+      scaleY(.985)
+      scaleX(.995);
+
+    filter: brightness(.96);
+  }
+
+  50% {
+    opacity: .46;
+
+    transform:
+      translateY(-50%)
+      scaleY(1.015)
+      scaleX(1.005);
+
+    filter: brightness(1.12);
+  }
+}
+
+/* Pulso comunicacional */
+
+@keyframes aionSensorSpeak {
+  0%, 100% {
+    opacity: .42;
+
+    transform:
+      translateY(-50%)
+      scaleY(.975);
+  }
+
+  50% {
+    opacity: .62;
+
+    transform:
+      translateY(-50%)
+      scaleY(1.035);
+  }
+}
+
+
+/* =========================================================
+   AION Visual Cortex™
+   Variables expresivas centrales
+========================================================= */
+
+.aion-being {
+  --visual-breath: var(--breath-speed, 4.8s);
+  --visual-glow: 1;
+  --visual-focus: 1;
+}
+
+.aion-sphere {
+  animation-duration: var(--visual-breath);
+  filter:
+    brightness(calc(var(--visual-glow, 1) * var(--visual-focus, 1)))
+    saturate(calc(.9 + (var(--mood-curiosity, .2) * .35)));
+}
+
+.aion-light {
+  animation-duration: var(--visual-breath);
+  opacity: calc(.48 + (var(--mood-presence, .72) * .42));
+}
+
+.aion-halo {
+  opacity: calc(.42 + (var(--mood-curiosity, .2) * .48));
+}
+
+.aion-sensor {
+  filter:
+    brightness(var(--visual-focus, 1))
+    saturate(calc(1 + (var(--mood-curiosity, .2) * .35)));
+}
+
+.eye {
+  opacity: calc(.70 + (var(--mood-attention, .2) * .30));
+  filter:
+    brightness(calc(.88 + (var(--mood-attention, .2) * .70)));
+}
+
+
+/* =========================================================
+   AION Identity™
+   Presence Field v0.1
+   Campo ambiental no invasivo
+========================================================= */
+
+.aion-presence-field {
+  position: absolute;
+  inset: 34px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 44%,
+      var(--aion-soft) 58%,
+      transparent 72%
+    );
+
+  opacity:
+var(--visual-field-opacity,.18);
+  filter: blur(18px);
+  transform: scale(var(--visual-field, 1));
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease,
+    filter .9s ease;
+
+  animation: aionPresenceField 8.5s ease-in-out infinite;
+}
+
+.aion-being[data-state="thinking"] .aion-presence-field {
+  opacity: .28;
+  animation-duration: 11s;
+}
+
+.aion-being[data-state="listening"] .aion-presence-field {
+  opacity: .34;
+  filter: blur(14px);
+}
+
+.aion-being[data-state="speaking"] .aion-presence-field {
+  opacity: .30;
+  animation-duration: 5.8s;
+}
+
+.aion-being[data-state="reading"] .aion-presence-field {
+  opacity: .18;
+  transform: scale(.94);
+}
+
+.aion-being[data-state="warning"] .aion-presence-field {
+  opacity: .40;
+  filter: blur(12px);
+}
+
+.aion-being[data-state="success"] .aion-presence-field {
+  opacity: .38;
+}
+
+.aion-being[data-state="sleep"] .aion-presence-field {
+  opacity: .06;
+  filter: blur(28px);
+}
+
+@keyframes aionPresenceField {
+  0%, 100% {
+    transform:
+scale(var(--visual-field,1));
+  }
+
+  50% {
+    transform:
+      scale(calc(1 + (var(--mood-curiosity, .2) * .06)))
+      rotate(4deg);
+  }
+}

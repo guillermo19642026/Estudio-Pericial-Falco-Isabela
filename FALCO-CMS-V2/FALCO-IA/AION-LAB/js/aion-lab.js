@@ -22,6 +22,7 @@ const AionLab = {
   contextEngine: null,
   perception: null,
   actionEngine: null,
+  visualCortex: null,
   demoEngine: null,
 
   currentState: "idle",
@@ -58,6 +59,12 @@ const AionLab = {
       this.perception = this.core.perception;
       this.actionEngine = this.core.actions;
     }
+
+this.visualCortex = window.VisualCortex
+  ? new VisualCortex(this.being)
+  : null;
+
+
 
     this.directorPanel = window.DirectorPanel
       ? new DirectorPanel({
@@ -322,15 +329,20 @@ const AionLab = {
   },
 
   syncMoodToVisuals() {
-    if (!this.presence || !this.being) return;
+  if (!this.presence || !this.being) return;
 
-    const mood = this.presence.getMood();
+  const mood = this.presence.getMood();
 
-    this.being.style.setProperty("--mood-presence", mood.presence.toFixed(3));
-    this.being.style.setProperty("--mood-attention", mood.attention.toFixed(3));
-    this.being.style.setProperty("--mood-calm", mood.calm.toFixed(3));
-    this.being.style.setProperty("--mood-curiosity", mood.curiosity.toFixed(3));
-  },
+  if (this.visualCortex) {
+    this.visualCortex.render(mood);
+    return;
+  }
+
+  this.being.style.setProperty("--mood-presence", mood.presence.toFixed(3));
+  this.being.style.setProperty("--mood-attention", mood.attention.toFixed(3));
+  this.being.style.setProperty("--mood-calm", mood.calm.toFixed(3));
+  this.being.style.setProperty("--mood-curiosity", mood.curiosity.toFixed(3));
+},
 
   random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

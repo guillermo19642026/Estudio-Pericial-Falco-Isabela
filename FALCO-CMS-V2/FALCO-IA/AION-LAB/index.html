@@ -15,13 +15,13 @@
 
   <section class="lab-stage">
 
-   <div class="lab-header">
-  <span id="identityOwner">Sistema FALCO®</span>
-  <h1 id="identityTitle">AION Engine™</h1>
-  <p id="identitySubtitle">
-    Living Presence Engine™ · Laboratorio visual independiente.
-  </p>
-</div>
+    <div class="lab-header">
+      <span id="identityOwner">Sistema FALCO®</span>
+      <h1 id="identityTitle">AION Engine™</h1>
+      <p id="identitySubtitle">
+        Living Presence Engine™ · Laboratorio visual independiente.
+      </p>
+    </div>
 
     <div class="lab-layout">
 
@@ -30,6 +30,13 @@
         <div class="aion-being" id="aionBeing" data-state="idle">
 
           <div class="aion-halo"></div>
+
+          <div class="aion-sensors" aria-hidden="true">
+            <span class="aion-sensor aion-sensor-left"></span>
+            <span class="aion-sensor aion-sensor-right"></span>
+          </div>
+
+          <div class="aion-presence-field" aria-hidden="true"></div>
 
           <div class="aion-sphere">
             <div class="aion-light"></div>
@@ -81,42 +88,37 @@
           </div>
         </div>
 
+        <div class="control-group">
+          <label>Presentación</label>
+          <div class="gesture-grid">
+            <button id="startDemoBtn">Iniciar demo</button>
+            <button id="stopDemoBtn">Detener demo</button>
+          </div>
+        </div>
 
-<div class="control-group">
-  <label>Presentación</label>
-  <div class="gesture-grid">
-    <button id="startDemoBtn">Iniciar demo</button>
-    <button id="stopDemoBtn">Detener demo</button>
-  </div>
-</div>
+        <div class="control-group mood-monitor">
+          <label>Living Presence</label>
 
+          <div class="mood-row">
+            <span>Presence</span>
+            <strong id="moodPresence">0.00</strong>
+          </div>
 
-<div class="control-group mood-monitor">
-  <label>Living Presence</label>
+          <div class="mood-row">
+            <span>Calm</span>
+            <strong id="moodCalm">0.00</strong>
+          </div>
 
-  <div class="mood-row">
-    <span>Presence</span>
-    <strong id="moodPresence">0.00</strong>
-  </div>
+          <div class="mood-row">
+            <span>Curiosity</span>
+            <strong id="moodCuriosity">0.00</strong>
+          </div>
 
-  <div class="mood-row">
-    <span>Calm</span>
-    <strong id="moodCalm">0.00</strong>
-  </div>
-
-  <div class="mood-row">
-    <span>Curiosity</span>
-    <strong id="moodCuriosity">0.00</strong>
-  </div>
-
-  <div class="mood-row">
-    <span>Attention</span>
-    <strong id="moodAttention">0.00</strong>
-  </div>
-</div>
-
-
-
+          <div class="mood-row">
+            <span>Attention</span>
+            <strong id="moodAttention">0.00</strong>
+          </div>
+        </div>
 
         <div class="control-group">
           <label for="breathRange">
@@ -175,13 +177,13 @@
 <script src="js/perception-engine.js"></script>
 <script src="js/action-engine.js"></script>
 <script src="js/aion-observer.js"></script>
+<script src="js/visual-cortex.js"></script>
 
 <script src="js/aion-core.js"></script>
 
 <!-- Aplicación -->
 
 <script src="js/aion-lab.js"></script>
-
 
 </body>
 </html>
