@@ -1,0 +1,66 @@
+{
+  "slug": "impugnaciones",
+  "title": "Impugnaciones y Contrainformes",
+  "greeting": "Estás consultando sobre impugnaciones, contrainformes o revisión técnica de informes psicológicos.",
+  "description": "Servicio orientado al análisis crítico de informes psicológicos o pericias, identificando inconsistencias metodológicas, técnicas o argumentales.",
+  "summary": "Permite revisar una pericia psicológica, evaluar su coherencia técnica y colaborar en observaciones, pedidos de explicaciones o impugnaciones.",
+  "keywords": [
+    "impugnación",
+    "impugnar pericia",
+    "contrainforme",
+    "revisión de informe",
+    "pedido de explicaciones",
+    "observaciones",
+    "pericia mal hecha",
+    "inconsistencias"
+  ],
+  "concepts": [
+    {
+      "id": "IMP-001",
+      "name": "Impugnación",
+      "definition": "Cuestionamiento técnico fundado frente a aspectos metodológicos, conclusivos o argumentales de una pericia."
+    },
+    {
+      "id": "IMP-002",
+      "name": "Contrainforme",
+      "definition": "Informe técnico que analiza críticamente una evaluación o dictamen psicológico previo."
+    },
+    {
+      "id": "IMP-003",
+      "name": "Pedido de explicaciones",
+      "definition": "Solicitud de aclaración sobre aspectos técnicos de una pericia psicológica."
+    }
+  ],
+  "suggestions": [
+    "¿Cuándo se puede impugnar una pericia?",
+    "¿Qué es un contrainforme psicológico?",
+    "¿Qué se revisa en una pericia?",
+    "¿Puede pedirlo un abogado?",
+    "¿Qué diferencia hay entre observación e impugnación?"
+  ],
+  "answers": {
+    "¿Cuándo se puede impugnar una pericia?": "Cuando existen fundamentos técnicos para cuestionar metodología, conclusiones, omisiones, contradicciones o falta de sustento clínico-forense.",
+    "¿Qué es un contrainforme psicológico?": "Es un análisis técnico de una pericia o informe psicológico previo, destinado a revisar su consistencia metodológica y conclusiva.",
+    "¿Qué se revisa en una pericia?": "Se revisan técnicas utilizadas, coherencia interna, integración de resultados, fundamentación, conclusiones y relación con los puntos periciales.",
+    "¿Puede pedirlo un abogado?": "Sí. Los abogados o estudios jurídicos pueden solicitar revisión técnica, contrainformes u orientación para pedidos de explicaciones.",
+    "¿Qué diferencia hay entre observación e impugnación?": "La observación puede señalar aspectos a aclarar o ampliar; la impugnación plantea un cuestionamiento técnico más fuerte sobre la validez o consistencia del informe."
+  },
+  "relatedTopics": [
+    "perito_de_parte",
+    "informe_pericial",
+    "pericia_psicologica",
+    "abogados"
+  ],
+  "importance": {
+    "high": [
+      "¿Cuándo se puede impugnar una pericia?",
+      "¿Qué es un contrainforme psicológico?",
+      "¿Qué se revisa en una pericia?"
+    ],
+    "medium": [
+      "¿Puede pedirlo un abogado?",
+      "¿Qué diferencia hay entre observación e impugnación?"
+    ],
+    "low": []
+  }
+}

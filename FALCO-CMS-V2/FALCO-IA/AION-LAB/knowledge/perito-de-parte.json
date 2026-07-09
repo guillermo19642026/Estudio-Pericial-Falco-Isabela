@@ -1,0 +1,67 @@
+{
+  "slug": "perito-de-parte",
+  "title": "Perito Psicóloga de Parte",
+  "greeting": "Estás consultando sobre perito psicóloga de parte. Puedo orientarte sobre su función, cuándo conviene intervenir y cómo puede asistir técnicamente en una causa.",
+  "description": "La perito psicóloga de parte brinda asesoramiento técnico en causas judiciales con componente psicológico, acompañando a abogados, estudios jurídicos o particulares.",
+  "summary": "La intervención de un perito de parte permite revisar actuaciones, analizar informes, acompañar la prueba pericial y formular observaciones técnicas cuando corresponda.",
+  "keywords": [
+    "perito de parte",
+    "perito psicóloga de parte",
+    "abogado",
+    "estudio jurídico",
+    "asesoramiento técnico",
+    "prueba pericial",
+    "observaciones",
+    "impugnación",
+    "contrainforme"
+  ],
+  "concepts": [
+    {
+      "id": "PDP-001",
+      "name": "Perito de parte",
+      "definition": "Profesional que asesora técnicamente a una de las partes en una causa judicial."
+    },
+    {
+      "id": "PDP-002",
+      "name": "Asesoramiento técnico",
+      "definition": "Análisis especializado de aspectos psicológicos relevantes para la estrategia pericial."
+    },
+    {
+      "id": "PDP-003",
+      "name": "Seguimiento pericial",
+      "definition": "Acompañamiento técnico durante el desarrollo de la prueba psicológica."
+    }
+  ],
+  "suggestions": [
+    "¿Qué hace un perito psicólogo de parte?",
+    "¿Cuándo conviene contar con uno?",
+    "¿Puede ayudar a un abogado?",
+    "¿Puede revisar una pericia psicológica?",
+    "¿Puede hacer observaciones o impugnaciones?"
+  ],
+  "answers": {
+    "¿Qué hace un perito psicólogo de parte?": "Asesora técnicamente a una parte, analiza actuaciones, revisa informes y acompaña el desarrollo de la prueba pericial psicológica.",
+    "¿Cuándo conviene contar con uno?": "Puede ser conveniente cuando una causa incluye aspectos psicológicos relevantes, daño psíquico, informes periciales o necesidad de revisión técnica.",
+    "¿Puede ayudar a un abogado?": "Sí. Puede asistir al abogado en la interpretación de documentación psicológica, estrategia pericial, observaciones, pedidos de explicaciones o impugnaciones.",
+    "¿Puede revisar una pericia psicológica?": "Sí. Puede analizar metodología, coherencia interna, técnicas utilizadas, conclusiones y posibles inconsistencias.",
+    "¿Puede hacer observaciones o impugnaciones?": "Puede colaborar técnicamente en la elaboración de observaciones, pedidos de explicaciones, contrainformes o impugnaciones."
+  },
+  "relatedTopics": [
+    "pericia_psicologica",
+    "impugnaciones",
+    "contrainformes",
+    "danio_psiquico"
+  ],
+  "importance": {
+    "high": [
+      "¿Qué hace un perito psicólogo de parte?",
+      "¿Cuándo conviene contar con uno?",
+      "¿Puede ayudar a un abogado?"
+    ],
+    "medium": [
+      "¿Puede revisar una pericia psicológica?",
+      "¿Puede hacer observaciones o impugnaciones?"
+    ],
+    "low": []
+  }
+}

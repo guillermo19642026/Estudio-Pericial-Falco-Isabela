@@ -1,29 +1,28 @@
 /* =========================================================
-   AION Knowledge Engine™ v1.0
-   Base de conocimiento contextual
+   AION Knowledge Engine™ v2.0
+   Contexto administrado por AION Router™
 ========================================================= */
 
-class KnowledgeEngine {
+window.KnowledgeEngine = class KnowledgeEngine {
+
   constructor() {
     this.cache = {};
+
+    this.router = window.AIONRouter
+      ? new AIONRouter()
+      : null;
   }
 
-  detectSlug() {
-    const path = window.location.pathname.toLowerCase();
-
-    if (path.includes("pericia-psicologica")) {
-      return "pericia-psicologica";
-    }
-
-    if (path.includes("danio-psiquico") || path.includes("daño-psiquico")) {
-      return "danio-psiquico";
+  getSlug() {
+    if (this.router) {
+      return this.router.getContext().knowledge;
     }
 
     return "general";
   }
 
   async getCurrentPageKnowledge() {
-    const slug = this.detectSlug();
+    const slug = this.getSlug();
 
     if (this.cache[slug]) {
       return this.cache[slug];
@@ -40,10 +39,11 @@ class KnowledgeEngine {
 
       const data = await response.json();
       this.cache[slug] = data;
+
       return data;
 
-    } catch (error) {
-      console.warn("AION Knowledge fallback:", error);
+    } catch (e) {
+      console.warn("Knowledge fallback", e);
       return this.getFallback(slug);
     }
   }
@@ -52,12 +52,10 @@ class KnowledgeEngine {
     return {
       slug,
       title: "Sistema FALCO®",
-      greeting: "Estoy disponible si necesitás orientación.",
+      greeting: "Estoy disponible para orientarte.",
       description: "",
-      suggestions: [],
-      related: []
+      suggestions: []
     };
   }
-}
 
-window.KnowledgeEngine = KnowledgeEngine;
+};

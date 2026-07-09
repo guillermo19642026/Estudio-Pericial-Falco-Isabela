@@ -1,0 +1,106 @@
+{
+  "slug": "danio-psiquico",
+
+  "title": "Daño Psíquico",
+
+  "greeting": "Estás consultando sobre evaluación de daño psíquico. Puedo orientarte sobre cuándo corresponde una evaluación, qué se analiza y cómo se realiza una pericia.",
+
+  "description": "Evaluación técnica destinada a determinar la existencia de daño psíquico, analizar el nexo causal y valorar las secuelas emocionales en un contexto judicial o prejudicial.",
+
+  "summary": "La evaluación integra entrevistas clínicas, técnicas psicodiagnósticas, antecedentes relevantes y análisis del nexo causal para determinar la existencia y magnitud del daño psíquico.",
+
+  "keywords": [
+    "daño psíquico",
+    "daño psicologico",
+    "secuelas",
+    "trauma",
+    "accidente",
+    "accidente laboral",
+    "accidente de tránsito",
+    "violencia",
+    "nexo causal",
+    "pericia psicológica",
+    "incapacidad psicológica",
+    "evaluación"
+  ],
+
+  "concepts": [
+    {
+      "id": "DP-001",
+      "name": "Daño psíquico",
+      "definition": "Afectación psicológica producida como consecuencia de un hecho traumático o situación con relevancia judicial."
+    },
+    {
+      "id": "DP-002",
+      "name": "Nexo causal",
+      "definition": "Relación técnica entre el hecho investigado y las manifestaciones psicológicas observadas."
+    },
+    {
+      "id": "DP-003",
+      "name": "Secuelas emocionales",
+      "definition": "Manifestaciones psicológicas persistentes derivadas del hecho evaluado."
+    },
+    {
+      "id": "DP-004",
+      "name": "Valoración pericial",
+      "definition": "Integración de entrevistas, técnicas psicodiagnósticas y antecedentes para emitir una conclusión técnica."
+    },
+    {
+      "id": "DP-005",
+      "name": "Impacto funcional",
+      "definition": "Consecuencias del daño en la vida cotidiana, laboral, familiar y social."
+    }
+  ],
+
+  "suggestions": [
+    "¿Qué es el daño psíquico?",
+    "¿Qué se evalúa en una pericia de daño psíquico?",
+    "¿Qué es el nexo causal?",
+    "¿Siempre existe incapacidad psicológica?",
+    "¿Quién puede solicitar esta evaluación?",
+    "¿Qué documentación conviene presentar?"
+  ],
+
+  "answers": {
+
+    "¿Qué es el daño psíquico?":
+      "El daño psíquico es la afectación psicológica que puede producirse como consecuencia de un hecho traumático o situación con relevancia judicial. Su existencia debe determinarse mediante una evaluación pericial.",
+
+    "¿Qué se evalúa en una pericia de daño psíquico?":
+      "Se analizan la sintomatología psicológica, el nexo causal, las secuelas emocionales, el impacto funcional y los antecedentes relevantes del caso mediante entrevistas y técnicas psicodiagnósticas.",
+
+    "¿Qué es el nexo causal?":
+      "Es el análisis técnico destinado a determinar si existe relación entre el hecho investigado y las manifestaciones psicológicas actuales.",
+
+    "¿Siempre existe incapacidad psicológica?":
+      "No. La existencia de daño psíquico no implica necesariamente incapacidad. Cada caso debe evaluarse individualmente.",
+
+    "¿Quién puede solicitar esta evaluación?":
+      "Puede ser requerida por particulares, abogados, estudios jurídicos o en el marco de un proceso judicial.",
+
+    "¿Qué documentación conviene presentar?":
+      "Es recomendable aportar DNI, antecedentes médicos o psicológicos, certificados, constancias de tratamiento y toda documentación vinculada con el hecho que origina la evaluación."
+  },
+
+  "relatedTopics": [
+    "pericia_psicologica",
+    "informe_pericial",
+    "perito_de_parte",
+    "evaluacion_psicologica_judicial"
+  ],
+
+  "importance": {
+    "high": [
+      "¿Qué es el daño psíquico?",
+      "¿Qué se evalúa en una pericia de daño psíquico?",
+      "¿Qué es el nexo causal?"
+    ],
+    "medium": [
+      "¿Siempre existe incapacidad psicológica?",
+      "¿Quién puede solicitar esta evaluación?"
+    ],
+    "low": [
+      "¿Qué documentación conviene presentar?"
+    ]
+  }
+}

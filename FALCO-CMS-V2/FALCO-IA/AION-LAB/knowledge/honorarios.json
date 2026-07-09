@@ -1,0 +1,62 @@
+{
+  "slug": "honorarios",
+  "title": "Honorarios e Informes",
+  "greeting": "Estás consultando sobre honorarios, informes o costos de intervención profesional.",
+  "description": "Los honorarios dependen del tipo de intervención, complejidad del caso, documentación a analizar, cantidad de entrevistas, técnicas administradas y tipo de informe requerido.",
+  "summary": "La estimación de honorarios requiere conocer el tipo de evaluación o informe solicitado, la finalidad de la intervención y la complejidad del caso.",
+  "keywords": [
+    "honorarios",
+    "precio",
+    "costo",
+    "cuánto cuesta",
+    "arancel",
+    "presupuesto",
+    "valor",
+    "informe",
+    "pericia"
+  ],
+  "concepts": [
+    {
+      "id": "HON-001",
+      "name": "Honorarios profesionales",
+      "definition": "Retribución correspondiente a la intervención técnica realizada por la profesional."
+    },
+    {
+      "id": "HON-002",
+      "name": "Presupuesto",
+      "definition": "Estimación económica realizada según el tipo de servicio, complejidad y alcance de la intervención."
+    }
+  ],
+  "suggestions": [
+    "¿Cuánto cuesta una pericia psicológica?",
+    "¿De qué dependen los honorarios?",
+    "¿El costo cambia según el informe?",
+    "¿Cómo solicito un presupuesto?",
+    "¿Los honorarios incluyen entrevistas y técnicas?"
+  ],
+  "answers": {
+    "¿Cuánto cuesta una pericia psicológica?": "El valor depende del tipo de evaluación, complejidad del caso, cantidad de entrevistas, técnicas necesarias y tipo de informe requerido.",
+    "¿De qué dependen los honorarios?": "Dependen del alcance de la intervención, documentación a analizar, tiempo profesional requerido y finalidad del informe.",
+    "¿El costo cambia según el informe?": "Sí. No es lo mismo una orientación inicial, un informe técnico, una evaluación pericial completa o un contrainforme.",
+    "¿Cómo solicito un presupuesto?": "Podés solicitar una consulta inicial indicando el tipo de caso, finalidad del informe y documentación disponible.",
+    "¿Los honorarios incluyen entrevistas y técnicas?": "Depende de la modalidad acordada. En una evaluación completa suelen contemplarse entrevistas, técnicas, análisis e informe."
+  },
+  "relatedTopics": [
+    "pericia_psicologica",
+    "informe_pericial",
+    "danio_psiquico",
+    "turnos"
+  ],
+  "importance": {
+    "high": [
+      "¿Cuánto cuesta una pericia psicológica?",
+      "¿De qué dependen los honorarios?",
+      "¿Cómo solicito un presupuesto?"
+    ],
+    "medium": [
+      "¿El costo cambia según el informe?",
+      "¿Los honorarios incluyen entrevistas y técnicas?"
+    ],
+    "low": []
+  }
+}

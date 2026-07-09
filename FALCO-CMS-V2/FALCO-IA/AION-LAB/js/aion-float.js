@@ -1,6 +1,7 @@
 /* ==========================================================
-   AION FLOAT™ v1.2
+   AION FLOAT™ v1.3
    Cliente flotante conectado a AION Core™
+   + Living Sensors™ + Presence Field™
 ========================================================== */
 
 const AionFloat = {
@@ -19,8 +20,7 @@ const AionFloat = {
   blinkTimer: null,
   returnTimer: null,
 
-  init() {
-    if (document.querySelector(".aion-float")) return;
+init() {
 
     this.create();
     this.initCore();
@@ -42,11 +42,21 @@ const AionFloat = {
     this.container = document.createElement("div");
     this.container.className = "aion-float";
 
-    this.container.innerHTML = `
+
+
+
+ this.container.innerHTML = `
       <div class="aion-float-label">AION Engine™</div>
 
       <div class="aion-float-being" data-state="idle">
         <div class="aion-float-halo"></div>
+
+        <div class="aion-float-sensors" aria-hidden="true">
+          <span class="aion-float-sensor aion-float-sensor-left"></span>
+          <span class="aion-float-sensor aion-float-sensor-right"></span>
+        </div>
+
+        <div class="aion-float-presence-field" aria-hidden="true"></div>
 
         <div class="aion-float-sphere">
           <div class="aion-float-eyes">

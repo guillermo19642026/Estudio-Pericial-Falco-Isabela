@@ -1,0 +1,258 @@
+/* =========================================================
+   AION EXPERIENCE™ v1.0
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#000;
+
+    font-family:"Inter",sans-serif;
+
+    color:#fff;
+
+}
+
+#experience{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at center,
+    #08131f 0%,
+    #02070d 45%,
+    #000 100%);
+
+}
+
+/* ========================================= */
+
+#particles{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+}
+
+/* ========================================= */
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle,
+
+    transparent 0%,
+
+    rgba(0,0,0,.10) 40%,
+
+    rgba(0,0,0,.82) 100%);
+
+}
+
+/* ========================================= */
+
+.center{
+
+    position:relative;
+
+    z-index:20;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ========================================= */
+
+#pulse{
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:#5fe9ff;
+
+    box-shadow:
+
+    0 0 20px #00d4ff,
+
+    0 0 50px rgba(0,210,255,.8),
+
+    0 0 120px rgba(0,210,255,.45);
+
+    animation:aionPulse 3s infinite;
+
+    transition:4s ease;
+
+}
+
+/* ========================================= */
+
+#pulse.expand{
+
+    transform:scale(22);
+
+    opacity:.05;
+
+    filter:blur(26px);
+
+}
+
+/* ========================================= */
+
+#aionReveal{
+
+    position:absolute;
+
+    opacity:0;
+
+    transform:scale(.25);
+
+    transition:4s ease;
+
+}
+
+#aionReveal.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/* ========================================= */
+
+#title{
+
+    margin-top:80px;
+
+    font-size:44px;
+
+    font-weight:300;
+
+    letter-spacing:.08em;
+
+    opacity:0;
+
+    transition:1.5s;
+
+    text-align:center;
+
+}
+
+/* ========================================= */
+
+#subtitle{
+
+    margin-top:22px;
+
+    font-size:18px;
+
+    font-weight:300;
+
+    color:rgba(255,255,255,.65);
+
+    letter-spacing:.16em;
+
+    opacity:0;
+
+    transition:1.5s;
+
+    text-align:center;
+
+}
+
+/* ========================================= */
+
+.show{
+
+    opacity:1 !important;
+
+}
+
+/* ========================================= */
+
+@keyframes aionPulse{
+
+    0%{
+
+        transform:scale(.45);
+
+        opacity:.25;
+
+    }
+
+    50%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.45);
+
+        opacity:.25;
+
+    }
+
+}
+
+/* ========================================= */
+
+@media(max-width:768px){
+
+    #title{
+
+        font-size:30px;
+
+        padding:0 24px;
+
+    }
+
+    #subtitle{
+
+        font-size:15px;
+
+        padding:0 24px;
+
+    }
+
+}

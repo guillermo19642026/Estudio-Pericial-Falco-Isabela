@@ -1,85 +1,83 @@
 /* =========================================================
-   AION Action Engine™ v1.0
-   Coordina secuencias de comportamiento
+   AION Knowledge Engine™ v1.1
+   Base de conocimiento contextual
 ========================================================= */
 
-class ActionEngine {
-  constructor({ lab, brain = null, memory = null }) {
-    this.lab = lab;
-    this.brain = brain;
-    this.memory = memory;
-    this.running = false;
+class KnowledgeEngine {
+  constructor() {
+    this.cache = {};
   }
 
-  async run(sequence = []) {
-    if (this.running) return;
+  detectSlug() {
+    const path = window.location.pathname.toLowerCase();
 
-    this.running = true;
-
-    for (const step of sequence) {
-      await this.execute(step);
+    if (path.includes("pericia-psicologica")) {
+      return "pericia-psicologica";
     }
 
-    this.running = false;
+    if (path.includes("danio-psiquico") || path.includes("daño-psiquico")) {
+      return "danio-psiquico";
+    }
+
+    if (path.includes("informe-pericial")) {
+      return "informe-pericial";
+    }
+
+    if (path.includes("perito-psicologa-de-parte") || path.includes("perito-de-parte")) {
+      return "perito-de-parte";
+    }
+
+    if (path.includes("impugnacion") || path.includes("impugnaciones")) {
+      return "impugnaciones";
+    }
+
+    if (path.includes("honorarios") || path.includes("cuanto-cuesta")) {
+      return "honorarios";
+    }
+
+    return "general";
   }
 
-  async execute(step = {}) {
-    const action = step.action || "wait";
+  async getCurrentPageKnowledge() {
+    const slug = this.detectSlug();
 
-    if (this.memory) {
-      this.memory.rememberEvent("action:" + action, step);
+    if (this.cache[slug]) {
+      return this.cache[slug];
     }
 
-    if (action === "state") {
-      this.lab.setState(step.state || "idle");
-      return this.wait(step.duration || 800);
-    }
+    try {
+      const response = await fetch(
+        `FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${slug}.json`
+      );
 
-    if (action === "read") {
-      this.lab.setState("reading");
-      return this.wait(step.duration || 1800);
-    }
+      if (!response.ok) {
+        return this.getFallback(slug);
+      }
 
-    if (action === "think") {
-      this.lab.setState("thinking");
-      return this.wait(step.duration || 2200);
-    }
+      const data = await response.json();
+      this.cache[slug] = data;
+      return data;
 
-    if (action === "speak") {
-      this.lab.setState("speaking");
-      return this.wait(step.duration || 2400);
+    } catch (error) {
+      console.warn("AION Knowledge fallback:", error);
+      return this.getFallback(slug);
     }
-
-    if (action === "notify") {
-      this.lab.setState("success");
-      return this.wait(step.duration || 1600);
-    }
-
-    if (action === "warning") {
-      this.lab.setState("warning");
-      return this.wait(step.duration || 1600);
-    }
-
-    if (action === "sleep") {
-      this.lab.setState("sleep");
-      return this.wait(step.duration || 1200);
-    }
-
-    return this.wait(step.duration || 800);
   }
 
-  demoReadThinkSpeak() {
-    return this.run([
-      { action: "read", duration: 1600 },
-      { action: "think", duration: 1800 },
-      { action: "speak", duration: 2400 },
-      { action: "state", state: "idle", duration: 600 }
-    ]);
-  }
-
-  wait(ms = 800) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  getFallback(slug = "general") {
+    return {
+      slug,
+      title: "Sistema FALCO®",
+      greeting: "Hola. Soy AION. Puedo ayudarte a orientarte dentro del Sistema FALCO®.",
+      description: "",
+      suggestions: [
+        "¿Qué es una pericia psicológica?",
+        "¿Qué es el daño psíquico?",
+        "¿Cómo solicito una consulta?"
+      ],
+      related: []
+    };
   }
 }
 
-window.ActionEngine = ActionEngine;
+window.KnowledgeEngine = KnowledgeEngine;

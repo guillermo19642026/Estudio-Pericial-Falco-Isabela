@@ -1,0 +1,89 @@
+{
+  "slug": "general",
+  "title": "Sistema FALCO®",
+  "greeting": "Hola. Soy AION. Puedo orientarte dentro del Sistema FALCO® según lo que necesites.",
+  "description": "Orientación central para visitantes de la página principal.",
+
+  "suggestions": [
+    {
+      "label": "No sé qué necesito",
+      "response": "Puedo ayudarte a orientarte. Si tu consulta está vinculada a una causa judicial, una evaluación psicológica, daño psíquico, informe, honorarios o asesoramiento a abogados, puedo indicarte el camino más adecuado.",
+      "action": "Ver accesos rápidos",
+      "url": "#accesos-rapidos",
+      "whatsappLabel": "Consultar orientación",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20orientaci%C3%B3n%20para%20saber%20qu%C3%A9%20servicio%20necesito."
+    },
+    {
+      "label": "Necesito una pericia psicológica",
+      "response": "Te conviene comenzar por la sección de Pericia Psicológica, donde se explica qué es, cuándo se necesita, qué incluye y cómo solicitar orientación profesional.",
+      "action": "Ver información",
+      "url": "pericia-psicologica-buenos-aires.html",
+      "whatsappLabel": "Consultar por WhatsApp",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20pericia%20psicol%C3%B3gica."
+    },
+    {
+      "label": "Quiero consultar por daño psíquico",
+      "response": "El daño psíquico se evalúa cuando se necesita analizar secuelas emocionales, nexo causal o impacto psicológico derivado de un hecho con relevancia judicial.",
+      "action": "Ver información",
+      "url": "danio-psiquico-buenos-aires.html",
+      "whatsappLabel": "Consultar daño psíquico",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20evaluaci%C3%B3n%20de%20da%C3%B1o%20ps%C3%ADquico."
+    },
+    {
+      "label": "Soy abogado o estudio jurídico",
+      "response": "Para abogados y estudios jurídicos, el Estudio brinda asesoramiento técnico, revisión de informes, perito de parte, contrainformes, impugnaciones y orientación pericial.",
+      "action": "Ver servicios para abogados",
+      "url": "perito-psicologa-de-parte-buenos-aires.html",
+      "whatsappLabel": "Consultar como abogado",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20soy%20abogado/a%20y%20quisiera%20realizar%20una%20consulta%20profesional."
+    },
+    {
+      "label": "Necesito revisar una pericia",
+      "response": "Si necesitás revisar una pericia psicológica, puede realizarse un análisis técnico, contrainforme, pedido de explicaciones o impugnación según el caso.",
+      "action": "Ver información",
+      "url": "impugnaciones-pericias-psicologicas.html",
+      "whatsappLabel": "Consultar revisión",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20necesito%20revisar%20una%20pericia%20psicol%C3%B3gica%20y%20quisiera%20recibir%20asesoramiento."
+    },
+    {
+      "label": "Quiero saber honorarios",
+      "response": "Los honorarios dependen del tipo de intervención, complejidad del caso, documentación a analizar, entrevistas, técnicas administradas y tipo de informe requerido.",
+      "action": "Ver honorarios",
+      "url": "honorarios-informes-psicologicos.html",
+      "whatsappLabel": "Consultar honorarios",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20honorarios%20profesionales."
+    },
+    {
+      "label": "Quiero solicitar turno",
+      "response": "Podés solicitar una entrevista profesional para orientar el caso, revisar documentación y definir la modalidad de intervención adecuada.",
+      "action": "Solicitar turno",
+      "url": "solicitar-turno.html",
+      "whatsappLabel": "Consultar turno",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20solicitar%20una%20entrevista%20profesional."
+    },
+    {
+      "label": "Busco tests psicométricos",
+      "response": "La plataforma psicométrica permite el acceso privado a instrumentos como SCL-90/BSI, BDI, BAI y Desesperanza para usuarios autorizados.",
+      "action": "Acceder a tests",
+      "url": "login.html",
+      "whatsappLabel": "Consultar acceso",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20la%20plataforma%20de%20evaluaci%C3%B3n%20psicom%C3%A9trica%20online."
+    },
+    {
+      "label": "Busco formación profesional",
+      "response": "El Sistema FALCO® incluye espacios de formación, supervisión y actualización profesional para psicólogos, peritos y profesionales de la salud mental.",
+      "action": "Ver formación",
+      "url": "#formacion",
+      "whatsappLabel": "Consultar formación",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20formaci%C3%B3n%20profesional."
+    },
+    {
+      "label": "Quiero acceder a Biblioteca FALCO®",
+      "response": "La Biblioteca FALCO® reúne materiales y recursos profesionales. El acceso completo está reservado para usuarios autorizados o con membresía habilitada.",
+      "action": "Acceder a Biblioteca",
+      "url": "biblioteca-login.html",
+      "whatsappLabel": "Consultar biblioteca",
+      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20el%20acceso%20a%20la%20Biblioteca%20FALCO%C2%AE."
+    }
+  ]
+}

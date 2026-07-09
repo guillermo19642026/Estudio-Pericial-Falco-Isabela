@@ -1,6 +1,6 @@
 /* =========================================================
-   AION Conversation Engine™ v1.3
-   Conversación guiada desde Corpus Engine
+   AION Conversation Engine™ v1.4
+   Conversación guiada desde Knowledge Engine + Corpus Engine
 ========================================================= */
 
 const AIONConversation = {
@@ -20,12 +20,9 @@ const AIONConversation = {
       ? new KnowledgeEngine()
       : null;
 
-
-this.responseEngine =
-    window.ResponseEngine
-        ? new ResponseEngine()
-        : null;
-
+    this.responseEngine = window.ResponseEngine
+      ? new ResponseEngine()
+      : null;
 
     this.corpus = window.CorpusEngine
       ? new CorpusEngine()
@@ -91,7 +88,11 @@ this.responseEngine =
       suggestions.forEach((item) => {
         const button = document.createElement("button");
         button.type = "button";
-        button.textContent = item;
+
+        button.textContent =
+          typeof item === "string"
+            ? item
+            : item.label || item.title || "Consultar";
 
         button.addEventListener("click", (event) => {
           event.stopPropagation();
@@ -103,50 +104,97 @@ this.responseEngine =
     }
   },
 
-  async respond(question) {
+  async respond(item) {
     const titleEl = this.card.querySelector("h3");
     const textEl = this.card.querySelector("p");
     const optionsEl = this.card.querySelector(".aion-conversation-options");
 
-    if (titleEl) titleEl.textContent = question;
+    const isObject = typeof item === "object" && item !== null;
 
-    if (textEl) {
-      textEl.textContent = "Consultando el Corpus FALCO®...";
-    }
+    const question = isObject
+      ? item.label || item.title || "Orientación"
+      : item;
+
+    if (titleEl) titleEl.textContent = question;
 
     if (window.AionFloat) {
       AionFloat.setState("thinking");
     }
 
-    let response = null;
+    let finalText = "";
 
-    if (this.corpus) {
-      response = await this.corpus.answer(question);
+    if (isObject) {
+      finalText =
+        item.response ||
+        "Puedo orientarte sobre este punto dentro del Sistema FALCO®.";
+    } else {
+      finalText = this.data?.answers?.[question];
+
+      if (!finalText && this.corpus) {
+        if (textEl) textEl.textContent = "Consultando el Corpus FALCO®...";
+
+        const response = await this.corpus.answer(question);
+
+        const view = this.responseEngine
+          ? this.responseEngine.format(response)
+          : response;
+
+        finalText =
+          view?.text ||
+          response?.answer ||
+          "Puedo orientarte sobre este punto desde el enfoque técnico del Sistema FALCO®.";
+      }
+
+      if (!finalText) {
+        finalText =
+          "Puedo orientarte sobre este punto dentro del Sistema FALCO®.";
+      }
     }
 
-    await new Promise(resolve => setTimeout(resolve, 900));
+    await new Promise((resolve) => setTimeout(resolve, 350));
 
-    const view = this.responseEngine
-  ? this.responseEngine.format(response)
-  : response;
-
-if (titleEl) {
-  titleEl.textContent = question;
-}
-
-if (textEl) {
-  textEl.textContent =
-    view?.text ||
-    response?.answer ||
-    "Puedo orientarte sobre este punto desde el enfoque técnico del Sistema FALCO®.";
-}
+    if (textEl) {
+      textEl.textContent = finalText;
+    }
 
     if (optionsEl) {
       optionsEl.innerHTML = "";
 
+     if (isObject && item.url) {
+  const actionBtn = document.createElement("button");
+  actionBtn.type = "button";
+  actionBtn.textContent = item.action || "Ver información";
+
+  actionBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    if (item.url.startsWith("http")) {
+      window.open(item.url, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = item.url;
+    }
+  });
+
+  optionsEl.appendChild(actionBtn);
+}
+
+if (isObject && item.whatsapp) {
+  const whatsappBtn = document.createElement("button");
+  whatsappBtn.type = "button";
+  whatsappBtn.textContent = item.whatsappLabel || "Consultar por WhatsApp";
+
+  whatsappBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    window.open(item.whatsapp, "_blank", "noopener,noreferrer");
+  });
+
+  optionsEl.appendChild(whatsappBtn);
+}
+
       const backBtn = document.createElement("button");
       backBtn.type = "button";
       backBtn.textContent = "Volver";
+
       backBtn.addEventListener("click", (event) => {
         event.stopPropagation();
         this.renderHome();

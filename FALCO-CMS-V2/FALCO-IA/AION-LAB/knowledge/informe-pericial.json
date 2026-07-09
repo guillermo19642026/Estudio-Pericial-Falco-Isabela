@@ -1,0 +1,66 @@
+{
+  "slug": "informe-pericial",
+  "title": "Informe Pericial Psicológico",
+  "greeting": "Estás consultando sobre informe pericial psicológico. Puedo orientarte sobre qué incluye, para qué sirve y cómo se utiliza en un proceso judicial.",
+  "description": "El informe pericial psicológico integra entrevistas, técnicas psicodiagnósticas, análisis del caso y conclusiones profesionales para su utilización en un contexto judicial o prejudicial.",
+  "summary": "El informe permite presentar de manera clara, técnica y fundada los resultados de una evaluación psicológica con finalidad pericial.",
+  "keywords": [
+    "informe pericial",
+    "informe psicológico",
+    "dictamen",
+    "conclusiones",
+    "pericia",
+    "psicodiagnóstico",
+    "puntos periciales",
+    "evaluación psicológica"
+  ],
+  "concepts": [
+    {
+      "id": "INF-001",
+      "name": "Informe pericial psicológico",
+      "definition": "Documento técnico que integra evaluación clínica, técnicas psicodiagnósticas y conclusiones profesionales para un contexto judicial."
+    },
+    {
+      "id": "INF-002",
+      "name": "Conclusiones periciales",
+      "definition": "Síntesis técnica final que responde a los puntos relevantes de la evaluación."
+    },
+    {
+      "id": "INF-003",
+      "name": "Integración de resultados",
+      "definition": "Análisis conjunto de entrevistas, técnicas, antecedentes y documentación."
+    }
+  ],
+  "suggestions": [
+    "¿Qué es un informe pericial psicológico?",
+    "¿Qué incluye el informe?",
+    "¿Para qué sirve en un juicio?",
+    "¿Puede solicitarlo un abogado?",
+    "¿Qué diferencia hay entre informe psicológico e informe pericial?"
+  ],
+  "answers": {
+    "¿Qué es un informe pericial psicológico?": "Es un documento técnico que presenta los resultados de una evaluación psicológica realizada con finalidad judicial o prejudicial.",
+    "¿Qué incluye el informe?": "Puede incluir entrevistas, técnicas psicodiagnósticas, antecedentes, análisis clínico-forense, integración de resultados y conclusiones técnicas.",
+    "¿Para qué sirve en un juicio?": "Sirve para aportar elementos técnicos al expediente y colaborar con la valoración judicial del caso.",
+    "¿Puede solicitarlo un abogado?": "Sí. Puede ser solicitado por abogados, estudios jurídicos, particulares o en el marco de un proceso judicial.",
+    "¿Qué diferencia hay entre informe psicológico e informe pericial?": "El informe pericial está orientado a responder cuestiones técnicas dentro de un proceso judicial o prejudicial, mientras que un informe psicológico puede tener finalidades clínicas, institucionales o particulares."
+  },
+  "relatedTopics": [
+    "pericia_psicologica",
+    "danio_psiquico",
+    "perito_de_parte",
+    "impugnaciones"
+  ],
+  "importance": {
+    "high": [
+      "¿Qué es un informe pericial psicológico?",
+      "¿Qué incluye el informe?",
+      "¿Para qué sirve en un juicio?"
+    ],
+    "medium": [
+      "¿Puede solicitarlo un abogado?",
+      "¿Qué diferencia hay entre informe psicológico e informe pericial?"
+    ],
+    "low": []
+  }
+}
