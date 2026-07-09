@@ -1182,3 +1182,194 @@ body {
     transform: translateX(120%);
   }
 }
+
+
+/* =========================================================
+   AION LAB™ v2.2
+   Living Presence Atmosphere
+========================================================= */
+
+.lab-stage {
+  transition:
+    box-shadow .8s ease,
+    border-color .8s ease,
+    background .8s ease;
+}
+
+.lab-stage:has(.aion-being[data-state="idle"]) {
+  border-color: rgba(0, 210, 255, .22);
+  box-shadow:
+    0 0 80px rgba(0, 180, 255, .14),
+    inset 0 0 80px rgba(0, 210, 255, .06);
+}
+
+.lab-stage:has(.aion-being[data-state="thinking"]) {
+  border-color: rgba(90, 210, 255, .36);
+  box-shadow:
+    0 0 90px rgba(0, 190, 255, .24),
+    inset 0 0 90px rgba(0, 210, 255, .12);
+}
+
+.lab-stage:has(.aion-being[data-state="listening"]) {
+  border-color: rgba(140, 235, 255, .42);
+  box-shadow:
+    0 0 100px rgba(0, 220, 255, .26),
+    inset 0 0 90px rgba(0, 220, 255, .13);
+}
+
+.lab-stage:has(.aion-being[data-state="speaking"]) {
+  border-color: rgba(255, 255, 255, .42);
+  box-shadow:
+    0 0 110px rgba(180, 245, 255, .28),
+    inset 0 0 100px rgba(255, 255, 255, .10);
+}
+
+.lab-stage:has(.aion-being[data-state="reading"]) {
+  border-color: rgba(212, 175, 55, .30);
+  box-shadow:
+    0 0 80px rgba(212, 175, 55, .16),
+    inset 0 0 80px rgba(212, 175, 55, .08);
+}
+
+.lab-stage:has(.aion-being[data-state="warning"]) {
+  border-color: rgba(181, 140, 255, .42);
+  box-shadow:
+    0 0 100px rgba(181, 140, 255, .25),
+    inset 0 0 90px rgba(181, 140, 255, .12);
+}
+
+.lab-stage:has(.aion-being[data-state="success"]) {
+  border-color: rgba(98, 230, 163, .42);
+  box-shadow:
+    0 0 100px rgba(98, 230, 163, .25),
+    inset 0 0 90px rgba(98, 230, 163, .10);
+}
+
+.lab-stage:has(.aion-being[data-state="sleep"]) {
+  border-color: rgba(255, 255, 255, .12);
+  box-shadow:
+    0 0 48px rgba(255, 255, 255, .08),
+    inset 0 0 70px rgba(255, 255, 255, .04);
+}
+
+
+/* =========================================================
+   AION LAB™ v2.3
+   Emotional Breathing by State
+========================================================= */
+
+.aion-being[data-state="idle"] {
+  --breath-speed: 4.8s;
+  --halo-speed: 18s;
+}
+
+.aion-being[data-state="listening"] {
+  --breath-speed: 4.2s;
+  --halo-speed: 14s;
+}
+
+.aion-being[data-state="thinking"] {
+  --breath-speed: 6.4s;
+  --halo-speed: 28s;
+}
+
+.aion-being[data-state="speaking"] {
+  --breath-speed: 3.6s;
+  --halo-speed: 11s;
+}
+
+.aion-being[data-state="reading"] {
+  --breath-speed: 6.8s;
+  --halo-speed: 32s;
+}
+
+.aion-being[data-state="warning"] {
+  --breath-speed: 2.8s;
+  --halo-speed: 8s;
+}
+
+.aion-being[data-state="success"] {
+  --breath-speed: 2.4s;
+  --halo-speed: 7s;
+}
+
+.aion-being[data-state="sleep"] {
+  --breath-speed: 8.2s;
+  --halo-speed: 44s;
+}
+
+
+/* FIX Panel Director visible completo */
+
+.lab-stage {
+  max-height: calc(100vh - 16px);
+  overflow: hidden;
+}
+
+.lab-layout {
+  align-items: stretch;
+}
+
+.director-panel {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding-bottom: 28px;
+}
+
+.director-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.director-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 210, 255, .35);
+  border-radius: 999px;
+}
+
+.director-panel::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.04);
+}
+
+
+/* Mood Monitor */
+
+.mood-monitor {
+  border-top: 1px solid rgba(0, 210, 255, .16);
+  padding-top: 16px;
+}
+
+.mood-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: rgba(0, 180, 255, .06);
+  color: rgba(220, 248, 255, .75);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mood-row strong {
+  color: #39d8ff;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* Mood visual sync */
+
+.aion-sphere {
+  filter:
+    brightness(calc(.86 + (var(--mood-presence, .72) * .42)))
+    saturate(calc(.9 + (var(--mood-curiosity, .2) * .35)));
+}
+
+.eye {
+  opacity: calc(.72 + (var(--mood-attention, .2) * .28));
+  filter:
+    brightness(calc(.9 + (var(--mood-attention, .2) * .75)));
+}
+
+.aion-halo {
+  opacity: calc(.58 + (var(--mood-curiosity, .2) * .42));
+}

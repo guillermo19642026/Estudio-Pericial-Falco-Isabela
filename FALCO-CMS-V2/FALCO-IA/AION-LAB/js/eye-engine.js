@@ -1,6 +1,6 @@
 /* =========================================================
-   AION Eye Engine™ v1.0
-   Mirada viva, inercia y seguimiento
+   AION Eye Engine™ v1.1
+   Mirada viva: observa, no persigue
 ========================================================= */
 
 class EyeEngine {
@@ -15,6 +15,9 @@ class EyeEngine {
     this.targetY = 0;
 
     this.sensitivity = 1;
+
+    this.lastFollowAt = 0;
+    this.followDelay = 90;
   }
 
   setSensitivity(value = 1) {
@@ -31,22 +34,25 @@ class EyeEngine {
     const dx = x - centerX;
     const dy = y - centerY;
 
-    this.targetX = this.clamp(dx * 0.028 * this.sensitivity, -12, 12);
-    this.targetY = this.clamp(dy * 0.028 * this.sensitivity, -8, 8);
+    this.targetX = this.clamp(dx * 0.022 * this.sensitivity, -10, 10);
+    this.targetY = this.clamp(dy * 0.022 * this.sensitivity, -7, 7);
   }
 
   followMouse(event) {
+    const now = Date.now();
+
+    if (now - this.lastFollowAt < this.followDelay) return;
+
+    this.lastFollowAt = now;
+
     if (!this.being) return;
 
-    const rect = this.being.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+    const mood = this.presence ? this.presence.getMood() : null;
+    const attention = mood ? mood.attention : .4;
 
-    const dx = event.clientX - centerX;
-    const dy = event.clientY - centerY;
+    if (attention < .18 && Math.random() > .35) return;
 
-    this.targetX = this.clamp(dx * 0.025 * this.sensitivity, -10, 10);
-    this.targetY = this.clamp(dy * 0.025 * this.sensitivity, -7, 7);
+    this.lookAtPoint(event.clientX, event.clientY);
   }
 
   center() {
@@ -55,18 +61,44 @@ class EyeEngine {
   }
 
   microLook() {
-    this.targetX = this.random(-3, 3);
-    this.targetY = this.random(-2, 2);
+    this.targetX = this.randomFloat(-3, 3);
+    this.targetY = this.randomFloat(-2, 2);
+  }
+
+  glance(direction = "center") {
+    const positions = {
+      center: [0, 0],
+      up: [0, -5],
+      down: [0, 5],
+      left: [-6, 0],
+      right: [6, 0],
+      upperLeft: [-5, -4],
+      upperRight: [5, -4],
+      lowerLeft: [-4, 4],
+      lowerRight: [4, 4]
+    };
+
+    const selected = positions[direction] || positions.center;
+
+    this.targetX = selected[0];
+    this.targetY = selected[1];
   }
 
   animate() {
     if (!this.being) return;
 
     const mood = this.presence ? this.presence.getMood() : null;
-    const attentionBoost = mood ? 0.08 + mood.attention * 0.04 : 0.08;
+    const attention = mood ? mood.attention : .4;
+    const calm = mood ? mood.calm : .8;
 
-    this.eyeX += (this.targetX - this.eyeX) * attentionBoost;
-    this.eyeY += (this.targetY - this.eyeY) * attentionBoost;
+    const speed = this.clamp(
+      0.045 + attention * 0.055 - calm * 0.018,
+      0.035,
+      0.12
+    );
+
+    this.eyeX += (this.targetX - this.eyeX) * speed;
+    this.eyeY += (this.targetY - this.eyeY) * speed;
 
     this.being.style.setProperty("--eye-x", `${this.eyeX}px`);
     this.being.style.setProperty("--eye-y", `${this.eyeY}px`);
@@ -78,8 +110,8 @@ class EyeEngine {
     return Math.min(Math.max(value, min), max);
   }
 
-  random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  randomFloat(min, max) {
+    return Math.random() * (max - min) + min;
   }
 }
 

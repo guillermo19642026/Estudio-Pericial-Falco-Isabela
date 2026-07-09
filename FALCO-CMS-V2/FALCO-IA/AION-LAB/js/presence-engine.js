@@ -1,102 +1,213 @@
 /* =========================================================
-   AION Presence Engine™ v1.0
-   Living Presence Project
+   AION Presence Engine™ v1.2
+   Estado interno vivo: rangos + fluctuación suave
 ========================================================= */
 
 class PresenceEngine {
 
-    constructor(){
+  constructor() {
+    this.state = "idle";
 
-        this.state="idle";
+    this.mood = {
+      presence: .72,
+      calm: 1,
+      curiosity: .1,
+      attention: .2,
+      thinking: false,
+      speaking: false,
+      sleeping: false,
+      warning: false
+    };
 
-        this.mood={
+    this.target = { ...this.mood };
 
-            calm:1,
+    this.fluctuationTimer = null;
+    this.startFluctuation();
+  }
 
-            curiosity:0,
+  setState(state) {
+    this.state = state;
+    this.applyStateMood(state);
+  }
 
-            attention:0,
+  getState() {
+    return this.state;
+  }
 
-            thinking:false,
+  getMood() {
+    return structuredClone(this.mood);
+  }
 
-            speaking:false,
+  setMood(property, value) {
+    if (this.mood[property] === undefined) return;
+    this.target[property] = typeof value === "number" ? this.clamp(value) : value;
+  }
 
-            sleeping:false,
+  setPresence(level = .72) {
+    this.target.presence = this.clamp(level);
+  }
 
-            warning:false
+  getPresence() {
+    return this.mood.presence;
+  }
 
-        };
+  applyStateMood(state) {
+    const ranges = {
+      idle: {
+        presence: [.64, .74],
+        calm: [.86, 1],
+        curiosity: [.08, .24],
+        attention: [.16, .32]
+      },
 
-    }
+      listening: {
+        presence: [.78, .88],
+        calm: [.70, .86],
+        curiosity: [.32, .54],
+        attention: [.62, .84]
+      },
 
-    setState(state){
+      thinking: {
+        presence: [.82, .92],
+        calm: [.64, .82],
+        curiosity: [.42, .68],
+        attention: [.68, .88]
+      },
 
-        this.state=state;
+      speaking: {
+        presence: [.88, .98],
+        calm: [.52, .72],
+        curiosity: [.34, .56],
+        attention: [.78, .96]
+      },
 
-    }
+      reading: {
+        presence: [.70, .82],
+        calm: [.78, .92],
+        curiosity: [.22, .40],
+        attention: [.58, .78]
+      },
 
-    setMood(property,value){
+      warning: {
+        presence: [.90, 1],
+        calm: [.28, .46],
+        curiosity: [.10, .28],
+        attention: [.86, 1]
+      },
 
-        if(this.mood[property]===undefined)return;
+      success: {
+        presence: [.84, .96],
+        calm: [.74, .92],
+        curiosity: [.42, .66],
+        attention: [.56, .78]
+      },
 
-        this.mood[property]=value;
+      sleep: {
+        presence: [.24, .42],
+        calm: [.90, 1],
+        curiosity: [0, .08],
+        attention: [0, .14]
+      }
+    };
 
-    }
+    const selected = ranges[state] || ranges.idle;
 
-    getMood(){
+    Object.keys(selected).forEach(key => {
+      this.target[key] = this.randomFloat(selected[key][0], selected[key][1]);
+    });
 
-        return structuredClone(this.mood);
+    this.mood.thinking = state === "thinking";
+    this.mood.speaking = state === "speaking";
+    this.mood.sleeping = state === "sleep";
+    this.mood.warning = state === "warning";
+  }
 
-    }
+  curiosity(level = .5) {
+    this.target.curiosity = this.clamp(level + this.randomFloat(-.04, .04));
+    this.target.attention = this.clamp(.45 + level * .5);
+    this.target.presence = this.clamp(.62 + level * .28);
+  }
 
-    curiosity(level=.5){
+  focus(level = 1) {
+    this.target.attention = this.clamp(level + this.randomFloat(-.03, .03));
+    this.target.presence = this.clamp(.60 + level * .32);
+  }
 
-        this.mood.curiosity=level;
+  relax() {
+    this.applyStateMood("idle");
+  }
 
-        this.mood.attention=.8;
+  think(active = true) {
+    this.mood.thinking = active;
+    if (active) this.applyStateMood("thinking");
+  }
 
-    }
+  speak(active = true) {
+    this.mood.speaking = active;
+    if (active) this.applyStateMood("speaking");
+  }
 
-    focus(level=1){
+  warning(active = true) {
+    this.mood.warning = active;
+    if (active) this.applyStateMood("warning");
+  }
 
-        this.mood.attention=level;
+  sleep(active = true) {
+    this.mood.sleeping = active;
+    if (active) this.applyStateMood("sleep");
+  }
 
-    }
+  startFluctuation() {
+    this.fluctuationTimer = window.setInterval(() => {
+        this.homeostasis();
+      Object.keys(this.target).forEach(key => {
+        if (typeof this.mood[key] !== "number") return;
 
-    relax(){
+        const drift = this.randomFloat(-.012, .012);
+        const desired = this.clamp(this.target[key] + drift);
 
-        this.mood.calm=1;
+        this.mood[key] += (desired - this.mood[key]) * .08;
+        this.mood[key] = this.clamp(this.mood[key]);
+      });
+    }, 180);
+  }
 
-        this.mood.attention=.2;
+nudge(values = {}) {
+  Object.keys(values).forEach(key => {
+    if (typeof this.target[key] !== "number") return;
 
-        this.mood.curiosity=.1;
+    this.target[key] = this.clamp(
+      this.target[key] + values[key]
+    );
+  });
+}
 
-    }
+homeostasis() {
+  const balance = {
+    presence: .70,
+    calm: .88,
+    curiosity: .18,
+    attention: .24
+  };
 
-    think(active=true){
+  Object.keys(balance).forEach(key => {
+    if (typeof this.target[key] !== "number") return;
 
-        this.mood.thinking=active;
+    this.target[key] += (balance[key] - this.target[key]) * .018;
+    this.target[key] = this.clamp(this.target[key]);
+  });
+}
 
-    }
 
-    speak(active=true){
 
-        this.mood.speaking=active;
+  clamp(value) {
+    return Math.max(0, Math.min(1, value));
+  }
 
-    }
-
-    warning(active=true){
-
-        this.mood.warning=active;
-
-    }
-
-    sleep(active=true){
-
-        this.mood.sleeping=active;
-
-    }
+  randomFloat(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
 }
 
-window.PresenceEngine=PresenceEngine;
+window.PresenceEngine = PresenceEngine;

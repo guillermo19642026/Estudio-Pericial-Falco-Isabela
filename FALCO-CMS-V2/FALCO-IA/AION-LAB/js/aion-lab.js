@@ -1,10 +1,12 @@
 /* =========================================================
-   AION LAB™ v2.2
+   AION LAB™ v2.3
    Living Presence Project
-   Core modular + Identity + Memory
+   AIONCore + Identity + Memory
 ========================================================= */
 
 const AionLab = {
+  core: null,
+
   being: null,
   eyes: null,
   stateName: null,
@@ -19,6 +21,7 @@ const AionLab = {
   identity: null,
   contextEngine: null,
   perception: null,
+  actionEngine: null,
   demoEngine: null,
 
   currentState: "idle",
@@ -28,6 +31,7 @@ const AionLab = {
   microLookTimer: null,
   speechTimer: null,
   clickLookTimer: null,
+  moodTimer: null,
 
   userActive: false,
 
@@ -38,41 +42,21 @@ const AionLab = {
 
     if (!this.being || !this.eyes) return;
 
-    this.presence = window.PresenceEngine
-      ? new PresenceEngine()
+    this.core = window.AIONCore
+      ? new AIONCore().initLab(this)
       : null;
 
-    this.gestures = window.GestureEngine
-      ? new GestureEngine(this.being)
-      : null;
-
-    this.eyesEngine = window.EyeEngine
-      ? new EyeEngine(this.being, this.presence)
-      : null;
-
-    this.memory = window.MemoryEngine
-      ? new MemoryEngine()
-      : null;
-
-    this.contextEngine = window.ContextEngine
-      ? new ContextEngine()
-      : null;
-
-    if (this.contextEngine) {
-      this.contextEngine.detect();
-
-      if (this.memory) {
-        this.memory.write("context", this.contextEngine.context);
-        this.memory.write("contextProfile", this.contextEngine.getProfile());
-      }
-    }
-
-    this.identity = window.IdentityEngine
-      ? new IdentityEngine(this.contextEngine)
-      : null;
-
-    if (this.memory && this.identity) {
-      this.memory.write("identity", this.identity.get());
+    if (this.core) {
+      this.presence = this.core.presence;
+      this.gestures = this.core.gestures;
+      this.eyesEngine = this.core.eyes;
+      this.memory = this.core.memory;
+      this.contextEngine = this.core.context;
+      this.identity = this.core.identity;
+      this.animationEngine = this.core.animation;
+      this.brain = this.core.brain;
+      this.perception = this.core.perception;
+      this.actionEngine = this.core.actions;
     }
 
     this.directorPanel = window.DirectorPanel
@@ -81,33 +65,6 @@ const AionLab = {
           eyesEngine: this.eyesEngine
         })
       : null;
-
-    this.animationEngine = window.AnimationEngine
-      ? new AnimationEngine({
-          being: this.being,
-          presence: this.presence,
-          memory: this.memory
-        })
-      : null;
-
-    this.brain = window.BrainEngine
-      ? new BrainEngine({
-          presence: this.presence,
-          eyesEngine: this.eyesEngine,
-          gestures: this.gestures,
-          memory: this.memory
-        })
-      : null;
-
-    this.perception = window.PerceptionEngine && this.brain
-      ? new PerceptionEngine(this.brain)
-      : null;
-
-    /*
-    this.demoEngine = window.DemoEngine
-      ? new DemoEngine(this)
-      : null;
-    */
 
     this.bindControls();
     this.bindMouseFollow();
@@ -122,12 +79,7 @@ const AionLab = {
 
     this.setState("idle");
     this.renderIdentity();
-
-    /*
-    if (this.demoEngine) {
-      this.demoEngine.autoStart(2200);
-    }
-    */
+    this.startMoodMonitor();
   },
 
   bindControls() {
@@ -140,6 +92,7 @@ const AionLab = {
     const winkBtn = document.getElementById("winkBtn");
     const blinkBtn = document.getElementById("blinkBtn");
     const doubleBlinkBtn = document.getElementById("doubleBlinkBtn");
+    const startDemoBtn = document.getElementById("startDemoBtn");
 
     if (winkBtn && this.gestures) {
       winkBtn.addEventListener("click", () => this.gestures.wink());
@@ -153,18 +106,11 @@ const AionLab = {
       doubleBlinkBtn.addEventListener("click", () => this.gestures.doubleBlink());
     }
 
-    /*
-    const startDemoBtn = document.getElementById("startDemoBtn");
-    const stopDemoBtn = document.getElementById("stopDemoBtn");
-
-    if (startDemoBtn && this.demoEngine) {
-      startDemoBtn.addEventListener("click", () => this.demoEngine.start());
+    if (startDemoBtn && this.actionEngine) {
+      startDemoBtn.addEventListener("click", () => {
+        this.actionEngine.demoReadThinkSpeak();
+      });
     }
-
-    if (stopDemoBtn && this.demoEngine) {
-      stopDemoBtn.addEventListener("click", () => this.demoEngine.stop());
-    }
-    */
   },
 
   bindMouseFollow() {
@@ -353,6 +299,37 @@ const AionLab = {
       subtitleEl.textContent =
         `${identity.project} · ${identity.contextProfile?.name || "AION LAB™"} · v${identity.version}`;
     }
+  },
+
+  startMoodMonitor() {
+    this.moodTimer = window.setInterval(() => {
+      if (!this.presence) return;
+
+      const mood = this.presence.getMood();
+
+      this.syncMoodToVisuals();
+
+      const presenceEl = document.getElementById("moodPresence");
+      const calmEl = document.getElementById("moodCalm");
+      const curiosityEl = document.getElementById("moodCuriosity");
+      const attentionEl = document.getElementById("moodAttention");
+
+      if (presenceEl) presenceEl.textContent = mood.presence.toFixed(2);
+      if (calmEl) calmEl.textContent = mood.calm.toFixed(2);
+      if (curiosityEl) curiosityEl.textContent = mood.curiosity.toFixed(2);
+      if (attentionEl) attentionEl.textContent = mood.attention.toFixed(2);
+    }, 250);
+  },
+
+  syncMoodToVisuals() {
+    if (!this.presence || !this.being) return;
+
+    const mood = this.presence.getMood();
+
+    this.being.style.setProperty("--mood-presence", mood.presence.toFixed(3));
+    this.being.style.setProperty("--mood-attention", mood.attention.toFixed(3));
+    this.being.style.setProperty("--mood-calm", mood.calm.toFixed(3));
+    this.being.style.setProperty("--mood-curiosity", mood.curiosity.toFixed(3));
   },
 
   random(min, max) {
