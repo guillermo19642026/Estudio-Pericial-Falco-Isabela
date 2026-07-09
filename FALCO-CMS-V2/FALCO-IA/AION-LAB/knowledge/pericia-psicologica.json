@@ -13,4 +13,13 @@
     "Perito de Parte",
     "Informe Pericial Psicológico"
   ]
+
+,
+"answers": {
+  "¿Qué es una pericia psicológica?": "La pericia psicológica es una evaluación técnica realizada por un/a profesional de la psicología en un contexto judicial o prejudicial. Su finalidad es responder puntos periciales mediante entrevistas, técnicas psicodiagnósticas e integración clínica-forense.",
+  "¿Cómo es el proceso de evaluación?": "El proceso suele incluir entrevista inicial, lectura de antecedentes relevantes, administración de técnicas psicológicas, análisis intertest e integración de resultados. Luego se elabora un informe técnico que responde a los puntos periciales solicitados.",
+  "¿Qué documentación conviene preparar?": "Puede resultar útil contar con DNI, antecedentes médicos o psicológicos, constancias de tratamiento, certificados, estudios previos y toda documentación vinculada al hecho o situación que motiva la evaluación."
+}
+
+
 }

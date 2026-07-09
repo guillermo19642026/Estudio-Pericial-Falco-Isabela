@@ -1,13 +1,14 @@
 /* =========================================================
-   AION Loader™ v1.1
-   Cargador portable para instalar AION en cualquier página
+   AION Loader™ v1.2
+   Cargador portable + diagnóstico de carga
 ========================================================= */
 
 (function () {
   const currentScript = document.currentScript;
   const loaderSrc = currentScript ? currentScript.src : "";
 
-const AION_ROOT = loaderSrc.substring(0, loaderSrc.lastIndexOf("/js/") + 1);
+  const AION_ROOT = loaderSrc.substring(0, loaderSrc.lastIndexOf("/js/") + 1);
+
   const cssFiles = [
     "css/aion-float.css"
   ];
@@ -28,7 +29,10 @@ const AION_ROOT = loaderSrc.substring(0, loaderSrc.lastIndexOf("/js/") + 1);
     "js/aion-core.js",
     "js/aion-config.js",
     "js/aion-float.js",
-    "js/aion-guide.js"
+    "js/aion-guide.js",
+    "js/corpus-engine.js",
+    "js/response-engine.js",
+    "js/conversation-engine.js",
   ];
 
   function loadCSS(file) {
@@ -53,12 +57,18 @@ const AION_ROOT = loaderSrc.substring(0, loaderSrc.lastIndexOf("/js/") + 1);
 
   async function init() {
     try {
+      console.log("AION ROOT >", AION_ROOT);
+
       for (const css of cssFiles) {
+        console.log("CSS >", css);
         await loadCSS(css);
+        console.log("OK CSS >", css);
       }
 
       for (const js of jsFiles) {
+        console.log("JS >", js);
         await loadJS(js);
+        console.log("OK JS >", js);
       }
 
       console.log("AION Loader™ iniciado correctamente", AION_ROOT);

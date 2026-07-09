@@ -264,3 +264,109 @@
     display:none;
   }
 }
+
+
+/* =========================================================
+   AION Conversation Card™
+========================================================= */
+
+.aion-conversation-card{
+  position:absolute;
+  right:112px;
+  bottom:0;
+  width:320px;
+  padding:20px;
+  border:1px solid rgba(0,210,255,.28);
+  border-radius:24px;
+  background:rgba(2,10,20,.92);
+  color:#dff8ff;
+  box-shadow:0 0 34px rgba(0,180,255,.24);
+  backdrop-filter:blur(16px);
+  opacity:0;
+  transform:translateX(14px) scale(.96);
+  pointer-events:none;
+  transition:.32s ease;
+}
+
+.aion-conversation-card.is-visible{
+  opacity:1;
+  transform:translateX(0) scale(1);
+  pointer-events:auto;
+}
+
+.aion-conversation-close{
+  position:absolute;
+  top:10px;
+  right:12px;
+  width:28px;
+  height:28px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:#dff8ff;
+  cursor:pointer;
+}
+
+.aion-conversation-kicker{
+  color:#39d8ff;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.22em;
+  margin-bottom:8px;
+}
+
+.aion-conversation-card h3{
+  margin:0 0 10px;
+  font-size:20px;
+}
+
+.aion-conversation-card p{
+  margin:0 0 16px;
+  font-size:13px;
+  line-height:1.5;
+  color:rgba(223,248,255,.78);
+}
+
+.aion-conversation-options{
+  display:grid;
+  gap:8px;
+}
+
+.aion-conversation-options button{
+  border:1px solid rgba(0,210,255,.22);
+  border-radius:14px;
+  background:rgba(0,160,220,.08);
+  color:#dff8ff;
+  padding:10px 12px;
+  cursor:pointer;
+  text-align:left;
+  font-size:12px;
+  font-weight:700;
+}
+
+.aion-conversation-options button:hover{
+  background:rgba(0,210,255,.16);
+}
+
+@media(max-width:680px){
+  .aion-conversation-card{
+    right:0;
+    bottom:120px;
+    width:min(300px, 86vw);
+  }
+}
+
+/* FIX Conversation visible */
+
+.aion-conversation-card{
+  right: 120px;
+  bottom: -10px;
+  z-index: 100000;
+}
+
+@media(max-width:680px){
+  .aion-conversation-card{
+    right: 0;
+    bottom: 120px;
+  }
+}
