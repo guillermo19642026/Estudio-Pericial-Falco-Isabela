@@ -1,6 +1,6 @@
 /* =========================================================
-   AION Core™ v1.1
-   Orquestador central de motores
+   AION Core™ v1.2
+   Orquestador central de motores + Observer
 ========================================================= */
 
 class AIONCore {
@@ -15,11 +15,11 @@ class AIONCore {
     this.gestures = null;
     this.animation = null;
     this.perception = null;
+    this.observer = null;
   }
 
   initBase() {
     this.memory = window.MemoryEngine ? new MemoryEngine() : null;
-
     this.context = window.ContextEngine ? new ContextEngine() : null;
 
     if (this.context) {
@@ -42,6 +42,20 @@ class AIONCore {
     this.presence = window.PresenceEngine
       ? new PresenceEngine()
       : null;
+  }
+
+  initObserver() {
+    this.observer = window.AIONObserver
+      ? new AIONObserver({
+          brain: this.brain,
+          memory: this.memory,
+          presence: this.presence
+        })
+      : null;
+
+    if (this.observer) {
+      this.observer.start();
+    }
   }
 
   initLab(lab) {
@@ -86,6 +100,8 @@ class AIONCore {
         })
       : null;
 
+    this.initObserver();
+
     return this;
   }
 
@@ -114,6 +130,8 @@ class AIONCore {
     this.perception = window.PerceptionEngine && this.brain
       ? new PerceptionEngine(this.brain)
       : null;
+
+    this.initObserver();
 
     return this;
   }

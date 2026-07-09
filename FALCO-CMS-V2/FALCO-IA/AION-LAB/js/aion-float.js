@@ -193,6 +193,10 @@ const AionFloat = {
   }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    AionFloat.init();
+  });
+} else {
   AionFloat.init();
-});
+}

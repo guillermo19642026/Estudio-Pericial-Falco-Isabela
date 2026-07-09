@@ -1,0 +1,16 @@
+{
+  "slug": "pericia-psicologica",
+  "title": "Pericia Psicológica",
+  "greeting": "Estás consultando información sobre pericia psicológica. Puedo orientarte sobre el proceso pericial.",
+  "description": "La pericia psicológica es una evaluación técnica realizada en un contexto judicial o prejudicial, orientada a responder puntos periciales mediante criterios clínicos, psicodiagnósticos y forenses.",
+  "suggestions": [
+    "¿Qué es una pericia psicológica?",
+    "¿Cómo es el proceso de evaluación?",
+    "¿Qué documentación conviene preparar?"
+  ],
+  "related": [
+    "Daño Psíquico",
+    "Perito de Parte",
+    "Informe Pericial Psicológico"
+  ]
+}

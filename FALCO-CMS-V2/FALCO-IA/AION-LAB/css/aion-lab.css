@@ -104,6 +104,7 @@ body {
   --aion-soft: rgba(212,175,55,.45);
   --eye-y: 0px;
   --eye-x: 0px;
+  transform: scale(var(--aion-scale,1));
 }
 
 .aion-halo {
@@ -116,6 +117,7 @@ body {
     0 0 30px var(--aion-soft),
     inset 0 0 40px rgba(255,255,255,.03);
   animation: haloRotate 18s linear infinite;
+  opacity: var(--halo-opacity,.7);
 }
 
 .aion-halo::before,
