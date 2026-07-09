@@ -178,3 +178,53 @@
     display:none;
   }
 }
+
+
+/* =========================================================
+   AION FLOAT™ Core Sync
+   Conexión visual con EyeEngine + estados
+========================================================= */
+
+.aion-float-being{
+  --eye-x:0px;
+  --eye-y:0px;
+}
+
+.aion-float-eyes{
+  transform:
+    translate(-50%,-50%)
+    translate(var(--eye-x), var(--eye-y));
+  transition: transform .18s ease;
+}
+
+/* Estados desde AION Core */
+
+.aion-float-being[data-state="idle"]{
+  --aion-float-glow:rgba(0,210,255,.72);
+}
+
+.aion-float-being[data-state="listening"] .aion-float-halo{
+  box-shadow:
+    0 0 28px rgba(0,220,255,.52),
+    inset 0 0 24px rgba(0,220,255,.18);
+}
+
+.aion-float-being[data-state="thinking"] .aion-float-eye{
+  height:12px;
+}
+
+.aion-float-being[data-state="speaking"] .aion-float-eye{
+  animation:aionFloatSpeaking .55s ease-in-out infinite alternate;
+}
+
+.aion-float-being[data-state="sleep"] .aion-float-eye{
+  height:4px;
+  opacity:.7;
+}
+
+.aion-float-being[data-state="warning"] .aion-float-halo{
+  border-color:rgba(181,140,255,.55);
+  box-shadow:
+    0 0 30px rgba(181,140,255,.55),
+    inset 0 0 24px rgba(181,140,255,.18);
+}

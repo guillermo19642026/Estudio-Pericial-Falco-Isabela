@@ -1,5 +1,5 @@
 /* =========================================================
-   AION Core™ v1.0
+   AION Core™ v1.1
    Orquestador central de motores
 ========================================================= */
 
@@ -17,9 +17,7 @@ class AIONCore {
     this.perception = null;
   }
 
-  initLab(lab) {
-    if (!lab) return null;
-
+  initBase() {
     this.memory = window.MemoryEngine ? new MemoryEngine() : null;
 
     this.context = window.ContextEngine ? new ContextEngine() : null;
@@ -44,6 +42,12 @@ class AIONCore {
     this.presence = window.PresenceEngine
       ? new PresenceEngine()
       : null;
+  }
+
+  initLab(lab) {
+    if (!lab) return null;
+
+    this.initBase();
 
     this.gestures = window.GestureEngine
       ? new GestureEngine(lab.being)
@@ -80,6 +84,35 @@ class AIONCore {
           brain: this.brain,
           memory: this.memory
         })
+      : null;
+
+    return this;
+  }
+
+  initFloat(float) {
+    if (!float) return null;
+
+    this.initBase();
+
+    this.gestures = window.GestureEngine
+      ? new GestureEngine(float.being)
+      : null;
+
+    this.eyes = window.EyeEngine
+      ? new EyeEngine(float.being, this.presence)
+      : null;
+
+    this.brain = window.BrainEngine
+      ? new BrainEngine({
+          presence: this.presence,
+          eyesEngine: this.eyes,
+          gestures: this.gestures,
+          memory: this.memory
+        })
+      : null;
+
+    this.perception = window.PerceptionEngine && this.brain
+      ? new PerceptionEngine(this.brain)
       : null;
 
     return this;

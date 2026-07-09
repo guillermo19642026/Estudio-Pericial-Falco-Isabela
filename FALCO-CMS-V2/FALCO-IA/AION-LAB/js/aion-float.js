@@ -1,176 +1,198 @@
 /* ==========================================================
-   AION FLOAT™
-   Sistema FALCO®
-   Versión reutilizable
+   AION FLOAT™ v1.2
+   Cliente flotante conectado a AION Core™
 ========================================================== */
 
 const AionFloat = {
-
-    container: null,
-    being: null,
-    eyes: null,
-
-    blinkTimer: null,
-    idleTimer: null,
-
-    init() {
-
-        if (document.querySelector(".aion-float")) return;
-
-        this.create();
-
-        this.startBlink();
-
-        this.startIdle();
-
-        this.bind();
-
-        console.log("AION FLOAT™ Ready");
-
-    },
-
-    create() {
-
-        this.container = document.createElement("div");
-
-        this.container.className = "aion-float";
-
-        this.container.innerHTML = `
-
-<div class="aion-float-label">
-
-AION Engine™
-
-</div>
-
-<div class="aion-float-being">
-
-<div class="aion-float-halo"></div>
-
-<div class="aion-float-sphere">
-
-<div class="aion-float-eyes">
-
-<span class="aion-float-eye"></span>
-
-<span class="aion-float-eye"></span>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-        document.body.appendChild(this.container);
-
-        this.being = this.container.querySelector(".aion-float-being");
-
-        this.eyes = this.container.querySelector(".aion-float-eyes");
-
-    },
-
-    bind() {
-
-        document.addEventListener("mousemove", e => {
-
-            const rect = this.being.getBoundingClientRect();
-
-            const cx = rect.left + rect.width / 2;
-
-            const cy = rect.top + rect.height / 2;
-
-            let dx = (e.clientX - cx) * .05;
-
-            let dy = (e.clientY - cy) * .05;
-
-            dx = Math.max(-5, Math.min(5, dx));
-
-            dy = Math.max(-5, Math.min(5, dy));
-
-            this.eyes.style.transform =
-                `translate(-50%,-50%) translate(${dx}px,${dy}px)`;
-
-        });
-
-        this.container.addEventListener("mouseenter", () => {
-
-            this.being.classList.add("is-thinking");
-
-        });
-
-        this.container.addEventListener("mouseleave", () => {
-
-            this.being.classList.remove("is-thinking");
-
-        });
-
-        this.container.addEventListener("click", () => {
-
-            this.speak();
-
-        });
-
-    },
-
-    speak() {
-
-        this.being.classList.add("is-speaking");
-
-        clearTimeout(this.speakingTimeout);
-
-        this.speakingTimeout = setTimeout(() => {
-
-            this.being.classList.remove("is-speaking");
-
-        }, 1800);
-
-    },
-
-    blink() {
-
-        this.being.classList.add("is-blinking");
-
-        setTimeout(() => {
-
-            this.being.classList.remove("is-blinking");
-
-        }, 120);
-
-    },
-
-    startBlink() {
-
-        this.blinkTimer = setInterval(() => {
-
-            if (Math.random() > .55)
-
-                this.blink();
-
-        }, 2800);
-
-    },
-
-    startIdle() {
-
-        this.idleTimer = setInterval(() => {
-
-            const x = (Math.random() * 10) - 5;
-
-            const y = (Math.random() * 8) - 4;
-
-            this.eyes.style.transform =
-                `translate(-50%,-50%) translate(${x}px,${y}px)`;
-
-        }, 6000);
-
+  core: null,
+
+  container: null,
+  being: null,
+  eyes: null,
+
+  presence: null,
+  gestures: null,
+  eyesEngine: null,
+  brain: null,
+  memory: null,
+
+  blinkTimer: null,
+  returnTimer: null,
+
+  init() {
+    if (document.querySelector(".aion-float")) return;
+
+    this.create();
+    this.initCore();
+    this.bind();
+    this.startNaturalBlink();
+
+    if (this.eyesEngine) {
+      this.eyesEngine.animate();
     }
 
+    if (this.presence) {
+      this.presence.setState("idle");
+    }
+
+    console.log("AION FLOAT™ Ready with AION Core™");
+  },
+
+  create() {
+    this.container = document.createElement("div");
+    this.container.className = "aion-float";
+
+    this.container.innerHTML = `
+      <div class="aion-float-label">AION Engine™</div>
+
+      <div class="aion-float-being" data-state="idle">
+        <div class="aion-float-halo"></div>
+
+        <div class="aion-float-sphere">
+          <div class="aion-float-eyes">
+            <span class="aion-float-eye"></span>
+            <span class="aion-float-eye"></span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(this.container);
+
+    this.applyConfig();
+
+    this.being = this.container.querySelector(".aion-float-being");
+    this.eyes = this.container.querySelector(".aion-float-eyes");
+  },
+
+  applyConfig() {
+    const cfg = window.AIONConfig || {};
+    const mobile = window.innerWidth < 768;
+
+    const offsetY = mobile
+      ? (cfg.mobileOffsetY ?? cfg.offsetY ?? 150)
+      : (cfg.offsetY ?? 150);
+
+    const scale = mobile
+      ? (cfg.mobileScale ?? cfg.scale ?? 1)
+      : (cfg.scale ?? 1);
+
+    this.container.style.right = `${cfg.offsetX ?? 36}px`;
+    this.container.style.bottom = `${offsetY}px`;
+    this.container.style.zIndex = cfg.zIndex ?? 9998;
+    this.container.style.transform = `scale(${scale})`;
+  },
+
+  initCore() {
+    this.core = window.AIONCore
+      ? new AIONCore().initFloat(this)
+      : null;
+
+    if (!this.core) return;
+
+    this.presence = this.core.presence;
+    this.gestures = this.core.gestures;
+    this.eyesEngine = this.core.eyes;
+    this.brain = this.core.brain;
+    this.memory = this.core.memory;
+  },
+
+  bind() {
+    document.addEventListener("mousemove", (event) => {
+      if (!this.eyesEngine) return;
+
+      this.eyesEngine.followMouse(event);
+
+      if (this.brain) {
+        this.brain.handle("user:move");
+      }
+
+      this.setState("listening");
+
+      clearTimeout(this.returnTimer);
+
+      this.returnTimer = window.setTimeout(() => {
+        if (this.eyesEngine) this.eyesEngine.center();
+        if (this.presence) this.presence.relax();
+
+        this.setState("idle");
+      }, 2200);
+    });
+
+    this.container.addEventListener("mouseenter", () => {
+      this.setState("thinking");
+    });
+
+    this.container.addEventListener("mouseleave", () => {
+      this.setState("idle");
+    });
+
+    this.container.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      if (this.brain) {
+        this.brain.handle("user:click", {
+          x: event.clientX,
+          y: event.clientY
+        });
+      }
+
+      this.setState("speaking");
+
+      window.setTimeout(() => {
+        this.setState("idle");
+      }, 1800);
+    });
+  },
+
+  setState(state = "idle") {
+    const allowed = [
+      "idle",
+      "listening",
+      "thinking",
+      "speaking",
+      "reading",
+      "warning",
+      "success",
+      "sleep"
+    ];
+
+    if (!allowed.includes(state)) state = "idle";
+
+    if (this.being) {
+      this.being.dataset.state = state;
+    }
+
+    if (this.brain) {
+      this.brain.handle("state:change", { state });
+    }
+  },
+
+  startNaturalBlink() {
+    const schedule = () => {
+      const delay = this.random(4200, 9500);
+
+      this.blinkTimer = window.setTimeout(() => {
+        if (this.gestures) {
+          if (Math.random() > 0.82) {
+            this.gestures.doubleBlink();
+          } else {
+            this.gestures.blink();
+          }
+        }
+
+        schedule();
+      }, delay);
+    };
+
+    schedule();
+  },
+
+  random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    AionFloat.init();
-
+  AionFloat.init();
 });
