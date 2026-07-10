@@ -295,11 +295,7 @@ const AIONConversation = {
       titleEl.textContent = question;
     }
 
-    if (window.PresenceDirector) {
-  PresenceDirector.think(0);
-} else if (window.AionFloat) {
-  AionFloat.setState("thinking");
-}
+   
 
     let finalText = "";
 
@@ -347,30 +343,70 @@ const AIONConversation = {
       }
     }
 
-    await new Promise((resolve) => {
-      setTimeout(resolve, 650);
-    });
 
-    if (textEl) {
+
+
+
+
+
+
+if (textEl) {
   textEl.textContent = finalText;
 }
 
-/* AION Voice™
-   Solo habla si la voz fue activada manualmente.
-*/
+/*
+ * AION Presence™
+ * El Director coordina thinking → speaking → idle.
+ */
 if (
   typeof finalText === "string" &&
   finalText.trim()
 ) {
-  if (window.PresenceDirector) {
-    PresenceDirector.speak(finalText);
-  } else if (
-    window.AIONVoice &&
-    AIONVoice.enabled
+  if (
+    window.PresenceDirector &&
+    typeof PresenceDirector.respond === "function"
   ) {
-    AIONVoice.speak(finalText);
+    await PresenceDirector.respond(
+      finalText,
+      {
+        thinkingTime: 650
+      }
+    );
+
+  } else {
+    /*
+     * Respaldo compatible si el Director
+     * no estuviera disponible.
+     */
+    if (window.AionFloat) {
+      AionFloat.setState("thinking");
+    }
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, 650);
+    });
+
+    if (
+      window.AIONVoice &&
+      AIONVoice.enabled
+    ) {
+      AIONVoice.speak(finalText);
+    }
+
+    if (window.AionFloat) {
+      AionFloat.setState("speaking");
+
+      setTimeout(() => {
+        AionFloat.setState("idle");
+      }, 1800);
+    }
   }
 }
+
+
+
+
+
 
     if (optionsEl) {
       optionsEl.innerHTML = "";
@@ -454,22 +490,6 @@ if (
       optionsEl.appendChild(backBtn);
     }
 
-    if (
-  !window.AIONVoice ||
-  !AIONVoice.enabled
-) {
-  if (window.PresenceDirector) {
-    setTimeout(() => {
-      PresenceDirector.idle();
-    }, 1800);
-  } else if (window.AionFloat) {
-    AionFloat.setState("speaking");
-
-    setTimeout(() => {
-      AionFloat.setState("idle");
-    }, 1800);
-  }
-}
   },
 
   bindOpen() {
