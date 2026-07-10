@@ -40,6 +40,10 @@
   --eye-x:0px;
   --eye-y:0px;
 
+  /* Velocidades controladas por Animation Engine™ */
+  --breath-speed:4.8s;
+  --halo-speed:18s;
+
   transform:scale(var(--aion-scale,1));
 }
 
@@ -61,7 +65,7 @@
     0 0 22px rgba(0,210,255,.35),
     inset 0 0 22px rgba(0,210,255,.12);
 
-  animation:aionFloatHalo 18s linear infinite;
+  animation:aionFloatHalo var(--halo-speed,18s) linear infinite;
 }
 
 .aion-float-halo::before{
@@ -105,7 +109,7 @@
     0 0 42px rgba(0,210,255,.58),
     0 0 82px rgba(0,140,255,.32);
 
-  animation:aionFloatBreath 4.8s ease-in-out infinite;
+  animation:aionFloatBreath var(--breath-speed,4.8s) ease-in-out infinite;
 }
 
 .aion-float-sphere::before{
@@ -230,7 +234,40 @@
 
 .aion-float-being.is-speaking .aion-float-eye,
 .aion-float-being[data-state="speaking"] .aion-float-eye{
-  animation:aionFloatSpeaking .55s ease-in-out infinite alternate;
+  animation:aionFloatSpeaking .42s ease-in-out infinite alternate;
+}
+
+/* Speaking visible: voz + cuerpo + halo coordinados */
+.aion-float-being[data-state="speaking"]{
+  filter:brightness(1.16);
+}
+
+.aion-float-being[data-state="speaking"] .aion-float-sphere{
+  box-shadow:
+    inset 8px 10px 18px rgba(255,255,255,.22),
+    inset -12px -18px 30px rgba(0,0,0,.56),
+    inset 0 0 26px rgba(0,220,255,.38),
+    0 0 24px rgba(210,252,255,.98),
+    0 0 58px rgba(0,220,255,.82),
+    0 0 104px rgba(0,150,255,.52);
+}
+
+.aion-float-being[data-state="speaking"] .aion-float-halo{
+  border-color:rgba(155,242,255,.82);
+  box-shadow:
+    0 0 34px rgba(0,225,255,.82),
+    0 0 72px rgba(0,170,255,.48),
+    inset 0 0 30px rgba(0,225,255,.30);
+}
+
+.aion-float-being[data-state="speaking"] .aion-float-presence-field{
+  opacity:.58;
+  filter:blur(6px) brightness(1.35);
+}
+
+.aion-float-being[data-state="speaking"] .aion-float-sensor{
+  opacity:.88;
+  filter:brightness(1.38);
 }
 
 .aion-float-being[data-state="idle"]{
@@ -381,8 +418,8 @@
 }
 
 .aion-float-being[data-state="speaking"] .aion-float-sensor{
-  opacity:.58;
-  animation:aionFloatSensorSpeak 1.3s ease-in-out infinite;
+  opacity:.88;
+  animation:aionFloatSensorSpeak .72s ease-in-out infinite;
 }
 
 .aion-float-being[data-state="sleep"] .aion-float-sensor{
@@ -400,8 +437,8 @@
 }
 
 .aion-float-being[data-state="speaking"] .aion-float-presence-field{
-  opacity:.28;
-  animation-duration:5.6s;
+  opacity:.58;
+  animation-duration:2.4s;
 }
 
 .aion-float-being[data-state="sleep"] .aion-float-presence-field{

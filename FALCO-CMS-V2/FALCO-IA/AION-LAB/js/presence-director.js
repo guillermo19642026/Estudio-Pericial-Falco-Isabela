@@ -1,15 +1,54 @@
 /* =========================================================
-   AION Presence Director™ v1.0
-   Coordinador de estados y presencia
-   No reemplaza motores existentes
+   AION Presence Director™ v2.0
+   Director central de presencia
+   Coordina Voice + Eyes + Gestures + Animation
 ========================================================= */
 
 window.PresenceDirector = {
+
   state: "idle",
+
   returnTimer: null,
   voiceWatchTimer: null,
 
+  core: null,
+  voice: null,
+  eyes: null,
+  animation: null,
+  gestures: null,
+  presence: null,
+  brain: null,
+
+  /* =====================================================
+     REGISTRO DEL CORE
+  ===================================================== */
+
+  register(core) {
+
+    this.core = core;
+
+    this.voice = window.AIONVoice || null;
+
+    this.eyes = core.eyes || null;
+
+    this.animation = core.animation || null;
+
+    this.gestures = core.gestures || null;
+
+    this.presence = core.presence || null;
+
+    this.brain = core.brain || null;
+
+    console.log("AION Presence Director™ conectado al Core");
+
+  },
+
+  /* =====================================================
+     CAMBIO DE ESTADO
+  ===================================================== */
+
   setState(state = "idle") {
+
     const allowed = [
       "idle",
       "thinking",
@@ -38,99 +77,217 @@ window.PresenceDirector = {
     return state;
   },
 
+  /* =====================================================
+     IDLE
+  ===================================================== */
+
   idle() {
+
     clearTimeout(this.returnTimer);
+
+    if (this.animation) {
+      this.animation.setMotion(
+        "6.4s",
+        "26s"
+      );
+    }
+
+    if (this.eyes) {
+      this.eyes.center();
+    }
+
     return this.setState("idle");
   },
 
+  /* =====================================================
+     THINKING
+  ===================================================== */
+
   think(duration = 650) {
+
     clearTimeout(this.returnTimer);
 
     this.setState("thinking");
 
+    if (this.animation) {
+      this.animation.setMotion(
+        "4.4s",
+        "16s"
+      );
+    }
+
+    if (this.eyes) {
+      this.eyes.center();
+    }
+
+    if (this.gestures) {
+      this.gestures.attention();
+    }
+
     if (duration > 0) {
+
       this.returnTimer = setTimeout(() => {
+
         if (this.state === "thinking") {
           this.idle();
         }
+
       }, duration);
+
     }
 
     return this.state;
   },
 
+  /* =====================================================
+     SPEAK
+  ===================================================== */
 
+  speak(text = "") {
 
+    clearTimeout(this.returnTimer);
+    clearInterval(this.voiceWatchTimer);
 
+    this.setState("speaking");
 
+    if (this.animation) {
 
-speak(text = "") {
-  clearTimeout(this.returnTimer);
-  clearInterval(this.voiceWatchTimer);
+      this.animation.setMotion(
+        "2.2s",
+        "7s"
+      );
 
-  this.setState("speaking");
+    }
 
-  if (
-    text &&
-    window.AIONVoice &&
-    AIONVoice.enabled
-  ) {
-    AIONVoice.speak(text);
+    if (this.eyes) {
+      this.eyes.center();
+    }
 
-    this.voiceWatchTimer = setInterval(() => {
-      const voiceFinished =
-        !AIONVoice.speaking &&
-        !window.speechSynthesis.speaking &&
-        !window.speechSynthesis.pending;
+    if (this.gestures) {
+      this.gestures.attention();
+    }
 
-      if (voiceFinished) {
-        clearInterval(this.voiceWatchTimer);
-        this.voiceWatchTimer = null;
+    if (
+      text &&
+      this.voice &&
+      this.voice.enabled
+    ) {
+
+      this.voice.speak(text);
+
+      this.voiceWatchTimer =
+        setInterval(() => {
+
+          if (this.gestures) {
+
+            this.gestures.attention();
+
+            if (Math.random() > 0.72) {
+              this.gestures.doubleBlink();
+            }
+
+          }
+
+          const finished =
+            !this.voice.speaking &&
+            !speechSynthesis.speaking &&
+            !speechSynthesis.pending;
+
+          if (finished) {
+
+            clearInterval(
+              this.voiceWatchTimer
+            );
+
+            this.voiceWatchTimer = null;
+
+            this.idle();
+
+          }
+
+        }, 220);
+
+    } else {
+
+      this.returnTimer = setTimeout(() => {
+
         this.idle();
-      }
-    }, 150);
 
-  } else {
-    this.returnTimer = setTimeout(() => {
-      this.idle();
-    }, 1800);
-  }
+      }, 1800);
 
-  return this.state;
-},
+    }
+
+    return this.state;
+  },
+
+  /* =====================================================
+     WARNING
+  ===================================================== */
 
   warning(duration = 1800) {
+
     clearTimeout(this.returnTimer);
 
     this.setState("warning");
 
+    if (this.animation) {
+
+      this.animation.setMotion(
+        "1.6s",
+        "6s"
+      );
+
+    }
+
     this.returnTimer = setTimeout(() => {
+
       this.idle();
+
     }, duration);
 
     return this.state;
   },
 
-  async respond(text, options = {}) {
+  /* =====================================================
+     RESPUESTA COMPLETA
+  ===================================================== */
+
+  async respond(
+    text,
+    options = {}
+  ) {
+
     const thinkingTime =
       options.thinkingTime ?? 650;
 
     this.think(0);
 
-    await new Promise((resolve) => {
-      setTimeout(resolve, thinkingTime);
-    });
+    await new Promise(resolve =>
+      setTimeout(
+        resolve,
+        thinkingTime
+      )
+    );
 
     this.speak(text);
 
     return text;
   },
 
-  stop() {
-    clearTimeout(this.returnTimer);
+  /* =====================================================
+     STOP
+  ===================================================== */
 
-    if (window.AIONVoice) {
-      AIONVoice.stop();
+  stop() {
+
+    clearTimeout(this.returnTimer);
+    clearInterval(this.voiceWatchTimer);
+
+    if (
+      this.voice &&
+      this.voice.stop
+    ) {
+      this.voice.stop();
     }
 
     this.idle();
@@ -139,6 +296,9 @@ speak(text = "") {
   getState() {
     return this.state;
   }
+
 };
 
-console.log("AION Presence Director™ Ready");
+console.log(
+  "AION Presence Director™ v2.0 Ready"
+);
