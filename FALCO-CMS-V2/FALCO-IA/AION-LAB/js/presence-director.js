@@ -29,6 +29,16 @@ window.PresenceDirector = {
 
     this.voice = window.AIONVoice || null;
 
+
+if (
+    this.voice &&
+    !this.voice.enabled
+) {
+    this.voice.enable();
+}
+
+
+
     this.eyes = core.eyes || null;
 
     this.animation = core.animation || null;
