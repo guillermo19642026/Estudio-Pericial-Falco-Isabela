@@ -295,9 +295,11 @@ const AIONConversation = {
       titleEl.textContent = question;
     }
 
-    if (window.AionFloat) {
-      AionFloat.setState("thinking");
-    }
+    if (window.PresenceDirector) {
+  PresenceDirector.think(0);
+} else if (window.AionFloat) {
+  AionFloat.setState("thinking");
+}
 
     let finalText = "";
 
@@ -346,12 +348,29 @@ const AIONConversation = {
     }
 
     await new Promise((resolve) => {
-      setTimeout(resolve, 350);
+      setTimeout(resolve, 650);
     });
 
     if (textEl) {
-      textEl.textContent = finalText;
-    }
+  textEl.textContent = finalText;
+}
+
+/* AION Voice™
+   Solo habla si la voz fue activada manualmente.
+*/
+if (
+  typeof finalText === "string" &&
+  finalText.trim()
+) {
+  if (window.PresenceDirector) {
+    PresenceDirector.speak(finalText);
+  } else if (
+    window.AIONVoice &&
+    AIONVoice.enabled
+  ) {
+    AIONVoice.speak(finalText);
+  }
+}
 
     if (optionsEl) {
       optionsEl.innerHTML = "";
@@ -435,13 +454,22 @@ const AIONConversation = {
       optionsEl.appendChild(backBtn);
     }
 
-    if (window.AionFloat) {
-      AionFloat.setState("speaking");
+    if (
+  !window.AIONVoice ||
+  !AIONVoice.enabled
+) {
+  if (window.PresenceDirector) {
+    setTimeout(() => {
+      PresenceDirector.idle();
+    }, 1800);
+  } else if (window.AionFloat) {
+    AionFloat.setState("speaking");
 
-      setTimeout(() => {
-        AionFloat.setState("idle");
-      }, 1800);
-    }
+    setTimeout(() => {
+      AionFloat.setState("idle");
+    }, 1800);
+  }
+}
   },
 
   bindOpen() {
