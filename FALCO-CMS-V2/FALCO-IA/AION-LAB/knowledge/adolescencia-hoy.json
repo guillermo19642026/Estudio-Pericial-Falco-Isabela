@@ -1,0 +1,38 @@
+{
+  "slug": "adolescencia-hoy",
+  "title": "Adolescencia Hoy",
+  "greeting": "Estás consultando contenidos sobre adolescencia. Puedo orientarte sobre los principales temas abordados.",
+  "description": "Espacio de orientación y reflexión sobre adolescencia, vínculos familiares, comunicación, límites y acompañamiento parental.",
+  "keywords": [
+    "adolescencia",
+    "adolescente",
+    "padres",
+    "familia",
+    "límites",
+    "comunicación",
+    "vínculos",
+    "conducta",
+    "emociones",
+    "crianza"
+  ],
+  "suggestions": [
+    "¿Qué cambios atraviesa un adolescente?",
+    "¿Cómo mejorar la comunicación?",
+    "¿Cómo establecer límites?",
+    "¿Cuándo conviene pedir orientación?",
+    "¿Hay cursos para padres?"
+  ],
+  "answers": {
+    "¿Qué cambios atraviesa un adolescente?": "La adolescencia implica cambios físicos, emocionales, cognitivos, sociales y vinculares que forman parte del desarrollo.",
+    "¿Cómo mejorar la comunicación?": "Conviene favorecer una escucha activa, evitar respuestas impulsivas, sostener límites claros y generar espacios de diálogo.",
+    "¿Cómo establecer límites?": "Los límites deben ser claros, consistentes, adecuados a la edad y acompañados de explicaciones comprensibles.",
+    "¿Cuándo conviene pedir orientación?": "Puede resultar útil cuando existen conflictos persistentes, dificultades de comunicación, cambios conductuales significativos o preocupación familiar.",
+    "¿Hay cursos para padres?": "Sí. La Escuela para Padres FALCO® ofrece propuestas de formación y herramientas para acompañar la adolescencia."
+  },
+  "relatedTopics": [
+    "escuela_padres",
+    "formacion",
+    "familia",
+    "adolescencia"
+  ]
+}

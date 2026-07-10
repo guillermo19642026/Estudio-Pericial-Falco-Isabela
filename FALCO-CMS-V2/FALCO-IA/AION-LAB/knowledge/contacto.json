@@ -1,0 +1,25 @@
+{
+  "slug": "contacto",
+
+  "title": "Contacto",
+
+  "greeting": "Estoy para ayudarte a encontrar el canal de contacto adecuado.",
+
+  "description": "Desde esta sección podrás comunicarte con el Estudio Pericial Psicológico según el tipo de consulta.",
+
+  "suggestions": [
+    "Quiero solicitar una pericia",
+    "Necesito asesoramiento profesional",
+    "Quiero comunicarme por WhatsApp"
+  ],
+
+  "answers": {
+
+    "Quiero solicitar una pericia": "Podés iniciar el contacto para coordinar una entrevista y recibir orientación sobre el proceso pericial.",
+
+    "Necesito asesoramiento profesional": "Si sos abogado o profesional, podés realizar consultas técnicas vinculadas a pericias psicológicas y psicodiagnósticos.",
+
+    "Quiero comunicarme por WhatsApp": "Podés comunicarte directamente mediante el botón de WhatsApp disponible en el sitio."
+
+  }
+}

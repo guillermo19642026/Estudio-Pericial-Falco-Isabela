@@ -1,6 +1,5 @@
 /* =========================================================
-   AION Knowledge Engine™ v2.3
-   Base contextual mediante AION Router™
+   AION Knowledge Engine™ Router
 ========================================================= */
 
 window.KnowledgeEngine = class KnowledgeEngine {
@@ -14,7 +13,6 @@ window.KnowledgeEngine = class KnowledgeEngine {
 
   getSlug() {
     if (!this.router) {
-      console.warn("AION Router™ no está disponible.");
       return "general";
     }
 
@@ -36,10 +34,6 @@ window.KnowledgeEngine = class KnowledgeEngine {
       );
 
       if (!response.ok) {
-        console.warn(
-          `No se pudo cargar ${slug}.json. Estado: ${response.status}`
-        );
-
         return this.getFallback(slug);
       }
 
@@ -50,11 +44,7 @@ window.KnowledgeEngine = class KnowledgeEngine {
       return data;
 
     } catch (error) {
-      console.warn(
-        `AION Knowledge™ fallback para ${slug}:`,
-        error
-      );
-
+      console.warn("AION Knowledge™:", error);
       return this.getFallback(slug);
     }
   }

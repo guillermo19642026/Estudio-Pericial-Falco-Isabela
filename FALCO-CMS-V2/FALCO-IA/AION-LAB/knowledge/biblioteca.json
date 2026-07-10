@@ -1,0 +1,25 @@
+{
+  "slug": "biblioteca",
+
+  "title": "Biblioteca FALCO®",
+
+  "greeting": "Bienvenido a la Biblioteca FALCO®. Puedo orientarte sobre los recursos disponibles.",
+
+  "description": "La Biblioteca FALCO® reúne modelos, escritos, artículos, material técnico y documentación especializada desarrollada para profesionales.",
+
+  "suggestions": [
+    "¿Qué contiene la Biblioteca FALCO®?",
+    "¿Quién puede acceder?",
+    "¿Cómo obtengo acceso?"
+  ],
+
+  "answers": {
+
+    "¿Qué contiene la Biblioteca FALCO®?": "La Biblioteca FALCO® reúne escritos judiciales, modelos, recursos técnicos, material de estudio y documentación especializada desarrollada dentro del Sistema FALCO®.",
+
+    "¿Quién puede acceder?": "El acceso está destinado a usuarios autorizados según el tipo de membresía o perfil profesional.",
+
+    "¿Cómo obtengo acceso?": "Podés solicitar información sobre las modalidades de acceso desde la sección de contacto o mediante WhatsApp."
+
+  }
+}

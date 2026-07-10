@@ -1,0 +1,42 @@
+{
+  "slug": "ecosistema-falco",
+  "title": "Ecosistema FALCO®",
+  "greeting": "Bienvenido al Ecosistema FALCO®. Puedo orientarte hacia el acceso correspondiente según tu perfil.",
+  "description": "El Ecosistema FALCO® integra los distintos módulos, plataformas y servicios del Sistema FALCO® en un único entorno de acceso.",
+  "keywords": [
+    "ecosistema falco",
+    "acceso",
+    "ingresar",
+    "plataforma",
+    "usuario",
+    "rol",
+    "periciado",
+    "alumno",
+    "biblioteca",
+    "profesional",
+    "administrador"
+  ],
+  "suggestions": [
+    "¿Qué es el Ecosistema FALCO®?",
+    "¿Qué tipo de usuarios pueden ingresar?",
+    "¿Cómo sé qué acceso me corresponde?",
+    "¿Dónde ingreso si soy periciado?",
+    "¿Dónde ingreso si soy profesional?",
+    "¿Dónde ingreso si soy alumno?"
+  ],
+  "answers": {
+    "¿Qué es el Ecosistema FALCO®?": "Es el entorno central de acceso a los distintos módulos del Sistema FALCO®, incluyendo evaluación, formación, biblioteca, área profesional y administración.",
+    "¿Qué tipo de usuarios pueden ingresar?": "Pueden ingresar usuarios con perfiles autorizados, como periciados, alumnos, miembros de biblioteca, profesionales, peritos y administradores.",
+    "¿Cómo sé qué acceso me corresponde?": "El acceso depende del perfil asignado. Cada usuario debe ingresar con sus credenciales y el sistema habilitará los módulos correspondientes.",
+    "¿Dónde ingreso si soy periciado?": "El perfil periciado accede al panel de evaluaciones, consentimiento, documentación y seguimiento del proceso.",
+    "¿Dónde ingreso si soy profesional?": "El perfil profesional accede al Centro Profesional FALCO®, con recursos técnicos, informes, escritos, tests y consultoría.",
+    "¿Dónde ingreso si soy alumno?": "El perfil alumno accede a los cursos, módulos, materiales, actividades y certificaciones habilitadas."
+  },
+  "relatedTopics": [
+    "area_profesional",
+    "biblioteca_falco",
+    "tests",
+    "escuela_padres",
+    "periciados"
+  ]
+}

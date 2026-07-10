@@ -1,0 +1,38 @@
+{
+  "slug": "cms-dashboard",
+  "title": "FALCO CMS®",
+  "greeting": "Estás en el panel de gestión de contenidos del Sistema FALCO®.",
+  "description": "FALCO CMS® permite administrar recursos, publicaciones, módulos, categorías, etiquetas, usuarios y configuraciones del ecosistema.",
+  "keywords": [
+    "cms",
+    "dashboard",
+    "panel",
+    "administración",
+    "contenidos",
+    "publicaciones",
+    "módulos",
+    "categorías",
+    "usuarios",
+    "configuración"
+  ],
+  "suggestions": [
+    "¿Qué puedo gestionar desde el CMS?",
+    "¿Cómo creo un recurso?",
+    "¿Cómo organizo los contenidos?",
+    "¿Qué tipos de acceso existen?",
+    "¿La Biblioteca permite descargas libres?"
+  ],
+  "answers": {
+    "¿Qué puedo gestionar desde el CMS?": "Podés administrar recursos, publicaciones, formación, evaluaciones, módulos, categorías, etiquetas, usuarios y configuraciones generales.",
+    "¿Cómo creo un recurso?": "Desde el editor podés completar el título, descripción, tipo, módulo, fuero, etiquetas, nivel de acceso, estado y enlaces asociados.",
+    "¿Cómo organizo los contenidos?": "Los contenidos pueden clasificarse mediante módulos, categorías, etiquetas, tipo de recurso, fuero, estado y nivel de acceso.",
+    "¿Qué tipos de acceso existen?": "Los contenidos pueden configurarse como públicos, restringidos, profesionales, premium o exclusivos para usuarios autorizados.",
+    "¿La Biblioteca permite descargas libres?": "No. Las descargas completas de la Biblioteca FALCO® deben permanecer restringidas a usuarios con acceso autorizado, membresía o modalidad premium."
+  },
+  "relatedTopics": [
+    "biblioteca_falco",
+    "area_profesional",
+    "formacion",
+    "usuarios"
+  ]
+}

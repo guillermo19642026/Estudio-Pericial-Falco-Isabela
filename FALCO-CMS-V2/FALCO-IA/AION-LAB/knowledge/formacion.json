@@ -1,0 +1,25 @@
+{
+  "slug": "escuela",
+
+  "title": "Escuela para Padres FALCO®",
+
+  "greeting": "Bienvenido a la Escuela para Padres FALCO®.",
+
+  "description": "Este espacio reúne los cursos y programas de formación para familias desarrollados por la Lic. Isabela Falco.",
+
+  "suggestions": [
+    "¿En qué consiste el curso?",
+    "¿Cómo me inscribo?",
+    "¿Qué incluye?"
+  ],
+
+  "answers": {
+
+    "¿En qué consiste el curso?": "Es un programa destinado a brindar herramientas para comprender y acompañar el desarrollo de los adolescentes.",
+
+    "¿Cómo me inscribo?": "La inscripción puede realizarse desde la plataforma correspondiente cuando se encuentre habilitada la convocatoria.",
+
+    "¿Qué incluye?": "Incluye clases, materiales de estudio, actividades y recursos elaborados dentro del Sistema FALCO®."
+
+  }
+}

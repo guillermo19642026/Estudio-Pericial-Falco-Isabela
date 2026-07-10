@@ -1,0 +1,39 @@
+{
+  "slug": "escuela-para-padres",
+  "title": "Escuela para Padres FALCO®",
+  "greeting": "Bienvenido a la Escuela para Padres FALCO®. Puedo orientarte sobre el programa, sus contenidos y modalidad.",
+  "description": "Programa de formación para madres, padres y familias que buscan herramientas para comprender y acompañar la adolescencia.",
+  "keywords": [
+    "escuela para padres",
+    "padres",
+    "adolescente",
+    "adolescencia",
+    "curso",
+    "familia",
+    "crianza",
+    "límites",
+    "comunicación"
+  ],
+  "suggestions": [
+    "¿En qué consiste el programa?",
+    "¿Cuántos encuentros tiene?",
+    "¿Qué temas se trabajan?",
+    "¿Qué materiales incluye?",
+    "¿Se entrega certificado?",
+    "¿Cómo ingreso al curso?"
+  ],
+  "answers": {
+    "¿En qué consiste el programa?": "Es una propuesta de formación destinada a brindar herramientas prácticas para comprender y acompañar la adolescencia.",
+    "¿Cuántos encuentros tiene?": "El programa Aprendiendo a ser Padres de un Adolescente® está organizado en ocho encuentros, con una carga total de dieciséis horas.",
+    "¿Qué temas se trabajan?": "Se abordan adolescencia, comunicación, vínculos, límites, emociones, acompañamiento parental y situaciones frecuentes de la vida familiar.",
+    "¿Qué materiales incluye?": "Incluye cuadernillos, actividades, contenidos digitales, libro y recursos complementarios.",
+    "¿Se entrega certificado?": "Sí. El programa contempla certificación para quienes cumplan las condiciones establecidas.",
+    "¿Cómo ingreso al curso?": "El acceso se realiza mediante las credenciales asignadas en la plataforma de la Escuela para Padres FALCO®."
+  },
+  "relatedTopics": [
+    "adolescencia_hoy",
+    "formacion",
+    "familia",
+    "curso_padres"
+  ]
+}

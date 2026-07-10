@@ -1,0 +1,25 @@
+{
+  "slug": "tests",
+
+  "title": "Tests Psicométricos",
+
+  "greeting": "Puedo orientarte sobre el funcionamiento de la plataforma de evaluación.",
+
+  "description": "La plataforma permite administrar distintos instrumentos psicométricos dentro del proceso de evaluación.",
+
+  "suggestions": [
+    "¿Qué evaluaciones puedo realizar?",
+    "¿Cómo ingreso?",
+    "¿Los resultados son confidenciales?"
+  ],
+
+  "answers": {
+
+    "¿Qué evaluaciones puedo realizar?": "La plataforma incluye distintos instrumentos psicométricos utilizados dentro del proceso de evaluación psicológica.",
+
+    "¿Cómo ingreso?": "El acceso se realiza mediante las credenciales asignadas para cada usuario.",
+
+    "¿Los resultados son confidenciales?": "Sí. Toda la información es tratada conforme a las normas de confidencialidad y al marco ético profesional."
+
+  }
+}

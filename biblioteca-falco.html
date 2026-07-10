@@ -24,6 +24,13 @@ content="Biblioteca privada con acceso a materiales exclusivos del Método FALCO
 
 <link rel="stylesheet" href="style.css">
 
+<!-- =====================================
+     AION Engine™
+====================================== -->
+
+<link rel="stylesheet" href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css">
+
+
 </head>
 
 <body class="pagina-interna fondo-neuronal biblioteca-page">
@@ -803,12 +810,12 @@ import { auth, db } from "./firebase-config.js";
 import {
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 import {
   doc,
   getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
 
@@ -849,6 +856,140 @@ logoutBtn.addEventListener("click", async () => {
 
 </script>
 
+
+
+<script>
+window.KnowledgeEngine = class KnowledgeEngine {
+  constructor() {
+    this.cache = {};
+  }
+
+  async getCurrentPageKnowledge() {
+    const slug = "biblioteca";
+
+    if (this.cache[slug]) {
+      return this.cache[slug];
+    }
+
+    try {
+      const response = await fetch(
+        "FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/biblioteca.json"
+      );
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      this.cache[slug] = data;
+
+      return data;
+    } catch (error) {
+      console.warn("AION Biblioteca:", error);
+
+      return {
+        slug: "biblioteca",
+        title: "Biblioteca FALCO®",
+        greeting: "Puedo orientarte sobre los recursos disponibles.",
+        suggestions: [
+          "¿Qué contiene la Biblioteca FALCO®?",
+          "¿Quién puede acceder?",
+          "¿Cómo obtengo acceso?"
+        ],
+        answers: {}
+      };
+    }
+  }
+};
+</script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine-router.js"></script>
+
+<script>
+window.KnowledgeEngine = class KnowledgeEngine {
+
+    constructor(){
+        this.cache = {};
+    }
+
+    async getCurrentPageKnowledge(){
+
+        const slug = "biblioteca";
+
+        if(this.cache[slug]){
+            return this.cache[slug];
+        }
+
+        try{
+
+            const response = await fetch(
+                "FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/biblioteca.json"
+            );
+
+            const data = await response.json();
+
+            this.cache[slug] = data;
+
+            return data;
+
+        }catch(e){
+
+            console.error(e);
+
+            return {
+                slug:"biblioteca",
+                title:"Biblioteca FALCO®",
+                greeting:"Puedo ayudarte con la Biblioteca.",
+                suggestions:[
+                    "¿Qué contiene la Biblioteca FALCO®?",
+                    "¿Quién puede acceder?",
+                    "¿Cómo obtengo acceso?"
+                ],
+                answers:{}
+            };
+
+        }
+
+    }
+
+};
+</script><!-- ===========================
+     AION Engine™
+=========================== -->
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+
+<!-- MAPA DEL SITIO -->
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-site-map.js"></script>
+
+<!-- ROUTER -->
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+<!-- KNOWLEDGE -->
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+
+<!-- UI -->
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
 </html>

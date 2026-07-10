@@ -1,0 +1,38 @@
+{
+  "slug": "evaluacion-psicologica-judicial-buenos-aires",
+  "title": "Evaluación Psicológica Judicial",
+  "greeting": "Estás consultando sobre evaluación psicológica judicial. Puedo orientarte sobre su finalidad, proceso y aplicación.",
+  "description": "La evaluación psicológica judicial analiza aspectos psíquicos relevantes dentro de un proceso legal mediante entrevistas, técnicas y criterios forenses.",
+  "keywords": [
+    "evaluación psicológica judicial",
+    "evaluación judicial",
+    "psicodiagnóstico",
+    "pericia",
+    "proceso legal",
+    "informe",
+    "entrevista",
+    "test psicológicos"
+  ],
+  "suggestions": [
+    "¿Qué es una evaluación psicológica judicial?",
+    "¿Qué incluye?",
+    "¿En qué causas puede utilizarse?",
+    "¿Qué diferencia hay con una evaluación clínica?",
+    "¿Qué documentación conviene presentar?",
+    "¿Se entrega un informe?"
+  ],
+  "answers": {
+    "¿Qué es una evaluación psicológica judicial?": "Es una evaluación técnica realizada para analizar aspectos psicológicos relevantes dentro de una causa o situación con finalidad legal.",
+    "¿Qué incluye?": "Puede incluir entrevistas, técnicas psicodiagnósticas, análisis de antecedentes, documentación y elaboración de conclusiones técnicas.",
+    "¿En qué causas puede utilizarse?": "Puede intervenir en causas civiles, laborales, penales, de familia y otras situaciones que requieran valoración psicológica.",
+    "¿Qué diferencia hay con una evaluación clínica?": "La evaluación judicial responde a una finalidad legal y a puntos técnicos concretos; la evaluación clínica se orienta principalmente al diagnóstico y tratamiento.",
+    "¿Qué documentación conviene presentar?": "Puede ser útil aportar DNI, expediente, antecedentes médicos o psicológicos, certificados, constancias de tratamiento e informes previos.",
+    "¿Se entrega un informe?": "Sí. Según la modalidad acordada, puede elaborarse un informe técnico con integración de resultados y conclusiones."
+  },
+  "relatedTopics": [
+    "pericia_psicologica",
+    "danio_psiquico",
+    "informe_pericial",
+    "documentacion"
+  ]
+}

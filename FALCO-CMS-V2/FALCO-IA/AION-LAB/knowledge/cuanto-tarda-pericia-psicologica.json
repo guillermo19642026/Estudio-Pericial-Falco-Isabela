@@ -1,0 +1,36 @@
+{
+  "slug": "cuanto-tarda-pericia-psicologica",
+  "title": "Tiempos de una Pericia Psicológica",
+  "greeting": "Puedo orientarte sobre la duración aproximada de una evaluación pericial psicológica.",
+  "description": "La duración depende de la complejidad del caso, cantidad de entrevistas, técnicas administradas, documentación disponible y elaboración del informe.",
+  "keywords": [
+    "cuánto tarda",
+    "tiempo",
+    "duración",
+    "demora",
+    "plazo",
+    "entrega",
+    "informe",
+    "pericia psicológica"
+  ],
+  "suggestions": [
+    "¿Cuánto tarda una pericia psicológica?",
+    "¿Cuántas entrevistas se realizan?",
+    "¿Qué puede demorar el proceso?",
+    "¿Cuándo se entrega el informe?",
+    "¿Se puede pedir urgencia?"
+  ],
+  "answers": {
+    "¿Cuánto tarda una pericia psicológica?": "No existe un plazo único. La duración depende de la complejidad, entrevistas, técnicas, documentación y modalidad del informe.",
+    "¿Cuántas entrevistas se realizan?": "La cantidad de entrevistas se determina según las características del caso y las necesidades de la evaluación.",
+    "¿Qué puede demorar el proceso?": "La falta de documentación, la complejidad del expediente, la necesidad de ampliar entrevistas o administrar técnicas adicionales pueden extender los tiempos.",
+    "¿Cuándo se entrega el informe?": "El informe se elabora una vez finalizada la evaluación y analizada toda la información relevante.",
+    "¿Se puede pedir urgencia?": "La posibilidad de una modalidad urgente debe consultarse previamente y dependerá de la disponibilidad y complejidad del caso."
+  },
+  "relatedTopics": [
+    "pericia_psicologica",
+    "informe_pericial",
+    "honorarios",
+    "documentacion"
+  ]
+}
