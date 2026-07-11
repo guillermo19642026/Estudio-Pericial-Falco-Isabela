@@ -252,6 +252,22 @@ class AIONRouter {
       };
     }
 
+
+if (this.path.includes("test-psicologicos")) {
+  return {
+    slug: "tests",
+    title: "Tests Psicológicos",
+    knowledge: "tests",
+    greeting:
+      "Estás en la sección de Tests Psicológicos. Puedo orientarte sobre los instrumentos disponibles, su finalidad y su uso profesional.",
+    role: "profesional",
+    primaryAction: "orientar"
+  };
+}
+
+
+
+
     if (
       this.path.includes("tests-profesionales") ||
       this.path.includes("dashboard-periciado") ||
@@ -286,6 +302,29 @@ class AIONRouter {
       };
     }
 
+
+
+if (
+  this.path.includes("escritos-judiciales") ||
+  this.path.includes("escritos-profesionales")
+) {
+  return {
+    slug: "escritos-judiciales",
+    title: "Escritos Judiciales",
+    knowledge: "escritos-judiciales",
+    greeting:
+      "Bienvenido al Centro de Escritos Judiciales. Puedo orientarte sobre modelos, presentaciones, honorarios, impugnaciones, prórrogas y otros recursos para la práctica pericial.",
+    role: "profesional",
+    primaryAction: "orientar"
+  };
+}
+
+
+
+
+
+
+
     /*
      * NUEVO:
      * Si ninguna ruta anterior coincide, consulta AION Site Map™.
@@ -312,7 +351,11 @@ class AIONRouter {
       role: "visitor",
       primaryAction: "orientar"
     };
-  }
+  
+    }
+
+
+
 
   detectFromSiteMap() {
     if (!window.AIONSiteMap) {

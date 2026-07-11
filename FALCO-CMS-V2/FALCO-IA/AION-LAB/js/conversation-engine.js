@@ -130,8 +130,7 @@ const AIONConversation = {
   async loadContextualKnowledge(slug) {
     try {
       const response = await fetch(
-        `FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${slug}.json`
-      );
+`/FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${slug}.json`      );
 
       if (!response.ok) {
         console.warn(

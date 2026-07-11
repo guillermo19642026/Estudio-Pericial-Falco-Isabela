@@ -14,11 +14,15 @@ window.KnowledgeEngine = class KnowledgeEngine {
 
   getSlug() {
     if (!this.router) {
-      console.warn("AION Router™ no está disponible.");
+      console.warn(
+        "AION Router™ no está disponible."
+      );
+
       return "general";
     }
 
-    const context = this.router.getContext();
+    const context =
+      this.router.getContext();
 
     return context?.knowledge || "general";
   }
@@ -32,7 +36,7 @@ window.KnowledgeEngine = class KnowledgeEngine {
 
     try {
       const response = await fetch(
-        `FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${slug}.json`
+        `/FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${slug}.json`
       );
 
       if (!response.ok) {
@@ -43,7 +47,8 @@ window.KnowledgeEngine = class KnowledgeEngine {
         return this.getFallback(slug);
       }
 
-      const data = await response.json();
+      const data =
+        await response.json();
 
       this.cache[slug] = data;
 
@@ -63,7 +68,8 @@ window.KnowledgeEngine = class KnowledgeEngine {
     return {
       slug,
       title: "Sistema FALCO®",
-      greeting: "Estoy disponible para orientarte.",
+      greeting:
+        "Estoy disponible para orientarte.",
       description: "",
       suggestions: [],
       answers: {},

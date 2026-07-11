@@ -1,0 +1,17 @@
+{
+  "slug": "escritos-judiciales",
+  "title": "Escritos Judiciales",
+  "greeting": "Bienvenido al Centro de Escritos Judiciales. Puedo orientarte sobre modelos, presentaciones y recursos para la práctica pericial.",
+  "description": "Recursos técnicos para psicólogos y peritos psicólogos.",
+  "suggestions": [
+    "¿Qué escritos judiciales están disponibles?",
+    "¿Cómo se organiza la biblioteca de escritos?",
+    "¿Los modelos pueden adaptarse a distintas causas?"
+  ],
+  "answers": {
+    "¿Qué escritos judiciales están disponibles?": "La sección reúne modelos de aceptación de cargo, pedidos de prórroga, honorarios, impugnaciones, aclaraciones, oficios, presentaciones varias y recursos.",
+    "¿Cómo se organiza la biblioteca de escritos?": "Los recursos se organizan por categoría, fuero, subcategoría, formato y fecha de actualización para facilitar su búsqueda profesional.",
+    "¿Los modelos pueden adaptarse a distintas causas?": "Sí. Los modelos deben adaptarse a las circunstancias concretas de cada expediente, al fuero interviniente y a la normativa aplicable."
+  },
+  "related": []
+}
