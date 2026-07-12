@@ -1,0 +1,330 @@
+<!-- =========================================================
+     EDUCACIÓN Y FORMACIÓN
+========================================================= -->
+
+<section class="submodulo">
+
+    <div class="submodulo__cabecera">
+
+        <div class="submodulo__numero">
+            07
+        </div>
+
+        <div>
+
+            <h3>Educación y Formación</h3>
+
+            <p>
+
+                Complete toda su formación académica y de capacitación,
+                comenzando por el nivel más alto alcanzado.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     NIVEL EDUCATIVO
+========================================================= -->
+
+<section class="submodulo">
+
+<h3>Nivel educativo</h3>
+
+<div class="form-grid">
+
+<div class="campo">
+
+<label>
+
+Nivel educativo alcanzado *
+
+</label>
+
+<select
+id="nivelEducativo"
+required>
+
+<option value=""></option>
+
+<option>Sin escolaridad</option>
+<option>Primario incompleto</option>
+<option>Primario completo</option>
+<option>Secundario incompleto</option>
+<option>Secundario completo</option>
+<option>Terciario incompleto</option>
+<option>Terciario completo</option>
+<option>Universitario incompleto</option>
+<option>Universitario completo</option>
+<option>Posgrado</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+
+¿Actualmente estudia? *
+
+</label>
+
+<select
+id="estudiaActualmente"
+required>
+
+<option value=""></option>
+
+<option>Sí</option>
+<option>No</option>
+
+</select>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HISTORIAL ACADÉMICO
+========================================================= -->
+
+<section class="submodulo">
+
+<h3>Historial académico</h3>
+
+<p>
+
+Agregue todos los estudios realizados.
+
+</p>
+
+<div id="contenedorEstudios">
+
+</div>
+
+<div class="acciones">
+
+<button
+type="button"
+id="agregarEstudio"
+class="btn-secundario">
+
++ Agregar estudio
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TEMPLATE ESTUDIO
+========================================================= -->
+
+<template id="templateEstudio">
+
+<div class="estudio-card">
+
+<hr>
+
+<h3>Estudio</h3>
+
+<div class="form-grid">
+
+<div class="campo">
+
+<label>
+
+Nivel *
+
+</label>
+
+<select required>
+
+<option value=""></option>
+
+<option>Primario</option>
+<option>Secundario</option>
+<option>Terciario</option>
+<option>Universitario</option>
+<option>Posgrado</option>
+<option>Curso</option>
+<option>Capacitación</option>
+
+</select>
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+Institución *
+
+</label>
+
+<input
+type="text"
+required>
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+Título obtenido
+
+</label>
+
+<input
+type="text">
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+Año de inicio *
+
+</label>
+
+<input
+type="number"
+required>
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+Año de finalización
+
+</label>
+
+<input
+type="number">
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+¿Finalizó los estudios? *
+
+</label>
+
+<select required>
+
+<option value=""></option>
+
+<option>Sí</option>
+<option>No</option>
+
+</select>
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+¿Realizó la carrera de forma presencial? *
+
+</label>
+
+<select required>
+
+<option value=""></option>
+
+<option>Sí</option>
+<option>No</option>
+<option>Mixto</option>
+
+</select>
+
+</div>
+
+
+
+<div class="campo">
+
+<label>
+
+¿Actualmente continúa ese estudio? *
+
+</label>
+
+<select required>
+
+<option value=""></option>
+
+<option>Sí</option>
+<option>No</option>
+
+</select>
+
+</div>
+
+
+
+<div class="campo full">
+
+<label>
+
+Observaciones
+
+</label>
+
+<textarea
+rows="5"></textarea>
+
+</div>
+
+
+
+<div class="campo full">
+
+<button
+type="button"
+class="btn-eliminar">
+
+Eliminar estudio
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</template>

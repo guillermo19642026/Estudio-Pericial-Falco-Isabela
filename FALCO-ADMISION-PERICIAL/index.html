@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1">
+
+  <title>
+    Sistema de Admisión Pericial FALCO®
+  </title>
+
+  <meta
+    name="description"
+    content="Ficha Integral Pericial FALCO® v2.0">
+
+  <link
+    rel="stylesheet"
+    href="css/admision-pericial.css">
+</head>
+
+<body>
+
+  <div class="admision-app">
+
+    <!-- =========================================
+         CABECERA
+    ========================================== -->
+
+    <header class="admision-header">
+
+      <div class="admision-header__marca">
+
+        <span class="admision-header__kicker">
+          Sistema FALCO®
+        </span>
+
+        <h1>
+          Admisión Pericial
+        </h1>
+
+        <p>
+          Ficha Integral Pericial v2.0
+        </p>
+
+      </div>
+
+      <div class="admision-header__estado">
+
+        <span id="estadoGuardado">
+          Información preparada para guardar
+        </span>
+
+      </div>
+
+    </header>
+
+
+    <!-- =========================================
+         PROGRESO GENERAL
+    ========================================== -->
+
+    <section
+      class="admision-progreso"
+      aria-label="Progreso de la admisión">
+
+      <div class="admision-progreso__encabezado">
+
+        <div>
+          <span class="progreso-etiqueta">
+            Progreso general
+          </span>
+
+          <strong id="textoProgreso">
+            0 de 10 módulos completados
+          </strong>
+        </div>
+
+        <div
+          id="porcentajeProgreso"
+          class="progreso-porcentaje">
+          0%
+        </div>
+
+      </div>
+
+      <div
+        class="progreso-barra"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0">
+
+        <div
+          id="barraProgreso"
+          class="progreso-barra__relleno">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================== -->
+
+    <div class="admision-layout">
+
+      <!-- NAVEGACIÓN LATERAL -->
+
+      <aside
+        class="admision-sidebar"
+        aria-label="Módulos de admisión">
+
+        <div class="sidebar-encabezado">
+
+          <span>
+            Recorrido pericial
+          </span>
+
+          <button
+            id="botonMenuMovil"
+            class="boton-menu-movil"
+            type="button"
+            aria-label="Mostrar u ocultar módulos"
+            aria-expanded="false">
+            ☰
+          </button>
+
+        </div>
+
+        <nav
+          id="navegacionModulos"
+          class="navegacion-modulos">
+        </nav>
+
+        <div class="sidebar-acciones">
+
+          <button
+            id="botonReiniciar"
+            class="boton-link boton-peligro"
+            type="button">
+            Reiniciar admisión
+          </button>
+
+        </div>
+
+      </aside>
+
+
+      <!-- PANEL DEL MÓDULO -->
+
+      <main class="admision-main">
+
+        <section class="modulo-cabecera">
+
+          <div>
+
+            <span
+              id="numeroModulo"
+              class="modulo-numero">
+              Módulo 1 de 10
+            </span>
+
+            <h2 id="tituloModulo">
+              Datos personales
+            </h2>
+
+            <p id="descripcionModulo">
+              Información identificatoria y de contacto.
+            </p>
+
+          </div>
+
+          <div
+            id="estadoModulo"
+            class="estado-modulo pendiente">
+            Pendiente
+          </div>
+
+        </section>
+
+
+        <!-- Aquí se carga cada archivo de /modulos -->
+
+        <section
+          id="contenedorModulo"
+          class="modulo-contenido"
+          aria-live="polite">
+
+          <div class="modulo-cargando">
+
+            <span class="cargador"></span>
+
+            <p>
+              Cargando módulo...
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- NAVEGACIÓN INFERIOR -->
+
+        <footer class="modulo-navegacion">
+
+          <button
+            id="botonAnterior"
+            class="boton boton-secundario"
+            type="button">
+            ← Anterior
+          </button>
+
+          <div class="modulo-navegacion__centro">
+
+            <button
+              id="botonGuardar"
+              class="boton boton-guardar"
+              type="button">
+              Guardar avance
+            </button>
+
+            <button
+              id="botonCompletar"
+              class="boton boton-completar"
+              type="button">
+              Marcar como completo
+            </button>
+
+          </div>
+
+          <button
+            id="botonSiguiente"
+            class="boton boton-principal"
+            type="button">
+            Siguiente →
+          </button>
+
+        </footer>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       MENSAJES DEL SISTEMA
+  ========================================== -->
+
+  <div
+    id="notificacion"
+    class="notificacion"
+    role="status"
+    aria-live="polite">
+  </div>
+
+
+  <!-- =========================================
+       MODAL DE CONFIRMACIÓN
+  ========================================== -->
+
+  <div
+    id="modalReinicio"
+    class="modal"
+    aria-hidden="true">
+
+    <div class="modal__fondo"></div>
+
+    <div
+      class="modal__contenido"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tituloModalReinicio">
+
+      <span class="modal__kicker">
+        Sistema FALCO®
+      </span>
+
+      <h2 id="tituloModalReinicio">
+        ¿Reiniciar la admisión?
+      </h2>
+
+      <p>
+        Se eliminarán todos los datos guardados localmente
+        y el progreso de los módulos.
+      </p>
+
+      <div class="modal__acciones">
+
+        <button
+          id="botonCancelarReinicio"
+          class="boton boton-secundario"
+          type="button">
+          Cancelar
+        </button>
+
+        <button
+          id="botonConfirmarReinicio"
+          class="boton boton-peligro-solido"
+          type="button">
+          Sí, reiniciar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<script src="js/services/storage.js"></script>
+<script src="js/services/validation.js"></script>
+<script src="js/services/upload.js"></script>
+
+<script src="js/modules/grupo-familiar.js"></script>
+
+<script src="js/admision-pericial.js"></script>
+
+</body>
+</html>

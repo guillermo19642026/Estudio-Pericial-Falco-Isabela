@@ -1,0 +1,346 @@
+<!-- =========================================================
+     ÁREA LABORAL ACTUAL
+========================================================= -->
+
+<section class="card">
+
+    <h2>Situación laboral actual</h2>
+
+    <p class="descripcion">
+        Esta información permitirá conocer su situación laboral al momento de la evaluación.
+    </p>
+
+    <div class="grid">
+
+        <div class="campo full">
+
+            <label for="trabajaActualmente">
+                ¿Actualmente se encuentra trabajando? *
+            </label>
+
+            <select
+                id="trabajaActualmente"
+                name="trabajaActualmente"
+                required>
+
+                <option value="">Seleccione...</option>
+
+                <option value="si">Sí</option>
+
+                <option value="no">No</option>
+
+                <option value="licencia">Se encuentra de licencia</option>
+
+                <option value="despedido">Fue despedido</option>
+
+                <option value="jubilado">Jubilado</option>
+
+                <option value="independiente">Trabajador independiente</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<div id="datosTrabajoActual" style="display:none;">
+
+<section class="card">
+
+<h2>Trabajo actual</h2>
+
+<div class="grid">
+
+<div class="campo full">
+
+<label for="empresaActual">
+Empresa *
+</label>
+
+<input
+id="empresaActual"
+name="empresaActual"
+type="text">
+
+</div>
+
+
+<div class="campo">
+
+<label for="puestoActual">
+Puesto / Cargo *
+</label>
+
+<input
+id="puestoActual"
+name="puestoActual"
+type="text">
+
+</div>
+
+
+<div class="campo">
+
+<label for="antiguedadTrabajo">
+¿Desde cuándo trabaja allí? *
+</label>
+
+<input
+id="antiguedadTrabajo"
+name="antiguedadTrabajo"
+type="text">
+
+</div>
+
+
+<div class="campo">
+
+<label for="horarioTrabajo">
+Horario habitual *
+</label>
+
+<input
+id="horarioTrabajo"
+name="horarioTrabajo"
+type="text"
+placeholder="Ej.: Lunes a Viernes de 08:00 a 17:00">
+
+</div>
+
+
+<div class="campo">
+
+<label for="horasTrabajo">
+Cantidad de horas diarias *
+</label>
+
+<input
+id="horasTrabajo"
+name="horasTrabajo"
+type="number">
+
+</div>
+
+
+<div class="campo">
+
+<label for="tipoRelacion">
+Relación laboral *
+</label>
+
+<select
+id="tipoRelacion"
+name="tipoRelacion">
+
+<option value="">Seleccione...</option>
+
+<option>Planta permanente</option>
+
+<option>Contratado</option>
+
+<option>Monotributista</option>
+
+<option>Autónomo</option>
+
+<option>Temporal</option>
+
+<option>Otro</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label for="turnoTrabajo">
+Turno *
+</label>
+
+<select
+id="turnoTrabajo">
+
+<option value="">Seleccione...</option>
+
+<option>Mañana</option>
+
+<option>Tarde</option>
+
+<option>Noche</option>
+
+<option>Rotativo</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label for="esfuerzoFisico">
+¿Su trabajo requiere esfuerzo físico? *
+</label>
+
+<select
+id="esfuerzoFisico">
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+
+<div class="campo full">
+
+<label for="tareasTrabajo">
+Describa brevemente las tareas que realiza *
+</label>
+
+<textarea
+id="tareasTrabajo"
+rows="5"></textarea>
+
+</div>
+
+
+<div class="campo full">
+
+<label for="cambiosAccidenteTrabajo">
+
+¿Cambió algo en su trabajo después del hecho? *
+
+</label>
+
+<textarea
+id="cambiosAccidenteTrabajo"
+rows="5"
+placeholder="Cambios de puesto, disminución del rendimiento, restricciones médicas, licencias, etc."></textarea>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<div id="datosNoTrabaja" style="display:none;">
+
+<section class="card">
+
+<h2>Situación laboral</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label for="motivoNoTrabaja">
+
+Motivo principal *
+
+</label>
+
+<select
+id="motivoNoTrabaja">
+
+<option value="">Seleccione...</option>
+
+<option>Desocupado</option>
+
+<option>Licencia médica</option>
+
+<option>Despido</option>
+
+<option>Jubilación</option>
+
+<option>Pensión</option>
+
+<option>Incapacidad</option>
+
+<option>Otro</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label for="desdeNoTrabaja">
+
+¿Desde cuándo?
+
+</label>
+
+<input
+id="desdeNoTrabaja"
+type="text">
+
+</div>
+
+
+<div class="campo full">
+
+<label for="explicacionNoTrabaja">
+
+Explique brevemente la situación *
+
+</label>
+
+<textarea
+id="explicacionNoTrabaja"
+rows="5"></textarea>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- =========================================================
+     HISTORIA LABORAL
+========================================================= -->
+
+<section class="card">
+
+<h2>Historia laboral</h2>
+
+<p class="descripcion">
+
+Comience por el trabajo más reciente.
+
+</p>
+
+<div id="historialLaboral">
+
+</div>
+
+<div style="margin-top:20px;">
+
+<button
+type="button"
+class="btn-secundario"
+id="agregarTrabajo">
+
++ Agregar trabajo anterior
+
+</button>
+
+</div>
+
+</section>

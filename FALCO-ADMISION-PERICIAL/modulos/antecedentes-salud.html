@@ -1,0 +1,399 @@
+<!-- =========================================================
+     ANTECEDENTES PERSONALES Y MÉDICOS
+========================================================= -->
+
+<section class="card">
+
+    <h2>Antecedentes personales y médicos</h2>
+
+    <p class="descripcion">
+        Responda cada una de las siguientes preguntas. Esta información es necesaria para la evaluación pericial.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     ANTECEDENTES MÉDICOS
+========================================================= -->
+
+<section class="card">
+
+<h2>Antecedentes médicos</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Padece alguna enfermedad actualmente? *
+</label>
+
+<select id="enfermedadActual" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+¿Cuál o cuáles? *
+</label>
+
+<textarea
+id="detalleEnfermedad"
+rows="4"
+required></textarea>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Fue operado alguna vez? *
+</label>
+
+<select id="cirugias" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Detalle las cirugías realizadas *
+</label>
+
+<textarea
+id="detalleCirugias"
+rows="4"
+required></textarea>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Ha estado internado? *
+</label>
+
+<select id="internaciones" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Explique *
+</label>
+
+<textarea
+id="detalleInternaciones"
+rows="4"
+required></textarea>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ANTECEDENTES PSICOLÓGICOS
+========================================================= -->
+
+<section class="card">
+
+<h2>Antecedentes psicológicos</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Había realizado tratamiento psicológico antes del hecho? *
+</label>
+
+<select id="tratamientoPrevio" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Explique *
+</label>
+
+<textarea
+id="detalleTratamientoPrevio"
+rows="5"
+required></textarea>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Había recibido tratamiento psiquiátrico? *
+</label>
+
+<select id="psiquiatricoPrevio" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Detalle *
+</label>
+
+<textarea
+id="detallePsiquiatriaPrevia"
+rows="5"
+required></textarea>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONSUMOS
+========================================================= -->
+
+<section class="card">
+
+<h2>Consumo de sustancias</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Consume alcohol? *
+</label>
+
+<select id="alcohol" required>
+
+<option value=""></option>
+
+<option>Nunca</option>
+
+<option>Ocasionalmente</option>
+
+<option>Frecuentemente</option>
+
+<option>Diariamente</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Fuma? *
+</label>
+
+<select id="tabaco" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+<option>Ex fumador</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Consume otras sustancias? *
+</label>
+
+<select id="otrasSustancias" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Detalle *
+</label>
+
+<textarea
+id="detalleConsumos"
+rows="5"
+required></textarea>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ANTECEDENTES JUDICIALES
+========================================================= -->
+
+<section class="card">
+
+<h2>Antecedentes judiciales</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Realizó anteriormente otros reclamos judiciales? *
+</label>
+
+<select id="otrosJuicios" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Explique *
+</label>
+
+<textarea
+id="detalleJuicios"
+rows="5"
+required
+placeholder="Laborales, civiles, accidentes de tránsito, mala praxis, ART, etc."></textarea>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Tiene actualmente otros procesos judiciales? *
+</label>
+
+<select id="procesosActuales" required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Detalle *
+</label>
+
+<textarea
+id="detalleProcesos"
+rows="5"
+required></textarea>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OBSERVACIONES GENERALES
+========================================================= -->
+
+<section class="card">
+
+<h2>Observaciones finales</h2>
+
+<div class="grid">
+
+<div class="campo full">
+
+<label>
+
+¿Existe algún antecedente médico, psicológico, psiquiátrico, personal o judicial que considere importante informar y que no haya sido consultado anteriormente? *
+
+</label>
+
+<textarea
+id="observacionesAntecedentes"
+rows="8"
+required></textarea>
+
+</div>
+
+</div>
+
+</section>

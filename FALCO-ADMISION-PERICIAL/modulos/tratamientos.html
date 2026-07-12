@@ -1,0 +1,350 @@
+<!-- =========================================================
+     TRATAMIENTOS
+========================================================= -->
+
+<section class="card">
+
+    <h2>Tratamientos realizados</h2>
+
+    <p class="descripcion">
+        Indique todos los tratamientos que realizó o realiza actualmente como consecuencia del hecho.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     TRATAMIENTO PSICOLÓGICO
+========================================================= -->
+
+<section class="card">
+
+<h2>Tratamiento Psicológico</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Realizó tratamiento psicológico? *
+</label>
+
+<select id="tratamientoPsicologico" required>
+
+<option value=""></option>
+<option>Sí</option>
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Actualmente continúa? *
+</label>
+
+<select id="continuaPsicologia" required>
+
+<option value=""></option>
+<option>Sí</option>
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Desde cuándo? *
+</label>
+
+<input
+type="text"
+id="desdePsicologia"
+required>
+
+</div>
+
+<div class="campo">
+
+<label>
+Profesional tratante *
+</label>
+
+<input
+type="text"
+id="profesionalPsicologia"
+required>
+
+</div>
+
+<div class="campo">
+
+<label>
+Frecuencia *
+</label>
+
+<select id="frecuenciaPsicologia" required>
+
+<option value=""></option>
+
+<option>Semanal</option>
+
+<option>Quincenal</option>
+
+<option>Mensual</option>
+
+<option>Otra</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Adjuntar constancia de tratamiento
+</label>
+
+<input
+type="file"
+id="constanciaPsicologia"
+accept=".pdf,image/*">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TRATAMIENTO PSIQUIÁTRICO
+========================================================= -->
+
+<section class="card">
+
+<h2>Tratamiento Psiquiátrico</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Realizó tratamiento psiquiátrico? *
+</label>
+
+<select id="tratamientoPsiquiatrico" required>
+
+<option value=""></option>
+<option>Sí</option>
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+¿Desde cuándo? *
+</label>
+
+<input
+type="text"
+id="desdePsiquiatria"
+required>
+
+</div>
+
+<div class="campo">
+
+<label>
+Profesional *
+</label>
+
+<input
+type="text"
+id="psiquiatra"
+required>
+
+</div>
+
+<div class="campo">
+
+<label>
+Frecuencia *
+</label>
+
+<input
+type="text"
+id="frecuenciaPsiquiatria"
+required>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Medicación indicada *
+</label>
+
+<textarea
+id="medicacionPsiquiatrica"
+rows="4"
+required></textarea>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Adjuntar constancia
+</label>
+
+<input
+type="file"
+accept=".pdf,image/*">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OTROS TRATAMIENTOS
+========================================================= -->
+
+<section class="card">
+
+<h2>Otros tratamientos</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Realizó otros tratamientos? *
+
+</label>
+
+<select
+id="otrosTratamientos"
+required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Indique cuáles *
+
+</label>
+
+<textarea
+id="detalleOtrosTratamientos"
+rows="5"
+required
+placeholder="Kinesiología, neurología, terapia ocupacional, rehabilitación, fonoaudiología, clínica médica, etc."></textarea>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Profesionales intervinientes *
+
+</label>
+
+<textarea
+id="profesionalesOtros"
+rows="5"
+required></textarea>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Adjuntar constancias de tratamiento
+
+</label>
+
+<input
+type="file"
+multiple
+accept=".pdf,image/*">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MEDICACIÓN ACTUAL
+========================================================= -->
+
+<section class="card">
+
+<h2>Medicación actual</h2>
+
+<div class="grid">
+
+<div class="campo">
+
+<label>
+¿Actualmente toma medicación? *
+
+</label>
+
+<select
+id="medicacionActual"
+required>
+
+<option value=""></option>
+
+<option>Sí</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Detalle toda la medicación actual *
+
+</label>
+
+<textarea
+id="detalleMedicacion"
+rows="6"
+required
+placeholder="Nombre del medicamento, dosis, frecuencia y motivo de indicación."></textarea>
+
+</div>
+
+</div>
+
+</section>

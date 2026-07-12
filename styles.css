@@ -4109,16 +4109,3 @@ border:
     font-size:.95rem;
 }
 
-.btn-cerrar-sesion{
-    padding:8px 18px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    background:#b32025;
-    color:white;
-    transition:.25s;
-}
-
-.btn-cerrar-sesion:hover{
-    background:#8d161b;
-}

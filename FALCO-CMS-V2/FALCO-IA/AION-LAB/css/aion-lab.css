@@ -1406,7 +1406,7 @@ body {
 
     scale:var(--visual-sensor-scale,1);
 
-    scale: var(--visual-sensor-scale, 1);
+  
 }
 
 .aion-sensor::before,

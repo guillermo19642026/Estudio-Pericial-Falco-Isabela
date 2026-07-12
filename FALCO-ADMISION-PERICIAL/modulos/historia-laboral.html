@@ -1,0 +1,156 @@
+<section class="modulo-formulario">
+
+  <h2>Historia Laboral</h2>
+
+  <p class="modulo-texto">
+    Cuéntenos brevemente sobre sus trabajos anteriores.
+  </p>
+
+  <div id="contenedorTrabajos"></div>
+
+  <button
+    type="button"
+    id="agregarTrabajo"
+    class="btn-secundario">
+
+    + Agregar trabajo
+
+  </button>
+
+  <hr>
+
+  <div class="campo">
+
+    <label>
+      ¿Actualmente trabaja? *
+    </label>
+
+    <select
+      name="trabajaActualmente"
+      required>
+
+      <option value="">
+        Seleccione...
+      </option>
+
+      <option>
+        Sí
+      </option>
+
+      <option>
+        No
+      </option>
+
+      <option>
+        Jubilado
+      </option>
+
+      <option>
+        Pensionado
+      </option>
+
+      <option>
+        Desocupado
+      </option>
+
+    </select>
+
+  </div>
+
+</section>
+
+<template id="templateTrabajo">
+
+<div class="persona-card">
+
+<h3>Trabajo</h3>
+
+<div class="form-grid">
+
+<div class="campo">
+
+<label>
+Empresa
+</label>
+
+<input
+type="text"
+placeholder="Ej.: Pérez S.A.">
+
+</div>
+
+<div class="campo">
+
+<label>
+Puesto
+</label>
+
+<input
+type="text"
+placeholder="Ej.: Administrativo">
+
+</div>
+
+<div class="campo">
+
+<label>
+Desde
+</label>
+
+<input
+type="month">
+
+</div>
+
+<div class="campo">
+
+<label>
+Hasta
+</label>
+
+<input
+type="month">
+
+</div>
+
+<div class="campo full">
+
+<label>
+Tareas principales
+</label>
+
+<textarea
+rows="3"
+placeholder="Cuéntenos brevemente qué hacía."></textarea>
+
+</div>
+
+<div class="campo full">
+
+<label>
+Motivo por el que dejó el trabajo
+</label>
+
+<input
+type="text"
+placeholder="Ej.: Renuncia, despido, jubilación...">
+
+</div>
+
+<div class="campo full">
+
+<button
+type="button"
+class="btn-eliminar">
+
+Eliminar trabajo
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</template>
