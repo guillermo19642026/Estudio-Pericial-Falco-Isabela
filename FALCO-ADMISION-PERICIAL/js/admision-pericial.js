@@ -149,7 +149,9 @@ const estadoInicial = {
   moduloActual: 0,
   completados: [],
   datos: {},
-  ultimaActualizacion: null
+  ultimaActualizacion: null,
+  finalizada: false,
+  finalizadaEn: null
 };
 
 let estado = cargarEstado();
@@ -232,12 +234,16 @@ const elementos = {
 document.addEventListener("DOMContentLoaded", iniciarAplicacion);
 
 async function iniciarAplicacion() {
+  await cargarEstadoDesdeFirebase();
+
   crearNavegacion();
   vincularEventos();
   actualizarProgreso();
   actualizarEstadoGuardado();
 
-  await cargarModulo(estado.moduloActual);
+  await cargarModulo(
+    estado.moduloActual
+  );
 }
 
 
@@ -336,6 +342,10 @@ function guardarEstado(
   estado.ultimaActualizacion =
     new Date().toISOString();
 
+  /* =========================
+     GUARDADO LOCAL
+  ========================= */
+
   if (window.FalcoStorage) {
     const resultado =
       window.FalcoStorage.guardar(
@@ -345,7 +355,7 @@ function guardarEstado(
 
     if (!resultado.ok) {
       console.error(
-        "No se pudo guardar el estado de la admisión.",
+        "No se pudo guardar el estado local de la admisión.",
         resultado.error
       );
 
@@ -362,6 +372,26 @@ function guardarEstado(
     );
   }
 
+  /* =========================
+     GUARDADO EN FIREBASE
+  ========================= */
+
+  if (
+    !estado.finalizada &&
+    window.FalcoFirebaseAdmision &&
+    typeof window.FalcoFirebaseAdmision.guardar ===
+      "function"
+  ) {
+    window.FalcoFirebaseAdmision
+      .guardar(estado)
+      .catch(error => {
+        console.error(
+          "No se pudo guardar la admisión en Firebase:",
+          error
+        );
+      });
+  }
+
   actualizarEstadoGuardado();
 
   if (mostrarMensaje) {
@@ -372,10 +402,130 @@ function guardarEstado(
 }
 
 
+/* =========================================================
+   CARGAR ESTADO DESDE FIREBASE
+========================================================= */
+
+async function cargarEstadoDesdeFirebase() {
+  if (
+    !window.FalcoFirebaseAdmision ||
+    typeof window.FalcoFirebaseAdmision.cargar !==
+      "function"
+  ) {
+    return false;
+  }
+
+  try {
+    const admisionRemota =
+      await window.FalcoFirebaseAdmision.cargar();
+
+    if (!admisionRemota) {
+      return false;
+    }
+
+    let ultimaActualizacion =
+      estado.ultimaActualizacion;
+
+    if (
+      admisionRemota.ultimaActualizacion &&
+      typeof admisionRemota
+        .ultimaActualizacion.toDate ===
+        "function"
+    ) {
+      ultimaActualizacion =
+        admisionRemota
+          .ultimaActualizacion
+          .toDate()
+          .toISOString();
+    }
+
+    let finalizadaEn = null;
+
+    if (
+      admisionRemota.finalizadaEn &&
+      typeof admisionRemota
+        .finalizadaEn.toDate ===
+        "function"
+    ) {
+      finalizadaEn =
+        admisionRemota
+          .finalizadaEn
+          .toDate()
+          .toISOString();
+    }
+
+    estado = {
+      ...structuredClone(estadoInicial),
+
+      moduloActual:
+        Number.isInteger(
+          admisionRemota.moduloActual
+        )
+          ? admisionRemota.moduloActual
+          : 0,
+
+      completados:
+        Array.isArray(
+          admisionRemota.completados
+        )
+          ? admisionRemota.completados
+          : [],
+
+      datos:
+        admisionRemota.datos &&
+        typeof admisionRemota.datos ===
+          "object"
+          ? admisionRemota.datos
+          : {},
+
+      ultimaActualizacion,
+
+      finalizada:
+        admisionRemota.estado ===
+        "finalizada",
+
+      finalizadaEn
+    };
+
+    if (window.FalcoStorage) {
+      window.FalcoStorage.guardar(
+        CLAVE_STORAGE,
+        estado
+      );
+    } else {
+      localStorage.setItem(
+        CLAVE_STORAGE,
+        JSON.stringify(estado)
+      );
+    }
+
+    console.log(
+      "Admisión recuperada desde Firebase."
+    );
+
+    return true;
+
+  } catch (error) {
+    console.error(
+      "No se pudo recuperar la admisión desde Firebase:",
+      error
+    );
+
+    return false;
+  }
+}
 
 
+
+/* =========================================================
+   ACTUALIZAR ESTADO DE GUARDADO
+========================================================= */
 
 function actualizarEstadoGuardado() {
+  if (!elementos.estadoGuardado) {
+    return;
+  }
+
   if (!estado.ultimaActualizacion) {
     elementos.estadoGuardado.textContent =
       "Guardado automático habilitado";
@@ -384,7 +534,9 @@ function actualizarEstadoGuardado() {
   }
 
   const fecha =
-    new Date(estado.ultimaActualizacion);
+    new Date(
+      estado.ultimaActualizacion
+    );
 
   elementos.estadoGuardado.textContent =
     `Último guardado: ${fecha.toLocaleTimeString(
@@ -395,7 +547,6 @@ function actualizarEstadoGuardado() {
       }
     )}`;
 }
-
 
 /* =========================================================
    NAVEGACIÓN LATERAL
@@ -524,6 +675,8 @@ async function cargarModulo(indice) {
   window.FalcoUpload
   ?.vincularContenedor(
     elementos.contenedor
+
+
   );
 
     window.scrollTo({
@@ -1645,5 +1798,4 @@ window.FalcoAdmision = {
 console.log(
   "Sistema de Admisión Pericial FALCO® — Sprint 1 Ready"
 );
-
 
