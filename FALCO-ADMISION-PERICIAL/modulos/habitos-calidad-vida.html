@@ -580,7 +580,6 @@ required></textarea>
 </section>
 
 
-
 <!-- =========================================================
      CALIDAD DE VIDA
 ========================================================= -->
@@ -599,23 +598,41 @@ En una escala de 1 a 10, ¿cómo considera actualmente su calidad de vida? *
 
 </label>
 
+<div class="escala-calidad">
+
+<span>1</span>
+
 <input
 type="range"
+id="calidadVida"
+name="calidadVida"
 min="1"
 max="10"
 value="5">
+
+<span>10</span>
+
+</div>
+
+<p class="valor-escala">
+
+Valor seleccionado:
+<strong id="valorCalidadVida">5</strong>
+
+</p>
 
 </div>
 
 <div class="campo full">
 
-<label>
+<label id="labelCalidadVida">
 
-Explique por qué eligió esa puntuación *
+Explique por qué eligió la puntuación 5 *
 
 </label>
 
 <textarea
+id="explicacionCalidadVida"
 rows="7"
 required></textarea>
 

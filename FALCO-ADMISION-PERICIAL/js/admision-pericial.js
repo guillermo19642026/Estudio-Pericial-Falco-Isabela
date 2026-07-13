@@ -799,6 +799,10 @@ function inicializarModulo(moduloId) {
       inicializarTrabajoActual();
       break;
 
+      case "habitos-calidad-vida":
+    inicializarHabitosCalidadVida();
+    break;
+
     default:
       break;
   }
@@ -1112,164 +1116,11 @@ function inicializarEducacion() {
    MÓDULO — HISTORIA LABORAL
 ========================================================= */
 
-function inicializarHistoriaLaboral() {
-  const tuvoTrabajos =
-    document.getElementById(
-      "tuvoTrabajosAnteriores"
-    );
 
-  const seccionTrabajos =
-    document.getElementById(
-      "seccionTrabajosAnteriores"
-    );
 
-  const contenedor =
-    document.getElementById(
-      "historialLaboral"
-    );
 
-  const template =
-    document.getElementById(
-      "templateTrabajo"
-    );
 
-  const botonAgregar =
-    document.getElementById(
-      "agregarTrabajo"
-    );
 
-  if (
-    !tuvoTrabajos ||
-    !seccionTrabajos ||
-    !contenedor ||
-    !template ||
-    !botonAgregar
-  ) {
-    return;
-  }
-
-  function renumerarTrabajos() {
-    contenedor
-      .querySelectorAll(".trabajo-card")
-      .forEach((tarjeta, indice) => {
-        const titulo =
-          tarjeta.querySelector("h3");
-
-        if (titulo) {
-          titulo.textContent =
-            `Trabajo anterior ${indice + 1}`;
-        }
-      });
-  }
-
-  function prepararCampos(
-    tarjeta,
-    indice
-  ) {
-    tarjeta
-      .querySelectorAll(
-        "input, select, textarea"
-      )
-      .forEach(
-        (campo, numeroCampo) => {
-          const nombre =
-            campo.dataset.campo ||
-            `campo${numeroCampo + 1}`;
-
-          campo.id =
-            `trabajo${indice}_${nombre}`;
-
-          campo.name =
-            `trabajos[${indice}][${nombre}]`;
-        }
-      );
-  }
-
-  function vincularEliminar(tarjeta) {
-    tarjeta
-      .querySelector(".btn-eliminar")
-      ?.addEventListener(
-        "click",
-        () => {
-          tarjeta.remove();
-          renumerarTrabajos();
-
-          guardarDatosDelModulo(
-            "historia-laboral",
-            false
-          );
-        }
-      );
-  }
-
-  function agregarTrabajo() {
-    const fragmento =
-      template.content.cloneNode(true);
-
-    const tarjeta =
-      fragmento.querySelector(
-        ".trabajo-card"
-      );
-
-    const indice =
-      contenedor.children.length + 1;
-
-    prepararCampos(
-      tarjeta,
-      indice
-    );
-
-    vincularEliminar(tarjeta);
-
-    contenedor.appendChild(fragmento);
-
-    renumerarTrabajos();
-
-    vincularGuardadoAutomatico(
-      "historia-laboral"
-    );
-  }
-
-  function actualizarVisibilidad() {
-    const mostrar =
-      tuvoTrabajos.value === "Sí";
-
-    seccionTrabajos.hidden =
-      !mostrar;
-
-    seccionTrabajos
-      .querySelectorAll(
-        "input, select, textarea, button"
-      )
-      .forEach(campo => {
-        campo.disabled = !mostrar;
-      });
-
-    if (
-      mostrar &&
-      contenedor.children.length === 0
-    ) {
-      agregarTrabajo();
-    }
-
-    if (!mostrar) {
-      contenedor.innerHTML = "";
-    }
-  }
-
-  tuvoTrabajos.addEventListener(
-    "change",
-    actualizarVisibilidad
-  );
-
-  botonAgregar.addEventListener(
-    "click",
-    agregarTrabajo
-  );
-
-  actualizarVisibilidad();
-  renumerarTrabajos();
-}
 
 
 /* =========================================================
