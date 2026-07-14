@@ -4109,3 +4109,911 @@ border:
     font-size:.95rem;
 }
 
+
+
+
+
+
+/* =========================================================
+   AION EVALUATION GUIDE™
+   Tarjeta de orientación para dashboard-periciado
+========================================================= */
+
+.aion-evaluation-guide {
+  width: min(1180px, calc(100% - 32px));
+  margin: 34px auto 42px;
+}
+
+.aion-evaluation-guide__card {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 28px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 12%,
+      rgba(212, 175, 55, 0.16),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(19, 24, 35, 0.98),
+      rgba(8, 12, 20, 0.98)
+    );
+
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 28px;
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.aion-evaluation-guide__card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.018) 45%,
+      transparent 70%
+    );
+}
+
+/* =========================================================
+   PRESENCIA VISUAL
+========================================================= */
+
+.aion-evaluation-guide__presence {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  min-height: 150px;
+  padding-top: 6px;
+}
+
+.aion-evaluation-guide__core {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+
+  width: 112px;
+  height: 112px;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(212, 175, 55, 0.16),
+      rgba(8, 12, 20, 0.92) 66%
+    );
+
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  border-radius: 42% 58% 48% 52% / 50% 46% 54% 50%;
+
+  box-shadow:
+    0 0 38px rgba(212, 175, 55, 0.11),
+    inset 0 0 24px rgba(212, 175, 55, 0.05);
+
+  animation:
+    aionEvaluationFloat 4.2s ease-in-out infinite;
+}
+
+.aion-evaluation-guide__core::after {
+  content: "";
+
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.025);
+  border-radius: inherit;
+}
+
+.aion-evaluation-guide__eye {
+  position: relative;
+  z-index: 1;
+
+  width: 14px;
+  height: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f4d56a,
+      #fff3b0
+    );
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 12px rgba(244, 213, 106, 0.62);
+
+  animation:
+    aionEvaluationBlink 5.4s infinite;
+}
+
+.aion-evaluation-guide__status-dot {
+  position: absolute;
+  top: 93px;
+  right: 7px;
+
+  width: 14px;
+  height: 14px;
+
+  background: #66d59a;
+  border: 3px solid #101621;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 14px rgba(102, 213, 154, 0.55);
+}
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.aion-evaluation-guide__content {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+}
+
+.aion-evaluation-guide__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 16px;
+}
+
+.aion-evaluation-guide__eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #d4af37;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.aion-evaluation-guide__title {
+  margin: 0;
+
+  color: #f6f4ee;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.aion-evaluation-guide__badge {
+  flex: 0 0 auto;
+
+  padding: 8px 12px;
+
+  color: #75dca4;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+
+  background: rgba(102, 213, 154, 0.09);
+  border: 1px solid rgba(102, 213, 154, 0.24);
+  border-radius: 999px;
+}
+
+.aion-evaluation-guide__intro {
+  max-width: 850px;
+  margin: 0 0 22px;
+
+  color: rgba(236, 239, 246, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   ESTADO
+========================================================= */
+
+.aion-evaluation-guide__status {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+
+  margin-bottom: 14px;
+}
+
+.aion-evaluation-guide__status-item {
+  display: grid;
+  gap: 6px;
+
+  padding: 15px 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+}
+
+.aion-evaluation-guide__status-label {
+  color: rgba(236, 239, 246, 0.48);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.aion-evaluation-guide__status-value {
+  color: #f6f4ee;
+  font-size: 0.94rem;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+.aion-evaluation-guide__progress {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 24px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 999px;
+}
+
+.aion-evaluation-guide__progress-fill {
+  display: block;
+
+  width: 0%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b99422,
+      #d4af37,
+      #f0d877
+    );
+
+  border-radius: inherit;
+
+  box-shadow:
+    0 0 16px rgba(212, 175, 55, 0.3);
+
+  transition: width 420ms ease;
+}
+
+/* =========================================================
+   ORIENTACIÓN
+========================================================= */
+
+.aion-evaluation-guide__guidance {
+  margin-bottom: 18px;
+  padding: 18px;
+
+  background: rgba(212, 175, 55, 0.045);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 16px;
+}
+
+.aion-evaluation-guide__guidance h3 {
+  margin: 0 0 12px;
+
+  color: #f1d46e;
+  font-size: 0.95rem;
+}
+
+.aion-evaluation-guide__guidance ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 20px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.aion-evaluation-guide__guidance li {
+  position: relative;
+
+  padding-left: 19px;
+
+  color: rgba(236, 239, 246, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.aion-evaluation-guide__guidance li::before {
+  content: "✓";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  color: #d4af37;
+  font-weight: 800;
+}
+
+/* =========================================================
+   AVISO PROFESIONAL
+========================================================= */
+
+.aion-evaluation-guide__notice {
+  margin-bottom: 20px;
+  padding: 15px 16px;
+
+  background: rgba(255, 255, 255, 0.025);
+  border-left: 3px solid #d4af37;
+  border-radius: 12px;
+}
+
+.aion-evaluation-guide__notice strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #f6f4ee;
+  font-size: 0.83rem;
+}
+
+.aion-evaluation-guide__notice p {
+  margin: 0;
+
+  color: rgba(236, 239, 246, 0.58);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.aion-evaluation-guide__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.aion-evaluation-guide__button {
+  min-height: 44px;
+  padding: 0 18px;
+
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 750;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.aion-evaluation-guide__button:hover {
+  transform: translateY(-2px);
+}
+
+.aion-evaluation-guide__button--primary {
+  color: #15130c;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d4af37,
+      #edd36f
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 12px 25px rgba(212, 175, 55, 0.17);
+}
+
+.aion-evaluation-guide__button--primary:hover {
+  box-shadow:
+    0 16px 32px rgba(212, 175, 55, 0.24);
+}
+
+.aion-evaluation-guide__button--secondary {
+  color: rgba(246, 244, 238, 0.86);
+
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.aion-evaluation-guide__button--secondary:hover {
+  color: #f1d46e;
+
+  background: rgba(212, 175, 55, 0.07);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* =========================================================
+   PANEL DE AYUDA
+========================================================= */
+
+.aion-evaluation-guide__panel {
+  margin-top: 18px;
+  padding: 18px;
+
+  background: rgba(6, 9, 15, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 16px;
+}
+
+.aion-evaluation-guide__panel[hidden] {
+  display: none;
+}
+
+.aion-evaluation-guide__panel-title {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #f6f4ee;
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.aion-evaluation-guide__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.aion-evaluation-guide__options button {
+  min-height: 42px;
+  padding: 10px 12px;
+
+  color: rgba(236, 239, 246, 0.72);
+  text-align: left;
+  font: inherit;
+  font-size: 0.81rem;
+
+  background: rgba(255, 255, 255, 0.027);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 11px;
+
+  cursor: pointer;
+
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.aion-evaluation-guide__options button:hover {
+  color: #f4d56a;
+
+  background: rgba(212, 175, 55, 0.07);
+  border-color: rgba(212, 175, 55, 0.22);
+}
+
+.aion-evaluation-guide__response {
+  margin: 14px 0 0;
+  padding: 13px 14px;
+
+  color: rgba(236, 239, 246, 0.68);
+  font-size: 0.84rem;
+  line-height: 1.6;
+
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 11px;
+}
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes aionEvaluationFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(1deg);
+  }
+}
+
+@keyframes aionEvaluationBlink {
+  0%,
+  45%,
+  48%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  46%,
+  47% {
+    transform: scaleY(0.12);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 860px) {
+  .aion-evaluation-guide__card {
+    grid-template-columns: 1fr;
+  }
+
+  .aion-evaluation-guide__presence {
+    min-height: auto;
+  }
+
+  .aion-evaluation-guide__header {
+    flex-direction: column;
+  }
+
+  .aion-evaluation-guide__status,
+  .aion-evaluation-guide__guidance ul,
+  .aion-evaluation-guide__options {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .aion-evaluation-guide {
+    width: min(100% - 20px, 1180px);
+    margin-top: 24px;
+  }
+
+  .aion-evaluation-guide__card {
+    gap: 20px;
+    padding: 21px;
+    border-radius: 20px;
+  }
+
+  .aion-evaluation-guide__core {
+    width: 96px;
+    height: 96px;
+  }
+
+  .aion-evaluation-guide__actions {
+    flex-direction: column;
+  }
+
+  .aion-evaluation-guide__button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aion-evaluation-guide__core,
+  .aion-evaluation-guide__eye {
+    animation: none;
+  }
+
+  .aion-evaluation-guide__progress-fill,
+  .aion-evaluation-guide__button {
+    transition: none;
+  }
+}
+
+
+/* Elemento sugerido por AION */
+
+.aion-evaluation-target {
+  position: relative;
+
+  border-color: rgba(212, 175, 55, 0.78) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.1),
+    0 18px 42px rgba(212, 175, 55, 0.18) !important;
+
+  transform: translateY(-3px);
+}
+
+
+
+/* =========================================================
+   AION EVALUATION GUIDE™
+   Acciones del encabezado
+========================================================= */
+
+.aion-evaluation-guide__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aion-evaluation-guide__close {
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  color: rgba(246, 244, 238, 0.68);
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+
+  cursor: pointer;
+
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.aion-evaluation-guide__close:hover {
+  color: #f4d56a;
+
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.26);
+
+  transform: rotate(4deg);
+}
+
+.aion-evaluation-guide__close:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .aion-evaluation-guide__header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================================
+   AION EVALUATION GUIDE™
+   Panel flotante oficial
+========================================================= */
+
+.aion-evaluation-guide {
+  position: fixed;
+  right: 170px;
+  bottom: 32px;
+  z-index: 9998;
+
+  width: min(560px, calc(100vw - 32px));
+  max-height: min(78vh, 760px);
+
+  margin: 0;
+}
+
+.aion-evaluation-guide[hidden] {
+  display: none !important;
+}
+
+.aion-evaluation-guide__card {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(212, 175, 55, 0.13),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(19, 24, 35, 0.99),
+      rgba(8, 12, 20, 0.99)
+    );
+
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 22px;
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  animation:
+    aionEvaluationPanelIn 220ms ease-out;
+}
+
+.aion-evaluation-guide__content {
+  display: block;
+  max-height: min(78vh, 760px);
+  padding: 24px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(212, 175, 55, 0.42)
+    rgba(255, 255, 255, 0.04);
+}
+
+.aion-evaluation-guide__content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.aion-evaluation-guide__content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.aion-evaluation-guide__content::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+}
+
+.aion-evaluation-guide__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-bottom: 15px;
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.aion-evaluation-guide__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.aion-evaluation-guide__title {
+  margin: 0;
+
+  color: #f6f4ee;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.aion-evaluation-guide__intro {
+  margin: 0 0 18px;
+
+  color: rgba(236, 239, 246, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.aion-evaluation-guide__status {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+
+  margin-bottom: 12px;
+}
+
+.aion-evaluation-guide__status-item {
+  padding: 13px 14px;
+
+  background: rgba(255, 255, 255, 0.028);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 13px;
+}
+
+.aion-evaluation-guide__progress {
+  margin-bottom: 18px;
+}
+
+.aion-evaluation-guide__guidance,
+.aion-evaluation-guide__notice,
+.aion-evaluation-guide__panel {
+  border-radius: 14px;
+}
+
+.aion-evaluation-guide__actions {
+  position: sticky;
+  bottom: -24px;
+
+  margin: 18px -24px -24px;
+  padding: 14px 24px 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 12, 20, 0),
+      rgba(8, 12, 20, 0.98) 28%
+    );
+}
+
+.aion-evaluation-guide__close {
+  flex: 0 0 auto;
+}
+
+@keyframes aionEvaluationPanelIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(12px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .aion-evaluation-guide {
+    right: 12px;
+    bottom: 90px;
+
+    width: calc(100vw - 24px);
+    max-height: 72vh;
+  }
+
+  .aion-evaluation-guide__content {
+    max-height: 72vh;
+    padding: 20px;
+  }
+
+  .aion-evaluation-guide__status {
+    grid-template-columns: 1fr;
+  }
+
+  .aion-evaluation-guide__header {
+    flex-direction: column;
+  }
+
+  .aion-evaluation-guide__header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .aion-evaluation-guide__actions {
+    margin:
+      16px -20px -20px;
+    padding:
+      14px 20px 16px;
+  }
+}
+
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .aion-evaluation-guide {
+    right: 120px;
+  }
+}

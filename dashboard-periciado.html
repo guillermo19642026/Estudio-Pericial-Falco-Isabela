@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Evaluación Psicológica</title>
   <link rel="stylesheet" href="styles.css">
+
+  <link
+  rel="stylesheet"
+  href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+>
+
+
+
 </head>
 
 <body class="tests-home">
@@ -31,6 +39,244 @@
     Complete los instrumentos indicados por el profesional.
     Los resultados serán remitidos exclusivamente al área evaluadora.
   </p>
+</section>
+
+
+
+<!-- =====================================================
+     AION EVALUATION GUIDE™
+     Panel de orientación inicialmente oculto
+====================================================== -->
+
+<section
+  class="aion-evaluation-guide"
+  id="aionEvaluationGuide"
+  aria-labelledby="aionEvaluationTitle"
+  hidden
+>
+
+  <div class="aion-evaluation-guide__card">
+
+    <div
+      class="aion-evaluation-guide__content"
+      id="aionEvaluationContent"
+    >
+
+      <header class="aion-evaluation-guide__header">
+
+        <div>
+
+          <span class="aion-evaluation-guide__eyebrow">
+            AION · Orientador inteligente
+          </span>
+
+          <h2
+            class="aion-evaluation-guide__title"
+            id="aionEvaluationTitle"
+          >
+            Te acompañaré durante tu evaluación
+          </h2>
+
+        </div>
+
+        <div class="aion-evaluation-guide__header-actions">
+
+          <span class="aion-evaluation-guide__badge">
+            Evaluación en proceso
+          </span>
+
+          <button
+            class="aion-evaluation-guide__close"
+            id="aionEvaluationClose"
+            type="button"
+            aria-label="Cerrar orientación de AION"
+            title="Cerrar"
+          >
+            ×
+          </button>
+
+        </div>
+
+      </header>
+
+      <p class="aion-evaluation-guide__intro">
+        Puedo orientarte sobre el recorrido de la plataforma,
+        indicarte cuál es el siguiente paso y ayudarte a identificar
+        qué instrumentos o documentos todavía están pendientes.
+      </p>
+
+      <div class="aion-evaluation-guide__status">
+
+        <div class="aion-evaluation-guide__status-item">
+
+          <span class="aion-evaluation-guide__status-label">
+            Progreso actual
+          </span>
+
+          <strong
+            class="aion-evaluation-guide__status-value"
+            id="aionEvaluationProgress"
+          >
+            0 de 8 etapas completadas
+          </strong>
+
+        </div>
+
+        <div class="aion-evaluation-guide__status-item">
+
+          <span class="aion-evaluation-guide__status-label">
+            Próximo paso sugerido
+          </span>
+
+          <strong
+            class="aion-evaluation-guide__status-value"
+            id="aionEvaluationNextStep"
+          >
+            Comenzar la evaluación psicológica
+          </strong>
+
+        </div>
+
+      </div>
+
+      <div
+        class="aion-evaluation-guide__progress"
+        id="aionEvaluationProgressBar"
+        role="progressbar"
+        aria-label="Progreso de la evaluación"
+        aria-valuemin="0"
+        aria-valuemax="8"
+        aria-valuenow="0"
+      >
+
+        <span
+          class="aion-evaluation-guide__progress-fill"
+          id="aionEvaluationProgressFill"
+        ></span>
+
+      </div>
+
+      <div class="aion-evaluation-guide__guidance">
+
+        <h3>¿Cómo puedo orientarte?</h3>
+
+        <ul>
+          <li>Identificar la próxima etapa pendiente.</li>
+
+          <li>
+            Explicar cómo utilizar cada sección de la plataforma.
+          </li>
+
+          <li>
+            Recordar qué documentación obligatoria falta adjuntar.
+          </li>
+
+          <li>
+            Ayudarte ante inconvenientes técnicos o de navegación.
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="aion-evaluation-guide__notice">
+
+        <strong>Importante</strong>
+
+        <p>
+          AION no interpreta tus respuestas, no realiza diagnósticos
+          y no te indicará qué contestar. Toda la información debe
+          reflejar tu experiencia personal de forma sincera y auténtica.
+        </p>
+
+      </div>
+
+      <div class="aion-evaluation-guide__actions">
+
+        <button
+          class="aion-evaluation-guide__button
+                 aion-evaluation-guide__button--primary"
+          id="aionContinueEvaluation"
+          type="button"
+        >
+          Continuar evaluación
+        </button>
+
+        <button
+          class="aion-evaluation-guide__button
+                 aion-evaluation-guide__button--secondary"
+          id="aionOpenGuidance"
+          type="button"
+          aria-expanded="false"
+          aria-controls="aionGuidancePanel"
+        >
+          Necesito orientación
+        </button>
+
+      </div>
+
+      <div
+        class="aion-evaluation-guide__panel"
+        id="aionGuidancePanel"
+        hidden
+      >
+
+        <span class="aion-evaluation-guide__panel-title">
+          Seleccioná el tipo de ayuda que necesitás
+        </span>
+
+        <div class="aion-evaluation-guide__options">
+
+          <button
+            type="button"
+            data-aion-guidance="next-step"
+          >
+            No sé qué etapa completar ahora
+          </button>
+
+          <button
+            type="button"
+            data-aion-guidance="field-help"
+          >
+            No entiendo qué solicita una sección
+          </button>
+
+          <button
+            type="button"
+            data-aion-guidance="documents"
+          >
+            Necesito ayuda para adjuntar documentación
+          </button>
+
+          <button
+            type="button"
+            data-aion-guidance="progress"
+          >
+            Quiero saber qué me falta completar
+          </button>
+
+          <button
+            type="button"
+            data-aion-guidance="technical"
+          >
+            Tengo un problema técnico
+          </button>
+
+        </div>
+
+        <p
+          class="aion-evaluation-guide__response"
+          id="aionGuidanceResponse"
+          aria-live="polite"
+        >
+          Elegí una opción para recibir orientación.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
 
@@ -78,7 +324,7 @@ los documentos requeridos y la documentación adicional solicitada.
         <h3>Controle el progreso</h3>
         <p>
           La barra de avance le indicará cuántas etapas lleva completadas,
-          sobre un total de 7 presentaciones.
+          sobre un total de 8 etapas.
         </p>
       </div>
 
@@ -646,6 +892,55 @@ window.ir = function(pagina) {
   window.location.href = pagina;
 };
 </script>
+
+
+<!--
+<script src="launch-panel/launch-panel.js"></script>
+-->
+
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+
+
+
+<!--
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+-->
+
+<!-- Primero se crea la presencia flotante oficial -->
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+
+<!-- Después se conectan el panel y la orientación -->
+
+<script src="aion-panel.js"></script>
+<script src="aion-evaluation-guide.js"></script>
+
 
 
 </body>
