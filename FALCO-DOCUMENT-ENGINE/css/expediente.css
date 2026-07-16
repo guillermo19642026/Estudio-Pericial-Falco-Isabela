@@ -1,0 +1,1258 @@
+/* =========================================================
+   FALCO® EXPEDIENTE DIGITAL
+   Versión compacta
+========================================================= */
+
+:root {
+  --falco-dorado: #d4af37;
+  --falco-negro: #1d1d1d;
+  --falco-gris: #6b6b6b;
+  --falco-borde: #dedede;
+  --falco-fondo: #f4f1ea;
+  --falco-blanco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  background:
+    var(--falco-fondo);
+
+  color:
+    var(--falco-negro);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+
+/* =========================================================
+   CABECERA DEL VISOR
+========================================================= */
+
+.visor-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding:
+    14px 26px;
+
+  background:
+    #181818;
+
+  color:
+    white;
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.14);
+}
+
+.visor-marca {
+  display: block;
+
+  color:
+    var(--falco-dorado);
+
+  font-size:
+    0.9rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.12em;
+}
+
+.visor-header h1 {
+  margin:
+    3px 0 0;
+
+  font-size:
+    1rem;
+
+  font-weight:
+    500;
+}
+
+.visor-acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.visor-acciones button {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.3);
+
+  border-radius:
+    7px;
+
+  padding:
+    8px 13px;
+
+  background:
+    transparent;
+
+  color:
+    white;
+
+  font-size:
+    0.88rem;
+
+  cursor:
+    pointer;
+}
+
+.visor-acciones button:last-child {
+  border-color:
+    var(--falco-dorado);
+
+  background:
+    var(--falco-dorado);
+
+  color:
+    #111;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.expediente-wrapper {
+  width:
+    min(100%, 900px);
+
+  margin:
+    26px auto;
+
+  padding:
+    0 16px 40px;
+}
+
+.estado-carga {
+  padding:
+    28px;
+
+  border-radius:
+    12px;
+
+  background:
+    white;
+
+  text-align:
+    center;
+
+  box-shadow:
+    0 10px 28px
+    rgba(0, 0, 0, 0.07);
+}
+
+.expediente {
+  display: grid;
+  gap: 16px;
+}
+
+
+/* =========================================================
+   PÁGINAS
+========================================================= */
+
+.portada,
+.pagina {
+  padding:
+    46px 52px;
+
+  background:
+    white;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.07);
+}
+
+.portada {
+  min-height:
+    1040px;
+}
+
+.pagina {
+  min-height:
+    auto;
+}
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+.portada {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  min-height: 1040px;
+
+  padding-top: 60px;
+}
+
+.portada-marca {
+  color:
+    var(--falco-dorado);
+
+  font-size:
+    1.7rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.16em;
+}
+
+.portada-submarca {
+  margin-top:
+    6px;
+
+  color:
+    var(--falco-gris);
+
+  font-size:
+    0.78rem;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+}
+
+.portada-separador {
+  width:
+    72px;
+
+  height:
+    3px;
+
+  margin:
+    24px 0;
+
+  background:
+    var(--falco-dorado);
+}
+
+.portada h2 {
+  margin:
+    0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    2.15rem;
+
+  line-height:
+    1.18;
+
+  font-weight:
+    500;
+}
+
+.portada-tipo {
+  margin:
+    9px 0 32px;
+
+  color:
+    var(--falco-gris);
+
+  font-size:
+    1rem;
+}
+
+.portada-datos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    16px 30px;
+}
+
+.portada-datos div {
+  padding-bottom:
+    9px;
+
+  border-bottom:
+    1px solid
+    var(--falco-borde);
+}
+
+.portada-datos dt {
+  margin-bottom:
+    4px;
+
+  color:
+    var(--falco-gris);
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.07em;
+
+  text-transform:
+    uppercase;
+}
+
+.portada-datos dd {
+  margin:
+    0;
+
+  font-size:
+    0.92rem;
+
+  line-height:
+    1.35;
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.capitulo-numero {
+  color:
+    var(--falco-dorado);
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.12em;
+}
+
+.pagina h2 {
+  margin:
+    5px 0 20px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    1.65rem;
+
+  line-height:
+    1.2;
+
+  font-weight:
+    500;
+}
+
+
+/* =========================================================
+   ÍNDICE
+========================================================= */
+
+#indiceCapitulos {
+  display: grid;
+  gap: 5px;
+
+  margin:
+    0;
+
+  padding-left:
+    20px;
+}
+
+#indiceCapitulos li {
+  padding:
+    6px 0;
+
+  border-bottom:
+    1px solid
+    var(--falco-borde);
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.3;
+}
+
+
+/* =========================================================
+   CAMPOS DEL EXPEDIENTE
+========================================================= */
+
+.bloque-datos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    12px 24px;
+}
+
+.campo-expediente {
+  min-width:
+    0;
+
+  padding-bottom:
+    7px;
+
+  border-bottom:
+    1px solid
+    var(--falco-borde);
+}
+
+.campo-expediente.full {
+  grid-column:
+    1 / -1;
+}
+
+.campo-expediente strong {
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    var(--falco-gris);
+
+  font-size:
+    0.67rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.25;
+
+  letter-spacing:
+    0.045em;
+
+  text-transform:
+    uppercase;
+}
+
+.campo-expediente p {
+  margin:
+    0;
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.38;
+
+  white-space:
+    pre-wrap;
+
+  overflow-wrap:
+    anywhere;
+}
+
+
+/* =========================================================
+   MENSAJES SIN DATOS
+========================================================= */
+
+.sin-datos {
+  padding:
+    14px 16px;
+
+  border-left:
+    3px solid
+    var(--falco-dorado);
+
+  background:
+    #faf8f2;
+
+  color:
+    var(--falco-gris);
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.45;
+}
+
+
+/* =========================================================
+   TARJETAS REPETIDAS
+========================================================= */
+
+.tarjeta-repetida {
+  margin-bottom:
+    14px;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid
+    var(--falco-borde);
+
+  border-radius:
+    8px;
+}
+
+.tarjeta-repetida h3 {
+  margin:
+    0 0 10px;
+
+  color:
+    var(--falco-dorado);
+
+  font-size:
+    0.92rem;
+}
+
+
+/* =========================================================
+   PSICOMETRÍA
+========================================================= */
+
+.psicometria-resumen {
+  display: grid;
+  gap: 12px;
+}
+
+.test-card {
+  padding:
+    16px;
+
+  border:
+    1px solid
+    var(--falco-borde);
+
+  border-radius:
+    8px;
+}
+
+.test-card h3 {
+  margin:
+    0 0 10px;
+
+  font-size:
+    1rem;
+}
+
+.test-card p {
+  margin:
+    7px 0 0;
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.45;
+}
+
+.test-puntaje {
+  font-size:
+    1.5rem;
+
+  font-weight:
+    800;
+}
+
+
+/* =========================================================
+   CALIDAD DE VIDA
+========================================================= */
+
+.calidad-vida {
+  margin-top:
+    14px;
+
+  padding:
+    16px;
+
+  border:
+    1px solid
+    var(--falco-borde);
+
+  border-radius:
+    9px;
+
+  background:
+    #fafafa;
+}
+
+.calidad-vida strong {
+  font-size:
+    0.82rem;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.05em;
+}
+
+.calidad-vida__valor {
+  margin-top:
+    6px;
+
+  font-size:
+    1.55rem;
+
+  font-weight:
+    800;
+}
+
+.calidad-vida__barra {
+  display: grid;
+
+  grid-template-columns:
+    repeat(10, 1fr);
+
+  gap:
+    4px;
+
+  margin:
+    10px 0;
+}
+
+.calidad-vida__barra span {
+  height:
+    9px;
+
+  border-radius:
+    20px;
+
+  background:
+    #dedede;
+}
+
+.calidad-vida__barra span.activo {
+  background:
+    var(--falco-dorado);
+}
+
+.calidad-vida p {
+  margin:
+    8px 0 0;
+
+  font-size:
+    0.9rem;
+
+  line-height:
+    1.45;
+}
+
+
+/* =========================================================
+   CERTIFICACIÓN
+========================================================= */
+
+.certificacion p {
+  max-width:
+    680px;
+
+  margin:
+    0 0 14px;
+
+  font-size:
+    0.94rem;
+
+  line-height:
+    1.55;
+}
+
+.firma-institucional {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    3px;
+
+  margin-top:
+    54px;
+
+  padding-top:
+    18px;
+
+  border-top:
+    1px solid
+    var(--falco-dorado);
+
+  font-size:
+    0.9rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+  .visor-header {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+  .visor-acciones {
+    width:
+      100%;
+  }
+
+  .visor-acciones button {
+    flex:
+      1;
+  }
+
+  .expediente-wrapper {
+    margin:
+      14px auto;
+
+    padding:
+      0 10px 30px;
+  }
+
+  .portada,
+  .pagina {
+    min-height:
+      auto;
+
+    padding:
+      32px 20px;
+  }
+
+  .portada-datos,
+  .bloque-datos {
+    grid-template-columns:
+      1fr;
+  }
+
+  .portada h2 {
+    font-size:
+      1.8rem;
+  }
+
+  .pagina h2 {
+    font-size:
+      1.45rem;
+  }
+
+.anexo-seccion--dni {
+  grid-template-columns:
+    1fr;
+}
+
+.anexo-seccion--dni > h3 {
+  grid-column:
+    auto;
+}
+
+}
+
+
+
+/* =========================================================
+   DOCUMENTACIÓN Y ANEXOS
+========================================================= */
+
+.anexos-resumen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 22px;
+  padding: 14px 16px;
+
+  border:
+    1px solid var(--falco-borde);
+
+  border-radius: 8px;
+
+  background: #faf8f2;
+}
+
+.anexos-resumen span {
+  min-width: 38px;
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background:
+    var(--falco-dorado);
+
+  color: #111;
+
+  text-align: center;
+  font-weight: 800;
+}
+
+.anexos-contenido {
+  display: grid;
+  gap: 34px;
+}
+
+.anexo-seccion {
+  display: grid;
+  gap: 22px;
+}
+
+
+
+
+
+
+
+.anexo-seccion > h3 {
+  margin: 0;
+
+  padding-bottom: 8px;
+
+  border-bottom:
+    1px solid var(--falco-dorado);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   DNI FRENTE Y DORSO
+========================================================= */
+
+.anexo-seccion--dni {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.anexo-seccion--dni > h3 {
+  grid-column:
+    1 / -1;
+}
+
+.anexo-seccion--dni .anexo-card {
+  margin: 0;
+}
+
+.anexo-seccion--dni
+.anexo-imagen-contenedor {
+  height: 300px;
+}
+
+.anexo-grupo {
+  display: grid;
+  gap: 16px;
+
+  padding: 16px;
+
+  border:
+    1px solid var(--falco-borde);
+
+  border-radius: 9px;
+
+  background: #fff;
+}
+
+.anexo-grupo__titulo span {
+  display: block;
+
+  color:
+    var(--falco-dorado);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.anexo-grupo__titulo h3 {
+  margin: 4px 0 0;
+
+  font-size: 1.05rem;
+}
+
+.anexo-card {
+  width: 100%;
+  padding: 16px;
+  overflow: hidden;
+
+  border: 1px solid var(--falco-borde);
+  border-radius: 10px;
+
+  background: #fafafa;
+}
+
+.anexo-card__encabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.anexo-card__tipo {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color:
+    var(--falco-gris);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.anexo-card h3 {
+  margin: 0;
+
+  font-size: 0.98rem;
+}
+
+.anexo-card p {
+  margin: 5px 0 0;
+
+  color:
+    var(--falco-gris);
+
+  font-size: 0.82rem;
+}
+
+.anexo-boton {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 12px;
+
+  border-radius: 7px;
+
+  background:
+    var(--falco-dorado);
+
+  color: #111;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.anexo-imagen-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 460px;
+
+  margin-top: 14px;
+  padding: 12px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--falco-borde);
+  border-radius: 8px;
+
+  background: white;
+}
+
+.anexo-imagen {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+
+
+/* =========================================================
+   IMPRESIÓN / PDF
+========================================================= */
+
+@media print {
+  @page {
+    size:
+      A4;
+
+    margin:
+      0;
+  }
+
+  body {
+    background:
+      white;
+  }
+
+  .visor-header {
+    display:
+      none;
+  }
+
+  .expediente-wrapper {
+    width:
+      100%;
+
+    margin:
+      0;
+
+    padding:
+      0;
+  }
+
+  .expediente {
+    display:
+      block;
+  }
+
+ .portada,
+.pagina {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0;
+
+  padding:
+    24mm 17mm
+    18mm;
+
+  box-shadow: none;
+
+  page-break-after: always;
+  break-after: page;
+}
+
+  .portada {
+    padding-top: 28mm;
+  }
+
+  .pagina:last-child {
+    page-break-after:
+      auto;
+
+    break-after:
+      auto;
+  }
+
+  .campo-expediente,
+  .tarjeta-repetida,
+  .test-card,
+  .calidad-vida {
+    break-inside:
+      avoid;
+
+    page-break-inside:
+      avoid;
+  }
+
+  .pagina h2 {
+    margin-bottom:
+      16px;
+  }
+
+  .bloque-datos {
+    gap:
+      9px 20px;
+  }
+
+  .campo-expediente p {
+    font-size:
+      9.5pt;
+
+    line-height:
+      1.3;
+  }
+
+  .campo-expediente strong {
+    font-size:
+      7pt;
+  }
+
+.anexo-card,
+.anexo-grupo,
+.anexo-imagen-contenedor {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.anexo-card {
+  width: 100%;
+  margin: 0 0 10mm;
+  padding: 5mm;
+}
+
+.anexo-card__encabezado {
+  min-height: 18mm;
+  margin-bottom: 4mm;
+}
+
+.anexo-boton {
+  display: none;
+}
+
+.anexo-imagen-contenedor {
+  width: 100%;
+  height: 120mm;
+
+  margin-top: 4mm;
+  padding: 4mm;
+}
+
+.anexo-imagen {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* DNI frente y dorso en una misma hoja */
+
+.anexo-seccion--dni {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 6mm;
+}
+
+.anexo-seccion--dni > h3 {
+  grid-column:
+    1 / -1;
+
+  margin-bottom:
+    3mm;
+}
+
+.anexo-seccion--dni .anexo-card {
+  width: 100%;
+
+  margin:
+    0;
+
+  padding:
+    4mm;
+}
+
+.anexo-seccion--dni
+.anexo-card__encabezado {
+  min-height:
+    18mm;
+
+  margin-bottom:
+    2mm;
+}
+
+.anexo-seccion--dni
+.anexo-imagen-contenedor {
+  width:
+    100%;
+
+  height:
+    115mm;
+
+  margin-top:
+    2mm;
+
+  padding:
+    3mm;
+}
+
+.anexo-seccion--dni
+.anexo-imagen {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    contain;
+
+  object-position:
+    center;
+}
+
+/* Certificación final en hoja independiente */
+
+.certificacion {
+  break-before:
+    page;
+
+  page-break-before:
+    always;
+
+  min-height:
+    259mm;
+
+  padding-top:
+    18mm;
+}
+
+.certificacion .firma-institucional {
+  margin-top:
+    30mm;
+}
+
+
+}
