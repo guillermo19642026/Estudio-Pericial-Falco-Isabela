@@ -227,6 +227,53 @@ const elementos = {
 };
 
 
+
+/* =========================================================
+   ESPERAR FIREBASE ADMISIÓN
+========================================================= */
+
+function esperarFirebaseAdmision(
+  intentosMaximos = 40
+) {
+  return new Promise(resolve => {
+    let intentos = 0;
+
+    const comprobar = () => {
+      const disponible =
+        window.FalcoFirebaseAdmision &&
+        typeof window.FalcoFirebaseAdmision.cargar ===
+          "function";
+
+      if (disponible) {
+        resolve(true);
+        return;
+      }
+
+      intentos++;
+
+      if (intentos >= intentosMaximos) {
+        console.warn(
+          "Firebase Admisión no estuvo disponible durante el inicio."
+        );
+
+        resolve(false);
+        return;
+      }
+
+      setTimeout(
+        comprobar,
+        100
+      );
+    };
+
+    comprobar();
+  });
+}
+
+
+
+
+
 /* =========================================================
    INICIALIZACIÓN
 ========================================================= */
@@ -234,7 +281,20 @@ const elementos = {
 document.addEventListener("DOMContentLoaded", iniciarAplicacion);
 
 async function iniciarAplicacion() {
-  await cargarEstadoDesdeFirebase();
+  await esperarFirebaseAdmision();
+
+  const recuperada =
+    await cargarEstadoDesdeFirebase();
+
+  if (recuperada) {
+    console.log(
+      "Estado remoto aplicado antes de cargar la interfaz."
+    );
+  } else {
+    console.log(
+      "No se encontró una admisión remota. Se utilizará el estado local."
+    );
+  }
 
   crearNavegacion();
   vincularEventos();
@@ -676,8 +736,12 @@ async function cargarModulo(indice) {
   ?.vincularContenedor(
     elementos.contenedor
 
-
   );
+
+
+bloquearAdmisionFinalizada();
+
+
 
     window.scrollTo({
       top: 0,
@@ -819,6 +883,11 @@ function guardarDatosDelModulo(
   moduloId,
   mostrarMensaje = false
 ) {
+
+  if (estado.finalizada) {
+    return;
+  }
+
   const campos =
     elementos.contenedor.querySelectorAll(
       "input, select, textarea"
@@ -1403,6 +1472,22 @@ function actualizarBotonesNavegacion() {
     estado.moduloActual ===
     MODULOS.length - 1;
 
+  if (
+    estado.finalizada &&
+    esUltimo
+  ) {
+    elementos.botonSiguiente.textContent =
+      "Admisión finalizada";
+
+    elementos.botonSiguiente.disabled =
+      true;
+
+    return;
+  }
+
+  elementos.botonSiguiente.disabled =
+    false;
+
   elementos.botonSiguiente.textContent =
     esUltimo
       ? "Finalizar revisión"
@@ -1634,29 +1719,165 @@ function vincularEventos() {
 }
 
 
+
+
+
+
+
+
+
 /* =========================================================
-   REVISIÓN FINAL
+   FINALIZACIÓN DE LA ADMISIÓN
 ========================================================= */
 
-function mostrarResumenFinal() {
+async function mostrarResumenFinal() {
   const completados =
     estado.completados.length;
 
-  if (completados === MODULOS.length) {
+  if (completados !== MODULOS.length) {
+    const pendientes =
+      MODULOS.length - completados;
+
     mostrarNotificacion(
-      "Admisión completada. Todos los módulos fueron revisados."
+      `La información fue guardada. Quedan ${pendientes} módulos pendientes.`
     );
 
     return;
   }
 
-  const pendientes =
-    MODULOS.length - completados;
+  if (estado.finalizada) {
+    mostrarNotificacion(
+      "La admisión ya se encuentra finalizada."
+    );
 
-  mostrarNotificacion(
-    `La información fue guardada. Quedan ${pendientes} módulos pendientes.`
+    bloquearAdmisionFinalizada();
+
+    return;
+  }
+
+  if (
+    !window.FalcoFirebaseAdmision ||
+    typeof window.FalcoFirebaseAdmision.finalizar !==
+      "function"
+  ) {
+    mostrarNotificacion(
+      "No se pudo conectar con Firebase."
+    );
+
+    return;
+  }
+
+  const confirmar = window.confirm(
+    "¿Confirma que desea finalizar la admisión?\n\n" +
+    "Una vez enviada, la información quedará disponible para consulta y no podrá modificarse."
+  );
+
+  if (!confirmar) {
+    return;
+  }
+
+  try {
+    elementos.botonSiguiente.disabled =
+      true;
+
+    elementos.botonSiguiente.textContent =
+      "Finalizando...";
+
+    await window.FalcoFirebaseAdmision
+      .finalizar(estado);
+
+    estado.finalizada = true;
+
+    estado.finalizadaEn =
+      new Date().toISOString();
+
+    estado.ultimaActualizacion =
+      estado.finalizadaEn;
+
+   if (window.FalcoStorage) {
+  window.FalcoStorage.guardar(
+    CLAVE_STORAGE,
+    estado
+  );
+} else {
+  localStorage.setItem(
+    CLAVE_STORAGE,
+    JSON.stringify(estado)
   );
 }
+
+    bloquearAdmisionFinalizada();
+
+    mostrarNotificacion(
+      "Admisión finalizada y enviada correctamente."
+    );
+
+  } catch (error) {
+    console.error(
+      "No se pudo finalizar la admisión:",
+      error
+    );
+
+    elementos.botonSiguiente.disabled =
+      false;
+
+    elementos.botonSiguiente.textContent =
+      "Finalizar revisión";
+
+    mostrarNotificacion(
+      "No se pudo finalizar la admisión. Intentá nuevamente."
+    );
+  }
+}
+
+
+/* =========================================================
+   BLOQUEAR ADMISIÓN FINALIZADA
+========================================================= */
+
+function bloquearAdmisionFinalizada() {
+  if (!estado.finalizada) {
+    return;
+  }
+
+  elementos.contenedor
+    .querySelectorAll(
+      "input, select, textarea, button"
+    )
+    .forEach(elemento => {
+      elemento.disabled = true;
+    });
+
+  elementos.botonGuardar.disabled =
+    true;
+
+  elementos.botonCompletar.disabled =
+    true;
+
+  elementos.botonReiniciar.disabled =
+    true;
+
+  elementos.estadoModulo.textContent =
+    "Admisión finalizada";
+
+  elementos.estadoModulo.className =
+    "estado-modulo completo";
+
+  const esUltimoModulo =
+    estado.moduloActual ===
+    MODULOS.length - 1;
+
+  if (esUltimoModulo) {
+    elementos.botonSiguiente.disabled =
+      true;
+
+    elementos.botonSiguiente.textContent =
+      "Admisión finalizada";
+  }
+}
+
+
+
 
 
 /* =========================================================
@@ -1793,6 +2014,386 @@ window.FalcoAdmision = {
     abrirModalReinicio();
   }
 };
+
+
+
+
+/* =========================================================
+   HERRAMIENTAS DE DESARROLLO
+   SOLO PARA PRUEBAS
+========================================================= */
+
+window.FalcoAdmisionDev = {
+
+  async cargarDemo() {
+    const ahora =
+      new Date().toISOString();
+
+    estado = {
+      ...structuredClone(estadoInicial),
+
+      moduloActual: 0,
+
+      completados:
+        MODULOS.map(
+          modulo => modulo.id
+        ),
+
+      ultimaActualizacion:
+        ahora,
+
+      finalizada: false,
+
+      finalizadaEn: null,
+
+      datos: {
+        "datos-personales": {
+          nombre:
+            "Juan Carlos Pérez",
+          dni:
+            "30123456",
+          cuil:
+            "20-30123456-7",
+          fechaNacimiento:
+            "1984-05-18",
+          edad:
+            "42",
+          lugarNacimiento:
+            "Buenos Aires",
+          nacionalidad:
+            "Argentina",
+          estadoCivil:
+            "Casado/a",
+          ocupacion:
+            "Empleado administrativo",
+          domicilio:
+            "Av. Siempre Viva 123",
+          localidad:
+            "Ramos Mejía",
+          partido:
+            "La Matanza",
+          provincia:
+            "Buenos Aires",
+          codigoPostal:
+            "1704",
+          telefono:
+            "1123456789",
+          email:
+            "juan.perez.prueba@example.com",
+          poseeCud:
+            "No",
+          idioma:
+            "Español",
+          leerEscribir:
+            "Sí",
+          comprensionIdioma:
+            "Sí"
+        },
+
+        "datos-judiciales": {
+          caratula:
+            "Pérez Juan Carlos c/ Empresa Demo S.A. s/ daños y perjuicios",
+          expediente:
+            "LM-12345-2026",
+          tribunal:
+            "Juzgado Civil y Comercial N.º 1",
+          departamentoJudicial:
+            "La Matanza",
+          fuero:
+            "Civil",
+          actor:
+            "Juan Carlos Pérez",
+          demandado:
+            "Empresa Demo S.A.",
+          tipoReclamo:
+            "Daños y perjuicios",
+          fechaHechoJudicial:
+            "2025-03-10",
+          nombreAbogado:
+            "Dra. Ana López",
+          telefonoAbogado:
+            "1144445555",
+          emailAbogado:
+            "ana.lopez@example.com"
+        },
+
+        "relato-hecho": {
+          relatoCronologico:
+            "El día 10 de marzo de 2025, mientras circulaba hacia su trabajo, sufrió un accidente de tránsito. Fue trasladado a una guardia médica y posteriormente realizó tratamiento.",
+          consecuenciasInmediatas:
+            "Dolor físico, temor y dificultades para continuar con sus actividades habituales.",
+          intervencionesPosteriores:
+            "Consultas médicas, estudios y tratamiento de rehabilitación."
+        },
+
+        "grupo-familiar": {
+          nombrePadre:
+            "Carlos Pérez",
+          padreVive:
+            "Sí",
+          edadPadre:
+            "70",
+          ocupacionPadre:
+            "Jubilado",
+          nombreMadre:
+            "Marta Gómez",
+          madreVive:
+            "Sí",
+          edadMadre:
+            "68",
+          ocupacionMadre:
+            "Ama de casa",
+          tieneHermanos:
+            "Sí",
+          cantidadHermanos:
+            "1",
+          tieneHijos:
+            "Sí",
+          cantidadHijos:
+            "2",
+          personasConvivientes:
+            "Convive con su esposa y sus dos hijos.",
+          descripcionConvivencia:
+            "La convivencia es buena y estable."
+        },
+
+        "area-afectiva": {
+          estadoCivil:
+            "Casado/a",
+          tienePareja:
+            "Sí",
+          nombrePareja:
+            "Laura Fernández",
+          edadPareja:
+            "40",
+          ocupacionPareja:
+            "Docente",
+          tiempoRelacion:
+            "15 años",
+          conviven:
+            "Sí",
+          hijosComun:
+            "Sí"
+        },
+
+        "area-social": {
+          tieneAmigos:
+            "Sí",
+          frecuenciaAmigos:
+            "Semanal",
+          redApoyo:
+            "Familia y amigos cercanos",
+          personasApoyo:
+            "Esposa, hermanos y amigos",
+          vidaSocialAntes:
+            "Activa",
+          vidaSocialActual:
+            "Disminuida",
+          cambioVidaSocial:
+            "Sí",
+          descripcionCambiosSociales:
+            "Redujo salidas y reuniones desde el hecho.",
+          actividadesRecreativasAntes:
+            "Fútbol y reuniones familiares",
+          actividadesActualesRecreativas:
+            "Caminatas ocasionales",
+          impactoRecreacion:
+            "Moderado"
+        },
+
+        "educacion": {
+          nivelEducativo:
+            "Secundario completo",
+          institucion:
+            "Escuela Secundaria N.º 10",
+          titulo:
+            "Bachiller",
+          cursos:
+            "Curso de administración básica"
+        },
+
+        "historia-laboral": {
+          "trabajo_1_empresa":
+            "Empresa Demo S.A.",
+          "trabajo_1_puesto":
+            "Administrativo",
+          "trabajo_1_desde":
+            "2010-01",
+          "trabajo_1_hasta":
+            "2020-12",
+          "trabajo_1_tareas":
+            "Atención administrativa y carga de datos.",
+          "trabajo_1_motivoEgreso":
+            "Cambio de empleo",
+          trabajaActualmente:
+            "Sí"
+        },
+
+        "trabajo-actual": {
+          trabajaActualmente:
+            "Sí",
+          empresaActual:
+            "Servicios del Oeste S.R.L.",
+          puestoActual:
+            "Administrativo",
+          antiguedadActual:
+            "5 años",
+          tareasActuales:
+            "Atención al público y tareas administrativas.",
+          horarioActual:
+            "Lunes a viernes de 9 a 17",
+          impactoLaboral:
+            "Refiere cansancio y menor concentración."
+        },
+
+        "tratamientos": {
+          enTratamiento:
+            "Sí",
+          tipoTratamiento:
+            "Psicológico",
+          desdeCuando:
+            "2025-04-01",
+          profesional:
+            "Lic. María García",
+          frecuencia:
+            "Semanal",
+          medicacion:
+            "No",
+          observacionesTratamiento:
+            "Continúa actualmente."
+        },
+
+        "antecedentes-salud": {
+          enfermedadActual:
+            "No",
+          cirugias:
+            "No",
+          internaciones:
+            "No",
+          tratamientoPrevio:
+            "No",
+          psiquiatricoPrevio:
+            "No",
+          alcohol:
+            "Ocasional",
+          tabaco:
+            "No",
+          otrasSustancias:
+            "No",
+          otrosJuicios:
+            "No",
+          procesosActuales:
+            "No"
+        },
+
+        "habitos-calidad-vida": {
+          calidadVida:
+            "6",
+          explicacionCalidadVida:
+            "Considera que su calidad de vida disminuyó desde el hecho.",
+          sueño:
+            "Regular",
+          alimentacion:
+            "Adecuada",
+          actividadFisica:
+            "Escasa",
+          autonomia:
+            "Conservada"
+        },
+
+        "impacto-actual": {
+          impactoEmocional:
+            "Ansiedad y preocupación",
+          impactoFamiliar:
+            "Mayor dependencia de su familia",
+          impactoSocial:
+            "Menor participación social",
+          impactoLaboral:
+            "Dificultades de concentración",
+          impactoEconomico:
+            "Gastos médicos y de tratamiento",
+          cambiosActuales:
+            "Refiere cambios en su rutina y estado de ánimo."
+        },
+
+        "documentacion": {
+          observacionesDocumentacion:
+            "Documentación de prueba pendiente de adjuntar."
+        },
+
+        "observaciones-finales": {
+          observacionesFinales:
+            "Ficha cargada automáticamente para pruebas del sistema."
+        },
+
+        "consentimiento": {
+          aceptaConsentimiento:
+            true,
+          declaraVeracidad:
+            true,
+          autorizaTratamientoDatos:
+            true,
+          nombreConfirmacion:
+            "Juan Carlos Pérez",
+          fechaConsentimiento:
+            ahora.slice(0, 10)
+        }
+      }
+    };
+
+    guardarEstado(false);
+
+    crearNavegacion();
+    actualizarProgreso();
+    actualizarEstadoGuardado();
+
+    await cargarModulo(0);
+
+    mostrarNotificacion(
+      "Datos de prueba cargados correctamente."
+    );
+
+    console.log(
+      "FALCO® Admisión demo cargada.",
+      structuredClone(estado)
+    );
+
+    return structuredClone(estado);
+  },
+
+
+  async limpiarDemo() {
+    estado =
+      structuredClone(estadoInicial);
+
+    if (window.FalcoStorage) {
+      window.FalcoStorage.eliminar(
+        CLAVE_STORAGE
+      );
+    } else {
+      localStorage.removeItem(
+        CLAVE_STORAGE
+      );
+    }
+
+    crearNavegacion();
+    actualizarProgreso();
+    actualizarEstadoGuardado();
+
+    await cargarModulo(0);
+
+    mostrarNotificacion(
+      "Datos locales de prueba eliminados."
+    );
+
+    return true;
+  }
+};
+
+
+
+
+
 
 
 console.log(

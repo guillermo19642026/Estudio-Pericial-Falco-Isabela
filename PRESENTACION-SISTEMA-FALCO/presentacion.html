@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Presentación institucional del Sistema FALCO®, guiada por AION."
+  >
+
+  <title>Presentación Sistema FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/presentacion.css"
+  >
+
+</head>
+
+
+<body>
+
+  <main
+    class="falco-presentation"
+    id="falcoPresentation"
+  >
+
+
+    <!-- =====================================================
+         FONDO GENERAL
+    ====================================================== -->
+
+    <div
+      class="presentation-background"
+      aria-hidden="true"
+    >
+
+      <div class="background-glow background-glow-one"></div>
+
+      <div class="background-glow background-glow-two"></div>
+
+      <div class="background-grid"></div>
+
+      <div class="background-vignette"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PANTALLA INICIAL
+    ====================================================== -->
+
+    <section
+      class="intro-screen is-visible"
+      id="introScreen"
+      aria-labelledby="introTitle"
+    >
+
+      <div class="intro-content">
+
+
+        <!-- AION INICIAL -->
+
+        <div
+          class="aion-stage"
+          id="aionStage"
+          aria-hidden="true"
+        >
+
+          <div class="aion-halo"></div>
+
+
+          <div
+            class="falco-aion"
+            data-state="idle"
+          >
+
+            <div class="falco-aion-halo"></div>
+
+
+            <div class="falco-aion-sensors">
+
+              <span
+                class="falco-aion-sensor falco-aion-sensor-left"
+              ></span>
+
+              <span
+                class="falco-aion-sensor falco-aion-sensor-right"
+              ></span>
+
+            </div>
+
+
+            <div class="falco-aion-field"></div>
+
+
+            <div class="falco-aion-sphere">
+
+              <div class="falco-aion-light"></div>
+
+
+              <div class="falco-aion-eyes">
+
+                <span class="falco-aion-eye"></span>
+
+                <span class="falco-aion-eye"></span>
+
+              </div>
+
+
+              <div class="falco-aion-reflection"></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="aion-light"></div>
+
+        </div>
+
+
+        <!-- TEXTO INICIAL -->
+
+        <div class="intro-copy">
+
+          <span class="intro-eyebrow">
+            Presentación institucional
+          </span>
+
+
+          <h1 id="introTitle">
+
+            Sistema FALCO<sup>®</sup>
+
+          </h1>
+
+
+          <p class="intro-description">
+
+            Un ecosistema profesional para la práctica
+            psicológica forense.
+
+          </p>
+
+
+          <p
+            class="intro-aion-message"
+            id="introAionMessage"
+            aria-live="polite"
+          >
+
+            Hola. Soy AION.
+
+          </p>
+
+        </div>
+
+
+        <!-- BOTÓN INICIAR -->
+
+        <button
+          class="start-button"
+          id="startButton"
+          type="button"
+        >
+
+          <span
+            class="start-button-icon"
+            aria-hidden="true"
+          >
+            ▶
+          </span>
+
+          <span>
+            Iniciar presentación
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRESENTACIÓN PRINCIPAL
+    ====================================================== -->
+
+    <section
+      class="presentation-screen"
+      id="presentationScreen"
+      aria-label="Recorrido por el Sistema FALCO"
+      hidden
+    >
+
+
+      <!-- ENCABEZADO -->
+
+      <header class="presentation-header">
+
+        <div class="presentation-brand">
+
+          <span class="brand-name">
+
+            Sistema FALCO<sup>®</sup>
+
+          </span>
+
+
+          <span class="brand-divider"></span>
+
+
+          <span class="brand-section">
+
+            Presentación institucional
+
+          </span>
+
+        </div>
+
+
+        <div class="presentation-status">
+
+          <span
+            class="status-dot"
+            aria-hidden="true"
+          ></span>
+
+          <span>
+            AION está guiando el recorrido
+          </span>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           ESCENARIO
+      ==================================================== -->
+
+      <div class="scene-stage">
+
+        <div
+          class="scene-frame"
+          id="sceneFrame"
+        >
+
+
+          <!-- CAPTURA DE LA PÁGINA -->
+
+          <div
+            class="scene-image-container"
+            id="sceneImageContainer"
+          >
+
+            <img
+              class="scene-image"
+              id="sceneImage"
+              src=""
+              alt=""
+            >
+
+
+            <div
+              class="scene-image-overlay"
+              aria-hidden="true"
+            ></div>
+
+
+            <div
+              class="scene-scan"
+              aria-hidden="true"
+            ></div>
+
+          </div>
+
+
+          <!-- PANEL DERECHO -->
+
+          <div class="scene-panel">
+
+
+            <!-- AION GUÍA -->
+
+            <aside
+              class="aion-guide"
+              id="aionGuide"
+              aria-label="AION, guía de la presentación"
+            >
+
+              <div class="aion-guide-visual">
+
+                <div class="aion-guide-halo"></div>
+
+
+                <div
+                  class="falco-aion"
+                  data-state="idle"
+                >
+
+                  <div class="falco-aion-halo"></div>
+
+
+                  <div class="falco-aion-sensors">
+
+                    <span
+                      class="falco-aion-sensor falco-aion-sensor-left"
+                    ></span>
+
+                    <span
+                      class="falco-aion-sensor falco-aion-sensor-right"
+                    ></span>
+
+                  </div>
+
+
+                  <div class="falco-aion-field"></div>
+
+
+                  <div class="falco-aion-sphere">
+
+                    <div class="falco-aion-light"></div>
+
+
+                    <div class="falco-aion-eyes">
+
+                      <span class="falco-aion-eye"></span>
+
+                      <span class="falco-aion-eye"></span>
+
+                    </div>
+
+
+                    <div class="falco-aion-reflection"></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="aion-guide-copy">
+
+                <span class="aion-guide-name">
+                  AION
+                </span>
+
+                <span class="aion-guide-state">
+                  Guía del recorrido
+                </span>
+
+              </div>
+
+            </aside>
+
+
+            <!-- TEXTO DE LA ESCENA -->
+
+            <div
+              class="scene-content"
+              id="sceneContent"
+            >
+
+              <span
+                class="scene-number"
+                id="sceneNumber"
+              >
+                01
+              </span>
+
+
+              <p
+                class="scene-category"
+                id="sceneCategory"
+              >
+                Sistema FALCO®
+              </p>
+
+
+              <h2
+                class="scene-title"
+                id="sceneTitle"
+              >
+                Bienvenido
+              </h2>
+
+
+              <p
+                class="scene-description"
+                id="sceneDescription"
+                aria-live="polite"
+              >
+                Comenzamos nuestro recorrido.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           CONTROLES
+      ==================================================== -->
+
+      <div class="presentation-controls">
+
+        <button
+          class="control-button"
+          id="previousButton"
+          type="button"
+          aria-label="Escena anterior"
+        >
+          ‹
+        </button>
+
+
+        <button
+          class="control-button control-button-main"
+          id="pauseButton"
+          type="button"
+          aria-label="Pausar presentación"
+        >
+
+          <span id="pauseButtonIcon">
+            Ⅱ
+          </span>
+
+        </button>
+
+
+        <button
+          class="control-button"
+          id="nextButton"
+          type="button"
+          aria-label="Escena siguiente"
+        >
+          ›
+        </button>
+
+
+        <button
+          class="control-button"
+          id="fullscreenButton"
+          type="button"
+          aria-label="Ver en pantalla completa"
+        >
+          ⛶
+        </button>
+
+      </div>
+
+
+      <!-- ===================================================
+           PROGRESO
+      ==================================================== -->
+
+      <footer class="presentation-footer">
+
+        <div
+          class="progress-track"
+          aria-hidden="true"
+        >
+
+          <div
+            class="progress-bar"
+            id="progressBar"
+          ></div>
+
+        </div>
+
+
+        <div class="progress-information">
+
+          <span id="currentSceneCounter">
+            01
+          </span>
+
+          <span class="progress-separator">
+            /
+          </span>
+
+          <span id="totalSceneCounter">
+            25
+          </span>
+
+        </div>
+
+      </footer>
+
+    </section>
+
+
+    <!-- =====================================================
+         PANTALLA FINAL
+    ====================================================== -->
+
+    <section
+      class="closing-screen"
+      id="closingScreen"
+      aria-labelledby="closingTitle"
+      hidden
+    >
+
+      <div class="closing-content">
+
+
+        <!-- AION FINAL -->
+
+        <div
+          class="closing-aion"
+          aria-hidden="true"
+        >
+
+          <div class="closing-aion-halo"></div>
+
+
+          <div
+            class="falco-aion"
+            data-state="idle"
+          >
+
+            <div class="falco-aion-halo"></div>
+
+
+            <div class="falco-aion-sensors">
+
+              <span
+                class="falco-aion-sensor falco-aion-sensor-left"
+              ></span>
+
+              <span
+                class="falco-aion-sensor falco-aion-sensor-right"
+              ></span>
+
+            </div>
+
+
+            <div class="falco-aion-field"></div>
+
+
+            <div class="falco-aion-sphere">
+
+              <div class="falco-aion-light"></div>
+
+
+              <div class="falco-aion-eyes">
+
+                <span class="falco-aion-eye"></span>
+
+                <span class="falco-aion-eye"></span>
+
+              </div>
+
+
+              <div class="falco-aion-reflection"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- TEXTO FINAL -->
+
+        <span class="closing-eyebrow">
+          Fin del recorrido
+        </span>
+
+
+        <h2 id="closingTitle">
+
+          Gracias por conocer el Sistema FALCO<sup>®</sup>
+
+        </h2>
+
+
+        <p>
+
+          Un ecosistema profesional creado para acompañar
+          la práctica psicológica forense.
+
+        </p>
+
+
+        <div class="closing-signature">
+
+          <strong>
+            Estudio Pericial Psicológico
+          </strong>
+
+          <span>
+            Lic. en Psicología Isabela Falco
+          </span>
+
+        </div>
+
+
+        <!-- ACCIONES FINALES -->
+
+        <div class="closing-actions">
+
+          <button
+            class="restart-button"
+            id="restartButton"
+            type="button"
+          >
+            Ver nuevamente
+          </button>
+
+
+          <a
+            class="website-button"
+            href="https://periciapsicologicafalco.ar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visitar sitio web
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <noscript>
+
+    <div class="noscript-message">
+
+      Esta presentación necesita JavaScript para funcionar.
+
+    </div>
+
+  </noscript>
+
+
+  <script src="js/presentacion.js"></script>
+
+</body>
+
+</html>
