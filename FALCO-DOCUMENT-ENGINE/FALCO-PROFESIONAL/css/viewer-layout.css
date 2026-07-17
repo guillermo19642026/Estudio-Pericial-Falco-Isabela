@@ -1382,3 +1382,44 @@ body.falco-viewer-con-navegacion
     }
 
 }
+
+
+/* =========================================================
+   FALCO® VIEWER CLEANUP™ v1.0
+========================================================= */
+
+.falco-cleanup-activo
+.falco-campo-vacio,
+
+.falco-cleanup-activo
+.falco-grupo-vacio {
+
+    display:
+        none !important;
+
+}
+
+
+.falco-capitulo-sin-datos {
+
+    opacity:
+        .82;
+
+}
+
+
+.falco-capitulo-sin-datos
+.capitulo-contenido {
+
+    min-height:
+        0;
+
+}
+
+
+.falco-campo-con-informacion {
+
+    visibility:
+        visible;
+
+}

@@ -1,0 +1,334 @@
+/* =========================================================
+   FALCO® VIEWER FAMILIAR™ v1.0
+========================================================= */
+
+.falco-family-original {
+
+    display:
+        none !important;
+
+}
+
+
+.falco-family-view {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        20px;
+
+    width:
+        100%;
+
+}
+
+
+.falco-family-card {
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid rgba(
+            212,
+            175,
+            55,
+            .35
+        );
+
+    border-radius:
+        16px;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 8px 24px rgba(
+            15,
+            23,
+            42,
+            .06
+        );
+
+}
+
+
+.falco-family-card-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        16px;
+
+    padding:
+        16px 18px;
+
+    border-bottom:
+        1px solid rgba(
+            212,
+            175,
+            55,
+            .22
+        );
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                212,
+                175,
+                55,
+                .12
+            ),
+            rgba(
+                212,
+                175,
+                55,
+                .03
+            )
+        );
+
+}
+
+
+.falco-family-card-title {
+
+    margin:
+        0;
+
+    color:
+        #1f2937;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        20px;
+
+    font-weight:
+        600;
+
+}
+
+
+.falco-family-card-count {
+
+    flex:
+        0 0 auto;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            212,
+            175,
+            55,
+            .15
+        );
+
+    color:
+        #735c13;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .04em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.falco-family-card-body {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    margin:
+        0;
+
+    padding:
+        8px 18px 12px;
+
+}
+
+
+.falco-family-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            130px,
+            .75fr
+        )
+        minmax(
+            0,
+            1.25fr
+        );
+
+    gap:
+        18px;
+
+    align-items:
+        start;
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid rgba(
+            148,
+            163,
+            184,
+            .18
+        );
+
+}
+
+
+.falco-family-row:last-child {
+
+    border-bottom:
+        0;
+
+}
+
+
+.falco-family-label {
+
+    color:
+        #64748b;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.5;
+
+}
+
+
+.falco-family-value {
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    color:
+        #1e293b;
+
+    font-size:
+        14px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.65;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+
+.falco-family-card-pareja,
+.falco-family-card-hijos,
+.falco-family-card-general {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+@media (
+    max-width:
+        900px
+) {
+
+    .falco-family-view {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .falco-family-card-pareja,
+    .falco-family-card-hijos,
+    .falco-family-card-general {
+
+        grid-column:
+            auto;
+
+    }
+
+}
+
+
+@media (
+    max-width:
+        560px
+) {
+
+    .falco-family-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            4px;
+
+    }
+
+
+    .falco-family-card-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+}

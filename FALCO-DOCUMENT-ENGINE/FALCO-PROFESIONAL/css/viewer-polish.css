@@ -1,0 +1,404 @@
+/* =========================================================
+   FALCO® VIEWER POLISH™ v1.0
+   Correcciones visuales específicas y reversibles
+========================================================= */
+
+/*
+ * El capítulo 10 ya presenta el título "Tratamientos".
+ * Se oculta únicamente el encabezado repetido del grupo
+ * interior, sin ocultar el grupo ni sus datos.
+ */
+
+#capitulo-10
+>
+.capitulo-contenido
+>
+.falco-grupo-datos[data-tipo-grupo="tratamiento"]
+>
+.falco-grupo-encabezado {
+
+    display:
+        none;
+
+}
+
+
+/*
+ * Al retirarse el encabezado interior, se conserva una
+ * separación visual correcta en el cuerpo del grupo.
+ */
+
+#capitulo-10
+.falco-grupo-datos[data-tipo-grupo="tratamiento"]
+>
+.falco-grupo-cuerpo {
+
+    padding-top:
+        0;
+
+}
+
+/* =========================================================
+   CORRECCIÓN GRUPOS INTERIORES
+   Tratamientos / Salud / otros módulos agrupados
+========================================================= */
+
+
+.falco-grupo-cuerpo {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+
+}
+
+
+/*
+ * Cada campo dentro de un grupo debe ocupar una fila propia.
+ */
+
+.falco-grupo-cuerpo
+.falco-bloque-dato {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(180px, 0.8fr)
+        minmax(250px, 1.2fr);
+
+    align-items:
+        start;
+
+    gap:
+        20px;
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid
+        rgba(
+            148,
+            163,
+            184,
+            .18
+        );
+
+}
+
+
+/*
+ * Etiqueta
+ */
+
+.falco-grupo-cuerpo
+.falco-etiqueta-dato {
+
+    font-weight:
+        700;
+
+    color:
+        #64748b;
+
+    line-height:
+        1.4;
+
+}
+
+
+/*
+ * Valor
+ */
+
+.falco-grupo-cuerpo
+.falco-valor-dato {
+
+    min-width:
+        0;
+
+    color:
+        #1e293b;
+
+    line-height:
+        1.6;
+
+}
+
+
+.falco-grupo-cuerpo
+.falco-valor-dato span {
+
+    display:
+        inline-block;
+
+}
+
+/* =========================================================
+   ESPACIADO INTERNO GRUPOS
+========================================================= */
+
+.falco-grupo-cuerpo {
+
+    padding-left:
+        24px;
+
+    padding-right:
+        24px;
+
+}
+
+
+/*
+ * En pantallas pequeñas reducimos el margen
+ */
+
+@media (
+    max-width: 700px
+) {
+
+    .falco-grupo-cuerpo {
+
+        padding-left:
+            12px;
+
+        padding-right:
+            12px;
+
+    }
+
+}
+
+/* =========================================================
+   AJUSTE FINO MARGEN IZQUIERDO GRUPOS
+========================================================= */
+
+.falco-grupo-cuerpo
+.falco-bloque-dato {
+
+    padding-left:
+        28px;
+
+    padding-right:
+        18px;
+
+}
+
+
+/* Separación adicional entre etiqueta y valor */
+
+.falco-grupo-cuerpo
+.falco-etiqueta-dato {
+
+    padding-left:
+        4px;
+
+}
+
+
+@media (
+    max-width: 700px
+) {
+
+    .falco-grupo-cuerpo
+    .falco-bloque-dato {
+
+        padding-left:
+            12px;
+
+        padding-right:
+            12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   FALCO® VIEWER POLISH
+   Tarjetas para capítulos sin grupos
+========================================================= */
+
+
+/*
+ * Capítulos simples:
+ * Salud, Impacto, Trabajo, etc.
+ */
+
+.falco-capitulo-antecedentes-salud
+.falco-bloque-dato {
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        rgba(
+            212,
+            175,
+            55,
+            .25
+        );
+
+    border-radius:
+        14px;
+
+    padding:
+        16px 22px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(
+            15,
+            23,
+            42,
+            .05
+        );
+
+}
+
+
+/*
+ * Separación entre campos
+ */
+
+.falco-capitulo-antecedentes-salud
+.capitulo-contenido {
+
+    gap:
+        14px;
+
+}
+
+
+/*
+ * Etiquetas
+ */
+
+.falco-capitulo-antecedentes-salud
+.falco-etiqueta-dato {
+
+    color:
+        #64748b;
+
+    font-weight:
+        700;
+
+}
+
+
+/*
+ * Valores
+ */
+
+.falco-capitulo-antecedentes-salud
+.falco-valor-dato {
+
+    color:
+        #1e293b;
+
+    font-weight:
+        500;
+
+}
+
+
+/* =========================================================
+   FALCO® VIEWER POLISH™
+   Tarjetas profesionales para campos simples
+========================================================= */
+
+
+/*
+ * Campos individuales fuera de grupos
+ */
+
+.capitulo-contenido
+>
+.falco-bloque-dato {
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        rgba(
+            212,
+            175,
+            55,
+            .28
+        );
+
+    border-radius:
+        14px;
+
+    padding:
+        16px 24px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(
+            15,
+            23,
+            42,
+            .05
+        );
+
+}
+
+
+/*
+ * Separación entre tarjetas
+ */
+
+.capitulo-contenido {
+
+    gap:
+        14px;
+
+}
+
+
+/*
+ * Etiquetas de campos simples
+ */
+
+.capitulo-contenido
+.falco-bloque-dato
+.falco-etiqueta-dato {
+
+    color:
+        #64748b;
+
+    font-weight:
+        700;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+/*
+ * Valores
+ */
+
+.capitulo-contenido
+.falco-bloque-dato
+.falco-valor-dato {
+
+    color:
+        #1e293b;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.6;
+
+}
