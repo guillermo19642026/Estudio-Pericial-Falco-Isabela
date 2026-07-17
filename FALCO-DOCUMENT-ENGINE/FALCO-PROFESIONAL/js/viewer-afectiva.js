@@ -1,14 +1,14 @@
 /* =========================================================
-   FALCO® Viewer Familiar™ v1.0
+   FALCO® Viewer Área Afectiva™ v1.0
 
    Función:
-   - Convierte Grupo Familiar en fichas profesionales.
-   - Lee los datos ya renderizados por el Viewer.
+   - Organiza el capítulo Área Afectiva.
+   - Lee datos ya renderizados.
    - No modifica Firestore ni el Core.
-   - Conserva la estructura original como respaldo.
+   - Conserva la vista original como respaldo.
 ========================================================= */
 
-const FalcoViewerFamily = {
+const FalcoViewerAfectiva = {
 
     version: "1.0",
 
@@ -22,57 +22,36 @@ const FalcoViewerFamily = {
 
     contenidoOriginal: null,
 
-    contenedorFichas: null,
+    contenedor: null,
 
 
-entidades: {
+    /* =====================================================
+       CONFIGURACIÓN DE GRUPOS
+    ===================================================== */
 
-    padre: {
-        titulo: "Padre",
-        orden: 1
+    grupos: {
+
+        situacion: {
+            titulo: "Situación afectiva",
+            orden: 1
+        },
+
+        pareja: {
+            titulo: "Pareja actual",
+            orden: 2
+        },
+
+        convivencia: {
+            titulo: "Convivencia y familia en común",
+            orden: 3
+        },
+
+        general: {
+            titulo: "Información afectiva",
+            orden: 99
+        }
+
     },
-
-    madre: {
-        titulo: "Madre",
-        orden: 2
-    },
-
-    pareja: {
-        titulo: "Pareja",
-        orden: 3
-    },
-
-    hermanos: {
-        titulo: "Hermanos",
-        orden: 4
-    },
-
-    hijos: {
-        titulo: "Hijos",
-        orden: 5
-    },
-
-    abuelos: {
-        titulo: "Abuelos",
-        orden: 6
-    },
-
-    familiaPolitica: {
-        titulo: "Familia política",
-        orden: 7
-    },
-
-    familiaExtendida: {
-        titulo: "Familia extendida",
-        orden: 8
-    },
-
-    general: {
-        titulo: "Información familiar",
-        orden: 99
-    }
-
-},
 
 
     /* =====================================================
@@ -82,7 +61,7 @@ entidades: {
     init() {
 
         console.info(
-            `FALCO Viewer Familiar™ v${this.version} Ready`
+            `FALCO Viewer Área Afectiva™ v${this.version} Ready`
         );
 
         this.esperarCapitulo();
@@ -103,7 +82,7 @@ entidades: {
 
                 const capitulo =
                     document.querySelector(
-                        '[data-modulo="grupo-familiar"]'
+                        '[data-modulo="area-afectiva"]'
                     );
 
                 const cleanupActivo =
@@ -148,7 +127,7 @@ entidades: {
                     );
 
                     console.warn(
-                        "FALCO Viewer Familiar™ no encontró el capítulo preparado."
+                        "FALCO Viewer Área Afectiva™ no encontró el capítulo preparado."
                     );
 
                 }
@@ -159,7 +138,7 @@ entidades: {
 
 
     /* =====================================================
-       APLICAR VIEWER FAMILIAR
+       APLICAR VIEWER
     ===================================================== */
 
     aplicar() {
@@ -167,7 +146,7 @@ entidades: {
         if (
             !this.capitulo ||
             this.capitulo.classList.contains(
-                "falco-family-activo"
+                "falco-afectiva-activo"
             )
         ) {
             return;
@@ -181,7 +160,7 @@ entidades: {
         if (!this.contenidoOriginal) {
 
             console.warn(
-                "FALCO Viewer Familiar™ no encontró el contenido del capítulo."
+                "FALCO Viewer Área Afectiva™ no encontró el contenido original."
             );
 
             return;
@@ -194,7 +173,7 @@ entidades: {
         if (!campos.length) {
 
             console.info(
-                "FALCO Viewer Familiar™ no encontró información visible."
+                "FALCO Viewer Área Afectiva™ no encontró información visible."
             );
 
             return;
@@ -206,25 +185,19 @@ entidades: {
                 campos
             );
 
-        this.contenedorFichas =
+        this.contenedor =
             this.crearContenedor(
                 grupos
             );
 
-        if (!this.contenedorFichas) {
+        if (!this.contenedor) {
             return;
         }
-
-        /*
-         * La estructura original no se elimina.
-         * Solo se oculta después de crear correctamente
-         * la vista profesional.
-         */
 
         this.contenidoOriginal
             .classList
             .add(
-                "falco-family-original"
+                "falco-afectiva-original"
             );
 
         this.contenidoOriginal
@@ -236,26 +209,38 @@ entidades: {
         this.contenidoOriginal
             .insertAdjacentElement(
                 "beforebegin",
-                this.contenedorFichas
+                this.contenedor
             );
+
+
+/* =====================================================
+   OCULTAR CONTENIDO ORIGINAL
+===================================================== */
+
+this.contenidoOriginal.hidden = true;
+
+this.contenidoOriginal.style.display = "none";
+
+
+
 
         this.capitulo
             .classList
             .add(
-                "falco-family-activo"
+                "falco-afectiva-activo"
             );
 
         this.capitulo.dataset
-            .familyVersion =
+            .afectivaVersion =
             this.version;
 
         console.info(
-            "FALCO Viewer Familiar™ aplicado correctamente.",
+            "FALCO Viewer Área Afectiva™ aplicado correctamente.",
             {
                 camposProcesados:
                     campos.length,
 
-                fichasGeneradas:
+                gruposGenerados:
                     Object.keys(
                         grupos
                     ).length
@@ -277,23 +262,14 @@ entidades: {
             )
         )
         .filter(
-            bloque => {
-
-                return (
-                    !bloque.hidden &&
-                    !bloque.classList.contains(
-                        "falco-campo-vacio"
-                    )
-                );
-
-            }
+            bloque =>
+                !bloque.hidden &&
+                !bloque.classList.contains(
+                    "falco-campo-vacio"
+                )
         )
         .map(
             bloque => {
-
-                const tipo =
-                    bloque.dataset.tipoCampo ||
-                    "general";
 
                 const etiqueta =
                     bloque
@@ -322,9 +298,11 @@ entidades: {
                     "";
 
                 return {
-                    tipo,
                     etiqueta,
                     valor,
+                    tipo:
+                        bloque.dataset.tipoCampo ||
+                        "general",
                     bloque
                 };
 
@@ -339,152 +317,109 @@ entidades: {
     },
 
 
-/* =====================================================
-   AGRUPAR CAMPOS
-===================================================== */
+    /* =====================================================
+       AGRUPAR CAMPOS
+    ===================================================== */
 
-agruparCampos(campos) {
+    agruparCampos(campos) {
 
-    const grupos = {};
+        const resultado = {};
 
-    campos.forEach(
-        campo => {
+        campos.forEach(
+            campo => {
 
-            const tipo =
-                this.detectarTipoFamiliar(
+                const tipo =
+                    this.detectarGrupo(
+                        campo.etiqueta
+                    );
+
+                if (!resultado[tipo]) {
+
+                    resultado[tipo] = [];
+
+                }
+
+                resultado[tipo].push(
                     campo
                 );
 
-            if (!grupos[tipo]) {
-
-                grupos[tipo] = [];
-
             }
+        );
 
-            grupos[tipo].push(
-                campo
-            );
+        return resultado;
+
+    },
+
+
+    /* =====================================================
+       DETECTAR GRUPO
+    ===================================================== */
+
+    detectarGrupo(etiqueta) {
+
+        const texto =
+            String(etiqueta)
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(
+                    /[\u0300-\u036f]/g,
+                    ""
+                );
+
+        if (
+            texto.includes(
+                "estado civil"
+            ) ||
+            texto.includes(
+                "tiene pareja"
+            )
+        ) {
+
+            return "situacion";
 
         }
-    );
 
-    return grupos;
+        if (
+            texto.includes(
+                "nombre pareja"
+            ) ||
+            texto.includes(
+                "edad pareja"
+            ) ||
+            texto.includes(
+                "ocupacion pareja"
+            ) ||
+            texto.includes(
+                "tiempo relacion"
+            )
+        ) {
 
-},
+            return "pareja";
 
+        }
 
-/* =====================================================
-   DETECTAR TIPO FAMILIAR
-===================================================== */
+        if (
+            texto.includes(
+                "conviven"
+            ) ||
+            texto.includes(
+                "hijos comun"
+            ) ||
+            texto.includes(
+                "hijos en comun"
+            ) ||
+            texto.includes(
+                "convivencia"
+            )
+        ) {
 
-detectarTipoFamiliar(campo) {
+            return "convivencia";
 
-    const tipoOriginal =
-        String(
-            campo.tipo || ""
-        )
-        .trim();
+        }
 
-    /*
-     * Conserva las clasificaciones
-     * que ya llegan correctamente desde el Core.
-     */
+        return "general";
 
-    if (
-        tipoOriginal &&
-        tipoOriginal !== "general" &&
-        this.entidades[
-            tipoOriginal
-        ]
-    ) {
-
-        return tipoOriginal;
-
-    }
-
-    const texto =
-        `${campo.etiqueta || ""} ${campo.valor || ""}`
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(
-                /[\u0300-\u036f]/g,
-                ""
-            );
-
-    /*
-     * Clasificación de los nuevos grupos.
-     */
-
-    if (
-        /\babuel[oa]s?\b/.test(
-            texto
-        )
-    ) {
-
-        return "abuelos";
-
-    }
-
-    if (
-        texto.includes(
-            "familia politica"
-        ) ||
-        texto.includes(
-            "familia del conyuge"
-        ) ||
-        texto.includes(
-            "familia de la pareja"
-        ) ||
-        /\bsuegr[oa]s?\b/.test(
-            texto
-        ) ||
-        /\bcuñad[oa]s?\b/.test(
-            texto
-        )
-    ) {
-
-        return "familiaPolitica";
-
-    }
-
-    if (
-        texto.includes(
-            "familia extendida"
-        ) ||
-        texto.includes(
-            "familia extensa"
-        ) ||
-        /\btios?\b/.test(
-            texto
-        ) ||
-        /\btias?\b/.test(
-            texto
-        ) ||
-        /\bprimos?\b/.test(
-            texto
-        ) ||
-        /\bprimas?\b/.test(
-            texto
-        ) ||
-        /\bsobrinos?\b/.test(
-            texto
-        ) ||
-        /\bsobrinas?\b/.test(
-            texto
-        )
-    ) {
-
-        return "familiaExtendida";
-
-    }
-
-    return this.entidades[
-        tipoOriginal
-    ]
-        ? tipoOriginal
-        : "general";
-
-},
+    },
 
 
     /* =====================================================
@@ -498,22 +433,17 @@ detectarTipoFamiliar(campo) {
                 grupos
             )
             .sort(
-                (a, b) => {
-
-                    const ordenA =
-                        this.entidades[a]
+                (a, b) =>
+                    (
+                        this.grupos[a]
                             ?.orden ??
-                        999;
-
-                    const ordenB =
-                        this.entidades[b]
+                        999
+                    ) -
+                    (
+                        this.grupos[b]
                             ?.orden ??
-                        999;
-
-                    return ordenA -
-                        ordenB;
-
-                }
+                        999
+                    )
             );
 
         if (!tipos.length) {
@@ -526,25 +456,25 @@ detectarTipoFamiliar(campo) {
             );
 
         contenedor.className =
-            "falco-family-view";
+            "falco-afectiva-view";
 
         contenedor.dataset
-            .familyGenerated =
+            .afectivaGenerated =
             "true";
 
         tipos.forEach(
             tipo => {
 
-                const ficha =
-                    this.crearFicha(
+                const tarjeta =
+                    this.crearTarjeta(
                         tipo,
                         grupos[tipo]
                     );
 
-                if (ficha) {
+                if (tarjeta) {
 
                     contenedor.appendChild(
-                        ficha
+                        tarjeta
                     );
 
                 }
@@ -558,35 +488,29 @@ detectarTipoFamiliar(campo) {
 
 
     /* =====================================================
-       CREAR FICHA
+       CREAR TARJETA
     ===================================================== */
 
-    crearFicha(
+    crearTarjeta(
         tipo,
         campos
     ) {
 
-        if (
-            !campos ||
-            !campos.length
-        ) {
+        if (!campos?.length) {
             return null;
         }
 
         const configuracion =
-            this.entidades[tipo] ||
-            this.entidades.general;
+            this.grupos[tipo] ||
+            this.grupos.general;
 
-        const ficha =
+        const tarjeta =
             document.createElement(
                 "article"
             );
 
-        ficha.className =
-            `falco-family-card falco-family-card-${tipo}`;
-
-        ficha.dataset.familyType =
-            tipo;
+        tarjeta.className =
+            `falco-afectiva-card falco-afectiva-card-${tipo}`;
 
         const encabezado =
             document.createElement(
@@ -594,7 +518,7 @@ detectarTipoFamiliar(campo) {
             );
 
         encabezado.className =
-            "falco-family-card-header";
+            "falco-afectiva-card-header";
 
         const titulo =
             document.createElement(
@@ -602,29 +526,13 @@ detectarTipoFamiliar(campo) {
             );
 
         titulo.className =
-            "falco-family-card-title";
+            "falco-afectiva-card-title";
 
         titulo.textContent =
             configuracion.titulo;
 
-        const contador =
-            document.createElement(
-                "span"
-            );
-
-        contador.className =
-            "falco-family-card-count";
-
-        contador.textContent =
-            `${campos.length} ${
-                campos.length === 1
-                    ? "dato"
-                    : "datos"
-            }`;
-
-        encabezado.append(
-            titulo,
-            contador
+        encabezado.appendChild(
+            titulo
         );
 
         const cuerpo =
@@ -633,42 +541,36 @@ detectarTipoFamiliar(campo) {
             );
 
         cuerpo.className =
-            "falco-family-card-body";
+            "falco-afectiva-card-body";
 
         campos
             .sort(
-                (
-                    campoA,
-                    campoB
-                ) =>
+                (a, b) =>
                     this.obtenerOrdenCampo(
-                        campoA.etiqueta
+                        a.etiqueta
                     ) -
                     this.obtenerOrdenCampo(
-                        campoB.etiqueta
+                        b.etiqueta
                     )
             )
             .forEach(
                 campo => {
 
-                    const fila =
+                    cuerpo.appendChild(
                         this.crearFila(
                             campo
-                        );
-
-                    cuerpo.appendChild(
-                        fila
+                        )
                     );
 
                 }
             );
 
-        ficha.append(
+        tarjeta.append(
             encabezado,
             cuerpo
         );
 
-        return ficha;
+        return tarjeta;
 
     },
 
@@ -685,7 +587,7 @@ detectarTipoFamiliar(campo) {
             );
 
         fila.className =
-            "falco-family-row";
+            "falco-afectiva-row";
 
         const etiqueta =
             document.createElement(
@@ -693,7 +595,7 @@ detectarTipoFamiliar(campo) {
             );
 
         etiqueta.className =
-            "falco-family-label";
+            "falco-afectiva-label";
 
         etiqueta.textContent =
             this.formatearEtiqueta(
@@ -706,7 +608,7 @@ detectarTipoFamiliar(campo) {
             );
 
         valor.className =
-            "falco-family-value";
+            "falco-afectiva-value";
 
         valor.textContent =
             this.formatearValor(
@@ -732,53 +634,30 @@ detectarTipoFamiliar(campo) {
 
         const reemplazos = {
 
-            "Padre Vive":
-                "Vive",
-
-            "Madre Vive":
-                "Vive",
-
-            "Nombre Padre":
+            "Nombre Pareja":
                 "Nombre",
 
-            "Nombre Madre":
-                "Nombre",
-
-            "Edad Padre":
+            "Edad Pareja":
                 "Edad",
 
-            "Edad Madre":
-                "Edad",
-
-            "Ocupacion Padre":
+            "Ocupacion Pareja":
                 "Ocupación",
 
-            "Ocupacion Madre":
-                "Ocupación",
+            "Tiempo Relacion":
+                "Tiempo de relación",
 
-            "Tiene Hermanos":
-                "Tiene hermanos",
+            "Hijos Comun":
+                "Hijos en común",
 
-            "Cantidad Hermanos":
-                "Cantidad",
+            "Tiene Pareja":
+                "Tiene pareja",
 
-            "Tiene Hijos":
-                "Tiene hijos",
-
-            "Cantidad Hijos":
-                "Cantidad",
-
-            "Descripcion Convivencia":
-                "Descripción de la convivencia",
-
-            "Personas Convivientes":
-                "Personas convivientes"
+            "Estado Civil":
+                "Estado civil"
 
         };
 
-        if (
-            reemplazos[etiqueta]
-        ) {
+        if (reemplazos[etiqueta]) {
 
             return reemplazos[
                 etiqueta
@@ -794,10 +673,6 @@ detectarTipoFamiliar(campo) {
             .replace(
                 /\bOcupacion\b/g,
                 "Ocupación"
-            )
-            .replace(
-                /\bDescripcion\b/g,
-                "Descripción"
             )
             .replace(
                 /\bRelacion\b/g,
@@ -818,9 +693,7 @@ detectarTipoFamiliar(campo) {
     ) {
 
         const texto =
-            String(
-                valor
-            ).trim();
+            String(valor).trim();
 
         if (
             etiqueta
@@ -853,21 +726,15 @@ detectarTipoFamiliar(campo) {
 
         const prioridades = [
 
+            "estado civil",
+            "tiene pareja",
             "nombre",
             "edad",
-            "vive",
             "ocupacion",
             "ocupación",
-            "tiene",
-            "cantidad",
-            "personas convivientes",
-            "descripcion convivencia",
-            "descripción convivencia",
-            "vinculo",
-            "vínculo",
-            "apoyo",
-            "frecuencia",
-            "observaciones"
+            "tiempo",
+            "conviven",
+            "hijos"
 
         ];
 
@@ -887,14 +754,14 @@ detectarTipoFamiliar(campo) {
 
 
     /* =====================================================
-       RESTAURAR VISTA ORIGINAL
+       RESTAURAR
     ===================================================== */
 
     restaurar() {
 
         this.capitulo =
             document.querySelector(
-                '[data-modulo="grupo-familiar"]'
+                '[data-modulo="area-afectiva"]'
             );
 
         if (!this.capitulo) {
@@ -903,7 +770,7 @@ detectarTipoFamiliar(campo) {
 
         this.capitulo
             .querySelectorAll(
-                '[data-family-generated="true"]'
+                '[data-afectiva-generated="true"]'
             )
             .forEach(
                 elemento =>
@@ -912,13 +779,13 @@ detectarTipoFamiliar(campo) {
 
         const original =
             this.capitulo.querySelector(
-                ".falco-family-original"
+                ".falco-afectiva-original"
             );
 
         if (original) {
 
             original.classList.remove(
-                "falco-family-original"
+                "falco-afectiva-original"
             );
 
             original.removeAttribute(
@@ -928,14 +795,14 @@ detectarTipoFamiliar(campo) {
         }
 
         this.capitulo.classList.remove(
-            "falco-family-activo"
+            "falco-afectiva-activo"
         );
 
         delete this.capitulo.dataset
-            .familyVersion;
+            .afectivaVersion;
 
         console.info(
-            "FALCO Viewer Familiar™ restaurado."
+            "FALCO Viewer Área Afectiva™ restaurado."
         );
 
     }
@@ -947,8 +814,8 @@ detectarTipoFamiliar(campo) {
    EXPOSICIÓN GLOBAL
 ========================================================= */
 
-window.FalcoViewerFamily =
-    FalcoViewerFamily;
+window.FalcoViewerAfectiva =
+    FalcoViewerAfectiva;
 
 
 /* =========================================================
@@ -959,7 +826,7 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        FalcoViewerFamily.init();
+        FalcoViewerAfectiva.init();
 
     }
 );

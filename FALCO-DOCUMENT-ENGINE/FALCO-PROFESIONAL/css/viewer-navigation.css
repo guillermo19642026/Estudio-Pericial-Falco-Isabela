@@ -952,3 +952,434 @@ body.falco-viewer-con-navegacion
     }
 
 }
+
+
+/* =========================================================
+   FALCO® — ÍNDICE EDITORIAL DEL EXPEDIENTE
+========================================================= */
+
+.indice {
+
+  padding-top:
+    64px;
+
+  padding-bottom:
+    64px;
+
+}
+
+
+.indice > .capitulo-numero {
+
+  display:
+    inline-block;
+
+  margin-bottom:
+    10px;
+
+  color:
+    #a88928;
+
+  font-family:
+    "Montserrat",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.18em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.indice > h2 {
+
+  margin:
+    0 0 36px;
+
+  color:
+    #25231f;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(28px, 4vw, 38px);
+
+  font-weight:
+    500;
+
+  line-height:
+    1.15;
+
+}
+
+
+/* =========================================================
+   LISTADO
+========================================================= */
+
+#indiceCapitulos {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap:
+    44px;
+
+  row-gap:
+    0;
+
+  margin:
+    0;
+
+  padding:
+    0;
+
+  list-style:
+    none;
+
+  counter-reset:
+    falco-indice;
+
+}
+
+
+/* =========================================================
+   CADA CAPÍTULO
+========================================================= */
+
+#indiceCapitulos > li {
+
+  counter-increment:
+    falco-indice;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    34px minmax(0, 1fr) auto;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  min-width:
+    0;
+
+  padding:
+    16px 0;
+
+  border-bottom:
+    1px solid #ece8df;
+
+}
+
+
+/* Número delicado */
+
+#indiceCapitulos > li::before {
+
+  content:
+    counter(falco-indice, decimal-leading-zero);
+
+  color:
+    #b49a4a;
+
+  font-family:
+    "Montserrat",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.08em;
+
+}
+
+
+/* =========================================================
+   ENLACE / NOMBRE DEL CAPÍTULO
+========================================================= */
+
+#indiceCapitulos a {
+
+  display:
+    block;
+
+  min-width:
+    0;
+
+  color:
+    #2c2924;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    14px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.45;
+
+  text-decoration:
+    none;
+
+  overflow-wrap:
+    anywhere;
+
+  transition:
+    color 160ms ease;
+
+}
+
+
+#indiceCapitulos a:hover {
+
+  color:
+    #a88928;
+
+}
+
+
+/* Oculta un número duplicado si el JS ya lo genera */
+
+#indiceCapitulos a .indice-numero,
+#indiceCapitulos .numero-capitulo {
+
+  display:
+    none;
+
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+#indiceCapitulos .indice-estado,
+#indiceCapitulos .estado-capitulo,
+#indiceCapitulos [class*="estado"] {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  color:
+    #777066;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    10px;
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    0.035em;
+
+  white-space:
+    nowrap;
+
+}
+
+
+/* Punto de estado */
+
+#indiceCapitulos .indice-estado::before,
+#indiceCapitulos .estado-capitulo::before,
+#indiceCapitulos [class*="estado"]::before {
+
+  content:
+    "";
+
+  width:
+    5px;
+
+  height:
+    5px;
+
+  flex:
+    0 0 5px;
+
+  border-radius:
+    50%;
+
+  background:
+    #b9ad91;
+
+}
+
+
+/* Completo */
+
+#indiceCapitulos .completo,
+#indiceCapitulos [data-estado="completo"] {
+
+  color:
+    #6c685f;
+
+}
+
+
+#indiceCapitulos .completo::before,
+#indiceCapitulos [data-estado="completo"]::before {
+
+  background:
+    #b49a4a;
+
+}
+
+
+/* Sin información */
+
+#indiceCapitulos .sin-informacion,
+#indiceCapitulos [data-estado="sin-informacion"] {
+
+  color:
+    #aaa49a;
+
+  font-style:
+    italic;
+
+}
+
+
+#indiceCapitulos .sin-informacion::before,
+#indiceCapitulos [data-estado="sin-informacion"]::before {
+
+  background:
+    #d8d3ca;
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media screen and (max-width: 760px) {
+
+  .indice {
+
+    padding-top:
+      42px;
+
+    padding-bottom:
+      42px;
+
+  }
+
+
+  .indice > h2 {
+
+    margin-bottom:
+      24px;
+
+  }
+
+
+  #indiceCapitulos {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  #indiceCapitulos > li {
+
+    grid-template-columns:
+      30px minmax(0, 1fr);
+
+    gap:
+      10px;
+
+    padding:
+      14px 0;
+
+  }
+
+
+  #indiceCapitulos .indice-estado,
+  #indiceCapitulos .estado-capitulo,
+  #indiceCapitulos [class*="estado"] {
+
+    grid-column:
+      2;
+
+    justify-self:
+      start;
+
+    margin-top:
+      -5px;
+
+    font-size:
+      9px;
+
+  }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print {
+
+  #indiceCapitulos {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    column-gap:
+      32px;
+
+  }
+
+
+  #indiceCapitulos > li {
+
+    break-inside:
+      avoid;
+
+  }
+
+}

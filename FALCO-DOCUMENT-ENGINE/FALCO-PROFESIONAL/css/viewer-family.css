@@ -332,3 +332,164 @@
     }
 
 }
+
+
+/* =========================================================
+   FALCO® — ENCABEZADOS DE FICHAS FAMILIARES
+========================================================= */
+
+/* Fondo blanco en el encabezado */
+
+.falco-family-header {
+
+    background:
+        #ffffff !important;
+
+    border-bottom:
+        1px solid rgba(212,175,55,.30);
+
+}
+
+
+/* Título */
+
+.falco-family-title {
+
+    color:
+        #2b2b2b;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .03em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* Oculta el contador de datos */
+
+.falco-family-count,
+.falco-family-badge,
+.falco-family-total,
+.falco-family-counter {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   FALCO® FAMILY™
+   Encabezados simplificados
+========================================================= */
+
+/* Fondo blanco */
+
+.falco-family-card-header {
+
+    background:
+        #ffffff !important;
+
+    border-bottom:
+        1px solid rgba(212,175,55,.28);
+
+    padding:
+        14px 18px;
+
+}
+
+
+/* Oculta "4 datos", "2 datos"... */
+
+.falco-family-card-count {
+
+    display:
+        none !important;
+
+}
+
+
+/* Título */
+
+.falco-family-card-title {
+
+    margin:
+        0;
+
+    color:
+        #2b2b2b;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .04em;
+
+}
+
+
+/* =========================================================
+   FALCO® FAMILY™ — ENCABEZADOS UNIFICADOS
+========================================================= */
+
+.falco-family-card-header {
+
+    background:
+        #ffffff !important;
+
+    border-bottom:
+        1px solid rgba(212, 175, 55, .30) !important;
+
+    padding:
+        14px 18px !important;
+
+}
+
+
+/* Quita “4 datos”, “2 datos”, etc. */
+
+.falco-family-card-count {
+
+    display:
+        none !important;
+
+}
+
+
+/* Títulos familiares */
+
+.falco-family-card-title {
+
+    margin:
+        0 !important;
+
+    color:
+        #2b2b2b !important;
+
+    font-size:
+        16px !important;
+
+    font-weight:
+        700 !important;
+
+    letter-spacing:
+        .04em !important;
+
+    text-transform:
+        uppercase !important;
+
+}

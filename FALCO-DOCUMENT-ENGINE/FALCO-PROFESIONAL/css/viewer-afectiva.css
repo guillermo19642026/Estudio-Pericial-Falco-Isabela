@@ -1,0 +1,483 @@
+/* =========================================================
+   FALCO® Viewer Área Afectiva™ v1.0
+========================================================= */
+
+.falco-afectiva-view {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    20px;
+
+  width:
+    100%;
+
+  margin-top:
+    24px;
+
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.falco-afectiva-card {
+
+  min-width:
+    0;
+
+  overflow:
+    hidden;
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid #e7e2d8;
+
+  border-radius:
+    14px;
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.045);
+
+}
+
+
+/* La última tarjeta ocupa todo el ancho */
+
+.falco-afectiva-card:last-child {
+
+  grid-column:
+    1 / -1;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.falco-afectiva-card-header {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
+  padding:
+    18px 20px 15px;
+
+  background:
+    #ffffff;
+
+  border-bottom:
+    1px solid #d4af37;
+
+}
+
+
+.falco-afectiva-card-title {
+
+  margin:
+    0;
+
+  color:
+    #1f1f1f;
+
+  font-family:
+    "Montserrat",
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.4;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+/* Por si el JS genera contador */
+
+.falco-afectiva-card-count {
+
+  display:
+    none;
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.falco-afectiva-card-body {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  padding:
+    4px 20px 8px;
+
+}
+
+
+.falco-afectiva-row {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(140px, 0.75fr)
+    minmax(0, 1.25fr);
+
+  gap:
+    20px;
+
+  align-items:
+    start;
+
+  min-width:
+    0;
+
+  padding:
+    14px 0;
+
+  border-bottom:
+    1px solid #eeeae2;
+
+}
+
+
+.falco-afectiva-row:last-child {
+
+  border-bottom:
+    none;
+
+}
+
+
+/* =========================================================
+   ETIQUETAS Y VALORES
+========================================================= */
+
+.falco-afectiva-label {
+
+  min-width:
+    0;
+
+  color:
+    #6a6257;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.45;
+
+  letter-spacing:
+    0.035em;
+
+  text-transform:
+    uppercase;
+
+  overflow-wrap:
+    anywhere;
+
+}
+
+
+.falco-afectiva-value {
+
+  min-width:
+    0;
+
+  max-width:
+    100%;
+
+  color:
+    #222222;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    14px;
+
+  font-weight:
+    400;
+
+  line-height:
+    1.6;
+
+  white-space:
+    normal;
+
+  overflow-wrap:
+    anywhere;
+
+  word-break:
+    break-word;
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media screen and (max-width: 900px) {
+
+  .falco-afectiva-view {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .falco-afectiva-card:last-child {
+
+    grid-column:
+      auto;
+
+  }
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .falco-afectiva-view {
+
+    gap:
+      16px;
+
+    margin-top:
+      18px;
+
+  }
+
+
+  .falco-afectiva-card {
+
+    width:
+      100%;
+
+    max-width:
+      100%;
+
+    border-radius:
+      12px;
+
+  }
+
+
+  .falco-afectiva-card-header {
+
+    padding:
+      16px 14px 13px;
+
+  }
+
+
+  .falco-afectiva-card-body {
+
+    padding:
+      2px 14px 6px;
+
+  }
+
+
+  .falco-afectiva-row {
+
+    display:
+      flex;
+
+    flex-direction:
+      column;
+
+    gap:
+      5px;
+
+    width:
+      100%;
+
+    min-width:
+      0;
+
+    padding:
+      12px 0;
+
+  }
+
+
+  .falco-afectiva-label,
+  .falco-afectiva-value {
+
+    width:
+      100%;
+
+    max-width:
+      100%;
+
+  }
+
+
+  .falco-afectiva-label {
+
+    font-size:
+      11px;
+
+  }
+
+
+  .falco-afectiva-value {
+
+    font-size:
+      14px;
+
+    line-height:
+      1.5;
+
+  }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN / PDF
+========================================================= */
+
+@media print {
+
+  .falco-afectiva-view {
+
+    display:
+      block;
+
+    margin-top:
+      18px;
+
+  }
+
+
+  .falco-afectiva-card {
+
+    margin-bottom:
+      16px;
+
+    break-inside:
+      avoid;
+
+    box-shadow:
+      none;
+
+  }
+
+}
+
+
+/* =========================================================
+   ESPACIADO GENERAL DEL ÁREA AFECTIVA
+========================================================= */
+
+[data-modulo="area-afectiva"] .capitulo-contenido {
+
+  padding-top:
+    18px;
+
+}
+
+
+.falco-afectiva-view {
+
+  margin-top:
+    34px;
+
+  gap:
+    26px;
+
+}
+
+
+.falco-afectiva-card {
+
+  margin-bottom:
+    4px;
+
+}
+
+
+.falco-afectiva-card-header {
+
+  padding-top:
+    21px;
+
+  padding-bottom:
+    17px;
+
+}
+
+
+.falco-afectiva-card-body {
+
+  padding-top:
+    8px;
+
+  padding-bottom:
+    12px;
+
+}
+
+
+.falco-afectiva-row {
+
+  padding-top:
+    17px;
+
+  padding-bottom:
+    17px;
+
+}
