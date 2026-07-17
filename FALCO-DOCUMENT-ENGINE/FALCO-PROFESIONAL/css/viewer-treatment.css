@@ -1,0 +1,271 @@
+/* =========================================================
+   FALCO® VIEWER TRATAMIENTOS™ v1.1
+   Corrección exclusiva del capítulo 10
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   GRUPO PRINCIPAL
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-grupo-tratamiento {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* Evita que aparezca dos veces el título Tratamientos */
+
+[data-modulo="tratamientos"]
+.falco-grupo-tratamiento
+.falco-grupo-encabezado {
+
+    display:
+        none;
+
+}
+
+
+/* ---------------------------------------------------------
+   CUERPO DEL GRUPO
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-grupo-tratamiento
+.falco-grupo-cuerpo {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        14px;
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   CAMPOS INTERNOS DE TRATAMIENTO
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-grupo-tratamiento
+.falco-bloque-dato:not([hidden]) {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        6px;
+
+    min-width:
+        0;
+
+    width:
+        100%;
+
+    padding:
+        14px 16px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   ETIQUETAS
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-etiqueta-dato {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.4;
+
+    white-space:
+        normal;
+
+    overflow-wrap:
+        anywhere;
+
+    word-break:
+        normal;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   VALORES
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-valor-dato {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+
+    white-space:
+        normal;
+
+    overflow-wrap:
+        anywhere;
+
+    word-break:
+        normal;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+[data-modulo="tratamientos"]
+.falco-valor-dato span {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    white-space:
+        normal;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+
+/* ---------------------------------------------------------
+   CAMPOS QUE QUEDARON FUERA DEL GRUPO
+   Desde Cuando y Frecuencia
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-bloque-dato:not(.falco-campo-tratamiento):not([hidden]) {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        6px;
+
+    min-width:
+        0;
+
+    padding:
+        14px 16px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (
+    max-width:
+        800px
+) {
+
+    [data-modulo="tratamientos"]
+    .falco-grupo-tratamiento
+    .falco-grupo-cuerpo {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
