@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>FALCO Identity™</title>
+
+  <link
+    rel="stylesheet"
+    href="css/identity.css"
+  >
+</head>
+
+<body>
+
+  <main class="identity-shell">
+
+    <section class="identity-panel">
+
+      <span class="identity-brand">
+        FALCO®
+      </span>
+
+      <h1>
+        Identity Manager™
+      </h1>
+
+      <p class="identity-subtitle">
+        Identidad, sesión y permisos del ecosistema FALCO®
+      </p>
+
+      <div
+        id="identityStatus"
+        class="identity-status"
+      >
+        Verificando sesión...
+      </div>
+
+      <dl
+        id="identityData"
+        class="identity-data"
+        hidden
+      >
+        <div>
+          <dt>Usuario</dt>
+          <dd id="identityUid">—</dd>
+        </div>
+
+        <div>
+          <dt>Correo</dt>
+          <dd id="identityEmail">—</dd>
+        </div>
+
+        <div>
+          <dt>Rol</dt>
+          <dd id="identityRole">—</dd>
+        </div>
+      </dl>
+
+
+<div
+  id="identityActions"
+  class="identity-actions"
+  hidden
+>
+  <button
+    type="button"
+    id="identityLogout"
+    class="identity-button"
+  >
+    Cerrar sesión
+  </button>
+</div>
+
+
+
+    </section>
+
+  </main>
+
+  <script
+    type="module"
+    src="js/identity-firebase.js"
+  ></script>
+
+  <script
+    type="module"
+    src="js/identity-core.js"
+  ></script>
+
+</body>
+
+</html>

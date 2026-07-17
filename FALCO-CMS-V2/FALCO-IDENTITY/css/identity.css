@@ -1,0 +1,186 @@
+:root {
+  --falco-gold: #d4af37;
+  --falco-black: #171717;
+  --falco-white: #ffffff;
+  --falco-background: #f3f0e9;
+  --falco-border: #ded8ca;
+  --falco-muted: #727272;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  background:
+    var(--falco-background);
+
+  color:
+    var(--falco-black);
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+.identity-shell {
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+
+  padding: 30px;
+}
+
+.identity-panel {
+  width: min(620px, 100%);
+
+  padding: 38px;
+
+  border:
+    1px solid
+    var(--falco-border);
+
+  border-radius: 18px;
+
+  background:
+    var(--falco-white);
+
+  box-shadow:
+    0 18px 50px
+    rgba(0, 0, 0, 0.08);
+}
+
+.identity-brand {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color:
+    var(--falco-gold);
+
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.identity-panel h1 {
+  margin: 0 0 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.identity-subtitle {
+  margin: 0 0 28px;
+
+  color:
+    var(--falco-muted);
+}
+
+.identity-status {
+  padding: 16px;
+
+  border-radius: 10px;
+
+  background: #f6f4ee;
+
+  color:
+    var(--falco-muted);
+}
+
+.identity-status.is-success {
+  background: #e8f5ec;
+  color: #17663a;
+}
+
+.identity-status.is-error {
+  background: #fff0f0;
+  color: #9a2929;
+}
+
+.identity-data {
+  display: grid;
+  gap: 14px;
+
+  margin: 24px 0 0;
+}
+
+.identity-data div {
+  padding: 14px 0;
+
+  border-bottom:
+    1px solid
+    var(--falco-border);
+}
+
+.identity-data dt {
+  margin-bottom: 5px;
+
+  color:
+    var(--falco-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.identity-data dd {
+  margin: 0;
+
+  overflow-wrap: anywhere;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ACCIONES DE IDENTIDAD
+========================================================= */
+
+.identity-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 28px;
+}
+
+.identity-button {
+  padding: 12px 18px;
+
+  border:
+    1px solid
+    var(--falco-black);
+
+  border-radius: 9px;
+
+  background:
+    var(--falco-black);
+
+  color:
+    var(--falco-white);
+
+  font: inherit;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.identity-button:hover {
+  opacity: 0.88;
+}
+
+.identity-button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}

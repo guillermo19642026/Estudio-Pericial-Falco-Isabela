@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+Centro Profesional FALCO®
+</title>
+
+<link rel="stylesheet" href="css/profesional.css">
+
+</head>
+
+
+<body>
+
+
+<header class="prof-header">
+
+<div>
+
+<span class="marca">
+FALCO®
+</span>
+
+<h1>
+Centro Profesional
+</h1>
+
+<p>
+Gestión integral de expedientes periciales
+</p>
+
+</div>
+
+
+</header>
+
+
+
+<main class="prof-container">
+
+
+<section class="panel">
+
+<h2>
+Expedientes
+</h2>
+
+
+<div class="buscador">
+
+  <input
+    type="search"
+    id="buscarPericiado"
+    placeholder="Buscar por nombre, DNI, expediente o carátula..."
+    autocomplete="off"
+  >
+
+</div>
+
+
+<div
+  id="estadoCarga"
+  class="estado-vacio"
+>
+  <h3>
+    Cargando expedientes...
+  </h3>
+
+  <p>
+    Consultando las admisiones registradas.
+  </p>
+</div>
+
+
+<div
+  id="listaExpedientes"
+  class="lista-expedientes"
+  hidden
+></div>
+
+
+<div
+  id="sinResultados"
+  class="estado-vacio"
+  hidden
+>
+  <h3>
+    No se encontraron expedientes
+  </h3>
+
+  <p>
+    Probá con otro nombre, DNI o número de expediente.
+  </p>
+</div>
+
+
+<div
+  id="resumenExpedientes"
+  class="resumen-expedientes"
+  hidden
+></div>
+
+
+</section>
+
+
+
+</main>
+
+
+<script type="module" src="js/firebase-profesional.js"></script>
+
+<script type="module" src="js/profesional-core.js"></script>
+
+</body>
+
+</html>

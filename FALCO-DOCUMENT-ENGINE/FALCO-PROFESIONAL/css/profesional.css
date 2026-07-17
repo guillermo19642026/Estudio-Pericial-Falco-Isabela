@@ -1,0 +1,352 @@
+:root {
+
+--falco-dorado:#d4af37;
+--falco-negro:#1d1d1d;
+--falco-fondo:#f4f1ea;
+--falco-borde:#dedede;
+--falco-blanco:#ffffff;
+
+}
+
+
+* {
+
+box-sizing:border-box;
+
+}
+
+
+body {
+
+margin:0;
+
+background:
+var(--falco-fondo);
+
+font-family:
+Inter,
+Arial,
+sans-serif;
+
+color:
+var(--falco-negro);
+
+}
+
+
+
+.prof-header {
+
+padding:30px 50px;
+
+background:#181818;
+
+color:white;
+
+}
+
+
+
+.marca {
+
+color:
+var(--falco-dorado);
+
+font-size:1.8rem;
+
+font-weight:800;
+
+letter-spacing:.15em;
+
+}
+
+
+
+.prof-header h1 {
+
+margin:10px 0 5px;
+
+font-size:2rem;
+
+}
+
+
+
+.prof-header p {
+
+margin:0;
+
+color:#ddd;
+
+}
+
+
+
+.prof-container {
+
+width:min(1100px,95%);
+
+margin:40px auto;
+
+}
+
+
+
+.panel {
+
+background:white;
+
+padding:35px;
+
+border-radius:15px;
+
+box-shadow:
+0 10px 30px
+rgba(0,0,0,.08);
+
+}
+
+
+
+.panel h2 {
+
+font-family:
+Georgia,
+serif;
+
+font-weight:500;
+
+}
+
+
+
+.buscador input {
+
+width:100%;
+
+padding:15px;
+
+border:
+
+1px solid
+
+var(--falco-borde);
+
+border-radius:10px;
+
+font-size:1rem;
+
+}
+
+
+
+.estado-vacio {
+
+margin-top:30px;
+
+padding:35px;
+
+text-align:center;
+
+border:
+
+1px dashed
+
+var(--falco-borde);
+
+border-radius:12px;
+
+color:#777;
+
+}
+
+
+/* =========================================================
+   LISTA DE EXPEDIENTES
+========================================================= */
+
+.lista-expedientes {
+  display: grid;
+  gap: 18px;
+
+  margin-top: 28px;
+}
+
+.expediente-card {
+  padding: 22px;
+
+  border:
+    1px solid
+    var(--falco-borde);
+
+  border-radius: 12px;
+
+  background:
+    var(--falco-blanco);
+
+  box-shadow:
+    0 7px 22px
+    rgba(0, 0, 0, 0.05);
+}
+
+.expediente-card__cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-bottom: 20px;
+}
+
+.expediente-card__etiqueta {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    var(--falco-gris, #6b6b6b);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.expediente-card h3 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.estado-badge {
+  flex-shrink: 0;
+
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.estado-finalizada {
+  background: #e5f5eb;
+  color: #176b3a;
+}
+
+.estado-proceso {
+  background: #fff3d7;
+  color: #8a6200;
+}
+
+.expediente-card__datos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px 26px;
+}
+
+.expediente-card__datos div {
+  padding-bottom: 9px;
+
+  border-bottom:
+    1px solid
+    var(--falco-borde);
+}
+
+.expediente-card__datos .dato-completo {
+  grid-column: 1 / -1;
+}
+
+.expediente-card__datos span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #777;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.expediente-card__datos strong {
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.expediente-card__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+.expediente-card__pie > span {
+  color: #777;
+
+  font-size: 0.82rem;
+}
+
+.boton-expediente {
+  padding: 10px 15px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background:
+    var(--falco-dorado);
+
+  color: #111;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.boton-expediente:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.resumen-expedientes {
+  margin-top: 20px;
+
+  color: #777;
+
+  font-size: 0.84rem;
+  text-align: right;
+}
+
+
+@media (max-width: 700px) {
+  .expediente-card__cabecera,
+  .expediente-card__pie {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .expediente-card__datos {
+    grid-template-columns: 1fr;
+  }
+
+  .expediente-card__datos
+  .dato-completo {
+    grid-column: auto;
+  }
+
+  .boton-expediente {
+    width: 100%;
+  }
+}
