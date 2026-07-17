@@ -1,0 +1,281 @@
+/* =========================================================
+   FALCO® Viewer Layout™ CSS v1.0
+   Capa visual del Expediente Digital Pericial
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.falco-layout-activo {
+
+    --falco-border:
+        #d8d8d8;
+
+    --falco-gold:
+        #d4af37;
+
+    --falco-bg:
+        #ffffff;
+
+    --falco-soft:
+        #f8f8f8;
+
+}
+
+
+/* =========================================================
+   CAPÍTULOS
+========================================================= */
+
+.falco-capitulo-layout {
+
+    position: relative;
+
+}
+
+
+.falco-capitulo-layout
+.capitulo-contenido {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   BLOQUES DE DATOS
+========================================================= */
+
+.falco-bloque-dato {
+
+    background:
+        var(--falco-bg);
+
+    border:
+        1px solid var(--falco-border);
+
+    border-radius:
+        10px;
+
+    padding:
+        14px 18px;
+
+    margin-bottom:
+        12px;
+
+    transition:
+        all .2s ease;
+
+}
+
+
+.falco-bloque-dato:hover {
+
+    box-shadow:
+        0 4px 12px rgba(
+            0,
+            0,
+            0,
+            .08
+        );
+
+}
+
+
+/* =========================================================
+   ETIQUETAS
+========================================================= */
+
+.falco-etiqueta-dato {
+
+    display:
+        block;
+
+    font-size:
+        .82rem;
+
+    font-weight:
+        600;
+
+    color:
+        #666;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .04em;
+
+    margin-bottom:
+        5px;
+
+}
+
+
+/* =========================================================
+   VALORES
+========================================================= */
+
+.falco-valor-dato {
+
+    display:
+        block;
+
+    font-size:
+        1rem;
+
+    color:
+        #222;
+
+}
+
+
+/* =========================================================
+   GRUPOS FAMILIARES
+========================================================= */
+
+.falco-campo-padre,
+.falco-campo-madre,
+.falco-campo-pareja {
+
+    border-left:
+        4px solid var(--falco-gold);
+
+}
+
+
+.falco-campo-hijos,
+.falco-campo-hermanos {
+
+    background:
+        #fffdf7;
+
+}
+
+
+/* =========================================================
+   JUDICIAL
+========================================================= */
+
+.falco-campo-judicial {
+
+    background:
+        #fafafa;
+
+    border-left:
+        4px solid #555;
+
+}
+
+
+/* =========================================================
+   TRATAMIENTOS
+========================================================= */
+
+.falco-campo-tratamiento {
+
+    border-left:
+        4px solid #8b6f47;
+
+}
+
+
+/* =========================================================
+   BOOLEANOS
+========================================================= */
+
+.falco-valor-booleano {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        3px 10px;
+
+    border-radius:
+        20px;
+
+    font-size:
+        .85rem;
+
+    font-weight:
+        600;
+
+}
+
+
+.falco-valor-si {
+
+    background:
+        #edf7ed;
+
+    color:
+        #28752b;
+
+}
+
+
+.falco-valor-no {
+
+    background:
+        #f5f5f5;
+
+    color:
+        #777;
+
+}
+
+
+/* =========================================================
+   DOCUMENTACIÓN
+========================================================= */
+
+.falco-documentacion-layout {
+
+    margin-top:
+        25px;
+
+}
+
+
+.falco-tarjeta-documental {
+
+    background:
+        #fff;
+
+    border:
+        1px solid var(--falco-border);
+
+    border-radius:
+        12px;
+
+    padding:
+        18px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(
+    max-width:768px
+){
+
+    .falco-bloque-dato {
+
+        padding:
+            12px;
+
+    }
+
+}
