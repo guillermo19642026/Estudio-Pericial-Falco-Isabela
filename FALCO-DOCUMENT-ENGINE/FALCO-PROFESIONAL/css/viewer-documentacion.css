@@ -1,0 +1,432 @@
+/* =========================================================
+   FALCO® VIEWER DOCUMENTACIÓN™ v1.0
+
+   Alcance:
+   - Solo afecta al módulo documentación.
+   - No modifica encabezados generales del expediente.
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-view {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-card {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(24, 24, 24, 0.06);
+}
+
+
+/* =========================================================
+   ENCABEZADO DE TARJETA
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.12),
+        rgba(212, 175, 55, 0.03)
+    );
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+[data-modulo="documentacion"] .falco-documentacion-card-title {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #252525;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-card-count {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #7a6118;
+    background: rgba(212, 175, 55, 0.14);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   CUERPO DE TARJETA
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   FILA DE DOCUMENTO
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-modulo="documentacion"] .falco-documentacion-item:last-child {
+    border-bottom: none;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-item:hover {
+    background: rgba(212, 175, 55, 0.035);
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL ARCHIVO
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-name {
+    overflow: hidden;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #282828;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-date {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #777777;
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 88px;
+    padding: 9px 14px;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 10px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-button:hover {
+    transform: translateY(-1px);
+}
+
+[data-modulo="documentacion"] .falco-documentacion-button-view {
+    color: #6d5717;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+[data-modulo="documentacion"] .falco-documentacion-button-view:hover {
+    background: rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+[data-modulo="documentacion"] .falco-documentacion-button-download {
+    color: #ffffff;
+    background: #252525;
+    border: 1px solid #252525;
+}
+
+[data-modulo="documentacion"] .falco-documentacion-button-download:hover {
+    background: #000000;
+    border-color: #000000;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   OCULTAR ESTRUCTURA ORIGINAL
+========================================================= */
+
+[data-modulo="documentacion"] .falco-documentacion-original {
+    display: none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    [data-modulo="documentacion"] .falco-documentacion-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-item {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-name {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-actions {
+        width: 100%;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-button {
+        flex: 1;
+        min-width: 0;
+    }
+
+}
+
+@media (max-width: 460px) {
+
+    [data-modulo="documentacion"] .falco-documentacion-actions {
+        flex-direction: column;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print {
+
+    [data-modulo="documentacion"] .falco-documentacion-view {
+        gap: 12px;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border-color: #c9c9c9;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-card-header {
+        background: #f5f5f5;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-item {
+        break-inside: avoid;
+    }
+
+    [data-modulo="documentacion"] .falco-documentacion-actions {
+        display: none;
+    }
+
+}
+
+
+[data-modulo="documentacion"] button.falco-documentacion-button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   FALCO® VIEWER DOCUMENTACIÓN™
+   RESUMEN SUPERIOR
+========================================================= */
+
+.falco-documentacion-summary {
+    margin: 0 0 24px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+
+.falco-documentacion-summary-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+
+.falco-documentacion-summary-title {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: #2d2d2d;
+    font-family: "Playfair Display", serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+
+.falco-documentacion-summary-total {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 6px 12px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 999px;
+    color: #6f5a18;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+.falco-documentacion-summary-list {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(145px, 1fr)
+    );
+    gap: 12px;
+}
+
+
+.falco-documentacion-summary-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 46px;
+    padding: 10px 12px;
+    background: #faf9f5;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 11px;
+}
+
+
+.falco-documentacion-summary-label {
+    color: #555555;
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+
+.falco-documentacion-summary-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    background: #ffffff;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 999px;
+    color: #7b641d;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+
+@media (
+    max-width: 640px
+) {
+
+    .falco-documentacion-summary-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .falco-documentacion-summary-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   CORRECCIÓN DE TÍTULOS
+========================================================= */
+
+.falco-documentacion-card-header,
+.falco-documentacion-card-title,
+.falco-documentacion-card h4,
+.falco-documentacion-card header {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+.falco-documentacion-card-header {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+
+.falco-documentacion-card-title {
+    margin: 0;
+    color: #3b3420;
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    font-weight: 600;
+}

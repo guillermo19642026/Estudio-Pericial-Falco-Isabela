@@ -1,0 +1,960 @@
+/* =========================================================
+   FALCO® VIEWER THEME™ v1.0
+
+   Tema visual general para todos los Viewers profesionales.
+
+   Principios:
+   - Fondo completamente blanco.
+   - Sin fondos rosados, dorados ni degradados.
+   - Detalles dorados únicamente en bordes y etiquetas.
+   - Estética editorial, limpia y profesional.
+   - Compatible con impresión y dispositivos móviles.
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDORES GENERALES
+========================================================= */
+
+.falco-family-view,
+.falco-afectiva-view,
+.falco-laboral-view,
+.falco-social-view,
+.falco-educacion-view {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        22px;
+
+    margin:
+        24px 0;
+
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.falco-family-card,
+.falco-afectiva-card,
+.falco-laboral-card,
+.falco-social-card,
+.falco-educacion-card {
+
+    position:
+        relative;
+
+    min-width:
+        0;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(
+            17,
+            24,
+            39,
+            0.09
+        );
+
+    border-radius:
+        16px;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 10px 28px
+        rgba(
+            15,
+            23,
+            42,
+            0.055
+        );
+
+    break-inside:
+        avoid;
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+
+}
+
+
+/* Efecto muy sutil, únicamente en pantalla */
+
+@media screen {
+
+    .falco-family-card:hover,
+    .falco-afectiva-card:hover,
+    .falco-laboral-card:hover,
+    .falco-social-card:hover,
+    .falco-educacion-card:hover {
+
+        border-color:
+            rgba(
+                212,
+                175,
+                55,
+                0.30
+            );
+
+        box-shadow:
+            0 14px 34px
+            rgba(
+                15,
+                23,
+                42,
+                0.075
+            );
+
+        transform:
+            translateY(
+                -1px
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   ENCABEZADOS
+========================================================= */
+
+.falco-family-card-header,
+.falco-afectiva-card-header,
+.falco-laboral-card-header,
+.falco-social-card-header,
+.falco-educacion-card-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        16px;
+
+    min-height:
+        58px;
+
+    padding:
+        16px 20px;
+
+    border-bottom:
+        1px solid
+        rgba(
+            212,
+            175,
+            55,
+            0.20
+        );
+
+    /*
+     * Decisión visual:
+     * encabezados completamente blancos.
+     */
+
+    background:
+        #ffffff;
+
+}
+
+
+/* Línea editorial dorada muy fina */
+
+.falco-family-card-header::before,
+.falco-afectiva-card-header::before,
+.falco-laboral-card-header::before,
+.falco-social-card-header::before,
+.falco-educacion-card-header::before {
+
+    content:
+        "";
+
+    flex:
+        0 0 auto;
+
+    width:
+        3px;
+
+    height:
+        22px;
+
+    border-radius:
+        999px;
+
+    background:
+        #d4af37;
+
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.falco-family-card-title,
+.falco-afectiva-card-title,
+.falco-laboral-card-title,
+.falco-social-card-title,
+.falco-educacion-card-title {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        1.06rem;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.35;
+
+    color:
+        #20242b;
+
+}
+
+
+/* =========================================================
+   CONTADORES
+========================================================= */
+
+.falco-family-card-count,
+.falco-afectiva-card-count,
+.falco-laboral-card-count,
+.falco-social-card-count,
+.falco-educacion-card-count {
+
+    flex:
+        0 0 auto;
+
+    padding:
+        5px 9px;
+
+    border:
+        1px solid
+        rgba(
+            17,
+            24,
+            39,
+            0.08
+        );
+
+    border-radius:
+        999px;
+
+    background:
+        #ffffff;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:
+        0.70rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        1;
+
+    white-space:
+        nowrap;
+
+    color:
+        #69707d;
+
+}
+
+
+/* =========================================================
+   CUERPO DE LAS TARJETAS
+========================================================= */
+
+.falco-family-card-body,
+.falco-afectiva-card-body,
+.falco-laboral-card-body,
+.falco-social-card-body,
+.falco-educacion-card-body {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    margin:
+        0;
+
+    padding:
+        6px 20px 17px;
+
+    background:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   FILAS
+========================================================= */
+
+.falco-family-row,
+.falco-afectiva-row,
+.falco-laboral-row,
+.falco-social-row,
+.falco-educacion-row {
+
+    min-width:
+        0;
+
+    padding:
+        15px 12px;
+
+    border-bottom:
+        1px solid
+        rgba(
+            17,
+            24,
+            39,
+            0.065
+        );
+
+}
+
+
+/*
+ * El fondo siempre permanece blanco.
+ * No utilizamos alternancia de colores.
+ */
+
+.falco-family-row,
+.falco-afectiva-row,
+.falco-laboral-row,
+.falco-social-row,
+.falco-educacion-row {
+
+    background:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   ETIQUETAS
+========================================================= */
+
+.falco-family-label,
+.falco-afectiva-label,
+.falco-laboral-label,
+.falco-social-label,
+.falco-educacion-label {
+
+    display:
+        block;
+
+    margin:
+        0 0 6px;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:
+        0.70rem;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.4;
+
+    letter-spacing:
+        0.065em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        #8a6b17;
+
+}
+
+
+/* =========================================================
+   VALORES
+========================================================= */
+
+.falco-family-value,
+.falco-afectiva-value,
+.falco-laboral-value,
+.falco-social-value,
+.falco-educacion-value {
+
+    display:
+        block;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    white-space:
+        pre-wrap;
+
+    overflow-wrap:
+        anywhere;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:
+        0.94rem;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.58;
+
+    color:
+        #293241;
+
+}
+
+
+/* =========================================================
+   TARJETAS DE CONTENIDO EXTENSO
+========================================================= */
+
+.falco-social-card-impacto,
+.falco-educacion-card-impacto {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.falco-social-card-impacto
+.falco-social-card-body,
+
+.falco-educacion-card-impacto
+.falco-educacion-card-body {
+
+    grid-template-columns:
+        1fr;
+
+}
+
+
+.falco-social-card-impacto
+.falco-social-value,
+
+.falco-educacion-card-impacto
+.falco-educacion-value {
+
+    line-height:
+        1.70;
+
+}
+
+
+/* =========================================================
+   OCULTAR CONTENIDO ORIGINAL
+========================================================= */
+
+.falco-family-original,
+.falco-afectiva-original,
+.falco-laboral-original,
+.falco-social-original,
+.falco-educacion-original {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (
+    max-width:
+        900px
+) {
+
+    .falco-family-view,
+    .falco-afectiva-view,
+    .falco-laboral-view,
+    .falco-social-view,
+    .falco-educacion-view {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .falco-social-card-impacto,
+    .falco-educacion-card-impacto {
+
+        grid-column:
+            auto;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (
+    max-width:
+        600px
+) {
+
+    .falco-family-view,
+    .falco-afectiva-view,
+    .falco-laboral-view,
+    .falco-social-view,
+    .falco-educacion-view {
+
+        gap:
+            16px;
+
+        margin:
+            18px 0;
+
+    }
+
+
+    .falco-family-card,
+    .falco-afectiva-card,
+    .falco-laboral-card,
+    .falco-social-card,
+    .falco-educacion-card {
+
+        border-radius:
+            13px;
+
+    }
+
+
+    .falco-family-card-header,
+    .falco-afectiva-card-header,
+    .falco-laboral-card-header,
+    .falco-social-card-header,
+    .falco-educacion-card-header {
+
+        min-height:
+            54px;
+
+        padding:
+            14px 16px;
+
+    }
+
+
+    .falco-family-card-title,
+    .falco-afectiva-card-title,
+    .falco-laboral-card-title,
+    .falco-social-card-title,
+    .falco-educacion-card-title {
+
+        font-size:
+            1rem;
+
+    }
+
+
+    .falco-family-card-body,
+    .falco-afectiva-card-body,
+    .falco-laboral-card-body,
+    .falco-social-card-body,
+    .falco-educacion-card-body {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            4px 16px 14px;
+
+    }
+
+
+    .falco-family-row,
+    .falco-afectiva-row,
+    .falco-laboral-row,
+    .falco-social-row,
+    .falco-educacion-row {
+
+        padding:
+            14px 4px;
+
+    }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print {
+
+    .falco-family-view,
+    .falco-afectiva-view,
+    .falco-laboral-view,
+    .falco-social-view,
+    .falco-educacion-view {
+
+        display:
+            block;
+
+        margin:
+            10px 0;
+
+    }
+
+
+    .falco-family-card,
+    .falco-afectiva-card,
+    .falco-laboral-card,
+    .falco-social-card,
+    .falco-educacion-card {
+
+        margin-bottom:
+            14px;
+
+        border:
+            1px solid
+            #d6d6d6;
+
+        border-radius:
+            8px;
+
+        box-shadow:
+            none;
+
+        transform:
+            none;
+
+        page-break-inside:
+            avoid;
+
+    }
+
+
+    .falco-family-card-header,
+    .falco-afectiva-card-header,
+    .falco-laboral-card-header,
+    .falco-social-card-header,
+    .falco-educacion-card-header {
+
+        min-height:
+            auto;
+
+        padding:
+            12px 15px;
+
+        background:
+            #ffffff !important;
+
+        -webkit-print-color-adjust:
+            exact;
+
+        print-color-adjust:
+            exact;
+
+    }
+
+
+    .falco-family-card-header::before,
+    .falco-afectiva-card-header::before,
+    .falco-laboral-card-header::before,
+    .falco-social-card-header::before,
+    .falco-educacion-card-header::before {
+
+        width:
+            2px;
+
+        height:
+            18px;
+
+    }
+
+
+    .falco-family-card-body,
+    .falco-afectiva-card-body,
+    .falco-laboral-card-body,
+    .falco-social-card-body,
+    .falco-educacion-card-body {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+        padding:
+            4px 15px 12px;
+
+    }
+
+
+    .falco-family-row,
+    .falco-afectiva-row,
+    .falco-laboral-row,
+    .falco-social-row,
+    .falco-educacion-row {
+
+        padding:
+            11px 8px;
+
+    }
+
+
+    .falco-family-label,
+    .falco-afectiva-label,
+    .falco-laboral-label,
+    .falco-social-label,
+    .falco-educacion-label {
+
+        font-size:
+            0.64rem;
+
+    }
+
+
+    .falco-family-value,
+    .falco-afectiva-value,
+    .falco-laboral-value,
+    .falco-social-value,
+    .falco-educacion-value {
+
+        font-size:
+            0.86rem;
+
+        line-height:
+            1.45;
+
+    }
+
+}
+
+
+/* =========================================================
+   CORRECCIÓN DE CONTENIDO EXTENSO
+   Grupo Familiar + Área Afectiva
+========================================================= */
+
+
+/*
+ * Grupo Familiar y Área Afectiva necesitan una sola columna
+ * dentro de cada tarjeta para evitar textos comprimidos
+ * o visualmente cortados.
+ */
+
+.falco-family-card-body,
+.falco-afectiva-card-body {
+
+    grid-template-columns:
+        minmax(
+            0,
+            1fr
+        );
+
+}
+
+
+/*
+ * Las filas deben poder crecer libremente.
+ */
+
+.falco-family-row,
+.falco-afectiva-row {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/*
+ * Los textos largos deben mostrarse completos.
+ */
+
+.falco-family-value,
+.falco-afectiva-value {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    white-space:
+        pre-wrap;
+
+    overflow:
+        visible;
+
+    overflow-wrap:
+        anywhere;
+
+    word-break:
+        normal;
+
+    text-overflow:
+        clip;
+
+}
+
+
+/*
+ * También evitamos que las etiquetas se corten.
+ */
+
+.falco-family-label,
+.falco-afectiva-label {
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    white-space:
+        normal;
+
+    overflow:
+        visible;
+
+    text-overflow:
+        clip;
+
+}
+
+
+/*
+ * Los encabezados pueden ocupar más de una línea.
+ */
+
+.falco-family-card-header,
+.falco-afectiva-card-header {
+
+    align-items:
+        flex-start;
+
+}
+
+
+.falco-family-card-title,
+.falco-afectiva-card-title {
+
+    white-space:
+        normal;
+
+    overflow:
+        visible;
+
+    overflow-wrap:
+        anywhere;
+
+    text-overflow:
+        clip;
+
+}
+
+
+/*
+ * El contador familiar no debe reducir el título
+ * más de lo necesario.
+ */
+
+.falco-family-card-count {
+
+    margin-top:
+        2px;
+
+}
+
+
+/* =========================================================
+   CORRECCIÓN PARA IMPRESIÓN
+========================================================= */
+
+@media print {
+
+    .falco-family-card-body,
+    .falco-afectiva-card-body {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}

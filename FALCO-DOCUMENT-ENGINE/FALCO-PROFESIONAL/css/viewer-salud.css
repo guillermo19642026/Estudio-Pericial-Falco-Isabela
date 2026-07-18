@@ -1,0 +1,274 @@
+/* =========================================================
+   FALCO® VIEWER ANTECEDENTES DE SALUD™ v1.0
+========================================================= */
+
+.falco-salud-view {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+
+.falco-salud-card {
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+
+.falco-salud-card-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.12),
+      rgba(255, 255, 255, 0.96)
+    );
+}
+
+
+.falco-salud-card-title {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  color: #3a3120;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+
+.falco-salud-card-body {
+  margin: 0;
+  padding: 4px 18px 10px;
+}
+
+
+.falco-salud-row {
+  display: grid;
+  grid-template-columns:
+    minmax(190px, 0.75fr)
+    minmax(0, 1.25fr);
+  gap: 18px;
+  align-items: start;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+
+.falco-salud-row:last-child {
+  border-bottom: 0;
+}
+
+
+.falco-salud-label {
+  margin: 0;
+  color: #6b6251;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+}
+
+
+.falco-salud-value {
+  margin: 0;
+  color: #252525;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
+
+.falco-salud-value a {
+  color: #8a6d16;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+.falco-salud-value a:hover {
+  text-decoration: underline;
+}
+
+
+.falco-salud-original {
+  display: none !important;
+}
+
+
+.falco-salud-activo {
+  position: relative;
+}
+
+
+.falco-salud-activo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px;
+  background:
+    linear-gradient(
+      to bottom,
+      #d4af37,
+      rgba(212, 175, 55, 0.18)
+    );
+}
+
+
+/* =========================================================
+   CORRECCIÓN DE HERENCIA DE TÍTULOS
+========================================================= */
+
+.falco-salud-card-header,
+.falco-salud-card-title,
+.falco-salud-card h4,
+.falco-salud-card header {
+  background-color: transparent;
+}
+
+
+.falco-salud-card-header {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.12),
+      rgba(255, 255, 255, 0.96)
+    ) !important;
+}
+
+
+.falco-salud-card-title {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .falco-salud-view {
+    gap: 14px;
+  }
+
+
+  .falco-salud-card {
+    border-radius: 13px;
+  }
+
+
+  .falco-salud-card-header {
+    padding: 13px 15px;
+  }
+
+
+  .falco-salud-card-body {
+    padding: 2px 15px 8px;
+  }
+
+
+  .falco-salud-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 12px 0;
+  }
+
+
+  .falco-salud-label {
+    font-size: 0.78rem;
+  }
+
+
+  .falco-salud-value {
+    font-size: 0.94rem;
+  }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print {
+
+  .falco-salud-view {
+    gap: 12px;
+  }
+
+
+  .falco-salud-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+
+  .falco-salud-card-header {
+    background: #f8f5eb !important;
+  }
+
+}
+
+
+/* =========================================================
+   CORRECCIÓN TÍTULOS
+========================================================= */
+
+.falco-salud-card h4,
+.falco-salud-card-title,
+.falco-salud-card-header h4 {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #3a3120;
+}
+
+
+/* =========================================================
+   AJUSTE VISUAL FINAL — ANTECEDENTES DE SALUD
+========================================================= */
+
+.falco-salud-view {
+    padding: 22px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(212, 175, 55, 0.08);
+}
+
+.falco-salud-card-header {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212, 175, 55, 0.12),
+            rgba(255, 255, 255, 0.98)
+        ) !important;
+
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.falco-salud-card-header h3,
+.falco-salud-card-header h4,
+.falco-salud-card-title {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #3a3120;
+    box-shadow: none !important;
+}

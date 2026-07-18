@@ -50,88 +50,14 @@ button {
   justify-content: space-between;
   gap: 20px;
 
-  padding:
-    14px 26px;
+  padding: 14px 26px;
 
-  background:
-    #181818;
-
-  color:
-    white;
+  background: #181818;
+  color: white;
 
   box-shadow:
     0 8px 24px
     rgba(0, 0, 0, 0.14);
-}
-
-.visor-marca {
-  display: block;
-
-  color:
-    var(--falco-dorado);
-
-  font-size:
-    0.9rem;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    0.12em;
-}
-
-.visor-header h1 {
-  margin:
-    3px 0 0;
-
-  font-size:
-    1rem;
-
-  font-weight:
-    500;
-}
-
-.visor-acciones {
-  display: flex;
-  gap: 8px;
-}
-
-.visor-acciones button {
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.3);
-
-  border-radius:
-    7px;
-
-  padding:
-    8px 13px;
-
-  background:
-    transparent;
-
-  color:
-    white;
-
-  font-size:
-    0.88rem;
-
-  cursor:
-    pointer;
-}
-
-.visor-acciones button:last-child {
-  border-color:
-    var(--falco-dorado);
-
-  background:
-    var(--falco-dorado);
-
-  color:
-    #111;
-
-  font-weight:
-    700;
 }
 
 
@@ -172,6 +98,8 @@ button {
   display: grid;
   gap: 16px;
 }
+
+
 
 
 /* =========================================================

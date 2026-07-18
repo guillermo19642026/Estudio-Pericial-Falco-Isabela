@@ -1,0 +1,261 @@
+/* =========================================================
+   FALCO® VIEWER HÁBITOS Y CALIDAD DE VIDA™ v1.0
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   CONTENEDOR PRINCIPAL
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-view {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   TARJETAS
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(15,23,42,.10);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 14px
+        rgba(15,23,42,.05);
+
+}
+
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-card-general {
+
+    grid-column: 1 / -1;
+
+}
+
+
+/* ---------------------------------------------------------
+   CABECERA
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-card-header {
+
+    padding: 13px 16px;
+
+    border-bottom:
+        1px solid rgba(15,23,42,.08);
+
+    background: #ffffff;
+
+}
+
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-card-title {
+
+    margin: 0;
+
+    color: #2f2f2f;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+/* ---------------------------------------------------------
+   CUERPO
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-card-body {
+
+    margin: 0;
+
+    padding: 4px 16px 8px;
+
+}
+
+
+/* ---------------------------------------------------------
+   FILAS
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-row {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(160px,.8fr)
+        minmax(0,1.2fr);
+
+    gap: 16px;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid rgba(15,23,42,.07);
+
+}
+
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-row:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+/* ---------------------------------------------------------
+   ETIQUETAS
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-label {
+
+    margin: 0;
+
+    color: #6b6b6b;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
+
+}
+
+
+/* ---------------------------------------------------------
+   VALORES
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-value {
+
+    margin: 0;
+
+    color: #252525;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    white-space: pre-line;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* ---------------------------------------------------------
+   ORIGINAL
+--------------------------------------------------------- */
+
+[data-modulo="habitos-calidad-vida"]
+.falco-habitos-original {
+
+    display: none !important;
+
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width:800px){
+
+    [data-modulo="habitos-calidad-vida"]
+    .falco-habitos-view{
+
+        grid-template-columns:1fr;
+
+    }
+
+    [data-modulo="habitos-calidad-vida"]
+    .falco-habitos-card-general{
+
+        grid-column:auto;
+
+    }
+
+    [data-modulo="habitos-calidad-vida"]
+    .falco-habitos-row{
+
+        grid-template-columns:1fr;
+
+        gap:5px;
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   IMPRESIÓN
+--------------------------------------------------------- */
+
+@media print{
+
+    [data-modulo="habitos-calidad-vida"]
+    .falco-habitos-card{
+
+        break-inside: avoid;
+
+        box-shadow:none;
+
+    }
+
+}

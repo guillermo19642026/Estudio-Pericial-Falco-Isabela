@@ -586,18 +586,18 @@ const FalcoViewerNavigation = {
         );
 
         volverArriba?.addEventListener(
-            "click",
-            () => {
+    "click",
+    () => {
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
-                this.cerrarNavegacionMovil();
+        this.cerrarNavegacion();
 
-            }
-        );
+    }
+);
 
     },
 
@@ -643,7 +643,7 @@ const FalcoViewerNavigation = {
             1500
         );
 
-        this.cerrarNavegacionMovil();
+        this.cerrarNavegacion();
 
     },
 

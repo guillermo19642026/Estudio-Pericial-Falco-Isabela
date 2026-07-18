@@ -1,0 +1,485 @@
+/* =========================================================
+   FALCO® VIEWER TRATAMIENTOS™ v1.3
+   Estilos exclusivos de la información generada
+   No modifica el encabezado general del capítulo
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   CONTENEDOR PRINCIPAL
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-view {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        16px;
+
+    width:
+        100%;
+
+    max-width:
+        100%;
+
+    min-width:
+        0;
+
+    margin:
+        20px
+        0
+        0;
+
+    padding:
+        0;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   TARJETAS
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-card {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    overflow:
+        hidden;
+
+    border:
+        1px
+        solid
+        rgba(
+            15,
+            23,
+            42,
+            0.10
+        );
+
+    border-radius:
+        12px;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0
+        4px
+        14px
+        rgba(
+            15,
+            23,
+            42,
+            0.05
+        );
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* La tarjeta general ocupa todo el ancho */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-card-general {
+
+    grid-column:
+        1
+        /
+        -1;
+
+}
+
+
+/* ---------------------------------------------------------
+   ENCABEZADO DE CADA TARJETA
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-card-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    margin:
+        0;
+
+    padding:
+        13px
+        16px;
+
+    border:
+        0;
+
+    border-bottom:
+        1px
+        solid
+        rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+
+    background:
+        #ffffff;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   TÍTULO DE CADA TARJETA
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-card-title {
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    color:
+        #2f2f2f;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.35;
+
+    background:
+        transparent;
+
+}
+
+
+/* ---------------------------------------------------------
+   CUERPO DE CADA TARJETA
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-card-body {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    padding:
+        4px
+        16px
+        8px;
+
+    background:
+        #ffffff;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+/* ---------------------------------------------------------
+   FILAS
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            155px,
+            0.8fr
+        )
+        minmax(
+            0,
+            1.2fr
+        );
+
+    gap:
+        16px;
+
+    align-items:
+        start;
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    padding:
+        12px
+        0;
+
+    border-bottom:
+        1px
+        solid
+        rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+
+    box-sizing:
+        border-box;
+
+}
+
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-row:last-child {
+
+    border-bottom:
+        0;
+
+}
+
+
+/* ---------------------------------------------------------
+   ETIQUETAS
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-label {
+
+    display:
+        block;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    color:
+        #6b6b6b;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.45;
+
+    letter-spacing:
+        0;
+
+    text-transform:
+        none;
+
+    background:
+        transparent;
+
+    white-space:
+        normal;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+
+/* ---------------------------------------------------------
+   VALORES
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-value {
+
+    display:
+        block;
+
+    min-width:
+        0;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    color:
+        #252525;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size:
+        14px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.55;
+
+    background:
+        transparent;
+
+    white-space:
+        pre-line;
+
+    overflow-wrap:
+        anywhere;
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTENIDO ORIGINAL
+--------------------------------------------------------- */
+
+[data-modulo="tratamientos"]
+.falco-tratamientos-original {
+
+    display:
+        none
+        !important;
+
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (
+    max-width:
+        800px
+) {
+
+    [data-modulo="tratamientos"]
+    .falco-tratamientos-view {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            14px;
+
+    }
+
+
+    [data-modulo="tratamientos"]
+    .falco-tratamientos-card-general {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    [data-modulo="tratamientos"]
+    .falco-tratamientos-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            5px;
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   IMPRESIÓN
+--------------------------------------------------------- */
+
+@media print {
+
+    [data-modulo="tratamientos"]
+    .falco-tratamientos-card {
+
+        break-inside:
+            avoid;
+
+        box-shadow:
+            none;
+
+    }
+
+}

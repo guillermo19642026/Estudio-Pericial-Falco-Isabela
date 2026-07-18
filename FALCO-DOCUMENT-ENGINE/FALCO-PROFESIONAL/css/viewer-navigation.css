@@ -31,7 +31,6 @@
 /* =========================================================
    PANEL PRINCIPAL
 ========================================================= */
-
 .falco-viewer-navigation {
 
     position:
@@ -41,7 +40,10 @@
         0;
 
     left:
-        0;
+        calc(
+            var(--falco-navigation-width)
+            * -1
+        );
 
     z-index:
         900;
@@ -60,10 +62,24 @@
         var(--falco-navigation-border);
 
     box-shadow:
-        8px 0 35px
-        rgba(0, 0, 0, .05);
+        var(--falco-navigation-shadow);
+
+    transition:
+        left .25s ease;
 
 }
+
+
+.falco-viewer-navigation.abierta {
+
+    left:
+        0;
+
+}
+
+
+
+
 
 
 .falco-navigation-panel {
@@ -78,6 +94,11 @@
         100%;
 
 }
+
+
+
+
+
 
 
 /* =========================================================
@@ -169,7 +190,10 @@
 .falco-navigation-close {
 
     display:
-        none;
+        grid;
+
+    place-items:
+        center;
 
     width:
         38px;
@@ -640,13 +664,10 @@ body.falco-viewer-con-navegacion
 #expediente {
 
     width:
-        calc(
-            100% -
-            var(--falco-navigation-width)
-        );
+        100%;
 
     margin-left:
-        var(--falco-navigation-width);
+        0;
 
     box-sizing:
         border-box;
@@ -723,7 +744,7 @@ body.falco-viewer-con-navegacion
 .falco-navigation-toggle {
 
     display:
-        none;
+        inline-flex;
 
     position:
         fixed;
@@ -849,29 +870,6 @@ body.falco-viewer-con-navegacion
 
     }
 
-
-    body.falco-navigation-abierta::after {
-
-        content:
-            "";
-
-        position:
-            fixed;
-
-        inset:
-            0;
-
-        z-index:
-            880;
-
-        background:
-            rgba(0, 0, 0, .34);
-
-        backdrop-filter:
-            blur(2px);
-
-    }
-
 }
 
 
@@ -924,6 +922,28 @@ body.falco-viewer-con-navegacion
 
 }
 
+
+body.falco-navigation-abierta::after {
+
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        880;
+
+    background:
+        rgba(0, 0, 0, .34);
+
+    backdrop-filter:
+        blur(2px);
+
+}
 
 /* =========================================================
    IMPRESIÓN
