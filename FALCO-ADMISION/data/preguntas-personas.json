@@ -1,0 +1,772 @@
+{
+  "id": "admision-personas",
+  "version": "1.0.0",
+  "tipoUsuario": "persona",
+  "titulo": "Admisión para personas",
+  "descripcion": "Recorrido inicial para conocer el motivo de consulta, la situación actual y los datos necesarios para su evaluación por el Estudio.",
+  "mensajes": {
+    "inicio": "Vamos a comenzar identificando el motivo principal de tu consulta.",
+    "guardado": "Tus respuestas se guardan automáticamente en este dispositivo.",
+    "revision": "Ya tenemos la información inicial. Revisala antes de enviarla.",
+    "finalizacion": "La admisión está lista para ser enviada al Estudio."
+  },
+  "preguntas": [
+    {
+      "id": "tipo_consulta",
+      "orden": 1,
+      "seccion": "Motivo de consulta",
+      "tipo": "radio",
+      "titulo": "¿Cuál es el motivo principal de tu consulta?",
+      "descripcion": "Elegí la opción que más se aproxime. Más adelante vas a poder explicar la situación con tus propias palabras.",
+      "ayuda": "No es necesario conocer el nombre jurídico o técnico del trámite. Describí tu situación con tus propias palabras.",
+      "obligatoria": true,
+      "aion": "Empecemos por lo más importante: identificar qué tipo de ayuda estás buscando.",
+      "opciones": [
+        {
+          "valor": "pericia_psicologica",
+          "etiqueta": "Pericia psicológica",
+          "descripcion": "Necesitás una evaluación psicológica para presentar en una causa o trámite judicial."
+        },
+        {
+          "valor": "danio_psiquico",
+          "etiqueta": "Evaluación de daño psíquico",
+          "descripcion": "Querés evaluar consecuencias psicológicas relacionadas con un accidente, hecho violento u otra situación."
+        },
+        {
+          "valor": "revinculacion",
+          "etiqueta": "Revinculación familiar",
+          "descripcion": "La consulta se relaciona con el vínculo entre padres, madres, hijos u otros familiares."
+        },
+        {
+          "valor": "cif",
+          "etiqueta": "Evaluación o presentación ante el CIF",
+          "descripcion": "Tenés una citación, entrevista o evaluación vinculada con el Cuerpo Interdisciplinario Forense."
+        },
+        {
+          "valor": "informe_judicial",
+          "etiqueta": "Informe psicológico para presentar judicialmente",
+          "descripcion": "Necesitás conocer si corresponde realizar un informe psicológico para acompañar una presentación."
+        },
+        {
+          "valor": "perito_parte",
+          "etiqueta": "Perito psicólogo de parte",
+          "descripcion": "Buscás acompañamiento profesional en una pericia oficial o judicial."
+        },
+        {
+          "valor": "impugnacion",
+          "etiqueta": "Revisión o impugnación de una pericia",
+          "descripcion": "Necesitás revisar un informe pericial psicológico ya realizado."
+        },
+        {
+          "valor": "orientacion_general",
+          "etiqueta": "No estoy seguro de qué necesito",
+          "descripcion": "Querés explicar tu situación para recibir una orientación inicial."
+        }
+      ]
+    },
+    {
+      "id": "consulta_para_quien",
+      "orden": 2,
+      "seccion": "Motivo de consulta",
+      "tipo": "radio",
+      "titulo": "¿La consulta es para vos o para otra persona?",
+      "descripcion": "Esto nos permite comprender desde qué lugar estás realizando el contacto.",
+      "obligatoria": true,
+      "aion": "Ahora necesito saber para quién se está solicitando la orientación.",
+      "opciones": [
+        {
+          "valor": "para_mi",
+          "etiqueta": "Es para mí",
+          "descripcion": "La situación o evaluación se relaciona directamente conmigo."
+        },
+        {
+          "valor": "hijo_hija",
+          "etiqueta": "Es para mi hijo o hija",
+          "descripcion": "La consulta se relaciona con un hijo o hija, menor o mayor de edad."
+        },
+        {
+          "valor": "familiar",
+          "etiqueta": "Es para otro familiar",
+          "descripcion": "La consulta se realiza por una pareja, padre, madre, hermano u otro familiar."
+        },
+        {
+          "valor": "otra_persona",
+          "etiqueta": "Es para otra persona",
+          "descripcion": "Estoy realizando la consulta en representación o acompañamiento de alguien."
+        }
+      ]
+    },
+    {
+      "id": "edad_persona_evaluada",
+      "orden": 3,
+      "seccion": "Datos iniciales",
+      "tipo": "radio",
+      "titulo": "¿La persona que podría ser evaluada es mayor de edad?",
+      "descripcion": "Seleccioná la opción correspondiente a la persona vinculada con la consulta.",
+      "obligatoria": true,
+      "aion": "La edad es importante porque modifica el tipo de intervención y la documentación necesaria.",
+      "opciones": [
+        {
+          "valor": "mayor_18",
+          "etiqueta": "Sí, tiene 18 años o más",
+          "descripcion": "La persona involucrada es mayor de edad."
+        },
+        {
+          "valor": "menor_18",
+          "etiqueta": "No, es menor de 18 años",
+          "descripcion": "La consulta involucra a un niño, niña o adolescente."
+        },
+        {
+          "valor": "no_corresponde",
+          "etiqueta": "No corresponde o todavía no lo sé",
+          "descripcion": "La consulta es solamente orientativa o aún no está definida la persona a evaluar."
+        }
+      ]
+    },
+    {
+      "id": "situacion_judicial",
+      "orden": 4,
+      "seccion": "Situación judicial",
+      "tipo": "radio",
+      "titulo": "¿Existe actualmente una causa, expediente o trámite judicial?",
+      "descripcion": "No importa si todavía no conocés todos los datos del expediente.",
+      "obligatoria": true,
+      "aion": "Vamos a ubicar en qué etapa se encuentra actualmente la situación.",
+      "opciones": [
+        {
+          "valor": "causa_iniciada",
+          "etiqueta": "Sí, la causa ya está iniciada",
+          "descripcion": "Existe un expediente judicial o administrativo en trámite."
+        },
+        {
+          "valor": "proxima_iniciar",
+          "etiqueta": "Todavía no, pero se iniciará",
+          "descripcion": "Ya existe intención de presentar una demanda, escrito o solicitud."
+        },
+        {
+          "valor": "solo_orientacion",
+          "etiqueta": "No, busco orientación antes de decidir",
+          "descripcion": "La consulta es previa a cualquier presentación formal."
+        },
+        {
+          "valor": "no_se",
+          "etiqueta": "No estoy seguro",
+          "descripcion": "Otra persona está llevando el trámite o no conozco su estado actual."
+        }
+      ]
+    },
+    {
+      "id": "fuero_area",
+      "orden": 5,
+      "seccion": "Situación judicial",
+      "tipo": "radio",
+      "titulo": "¿Con qué área se relaciona principalmente la situación?",
+      "descripcion": "Elegí la opción más cercana, aunque no estés completamente seguro.",
+      "obligatoria": true,
+      "aion": "El área nos ayuda a determinar qué documentación y qué modalidad de evaluación podrían corresponder.",
+      "opciones": [
+        {
+          "valor": "familia",
+          "etiqueta": "Familia",
+          "descripcion": "Cuidado personal, comunicación, revinculación, responsabilidad parental u otros conflictos familiares."
+        },
+        {
+          "valor": "civil",
+          "etiqueta": "Civil",
+          "descripcion": "Daños y perjuicios, accidentes, responsabilidad civil u otros reclamos."
+        },
+        {
+          "valor": "laboral",
+          "etiqueta": "Laboral",
+          "descripcion": "Accidente de trabajo, enfermedad profesional, ART o conflicto laboral."
+        },
+        {
+          "valor": "penal",
+          "etiqueta": "Penal",
+          "descripcion": "Denuncias, delitos, violencia, amenazas u otras actuaciones penales."
+        },
+        {
+          "valor": "violencia_genero",
+          "etiqueta": "Violencia familiar o de género",
+          "descripcion": "La consulta se vincula con hechos de violencia, protección o medidas cautelares."
+        },
+        {
+          "valor": "cambio_nombre_identidad",
+          "etiqueta": "Cambio de nombre, apellido o identidad registral",
+          "descripcion": "Necesitás una evaluación o informe para acompañar una solicitud de modificación registral."
+        },
+        {
+          "valor": "otro",
+          "etiqueta": "Otra área",
+          "descripcion": "La situación no coincide claramente con las opciones anteriores."
+        },
+        {
+          "valor": "no_se",
+          "etiqueta": "No lo sé",
+          "descripcion": "Todavía no conocés el fuero o área correspondiente."
+        }
+      ]
+    },
+    {
+      "id": "intervencion_abogado",
+      "orden": 6,
+      "seccion": "Situación judicial",
+      "tipo": "radio",
+      "titulo": "¿Actualmente contás con abogado o abogada?",
+      "descripcion": "Podés avanzar aunque todavía no tengas representación legal.",
+      "obligatoria": true,
+      "aion": "Saber si interviene un profesional permite coordinar mejor la documentación y los objetivos.",
+      "opciones": [
+        {
+          "valor": "si_abogado",
+          "etiqueta": "Sí",
+          "descripcion": "Ya cuento con un abogado o abogada que interviene en el caso."
+        },
+        {
+          "valor": "consulta_abogado",
+          "etiqueta": "Estoy consultando con uno",
+          "descripcion": "Todavía no está confirmada formalmente su intervención."
+        },
+        {
+          "valor": "sin_abogado",
+          "etiqueta": "No",
+          "descripcion": "Actualmente no cuento con abogado o abogada."
+        }
+      ]
+    },
+    {
+      "id": "pedido_profesional",
+      "orden": 7,
+      "seccion": "Objetivo",
+      "tipo": "radio",
+      "titulo": "¿Quién indicó o sugirió realizar esta consulta?",
+      "descripcion": "Seleccioná la opción que mejor describa cómo llegaste al Estudio.",
+      "obligatoria": true,
+      "aion": "Esto nos ayuda a comprender cuál es el objetivo esperado de la intervención.",
+      "opciones": [
+        {
+          "valor": "abogado",
+          "etiqueta": "Mi abogado o abogada",
+          "descripcion": "El profesional que lleva el caso indicó consultar con un perito psicólogo."
+        },
+        {
+          "valor": "juzgado_fiscalia",
+          "etiqueta": "El juzgado, fiscalía u organismo interviniente",
+          "descripcion": "Existe una indicación, citación o requerimiento formal."
+        },
+        {
+          "valor": "profesional_salud",
+          "etiqueta": "Un profesional de la salud",
+          "descripcion": "La sugerencia provino de un psicólogo, psiquiatra, médico u otro profesional."
+        },
+        {
+          "valor": "decision_propia",
+          "etiqueta": "Decisión propia",
+          "descripcion": "Estoy buscando orientación por iniciativa personal."
+        },
+        {
+          "valor": "otra_persona",
+          "etiqueta": "Otra persona",
+          "descripcion": "La recomendación provino de un familiar, conocido u otra fuente."
+        }
+      ]
+    },
+    {
+      "id": "objetivo_consulta",
+      "orden": 8,
+      "seccion": "Objetivo",
+      "tipo": "checkbox",
+      "titulo": "¿Qué necesitás obtener de esta consulta?",
+      "descripcion": "Podés seleccionar más de una opción.",
+      "ayuda": "No se confirmará ningún servicio hasta que el Estudio revise la información.",
+      "obligatoria": true,
+      "minimoSelecciones": 1,
+      "aion": "Podés marcar todas las opciones que representen lo que necesitás en este momento.",
+      "opciones": [
+        {
+          "valor": "evaluacion",
+          "etiqueta": "Realizar una evaluación psicológica",
+          "descripcion": "Necesitás saber si corresponde iniciar un proceso de evaluación."
+        },
+        {
+          "valor": "informe",
+          "etiqueta": "Obtener un informe",
+          "descripcion": "Buscás un documento profesional para presentar o utilizar en un trámite."
+        },
+        {
+          "valor": "acompanamiento_pericia",
+          "etiqueta": "Acompañamiento en una pericia oficial",
+          "descripcion": "Necesitás un perito de parte para una evaluación ya fijada."
+        },
+        {
+          "valor": "revision_documentacion",
+          "etiqueta": "Revisión de documentación",
+          "descripcion": "Querés que el Estudio analice informes, escritos, resoluciones o antecedentes."
+        },
+        {
+          "valor": "orientacion",
+          "etiqueta": "Orientación sobre los pasos a seguir",
+          "descripcion": "Todavía no sabés exactamente qué intervención corresponde."
+        },
+        {
+          "valor": "urgencia",
+          "etiqueta": "Resolver una situación urgente",
+          "descripcion": "Existe una fecha próxima, citación o vencimiento."
+        }
+      ]
+    },
+    {
+      "id": "fecha_fijada",
+      "orden": 9,
+      "seccion": "Fechas y urgencia",
+      "tipo": "radio",
+      "titulo": "¿Tenés una entrevista, pericia, audiencia o vencimiento ya fijado?",
+      "descripcion": "La existencia de una fecha próxima permite organizar la prioridad de revisión.",
+      "obligatoria": true,
+      "aion": "Vamos a verificar si existe alguna fecha que el Estudio deba conocer desde el inicio.",
+      "opciones": [
+        {
+          "valor": "si_fecha",
+          "etiqueta": "Sí",
+          "descripcion": "Ya existe una fecha concreta comunicada oficialmente."
+        },
+        {
+          "valor": "fecha_probable",
+          "etiqueta": "Existe una fecha probable",
+          "descripcion": "Todavía no está confirmada o falta recibir la notificación."
+        },
+        {
+          "valor": "sin_fecha",
+          "etiqueta": "No",
+          "descripcion": "Actualmente no existe una fecha fijada."
+        },
+        {
+          "valor": "no_se",
+          "etiqueta": "No lo sé",
+          "descripcion": "La información puede estar en poder del abogado o del organismo."
+        }
+      ]
+    },
+    {
+      "id": "detalle_fecha",
+      "orden": 10,
+      "seccion": "Fechas y urgencia",
+      "tipo": "grupo",
+      "titulo": "Indicá la fecha y el tipo de actuación, si los conocés.",
+      "descripcion": "Completá solamente los datos que tengas disponibles.",
+      "obligatoria": false,
+      "condicion": {
+        "pregunta": "fecha_fijada",
+        "valores": [
+          "si_fecha",
+          "fecha_probable"
+        ]
+      },
+      "aion": "No te preocupes si no conocés todos los datos. Podés completar solo lo que te informaron.",
+      "campos": [
+        {
+          "id": "fecha_actuacion",
+          "tipo": "date",
+          "etiqueta": "Fecha",
+          "obligatorio": false
+        },
+        {
+          "id": "tipo_actuacion",
+          "tipo": "select",
+          "etiqueta": "Tipo de actuación",
+          "obligatorio": false,
+          "opciones": [
+            {
+              "valor": "",
+              "etiqueta": "Seleccionar"
+            },
+            {
+              "valor": "pericia_psicologica",
+              "etiqueta": "Pericia psicológica"
+            },
+            {
+              "valor": "entrevista_cif",
+              "etiqueta": "Entrevista o evaluación en el CIF"
+            },
+            {
+              "valor": "audiencia",
+              "etiqueta": "Audiencia"
+            },
+            {
+              "valor": "vencimiento",
+              "etiqueta": "Vencimiento para presentar documentación"
+            },
+            {
+              "valor": "otra",
+              "etiqueta": "Otra actuación"
+            }
+          ]
+        },
+        {
+          "id": "organismo_actuacion",
+          "tipo": "text",
+          "etiqueta": "Juzgado, fiscalía u organismo",
+          "placeholder": "Ej.: UFI, Juzgado de Familia, CIF",
+          "obligatorio": false,
+          "maximoCaracteres": 120
+        }
+      ]
+    },
+    {
+      "id": "urgencia_percibida",
+      "orden": 11,
+      "seccion": "Fechas y urgencia",
+      "tipo": "radio",
+      "titulo": "¿Con qué nivel de urgencia necesitás que el Estudio revise la consulta?",
+      "descripcion": "Esta respuesta es orientativa. La disponibilidad se confirmará luego de revisar toda la información.",
+      "obligatoria": true,
+      "aion": "Elegí la opción más realista según las fechas y circunstancias actuales.",
+      "opciones": [
+        {
+          "valor": "menos_72_horas",
+          "etiqueta": "Dentro de las próximas 72 horas",
+          "descripcion": "Existe una fecha, audiencia, pericia o vencimiento inmediato."
+        },
+        {
+          "valor": "una_semana",
+          "etiqueta": "Durante la próxima semana",
+          "descripcion": "La situación requiere una respuesta próxima, pero no inmediata."
+        },
+        {
+          "valor": "sin_urgencia",
+          "etiqueta": "No existe una urgencia inmediata",
+          "descripcion": "Puedo coordinar según la disponibilidad habitual del Estudio."
+        },
+        {
+          "valor": "no_se",
+          "etiqueta": "No estoy seguro",
+          "descripcion": "Necesito que el Estudio valore la urgencia según el caso."
+        }
+      ]
+    },
+    {
+      "id": "documentacion_disponible",
+      "orden": 12,
+      "seccion": "Documentación",
+      "tipo": "checkbox",
+      "titulo": "¿Qué documentación tenés disponible actualmente?",
+      "descripcion": "Podés seleccionar todas las opciones que correspondan. No es necesario adjuntarla todavía.",
+      "obligatoria": true,
+      "minimoSelecciones": 1,
+      "aion": "Solo necesitamos saber qué documentación existe. El Estudio indicará después qué archivos debe recibir.",
+      "opciones": [
+        {
+          "valor": "demanda_escrito",
+          "etiqueta": "Demanda, denuncia o escrito judicial",
+          "descripcion": "Tenés una presentación realizada por tu abogado o por otra parte."
+        },
+        {
+          "valor": "resolucion_notificacion",
+          "etiqueta": "Resolución, cédula o notificación",
+          "descripcion": "Recibiste una comunicación del juzgado, fiscalía u organismo."
+        },
+        {
+          "valor": "puntos_pericia",
+          "etiqueta": "Puntos de pericia",
+          "descripcion": "Contás con las preguntas que deberá responder el perito."
+        },
+        {
+          "valor": "informes_psicologicos",
+          "etiqueta": "Informes psicológicos o psiquiátricos",
+          "descripcion": "Existen evaluaciones, certificados o constancias de tratamiento."
+        },
+        {
+          "valor": "documentacion_medica",
+          "etiqueta": "Documentación médica",
+          "descripcion": "Tenés historias clínicas, estudios, certificados o epicrisis."
+        },
+        {
+          "valor": "pericia_anterior",
+          "etiqueta": "Pericia o informe anterior",
+          "descripcion": "Existe un informe que necesitás revisar, responder o impugnar."
+        },
+        {
+          "valor": "otra_documentacion",
+          "etiqueta": "Otra documentación",
+          "descripcion": "Contás con mensajes, fotografías, audios, constancias u otros antecedentes."
+        },
+        {
+          "valor": "sin_documentacion",
+          "etiqueta": "Todavía no tengo documentación",
+          "descripcion": "Aún no recibí archivos o no sé qué documentación existe."
+        }
+      ]
+    },
+    {
+      "id": "tratamiento_actual",
+      "orden": 13,
+      "seccion": "Antecedentes relevantes",
+      "tipo": "radio",
+      "titulo": "¿La persona vinculada con la consulta realiza actualmente tratamiento psicológico o psiquiátrico?",
+      "descripcion": "Esta información permite diferenciar el tratamiento clínico de una evaluación pericial.",
+      "obligatoria": true,
+      "aion": "Una evaluación pericial y un tratamiento tienen objetivos diferentes, pero ambos antecedentes pueden ser relevantes.",
+      "opciones": [
+        {
+          "valor": "psicologico",
+          "etiqueta": "Sí, tratamiento psicológico",
+          "descripcion": "Actualmente realiza psicoterapia."
+        },
+        {
+          "valor": "psiquiatrico",
+          "etiqueta": "Sí, tratamiento psiquiátrico",
+          "descripcion": "Actualmente tiene seguimiento psiquiátrico o medicación indicada."
+        },
+        {
+          "valor": "ambos",
+          "etiqueta": "Sí, ambos tratamientos",
+          "descripcion": "Realiza tratamiento psicológico y psiquiátrico."
+        },
+        {
+          "valor": "no_actual",
+          "etiqueta": "No actualmente",
+          "descripcion": "No realiza tratamiento en este momento."
+        },
+        {
+          "valor": "no_se",
+          "etiqueta": "No lo sé o no corresponde",
+          "descripcion": "No cuento con esa información o la consulta todavía es general."
+        }
+      ]
+    },
+    {
+      "id": "relato_situacion",
+      "orden": 14,
+      "seccion": "Descripción del caso",
+      "tipo": "textarea",
+      "titulo": "Contanos brevemente qué ocurrió y por qué necesitás realizar esta consulta.",
+      "descripcion": "Explicalo con tus propias palabras. Podés indicar qué pasó, cuándo comenzó y cuál es la preocupación actual.",
+      "ayuda": "No hace falta copiar documentos ni utilizar lenguaje técnico. Priorizá los hechos principales.",
+      "placeholder": "Ejemplo: La consulta se relaciona con una causa de familia iniciada recientemente. Me indicaron que debo presentarme a una evaluación y necesito saber cómo proceder…",
+      "obligatoria": true,
+      "minimoCaracteres": 80,
+      "maximoCaracteres": 3000,
+      "aion": "Tomate el tiempo necesario. Este relato ayudará al Estudio a comprender el contexto general antes del contacto."
+    },
+    {
+      "id": "resultado_esperado",
+      "orden": 15,
+      "seccion": "Descripción del caso",
+      "tipo": "textarea",
+      "titulo": "¿Qué esperás que pueda hacer el Estudio en esta situación?",
+      "descripcion": "Indicá qué necesitás resolver o qué orientación te gustaría recibir.",
+      "placeholder": "Ejemplo: Necesito saber si pueden realizar la evaluación, qué documentación debo enviar y cuándo podría comenzar…",
+      "obligatoria": true,
+      "minimoCaracteres": 30,
+      "maximoCaracteres": 1200,
+      "aion": "Esta respuesta permite verificar si el servicio solicitado coincide con el alcance profesional del Estudio."
+    },
+    {
+      "id": "nombre_contacto",
+      "orden": 16,
+      "seccion": "Datos de contacto",
+      "tipo": "text",
+      "titulo": "¿Cuál es tu nombre y apellido?",
+      "descripcion": "Ingresá los datos de la persona que está realizando esta admisión.",
+      "etiqueta": "Nombre y apellido",
+      "placeholder": "Ej.: María González",
+      "autocomplete": "name",
+      "obligatoria": true,
+      "minimoCaracteres": 3,
+      "maximoCaracteres": 100,
+      "aion": "Ya estamos llegando al final. Ahora necesito los datos para que el Estudio pueda identificar la consulta."
+    },
+    {
+      "id": "localidad_contacto",
+      "orden": 17,
+      "seccion": "Datos de contacto",
+      "tipo": "grupo",
+      "titulo": "¿Desde qué localidad realizás la consulta?",
+      "descripcion": "Esto permite valorar si la atención podría ser virtual o presencial.",
+      "obligatoria": true,
+      "aion": "El Estudio trabaja con entrevistas iniciales virtuales y evalúa luego la modalidad correspondiente.",
+      "campos": [
+        {
+          "id": "localidad",
+          "tipo": "text",
+          "etiqueta": "Localidad",
+          "placeholder": "Ej.: Pilar",
+          "autocomplete": "address-level2",
+          "obligatorio": true,
+          "maximoCaracteres": 100
+        },
+        {
+          "id": "provincia",
+          "tipo": "select",
+          "etiqueta": "Provincia o jurisdicción",
+          "obligatorio": true,
+          "opciones": [
+            {
+              "valor": "",
+              "etiqueta": "Seleccionar"
+            },
+            {
+              "valor": "buenos_aires",
+              "etiqueta": "Provincia de Buenos Aires"
+            },
+            {
+              "valor": "caba",
+              "etiqueta": "Ciudad Autónoma de Buenos Aires"
+            },
+            {
+              "valor": "otra_provincia",
+              "etiqueta": "Otra provincia"
+            },
+            {
+              "valor": "exterior",
+              "etiqueta": "Fuera de Argentina"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datos_contacto",
+      "orden": 18,
+      "seccion": "Datos de contacto",
+      "tipo": "grupo",
+      "titulo": "¿Cómo puede contactarte el Estudio?",
+      "descripcion": "Ingresá datos que revises habitualmente.",
+      "obligatoria": true,
+      "aion": "Estos datos serán utilizados únicamente para responder esta consulta.",
+      "campos": [
+        {
+          "id": "telefono",
+          "tipo": "tel",
+          "etiqueta": "Teléfono o WhatsApp",
+          "placeholder": "Ej.: 11 1234 5678",
+          "autocomplete": "tel",
+          "obligatorio": true,
+          "minimoCaracteres": 8,
+          "maximoCaracteres": 30
+        },
+        {
+          "id": "email",
+          "tipo": "email",
+          "etiqueta": "Correo electrónico",
+          "placeholder": "Ej.: nombre@correo.com",
+          "autocomplete": "email",
+          "obligatorio": true,
+          "maximoCaracteres": 150
+        }
+      ]
+    },
+    {
+      "id": "medio_preferido",
+      "orden": 19,
+      "seccion": "Datos de contacto",
+      "tipo": "radio",
+      "titulo": "¿Por qué medio preferís recibir la respuesta inicial?",
+      "descripcion": "La respuesta dependerá también de los datos disponibles y de la naturaleza de la consulta.",
+      "obligatoria": true,
+      "aion": "Elegí el medio que te resulte más cómodo para el primer contacto.",
+      "opciones": [
+        {
+          "valor": "whatsapp",
+          "etiqueta": "WhatsApp",
+          "descripcion": "Prefiero recibir un mensaje escrito por WhatsApp."
+        },
+        {
+          "valor": "llamada",
+          "etiqueta": "Llamada telefónica",
+          "descripcion": "Prefiero que se comuniquen por teléfono."
+        },
+        {
+          "valor": "email",
+          "etiqueta": "Correo electrónico",
+          "descripcion": "Prefiero recibir la respuesta por correo."
+        },
+        {
+          "valor": "indistinto",
+          "etiqueta": "Cualquiera de los anteriores",
+          "descripcion": "No tengo una preferencia específica."
+        }
+      ]
+    },
+    {
+      "id": "disponibilidad_contacto",
+      "orden": 20,
+      "seccion": "Datos de contacto",
+      "tipo": "checkbox",
+      "titulo": "¿En qué momento suele resultarte más fácil responder?",
+      "descripcion": "Podés seleccionar más de una opción.",
+      "obligatoria": true,
+      "minimoSelecciones": 1,
+      "aion": "Esta información es orientativa y facilita el contacto inicial.",
+      "opciones": [
+        {
+          "valor": "manana",
+          "etiqueta": "Por la mañana",
+          "descripcion": "Generalmente antes del mediodía."
+        },
+        {
+          "valor": "tarde",
+          "etiqueta": "Por la tarde",
+          "descripcion": "Generalmente entre el mediodía y las 18 horas."
+        },
+        {
+          "valor": "noche",
+          "etiqueta": "Al finalizar la tarde",
+          "descripcion": "Generalmente después de las 18 horas."
+        },
+        {
+          "valor": "indistinto",
+          "etiqueta": "Horario indistinto",
+          "descripcion": "Puedo responder en distintos momentos del día."
+        }
+      ]
+    },
+    {
+      "id": "como_conocio_estudio",
+      "orden": 21,
+      "seccion": "Información final",
+      "tipo": "radio",
+      "titulo": "¿Cómo conociste el Estudio?",
+      "descripcion": "Esta información se utiliza únicamente con fines estadísticos.",
+      "obligatoria": true,
+      "aion": "Esta última respuesta ayudará a mejorar la recepción y la información disponible para futuras consultas.",
+      "opciones": [
+        {
+          "valor": "google",
+          "etiqueta": "Búsqueda en Google",
+          "descripcion": "Encontré el sitio al buscar servicios periciales."
+        },
+        {
+          "valor": "redes_sociales",
+          "etiqueta": "Redes sociales",
+          "descripcion": "Conocí el Estudio a través de una publicación o perfil."
+        },
+        {
+          "valor": "abogado",
+          "etiqueta": "Recomendación de un abogado o abogada",
+          "descripcion": "Un profesional del derecho me indicó comunicarme."
+        },
+        {
+          "valor": "profesional",
+          "etiqueta": "Recomendación de otro profesional",
+          "descripcion": "La referencia provino de un psicólogo, médico u otro profesional."
+        },
+        {
+          "valor": "persona_conocida",
+          "etiqueta": "Recomendación de una persona conocida",
+          "descripcion": "Un familiar, amigo o conocido me recomendó el Estudio."
+        },
+        {
+          "valor": "ya_conocia",
+          "etiqueta": "Ya conocía el Estudio",
+          "descripcion": "Tuve una consulta o contacto anterior."
+        },
+        {
+          "valor": "otro",
+          "etiqueta": "Otro medio",
+          "descripcion": "Llegué al Estudio de otra manera."
+        }
+      ]
+    }
+  ]
+}

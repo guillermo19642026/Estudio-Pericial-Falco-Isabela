@@ -1,0 +1,540 @@
+/* =========================================================
+   FALCO Admisión™
+   Responsive System v0.1
+========================================================= */
+
+/* =========================================================
+   NOTEBOOKS Y PANTALLAS MEDIAS
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .admision-header,
+  .admision-main,
+  .admision-footer {
+    width: min(
+      calc(100% - 48px),
+      var(--page-max-width)
+    );
+  }
+
+  .admision-main {
+    padding-block: 42px 54px;
+  }
+
+  .admision-welcome {
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(320px, 0.9fr);
+
+    gap: 56px;
+  }
+
+  .admision-title {
+    font-size: clamp(2.6rem, 5vw, 4.8rem);
+  }
+
+  .aion-reception__presence {
+    width: min(100%, 370px);
+  }
+
+  .aion-reception__message {
+    width: min(100%, 390px);
+  }
+}
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 920px) {
+
+  :root {
+    --header-height: 82px;
+  }
+
+  .admision-header {
+    width: calc(100% - 36px);
+  }
+
+  .admision-header__institution {
+    display: none;
+  }
+
+  .admision-main {
+    width: calc(100% - 36px);
+    padding-block: 38px 50px;
+  }
+
+  .admision-welcome {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .admision-welcome__content {
+    max-width: 760px;
+  }
+
+  .admision-title {
+    max-width: 760px;
+    font-size: clamp(2.6rem, 8vw, 4.9rem);
+  }
+
+  .admision-description {
+    max-width: 680px;
+  }
+
+  .aion-reception {
+    order: -1;
+    padding-top: 4px;
+  }
+
+  .aion-reception__presence {
+    width: min(100%, 330px);
+  }
+
+  .aion-reception__message {
+    width: min(100%, 520px);
+  }
+
+  .admision-footer {
+    width: calc(100% - 36px);
+  }
+}
+
+/* =========================================================
+   CELULARES GRANDES
+========================================================= */
+
+@media (max-width: 640px) {
+
+  :root {
+    --space-6: 2.3rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+  }
+
+  body {
+    line-height: 1.55;
+  }
+
+  .admision-background {
+    background:
+      radial-gradient(
+        circle at 50% 18%,
+        rgba(212, 175, 55, 0.07),
+        transparent 34%
+      ),
+      #080808;
+  }
+
+  .admision-grid {
+    background-size: 42px 42px;
+    opacity: 0.1;
+  }
+
+  .admision-header {
+    width: calc(100% - 28px);
+    min-height: 76px;
+    padding-block: 14px;
+  }
+
+  .admision-brand {
+    gap: 11px;
+  }
+
+  .admision-brand__symbol {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+
+  .admision-brand__text strong {
+    font-size: 0.98rem;
+  }
+
+  .admision-brand__text small {
+    margin-top: 5px;
+    font-size: 0.52rem;
+  }
+
+  .admision-main {
+    width: calc(100% - 28px);
+    padding-block: 30px 42px;
+  }
+
+  .admision-welcome {
+    gap: 34px;
+  }
+
+  .admision-welcome__content {
+    width: 100%;
+  }
+
+  .admision-eyebrow {
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 0.66rem;
+  }
+
+  .admision-eyebrow__line {
+    width: 30px;
+  }
+
+  .admision-title {
+    margin-bottom: 22px;
+    font-size: clamp(2.25rem, 13vw, 3.7rem);
+    line-height: 1.02;
+  }
+
+  .admision-description {
+    margin-bottom: 30px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .admision-assurance {
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .admision-assurance__item {
+    grid-template-columns: 36px 1fr;
+    gap: 13px;
+    padding: 14px;
+  }
+
+  .admision-assurance__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.58rem;
+  }
+
+  .admision-assurance__item strong {
+    font-size: 0.73rem;
+  }
+
+  .admision-assurance__item p {
+    font-size: 0.85rem;
+  }
+
+  .admision-actions {
+    display: grid;
+    gap: 14px;
+  }
+
+  .admision-button {
+    width: 100%;
+    min-height: 56px;
+    padding-inline: 22px;
+  }
+
+  .admision-actions__note {
+    max-width: none;
+    text-align: center;
+  }
+
+  .aion-reception {
+    padding-inline: 0;
+  }
+
+  .aion-reception__halo {
+    width: 300px;
+    min-width: 300px;
+  }
+
+  .aion-reception__presence {
+    width: min(100%, 280px);
+    margin-bottom: 4px;
+  }
+
+  .aion-reception__orb {
+    width: min(80%, 230px);
+  }
+
+  .aion-reception__message {
+    width: 100%;
+    padding: 19px 18px 20px;
+  }
+
+  .aion-reception__label {
+    font-size: 0.6rem;
+  }
+
+  .aion-reception__message p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .admision-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+
+    width: calc(100% - 28px);
+    padding-block: 18px 24px;
+  }
+
+  .admision-footer p {
+    max-width: none;
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .admision-header,
+  .admision-main,
+  .admision-footer {
+    width: calc(100% - 22px);
+  }
+
+  .admision-title {
+    font-size: clamp(2rem, 13vw, 3rem);
+  }
+
+  .admision-description {
+    font-size: 0.93rem;
+  }
+
+  .admision-assurance__item {
+    grid-template-columns: 1fr;
+  }
+
+  .admision-assurance__icon {
+    margin-bottom: 2px;
+  }
+
+  .aion-reception__presence {
+    width: min(100%, 250px);
+  }
+
+  .aion-reception__orb {
+    width: min(82%, 205px);
+  }
+
+  .aion-reception__eyes {
+    gap: 28px;
+  }
+
+  .aion-eye {
+    width: 15px;
+    height: 7px;
+  }
+}
+
+/* =========================================================
+   ALTURA REDUCIDA
+========================================================= */
+
+@media (max-height: 760px) and (min-width: 921px) {
+
+  .admision-main {
+    padding-block: 28px 38px;
+  }
+
+  .admision-welcome {
+    gap: 52px;
+  }
+
+  .admision-title {
+    font-size: clamp(2.5rem, 4.6vw, 4.7rem);
+  }
+
+  .admision-description {
+    margin-bottom: 28px;
+  }
+
+  .admision-assurance {
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .admision-assurance__item {
+    padding-block: 12px;
+  }
+
+  .aion-reception__presence {
+    width: min(100%, 350px);
+  }
+
+  .aion-reception__orb {
+    width: min(72%, 270px);
+  }
+}
+
+
+/* =========================================================
+   AVISO DE ADMISIÓN GUARDADA
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .admision-resume {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .admision-resume__actions {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   COMPONENTES DE ENTREVISTA RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .admision-options--two-columns,
+  .admision-fields--two-columns,
+  .admision-fields--three-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .admision-review-item {
+    grid-template-columns: 1fr;
+  }
+
+  .admision-review-item .admision-button {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .admision-option-card__control {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 13px;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .admision-option-card__content strong {
+    font-size: 0.84rem;
+  }
+
+  .admision-option-card__content span {
+    font-size: 0.77rem;
+  }
+
+  .admision-field__footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .admision-field__counter {
+    margin-left: 0;
+  }
+
+  .admision-consent {
+    padding: 16px;
+  }
+
+  .admision-notice {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   CONFIRMACIÓN RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admision-confirmation {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .aion-guide--confirmation {
+    order: -1;
+  }
+}
+
+@media (max-width: 560px) {
+
+  .admision-confirmation {
+    width:
+      min(100% - 24px, 1180px);
+
+    padding:
+      28px 0;
+  }
+
+  .admision-confirmation__card {
+    padding:
+      26px 20px;
+  }
+
+  .admision-confirmation__actions {
+    flex-direction: column;
+  }
+
+  .admision-confirmation__actions
+  .admision-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   SELECCIÓN DE PERFIL RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admision-profile {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .aion-guide--profile {
+    order: -1;
+  }
+}
+
+@media (max-width: 560px) {
+
+  .admision-profile {
+    width:
+      min(100% - 24px, 1180px);
+
+    padding:
+      28px 0;
+  }
+
+  .admision-profile__card {
+    padding:
+      26px 20px;
+  }
+
+  .admision-profile-option__control {
+    grid-template-columns:
+      22px
+      minmax(0, 1fr);
+
+    min-height: auto;
+    padding: 18px 16px;
+  }
+
+  .admision-profile-option__icon {
+    display: none;
+  }
+
+  .admision-profile__actions {
+    justify-content: stretch;
+  }
+
+  .admision-profile__actions
+  .admision-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,1124 @@
+/* =========================================================
+   FALCO Admisiones™
+   Detalle administrativo
+========================================================= */
+
+[hidden] {
+  display: none !important;
+}
+
+:root {
+  --adm-gold: #d4af37;
+  --adm-gold-dark: #9d7b12;
+  --adm-gold-soft: rgba(212, 175, 55, 0.13);
+
+  --adm-background: #f5f3ee;
+  --adm-surface: #ffffff;
+  --adm-border: #ddd7ca;
+
+  --adm-text: #28251f;
+  --adm-muted: #706a60;
+
+  --adm-success: #247a4d;
+  --adm-warning: #a46a00;
+  --adm-info: #32639d;
+  --adm-danger: #a34242;
+
+  --adm-shadow:
+    0 16px 45px rgba(42, 36, 25, 0.08);
+}
+
+
+body {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212, 175, 55, 0.11),
+      transparent 32%
+    ),
+    var(--adm-background);
+}
+
+
+.admision-detalle-main {
+  width: min(1160px, calc(100% - 40px));
+  margin: 30px auto 60px;
+}
+
+
+.admision-contenido {
+  display: grid;
+  gap: 22px;
+}
+
+
+/* =========================================================
+   CARGA
+========================================================= */
+
+.admision-carga {
+  min-height: 280px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: 22px;
+
+  box-shadow: var(--adm-shadow);
+
+  color: var(--adm-muted);
+  text-align: center;
+}
+
+.admision-carga strong {
+  color: var(--adm-text);
+  font-size: 1.05rem;
+}
+
+.admision-spinner {
+  width: 38px;
+  height: 38px;
+
+  border: 4px solid rgba(212, 175, 55, 0.20);
+  border-top-color: var(--adm-gold);
+  border-radius: 50%;
+
+  animation: admisionSpin 0.75s linear infinite;
+}
+
+@keyframes admisionSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.admision-panel {
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-border);
+  border-radius: 22px;
+
+  padding: 26px;
+
+  box-shadow: var(--adm-shadow);
+}
+
+.admision-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.admision-panel-header span:first-child {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--adm-gold-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.admision-panel-header h2 {
+  margin: 0;
+
+  color: var(--adm-text);
+  font-size: 1.35rem;
+}
+
+.admision-panel-header > strong {
+  color: var(--adm-muted);
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   RESUMEN
+========================================================= */
+
+.admision-resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admision-dato {
+  min-width: 0;
+
+  padding: 17px;
+
+  background: #faf9f6;
+  border: 1px solid #ebe6dc;
+  border-radius: 15px;
+}
+
+.admision-dato span {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--adm-muted);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.admision-dato strong {
+  display: block;
+
+  color: var(--adm-text);
+  font-size: 0.94rem;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.admision-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.admision-estado::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.estado-completada,
+.estado-nueva,
+.estado-enviada {
+  color: var(--adm-success);
+  background: rgba(36, 122, 77, 0.11);
+}
+
+.estado-revision,
+.estado-en-revision {
+  color: var(--adm-warning);
+  background: rgba(164, 106, 0, 0.12);
+}
+
+.estado-contactado,
+.estado-turno-pendiente,
+.estado-aceptada {
+  color: var(--adm-info);
+  background: rgba(50, 99, 157, 0.11);
+}
+
+.estado-rechazada,
+.estado-cerrada {
+  color: var(--adm-danger);
+  background: rgba(163, 66, 66, 0.11);
+}
+
+
+/* =========================================================
+   RESPUESTAS
+========================================================= */
+
+.admision-respuestas {
+  display: grid;
+  gap: 18px;
+}
+
+.admision-grupo {
+  overflow: hidden;
+
+  border: 1px solid #e5dfd4;
+  border-radius: 17px;
+}
+
+.admision-grupo-titulo {
+  margin: 0;
+  padding: 14px 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.13),
+      rgba(212, 175, 55, 0.035)
+    );
+
+  color: #5d5032;
+  font-size: 0.92rem;
+}
+
+.admision-grupo-contenido {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admision-respuesta-item {
+  min-width: 0;
+  padding: 15px 17px;
+
+  border-bottom: 1px solid #eeeae2;
+}
+
+.admision-respuesta-item:nth-child(odd) {
+  border-right: 1px solid #eeeae2;
+}
+
+.admision-respuesta-item:last-child {
+  border-bottom: none;
+}
+
+.admision-respuesta-item span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #725b17;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+
+.admision-respuesta-item {
+  background: #ffffff;
+}
+
+.admision-respuesta-item:nth-child(even) {
+  background: #fcfbf8;
+}
+
+.admision-respuesta-item div {
+  min-height: 24px;
+}
+
+.admision-respuesta-item a {
+  color: #6b5100;
+  font-weight: 800;
+}
+
+
+.admision-respuesta-item strong,
+.admision-respuesta-item p,
+.admision-respuesta-item div {
+  margin: 0;
+
+  color: #211f1a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+.admision-lista-valores {
+  margin: 0;
+  padding-left: 20px;
+
+  color: var(--adm-text);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DOCUMENTOS
+========================================================= */
+
+.admision-documentos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admision-documento-card {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+  padding: 17px;
+
+  border: 1px solid #e3ddd2;
+  border-radius: 16px;
+
+  background: #faf9f6;
+}
+
+.admision-documento-card strong {
+  color: var(--adm-text);
+  overflow-wrap: anywhere;
+}
+
+.admision-documento-card span {
+  color: var(--adm-muted);
+  font-size: 0.79rem;
+}
+
+.admision-documento-card a {
+  margin-top: auto;
+
+  color: #735b0e;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.admision-documento-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.admision-contacto-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   GESTIÓN
+========================================================= */
+
+.admision-gestion-grid {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.admision-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admision-campo-completo {
+  min-width: 0;
+}
+
+.admision-campo > span {
+  color: var(--adm-text);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.admision-campo select,
+.admision-campo textarea {
+  width: 100%;
+
+  border: 1px solid var(--adm-border);
+  border-radius: 12px;
+
+  background: #fff;
+  color: var(--adm-text);
+
+  padding: 12px 14px;
+  font: inherit;
+
+  outline: none;
+  resize: vertical;
+}
+
+.admision-campo select:focus,
+.admision-campo textarea:focus {
+  border-color: var(--adm-gold);
+  box-shadow: 0 0 0 4px var(--adm-gold-soft);
+}
+
+.admision-gestion-acciones {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+.admision-mensaje-guardado {
+  color: var(--adm-success);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.admision-btn {
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 17px;
+
+  border-radius: 11px;
+
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.admision-btn-principal {
+  border: 1px solid var(--adm-gold);
+  background: var(--adm-gold);
+  color: #201b0f;
+}
+
+.admision-btn-secundario {
+  border: 1px solid var(--adm-border);
+  background: #fff;
+  color: #5f4d17;
+}
+
+.admision-btn:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ACCIONES DE ECOSISTEMA
+========================================================= */
+
+.admision-acciones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.admision-accion-card {
+  min-height: 155px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 9px;
+  padding: 19px;
+
+  border: 1px solid #dfd9cd;
+  border-radius: 17px;
+
+  background: #faf9f6;
+  color: var(--adm-text);
+
+  text-align: left;
+}
+
+.admision-accion-card strong {
+  font-size: 0.98rem;
+}
+
+.admision-accion-card span {
+  color: var(--adm-muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.admision-accion-card small {
+  margin-top: auto;
+
+  color: var(--adm-gold-dark);
+  font-weight: 800;
+}
+
+.admision-accion-card:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.admision-vacio {
+  margin: 0;
+
+  padding: 22px;
+
+  border: 1px dashed #d8d1c5;
+  border-radius: 14px;
+
+  color: var(--adm-muted);
+  text-align: center;
+}
+
+.admision-error {
+  padding: 40px 25px;
+
+  background: var(--adm-surface);
+  border: 1px solid rgba(163, 66, 66, 0.25);
+  border-radius: 20px;
+
+  box-shadow: var(--adm-shadow);
+  text-align: center;
+}
+
+.admision-error strong {
+  display: block;
+  margin-bottom: 10px;
+
+  color: var(--adm-danger);
+  font-size: 1.2rem;
+}
+
+.admision-error p {
+  color: var(--adm-muted);
+}
+
+.admision-final-acciones {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admision-resumen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admision-documentos,
+  .admision-acciones-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admision-gestion-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .admision-detalle-main {
+    width: calc(100% - 24px);
+    margin-top: 18px;
+  }
+
+  .admision-panel {
+    padding: 19px 15px;
+    border-radius: 18px;
+  }
+
+  .admision-panel-header {
+    flex-direction: column;
+  }
+
+  .admision-resumen-grid,
+  .admision-documentos,
+  .admision-acciones-grid,
+  .admision-grupo-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .admision-respuesta-item:nth-child(odd) {
+    border-right: none;
+  }
+
+  .admision-contacto-acciones,
+  .admision-gestion-acciones {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admision-btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   HISTORIAL DE ADMISIÓN
+========================================================= */
+
+.admision-historial {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.admision-historial-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.admision-historial-encabezado span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a7a16;
+}
+
+.admision-historial-encabezado h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #262626;
+}
+
+.admision-historial-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admision-historial-item {
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) 1fr;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.admision-historial-fecha {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #767676;
+}
+
+.admision-historial-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admision-historial-contenido strong {
+  color: #262626;
+}
+
+.admision-historial-contenido span {
+  font-size: 0.86rem;
+  color: #777777;
+}
+
+.admision-historial-contenido p {
+  margin: 8px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid #d4af37;
+  border-radius: 6px;
+  background: #faf8f1;
+  line-height: 1.6;
+  color: #444444;
+}
+
+@media (max-width: 700px) {
+
+  .admision-historial-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   TIMELINE FALCO®
+   Mejora visual del historial existente
+========================================================= */
+
+.admision-historial-lista {
+  position: relative;
+  padding-left: 34px;
+}
+
+/* Línea vertical del recorrido */
+
+.admision-historial-lista::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 10px;
+  width: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      to bottom,
+      #d4af37,
+      rgba(212, 175, 55, 0.18)
+    );
+}
+
+/* Cada movimiento */
+
+.admision-historial-item {
+  position: relative;
+}
+
+/* Punto dorado de la línea de tiempo */
+
+.admision-historial-item::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: -31px;
+  width: 13px;
+  height: 13px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow:
+    0 0 0 2px rgba(212, 175, 55, 0.28),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Movimiento más reciente */
+
+.admision-historial-item:first-child::before {
+  width: 15px;
+  height: 15px;
+  left: -32px;
+  background: #b99118;
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.18),
+    0 5px 16px rgba(0, 0, 0, 0.14);
+}
+
+/* Etiqueta del último movimiento */
+
+.admision-historial-item:first-child::after {
+  content: "Último movimiento";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  padding: 5px 9px;
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  border-radius: 999px;
+  background: #fffaf0;
+  color: #8c6b0d;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Ajuste para pantallas pequeñas */
+
+@media (max-width: 700px) {
+
+  .admision-historial-lista {
+    padding-left: 27px;
+  }
+
+  .admision-historial-lista::before {
+    left: 7px;
+  }
+
+  .admision-historial-item::before {
+    top: 19px;
+    left: -26px;
+  }
+
+  .admision-historial-item:first-child::before {
+    left: -27px;
+  }
+
+  .admision-historial-item:first-child::after {
+    position: static;
+    display: inline-flex;
+    width: fit-content;
+    margin: 0 0 12px;
+  }
+
+}
+
+
+/* =========================================================
+   FALCO WORKFLOW™
+========================================================= */
+
+.admision-workflow {
+  margin-bottom: 28px;
+  padding: 26px;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 252, 243, 0.96),
+      rgba(255, 255, 255, 0.98)
+    );
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.045);
+}
+
+.admision-workflow-encabezado {
+  margin-bottom: 24px;
+}
+
+.admision-workflow-encabezado > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #9a7a16;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.admision-workflow-encabezado h2 {
+  margin: 0;
+  color: #262626;
+  font-size: 1.25rem;
+}
+
+/* Recorrido horizontal */
+
+.admision-workflow-recorrido {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Etapa */
+
+.workflow-etapa {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 0 0 150px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0.42;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.workflow-indicador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 11px;
+  border: 2px solid #d5d5d5;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #8b8b8b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.workflow-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workflow-texto strong {
+  color: #3d3d3d;
+  font-size: 0.87rem;
+}
+
+.workflow-texto span {
+  color: #888888;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+/* Línea entre etapas */
+
+.workflow-conector {
+  position: relative;
+  flex: 1;
+  min-width: 22px;
+  height: 2px;
+  margin-top: 18px;
+  background: #dddddd;
+  transition: background 0.25s ease;
+}
+
+/* Etapa ya completada */
+
+.workflow-etapa.completada {
+  opacity: 1;
+}
+
+.workflow-etapa.completada .workflow-indicador {
+  border-color: #d4af37;
+  background: #d4af37;
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+}
+
+.workflow-etapa.completada .workflow-indicador::before {
+  content: "✓";
+}
+
+.workflow-etapa.completada .workflow-indicador {
+  font-size: 0;
+}
+
+.workflow-etapa.completada .workflow-indicador::before {
+  font-size: 0.9rem;
+}
+
+/* Etapa actual */
+
+.workflow-etapa.actual {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.workflow-etapa.actual .workflow-indicador {
+  border-color: #a98212;
+  background: #ffffff;
+  color: #8d6b0c;
+  box-shadow:
+    0 0 0 5px rgba(212, 175, 55, 0.16),
+    0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.workflow-etapa.actual .workflow-texto strong {
+  color: #8d6b0c;
+}
+
+/* Conector completado */
+
+.workflow-conector.completado {
+  background:
+    linear-gradient(
+      to right,
+      #d4af37,
+      #b99118
+    );
+}
+
+/* Pantallas medianas */
+
+@media (max-width: 1050px) {
+
+  .admision-workflow {
+    overflow-x: auto;
+  }
+
+  .admision-workflow-recorrido {
+    min-width: 800px;
+    padding-bottom: 10px;
+  }
+
+}
+
+/* Pantallas pequeñas */
+
+@media (max-width: 700px) {
+
+  .admision-workflow {
+    padding: 22px 18px;
+  }
+
+  .admision-workflow-recorrido {
+    min-width: 720px;
+  }
+
+  .workflow-etapa {
+    flex-basis: 130px;
+  }
+
+}
+
+
+/* =========================================================
+   CORRECCIÓN DE VISIBILIDAD — FALCO WORKFLOW™
+========================================================= */
+
+#workflowAdmision {
+  display: flex !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  min-height: 105px !important;
+  overflow-x: auto;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#workflowAdmision .workflow-etapa {
+  display: flex !important;
+  flex: 0 0 150px !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-width: 150px !important;
+  min-height: 95px !important;
+  visibility: visible !important;
+}
+
+#workflowAdmision .workflow-etapa.actual,
+#workflowAdmision .workflow-etapa.completada {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#workflowAdmision .workflow-indicador {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+#workflowAdmision .workflow-texto {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+#workflowAdmision .workflow-texto strong,
+#workflowAdmision .workflow-texto span {
+  display: block !important;
+  visibility: visible !important;
+}
+
+#workflowAdmision .workflow-conector {
+  display: block !important;
+  flex: 1 1 30px !important;
+  min-width: 30px !important;
+  visibility: visible !important;
+}

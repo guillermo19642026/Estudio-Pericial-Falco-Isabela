@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Confirmación de admisión del Estudio Pericial Psicológico FALCO."
+  >
+
+  <title>
+    Admisión completada | Estudio Pericial FALCO
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-base.css"
+  >
+
+<!-- AION oficial -->
+<link
+  rel="stylesheet"
+  href="../FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+>
+
+
+  <link
+    rel="stylesheet"
+    href="css/admision-layout.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-componentes.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-aion.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-responsive.css"
+  >
+</head>
+
+<body class="admision-page admision-page--confirmation">
+
+  <main class="admision-confirmation">
+
+    <section
+      class="admision-confirmation__card"
+      aria-labelledby="confirmationTitle"
+    >
+
+      <div
+        class="admision-confirmation__symbol"
+        aria-hidden="true"
+      >
+        ✓
+      </div>
+
+      <p class="admision-eyebrow">
+        FALCO Admisión™
+      </p>
+
+      <h1 id="confirmationTitle">
+        Admisión completada
+      </h1>
+
+      <p
+        id="confirmationMessage"
+        class="admision-confirmation__lead"
+      >
+        La información inicial fue registrada correctamente.
+      </p>
+
+      <div
+        class="admision-confirmation__reference"
+        id="confirmationReference"
+        hidden
+      >
+        <span>
+          Referencia de admisión
+        </span>
+
+        <strong id="confirmationId"></strong>
+      </div>
+
+      <div class="admision-notice admision-notice--important">
+
+        <span
+          class="admision-notice__icon"
+          aria-hidden="true"
+        >
+          i
+        </span>
+
+        <div>
+          <strong>
+            Revisión del Estudio
+          </strong>
+
+          <p id="confirmationReviewText">
+            El Estudio revisará la información antes de confirmar la modalidad, disponibilidad y alcance de la intervención.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="admision-confirmation__details">
+
+        <article>
+          <span aria-hidden="true">01</span>
+
+          <div>
+            <strong>
+              Evaluación inicial
+            </strong>
+
+            <p>
+              La información será revisada para determinar si la consulta corresponde al ámbito de trabajo del Estudio.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span aria-hidden="true">02</span>
+
+          <div>
+            <strong>
+              Contacto
+            </strong>
+
+            <p>
+              La respuesta inicial se realizará mediante los datos y el medio de contacto informados.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <span aria-hidden="true">03</span>
+
+          <div>
+            <strong>
+              Modalidad y honorarios
+            </strong>
+
+            <p>
+              Se informarán después de conocer el alcance, la documentación, los plazos y la intervención requerida.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="admision-confirmation__actions">
+
+        <a
+          class="admision-button admision-button--primary"
+          href="index.html"
+        >
+          Volver al inicio
+        </a>
+
+        <button
+          class="admision-button admision-button--secondary"
+          id="downloadAdmissionButton"
+          type="button"
+        >
+          Guardar constancia
+        </button>
+
+      </div>
+
+      <p class="admision-confirmation__privacy">
+        La admisión no implica aceptación automática del caso ni confirmación de una entrevista.
+      </p>
+
+    </section>
+
+    
+
+  </main>
+
+  <!-- ======================================================
+     AION OFICIAL
+======================================================= -->
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+
+
+<!--
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+-->
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+
+
+
+
+<!-- Confirmación + Firebase -->
+<script
+  type="module"
+  src="js/admision-confirmacion.js"
+></script>
+
+
+<!-- Tarjeta de AION -->
+<script src="js/admision-aion-pages.js"></script>
+
+</body>
+</html>

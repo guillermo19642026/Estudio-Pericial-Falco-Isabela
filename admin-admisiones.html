@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FALCO Admisiones™</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin-admisiones.css">
+
+</head>
+
+<body class="tests-home">
+
+<header class="tests-header">
+
+<div class="tests-logo">
+<img src="img/logo.png" alt="FALCO">
+</div>
+
+<div class="tests-brand">
+ESTUDIO PERICIAL PSICOLÓGICO
+<span>FALCO Admisiones™</span>
+</div>
+
+<div class="btn-volver-wrapper">
+<a href="dashboard.html" class="btn-volver">
+← Dashboard
+</a>
+</div>
+
+</header>
+
+
+<section class="tests-hero dashboard-hero">
+
+<span class="dashboard-kicker">
+Centro Administrativo
+</span>
+
+<h1>FALCO Admisiones™</h1>
+
+<p>
+
+Consultas recibidas desde el
+Formulario Inteligente de Admisión.
+
+</p>
+
+</section>
+
+
+<section class="dashboard-section-title">
+
+<span>Solicitudes</span>
+
+<h2>Admisiones recibidas</h2>
+
+</section>
+
+
+<section class="admisiones-resumen">
+
+  <article class="adm-resumen-card">
+    <span>Total</span>
+    <strong id="totalAdmisiones">0</strong>
+  </article>
+
+  <article class="adm-resumen-card">
+    <span>Nuevas</span>
+    <strong id="totalNuevas">0</strong>
+  </article>
+
+  <article class="adm-resumen-card">
+    <span>En proceso</span>
+    <strong id="totalEnProceso">0</strong>
+  </article>
+
+  <article class="adm-resumen-card">
+    <span>Con documentos</span>
+    <strong id="totalConDocumentos">0</strong>
+  </article>
+
+</section>
+
+
+
+<section class="admin-toolbar">
+
+<input
+type="search"
+id="buscarAdmision"
+placeholder="Buscar por nombre, email, referencia...">
+
+
+
+<select id="filtroEstado">
+
+  <option value="">
+    Todos los estados
+  </option>
+
+  <option value="nueva">
+    Nueva
+  </option>
+
+  <option value="revision">
+    En revisión
+  </option>
+
+  <option value="contactado">
+    Contactado
+  </option>
+
+  <option value="cerrado">
+    Cerrado
+  </option>
+
+  <option value="archivada">
+    Archivadas
+  </option>
+
+</select>
+
+</select>
+
+
+
+<button
+  type="button"
+  id="btnActualizarAdmisiones"
+  class="btn-actualizar-admisiones">
+  Actualizar
+</button>
+
+
+
+</section>
+
+
+<section class="tabla-admisiones">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Fecha</th>
+
+<th>Referencia</th>
+
+<th>Nombre</th>
+
+<th>Perfil</th>
+
+<th>Estado</th>
+
+<th>Documentos</th>
+
+<th></th>
+
+</tr>
+
+</thead>
+
+<tbody id="tablaAdmisiones">
+
+<tr>
+
+<td colspan="7">
+
+Cargando admisiones...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+
+<script type="module"
+src="admin-admisiones.js">
+</script>
+
+</body>
+</html>

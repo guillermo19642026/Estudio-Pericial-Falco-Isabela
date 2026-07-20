@@ -1,0 +1,358 @@
+{
+  "id": "mensajes-aion-admision",
+  "version": "1.0.0",
+  "identidad": {
+    "nombre": "AION",
+    "sistema": "FALCO Admisión™",
+    "rol": "Guía de recepción digital",
+    "descripcion": "Acompaña a la persona durante el recorrido de admisión, explica cada etapa y brinda orientación general sin emitir conclusiones técnicas ni jurídicas."
+  },
+  "estados": {
+    "idle": {
+      "etiqueta": "AION",
+      "mensaje": "Estoy disponible para acompañarte durante todo el recorrido."
+    },
+    "loading": {
+      "etiqueta": "AION está preparando el recorrido",
+      "mensaje": "Estoy organizando las preguntas según el tipo de consulta seleccionado."
+    },
+    "thinking": {
+      "etiqueta": "AION está procesando",
+      "mensaje": "Estoy revisando la información ingresada para continuar con la siguiente etapa."
+    },
+    "speaking": {
+      "etiqueta": "AION te orienta",
+      "mensaje": "Leé esta indicación antes de continuar."
+    },
+    "success": {
+      "etiqueta": "Etapa completada",
+      "mensaje": "La respuesta fue guardada correctamente."
+    },
+    "warning": {
+      "etiqueta": "Revisemos esta etapa",
+      "mensaje": "Falta completar un dato necesario para poder continuar."
+    },
+    "error": {
+      "etiqueta": "No fue posible continuar",
+      "mensaje": "Ocurrió un problema inesperado, pero tu progreso guardado no debería haberse perdido."
+    },
+    "offline": {
+      "etiqueta": "Sin conexión",
+      "mensaje": "Podés continuar completando el recorrido. El progreso se guardará en este dispositivo."
+    },
+    "online": {
+      "etiqueta": "Conexión restablecida",
+      "mensaje": "La conexión volvió a estar disponible."
+    },
+    "review": {
+      "etiqueta": "Revisión final",
+      "mensaje": "Ya completaste las preguntas iniciales. Revisá las respuestas antes de enviarlas."
+    },
+    "completed": {
+      "etiqueta": "Admisión completada",
+      "mensaje": "La información está lista para ser enviada al Estudio."
+    }
+  },
+  "inicio": {
+    "general": [
+      "Voy a acompañarte durante todo el recorrido. Respondé con tranquilidad.",
+      "No necesitás utilizar términos jurídicos ni psicológicos.",
+      "Podés explicar la situación con tus propias palabras.",
+      "Las preguntas se presentan de a una para que el recorrido sea más claro."
+    ],
+    "persona": [
+      "Primero vamos a conocer el motivo de tu consulta y la situación actual.",
+      "No hace falta que sepas exactamente qué servicio necesitás.",
+      "El Estudio revisará la información antes de indicar una modalidad de atención."
+    ],
+    "profesional": [
+      "Primero vamos a conocer tu perfil y el tipo de asistencia profesional que necesitás.",
+      "Podés consultar aunque estés comenzando tu práctica pericial.",
+      "El recorrido se adaptará al estado actual del caso o trabajo."
+    ],
+    "continuar": [
+      "Encontré una admisión iniciada anteriormente.",
+      "Podés continuar desde la última pregunta guardada.",
+      "También podés reiniciar el recorrido y comenzar nuevamente."
+    ]
+  },
+  "transiciones": {
+    "primera_pregunta": [
+      "Empecemos por la información principal.",
+      "La primera pregunta permite definir el recorrido adecuado.",
+      "Seleccioná la opción que mejor represente tu situación."
+    ],
+    "siguiente": [
+      "Perfecto. Continuemos con la siguiente etapa.",
+      "La respuesta quedó guardada. Sigamos.",
+      "Bien. Ahora necesito conocer un dato más.",
+      "Ya registré esta información."
+    ],
+    "anterior": [
+      "Volvimos a la pregunta anterior.",
+      "Podés modificar la respuesta y continuar nuevamente.",
+      "Revisá esta etapa con tranquilidad."
+    ],
+    "cambio_seccion": [
+      "Comenzamos una nueva sección del recorrido.",
+      "Ahora vamos a conocer otro aspecto de la consulta.",
+      "La información anterior ya quedó guardada."
+    ],
+    "mitad_recorrido": [
+      "Ya completaste aproximadamente la mitad del recorrido.",
+      "Tu progreso está guardado automáticamente.",
+      "Podés continuar con tranquilidad."
+    ],
+    "ultimas_preguntas": [
+      "Estamos llegando a las últimas preguntas.",
+      "Solo faltan algunos datos para completar la admisión.",
+      "La información principal ya fue registrada."
+    ],
+    "revision": [
+      "Llegamos a la revisión final.",
+      "Verificá que los datos sean correctos antes de enviar.",
+      "Podés editar cualquier respuesta desde este resumen."
+    ]
+  },
+  "preguntas": {
+    "seleccion_unica": [
+      "Elegí una sola opción.",
+      "Seleccioná la alternativa que más se aproxime.",
+      "No es necesario que la opción sea exacta."
+    ],
+    "seleccion_multiple": [
+      "Podés seleccionar más de una opción.",
+      "Marcá todas las alternativas que correspondan.",
+      "Podés combinar diferentes opciones."
+    ],
+    "texto_corto": [
+      "Completá este dato de forma breve.",
+      "Ingresá la información solicitada.",
+      "Podés escribirlo tal como lo utilizás habitualmente."
+    ],
+    "texto_largo": [
+      "Explicalo con tus propias palabras.",
+      "Priorizá los hechos principales.",
+      "No hace falta copiar documentos completos."
+    ],
+    "grupo_campos": [
+      "Completá los datos que tengas disponibles.",
+      "Los campos obligatorios están indicados en el recorrido.",
+      "Podés dejar vacíos los datos opcionales."
+    ],
+    "fecha": [
+      "Ingresá la fecha solo si la conocés.",
+      "Verificá que el día, mes y año sean correctos.",
+      "Una fecha aproximada también puede ser útil cuando el recorrido lo permita."
+    ],
+    "contacto": [
+      "Ingresá datos que revises habitualmente.",
+      "El Estudio utilizará esta información únicamente para responder la consulta.",
+      "Verificá especialmente el teléfono y el correo electrónico."
+    ]
+  },
+  "validaciones": {
+    "obligatoria": {
+      "etiqueta": "Falta completar esta respuesta",
+      "mensaje": "Esta pregunta es necesaria para continuar."
+    },
+    "seleccion_minima": {
+      "etiqueta": "Seleccioná al menos una opción",
+      "mensaje": "Necesitamos que marques una o más alternativas antes de continuar."
+    },
+    "texto_minimo": {
+      "etiqueta": "La respuesta necesita un poco más de detalle",
+      "mensaje": "Agregá información suficiente para que el Estudio pueda comprender la situación."
+    },
+    "texto_maximo": {
+      "etiqueta": "La respuesta es demasiado extensa",
+      "mensaje": "Reducí el texto y conservá solamente la información principal."
+    },
+    "email": {
+      "etiqueta": "Revisá el correo electrónico",
+      "mensaje": "El formato ingresado no parece corresponder a una dirección válida."
+    },
+    "telefono": {
+      "etiqueta": "Revisá el teléfono",
+      "mensaje": "Ingresá un número de contacto válido, incluyendo el código de área."
+    },
+    "fecha": {
+      "etiqueta": "Revisá la fecha",
+      "mensaje": "La fecha ingresada no parece válida."
+    },
+    "grupo_incompleto": {
+      "etiqueta": "Falta completar un dato",
+      "mensaje": "Revisá los campos obligatorios de esta etapa."
+    },
+    "consentimiento": {
+      "etiqueta": "Falta confirmar el envío",
+      "mensaje": "Necesitamos que confirmes la información antes de enviar la admisión."
+    },
+    "generica": {
+      "etiqueta": "Revisemos esta respuesta",
+      "mensaje": "Hay un dato que necesita ser corregido o completado."
+    }
+  },
+  "guardado": {
+    "guardando": {
+      "etiqueta": "Guardando",
+      "mensaje": "Estoy registrando la respuesta en este dispositivo."
+    },
+    "guardado": {
+      "etiqueta": "Progreso guardado",
+      "mensaje": "La información fue guardada correctamente."
+    },
+    "sin_cambios": {
+      "etiqueta": "Sin cambios pendientes",
+      "mensaje": "La última versión ya está guardada."
+    },
+    "error": {
+      "etiqueta": "No se pudo guardar",
+      "mensaje": "El recorrido puede continuar, pero conviene revisar la configuración del navegador."
+    },
+    "local": {
+      "etiqueta": "Guardado local",
+      "mensaje": "El progreso está almacenado en este dispositivo."
+    }
+  },
+  "conexion": {
+    "sin_conexion": [
+      "La conexión se interrumpió, pero podés continuar completando el recorrido.",
+      "Las respuestas se guardarán localmente en este dispositivo.",
+      "No cierres ni borres los datos del navegador hasta recuperar la conexión."
+    ],
+    "conexion_restaurada": [
+      "La conexión volvió a estar disponible.",
+      "Podés continuar normalmente.",
+      "El progreso local permanece guardado."
+    ]
+  },
+  "reinicio": {
+    "solicitud": [
+      "Reiniciar eliminará las respuestas guardadas en este dispositivo.",
+      "Esta acción no puede deshacerse.",
+      "Podés cancelar y continuar desde la etapa actual."
+    ],
+    "confirmado": [
+      "El recorrido fue reiniciado.",
+      "Vamos a comenzar una nueva admisión.",
+      "Las respuestas anteriores fueron eliminadas de este dispositivo."
+    ],
+    "cancelado": [
+      "El reinicio fue cancelado.",
+      "Podés continuar desde la pregunta actual."
+    ]
+  },
+  "revision": {
+    "inicio": [
+      "Ya tenemos la información inicial necesaria.",
+      "Revisá cada respuesta antes de confirmar el envío.",
+      "Podés volver a cualquier pregunta para modificarla."
+    ],
+    "sin_respuesta": "Sin respuesta registrada",
+    "respuesta_multiple": "Opciones seleccionadas",
+    "respuesta_grupo": "Datos ingresados",
+    "editar": "Volvamos a esta pregunta para modificarla.",
+    "actualizada": "La respuesta fue actualizada correctamente."
+  },
+  "envio": {
+    "preparando": {
+      "etiqueta": "Preparando admisión",
+      "mensaje": "Estoy organizando la información para su envío."
+    },
+    "enviando": {
+      "etiqueta": "Enviando",
+      "mensaje": "La admisión está siendo enviada al Estudio."
+    },
+    "exito": {
+      "etiqueta": "Admisión enviada",
+      "mensaje": "La información fue recibida correctamente."
+    },
+    "error": {
+      "etiqueta": "No fue posible enviar",
+      "mensaje": "La información sigue guardada. Podés volver a intentarlo."
+    },
+    "duplicado": {
+      "etiqueta": "Admisión ya enviada",
+      "mensaje": "Este recorrido ya fue enviado anteriormente."
+    }
+  },
+  "finalizacion": {
+    "persona": {
+      "titulo": "Tu admisión fue completada.",
+      "mensaje": "El Estudio revisará la información antes de responder y determinar si corresponde coordinar una entrevista inicial.",
+      "aclaraciones": [
+        "El envío no implica aceptación automática del caso.",
+        "La disponibilidad será confirmada luego de revisar la consulta.",
+        "Los honorarios no se informan antes de conocer el alcance de la intervención."
+      ]
+    },
+    "profesional": {
+      "titulo": "Tu consulta profesional fue completada.",
+      "mensaje": "El Estudio revisará el material informado, el tipo de asistencia y los plazos antes de responder.",
+      "aclaraciones": [
+        "La modalidad se definirá según el objetivo y la documentación disponible.",
+        "Los plazos serán confirmados luego de evaluar la complejidad.",
+        "Los honorarios se informarán una vez definido el alcance del trabajo."
+      ]
+    }
+  },
+  "limites": {
+    "sin_diagnostico": [
+      "AION no realiza diagnósticos psicológicos.",
+      "Las respuestas ingresadas no son interpretadas clínicamente durante este recorrido."
+    ],
+    "sin_asesoramiento_juridico": [
+      "AION no brinda asesoramiento jurídico.",
+      "Las decisiones legales deben ser evaluadas con un abogado o abogada."
+    ],
+    "sin_emergencias": [
+      "Este sistema no reemplaza servicios de emergencia.",
+      "Ante una situación de riesgo inmediato, comunicate con los servicios de emergencia correspondientes."
+    ],
+    "sin_honorarios": [
+      "Los honorarios no se informan antes de conocer el caso.",
+      "El Estudio necesita revisar el alcance, la documentación y los plazos."
+    ],
+    "confidencialidad": [
+      "La información será utilizada únicamente para evaluar la consulta.",
+      "Evitá ingresar datos que no sean necesarios para esta instancia inicial."
+    ]
+  },
+  "errores": {
+    "carga_preguntas": {
+      "etiqueta": "No pude cargar las preguntas",
+      "mensaje": "Verificá que los archivos de datos estén disponibles y que el proyecto se ejecute mediante un servidor local."
+    },
+    "archivo_invalido": {
+      "etiqueta": "El archivo de preguntas no es válido",
+      "mensaje": "La estructura del archivo JSON necesita ser revisada."
+    },
+    "dependencia_faltante": {
+      "etiqueta": "Falta un componente del sistema",
+      "mensaje": "No se encontró uno de los módulos necesarios para iniciar la admisión."
+    },
+    "estado_invalido": {
+      "etiqueta": "No pude recuperar el progreso",
+      "mensaje": "La admisión guardada parece incompleta o incompatible con esta versión."
+    },
+    "render": {
+      "etiqueta": "No pude mostrar esta pregunta",
+      "mensaje": "Ocurrió un error al construir el contenido de la etapa actual."
+    },
+    "desconocido": {
+      "etiqueta": "Ocurrió un problema inesperado",
+      "mensaje": "Podés recargar la página. El progreso guardado debería mantenerse."
+    }
+  },
+  "accesibilidad": {
+    "pregunta_cargada": "Nueva pregunta cargada.",
+    "respuesta_seleccionada": "Respuesta seleccionada.",
+    "respuesta_eliminada": "Selección eliminada.",
+    "validacion_error": "La respuesta necesita ser revisada.",
+    "progreso_actualizado": "El progreso del formulario fue actualizado.",
+    "revision_abierta": "Se abrió la revisión final.",
+    "modal_reinicio_abierto": "Se abrió la confirmación para reiniciar la admisión.",
+    "modal_reinicio_cerrado": "Se cerró la confirmación de reinicio."
+  }
+}

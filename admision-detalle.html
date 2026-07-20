@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Detalle de admisión | FALCO®</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admision-detalle.css">
+
+</head>
+
+<body class="tests-home">
+
+<header class="tests-header">
+
+  <div class="tests-logo">
+    <img
+      src="img/logo.png"
+      alt="Estudio Pericial Psicológico FALCO">
+  </div>
+
+  <div class="tests-brand">
+    ESTUDIO PERICIAL PSICOLÓGICO
+    <span>FALCO Admisiones™</span>
+  </div>
+
+  <div class="btn-volver-wrapper">
+    <a
+      href="admin-admisiones.html"
+      class="btn-volver">
+      ← Admisiones
+    </a>
+  </div>
+
+</header>
+
+
+<section class="tests-hero dashboard-hero">
+
+  <span class="dashboard-kicker">
+    Gestión administrativa
+  </span>
+
+  <h1>Detalle de admisión</h1>
+
+  <p id="detalleReferencia">
+    Cargando referencia...
+  </p>
+
+</section>
+
+
+<main class="admision-detalle-main">
+
+  <section
+    id="estadoCarga"
+    class="admision-carga">
+
+    <div class="admision-spinner"></div>
+
+    <strong>Cargando admisión...</strong>
+
+    <span>
+      Recuperando la información registrada.
+    </span>
+
+  </section>
+
+
+  <div
+    id="contenidoAdmision"
+    class="admision-contenido"
+    hidden>
+
+
+
+<!-- ======================================================
+     FALCO WORKFLOW™
+======================================================= -->
+
+<section class="admision-workflow">
+
+  <div class="admision-workflow-encabezado">
+    <span>Recorrido de la admisión</span>
+    <h2>Estado del proceso</h2>
+  </div>
+
+  <div
+    id="workflowAdmision"
+    class="admision-workflow-recorrido"
+    aria-label="Estado del proceso de admisión"
+  >
+
+    <div class="workflow-etapa" data-workflow-estado="nueva">
+      <div class="workflow-indicador">1</div>
+      <div class="workflow-texto">
+        <strong>Recepción</strong>
+        <span>Admisión recibida</span>
+      </div>
+    </div>
+
+    <div class="workflow-conector"></div>
+
+    <div class="workflow-etapa" data-workflow-estado="en_revision">
+      <div class="workflow-indicador">2</div>
+      <div class="workflow-texto">
+        <strong>En revisión</strong>
+        <span>Evaluación inicial</span>
+      </div>
+    </div>
+
+    <div class="workflow-conector"></div>
+
+    <div class="workflow-etapa" data-workflow-estado="contactado">
+      <div class="workflow-indicador">3</div>
+      <div class="workflow-texto">
+        <strong>Contactado</strong>
+        <span>Primer contacto realizado</span>
+      </div>
+    </div>
+
+    <div class="workflow-conector"></div>
+
+    <div class="workflow-etapa" data-workflow-estado="entrevista">
+      <div class="workflow-indicador">4</div>
+      <div class="workflow-texto">
+        <strong>Entrevista</strong>
+        <span>Instancia coordinada</span>
+      </div>
+    </div>
+
+    <div class="workflow-conector"></div>
+
+    <div class="workflow-etapa" data-workflow-estado="aceptada">
+      <div class="workflow-indicador">5</div>
+      <div class="workflow-texto">
+        <strong>Aceptada</strong>
+        <span>Admisión aprobada</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+    <!-- =================================================
+         RESUMEN
+    ================================================== -->
+
+    <section class="admision-panel admision-resumen-panel">
+
+      <div class="admision-panel-header">
+
+        <div>
+          <span>Resumen</span>
+          <h2>Información principal</h2>
+        </div>
+
+        <span
+          id="estadoAdmisionBadge"
+          class="admision-estado estado-nueva">
+          Nueva
+        </span>
+
+      </div>
+
+
+      <div class="admision-resumen-grid">
+
+        <article class="admision-dato">
+
+          <span>Referencia</span>
+
+          <strong id="datoReferencia">
+            —
+          </strong>
+
+        </article>
+
+
+        <article class="admision-dato">
+
+          <span>Fecha de ingreso</span>
+
+          <strong id="datoFecha">
+            —
+          </strong>
+
+        </article>
+
+
+        <article class="admision-dato">
+
+          <span>Perfil</span>
+
+          <strong id="datoPerfil">
+            —
+          </strong>
+
+        </article>
+
+
+        <article class="admision-dato">
+
+          <span>Estado</span>
+
+          <strong id="datoEstado">
+            —
+          </strong>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CONTACTO
+    ================================================== -->
+
+    <section class="admision-panel">
+
+      <div class="admision-panel-header">
+
+        <div>
+          <span>Identificación</span>
+          <h2>Datos de contacto</h2>
+        </div>
+
+      </div>
+
+
+      <div class="admision-resumen-grid">
+
+        <article class="admision-dato">
+
+          <span>Nombre</span>
+
+          <strong id="datoNombre">
+            Sin identificar
+          </strong>
+
+        </article>
+
+
+        <article class="admision-dato">
+
+          <span>Correo electrónico</span>
+
+          <strong id="datoEmail">
+            —
+          </strong>
+
+        </article>
+
+
+        <article class="admision-dato">
+
+          <span>Teléfono / WhatsApp</span>
+
+          <strong id="datoTelefono">
+            —
+          </strong>
+
+        </article>
+
+
+        <article class="admision-dato">
+
+          <span>Tipo de usuario</span>
+
+          <strong id="datoTipoUsuario">
+            —
+          </strong>
+
+        </article>
+
+      </div>
+
+
+      <div class="admision-contacto-acciones">
+
+        <a
+          id="btnEnviarEmail"
+          class="admision-btn admision-btn-secundario"
+          href="#"
+          hidden>
+          Enviar email
+        </a>
+
+        <a
+          id="btnContactarWhatsApp"
+          class="admision-btn admision-btn-secundario"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden>
+          Contactar por WhatsApp
+        </a>
+
+      </div>
+
+    </section>
+
+
+<!-- =================================================
+     RESPUESTAS DEL ESTUDIO
+================================================== -->
+
+<section class="admision-panel">
+
+  <div class="admision-panel-header">
+
+    <div>
+      <span>Comunicación</span>
+      <h2>Respuestas del Estudio</h2>
+    </div>
+
+  </div>
+
+  <div class="admision-gestion-grid">
+
+    <label class="admision-campo">
+
+      <span>Tipo de respuesta</span>
+
+      <select id="selectorRespuestaRapida">
+
+        <option value="">
+          Seleccionar...
+        </option>
+
+        <option value="entrevista">
+          Entrevista inicial
+        </option>
+
+        <option value="supervision">
+          Supervisión profesional
+        </option>
+
+        <option value="psicodiagnostico">
+          Psicodiagnóstico
+        </option>
+
+        <option value="revinculacion">
+          Revinculación
+        </option>
+
+        <option value="cif">
+          Evaluación para CIF
+        </option>
+
+        <option value="cambioNombre">
+          Cambio de nombre y apellido
+        </option>
+
+      </select>
+
+    </label>
+
+    <label class="admision-campo admision-campo-completo">
+
+      <span>Vista previa del mensaje</span>
+
+      <textarea
+        id="textoRespuestaRapida"
+        rows="10"
+        readonly
+        placeholder="Aquí aparecerá la respuesta preparada por el Estudio.">
+      </textarea>
+
+    </label>
+
+  </div>
+
+  <div class="admision-gestion-acciones">
+
+    <button
+      id="btnPrepararWhatsApp"
+      type="button"
+      class="admision-btn admision-btn-principal">
+
+      📲 Preparar respuesta por WhatsApp
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+
+
+    <!-- =================================================
+         RESPUESTAS
+    ================================================== -->
+
+    <section class="admision-panel">
+
+      <div class="admision-panel-header">
+
+        <div>
+          <span>Formulario</span>
+          <h2>Información suministrada</h2>
+        </div>
+
+      </div>
+
+      <div
+        id="respuestasAdmision"
+        class="admision-respuestas">
+
+        <p class="admision-vacio">
+          No se encontraron respuestas.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         DOCUMENTACIÓN
+    ================================================== -->
+
+    <section class="admision-panel">
+
+      <div class="admision-panel-header">
+
+        <div>
+          <span>Archivos</span>
+          <h2>Documentación adjunta</h2>
+        </div>
+
+        <strong id="cantidadDocumentos">
+          0 archivos
+        </strong>
+
+      </div>
+
+      <div
+        id="documentosAdmision"
+        class="admision-documentos">
+
+        <p class="admision-vacio">
+          No se adjuntó documentación.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         GESTIÓN INTERNA
+    ================================================== -->
+
+    <section class="admision-panel">
+
+      <div class="admision-panel-header">
+
+        <div>
+          <span>Administración</span>
+          <h2>Seguimiento interno</h2>
+        </div>
+
+      </div>
+
+
+      <div class="admision-gestion-grid">
+
+        <label class="admision-campo">
+
+          <span>Estado de la admisión</span>
+
+          <select id="selectorEstadoAdmision">
+
+            <option value="completada">
+              Nueva
+            </option>
+
+            <option value="revision">
+              En revisión
+            </option>
+
+            <option value="contactado">
+              Contactado
+            </option>
+
+            <option value="turno_pendiente">
+              Turno pendiente
+            </option>
+
+            <option value="aceptada">
+              Aceptada
+            </option>
+
+            <option value="rechazada">
+              Rechazada
+            </option>
+
+            <option value="cerrada">
+              Cerrada
+            </option>
+
+          </select>
+
+        </label>
+
+
+<div
+class="admision-flujo-estado">
+
+<div class="flujo-item activo">
+Nueva
+</div>
+
+<div class="flujo-item">
+En revisión
+</div>
+
+<div class="flujo-item">
+Contactado
+</div>
+
+<div class="flujo-item">
+Turno
+</div>
+
+<div class="flujo-item">
+Periciado
+</div>
+
+<div class="flujo-item">
+Expediente
+</div>
+
+</div>
+
+
+
+
+        <label class="admision-campo admision-campo-completo">
+
+          <span>Observaciones internas</span>
+
+          <textarea
+            id="observacionesInternas"
+            rows="7"
+            placeholder="Escribí aquí notas internas del Estudio. Estas observaciones no son visibles para la persona que completó el formulario."></textarea>
+
+        </label>
+
+      </div>
+
+
+      <div class="admision-gestion-acciones">
+
+        <button
+          type="button"
+          id="btnGuardarSeguimiento"
+          class="admision-btn admision-btn-principal">
+
+          Guardar cambios
+
+        </button>
+
+        <span
+          id="mensajeGuardado"
+          class="admision-mensaje-guardado"
+          aria-live="polite">
+        </span>
+
+      </div>
+
+<div class="admision-historial">
+
+  <div class="admision-historial-encabezado">
+
+    <div>
+      <span>Auditoría</span>
+      <h3>Historial de movimientos</h3>
+    </div>
+
+  </div>
+
+  <div
+    id="historialAdmision"
+    class="admision-historial-lista">
+
+    <p class="admision-vacio">
+      Todavía no se registraron movimientos.
+    </p>
+
+  </div>
+
+</div>
+
+
+
+    </section>
+
+
+    <!-- =================================================
+         ACCIONES FUTURAS
+    ================================================== -->
+
+    <section class="admision-panel">
+
+      <div class="admision-panel-header">
+
+        <div>
+          <span>Integración</span>
+          <h2>Acciones del Ecosistema</h2>
+        </div>
+
+      </div>
+
+
+      <div class="admision-acciones-grid">
+
+        <button
+          type="button"
+          id="btnCrearTurno"
+          class="admision-accion-card"
+          disabled>
+
+          <strong>📅 Crear turno</strong>
+
+          <span>
+            Generar una solicitud de entrevista utilizando
+            los datos de esta admisión.
+          </span>
+
+          <small>Próximamente</small>
+
+        </button>
+
+
+        <button
+          type="button"
+          id="btnCrearPericiado"
+          class="admision-accion-card"
+          disabled>
+
+          <strong>👤 Crear periciado</strong>
+
+          <span>
+            Convertir esta consulta en un nuevo usuario
+            del circuito de evaluación.
+          </span>
+
+          <small>Próximamente</small>
+
+        </button>
+
+
+        <button
+          type="button"
+          id="btnCrearExpediente"
+          class="admision-accion-card"
+          disabled>
+
+          <strong>📂 Crear expediente</strong>
+
+          <span>
+            Iniciar el expediente profesional asociado
+            a la solicitud.
+          </span>
+
+          <small>Próximamente</small>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <div class="admision-final-acciones">
+
+      <a
+        href="admin-admisiones.html"
+        class="admision-btn admision-btn-secundario">
+        ← Volver a admisiones
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <section
+    id="errorAdmision"
+    class="admision-error"
+    hidden>
+
+    <strong>
+      No se pudo abrir la admisión
+    </strong>
+
+    <p id="errorAdmisionTexto">
+      La solicitud no existe o no pudo ser recuperada.
+    </p>
+
+    <a
+      href="admin-admisiones.html"
+      class="admision-btn admision-btn-principal">
+      Volver al panel
+    </a>
+
+  </section>
+
+</main>
+
+
+<script
+  type="module"
+  src="admision-detalle.js">
+</script>
+
+</body>
+</html>

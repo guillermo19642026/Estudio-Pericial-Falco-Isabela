@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Crear turno | FALCO®
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="./css/admision-detalle.css">
+
+</head>
+
+<body>
+
+  <main class="admision-detalle-main">
+
+    <section class="admision-seccion">
+
+      <div class="admision-seccion-encabezado">
+
+        <span>
+          FALCO Turnos™
+        </span>
+
+        <h1>
+          Crear nuevo turno
+        </h1>
+
+        <p>
+          Turno vinculado a una admisión del sistema.
+        </p>
+
+      </div>
+
+      <div class="admision-resumen-grid">
+
+        <article class="admision-dato-card">
+
+          <span>Referencia</span>
+
+          <strong id="turnoReferencia">
+            —
+          </strong>
+
+        </article>
+
+        <article class="admision-dato-card">
+
+          <span>Nombre</span>
+
+          <strong id="turnoNombre">
+            —
+          </strong>
+
+        </article>
+
+        <article class="admision-dato-card">
+
+          <span>Correo electrónico</span>
+
+          <strong id="turnoEmail">
+            —
+          </strong>
+
+        </article>
+
+        <article class="admision-dato-card">
+
+          <span>Teléfono</span>
+
+          <strong id="turnoTelefono">
+            —
+          </strong>
+
+        </article>
+
+      </div>
+
+      <div class="admision-acciones-principales">
+
+        <a
+          id="btnVolverAdmision"
+          class="admision-boton admision-boton-secundario"
+          href="#">
+          ← Volver a la admisión
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module">
+
+    const parametros =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const admisionId =
+      parametros.get("admisionId") || "";
+
+    const referencia =
+      parametros.get("referencia") || "—";
+
+    const nombre =
+      parametros.get("nombre") || "—";
+
+    const email =
+      parametros.get("email") || "No informado";
+
+    const telefono =
+      parametros.get("telefono") || "No informado";
+
+
+    document
+      .getElementById("turnoReferencia")
+      .textContent = referencia;
+
+    document
+      .getElementById("turnoNombre")
+      .textContent = nombre;
+
+    document
+      .getElementById("turnoEmail")
+      .textContent = email;
+
+    document
+      .getElementById("turnoTelefono")
+      .textContent = telefono;
+
+
+    const btnVolverAdmision =
+      document.getElementById(
+        "btnVolverAdmision"
+      );
+
+    if (admisionId) {
+
+      btnVolverAdmision.href =
+        `admision-detalle.html?id=${encodeURIComponent(admisionId)}`;
+
+    } else {
+
+      btnVolverAdmision.href =
+        "admisiones.html";
+
+    }
+
+  </script>
+
+</body>
+
+</html>

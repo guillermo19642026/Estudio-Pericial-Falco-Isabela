@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Recorrido de admisión del Estudio Pericial Psicológico Isabela Falco."
+  >
+
+  <meta
+    name="theme-color"
+    content="#080808"
+  >
+
+  <title>
+    Recorrido de admisión | FALCO Admisión™
+  </title>
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+<link
+  rel="stylesheet"
+  href="../FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+>
+
+<link
+  rel="icon"
+  href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <rect width='100' height='100' rx='22' fill='%23080808'/>
+    <text x='50' y='67' text-anchor='middle'
+      font-size='58'
+      font-family='serif'
+      fill='%23d4af37'>F</text>
+  </svg>"
+>
+
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/admision-base.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-layout.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-componentes.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-aion.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-responsive.css"
+  >
+
+</head>
+
+<body>
+
+  <!-- =====================================================
+       FONDO
+  ====================================================== -->
+
+  <div
+    class="admision-background"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="admision-grid"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="admision-glow admision-glow--one"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="admision-glow admision-glow--two"
+    aria-hidden="true"
+  ></div>
+
+  <!-- =====================================================
+       PÁGINA
+  ====================================================== -->
+
+  <div class="admision-page admision-page--interview">
+
+    <!-- ===================================================
+         HEADER
+    ==================================================== -->
+
+    <header class="admision-header admision-header--interview">
+
+      <a
+        class="admision-brand"
+        href="index.html"
+        aria-label="Volver al inicio de FALCO Admisión"
+      >
+
+        <span
+          class="admision-brand__symbol"
+          aria-hidden="true"
+        >
+          F
+        </span>
+
+        <span class="admision-brand__text">
+
+          <strong>
+            FALCO Admisión™
+          </strong>
+
+          <small>
+            Sistema FALCO®
+          </small>
+
+        </span>
+
+      </a>
+
+      <div class="admision-header__status">
+
+        <span
+          class="admision-save-status"
+          data-save-status
+          role="status"
+          aria-live="polite"
+        >
+
+          <span
+            class="admision-save-status__dot"
+            aria-hidden="true"
+          ></span>
+
+          <span data-save-status-text>
+            Progreso guardado
+          </span>
+
+        </span>
+
+        <button
+          class="admision-button admision-button--text admision-button--compact"
+          type="button"
+          data-action="restart-admission"
+        >
+          Reiniciar
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- ===================================================
+         PROGRESO SUPERIOR
+    ==================================================== -->
+
+    <section
+      class="admision-progress-header"
+      aria-label="Progreso de la admisión"
+    >
+
+      <div class="admision-progress-header__content">
+
+        <div class="admision-progress-header__text">
+
+          <span data-progress-label>
+            Inicio del recorrido
+          </span>
+
+          <strong data-progress-counter>
+            0 de 0
+          </strong>
+
+        </div>
+
+        <div
+          class="admision-progress"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          data-progress
+        >
+
+          <div
+            class="admision-progress__track"
+            aria-hidden="true"
+          >
+
+            <div
+              class="admision-progress__bar"
+              data-progress-bar
+              style="width: 0%;"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===================================================
+         CONTENIDO PRINCIPAL
+    ==================================================== -->
+
+    <main class="admision-main admision-main--interview">
+
+      <section
+        class="admision-interview"
+        aria-labelledby="questionTitle"
+      >
+
+        <!-- ===============================================
+             PANEL PRINCIPAL
+        ================================================ -->
+
+        <div class="admision-interview__panel">
+
+          <!-- =============================================
+               CARGA INICIAL
+          ============================================== -->
+
+          <div
+            class="admision-interview__loading"
+            data-interview-loading
+            role="status"
+            aria-live="polite"
+          >
+
+            <div class="admision-loader admision-loader--large">
+
+              <span
+                class="admision-loader__spinner"
+                aria-hidden="true"
+              ></span>
+
+              <span>
+                Preparando tu recorrido…
+              </span>
+
+            </div>
+
+          </div>
+
+          <!-- =============================================
+               CONTENEDOR DE PREGUNTA
+          ============================================== -->
+
+          <article
+            class="admision-question"
+            data-question-container
+            hidden
+          >
+
+            <header class="admision-question__header">
+
+              <div class="admision-question__meta">
+
+                <span
+                  class="admision-badge"
+                  data-question-section
+                >
+                  Inicio
+                </span>
+
+                <span
+                  class="admision-question__number"
+                  data-question-number
+                >
+                  Pregunta 1
+                </span>
+
+              </div>
+
+              <h1
+                id="questionTitle"
+                class="admision-question__title"
+                data-question-title
+                tabindex="-1"
+              >
+                Para comenzar, necesitamos conocer el tipo de consulta.
+              </h1>
+
+              <p
+                class="admision-question__description"
+                data-question-description
+              >
+                Elegí la opción que mejor represente tu situación.
+              </p>
+
+            </header>
+
+            <!-- ===========================================
+                 RESPUESTA DINÁMICA
+            ============================================ -->
+
+            <div
+              class="admision-question__response"
+              data-response-container
+            >
+
+              <!-- El motor insertará acá:
+                   - tarjetas de opción
+                   - inputs
+                   - textarea
+                   - select
+                   - fechas
+                   - datos de contacto
+                   - documentos
+              -->
+
+            </div>
+
+            <!-- ===========================================
+                 MENSAJE DE VALIDACIÓN
+            ============================================ -->
+
+            <div
+              class="admision-question__validation"
+              data-validation-message
+              role="alert"
+              aria-live="assertive"
+              hidden
+            >
+
+              <span
+                class="admision-question__validation-icon"
+                aria-hidden="true"
+              >
+                !
+              </span>
+
+              <span data-validation-text>
+                Completá esta respuesta para continuar.
+              </span>
+
+            </div>
+
+            <!-- ===========================================
+                 AYUDA
+            ============================================ -->
+
+            <div
+              class="admision-question__help"
+              data-question-help
+              hidden
+            >
+
+              <span
+                class="admision-question__help-icon"
+                aria-hidden="true"
+              >
+                ⓘ
+              </span>
+
+              <p data-question-help-text></p>
+
+            </div>
+
+          </article>
+
+          <!-- =============================================
+               REVISIÓN FINAL
+          ============================================== -->
+
+          <section
+    id="admisionReview"
+    class="admision-review"
+    data-review-container
+    hidden
+    aria-labelledby="reviewTitle"
+>
+
+            <header class="admision-review__header">
+
+              <span class="admision-badge">
+                Revisión final
+              </span>
+
+              <h1
+                id="reviewTitle"
+                class="admision-question__title"
+              >
+                Revisá la información antes de enviarla.
+              </h1>
+
+              <p class="admision-question__description">
+                Podés volver a cualquier respuesta para corregirla.
+              </p>
+
+            </header>
+
+           <div
+    id="admisionReviewContent"
+    class="admision-review__content"
+    data-review-content
+></div>
+
+<!-- =============================================
+     DOCUMENTACIÓN DE LA ADMISIÓN
+============================================== -->
+
+<section
+  id="admisionDocumentsSection"
+  class="admision-documents"
+>
+
+  <div class="admision-documents__header">
+
+    <span class="admision-documents__eyebrow">
+      Documentación
+    </span>
+
+    <h3>
+      Adjuntar documentación
+    </h3>
+
+    <p>
+      Podés adjuntar documentación relacionada con la consulta.
+      Esta etapa es opcional y los archivos serán revisados
+      únicamente por el Estudio.
+    </p>
+
+  </div>
+
+  <div class="admision-documents__upload">
+
+    <label
+      class="admision-documents__dropzone"
+      for="admisionDocumentsInput"
+    >
+
+      <span
+        class="admision-documents__icon"
+        aria-hidden="true"
+      >
+        +
+      </span>
+
+      <span class="admision-documents__dropzone-content">
+
+        <strong>
+          Seleccionar documentos
+        </strong>
+
+        <span>
+          PDF, Word o imágenes. Máximo 10 MB por archivo.
+        </span>
+
+      </span>
+
+      <input
+        id="admisionDocumentsInput"
+        class="admision-documents__input"
+        type="file"
+        multiple
+        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png,image/webp"
+      >
+
+    </label>
+
+    <div
+      id="admisionDocumentsValidation"
+      class="admision-question__validation"
+      role="alert"
+      hidden
+    >
+
+      <span
+        class="admision-question__validation-icon"
+        aria-hidden="true"
+      >
+        !
+      </span>
+
+      <p></p>
+
+    </div>
+
+    <div
+      id="admisionDocumentsList"
+      class="admision-documents__list"
+      aria-live="polite"
+    ></div>
+
+    <div
+      id="admisionDocumentsStatus"
+      class="admision-documents__status"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+
+  </div>
+
+</section>
+
+
+            <div class="admision-notice admision-notice--important">
+
+              <div
+                class="admision-notice__icon"
+                aria-hidden="true"
+              >
+                i
+              </div>
+
+              <div>
+
+                <strong>
+                  Información importante
+                </strong>
+
+                <p>
+                  El envío de esta admisión no implica todavía la aceptación del caso ni la contratación de un servicio.
+                </p>
+
+              </div>
+
+            </div>
+
+            <label class="admision-consent">
+
+              <input
+    type="checkbox"
+    id="admisionConsent"
+    data-final-acceptance
+>
+
+              <span class="admision-consent__control"></span>
+
+              <span class="admision-consent__text">
+                Confirmo que la información ingresada es correcta y autorizo su envío al Estudio para su evaluación inicial.
+              </span>
+
+            </label>
+
+
+<div class="admision-review__actions">
+
+  <button
+    type="button"
+    id="reviewBackButton"
+    class="admision-button admision-button--secondary"
+    data-action="review-back">
+    Volver
+  </button>
+
+  <button
+    type="button"
+    id="submitAdmissionButton"
+    class="admision-button admision-button--primary"
+    data-action="submit-admission">
+    Enviar consulta
+  </button>
+
+</div>
+
+
+          </section>
+
+          <!-- =============================================
+               ERROR DE CARGA
+          ============================================== -->
+
+          <section
+            class="admision-interview__error"
+            data-interview-error
+            role="alert"
+            hidden
+          >
+
+            <span class="admision-badge">
+              No fue posible continuar
+            </span>
+
+            <h1 class="admision-question__title">
+              Ocurrió un problema al cargar el recorrido.
+            </h1>
+
+            <p class="admision-question__description">
+              El progreso guardado no se perdió. Podés volver a intentarlo.
+            </p>
+
+            <button
+              class="admision-button admision-button--primary"
+              type="button"
+              data-action="retry-interview"
+            >
+              Volver a intentar
+            </button>
+
+          </section>
+
+          <!-- =============================================
+               NAVEGACIÓN
+          ============================================== -->
+
+          <nav
+            class="admision-navigation"
+            aria-label="Navegación del formulario"
+            data-navigation
+            hidden
+          >
+
+            <button
+              class="admision-button admision-button--secondary"
+              type="button"
+              data-action="previous-question"
+              disabled
+            >
+
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+
+                <path
+                  d="M19 12H5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                ></path>
+
+                <path
+                  d="M11 18L5 12L11 6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+
+              </svg>
+
+              <span>
+                Volver
+              </span>
+
+            </button>
+
+            <div class="admision-navigation__center">
+
+              <span
+                class="admision-navigation__saved"
+                data-navigation-status
+                aria-live="polite"
+              >
+                Tus respuestas se guardan automáticamente
+              </span>
+
+            </div>
+
+            <button
+              class="admision-button admision-button--primary"
+              type="button"
+              data-action="next-question"
+            >
+
+              <span data-next-button-text>
+                Continuar
+              </span>
+
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+
+                <path
+                  d="M5 12H19"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                ></path>
+
+                <path
+                  d="M13 6L19 12L13 18"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+
+              </svg>
+
+            </button>
+
+          </nav>
+
+        </div>
+
+        
+
+      </section>
+
+    </main>
+
+    <!-- ===================================================
+         FOOTER
+    ==================================================== -->
+
+    <footer class="admision-footer admision-footer--interview">
+
+      <div class="admision-footer__brand">
+
+        <strong>
+          Estudio Pericial Psicológico
+        </strong>
+
+        <span>
+          Lic. en Psicología Isabela Falco
+        </span>
+
+      </div>
+
+      <p>
+        La información ingresada será utilizada exclusivamente para evaluar el motivo de la consulta.
+      </p>
+
+    </footer>
+
+  </div>
+
+  <!-- =====================================================
+       MODAL DE REINICIO
+  ====================================================== -->
+
+  <div
+    class="admision-modal"
+    data-restart-modal
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="restartModalTitle"
+    hidden
+  >
+
+    <div
+      class="admision-modal__backdrop"
+      data-action="close-restart-modal"
+    ></div>
+
+    <div class="admision-modal__dialog">
+
+      <span class="admision-badge">
+        Reiniciar admisión
+      </span>
+
+      <h2 id="restartModalTitle">
+        ¿Querés comenzar nuevamente?
+      </h2>
+
+      <p>
+        Se eliminarán las respuestas guardadas en este dispositivo y se iniciará un recorrido nuevo.
+      </p>
+
+      <div class="admision-modal__actions">
+
+        <button
+          class="admision-button admision-button--secondary"
+          type="button"
+          data-action="close-restart-modal"
+        >
+          Cancelar
+        </button>
+
+        <button
+          class="admision-button admision-button--primary"
+          type="button"
+          data-action="confirm-restart"
+        >
+          Sí, reiniciar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =====================================================
+       PLANTILLAS DINÁMICAS
+  ====================================================== -->
+
+  <template id="optionCardTemplate">
+
+    <label class="admision-option-card">
+
+      <input
+        class="admision-option-card__input"
+        type="radio"
+      >
+
+      <span class="admision-option-card__control">
+
+        <span class="admision-option-card__indicator"></span>
+
+        <span class="admision-option-card__content">
+
+          <strong data-option-label></strong>
+
+          <span data-option-description></span>
+
+        </span>
+
+      </span>
+
+    </label>
+
+  </template>
+
+  <template id="checkboxCardTemplate">
+
+    <label class="admision-option-card admision-option-card--checkbox">
+
+      <input
+        class="admision-option-card__input"
+        type="checkbox"
+      >
+
+      <span class="admision-option-card__control">
+
+        <span class="admision-option-card__indicator"></span>
+
+        <span class="admision-option-card__content">
+
+          <strong data-option-label></strong>
+
+          <span data-option-description></span>
+
+        </span>
+
+      </span>
+
+    </label>
+
+  </template>
+
+  <template id="textInputTemplate">
+
+    <div class="admision-field">
+
+      <label
+        class="admision-field__label"
+        data-field-label
+      ></label>
+
+      <input
+        class="admision-input"
+        type="text"
+        autocomplete="off"
+      >
+
+      <p
+        class="admision-field__help"
+        data-field-help
+        hidden
+      ></p>
+
+    </div>
+
+  </template>
+
+  <template id="textareaTemplate">
+
+    <div class="admision-field">
+
+      <label
+        class="admision-field__label"
+        data-field-label
+      ></label>
+
+      <textarea
+        class="admision-textarea"
+        rows="7"
+      ></textarea>
+
+      <div class="admision-field__footer">
+
+        <p
+          class="admision-field__help"
+          data-field-help
+          hidden
+        ></p>
+
+        <span
+          class="admision-field__counter"
+          data-character-counter
+        >
+          0
+        </span>
+
+      </div>
+
+    </div>
+
+  </template>
+
+  <template id="selectTemplate">
+
+    <div class="admision-field">
+
+      <label
+        class="admision-field__label"
+        data-field-label
+      ></label>
+
+      <div class="admision-select-wrapper">
+
+        <select class="admision-select"></select>
+
+        <span
+          class="admision-select-wrapper__icon"
+          aria-hidden="true"
+        >
+          ↓
+        </span>
+
+      </div>
+
+      <p
+        class="admision-field__help"
+        data-field-help
+        hidden
+      ></p>
+
+    </div>
+
+  </template>
+
+  <template id="reviewItemTemplate">
+
+    <article class="admision-review-item">
+
+      <div class="admision-review-item__content">
+
+        <span
+          class="admision-review-item__section"
+          data-review-section
+        ></span>
+
+        <strong data-review-question></strong>
+
+        <p data-review-answer></p>
+
+      </div>
+
+      <button
+        class="admision-button admision-button--text admision-button--compact"
+        type="button"
+        data-action="edit-answer"
+      >
+        Editar
+      </button>
+
+    </article>
+
+  </template>
+
+  <!-- =====================================================
+       NOSCRIPT
+  ====================================================== -->
+
+  <noscript>
+
+    <div class="admision-noscript">
+
+      <strong>
+        Esta recepción digital necesita JavaScript.
+      </strong>
+
+      <p>
+        Activá JavaScript en tu navegador y actualizá la página para continuar.
+      </p>
+
+    </div>
+
+  </noscript>
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+
+
+<!--
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+-->
+
+
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+
+
+<!--
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+-->
+
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+
+
+
+
+<script src="js/admision-config.js"></script>
+<script src="js/admision-state.js"></script>
+<script src="js/admision-core.js"></script>
+<script src="js/admision-engine.js"></script>
+<script src="js/admision-app.js"></script>
+<script src="js/admision-aion-card.js"></script>
+
+
+
+<script
+  type="module"
+  src="js/admision-documentos-ui.js"
+></script>
+
+
+</body>
+
+</html>

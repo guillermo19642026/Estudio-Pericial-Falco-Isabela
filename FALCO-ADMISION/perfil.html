@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Selección del recorrido de admisión del Estudio Pericial Psicológico FALCO."
+  >
+
+  <title>
+    Antes de comenzar | FALCO Admisión™
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+<!-- AION oficial -->
+<link
+  rel="stylesheet"
+  href="../FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+>
+
+
+  <link
+    rel="stylesheet"
+    href="css/admision-base.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-layout.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-componentes.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-aion.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/admision-responsive.css"
+  >
+</head>
+
+<body class="admision-page admision-page--profile">
+
+  <main class="admision-profile">
+
+    <section
+      class="admision-profile__card"
+      aria-labelledby="profileTitle"
+    >
+
+      <header class="admision-profile__header">
+
+        <a
+          href="index.html"
+          class="admision-profile__back"
+          aria-label="Volver al inicio"
+        >
+          ← Volver
+        </a>
+
+        <p class="admision-eyebrow">
+          FALCO Admisión™
+        </p>
+
+        <h1 id="profileTitle">
+          Antes de comenzar
+        </h1>
+
+        <p>
+          Necesitamos saber quién realiza la consulta para mostrar el recorrido adecuado.
+        </p>
+
+      </header>
+
+      <form
+        id="profileForm"
+        class="admision-profile__form"
+        novalidate
+      >
+
+        <fieldset class="admision-profile__fieldset">
+
+          <legend>
+            ¿Cómo podemos ayudarte hoy?
+          </legend>
+
+          <div class="admision-profile__options">
+
+            <label class="admision-profile-option">
+
+              <input
+                type="radio"
+                name="profileType"
+                value="persona"
+              >
+
+              <span class="admision-profile-option__control">
+
+                <span
+                  class="admision-profile-option__indicator"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="admision-profile-option__icon">
+                  01
+                </span>
+
+                <span class="admision-profile-option__content">
+
+                  <strong>
+                    Soy una persona
+                  </strong>
+
+                  <span>
+                    Quiero realizar una consulta sobre una situación personal, familiar, judicial o pericial.
+                  </span>
+
+                </span>
+
+              </span>
+
+            </label>
+
+            <label class="admision-profile-option">
+
+              <input
+                type="radio"
+                name="profileType"
+                value="profesional"
+              >
+
+              <span class="admision-profile-option__control">
+
+                <span
+                  class="admision-profile-option__indicator"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="admision-profile-option__icon">
+                  02
+                </span>
+
+                <span class="admision-profile-option__content">
+
+                  <strong>
+                    Soy profesional
+                  </strong>
+
+                  <span>
+                    Necesito supervisión, asesoramiento, revisión técnica o asistencia vinculada con una causa.
+                  </span>
+
+                </span>
+
+              </span>
+
+            </label>
+
+          </div>
+
+        </fieldset>
+
+        <div
+          id="profileValidation"
+          class="admision-question__validation"
+          role="alert"
+          hidden
+        >
+
+          <span
+            class="admision-question__validation-icon"
+            aria-hidden="true"
+          >
+            !
+          </span>
+
+          <p>
+            Seleccioná una opción para continuar.
+          </p>
+
+        </div>
+
+        <div class="admision-profile__actions">
+
+          <button
+            type="submit"
+            id="continueProfileButton"
+            class="admision-button admision-button--primary"
+          >
+            Continuar
+          </button>
+
+        </div>
+
+      </form>
+
+      <p class="admision-profile__privacy">
+        La selección solo define las preguntas que se mostrarán durante la admisión.
+      </p>
+
+    </section>
+
+   
+
+  </main>
+
+  <div
+    id="profileLiveRegion"
+    class="admision-visually-hidden"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <!-- ======================================================
+     AION OFICIAL
+======================================================= -->
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+<script src="../FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+
+<!-- Funcionamiento propio de Perfil -->
+<script src="js/admision-perfil.js"></script>
+
+<!-- Tarjeta de AION -->
+<script src="js/admision-aion-pages.js"></script>
+
+</body>
+</html>

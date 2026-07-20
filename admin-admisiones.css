@@ -1,0 +1,546 @@
+/* =========================================================
+   FALCO Admisiones™
+   Panel administrativo
+========================================================= */
+
+:root {
+  --falco-gold: #d4af37;
+  --falco-gold-dark: #a98215;
+  --falco-gold-soft: rgba(212, 175, 55, 0.13);
+
+  --falco-bg: #f5f3ee;
+  --falco-surface: #ffffff;
+  --falco-border: #ded8ca;
+
+  --falco-text: #25231f;
+  --falco-muted: #6f6a61;
+
+  --falco-success: #247a4d;
+  --falco-warning: #a56b00;
+  --falco-info: #2f63a5;
+  --falco-danger: #a84040;
+
+  --falco-shadow:
+    0 16px 40px rgba(43, 37, 25, 0.08);
+}
+
+
+/* =========================================================
+   CUERPO
+========================================================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212, 175, 55, 0.10),
+      transparent 34%
+    ),
+    var(--falco-bg);
+}
+
+
+/* =========================================================
+   RESUMEN
+========================================================= */
+
+.admisiones-resumen {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 28px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.adm-resumen-card {
+  background: var(--falco-surface);
+  border: 1px solid var(--falco-border);
+  border-radius: 18px;
+  padding: 20px;
+
+  box-shadow: var(--falco-shadow);
+}
+
+.adm-resumen-card span {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--falco-muted);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.adm-resumen-card strong {
+  color: var(--falco-text);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   HERRAMIENTAS
+========================================================= */
+
+.admin-toolbar {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 22px;
+
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 220px auto;
+  gap: 12px;
+
+  align-items: center;
+}
+
+.admin-toolbar input,
+.admin-toolbar select {
+  width: 100%;
+  min-height: 48px;
+
+  border: 1px solid var(--falco-border);
+  border-radius: 12px;
+
+  background: var(--falco-surface);
+  color: var(--falco-text);
+
+  padding: 0 15px;
+  font: inherit;
+
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-toolbar input:focus,
+.admin-toolbar select:focus {
+  border-color: var(--falco-gold);
+  box-shadow: 0 0 0 4px var(--falco-gold-soft);
+}
+
+.admin-toolbar input::placeholder {
+  color: #979188;
+}
+
+.btn-actualizar-admisiones {
+  min-height: 48px;
+  padding: 0 18px;
+
+  border: 1px solid var(--falco-gold);
+  border-radius: 12px;
+
+  background: var(--falco-gold);
+  color: #1d1a13;
+
+  font: inherit;
+  font-weight: 800;
+
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn-actualizar-admisiones:hover {
+  transform: translateY(-1px);
+  background: #dfbd4c;
+  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.22);
+}
+
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.tabla-admisiones {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 48px;
+
+  overflow-x: auto;
+
+  background: var(--falco-surface);
+  border: 1px solid var(--falco-border);
+  border-radius: 20px;
+
+  box-shadow: var(--falco-shadow);
+}
+
+.tabla-admisiones table {
+  width: 100%;
+  min-width: 1020px;
+
+  border-collapse: collapse;
+}
+
+.tabla-admisiones thead {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.14),
+      rgba(212, 175, 55, 0.04)
+    );
+}
+
+.tabla-admisiones th {
+  padding: 16px 14px;
+
+  color: #5f5746;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.065em;
+  text-align: left;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid var(--falco-border);
+  white-space: nowrap;
+}
+
+.tabla-admisiones td {
+  padding: 16px 14px;
+
+  color: var(--falco-text);
+  font-size: 0.9rem;
+  vertical-align: middle;
+
+  border-bottom: 1px solid #ebe7df;
+}
+
+.tabla-admisiones tbody tr {
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tabla-admisiones tbody tr:hover {
+  background: rgba(212, 175, 55, 0.055);
+}
+
+.tabla-admisiones tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   CELDAS
+========================================================= */
+
+.adm-fecha {
+  min-width: 124px;
+  color: var(--falco-muted);
+}
+
+.adm-referencia {
+  max-width: 190px;
+
+  color: #5f5746;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.78rem;
+
+  word-break: break-word;
+}
+
+.adm-persona {
+  min-width: 170px;
+}
+
+.adm-persona strong {
+  display: block;
+  margin-bottom: 4px;
+
+  color: var(--falco-text);
+  font-size: 0.93rem;
+}
+
+.adm-persona small {
+  display: block;
+  color: var(--falco-muted);
+
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-perfil {
+  min-width: 130px;
+}
+
+.adm-documentos {
+  text-align: center;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.adm-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  min-width: max-content;
+  padding: 7px 10px;
+
+  border-radius: 999px;
+
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.adm-estado::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.estado-nueva,
+.estado-completada,
+.estado-enviada,
+.estado-finalizada {
+  color: var(--falco-success);
+  background: rgba(36, 122, 77, 0.11);
+}
+
+.estado-revision,
+.estado-en_revision,
+.estado-en-revision,
+.estado-en_proceso {
+  color: var(--falco-warning);
+  background: rgba(165, 107, 0, 0.12);
+}
+
+.estado-contactado,
+.estado-contactada {
+  color: var(--falco-info);
+  background: rgba(47, 99, 165, 0.11);
+}
+
+.estado-cerrado,
+.estado-cerrada,
+.estado-rechazado,
+.estado-rechazada {
+  color: var(--falco-danger);
+  background: rgba(168, 64, 64, 0.11);
+}
+
+.estado-borrador {
+  color: #777168;
+  background: rgba(105, 101, 94, 0.12);
+}
+
+.estado-desconocido {
+  color: #777168;
+  background: rgba(105, 101, 94, 0.12);
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.adm-acciones {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.btn-abrir-admision {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+  padding: 0 14px;
+
+  border: 1px solid var(--falco-gold);
+  border-radius: 10px;
+
+  background: transparent;
+  color: #725b0e;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-abrir-admision:hover {
+  transform: translateY(-1px);
+  background: var(--falco-gold);
+  color: #1f1b10;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.adm-mensaje-tabla {
+  padding: 44px 20px !important;
+
+  color: var(--falco-muted) !important;
+  text-align: center;
+}
+
+.adm-mensaje-tabla strong {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--falco-text);
+  font-size: 1rem;
+}
+
+.adm-error {
+  color: var(--falco-danger) !important;
+}
+
+
+/* =========================================================
+   CARGA
+========================================================= */
+
+.adm-cargando {
+  position: relative;
+}
+
+.adm-cargando::after {
+  content: "";
+
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+
+  border: 2px solid rgba(111, 106, 97, 0.25);
+  border-top-color: var(--falco-gold);
+  border-radius: 50%;
+
+  vertical-align: -2px;
+
+  animation: admSpin 0.8s linear infinite;
+}
+
+@keyframes admSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admisiones-resumen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-toolbar {
+    grid-template-columns: 1fr 190px;
+  }
+
+  .btn-actualizar-admisiones {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .admisiones-resumen,
+  .admin-toolbar,
+  .tabla-admisiones {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .admisiones-resumen {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .adm-resumen-card {
+    padding: 16px 14px;
+    border-radius: 15px;
+  }
+
+  .adm-resumen-card strong {
+    font-size: 1.55rem;
+  }
+
+  .admin-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-actualizar-admisiones {
+    grid-column: auto;
+  }
+
+}
+
+
+.adm-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-abrir-admision,
+.btn-archivar-admision,
+.btn-restaurar-admision {
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 9px;
+  padding: 8px 11px;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn-abrir-admision {
+  background: #d4af37;
+  color: #211d13;
+}
+
+.btn-archivar-admision {
+  background: #fff;
+  color: #5f4c17;
+}
+
+.btn-restaurar-admision {
+  background: #f5f1e6;
+  color: #3d331b;
+}
+
+.btn-abrir-admision:hover,
+.btn-archivar-admision:hover,
+.btn-restaurar-admision:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(33, 29, 19, 0.12);
+}
+
+.estado-archivada {
+  background: #ece9e1;
+  color: #625e54;
+  border: 1px solid #d4cec0;
+}
