@@ -20009,6 +20009,99 @@ CIERRE
 }
 
 /*--------------------------------------------------
+BOTONES DEL CIERRE
+---------------------------------------------------*/
+
+.falco-perito-acciones .falco-boton-principal,
+.falco-perito-acciones .falco-boton-secundario{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    min-width:250px;
+    min-height:52px;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    font-family:"Inter", sans-serif;
+    font-size:.88rem;
+    font-weight:700;
+    letter-spacing:.25px;
+    line-height:1;
+
+    text-decoration:none;
+    text-align:center;
+    white-space:nowrap;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+.falco-perito-acciones .falco-boton-principal{
+
+    border:1px solid rgba(212,175,55,.58);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.96),
+            rgba(185,145,40,.92)
+        );
+
+    box-shadow:
+        0 14px 32px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.22);
+
+    color:#17130b;
+}
+
+.falco-perito-acciones .falco-boton-principal:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.28),
+        0 0 24px rgba(212,175,55,.12);
+
+    color:#17130b;
+}
+
+.falco-perito-acciones .falco-boton-secundario{
+
+    border:1px solid rgba(212,175,55,.34);
+
+    background:rgba(212,175,55,.035);
+
+    color:#e2c66f;
+}
+
+.falco-perito-acciones .falco-boton-secundario:hover{
+
+    transform:translateY(-2px);
+
+    border-color:rgba(212,175,55,.58);
+
+    background:rgba(212,175,55,.09);
+
+    color:#f0d47d;
+}
+
+.falco-perito-acciones .falco-boton-principal:focus-visible,
+.falco-perito-acciones .falco-boton-secundario:focus-visible{
+
+    outline:2px solid #f0d47d;
+    outline-offset:4px;
+}
+
+
+/*--------------------------------------------------
 RESPONSIVE
 ---------------------------------------------------*/
 
@@ -20780,4 +20873,4002 @@ section.falco-faq .falco-faq-sin-resultados[hidden]{
 .falco-faq-cierre .falco-boton-principal:focus-visible{
     outline:2px solid #f0d47d;
     outline-offset:4px;
+}
+
+
+/*=========================================================
+EL ESTUDIO
+=========================================================*/
+
+.falco-estudio{
+
+    padding:110px 40px;
+
+    background:#0f1012;
+
+}
+
+.falco-estudio-contenedor{
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+ENCABEZADO
+---------------------------------------------------*/
+
+/* =========================================================
+   EL ESTUDIO · ENCABEZADO VISIBLE
+========================================================= */
+
+.falco-estudio-encabezado{
+    display:block !important;
+    position:relative;
+    z-index:3;
+
+    width:100%;
+    max-width:920px;
+
+    margin:0 0 38px;
+    padding:0;
+
+    text-align:left;
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+.falco-estudio-etiqueta{
+    display:block !important;
+
+    margin:0 0 12px;
+
+    color:#d4af37 !important;
+
+    font-family:"Inter", sans-serif;
+    font-size:.76rem;
+    font-weight:700;
+
+    line-height:1.2;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+.falco-estudio-encabezado h2{
+    display:block !important;
+
+    max-width:900px;
+
+    margin:0 0 14px;
+
+    color:#ffffff !important;
+
+    font-family:"Playfair Display", serif;
+    font-size:clamp(2rem, 4vw, 3rem);
+    font-weight:400;
+    line-height:1.12;
+
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+.falco-estudio-encabezado p{
+    display:block !important;
+
+    max-width:850px;
+
+    margin:0;
+
+    color:#c8c8c8 !important;
+
+    font-family:"Inter", sans-serif;
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.7;
+
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+GRID
+---------------------------------------------------*/
+
+.falco-estudio-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:24px;
+}
+
+.falco-estudio-grid article{
+
+    padding:38px;
+
+    border-radius:26px;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        rgba(212,175,55,.05),
+        rgba(255,255,255,.015)
+    );
+
+    border:1px solid rgba(212,175,55,.15);
+
+    display:flex;
+
+    gap:26px;
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+NUMERACION
+---------------------------------------------------*/
+
+.falco-estudio-numero{
+
+    flex:none;
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+    color:#d4af37;
+
+    border:1px solid rgba(212,175,55,.28);
+
+    background:rgba(212,175,55,.06);
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+TEXTOS
+---------------------------------------------------*/
+
+.falco-estudio-grid h3{
+
+    margin-bottom:18px;
+
+    font-size:1.45rem;
+
+    font-weight:400;
+
+    color:#fff;
+
+}
+
+.falco-estudio-grid p{
+
+    margin-bottom:18px;
+
+    line-height:1.9;
+
+    color:#cfcfcf;
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+SERVICIOS
+---------------------------------------------------*/
+
+.falco-estudio-servicios{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:28px 0 34px;
+
+}
+
+.falco-estudio-servicios span{
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.16);
+
+    color:#e7d18b;
+
+    font-size:.82rem;
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+BOTON
+---------------------------------------------------*/
+
+.falco-estudio .falco-boton-principal{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:15px 34px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        #d4af37,
+        #b89025
+    );
+
+    color:#17130b;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.falco-estudio .falco-boton-principal:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+CIERRE
+---------------------------------------------------*/
+
+.falco-estudio-cierre{
+
+    margin-top:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+}
+
+.falco-estudio-cierre span{
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    background:rgba(212,175,55,.04);
+
+    color:#d6d6d6;
+
+    font-size:.82rem;
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------
+RESPONSIVE
+---------------------------------------------------*/
+
+@media(max-width:980px){
+
+    .falco-estudio{
+
+        padding:90px 24px;
+
+    }
+
+    .falco-estudio-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .falco-estudio-encabezado h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .falco-estudio-grid article{
+
+        flex-direction:column;
+
+        padding:28px;
+
+    }
+
+    .falco-estudio-numero{
+
+        margin-bottom:8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CORRECCIÓN DE SUPERPOSICIÓN ENTRE ACCESOS Y EL ESTUDIO
+========================================================= */
+
+.falco-estudio{
+    position:relative;
+    clear:both;
+
+    padding:70px 40px;
+
+    background:#0f1012;
+
+    border-top:1px solid rgba(212,175,55,.10);
+}
+
+.falco-estudio-contenedor{
+    max-width:1300px;
+    margin:0 auto;
+
+    padding:42px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(212,175,55,.035),
+            rgba(255,255,255,.012)
+        );
+
+    border:1px solid rgba(212,175,55,.12);
+}
+
+/* La sección anterior debe conservar su espacio */
+.falco-accesos,
+.accesos-protegidos,
+#accesos{
+    position:relative;
+    z-index:1;
+
+    height:auto;
+    min-height:auto;
+
+    overflow:visible;
+
+    padding-bottom:80px;
+}
+
+
+/* =========================================================
+   SERVICIOS PERICIALES · SISTEMA FALCO®
+========================================================= */
+
+.falco-servicios-periciales{
+    position:relative;
+    overflow:hidden;
+
+    padding:105px 40px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(212,175,55,.075),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 78%,
+            rgba(212,175,55,.045),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #0a101c 0%,
+            #101727 52%,
+            #0a101c 100%
+        );
+
+    border-top:1px solid rgba(212,175,55,.10);
+    border-bottom:1px solid rgba(212,175,55,.12);
+}
+
+
+/* Línea superior decorativa */
+
+.falco-servicios-periciales::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:50%;
+
+    width:min(80%, 940px);
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.36),
+            transparent
+        );
+
+    transform:translateX(-50%);
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.falco-servicios-contenedor{
+    position:relative;
+    z-index:1;
+
+    width:min(100%, 1160px);
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.falco-servicios-encabezado{
+    max-width:790px;
+    margin:0 auto 52px;
+
+    text-align:center;
+}
+
+.falco-servicios-etiqueta{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    margin:0 0 18px;
+    padding:8px 16px;
+
+    border:1px solid rgba(212,175,55,.38);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.055);
+    color:#d8bd69;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.69rem;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+.falco-servicios-encabezado h2{
+    margin:0;
+
+    color:#f2efe7;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(2.25rem,4.5vw,3.55rem);
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:-.025em;
+}
+
+.falco-servicios-encabezado p{
+    max-width:700px;
+    margin:20px auto 0;
+
+    color:rgba(239,232,216,.72);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.98rem;
+    line-height:1.78;
+}
+
+
+/* =========================================================
+   GRILLA
+========================================================= */
+
+.falco-servicios-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.falco-servicio-card{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    min-width:0;
+    min-height:410px;
+    padding:29px 28px 27px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(248,237,205,.045),
+            rgba(212,175,55,.012)
+        );
+
+    box-shadow:
+        0 22px 48px rgba(0,0,0,.19),
+        inset 0 1px 0 rgba(255,255,255,.035);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease,
+        box-shadow .28s ease;
+}
+
+
+/* Línea superior de cada tarjeta */
+
+.falco-servicio-card::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:28px;
+
+    width:58px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            rgba(212,175,55,0)
+        );
+}
+
+
+/* Brillo inferior */
+
+.falco-servicio-card::after{
+    content:"";
+
+    position:absolute;
+    right:-75px;
+    bottom:-95px;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.035);
+    filter:blur(12px);
+
+    pointer-events:none;
+}
+
+.falco-servicio-card:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(212,175,55,.48);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(248,237,205,.064),
+            rgba(212,175,55,.025)
+        );
+
+    box-shadow:
+        0 29px 58px rgba(0,0,0,.27),
+        0 0 26px rgba(212,175,55,.045);
+}
+
+
+/* =========================================================
+   TARJETA DESTACADA · DAÑO PSÍQUICO
+========================================================= */
+
+.falco-servicio-destacado{
+    border-color:rgba(212,175,55,.43);
+
+    background:
+        radial-gradient(
+            circle at 50% 12%,
+            rgba(212,175,55,.11),
+            transparent 37%
+        ),
+        linear-gradient(
+            150deg,
+            rgba(248,237,205,.075),
+            rgba(212,175,55,.026)
+        );
+
+    box-shadow:
+        0 27px 57px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.falco-servicio-destacado::before{
+    width:82px;
+}
+
+.falco-servicio-destacado::after{
+    width:230px;
+    height:230px;
+
+    background:rgba(212,175,55,.06);
+}
+
+.falco-servicio-destacado:hover{
+    border-color:rgba(212,175,55,.70);
+
+    box-shadow:
+        0 32px 65px rgba(0,0,0,.30),
+        0 0 32px rgba(212,175,55,.065);
+}
+
+
+/* =========================================================
+   PARTE SUPERIOR
+========================================================= */
+
+.falco-servicio-superior{
+    position:relative;
+    z-index:1;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+
+    margin-bottom:27px;
+}
+
+.falco-servicio-numero{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    min-width:46px;
+    height:30px;
+    padding:0 11px;
+
+    border:1px solid rgba(212,175,55,.30);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.045);
+    color:rgba(212,175,55,.88);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.67rem;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.13em;
+}
+
+.falco-servicio-categoria{
+    color:rgba(239,214,138,.58);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.64rem;
+    font-weight:600;
+    line-height:1.25;
+    letter-spacing:.08em;
+    text-align:right;
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.falco-servicio-contenido{
+    position:relative;
+    z-index:1;
+}
+
+.falco-servicio-simbolo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:49px;
+    height:49px;
+    margin-bottom:21px;
+
+    border:1px solid rgba(212,175,55,.29);
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.11),
+            rgba(212,175,55,.025)
+        );
+
+    color:#d9bd68;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:1.06rem;
+    font-weight:600;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.falco-servicio-card h3{
+    margin:0 0 15px;
+
+    color:#efd68a;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:1.38rem;
+    font-weight:600;
+    line-height:1.28;
+}
+
+.falco-servicio-card p{
+    margin:0 0 24px;
+
+    color:rgba(239,232,216,.67);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.85rem;
+    line-height:1.72;
+}
+
+
+/* =========================================================
+   CONCEPTOS DESTACADOS · DAÑO PSÍQUICO
+========================================================= */
+
+.falco-servicio-claves{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+
+    margin:2px 0 25px;
+}
+
+.falco-servicio-claves span{
+    padding:7px 11px;
+
+    border:1px solid rgba(212,175,55,.19);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.055);
+    color:rgba(239,214,138,.78);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.68rem;
+    line-height:1.2;
+}
+
+
+/* =========================================================
+   ENLACE
+========================================================= */
+
+.falco-servicio-enlace{
+    position:relative;
+    z-index:1;
+
+    display:inline-flex;
+    align-items:center;
+    align-self:flex-start;
+    gap:8px;
+
+    margin-top:auto;
+    padding:9px 0 7px;
+
+    border-bottom:1px solid rgba(212,175,55,.30);
+
+    color:#d4af37;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.83rem;
+    font-weight:600;
+    line-height:1.35;
+    text-decoration:none;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+.falco-servicio-enlace span{
+    transition:transform .25s ease;
+}
+
+.falco-servicio-enlace:hover,
+.falco-servicio-enlace:focus-visible{
+    color:#f1da93;
+    border-color:rgba(212,175,55,.82);
+    transform:translateX(3px);
+}
+
+.falco-servicio-enlace:hover span,
+.falco-servicio-enlace:focus-visible span{
+    transform:translateX(3px);
+}
+
+.falco-servicio-enlace:focus-visible{
+    outline:1px solid rgba(212,175,55,.8);
+    outline-offset:5px;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.falco-servicios-cierre{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:38px;
+
+    margin-top:24px;
+    padding:34px 38px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.23);
+    border-radius:23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.075),
+            rgba(7,13,24,.37)
+        );
+
+    box-shadow:
+        0 22px 50px rgba(0,0,0,.18);
+}
+
+.falco-servicios-cierre-texto{
+    max-width:730px;
+}
+
+.falco-servicios-cierre-texto > span{
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#c9a86a;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.69rem;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.falco-servicios-cierre h3{
+    margin:0;
+
+    color:#efd68a;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(1.45rem,2.7vw,1.95rem);
+    font-weight:600;
+    line-height:1.3;
+}
+
+.falco-servicios-cierre p{
+    max-width:690px;
+    margin:13px 0 0;
+
+    color:rgba(239,232,216,.64);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.86rem;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   BOTÓN DEL CIERRE
+========================================================= */
+
+.falco-servicios-accion{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    flex:0 0 auto;
+
+    min-height:49px;
+    padding:13px 25px;
+
+    border:1px solid rgba(212,175,55,.70);
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #b99429
+        );
+
+    color:#111827;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.85rem;
+    font-weight:700;
+    line-height:1.2;
+    text-decoration:none;
+    white-space:nowrap;
+
+    box-shadow:
+        0 14px 31px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.27);
+
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        box-shadow .25s ease;
+}
+
+.falco-servicios-accion:hover,
+.falco-servicios-accion:focus-visible{
+    transform:translateY(-3px);
+    filter:brightness(1.07);
+
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.29),
+        0 0 22px rgba(212,175,55,.11);
+}
+
+.falco-servicios-accion:focus-visible{
+    outline:2px solid rgba(240,217,142,.88);
+    outline-offset:5px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:980px){
+
+    .falco-servicios-periciales{
+        padding:88px 25px;
+    }
+
+    .falco-servicios-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .falco-servicio-card{
+        min-height:395px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media(max-width:720px){
+
+    .falco-servicios-grid{
+        grid-template-columns:1fr;
+    }
+
+    .falco-servicio-card{
+        min-height:0;
+    }
+
+    .falco-servicios-cierre{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .falco-servicios-accion{
+        width:100%;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media(max-width:560px){
+
+    .falco-servicios-periciales{
+        padding:72px 17px;
+    }
+
+    .falco-servicios-encabezado{
+        margin-bottom:38px;
+    }
+
+    .falco-servicios-etiqueta{
+        margin-bottom:14px;
+        padding:7px 13px;
+
+        font-size:.63rem;
+        letter-spacing:.10em;
+    }
+
+    .falco-servicios-encabezado h2{
+        font-size:clamp(2rem,10vw,2.55rem);
+    }
+
+    .falco-servicios-encabezado p{
+        margin-top:16px;
+
+        font-size:.91rem;
+        line-height:1.68;
+    }
+
+    .falco-servicios-grid{
+        gap:15px;
+    }
+
+    .falco-servicio-card{
+        padding:25px 21px 23px;
+
+        border-radius:19px;
+    }
+
+    .falco-servicio-card::before{
+        left:21px;
+    }
+
+    .falco-servicio-superior{
+        margin-bottom:23px;
+    }
+
+    .falco-servicio-simbolo{
+        width:45px;
+        height:45px;
+        margin-bottom:18px;
+    }
+
+    .falco-servicio-card h3{
+        font-size:1.27rem;
+    }
+
+    .falco-servicio-card p{
+        font-size:.84rem;
+        line-height:1.68;
+    }
+
+    .falco-servicios-cierre{
+        margin-top:18px;
+        padding:27px 22px;
+
+        border-radius:19px;
+    }
+
+    .falco-servicios-cierre h3{
+        font-size:1.48rem;
+    }
+
+    .falco-servicios-cierre p{
+        font-size:.84rem;
+    }
+}
+
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .falco-servicio-card,
+    .falco-servicio-enlace,
+    .falco-servicio-enlace span,
+    .falco-servicios-accion{
+        transition:none;
+    }
+
+    .falco-servicio-card:hover,
+    .falco-servicio-enlace:hover,
+    .falco-servicios-accion:hover{
+        transform:none;
+    }
+}
+
+
+/* =========================================================
+   FORTALEZAS DEL ESTUDIO · SISTEMA FALCO®
+========================================================= */
+
+.falco-fortalezas{
+    position:relative;
+    overflow:hidden;
+
+    padding:105px 40px;
+
+    background:
+        radial-gradient(
+            circle at 14% 18%,
+            rgba(212,175,55,.07),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 82%,
+            rgba(212,175,55,.045),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #080e18 0%,
+            #0d1523 52%,
+            #080e18 100%
+        );
+
+    border-top:1px solid rgba(212,175,55,.10);
+    border-bottom:1px solid rgba(212,175,55,.10);
+}
+
+
+/* Línea decorativa superior */
+
+.falco-fortalezas::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:50%;
+
+    width:min(78%,900px);
+    height:1px;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.38),
+            transparent
+        );
+}
+
+
+/* Brillo ambiental */
+
+.falco-fortalezas::after{
+    content:"";
+
+    position:absolute;
+    top:50%;
+    left:50%;
+
+    width:540px;
+    height:540px;
+
+    border-radius:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:rgba(212,175,55,.025);
+    filter:blur(90px);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.falco-fortalezas-contenedor{
+    position:relative;
+    z-index:1;
+
+    width:min(100%,1160px);
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.falco-fortalezas-header{
+    max-width:820px;
+    margin:0 auto 54px;
+
+    text-align:center;
+}
+
+.falco-fortalezas-etiqueta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:18px;
+    padding:8px 16px;
+
+    border:1px solid rgba(212,175,55,.36);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.055);
+    color:#d6bb67;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.68rem;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+.falco-fortalezas-header h2{
+    margin:0;
+
+    color:#f2efe7;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(2.25rem,4.5vw,3.55rem);
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:-.025em;
+}
+
+.falco-fortalezas-header p{
+    max-width:730px;
+    margin:20px auto 0;
+
+    color:rgba(239,232,216,.71);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.97rem;
+    line-height:1.78;
+}
+
+
+/* =========================================================
+   GRILLA
+========================================================= */
+
+.falco-fortalezas-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.falco-fortaleza-card{
+    position:relative;
+
+    min-width:0;
+    min-height:310px;
+    padding:31px 28px 29px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.17);
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(246,236,205,.043),
+            rgba(212,175,55,.014)
+        );
+
+    box-shadow:
+        0 22px 48px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.035);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background .28s ease,
+        box-shadow .28s ease;
+}
+
+
+/* Línea superior */
+
+.falco-fortaleza-card::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:28px;
+
+    width:58px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            rgba(212,175,55,0)
+        );
+}
+
+
+/* Brillo decorativo */
+
+.falco-fortaleza-card::after{
+    content:"";
+
+    position:absolute;
+    right:-65px;
+    bottom:-85px;
+
+    width:175px;
+    height:175px;
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.035);
+    filter:blur(12px);
+
+    pointer-events:none;
+}
+
+.falco-fortaleza-card:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(212,175,55,.46);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(246,236,205,.062),
+            rgba(212,175,55,.026)
+        );
+
+    box-shadow:
+        0 29px 58px rgba(0,0,0,.28),
+        0 0 27px rgba(212,175,55,.045);
+}
+
+
+/* =========================================================
+   TARJETA DESTACADA
+========================================================= */
+
+.falco-fortaleza-card.destacado{
+    border-color:rgba(212,175,55,.43);
+
+    background:
+        radial-gradient(
+            circle at 50% 12%,
+            rgba(212,175,55,.11),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(246,236,205,.075),
+            rgba(212,175,55,.028)
+        );
+
+    box-shadow:
+        0 27px 57px rgba(0,0,0,.26),
+        inset 0 1px 0 rgba(255,255,255,.045);
+}
+
+.falco-fortaleza-card.destacado::before{
+    width:84px;
+}
+
+.falco-fortaleza-card.destacado::after{
+    width:220px;
+    height:220px;
+
+    background:rgba(212,175,55,.06);
+}
+
+.falco-fortaleza-card.destacado:hover{
+    border-color:rgba(212,175,55,.70);
+
+    box-shadow:
+        0 32px 65px rgba(0,0,0,.31),
+        0 0 32px rgba(212,175,55,.065);
+}
+
+
+/* =========================================================
+   ÍCONO
+========================================================= */
+
+.falco-fortaleza-icono{
+    position:relative;
+    z-index:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:52px;
+    height:52px;
+    margin-bottom:22px;
+
+    border:1px solid rgba(212,175,55,.30);
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.12),
+            rgba(212,175,55,.025)
+        );
+
+    color:#d9bd68;
+
+    font-size:1.26rem;
+    line-height:1;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+
+/* =========================================================
+   TEXTOS
+========================================================= */
+
+.falco-fortaleza-card h3{
+    position:relative;
+    z-index:1;
+
+    margin:0 0 15px;
+
+    color:#efd68a;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:1.36rem;
+    font-weight:600;
+    line-height:1.3;
+}
+
+.falco-fortaleza-card p{
+    position:relative;
+    z-index:1;
+
+    margin:0;
+
+    color:rgba(239,232,216,.67);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.85rem;
+    line-height:1.73;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:980px){
+
+    .falco-fortalezas{
+        padding:88px 25px;
+    }
+
+    .falco-fortalezas-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .falco-fortaleza-card{
+        min-height:295px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media(max-width:720px){
+
+    .falco-fortalezas-grid{
+        grid-template-columns:1fr;
+    }
+
+    .falco-fortaleza-card{
+        min-height:0;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media(max-width:560px){
+
+    .falco-fortalezas{
+        padding:72px 17px;
+    }
+
+    .falco-fortalezas-header{
+        margin-bottom:39px;
+    }
+
+    .falco-fortalezas-etiqueta{
+        margin-bottom:14px;
+        padding:7px 13px;
+
+        font-size:.62rem;
+        letter-spacing:.10em;
+    }
+
+    .falco-fortalezas-header h2{
+        font-size:clamp(2rem,10vw,2.55rem);
+    }
+
+    .falco-fortalezas-header p{
+        margin-top:16px;
+
+        font-size:.91rem;
+        line-height:1.68;
+    }
+
+    .falco-fortalezas-grid{
+        gap:15px;
+    }
+
+    .falco-fortaleza-card{
+        padding:26px 21px 24px;
+
+        border-radius:19px;
+    }
+
+    .falco-fortaleza-card::before{
+        left:21px;
+    }
+
+    .falco-fortaleza-icono{
+        width:47px;
+        height:47px;
+        margin-bottom:19px;
+
+        font-size:1.12rem;
+    }
+
+    .falco-fortaleza-card h3{
+        font-size:1.26rem;
+    }
+
+    .falco-fortaleza-card p{
+        font-size:.84rem;
+        line-height:1.68;
+    }
+}
+
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .falco-fortaleza-card{
+        transition:none;
+    }
+
+    .falco-fortaleza-card:hover{
+        transform:none;
+    }
+}
+
+
+/* =========================================================
+   ÁREAS DE ACTUACIÓN · SISTEMA FALCO®
+========================================================= */
+
+.falco-areas{
+
+    position:relative;
+    overflow:hidden;
+
+    padding:110px 40px;
+
+    background:
+        radial-gradient(circle at 12% 18%,
+            rgba(212,175,55,.05),
+            transparent 32%),
+        radial-gradient(circle at 88% 82%,
+            rgba(212,175,55,.04),
+            transparent 30%),
+        linear-gradient(
+            180deg,
+            #09111d 0%,
+            #0c1727 50%,
+            #09111d 100%
+        );
+
+    border-top:1px solid rgba(212,175,55,.10);
+    border-bottom:1px solid rgba(212,175,55,.10);
+
+}
+
+
+/* ========================================================= */
+
+.falco-areas::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    width:min(900px,80%);
+    height:1px;
+
+    transform:translateX(-50%);
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(212,175,55,.45),
+        transparent
+    );
+
+}
+
+.falco-areas::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.02);
+
+    filter:blur(90px);
+
+    pointer-events:none;
+
+}
+
+/* ========================================================= */
+
+.falco-areas-contenedor{
+
+    position:relative;
+    z-index:2;
+
+    width:min(1180px,100%);
+    margin:auto;
+
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.falco-areas-header{
+
+    max-width:760px;
+
+    margin:0 auto 65px;
+
+    text-align:center;
+
+}
+
+.falco-areas-etiqueta{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:8px 18px;
+
+    margin-bottom:18px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    background:rgba(212,175,55,.05);
+
+    color:#d4af37;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    font-size:.70rem;
+
+    font-weight:600;
+
+    font-family:Inter,sans-serif;
+
+}
+
+.falco-areas-header h2{
+
+    margin:0;
+
+    color:#f5f0e6;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(2.3rem,5vw,3.7rem);
+
+    font-weight:500;
+
+    line-height:1.12;
+
+}
+
+.falco-areas-header p{
+
+    margin-top:22px;
+
+    color:rgba(255,255,255,.72);
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.falco-areas-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:24px;
+
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.falco-area-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:34px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.03),
+            rgba(212,175,55,.015)
+        );
+
+    transition:
+        .35s;
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.22);
+
+}
+
+.falco-area-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(212,175,55,.45);
+
+    box-shadow:
+
+        0 35px 70px rgba(0,0,0,.30);
+
+}
+
+.falco-area-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:30px;
+
+    width:70px;
+    height:2px;
+
+    background:#d4af37;
+
+}
+
+.falco-area-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-70px;
+    bottom:-70px;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(212,175,55,.03);
+
+    filter:blur(18px);
+
+}
+
+/* ========================================================= */
+
+.falco-area-superior{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.falco-area-numero{
+
+    color:#d4af37;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    letter-spacing:.15em;
+
+    font-family:Inter,sans-serif;
+
+}
+
+.falco-area-tipo{
+
+    color:rgba(255,255,255,.45);
+
+    font-size:.72rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+}
+
+/* ========================================================= */
+
+.falco-area-icono{
+
+    width:58px;
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:24px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.12),
+            rgba(212,175,55,.03)
+        );
+
+    color:#e4c66a;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    font-family:Inter,sans-serif;
+
+}
+
+/* ========================================================= */
+
+.falco-area-card h3{
+
+    margin:0 0 18px;
+
+    color:#efd688;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:1.45rem;
+
+}
+
+.falco-area-card p{
+
+    margin-bottom:24px;
+
+    color:rgba(255,255,255,.70);
+
+    line-height:1.75;
+
+    font-size:.92rem;
+
+}
+
+/* ========================================================= */
+
+.falco-area-card ul{
+
+    list-style:none;
+
+    margin:0;
+    padding:0;
+
+}
+
+.falco-area-card li{
+
+    position:relative;
+
+    padding-left:22px;
+
+    margin-bottom:12px;
+
+    color:rgba(255,255,255,.78);
+
+    line-height:1.6;
+
+}
+
+.falco-area-card li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:10px;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#d4af37;
+
+}
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.falco-areas-cierre{
+
+    margin-top:70px;
+
+    padding:42px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(212,175,55,.02)
+        );
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+.falco-areas-cierre span{
+
+    color:#d4af37;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    font-size:.72rem;
+
+}
+
+.falco-areas-cierre h3{
+
+    margin:12px 0;
+
+    color:#f4f0e8;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:2rem;
+
+}
+
+.falco-areas-cierre p{
+
+    max-width:760px;
+
+    color:rgba(255,255,255,.72);
+
+    line-height:1.8;
+
+}
+
+.falco-areas-boton{
+
+    flex-shrink:0;
+
+    padding:16px 34px;
+
+    border-radius:999px;
+
+    background:#d4af37;
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.falco-areas-boton:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 18px 35px rgba(212,175,55,.30);
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+.falco-areas-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.falco-areas-cierre{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+}
+
+@media(max-width:650px){
+
+.falco-areas{
+
+padding:80px 22px;
+
+}
+
+.falco-area-card{
+
+padding:28px;
+
+}
+
+.falco-areas-cierre{
+
+padding:30px;
+
+}
+
+.falco-areas-cierre h3{
+
+font-size:1.6rem;
+
+}
+
+}
+
+
+/* =========================================================
+   GUÍA PARA QUIENES CONSULTAN · SISTEMA FALCO®
+========================================================= */
+
+.falco-guia{
+    position:relative;
+    overflow:hidden;
+
+    padding:110px 40px;
+
+    background:
+        radial-gradient(
+            circle at 86% 16%,
+            rgba(212,175,55,.065),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 84%,
+            rgba(212,175,55,.035),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #070c14 0%,
+            #0a111d 50%,
+            #070c14 100%
+        );
+
+    border-bottom:1px solid rgba(212,175,55,.10);
+}
+
+
+/* Línea superior decorativa */
+
+.falco-guia::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:50%;
+
+    width:min(900px,80%);
+    height:1px;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.42),
+            transparent
+        );
+}
+
+
+/* Brillo ambiental central */
+
+.falco-guia::after{
+    content:"";
+
+    position:absolute;
+    top:42%;
+    left:50%;
+
+    width:680px;
+    height:680px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.022);
+    filter:blur(100px);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.falco-guia-contenedor{
+    position:relative;
+    z-index:2;
+
+    width:min(1180px,100%);
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.falco-guia-header{
+    max-width:790px;
+    margin:0 auto 64px;
+
+    text-align:center;
+}
+
+.falco-guia-etiqueta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:18px;
+    padding:8px 18px;
+
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.05);
+    color:#d4af37;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.70rem;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.falco-guia-header h2{
+    margin:0;
+
+    color:#f5f0e6;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(2.3rem,5vw,3.7rem);
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:-.025em;
+}
+
+.falco-guia-header p{
+    max-width:740px;
+    margin:22px auto 0;
+
+    color:rgba(255,255,255,.70);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:1rem;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   GRILLA PRINCIPAL
+========================================================= */
+
+.falco-guia-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.falco-guia-card{
+    position:relative;
+    overflow:hidden;
+
+    min-width:0;
+    min-height:450px;
+    padding:35px 31px 32px;
+
+    border:1px solid rgba(212,175,55,.15);
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.032),
+            rgba(212,175,55,.012)
+        );
+
+    box-shadow:
+        0 22px 50px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.025);
+
+    transition:
+        transform .32s ease,
+        border-color .32s ease,
+        background .32s ease,
+        box-shadow .32s ease;
+}
+
+
+/* Línea superior */
+
+.falco-guia-card::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:31px;
+
+    width:65px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            rgba(212,175,55,0)
+        );
+}
+
+
+/* Resplandor inferior */
+
+.falco-guia-card::after{
+    content:"";
+
+    position:absolute;
+    right:-75px;
+    bottom:-85px;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.03);
+    filter:blur(15px);
+
+    pointer-events:none;
+}
+
+.falco-guia-card:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(212,175,55,.43);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.047),
+            rgba(212,175,55,.022)
+        );
+
+    box-shadow:
+        0 34px 67px rgba(0,0,0,.30),
+        0 0 28px rgba(212,175,55,.04);
+}
+
+
+/* =========================================================
+   TARJETA CENTRAL DESTACADA
+========================================================= */
+
+.falco-guia-card-destacada{
+    border-color:rgba(212,175,55,.43);
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(212,175,55,.105),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.047),
+            rgba(212,175,55,.026)
+        );
+
+    box-shadow:
+        0 28px 58px rgba(0,0,0,.27),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.falco-guia-card-destacada::before{
+    width:90px;
+}
+
+.falco-guia-card-destacada::after{
+    width:230px;
+    height:230px;
+
+    background:rgba(212,175,55,.055);
+}
+
+.falco-guia-card-destacada:hover{
+    border-color:rgba(212,175,55,.67);
+
+    box-shadow:
+        0 38px 74px rgba(0,0,0,.32),
+        0 0 32px rgba(212,175,55,.065);
+}
+
+
+/* =========================================================
+   NÚMERO
+========================================================= */
+
+.falco-guia-numero{
+    position:relative;
+    z-index:1;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:49px;
+    height:49px;
+    margin-bottom:27px;
+
+    border:1px solid rgba(212,175,55,.27);
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.12),
+            rgba(212,175,55,.025)
+        );
+
+    color:#dfc268;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.76rem;
+    font-weight:700;
+    letter-spacing:.10em;
+}
+
+
+/* =========================================================
+   TEXTOS DE TARJETAS
+========================================================= */
+
+.falco-guia-card h3{
+    position:relative;
+    z-index:1;
+
+    margin:0 0 18px;
+
+    color:#efd688;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:1.47rem;
+    font-weight:600;
+    line-height:1.3;
+}
+
+.falco-guia-card > p{
+    position:relative;
+    z-index:1;
+
+    margin:0 0 25px;
+
+    color:rgba(255,255,255,.69);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.91rem;
+    line-height:1.76;
+}
+
+
+/* =========================================================
+   ENLACE DE TARJETA
+========================================================= */
+
+.falco-guia-card > a{
+    position:relative;
+    z-index:1;
+
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    margin-top:7px;
+    padding-bottom:5px;
+
+    border-bottom:1px solid rgba(212,175,55,.32);
+
+    color:#d9bc62;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.84rem;
+    font-weight:600;
+    line-height:1.3;
+    text-decoration:none;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        gap .25s ease;
+}
+
+.falco-guia-card > a:hover{
+    gap:13px;
+
+    border-color:#d4af37;
+    color:#f0d784;
+}
+
+
+/* =========================================================
+   ETIQUETAS DE SITUACIONES
+========================================================= */
+
+.falco-guia-etiquetas{
+    position:relative;
+    z-index:1;
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+
+    margin-top:5px;
+}
+
+.falco-guia-etiquetas span{
+    display:inline-flex;
+    align-items:center;
+
+    padding:9px 12px;
+
+    border:1px solid rgba(212,175,55,.20);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.045);
+    color:rgba(247,235,200,.80);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.72rem;
+    font-weight:500;
+    line-height:1.25;
+}
+
+
+/* =========================================================
+   PASOS DEL PROCESO
+========================================================= */
+
+.falco-guia-pasos{
+    position:relative;
+    z-index:1;
+
+    list-style:none;
+
+    margin:4px 0 0;
+    padding:0;
+}
+
+.falco-guia-pasos li{
+    position:relative;
+
+    display:grid;
+    gap:4px;
+
+    margin-bottom:18px;
+    padding:0 0 18px 28px;
+
+    border-bottom:1px solid rgba(212,175,55,.105);
+}
+
+.falco-guia-pasos li:last-child{
+    margin-bottom:0;
+    padding-bottom:0;
+
+    border-bottom:none;
+}
+
+.falco-guia-pasos li::before{
+    content:"";
+
+    position:absolute;
+    top:7px;
+    left:0;
+
+    width:8px;
+    height:8px;
+
+    border:2px solid rgba(212,175,55,.67);
+    border-radius:50%;
+
+    background:#0a111d;
+
+    box-shadow:0 0 0 4px rgba(212,175,55,.045);
+}
+
+.falco-guia-pasos strong{
+    color:#eee3c5;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.85rem;
+    font-weight:600;
+    line-height:1.35;
+}
+
+.falco-guia-pasos span{
+    color:rgba(255,255,255,.58);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.77rem;
+    line-height:1.58;
+}
+
+
+/* =========================================================
+   RECURSOS E INFORMACIÓN ÚTIL
+========================================================= */
+
+.falco-guia-recursos{
+    position:relative;
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);
+    align-items:center;
+    gap:54px;
+
+    margin-top:25px;
+    padding:43px 45px;
+
+    border:1px solid rgba(212,175,55,.17);
+    border-radius:26px;
+
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(212,175,55,.07),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.027),
+            rgba(212,175,55,.014)
+        );
+
+    box-shadow:
+        0 24px 52px rgba(0,0,0,.21);
+}
+
+.falco-guia-recursos::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:45px;
+
+    width:90px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            transparent
+        );
+}
+
+.falco-guia-recursos-texto{
+    position:relative;
+    z-index:1;
+}
+
+.falco-guia-recursos-texto > span{
+    display:block;
+
+    margin-bottom:11px;
+
+    color:#d4af37;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.69rem;
+    font-weight:600;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.falco-guia-recursos-texto h3{
+    margin:0 0 14px;
+
+    color:#f3eee3;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(1.55rem,3vw,2.08rem);
+    font-weight:500;
+    line-height:1.3;
+}
+
+.falco-guia-recursos-texto p{
+    max-width:650px;
+    margin:0;
+
+    color:rgba(255,255,255,.66);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.89rem;
+    line-height:1.75;
+}
+
+
+/* Enlaces útiles */
+
+.falco-guia-recursos-enlaces{
+    position:relative;
+    z-index:1;
+
+    display:grid;
+    gap:10px;
+}
+
+.falco-guia-recursos-enlaces a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+
+    padding:15px 17px;
+
+    border:1px solid rgba(212,175,55,.15);
+    border-radius:13px;
+
+    background:rgba(255,255,255,.018);
+    color:rgba(246,237,213,.79);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.78rem;
+    font-weight:500;
+    line-height:1.4;
+    text-decoration:none;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        color .25s ease;
+}
+
+.falco-guia-recursos-enlaces a span{
+    flex-shrink:0;
+
+    color:#d4af37;
+
+    font-size:1rem;
+
+    transition:transform .25s ease;
+}
+
+.falco-guia-recursos-enlaces a:hover{
+    transform:translateX(4px);
+
+    border-color:rgba(212,175,55,.40);
+    background:rgba(212,175,55,.045);
+    color:#f0dfaa;
+}
+
+.falco-guia-recursos-enlaces a:hover span{
+    transform:translateX(3px);
+}
+
+
+/* =========================================================
+   LLAMADO A LA ACCIÓN
+========================================================= */
+
+.falco-guia-cta{
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:45px;
+
+    margin-top:24px;
+    padding:45px;
+
+    border:1px solid rgba(212,175,55,.30);
+    border-radius:27px;
+
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(212,175,55,.11),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.075),
+            rgba(255,255,255,.021)
+        );
+
+    box-shadow:
+        0 27px 58px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.falco-guia-cta::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:45px;
+
+    width:110px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            rgba(212,175,55,0)
+        );
+}
+
+.falco-guia-cta > div{
+    position:relative;
+    z-index:1;
+
+    max-width:760px;
+}
+
+.falco-guia-cta > div > span{
+    display:block;
+
+    margin-bottom:11px;
+
+    color:#d4af37;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.69rem;
+    font-weight:600;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.falco-guia-cta h3{
+    margin:0 0 13px;
+
+    color:#f4efe5;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(1.62rem,3vw,2.2rem);
+    font-weight:500;
+    line-height:1.28;
+}
+
+.falco-guia-cta p{
+    margin:0;
+
+    color:rgba(255,255,255,.68);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.90rem;
+    line-height:1.73;
+}
+
+
+/* Botón principal */
+
+.falco-guia-boton{
+    position:relative;
+    z-index:1;
+
+    flex-shrink:0;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:175px;
+    padding:16px 30px;
+
+    border:1px solid #d4af37;
+    border-radius:999px;
+
+    background:#d4af37;
+    color:#101010;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.82rem;
+    font-weight:700;
+    line-height:1.3;
+    text-align:center;
+    text-decoration:none;
+
+    box-shadow:
+        0 12px 30px rgba(212,175,55,.16);
+
+    transition:
+        transform .28s ease,
+        background .28s ease,
+        color .28s ease,
+        box-shadow .28s ease;
+}
+
+.falco-guia-boton:hover{
+    transform:translateY(-3px);
+
+    background:#e1c25e;
+    color:#080808;
+
+    box-shadow:
+        0 19px 39px rgba(212,175,55,.29);
+}
+
+
+/* =========================================================
+   RESPONSIVE · TABLET
+========================================================= */
+
+@media(max-width:1040px){
+
+    .falco-guia-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .falco-guia-card:last-child{
+        grid-column:1 / -1;
+        min-height:0;
+    }
+
+    .falco-guia-pasos{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        column-gap:30px;
+    }
+
+    .falco-guia-recursos{
+        grid-template-columns:1fr;
+        gap:31px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE · TABLET PEQUEÑA
+========================================================= */
+
+@media(max-width:760px){
+
+    .falco-guia{
+        padding:88px 25px;
+    }
+
+    .falco-guia-grid{
+        grid-template-columns:1fr;
+    }
+
+    .falco-guia-card,
+    .falco-guia-card:last-child{
+        grid-column:auto;
+        min-height:0;
+    }
+
+    .falco-guia-pasos{
+        display:block;
+    }
+
+    .falco-guia-recursos{
+        padding:35px 31px;
+    }
+
+    .falco-guia-recursos::before{
+        left:31px;
+    }
+
+    .falco-guia-cta{
+        flex-direction:column;
+        align-items:flex-start;
+
+        padding:36px 31px;
+    }
+
+    .falco-guia-cta::before{
+        left:31px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE · CELULAR
+========================================================= */
+
+@media(max-width:560px){
+
+    .falco-guia{
+        padding:72px 17px;
+    }
+
+    .falco-guia-header{
+        margin-bottom:42px;
+    }
+
+    .falco-guia-etiqueta{
+        margin-bottom:14px;
+        padding:7px 13px;
+
+        font-size:.62rem;
+        letter-spacing:.10em;
+    }
+
+    .falco-guia-header h2{
+        font-size:clamp(2rem,10vw,2.55rem);
+    }
+
+    .falco-guia-header p{
+        margin-top:17px;
+
+        font-size:.91rem;
+        line-height:1.68;
+    }
+
+    .falco-guia-grid{
+        gap:15px;
+    }
+
+    .falco-guia-card{
+        padding:27px 22px 25px;
+
+        border-radius:19px;
+    }
+
+    .falco-guia-card::before{
+        left:22px;
+    }
+
+    .falco-guia-numero{
+        width:45px;
+        height:45px;
+        margin-bottom:21px;
+    }
+
+    .falco-guia-card h3{
+        font-size:1.29rem;
+    }
+
+    .falco-guia-card > p{
+        font-size:.85rem;
+        line-height:1.68;
+    }
+
+    .falco-guia-etiquetas{
+        gap:7px;
+    }
+
+    .falco-guia-etiquetas span{
+        padding:8px 10px;
+
+        font-size:.67rem;
+    }
+
+    .falco-guia-recursos{
+        margin-top:16px;
+        padding:30px 22px;
+
+        border-radius:20px;
+    }
+
+    .falco-guia-recursos::before{
+        left:22px;
+    }
+
+    .falco-guia-recursos-texto h3{
+        font-size:1.47rem;
+    }
+
+    .falco-guia-recursos-enlaces a{
+        padding:14px;
+
+        font-size:.74rem;
+    }
+
+    .falco-guia-cta{
+        margin-top:16px;
+        padding:31px 22px;
+
+        border-radius:21px;
+    }
+
+    .falco-guia-cta::before{
+        left:22px;
+    }
+
+    .falco-guia-cta h3{
+        font-size:1.52rem;
+    }
+
+    .falco-guia-boton{
+        width:100%;
+        min-width:0;
+    }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD · MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .falco-guia-card,
+    .falco-guia-card > a,
+    .falco-guia-recursos-enlaces a,
+    .falco-guia-recursos-enlaces a span,
+    .falco-guia-boton{
+        transition:none;
+    }
+
+    .falco-guia-card:hover,
+    .falco-guia-recursos-enlaces a:hover,
+    .falco-guia-boton:hover{
+        transform:none;
+    }
+}
+
+
+/* =========================================================
+   BLOQUE 3
+   AJUSTES FINALES · ÁREAS + GUÍA
+   SISTEMA FALCO®
+========================================================= */
+
+
+/* =========================================================
+   CONSISTENCIA GENERAL
+========================================================= */
+
+.falco-areas,
+.falco-guia{
+    box-sizing:border-box;
+}
+
+.falco-areas *,
+.falco-areas *::before,
+.falco-areas *::after,
+.falco-guia *,
+.falco-guia *::before,
+.falco-guia *::after{
+    box-sizing:border-box;
+}
+
+
+/* Evita desbordamientos producidos por textos largos */
+
+.falco-area-card,
+.falco-guia-card,
+.falco-areas-cierre,
+.falco-guia-recursos,
+.falco-guia-cta{
+    min-width:0;
+}
+
+.falco-area-card h3,
+.falco-area-card p,
+.falco-area-card li,
+.falco-guia-card h3,
+.falco-guia-card p,
+.falco-guia-pasos span,
+.falco-guia-recursos h3,
+.falco-guia-recursos p,
+.falco-guia-cta h3,
+.falco-guia-cta p{
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================================================
+   SEPARACIÓN VISUAL ENTRE ÁREAS Y GUÍA
+========================================================= */
+
+.falco-areas + .falco-guia{
+    border-top:none;
+}
+
+.falco-areas-cierre,
+.falco-guia-recursos,
+.falco-guia-cta{
+    isolation:isolate;
+}
+
+
+/* =========================================================
+   DETALLE DECORATIVO EN TÍTULOS
+========================================================= */
+
+.falco-areas-header h2,
+.falco-guia-header h2{
+    position:relative;
+}
+
+.falco-areas-header h2::after,
+.falco-guia-header h2::after{
+    content:"";
+
+    display:block;
+
+    width:72px;
+    height:1px;
+
+    margin:22px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.85),
+            transparent
+        );
+}
+
+
+/* Evita demasiado espacio entre la línea y el párrafo */
+
+.falco-areas-header h2 + p,
+.falco-guia-header h2 + p{
+    margin-top:20px;
+}
+
+
+/* =========================================================
+   EFECTO DE PROFUNDIDAD EN TARJETAS
+========================================================= */
+
+.falco-area-card,
+.falco-guia-card{
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+}
+
+.falco-area-card:hover .falco-area-icono,
+.falco-guia-card:hover .falco-guia-numero{
+    transform:translateY(-2px) scale(1.035);
+
+    border-color:rgba(212,175,55,.48);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.18),
+        0 0 20px rgba(212,175,55,.07);
+}
+
+
+/* Transición de iconos y números */
+
+.falco-area-icono,
+.falco-guia-numero{
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        box-shadow .28s ease,
+        background .28s ease;
+}
+
+
+/* =========================================================
+   MEJORA DE LISTAS EN ÁREAS
+========================================================= */
+
+.falco-area-card li{
+    transition:
+        color .24s ease,
+        transform .24s ease;
+}
+
+.falco-area-card li::before{
+    transition:
+        transform .24s ease,
+        box-shadow .24s ease;
+}
+
+.falco-area-card:hover li{
+    color:rgba(255,255,255,.84);
+}
+
+.falco-area-card:hover li::before{
+    transform:scale(1.12);
+
+    box-shadow:
+        0 0 0 4px rgba(212,175,55,.055);
+}
+
+
+/* =========================================================
+   MEJORA DE ETIQUETAS EN LA GUÍA
+========================================================= */
+
+.falco-guia-etiquetas span{
+    transition:
+        transform .24s ease,
+        border-color .24s ease,
+        background .24s ease,
+        color .24s ease;
+}
+
+.falco-guia-etiquetas span:hover{
+    transform:translateY(-2px);
+
+    border-color:rgba(212,175,55,.42);
+    background:rgba(212,175,55,.085);
+    color:#f1d989;
+}
+
+
+/* =========================================================
+   LÍNEA VISUAL EN LOS PASOS
+========================================================= */
+
+.falco-guia-pasos li:not(:last-child)::after{
+    content:"";
+
+    position:absolute;
+    top:19px;
+    bottom:-7px;
+    left:5px;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(212,175,55,.28),
+            rgba(212,175,55,.03)
+        );
+}
+
+
+/* =========================================================
+   BOTONES · UNIFORMIDAD
+========================================================= */
+
+.falco-areas-boton,
+.falco-guia-boton{
+    position:relative;
+    overflow:hidden;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    letter-spacing:.01em;
+}
+
+
+/* Destello sutil */
+
+.falco-areas-boton::before,
+.falco-guia-boton::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-75%;
+
+    width:45%;
+
+    transform:skewX(-22deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.30),
+            transparent
+        );
+
+    transition:left .55s ease;
+}
+
+.falco-areas-boton:hover::before,
+.falco-guia-boton:hover::before{
+    left:135%;
+}
+
+
+/* Mantiene el texto por encima del destello */
+
+.falco-areas-boton,
+.falco-guia-boton{
+    isolation:isolate;
+}
+
+
+/* =========================================================
+   ESTADOS DE FOCO · ACCESIBILIDAD
+========================================================= */
+
+.falco-areas-boton:focus-visible,
+.falco-guia-boton:focus-visible,
+.falco-guia-card > a:focus-visible,
+.falco-guia-recursos-enlaces a:focus-visible{
+    outline:2px solid #f0d475;
+    outline-offset:4px;
+}
+
+.falco-area-card:focus-within,
+.falco-guia-card:focus-within{
+    border-color:rgba(212,175,55,.55);
+}
+
+
+/* =========================================================
+   ANIMACIONES DE ENTRADA
+========================================================= */
+
+@keyframes falcoAparecerSuave{
+
+    from{
+        opacity:0;
+        transform:translateY(24px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes falcoLineaEntrada{
+
+    from{
+        opacity:0;
+        transform:scaleX(.25);
+    }
+
+    to{
+        opacity:1;
+        transform:scaleX(1);
+    }
+
+}
+
+
+/* Animación inicial suave */
+
+.falco-areas-header,
+.falco-guia-header{
+    animation:
+        falcoAparecerSuave .75s ease both;
+}
+
+.falco-area-card,
+.falco-guia-card{
+    animation:
+        falcoAparecerSuave .72s ease both;
+}
+
+
+/* Áreas · entrada escalonada */
+
+.falco-area-card:nth-child(1){
+    animation-delay:.06s;
+}
+
+.falco-area-card:nth-child(2){
+    animation-delay:.13s;
+}
+
+.falco-area-card:nth-child(3){
+    animation-delay:.20s;
+}
+
+.falco-area-card:nth-child(4){
+    animation-delay:.27s;
+}
+
+
+/* Guía · entrada escalonada */
+
+.falco-guia-card:nth-child(1){
+    animation-delay:.07s;
+}
+
+.falco-guia-card:nth-child(2){
+    animation-delay:.15s;
+}
+
+.falco-guia-card:nth-child(3){
+    animation-delay:.23s;
+}
+
+.falco-areas-cierre,
+.falco-guia-recursos,
+.falco-guia-cta{
+    animation:
+        falcoAparecerSuave .8s ease both;
+}
+
+.falco-areas-cierre{
+    animation-delay:.30s;
+}
+
+.falco-guia-recursos{
+    animation-delay:.28s;
+}
+
+.falco-guia-cta{
+    animation-delay:.35s;
+}
+
+
+/* =========================================================
+   PANTALLAS GRANDES
+========================================================= */
+
+@media(min-width:1200px){
+
+    .falco-area-card{
+        min-height:470px;
+    }
+
+    .falco-guia-card{
+        min-height:465px;
+    }
+
+    .falco-areas-cierre{
+        padding:46px 48px;
+    }
+
+    .falco-guia-recursos,
+    .falco-guia-cta{
+        padding:47px 49px;
+    }
+}
+
+
+/* =========================================================
+   NOTEBOOKS Y TABLETS GRANDES
+========================================================= */
+
+@media(max-width:1100px){
+
+    .falco-areas,
+    .falco-guia{
+        padding-left:30px;
+        padding-right:30px;
+    }
+
+    .falco-areas-cierre{
+        gap:30px;
+    }
+
+    .falco-guia-cta{
+        gap:32px;
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media(max-width:900px){
+
+    .falco-areas{
+        padding-top:92px;
+        padding-bottom:92px;
+    }
+
+    .falco-guia{
+        padding-top:92px;
+        padding-bottom:92px;
+    }
+
+    .falco-areas-header,
+    .falco-guia-header{
+        margin-bottom:50px;
+    }
+
+    .falco-area-card{
+        min-height:0;
+    }
+
+    .falco-areas-cierre{
+        margin-top:48px;
+    }
+
+    .falco-guia-recursos{
+        margin-top:20px;
+    }
+
+    .falco-guia-cta{
+        margin-top:20px;
+    }
+}
+
+
+/* =========================================================
+   TABLETS PEQUEÑAS
+========================================================= */
+
+@media(max-width:760px){
+
+    .falco-areas,
+    .falco-guia{
+        padding-left:22px;
+        padding-right:22px;
+    }
+
+    .falco-areas-cierre,
+    .falco-guia-cta{
+        align-items:stretch;
+    }
+
+    .falco-areas-boton,
+    .falco-guia-boton{
+        width:100%;
+        min-width:0;
+    }
+
+    .falco-area-card:hover,
+    .falco-guia-card:hover{
+        transform:translateY(-3px);
+    }
+
+    .falco-guia-pasos li:not(:last-child)::after{
+        bottom:-8px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media(max-width:560px){
+
+    .falco-areas,
+    .falco-guia{
+        padding-top:70px;
+        padding-bottom:70px;
+    }
+
+    .falco-areas-header,
+    .falco-guia-header{
+        margin-bottom:38px;
+    }
+
+    .falco-areas-header h2::after,
+    .falco-guia-header h2::after{
+        width:58px;
+        margin-top:17px;
+    }
+
+    .falco-area-card{
+        padding:26px 21px 24px;
+        border-radius:19px;
+    }
+
+    .falco-area-card::before{
+        left:21px;
+        width:55px;
+    }
+
+    .falco-area-superior{
+        margin-bottom:22px;
+    }
+
+    .falco-area-icono{
+        width:49px;
+        height:49px;
+        margin-bottom:19px;
+
+        font-size:1.05rem;
+    }
+
+    .falco-area-card h3{
+        margin-bottom:14px;
+
+        font-size:1.30rem;
+    }
+
+    .falco-area-card p{
+        margin-bottom:20px;
+
+        font-size:.85rem;
+        line-height:1.68;
+    }
+
+    .falco-area-card li{
+        margin-bottom:10px;
+        padding-left:19px;
+
+        font-size:.82rem;
+        line-height:1.55;
+    }
+
+    .falco-area-card li::before{
+        top:8px;
+
+        width:7px;
+        height:7px;
+    }
+
+    .falco-areas-cierre{
+        margin-top:35px;
+        padding:29px 22px;
+
+        border-radius:21px;
+    }
+
+    .falco-areas-cierre h3{
+        font-size:1.46rem;
+        line-height:1.35;
+    }
+
+    .falco-areas-cierre p{
+        font-size:.85rem;
+        line-height:1.68;
+    }
+
+    .falco-areas-boton,
+    .falco-guia-boton{
+        padding:15px 22px;
+
+        font-size:.79rem;
+    }
+
+    .falco-guia-pasos li{
+        margin-bottom:16px;
+        padding-left:25px;
+        padding-bottom:16px;
+    }
+
+    .falco-guia-pasos li::before{
+        left:0;
+    }
+
+    .falco-guia-pasos li:not(:last-child)::after{
+        left:5px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media(max-width:380px){
+
+    .falco-areas,
+    .falco-guia{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .falco-area-card,
+    .falco-guia-card{
+        padding-left:19px;
+        padding-right:19px;
+    }
+
+    .falco-areas-cierre,
+    .falco-guia-recursos,
+    .falco-guia-cta{
+        padding-left:19px;
+        padding-right:19px;
+    }
+
+    .falco-guia-etiquetas span{
+        width:100%;
+        justify-content:center;
+
+        text-align:center;
+    }
+}
+
+
+/* =========================================================
+   DISPOSITIVOS TÁCTILES
+========================================================= */
+
+@media(hover:none){
+
+    .falco-area-card:hover,
+    .falco-guia-card:hover,
+    .falco-areas-boton:hover,
+    .falco-guia-boton:hover,
+    .falco-guia-recursos-enlaces a:hover,
+    .falco-guia-etiquetas span:hover{
+        transform:none;
+    }
+
+    .falco-area-card,
+    .falco-guia-card{
+        -webkit-tap-highlight-color:transparent;
+    }
+}
+
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .falco-areas-header,
+    .falco-guia-header,
+    .falco-area-card,
+    .falco-guia-card,
+    .falco-areas-cierre,
+    .falco-guia-recursos,
+    .falco-guia-cta{
+        animation:none;
+    }
+
+    .falco-area-icono,
+    .falco-guia-numero,
+    .falco-area-card li,
+    .falco-area-card li::before,
+    .falco-guia-etiquetas span,
+    .falco-areas-boton::before,
+    .falco-guia-boton::before{
+        transition:none;
+    }
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print{
+
+    .falco-areas,
+    .falco-guia{
+        padding:35px 0;
+
+        background:#fff;
+        color:#111;
+
+        border:none;
+    }
+
+    .falco-areas::before,
+    .falco-areas::after,
+    .falco-guia::before,
+    .falco-guia::after{
+        display:none;
+    }
+
+    .falco-area-card,
+    .falco-guia-card,
+    .falco-areas-cierre,
+    .falco-guia-recursos,
+    .falco-guia-cta{
+        break-inside:avoid;
+
+        background:#fff;
+        border:1px solid #bbb;
+        box-shadow:none;
+    }
+
+    .falco-areas-header h2,
+    .falco-guia-header h2,
+    .falco-area-card h3,
+    .falco-guia-card h3,
+    .falco-areas-cierre h3,
+    .falco-guia-recursos h3,
+    .falco-guia-cta h3{
+        color:#111;
+    }
+
+    .falco-areas-header p,
+    .falco-guia-header p,
+    .falco-area-card p,
+    .falco-area-card li,
+    .falco-guia-card p,
+    .falco-guia-pasos span,
+    .falco-guia-recursos p,
+    .falco-guia-cta p{
+        color:#333;
+    }
+
+    .falco-areas-boton,
+    .falco-guia-boton{
+        display:none;
+    }
 }
