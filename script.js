@@ -510,22 +510,333 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+/* =========================================================
+   FALCO FAQ™
+   Acordeón + buscador + filtros
+========================================================= */
+
+function iniciarFalcoFaq() {
+
+  const faqSection = document.querySelector(".falco-faq");
+
+  if (!faqSection) {
+    console.warn("FALCO FAQ™: no se encontró .falco-faq");
+    return;
+  }
+
+  /* Evita inicializar dos veces */
+  if (faqSection.dataset.faqInicializada === "true") {
+    return;
+  }
+
+  faqSection.dataset.faqInicializada = "true";
+
+  const faqItems = Array.from(
+    faqSection.querySelectorAll(".faq-item")
+  );
+
+  const faqButtons = Array.from(
+    faqSection.querySelectorAll(".faq-pregunta")
+  );
+
+  const searchInput =
+    faqSection.querySelector("#faq-buscador");
+
+  const clearButton =
+    faqSection.querySelector("#faq-limpiar");
+
+  const filterButtons = Array.from(
+    faqSection.querySelectorAll(".falco-faq-filtro")
+  );
+
+  const noResults =
+    faqSection.querySelector("#faq-sin-resultados");
+
+  let activeCategory = "todas";
 
 
+  /* =======================================================
+     NORMALIZAR TEXTO
+  ======================================================= */
 
-function toggleBloque(id) {
+  function normalizarTexto(texto = "") {
 
-  const respuestas = document.querySelectorAll('.faq-perito-respuesta');
+    return texto
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+  }
 
-  respuestas.forEach(respuesta => {
 
-    if (respuesta.id !== id) {
-      respuesta.classList.remove('activo');
+  /* =======================================================
+     ABRIR Y CERRAR
+  ======================================================= */
+
+  function cerrarPregunta(item) {
+
+    const button =
+      item.querySelector(".faq-pregunta");
+
+    const answer =
+      item.querySelector(".faq-respuesta");
+
+    if (!button || !answer) return;
+
+    item.classList.remove("abierto");
+    button.setAttribute("aria-expanded", "false");
+    answer.hidden = true;
+  }
+
+
+  function abrirPregunta(item) {
+
+    const button =
+      item.querySelector(".faq-pregunta");
+
+    const answer =
+      item.querySelector(".faq-respuesta");
+
+    if (!button || !answer) return;
+
+    item.classList.add("abierto");
+    button.setAttribute("aria-expanded", "true");
+    answer.hidden = false;
+  }
+
+
+  function cerrarTodas(excepto = null) {
+
+    faqItems.forEach(item => {
+
+      if (item !== excepto) {
+        cerrarPregunta(item);
+      }
+
+    });
+  }
+
+
+  /* =======================================================
+     ACORDEÓN
+  ======================================================= */
+
+  faqButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const item =
+        button.closest(".faq-item");
+
+      if (!item) return;
+
+      const estabaAbierto =
+        item.classList.contains("abierto");
+
+      cerrarTodas(item);
+
+      if (estabaAbierto) {
+        cerrarPregunta(item);
+      } else {
+        abrirPregunta(item);
+      }
+
+    });
+
+  });
+
+
+  /* =======================================================
+     BUSCADOR Y FILTROS
+  ======================================================= */
+function aplicarFiltros() {
+
+  const termino = normalizarTexto(
+    searchInput ? searchInput.value : ""
+  );
+
+  const hayBusqueda = termino.length > 0;
+  const hayCategoria = activeCategory !== "todas";
+
+  let cantidadVisibles = 0;
+
+  faqItems.forEach(item => {
+
+    const categoria =
+      item.dataset.categoria || "";
+
+    const contenido =
+      normalizarTexto(item.textContent);
+
+    const coincideBusqueda =
+      !hayBusqueda ||
+      contenido.includes(termino);
+
+    const coincideCategoria =
+      !hayCategoria ||
+      categoria === activeCategory;
+
+    const mostrar =
+      (hayBusqueda || hayCategoria) &&
+      coincideBusqueda &&
+      coincideCategoria;
+
+    item.hidden = !mostrar;
+    item.classList.toggle("faq-oculto", !mostrar);
+
+    if (mostrar) {
+      cantidadVisibles++;
+    } else {
+      cerrarPregunta(item);
     }
 
   });
 
-  const actual = document.getElementById(id);
+  if (noResults) {
 
-  actual.classList.toggle('activo');
+    noResults.hidden =
+      (!hayBusqueda && !hayCategoria) ||
+      cantidadVisibles > 0;
+
+  }
+
+  if (clearButton && searchInput) {
+
+    clearButton.hidden =
+      searchInput.value.trim() === "";
+
+  }
+
+}
+
+
+
+/* =======================================================
+   EVENTO DEL BUSCADOR
+======================================================= */
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", aplicarFiltros);
+
+  searchInput.addEventListener("keyup", aplicarFiltros);
+
+  searchInput.addEventListener("search", aplicarFiltros);
+
+  searchInput.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+      searchInput.value = "";
+      aplicarFiltros();
+      searchInput.focus();
+
+    }
+
+  });
+
+}
+
+
+
+  /* =======================================================
+     LIMPIAR BÚSQUEDA
+  ======================================================= */
+
+  if (clearButton && searchInput) {
+
+    clearButton.addEventListener(
+      "click",
+      () => {
+
+        searchInput.value = "";
+
+        aplicarFiltros();
+
+        searchInput.focus();
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     CATEGORÍAS
+  ======================================================= */
+
+  filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      activeCategory =
+        button.dataset.categoria || "todas";
+
+      filterButtons.forEach(filter => {
+
+        const activo =
+          filter === button;
+
+        filter.classList.toggle(
+          "activo",
+          activo
+        );
+
+        filter.setAttribute(
+          "aria-pressed",
+          activo ? "true" : "false"
+        );
+
+      });
+
+      cerrarTodas();
+      aplicarFiltros();
+
+    });
+
+  });
+
+
+  /* =======================================================
+     ESTADO INICIAL
+  ======================================================= */
+
+  faqItems.forEach(item => {
+    cerrarPregunta(item);
+  });
+
+  filterButtons.forEach(button => {
+
+    const activo =
+      button.classList.contains("activo");
+
+    button.setAttribute(
+      "aria-pressed",
+      activo ? "true" : "false"
+    );
+
+  });
+
+  aplicarFiltros();
+
+  console.log(
+    `FALCO FAQ™ Ready · ${faqItems.length} preguntas`
+  );
+}
+
+
+/* =========================================================
+   INICIALIZACIÓN SEGURA
+========================================================= */
+
+if (document.readyState === "loading") {
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    iniciarFalcoFaq
+  );
+
+} else {
+
+  iniciarFalcoFaq();
+
 }

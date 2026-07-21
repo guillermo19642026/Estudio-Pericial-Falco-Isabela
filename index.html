@@ -98,6 +98,13 @@
 <!-- CSS -->
 <link rel="stylesheet" href="style.css">
 
+
+<link rel="stylesheet" href="formacion-profesional.css">
+
+
+<link rel="stylesheet" href="menu-drawer.css">
+
+
 <link rel="stylesheet" href="launch-panel/launch-panel.css">
 
 <link rel="icon" href="img/favicon.png?v=3">
@@ -144,7 +151,14 @@ html {
       </div>
 
 
-<button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+<button
+  class="falco-drawer-toggle"
+  id="falcoMenuToggle"
+  type="button"
+  aria-label="Abrir menú"
+>
+
+
   <b class="menu-icon">
     <span></span>
     <span></span>
@@ -232,9 +246,11 @@ html {
       </nav>
 
 
-
-
 <div class="header-botones">
+
+
+
+
 
   <!-- ACCESOS RÁPIDOS -->
   <div class="btn-wrapper tooltip-container">
@@ -292,12 +308,22 @@ html {
   </div>
 
 </div>
+<!-- FIN header-botones -->
 
+</div>
+<!-- FIN header-derecha -->
+
+</div>
+<!-- FIN nav-container -->
 
 </header>
 
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO FALCO® · SIMPLIFICADO
+====================================================== -->
+
 <section id="inicio" class="hero-interno">
 
   <div class="hero-contenido">
@@ -307,495 +333,914 @@ html {
       <h1 class="hero-titulo-principal">
         Pericias Psicológicas
       </h1>
-      
+
+      <div class="hero-linea" aria-hidden="true"></div>
+
       <h2 class="hero-subtitulo-fuerte">
         Rigor Científico · Valor Judicial
       </h2>
 
       <p class="hero-sello">
-        Evaluaciones periciales psicológicas con validez técnica y jurídica
+        Evaluaciones periciales psicológicas con fundamentación técnica
+        y validez judicial.
       </p>
 
       <p class="hero-consulta-texto">
-        Orientación profesional confidencial para particulares y estudios jurídicos.
+        Atención profesional confidencial para particulares, abogados
+        y estudios jurídicos.
       </p>
 
       <div class="hero-botones">
-  <a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20profesional." 
-     class="btn-hero" 
-     target="_blank" 
-     rel="noopener noreferrer">
-    Consulta profesional
-  </a>
 
-
-<a class="btn-hero-outline"
-   href="honorarios-informes-psicologicos.html">
-
-  💰 Honorarios e Informes
-
-</a>
-
-
-
-
-<a class="btn-principal" href="solicitar-turno.html">
-  Solicitar turno
-</a>
-
-
-
-
-
-<section class="falco-launch-panel">
-
-    <div class="launch-shell">
-
-        <div class="launch-left">
-
-            <span class="launch-kicker">
-                ✦ PRESENTACIÓN OFICIAL
-            </span>
-
-            <h2>
-                FALCO Experience™
-            </h2>
-
-            <h3>
-                El Ecosistema Profesional cobra vida.
-            </h3>
-
-            <p>
-
-                Descubra el Centro de Operaciones, la Plataforma de Evaluación,
-                Biblioteca FALCO®, Formación Profesional, Área Profesional
-                y todas las herramientas que integran el universo FALCO®.
-
-            </p>
-
-            <a href="falco-experience/falco-experience.html?autoplay=1"
-   class="launch-button">
-
-    ▶ INICIAR EXPERIENCE
-
-</a>
-
-        </div>
-
-        <div class="launch-right">
-
-            <div class="launch-core">
-
-                <div class="launch-title">
-
-                    FALCO CORE®
-
-                </div>
-
-<div class="launch-system-status">
-
-    <span class="launch-led"></span>
-
-    Inicializando sistema...
-
-</div>
-
-
-
-                <div class="launch-status">
-
-                    <div>
-                        <span>Centro de Operaciones</span>
-                        <b class="online">ONLINE</b>
-                    </div>
-
-                    <div>
-                        <span>Biblioteca FALCO®</span>
-                        <b class="online">ONLINE</b>
-                    </div>
-
-                    <div>
-                        <span>Área Profesional</span>
-                        <b class="online">ONLINE</b>
-                    </div>
-
-                    <div>
-                        <span>Evaluación</span>
-                        <b class="online">ONLINE</b>
-                    </div>
-
-                    <div>
-                        <span>Escuela</span>
-                        <b class="online">ONLINE</b>
-                    </div>
-
-                    <div>
-                        <span>CMS</span>
-                        <b class="online">ONLINE</b>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="seccion-acceso-tests seccion-acceso-tests-min">
-
-  <div class="tests-premium-card tests-card-min">
-
-    <span class="tests-nuevo">
-  Acceso online disponible
-</span>
-
-<h2>
-  Evaluación psicométrica online
-</h2>
-
-    <p>
-Acceso privado mediante usuario y contraseña para la administración de instrumentos psicométricos e integración orientativa de resultados.
-</p>
-
-<p class="tests-destacados">
-  SCL-90 / BSI · BDI · BAI · Desesperanza
-</p>
-
-<p>
-También se encuentran disponibles servicios de análisis técnico de informes psicológicos, contrainformes, impugnaciones y consultoría pericial para estudios jurídicos, abogados y peritos de parte.
-</p>
-
-<p class="nota-acceso">
-Acceso disponible únicamente para usuarios autorizados. Los resultados deben interpretarse dentro de una evaluación psicológica integral.
-</p>
-
-
-<button class="tests-toggle-info" onclick="toggleInfoTests()">
-  Ver condiciones de acceso
-</button>
-
-<div id="infoTestsOnline" class="tests-info-oculta">
-
- <p>
-  El acceso a la plataforma psicométrica es un servicio arancelado y se habilita mediante usuario y contraseña una vez confirmada la solicitud.
-</p>
-
-<p>
-  Incluye la administración online de los instrumentos disponibles y la generación de informes orientativos de resultados.
-</p>
-
-<p>
-  Los resultados no constituyen diagnóstico por sí mismos y deben ser interpretados dentro de una evaluación psicológica integral.
-</p>
-
-<p>
-  También se encuentran disponibles servicios de análisis técnico de informes psicológicos, contrainformes, impugnaciones y consultoría pericial para abogados, estudios jurídicos y peritos de parte.
-</p>
-
-<p style="margin-top:12px;">
-  Para más información sobre modalidades de acceso, costos y condiciones de utilización, puede realizar su consulta por WhatsApp.
-</p>
-
-<p class="tests-destinatarios">
-  Disponible para evaluaciones particulares, periciales y de seguimiento clínico.
-</p>
-
-
-
-  <a
-    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20la%20plataforma%20de%20evaluaci%C3%B3n%20psicom%C3%A9trica%20online."
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn-info-whatsapp"
-  >
-    Consultar por WhatsApp
-  </a>
-
-</div>
-
-
-
-<p class="link-contrainforme">
-  
-  📑 ¿Necesita analizar una pericia o informe psicológico?
-
-  <a
-    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20un%20contrainforme%20psicológico."
-    target="_blank"
-    rel="noopener noreferrer">
-
-    Consultar aquí
-
-  </a>
-</p>
-
-
-
-
-    <div class="tests-botones tests-botones-min">
-
-      <a href="login.html" class="btn-tests-min">
-        Acceso autorizado
-      </a>
-
-      <a
-        href="https://wa.me/5491132049521?text=Hola,%20quisiera%20solicitar%20acceso%20a%20los%20tests%20psicométricos"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-tests-min-sec"
-      >
-        Solicitar usuario
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-
-<section class="seccion-acceso-tests seccion-acceso-tests-min">
-
-  <div class="tests-premium-card tests-card-min">
-
-    <span class="tests-nuevo">
-Servicios profesionales
-</span>
-
-    <h2>Servicios para Estudios Jurídicos</h2>
-
-    <p>
-      Asistencia técnica especializada en causas con componente psicológico,
-      orientada a abogados, estudios jurídicos y peritos de parte.
-    </p>
-
-    
-
-    <div class="servicios-juridicos-grid">
-
-  <div class="servicio-juridico-card">
-
-    <h3>Perito Psicóloga de Parte</h3>
-
-    <p>
-      Seguimiento técnico de la prueba pericial, análisis de expedientes,
-      observaciones y asistencia especializada durante el proceso judicial.
-    </p>
-
-    <a href="perito-psicologa-de-parte-buenos-aires.html"
-       class="mini-link-servicio">
-
-      Ver más →
-
-    </a>
-
-  </div>
-
-  
-
-     <div class="servicio-juridico-card">
-
-  <h3>Contrainformes Psicológicos</h3>
-
-  <p>
-    Revisión crítica de pericias, informes psicológicos y documentación clínica o judicial.
-  </p>
-
-  <a href="contrainformes-psicologicos.html"
-     class="mini-link-servicio">
-
-     Ver más →
-
-  </a>
-
-</div>
-
-      <div class="servicio-juridico-card">
-        <h3>Impugnaciones y Pedidos de Explicaciones</h3>
-        <p>
-          Elaboración de observaciones técnicas fundadas frente a informes
-          periciales psicológicos.
-        </p>
-
-<a href="impugnaciones-pericias-psicologicas.html"
-     class="mini-link-servicio">
-
-     Ver más →
-
-  </a>
-
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="btn-hero hero-accion-principal"
+        >
+          Solicitar consulta
+        </a>
+
+        <a
+          href="#servicios"
+          class="btn-hero-outline hero-accion-secundaria"
+        >
+          Ver servicios
+        </a>
 
       </div>
 
-      <div class="servicio-juridico-card">
-
-  <h3>Consultoría Técnica para Abogados</h3>
-
-  <p>
-    Asesoramiento profesional en estrategia pericial, daño psíquico,
-    nexo causal y valoración técnica del caso.
-  </p>
-
-  <a href="consultoria-tecnica-abogados.html"
-     class="mini-link-servicio">
-    Ver más →
-  </a>
-
-</div>
-
-    </div>
-
-<div class="acordeon-item conveniencia-perito">
-
-  <div class="acordeon-header" onclick="toggleAcordeon(this)">
-    <h3 class="titulo-conveniencia-perito">
-      ¿Por qué puede resultar conveniente contar con un perito psicólogo de parte?
-    </h3>
-    <span class="icono">+</span>
-  </div>
-
-  <div class="acordeon-contenido">
-
-    <div class="bloque-conveniencia-perito">
-
-      <p>
-        La intervención de un perito psicólogo de parte permite incorporar una mirada técnica especializada durante el desarrollo de la prueba pericial, favoreciendo el análisis crítico de los aspectos psicológicos relevantes del caso.
-      </p>
-
-      <p>
-        Su participación puede resultar especialmente útil para comprender la metodología empleada, evaluar la consistencia de las conclusiones periciales, analizar el nexo causal, valorar la determinación de incapacidad psicológica y detectar posibles omisiones o inconsistencias técnicas.
-      </p>
-
-      <p>
-        Asimismo, constituye una herramienta de apoyo para el abogado en la interpretación de documentación psicológica, elaboración de estrategias periciales, formulación de observaciones, pedidos de explicaciones e impugnaciones cuando corresponda.
-      </p>
-
-    </div>
-
-  </div>
-
-</div>
-
-    <a
-      href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20servicios%20para%20estudios%20jurídicos."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn-servicios-juridicos-web">
-      Consultar por servicios jurídicos
-    </a>
-
-  </div>
-
-</section>
-
-
-  <a href="#servicios" class="btn-hero-outline">
-    Ver servicios
-  </a>
-</div>
+      <a
+        href="honorarios-informes-psicologicos.html"
+        class="hero-enlace-honorarios"
+      >
+        Honorarios e informes
+        <span aria-hidden="true">→</span>
+      </a>
 
     </div>
 
   </div>
 
 </section>
-<!-- FIN DE HERO -->
 
-
-<!-- ACCESOS RÁPIDOS -->
-<section id="accesos-rapidos" class="inicio-rapido">
-
-  <h2 class="titulo-seccion-mini">
-    Accesos rápidos
-  </h2>
-
-  <div class="inicio-rapido-categoria">
-    <span>⚖️ Servicios Periciales</span>
-  </div>
-
-  <div class="inicio-rapido-grid">
-
-    <a href="#pericia" class="inicio-card">
-      ⚖️ Evaluación pericial
-    </a>
-
-    <a href="#consultas" class="inicio-card">
-      🧠 Realizar una consulta
-    </a>
-
-
-<a href="honorarios-informes-psicologicos.html"
-   class="inicio-card">
-
-   💰 Honorarios e Informes
-
-</a>
+<!-- FIN HERO FALCO® -->
 
 
 
-    <a href="danio-psiquico-buenos-aires.html" class="inicio-card">
-      📄 Daño psíquico
-    </a>
 
-    <a href="perito-psicologa-de-parte-buenos-aires.html" class="inicio-card">
-      📑 Soy abogado
-    </a>
+<!-- =====================================================
+     FALCO ADMISIONES™
+====================================================== -->
+<!-- =====================================================
+     ORIENTACIÓN DE RECORRIDOS FALCO®
+====================================================== -->
 
-    <a href="#perito" class="inicio-card">
-      👩‍⚕️ Sobre la Perito
-    </a>
+<section class="falco-recorridos" aria-labelledby="falcoRecorridosTitulo">
 
-  </div>
+  <div class="falco-recorridos-contenedor">
 
+    <span class="falco-recorridos-etiqueta">
+      Orientación inicial
+    </span>
 
-  <div class="inicio-rapido-categoria">
-    <span>📘 Formación FALCO®</span>
-  </div>
+    <h2 id="falcoRecorridosTitulo" class="falco-recorridos-titulo">
+      ¿En qué podemos ayudarlo?
+    </h2>
 
-  <div class="inicio-rapido-grid">
+    <p class="falco-recorridos-intro">
+      Seleccione el recorrido que mejor representa su consulta.
+    </p>
 
-    <a href="escuela-para-padres.html" class="inicio-card">
-      👨‍👩‍👧‍👦 Escuela para Padres
-    </a>
+    <div class="falco-recorridos-grid">
 
-    <a href="escuela-login.html" class="inicio-card">
-      🎓 Acceso al curso
-    </a>
+      <!-- PARTICULARES -->
+      <article class="falco-recorrido-card">
 
-    <a href="metodo-falco.html" class="inicio-card">
-      📘 Método FALCO®
-    </a>
+        <span class="falco-recorrido-numero" aria-hidden="true">
+          01
+        </span>
 
-    <a href="programa-premium.html#biblioteca" class="inicio-card">
-      📚 Biblioteca FALCO®
-    </a>
+        <h3>
+          Particulares
+        </h3>
 
-    <a href="login.html" class="inicio-card">
-      🔒 Acceso a tests
-    </a>
+        <p>
+          Orientación sobre evaluaciones psicológicas, daño psíquico,
+          informes y situaciones con relevancia judicial.
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html?tipo=persona"
+          class="falco-recorrido-enlace"
+        >
+          Iniciar recorrido
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- ABOGADOS -->
+      <article class="falco-recorrido-card">
+
+        <span class="falco-recorrido-numero" aria-hidden="true">
+          02
+        </span>
+
+        <h3>
+          Abogados y estudios jurídicos
+        </h3>
+
+        <p>
+          Perito psicóloga de parte, contrainformes, impugnaciones
+          y consultoría técnica especializada.
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html?tipo=profesional"
+          class="falco-recorrido-enlace"
+        >
+          Consultar al Estudio
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- PROFESIONALES -->
+      <article class="falco-recorrido-card">
+
+        <span class="falco-recorrido-numero" aria-hidden="true">
+          03
+        </span>
+
+        <h3>
+          Psicólogos y profesionales
+        </h3>
+
+        <p>
+          Supervisión pericial, orientación técnico-forense,
+          formación profesional y recursos especializados.
+        </p>
+
+        <a
+          href="#formacion"
+          class="falco-recorrido-enlace"
+        >
+          Ver formación y supervisión
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+    </div>
 
   </div>
 
 </section>
+
+<!-- FIN ORIENTACIÓN DE RECORRIDOS FALCO® -->
+
+
+<!-- =====================================================
+     FALCO ADMISIONES™ · SIMPLIFICADO
+====================================================== -->
+
+<section
+  class="falco-admision-home"
+  aria-labelledby="falcoAdmisionTitulo"
+>
+
+  <div class="falco-admision-contenedor">
+
+    <div class="falco-admision-card">
+
+      <div class="falco-admision-contenido">
+
+        <span class="falco-admision-etiqueta">
+          Ingreso guiado y confidencial
+        </span>
+
+        <h2 id="falcoAdmisionTitulo">
+          FALCO Admisiones™
+        </h2>
+
+        <p class="falco-admision-subtitulo">
+          El primer paso para que el Estudio conozca su consulta.
+        </p>
+
+        <p class="falco-admision-descripcion">
+          Complete un recorrido breve para informar su situación,
+          la documentación disponible y el tipo de orientación que necesita.
+        </p>
+
+        <div
+          class="falco-admision-perfiles"
+          aria-label="Destinatarios"
+        >
+          <span>Particulares</span>
+          <span>Abogados</span>
+          <span>Estudios jurídicos</span>
+          <span>Profesionales</span>
+        </div>
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="falco-admision-accion"
+        >
+          Iniciar admisión
+        </a>
+
+        <p class="falco-admision-nota">
+          No es necesario conocer el nombre técnico o jurídico del trámite.
+          AION lo orientará durante el recorrido.
+        </p>
+
+      </div>
+
+      <div class="falco-admision-identidad" aria-hidden="true">
+
+        <span class="falco-admision-marca">
+          FALCO
+        </span>
+
+        <span class="falco-admision-sistema">
+          Admisión profesional
+        </span>
+
+        <div class="falco-admision-linea"></div>
+
+        <span class="falco-admision-estado">
+          Sistema disponible
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FIN FALCO ADMISIONES™ -->
+
+
+<!-- =====================================================
+     FALCO EXPERIENCE™ · PRESENTACIÓN DEL ECOSISTEMA
+====================================================== -->
+
+<section
+  class="falco-experience-home"
+  aria-labelledby="falcoExperienceTitulo"
+>
+
+  <div class="falco-experience-contenedor">
+
+    <div class="falco-experience-card">
+
+      <!-- CONTENIDO -->
+      <div class="falco-experience-contenido">
+
+        <span class="falco-experience-etiqueta">
+          Ecosistema profesional FALCO®
+        </span>
+
+        <h2 id="falcoExperienceTitulo">
+          FALCO Experience™
+        </h2>
+
+        <p class="falco-experience-subtitulo">
+          Conozca las herramientas que integran el sistema profesional.
+        </p>
+
+        <p class="falco-experience-descripcion">
+          Un recorrido visual por la plataforma de evaluación,
+          el Área Profesional, Biblioteca FALCO®, Formación
+          y los distintos espacios del Estudio.
+        </p>
+
+        <a
+          href="falco-experience/falco-experience.html?autoplay=1"
+          class="falco-experience-accion"
+        >
+          Iniciar experiencia
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </div>
+
+      <!-- PANEL VISUAL -->
+      <div class="falco-experience-visual" aria-hidden="true">
+
+        <div class="falco-experience-nucleo">
+
+          <span class="falco-experience-nucleo-marca">
+            FALCO
+          </span>
+
+          <span class="falco-experience-nucleo-titulo">
+            Experience™
+          </span>
+
+          <div class="falco-experience-orbita"></div>
+
+          <span class="falco-experience-nucleo-estado">
+            Ecosistema activo
+          </span>
+
+        </div>
+
+        <div class="falco-experience-modulos">
+
+          <span>Evaluación</span>
+          <span>Área Profesional</span>
+          <span>Biblioteca</span>
+          <span>Formación</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FIN FALCO EXPERIENCE™ -->
+
+
+
+<!-- =====================================================
+     EVALUACIÓN PSICOLÓGICA ONLINE · FALCO®
+====================================================== -->
+
+<section
+  id="evaluacion-online"
+  class="falco-evaluacion-home"
+  aria-labelledby="falcoEvaluacionTitulo"
+>
+
+  <div class="falco-evaluacion-contenedor">
+
+    <div class="falco-evaluacion-encabezado">
+
+      <span class="falco-evaluacion-etiqueta">
+        Plataforma de evaluación
+      </span>
+
+      <h2 id="falcoEvaluacionTitulo">
+        Evaluación Psicológica Online
+      </h2>
+
+      <p class="falco-evaluacion-intro">
+        Un espacio seguro y organizado para completar instrumentos,
+        documentación y datos necesarios para una evaluación profesional.
+      </p>
+
+    </div>
+
+    <div class="falco-evaluacion-grid">
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <div class="falco-evaluacion-panel">
+
+        <div class="falco-evaluacion-lista">
+
+          <article class="falco-evaluacion-item">
+
+            <span class="falco-evaluacion-numero" aria-hidden="true">
+              01
+            </span>
+
+            <div>
+              <h3>Instrumentos psicológicos</h3>
+
+              <p>
+                Cuestionarios seleccionados por la profesional de acuerdo
+                con el objetivo y las características de cada evaluación.
+              </p>
+            </div>
+
+          </article>
+
+          <article class="falco-evaluacion-item">
+
+            <span class="falco-evaluacion-numero" aria-hidden="true">
+              02
+            </span>
+
+            <div>
+              <h3>Ficha integral</h3>
+
+              <p>
+                Registro guiado de antecedentes personales, familiares,
+                laborales, de salud y de la situación que motiva la consulta.
+              </p>
+            </div>
+
+          </article>
+
+          <article class="falco-evaluacion-item">
+
+            <span class="falco-evaluacion-numero" aria-hidden="true">
+              03
+            </span>
+
+            <div>
+              <h3>Documentación</h3>
+
+              <p>
+                Carga de DNI, constancias, certificados y documentación
+                complementaria vinculada con la evaluación.
+              </p>
+            </div>
+
+          </article>
+
+          <article class="falco-evaluacion-item">
+
+            <span class="falco-evaluacion-numero" aria-hidden="true">
+              04
+            </span>
+
+            <div>
+              <h3>Seguimiento del recorrido</h3>
+
+              <p>
+                Visualización del progreso y continuidad de las etapas
+                asignadas por el Estudio.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+      <!-- ACCESO -->
+      <aside class="falco-evaluacion-acceso">
+
+        <span class="falco-evaluacion-acceso-marca">
+          FALCO
+        </span>
+
+        <h3>
+          Área del evaluado
+        </h3>
+
+        <p>
+          El acceso es personal y se habilita únicamente cuando existe
+          una evaluación previamente coordinada con el Estudio.
+        </p>
+
+        <a
+          href="login.html"
+          class="falco-evaluacion-accion"
+        >
+          Ingresar a la evaluación
+        </a>
+
+        <span class="falco-evaluacion-aclaracion">
+          Acceso exclusivo para personas autorizadas
+        </span>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FIN EVALUACIÓN PSICOLÓGICA ONLINE -->
+
+
+
+
+
+
+<!-- =====================================================
+     SERVICIOS JURÍDICOS · FALCO®
+====================================================== -->
+
+<section
+  id="servicios-juridicos"
+  class="falco-juridicos-home"
+  aria-labelledby="falcoJuridicosTitulo"
+>
+
+  <div class="falco-juridicos-contenedor">
+
+    <!-- ENCABEZADO -->
+
+    <div class="falco-juridicos-encabezado">
+
+      <span class="falco-juridicos-etiqueta">
+        Asistencia técnico-forense
+      </span>
+
+      <h2 id="falcoJuridicosTitulo">
+        Servicios para abogados y estudios jurídicos
+      </h2>
+
+      <p class="falco-juridicos-intro">
+        Intervención profesional especializada para analizar,
+        fundamentar y acompañar cuestiones psicológicas
+        vinculadas con procesos judiciales.
+      </p>
+
+    </div>
+
+    <!-- CONTENIDO -->
+
+    <div class="falco-juridicos-grid">
+
+      <article class="falco-juridico-card">
+
+        <span class="falco-juridico-numero" aria-hidden="true">
+          01
+        </span>
+
+        <h3>
+          Perito de parte
+        </h3>
+
+        <p>
+          Asistencia técnica durante la evaluación pericial,
+          análisis de actuaciones y seguimiento profesional
+          de la intervención psicológica.
+        </p>
+
+        <a
+          href="perito-de-parte.html"
+          class="falco-juridico-enlace"
+        >
+          Conocer el servicio
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <article class="falco-juridico-card">
+
+        <span class="falco-juridico-numero" aria-hidden="true">
+          02
+        </span>
+
+        <h3>
+          Impugnaciones y observaciones
+        </h3>
+
+        <p>
+          Revisión técnica de informes psicológicos,
+          metodología utilizada, conclusiones,
+          baremos y fundamentación pericial.
+        </p>
+
+        <a
+          href="impugnacion-informes-psicologicos.html"
+          class="falco-juridico-enlace"
+        >
+          Ver impugnaciones
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <article class="falco-juridico-card">
+
+        <span class="falco-juridico-numero" aria-hidden="true">
+          03
+        </span>
+
+        <h3>
+          Consultoría técnica
+        </h3>
+
+        <p>
+          Orientación sobre puntos de pericia,
+          documentación psicológica, estrategia probatoria
+          y alcance de una evaluación especializada.
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html?tipo=profesional"
+          class="falco-juridico-enlace"
+        >
+          Consultar al Estudio
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <article class="falco-juridico-card">
+
+        <span class="falco-juridico-numero" aria-hidden="true">
+          04
+        </span>
+
+        <h3>
+          Revisión de documentación
+        </h3>
+
+        <p>
+          Análisis de informes, historias clínicas,
+          certificados, actuaciones judiciales
+          y antecedentes relevantes para la causa.
+        </p>
+
+        <a
+          href="informe-pericial-psicologico.html"
+          class="falco-juridico-enlace"
+        >
+          Ver informes periciales
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+    </div>
+
+    <!-- LLAMADO FINAL -->
+
+    <div class="falco-juridicos-consulta">
+
+      <div class="falco-juridicos-consulta-texto">
+
+        <span>
+          Consulta profesional
+        </span>
+
+        <h3>
+          ¿Necesita analizar una causa o una pericia psicológica?
+        </h3>
+
+        <p>
+          El Estudio evalúa cada consulta según la documentación disponible,
+          la instancia procesal y el tipo de intervención requerida.
+        </p>
+
+      </div>
+
+      <a
+        href="FALCO-ADMISION/index.html?tipo=profesional"
+        class="falco-juridicos-accion"
+      >
+        Iniciar consulta profesional
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FIN SERVICIOS JURÍDICOS · FALCO® -->
+
+
+
+
+
+<!-- =====================================================
+     ACCESOS RÁPIDOS · SISTEMA FALCO®
+====================================================== -->
+
+<section
+  id="accesos"
+  class="falco-accesos-home"
+  aria-labelledby="falcoAccesosTitulo"
+>
+
+  <div class="falco-accesos-contenedor">
+
+    <!-- ENCABEZADO -->
+
+    <div class="falco-accesos-encabezado">
+
+      <span class="falco-accesos-etiqueta">
+        Áreas privadas
+      </span>
+
+      <h2 id="falcoAccesosTitulo">
+        Accesos rápidos
+      </h2>
+
+      <p class="falco-accesos-intro">
+        Ingrese al espacio correspondiente según el tipo de acceso
+        previamente habilitado por el Sistema FALCO®.
+      </p>
+
+    </div>
+
+    <!-- ACCESOS -->
+
+    <div class="falco-accesos-grid">
+
+      <!-- EVALUADOS -->
+
+      <a
+        href="login.html"
+        class="falco-acceso-card"
+        aria-label="Ingresar al área de evaluación"
+      >
+
+        <div class="falco-acceso-superior">
+
+          <span class="falco-acceso-numero" aria-hidden="true">
+            01
+          </span>
+
+          <span class="falco-acceso-estado">
+            Acceso personal
+          </span>
+
+        </div>
+
+        <div class="falco-acceso-contenido">
+
+          <span class="falco-acceso-simbolo" aria-hidden="true">
+            E
+          </span>
+
+          <h3>
+            Área de evaluación
+          </h3>
+
+          <p>
+            Acceso para personas que deben completar una evaluación,
+            documentación o ficha asignada por el Estudio.
+          </p>
+
+        </div>
+
+        <span class="falco-acceso-enlace">
+          Ingresar
+          <span aria-hidden="true">→</span>
+        </span>
+
+      </a>
+
+      <!-- PROFESIONALES -->
+
+      <a
+        href="profesional-login.html"
+        class="falco-acceso-card"
+        aria-label="Ingresar al Área Profesional"
+      >
+
+        <div class="falco-acceso-superior">
+
+          <span class="falco-acceso-numero" aria-hidden="true">
+            02
+          </span>
+
+          <span class="falco-acceso-estado">
+            Profesionales autorizados
+          </span>
+
+        </div>
+
+        <div class="falco-acceso-contenido">
+
+          <span class="falco-acceso-simbolo" aria-hidden="true">
+            P
+          </span>
+
+          <h3>
+            Área Profesional
+          </h3>
+
+          <p>
+            Gestión de evaluados, expedientes, documentación
+            y recursos profesionales asignados.
+          </p>
+
+        </div>
+
+        <span class="falco-acceso-enlace">
+          Ingresar
+          <span aria-hidden="true">→</span>
+        </span>
+
+      </a>
+
+      <!-- FORMACIÓN -->
+
+      <a
+        href="escuela-login.html"
+        class="falco-acceso-card"
+        aria-label="Ingresar al área de Formación FALCO"
+      >
+
+        <div class="falco-acceso-superior">
+
+          <span class="falco-acceso-numero" aria-hidden="true">
+            03
+          </span>
+
+          <span class="falco-acceso-estado">
+            Alumnos
+          </span>
+
+        </div>
+
+        <div class="falco-acceso-contenido">
+
+          <span class="falco-acceso-simbolo" aria-hidden="true">
+            F
+          </span>
+
+          <h3>
+            Formación FALCO®
+          </h3>
+
+          <p>
+            Ingreso a cursos, programas, materiales
+            y recorridos formativos habilitados.
+          </p>
+
+        </div>
+
+        <span class="falco-acceso-enlace">
+          Ingresar
+          <span aria-hidden="true">→</span>
+        </span>
+
+      </a>
+
+      <!-- BIBLIOTECA -->
+
+      <a
+        href="biblioteca-login.html"
+        class="falco-acceso-card"
+        aria-label="Ingresar a Biblioteca FALCO"
+      >
+
+        <div class="falco-acceso-superior">
+
+          <span class="falco-acceso-numero" aria-hidden="true">
+            04
+          </span>
+
+          <span class="falco-acceso-estado">
+            Acceso habilitado
+          </span>
+
+        </div>
+
+        <div class="falco-acceso-contenido">
+
+          <span class="falco-acceso-simbolo" aria-hidden="true">
+            B
+          </span>
+
+          <h3>
+            Biblioteca FALCO®
+          </h3>
+
+          <p>
+            Consulta de publicaciones, documentos técnicos
+            y recursos especializados disponibles.
+          </p>
+
+        </div>
+
+        <span class="falco-acceso-enlace">
+          Ingresar
+          <span aria-hidden="true">→</span>
+        </span>
+
+      </a>
+
+    </div>
+
+    <!-- ACLARACIÓN -->
+
+    <div class="falco-accesos-aviso">
+
+      <span class="falco-accesos-aviso-marca" aria-hidden="true">
+        F
+      </span>
+
+      <div>
+
+        <h3>
+          Accesos protegidos
+        </h3>
+
+        <p>
+          Cada área requiere una cuenta previamente autorizada.
+          Los permisos y contenidos disponibles dependen del perfil asignado.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FIN ACCESOS RÁPIDOS · SISTEMA FALCO® -->
 
 
 
@@ -803,21 +1248,36 @@ Servicios profesionales
 
   <div class="cta-final-card">
 
+    <span class="tests-nuevo">
+      Orientación inicial
+    </span>
+
     <h2>
-      ¿Necesita orientación profesional sobre una causa o evaluación psicológica?
+      ¿Necesita saber qué intervención corresponde?
     </h2>
 
     <p>
-      Puede realizar una consulta inicial para evaluar el caso, modalidad de intervención y documentación necesaria.
+      Inicie una admisión para que el Estudio conozca su situación,
+      la documentación disponible y el tipo de orientación que necesita.
     </p>
 
     <a
-      href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20profesional%20sobre%20una%20causa%20o%20evaluación%20psicológica."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn-principal">
-      Solicitar consulta profesional
+      href="FALCO-ADMISION/index.html"
+      class="btn-principal"
+    >
+      Iniciar admisión
     </a>
+
+    <p class="cta-final-alternativa">
+      También puede comunicarse directamente por
+      <a
+        href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20profesional."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WhatsApp
+      </a>.
+    </p>
 
   </div>
 
@@ -1582,143 +2042,307 @@ Servicios profesionales
 <!-- FIN BLOQUE SEO / DEFINICIÓN -->
 
 
-<!-- SERVICIOS NUEVO -->
-<section id="servicios">
-
-  <h2 class="titulo-seccion">Servicios</h2>
-
-  <p class="servicios-intro">
-    Evaluaciones psicológicas, asesoramiento técnico y servicios especializados para particulares, abogados y estudios jurídicos.
-  </p>
-
-  <!-- NUEVO BLOQUE SEO -->
-  <div class="servicios-seo">
-
-    <p>
-      Se realizan pericias psicológicas judiciales, evaluaciones de daño psíquico, informes técnicos y asesoramiento especializado para particulares, abogados y estudios jurídicos.
-    </p>
-
-    <p>
-      La intervención profesional puede desarrollarse en causas civiles, laborales, penales y de familia, mediante entrevistas clínicas, psicodiagnóstico e integración técnica de resultados.
-    </p>
-
-  </div>
-
-  <div class="areas-contenedor">
 
 
-    <!-- IZQUIERDA -->
-<div class="areas-servicio">
 
-  <h3 class="subtitulo">A particulares</h3>
 
-  <div class="danio-grid">
 
-    <div class="danio-item">
-      <div class="danio-header" onclick="toggleDanio(this)">
-        <span>Evaluación Psicológica</span>
-        <span class="icono">+</span>
+<!-- =====================================================
+     SERVICIOS PERICIALES · FALCO®
+====================================================== -->
+
+<section
+  id="servicios"
+  class="falco-servicios-home"
+  aria-labelledby="falcoServiciosTitulo"
+>
+
+  <div class="falco-servicios-contenedor">
+
+    <!-- ENCABEZADO -->
+
+    <div class="falco-servicios-encabezado">
+
+      <span class="falco-servicios-etiqueta">
+        Intervención profesional especializada
+      </span>
+
+      <h2 id="falcoServiciosTitulo">
+        Servicios Periciales
+      </h2>
+
+      <p class="falco-servicios-intro">
+        Evaluaciones, informes y asistencia técnica en Psicología Forense,
+        adaptados al objetivo de cada consulta y a las características
+        del proceso judicial.
+      </p>
+
+    </div>
+
+    <!-- SERVICIOS PRINCIPALES -->
+
+    <div class="falco-servicios-grid">
+
+      <!-- EVALUACIONES -->
+
+      <article class="falco-servicio-card falco-servicio-destacado">
+
+        <div class="falco-servicio-superior">
+
+          <span class="falco-servicio-numero" aria-hidden="true">
+            01
+          </span>
+
+          <span class="falco-servicio-tipo">
+            Evaluación
+          </span>
+
+        </div>
+
+        <h3>
+          Evaluaciones psicológicas periciales
+        </h3>
+
+        <p>
+          Procesos de evaluación orientados a responder interrogantes
+          con relevancia judicial mediante entrevistas, técnicas
+          psicodiagnósticas e integración profesional.
+        </p>
+
+        <ul class="falco-servicio-detalles">
+          <li>Entrevista psicodiagnóstica</li>
+          <li>Selección de técnicas pertinentes</li>
+          <li>Integración y fundamentación pericial</li>
+        </ul>
+
+        <a
+          href="evaluacion-psicologica-judicial.html"
+          class="falco-servicio-enlace"
+        >
+          Conocer las evaluaciones
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- DAÑO PSÍQUICO -->
+
+      <article class="falco-servicio-card">
+
+        <div class="falco-servicio-superior">
+
+          <span class="falco-servicio-numero" aria-hidden="true">
+            02
+          </span>
+
+          <span class="falco-servicio-tipo">
+            Daño psíquico
+          </span>
+
+        </div>
+
+        <h3>
+          Evaluación de daño psíquico
+        </h3>
+
+        <p>
+          Análisis de la existencia de alteraciones psicológicas,
+          su relación con el hecho investigado y su repercusión
+          sobre las distintas áreas de funcionamiento.
+        </p>
+
+        <a
+          href="danio-psiquico-buenos-aires.html"
+          class="falco-servicio-enlace"
+        >
+          Ver daño psíquico
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- INFORMES -->
+
+      <article class="falco-servicio-card">
+
+        <div class="falco-servicio-superior">
+
+          <span class="falco-servicio-numero" aria-hidden="true">
+            03
+          </span>
+
+          <span class="falco-servicio-tipo">
+            Documentación
+          </span>
+
+        </div>
+
+        <h3>
+          Informes periciales psicológicos
+        </h3>
+
+        <p>
+          Elaboración de informes con metodología, resultados,
+          consideraciones técnicas, conclusiones y respuesta
+          a los puntos solicitados.
+        </p>
+
+        <a
+          href="informe-pericial-psicologico.html"
+          class="falco-servicio-enlace"
+        >
+          Ver informes periciales
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- PSICODIAGNÓSTICO -->
+
+      <article class="falco-servicio-card">
+
+        <div class="falco-servicio-superior">
+
+          <span class="falco-servicio-numero" aria-hidden="true">
+            04
+          </span>
+
+          <span class="falco-servicio-tipo">
+            Psicodiagnóstico
+          </span>
+
+        </div>
+
+        <h3>
+          Psicodiagnósticos con finalidad judicial
+        </h3>
+
+        <p>
+          Evaluaciones psicológicas destinadas a conocer el funcionamiento
+          actual de una persona y aportar información técnica
+          para una presentación o proceso específico.
+        </p>
+
+        <a
+          href="pericia-psicologica-buenos-aires.html"
+          class="falco-servicio-enlace"
+        >
+          Conocer el servicio
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- PERITO DE PARTE -->
+
+      <article class="falco-servicio-card">
+
+        <div class="falco-servicio-superior">
+
+          <span class="falco-servicio-numero" aria-hidden="true">
+            05
+          </span>
+
+          <span class="falco-servicio-tipo">
+            Asistencia técnica
+          </span>
+
+        </div>
+
+        <h3>
+          Perito psicóloga de parte
+        </h3>
+
+        <p>
+          Acompañamiento técnico durante una evaluación oficial,
+          análisis del procedimiento y asesoramiento profesional
+          según las características de la causa.
+        </p>
+
+        <a
+          href="perito-de-parte.html"
+          class="falco-servicio-enlace"
+        >
+          Ver perito de parte
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+      <!-- IMPUGNACIONES -->
+
+      <article class="falco-servicio-card">
+
+        <div class="falco-servicio-superior">
+
+          <span class="falco-servicio-numero" aria-hidden="true">
+            06
+          </span>
+
+          <span class="falco-servicio-tipo">
+            Revisión técnica
+          </span>
+
+        </div>
+
+        <h3>
+          Impugnación de informes psicológicos
+        </h3>
+
+        <p>
+          Revisión crítica de la metodología, técnicas utilizadas,
+          interpretación, conclusiones y correspondencia
+          entre los resultados y lo informado.
+        </p>
+
+        <a
+          href="impugnacion-informes-psicologicos.html"
+          class="falco-servicio-enlace"
+        >
+          Ver impugnaciones
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+    </div>
+
+    <!-- CIERRE DE LA SECCIÓN -->
+
+    <div class="falco-servicios-cierre">
+
+      <div class="falco-servicios-cierre-texto">
+
+        <span>
+          Evaluación de la consulta
+        </span>
+
+        <h3>
+          Cada intervención requiere un análisis previo
+        </h3>
+
+        <p>
+          El tipo de servicio se determina según el objetivo,
+          la documentación disponible, la instancia judicial
+          y el alcance técnico requerido.
+        </p>
+
       </div>
-      <div class="danio-contenido">
-        Evaluación profesional orientada a conocer el estado emocional, funcionamiento psicológico y situación actual de la persona consultante.
-      </div>
-    </div>
 
-    <div class="danio-item">
-      <div class="danio-header" onclick="toggleDanio(this)">
-        <span>Daño Psíquico</span>
-        <span class="icono">+</span>
-      </div>
-      <div class="danio-contenido">
-        Análisis de posibles consecuencias psicológicas derivadas de hechos traumáticos, accidentes, conflictos o situaciones con relevancia judicial.
-      </div>
-    </div>
+      <a
+        href="FALCO-ADMISION/index.html"
+        class="falco-servicios-accion"
+      >
+        Solicitar orientación
+      </a>
 
-    <div class="danio-item">
-      <div class="danio-header" onclick="toggleDanio(this)">
-        <span>Consulta Profesional</span>
-        <span class="icono">+</span>
-      </div>
-      <div class="danio-contenido">
-        Orientación inicial para evaluar el caso, determinar la documentación necesaria y definir la modalidad de intervención más adecuada.
-      </div>
     </div>
 
   </div>
-</div>
-
-    <!-- DERECHA -->
-    <div class="areas-pericia">
-
-      <h3 class="subtitulo">A estudios jurídicos</h3>
-
-
-<div class="danio-grid areas-grid-2">
-
-  <div class="danio-item">
-    <div class="danio-header" onclick="toggleDanio(this)">
-      <span>Perito Psicóloga de Parte</span>
-      <span class="icono">+</span>
-    </div>
-    <div class="danio-contenido">
-      Asistencia técnica especializada durante el desarrollo de la prueba pericial, análisis de actuaciones y seguimiento del proceso.
-    </div>
-  </div>
-
-  <div class="danio-item">
-    <div class="danio-header" onclick="toggleDanio(this)">
-      <span>Contrainformes Psicológicos</span>
-      <span class="icono">+</span>
-    </div>
-    <div class="danio-contenido">
-      Revisión crítica de pericias, informes psicológicos, psicodiagnósticos y documentación clínica o judicial.
-    </div>
-  </div>
-
-  <div class="danio-item">
-    <div class="danio-header" onclick="toggleDanio(this)">
-      <span>Consultoría Técnica</span>
-      <span class="icono">+</span>
-    </div>
-    <div class="danio-contenido">
-      Asesoramiento especializado para abogados y estudios jurídicos en cuestiones psicológicas relevantes para el caso.
-    </div>
-  </div>
-
-  <div class="danio-item">
-    <div class="danio-header" onclick="toggleDanio(this)">
-      <span>Impugnaciones y Pedidos de Explicaciones</span>
-      <span class="icono">+</span>
-    </div>
-    <div class="danio-contenido">
-      Elaboración de observaciones técnicas fundadas frente a informes periciales, conclusiones o metodologías cuestionables.
-    </div>
-  </div>
-
-  <div class="danio-item">
-    <div class="danio-header" onclick="toggleDanio(this)">
-      <span>Daño Psíquico</span>
-      <span class="icono">+</span>
-    </div>
-    <div class="danio-contenido">
-      Evaluación técnica del impacto psicológico derivado de hechos traumáticos y análisis de incapacidad psicológica.
-    </div>
-  </div>
-
-  <div class="danio-item">
-    <div class="danio-header" onclick="toggleDanio(this)">
-      <span>Evaluación Psicológica Judicial</span>
-      <span class="icono">+</span>
-    </div>
-    <div class="danio-contenido">
-      Evaluaciones psicológicas con finalidad pericial mediante entrevistas clínicas, psicodiagnóstico e integración técnica de resultados.
-    </div>
-  </div>
-
-</div>
 
 </section>
- <!-- FIN DE SERVICIOS NUEVO -->
+
+<!-- FIN SERVICIOS PERICIALES · FALCO® -->
 
 
  <!-- CASOS FRECUENTES -->
@@ -1839,102 +2463,192 @@ Servicios profesionales
 
 
 
+<!-- =====================================================
+     FORMACIÓN Y SUPERVISIÓN PROFESIONAL
+====================================================== -->
 
+<section
+  id="formacion"
+  class="falco-profesionales"
+  aria-labelledby="tituloProfesionales"
+>
 
+  <div class="falco-profesionales-contenedor">
 
-<!-- TALLERES Y CURSOS -->
-<section id="formacion">
+    <!-- ENCABEZADO -->
 
-  <h2 class="titulo-seccion">
-Formación y Supervisión Profesional</h2>
+    <div class="falco-profesionales-header">
 
-<p class="servicios-intro">
-Espacios de capacitación, supervisión y actualización profesional dirigidos a psicólogos, peritos y profesionales de la salud mental.
-</p>
+      <span class="falco-profesionales-etiqueta">
+        Desarrollo profesional
+      </span>
 
-  <div class="servicios-contenedor">
+      <h2 id="tituloProfesionales">
+        Formación y Supervisión Profesional
+      </h2>
 
-
-<div class="card curso-card expandible">
-
-
-  <h3>Supervisión para Peritos Psicólogos</h3>
-
-<p class="curso-sub">
-Orientación técnico-forense, revisión de casos y acompañamiento profesional.
-</p>
-
- <ul class="curso-beneficios">
-  <li>Revisión de dictámenes</li>
-  <li>Daño psíquico y nexo causal</li>
-  <li>Asesoramiento técnico-forense</li>
-</ul>
-
-  <button class="btn-curso toggle-lista">
-  Ver programas
-  <span class="icono-toggle">+</span>
-</button>
-
-  <!-- LISTA DESPLEGABLE -->
-  <div class="lista-programas">
-
-    <strong>Supervisión profesional</strong>
-
-<a href="supervision-peritos-psicologos.html">
-Supervisión para Peritos Psicólogos
-</a>
-    <a href="pdf/taller2.pdf" target="_blank">Taller 2 – En construcción</a>
-    <a href="pdf/taller3.pdf" target="_blank">Taller 3 – En construcción</a>
-
-  </div>
+      <p>
+        Un espacio destinado al desarrollo profesional de psicólogos y
+        peritos, que integra formación, supervisión técnica y recursos
+        especializados para la práctica pericial.
+      </p>
 
 </div>
 
+    <!-- GRILLA PRINCIPAL -->
 
-<div class="card curso-card expandible">
+    <div class="falco-profesionales-grid">
 
+      <!-- 01 · SUPERVISIÓN PROFESIONAL -->
 
-  <h3>Talleres y Capacitación</h3>
+      <article class="falco-prof-card destacado">
 
- <p class="curso-sub">
-Espacios de actualización profesional, formación específica y herramientas aplicadas.
-</p>
+        <span class="numero" aria-hidden="true">
+          01
+        </span>
 
-  <ul class="curso-beneficios">
-    <li>Contenido técnico actualizado</li>
-    <li>Orientado a práctica judicial</li>
-    <li>Certificación</li>
-  </ul>
+        <h3>
+          Supervisión Profesional
+        </h3>
 
- <button class="btn-curso toggle-lista">
-  Ver detalles
-  <span class="icono-toggle">+</span>
-</button>
+        <p>
+          Acompañamiento técnico dirigido a psicólogos que desarrollan
+          actividad pericial o desean fortalecer su práctica profesional.
+        </p>
 
-  <!-- LISTA DESPLEGABLE -->
-  <div class="lista-programas">
+        <ul>
+          <li>Supervisión de casos</li>
+          <li>Corrección de informes</li>
+          <li>Orientación técnico-forense</li>
+          <li>Seguimiento profesional</li>
+        </ul>
 
-   
-    <strong>Capacitación</strong>
+        <a href="supervision-peritos-psicologos.html">
+          Conocer supervisión →
+        </a>
 
-<a href="talleres-cursos-psicologia-buenos-aires.html">
-Taller Adolescencia
-</a>
+      </article>
 
-<a href="#">
-Nuevos programas próximamente
-</a>
+      <!-- 02 · FORMACIÓN PROFESIONAL -->
+
+      <article class="falco-prof-card">
+
+        <span class="numero" aria-hidden="true">
+          02
+        </span>
+
+        <h3>
+          Formación Profesional
+        </h3>
+
+        <p>
+          Cursos, talleres y seminarios orientados a la Psicología Forense,
+          la actualización profesional y la práctica judicial.
+        </p>
+
+        <ul>
+          <li>Cursos especializados</li>
+          <li>Talleres prácticos</li>
+          <li>Seminarios</li>
+          <li>Material de estudio</li>
+        </ul>
+
+        <a href="talleres-y-cursos.html">
+          Ver formación →
+        </a>
+
+      </article>
+
+      <!-- 03 · BIBLIOTECA FALCO -->
+
+      <article class="falco-prof-card">
+
+        <span class="numero" aria-hidden="true">
+          03
+        </span>
+
+        <h3>
+          Biblioteca FALCO®
+        </h3>
+
+        <p>
+          Recursos técnicos, bibliografía especializada y documentación
+          orientada al ejercicio profesional.
+        </p>
+
+        <ul>
+          <li>Bibliografía especializada</li>
+          <li>Protocolos</li>
+          <li>Modelos de referencia</li>
+          <li>Documentación técnica</li>
+        </ul>
+
+        <a href="biblioteca-login.html">
+          Ingresar a Biblioteca →
+        </a>
+
+      </article>
+
+      <!-- 04 · PROGRAMA PREMIUM -->
+
+      <article class="falco-prof-card">
+
+        <span class="numero" aria-hidden="true">
+          04
+        </span>
+
+        <h3>
+          Programa Premium
+        </h3>
+
+        <p>
+          Un acompañamiento integral que combina supervisión, formación
+          continua y acceso preferencial al ecosistema FALCO®.
+        </p>
+
+        <ul>
+          <li>Seguimiento personalizado</li>
+          <li>Supervisión continua</li>
+          <li>Recursos exclusivos</li>
+          <li>Actualización permanente</li>
+        </ul>
+
+        <a href="programa-premium.html">
+          Conocer el programa →
+        </a>
+
+      </article>
+
+    </div>
+
+    <!-- CIERRE -->
+
+    <div class="falco-prof-footer">
+
+      <h3>
+        Desarrollo profesional continuo
+      </h3>
+
+      <p>
+        La propuesta académica del Estudio combina experiencia pericial,
+        actualización permanente y acompañamiento técnico para favorecer
+        una práctica profesional sólida, ética y fundamentada.
+      </p>
+
+      <a
+        href="talleres-y-cursos.html"
+        class="falco-boton-principal"
+      >
+        Conocer Formación y Supervisión
+      </a>
+
+    </div>
 
   </div>
-
-  </div>
-
-</div>
 
 </section>
 
-  </section>
-<!-- FIN DE TALLERES Y CURSOS -->
+<!-- FIN FORMACIÓN Y SUPERVISIÓN PROFESIONAL -->
 
 
 
@@ -2350,139 +3064,258 @@ target="_blank">
   <!-- FIN DEL LIBRO -->
 
 
+<!-- =========================================================
+     SOBRE LA PERITO
+========================================================= -->
+<section
+  id="perito"
+  class="falco-perito"
+  aria-labelledby="tituloPerito"
+>
 
- <!-- SOBRE LA PERITO -->
-<section id="perito" class="seccion-perito">
+  <div class="falco-perito-contenedor">
 
-  <h2 class="titulo-seccion">Sobre la Perito</h2>
+    <!-- PRESENTACIÓN -->
+    <div class="falco-perito-presentacion">
 
-  <div class="perito-contenedor">
+      <div class="falco-perito-imagen">
 
-    <!-- IZQUIERDA -->
-    <div class="perito-perfil">
+        <img
+          src="img/perito.jpeg"
+          alt="Lic. Isabela Falco, perito psicóloga forense"
+          loading="lazy"
+        >
 
-      <div class="perito-foto">
-        <img src="img/perito.jpeg" alt="Lic. Isabela Falco">
+        <div class="falco-perito-sello">
+          <span>Psicología</span>
+          <strong>Forense</strong>
+        </div>
+
       </div>
 
-      <div class="perito-datos">
-        <h3>Lic. Isabela Falco</h3>
-       <p>
-  Psicóloga especializada en evaluación psicológica forense, daño psíquico, psicodiagnóstico clínico-forense y asesoramiento técnico a estudios jurídicos.
-</p>
+      <div class="falco-perito-identidad">
 
-<p>
-  Brinda servicios de perito de parte, contrainformes, impugnaciones, consultoría técnica y supervisión profesional para psicólogos y peritos.
-</p>
-      </div>
+        <span class="falco-perito-etiqueta">
+          Sobre la perito
+        </span>
 
-    </div>
+        <h2 id="tituloPerito">
+          Lic. Isabela Falco
+        </h2>
 
-    <!-- DERECHA -->
-<div class="perito-info">
+        <p class="falco-perito-especialidad">
+          Perito psicóloga forense
+        </p>
 
-  <div class="acordeon-item">
+        <div class="falco-perito-linea"></div>
 
-    <div class="acordeon-header" onclick="toggleAcordeon(this)">
-      <h3 class="perito-titulo-info">Perfil Profesional</h3>
-      <span class="icono">+</span>
-    </div>
+        <p class="falco-perito-descripcion">
+          Psicóloga especializada en evaluación psicológica forense,
+          daño psíquico, psicodiagnóstico clínico-forense y
+          asesoramiento técnico en procesos judiciales.
+        </p>
 
-    <div class="acordeon-contenido">
+        <p class="falco-perito-descripcion">
+          Su práctica integra experiencia pericial, actualización
+          profesional y criterios metodológicos orientados a producir
+          intervenciones claras, fundadas y útiles para la valoración
+          judicial.
+        </p>
 
-      <div class="danio-grid">
+        <div class="falco-perito-areas">
 
-        <div class="danio-item">
-          <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Formación y especialización</span>
-            <span class="icono">+</span>
-          </div>
-          <div class="danio-contenido">
-            Licenciada en Psicología con formación orientada a la psicología forense, evaluación psicodiagnóstica y análisis técnico de casos judiciales.
-          </div>
-        </div>
+          <span>Civil</span>
+          <span>Laboral</span>
+          <span>Penal</span>
+          <span>Familia</span>
 
-        <div class="danio-item">
-          <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Ámbito de actuación</span>
-            <span class="icono">+</span>
-          </div>
-          <div class="danio-contenido">
-            Intervención en causas civiles, laborales, penales y de familia, con elaboración de informes técnicos y evaluación de daño psíquico.
-          </div>
-        </div>
-
-        <div class="danio-item">
-          <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Servicios a estudios jurídicos</span>
-            <span class="icono">+</span>
-          </div>
-          <div class="danio-contenido">
-            Asesoramiento técnico, pericias de parte, contrainformes, impugnaciones y pedidos de explicaciones para abogados y estudios jurídicos.
-          </div>
-        </div>
-
-        <div class="danio-item">
-          <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Evaluación Psicométrica Online</span>
-            <span class="icono">+</span>
-          </div>
-          <div class="danio-contenido">
-            Administración remota de instrumentos psicométricos con generación de informes orientativos integrados y lectura profesional de resultados.
-          </div>
-        </div>
-
-<div class="danio-item">
-  <div class="danio-header" onclick="toggleDanio(this)">
-    <span>Plataforma Psicométrica</span>
-    <span class="icono">+</span>
-  </div>
-  <div class="danio-contenido">
-    Desarrollo y administración de una plataforma propia para la aplicación remota de instrumentos psicométricos, destinada a profesionales, estudios jurídicos y procesos de evaluación psicológica con supervisión profesional.
-  </div>
-</div>
-
-
-
-        <div class="danio-item">
-          <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Supervisión profesional</span>
-            <span class="icono">+</span>
-          </div>
-          <div class="danio-contenido">
-            Supervisión y orientación técnico-forense para psicólogos, peritos y colegas que intervienen en procesos judiciales.
-          </div>
-        </div>
-
-<div class="danio-item">
-  <div class="danio-header" onclick="toggleDanio(this)">
-    <span>Publicaciones</span>
-    <span class="icono">+</span>
-  </div>
-  <div class="danio-contenido">
-    Autora del libro <strong>“Aprendiendo a ser padres de un adolescente”</strong>, orientado a brindar herramientas prácticas para comprender, acompañar y fortalecer el vínculo con los adolescentes.
-  </div>
-</div>
-
-
-
-        <div class="danio-item">
-          <div class="danio-header" onclick="toggleDanio(this)">
-            <span>Enfoque de trabajo</span>
-            <span class="icono">+</span>
-          </div>
-          <div class="danio-contenido">
-            Abordaje técnico, ético y metodológicamente fundado, orientado a brindar conclusiones claras, consistentes y útiles para la valoración profesional o judicial.
-          </div>
         </div>
 
       </div>
 
     </div>
 
-  </div>
 
-</div>
+    <!-- INFORMACIÓN PROFESIONAL -->
+    <div class="falco-perito-contenido">
+
+      <div class="falco-perito-introduccion">
+
+        <span class="falco-perito-subtitulo">
+          Trayectoria y práctica profesional
+        </span>
+
+        <h3>
+          Una intervención técnica al servicio de la comprensión
+          psicológica de cada caso
+        </h3>
+
+        <p>
+          El trabajo pericial se desarrolla mediante una evaluación
+          individualizada, seleccionando las técnicas pertinentes según
+          las características de la persona evaluada, el objeto de la
+          pericia y los puntos solicitados en el proceso judicial.
+        </p>
+
+      </div>
+
+
+      <div class="falco-perito-grid">
+
+        <!-- 01 -->
+        <article class="falco-perito-card">
+
+          <span class="falco-perito-numero">01</span>
+
+          <h4>
+            Evaluación psicológica forense
+          </h4>
+
+          <p>
+            Entrevistas psicodiagnósticas, administración de técnicas,
+            integración de resultados y elaboración de conclusiones
+            vinculadas con el objeto pericial.
+          </p>
+
+        </article>
+
+
+        <!-- 02 -->
+        <article class="falco-perito-card">
+
+          <span class="falco-perito-numero">02</span>
+
+          <h4>
+            Daño psíquico
+          </h4>
+
+          <p>
+            Evaluación de indicadores clínicos, repercusión sobre las
+            distintas áreas de funcionamiento, nexo causal, evolución
+            y necesidad de tratamiento.
+          </p>
+
+        </article>
+
+
+        <!-- 03 -->
+        <article class="falco-perito-card">
+
+          <span class="falco-perito-numero">03</span>
+
+          <h4>
+            Asesoramiento jurídico
+          </h4>
+
+          <p>
+            Perito de parte, consultoría técnica, análisis de informes,
+            impugnaciones, pedidos de explicaciones y asistencia a
+            abogados y estudios jurídicos.
+          </p>
+
+        </article>
+
+
+        <!-- 04 -->
+        <article class="falco-perito-card">
+
+          <span class="falco-perito-numero">04</span>
+
+          <h4>
+            Supervisión profesional
+          </h4>
+
+          <p>
+            Acompañamiento técnico para psicólogos y peritos en la
+            evaluación de casos, confección de informes y desarrollo
+            de la práctica profesional.
+          </p>
+
+        </article>
+
+
+        <!-- 05 -->
+        <article class="falco-perito-card">
+
+          <span class="falco-perito-numero">05</span>
+
+          <h4>
+            Plataforma psicométrica
+          </h4>
+
+          <p>
+            Desarrollo de herramientas propias para la administración
+            remota de instrumentos, organización documental y
+            seguimiento de procesos de evaluación.
+          </p>
+
+        </article>
+
+
+        <!-- 06 -->
+        <article class="falco-perito-card">
+
+          <span class="falco-perito-numero">06</span>
+
+          <h4>
+            Formación y publicaciones
+          </h4>
+
+          <p>
+            Actividades de capacitación, recursos especializados y
+            producción de contenidos orientados al ámbito profesional,
+            forense y psicoeducativo.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <!-- CIERRE -->
+      <div class="falco-perito-cierre">
+
+        <div class="falco-perito-cierre-texto">
+
+          <span>
+            Criterio profesional
+          </span>
+
+          <h3>
+            Técnica, ética e independencia profesional
+          </h3>
+
+          <p>
+            Cada intervención se realiza con autonomía técnica,
+            confidencialidad y respeto por los límites propios de la
+            función pericial.
+          </p>
+
+        </div>
+
+        <div class="falco-perito-acciones">
+
+          <a
+            href="pericia-psicologica-buenos-aires.html"
+            class="falco-boton-principal"
+          >
+            Conocer la práctica pericial
+          </a>
+
+          <a
+            href="FALCO-ADMISION/perfil.html"
+            class="falco-boton-secundario"
+          >
+            Realizar una consulta
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 <!-- FIN DE SOBRE LA PERITO -->
@@ -2653,148 +3486,628 @@ target="_blank">
 
 
 
-<!-- FAQ -->
+<!-- =========================================================
+     PREGUNTAS FRECUENTES
+========================================================= -->
+<section
+  id="faq"
+  class="falco-faq"
+  aria-labelledby="tituloFaq"
+>
 
-<section id="faq">
+  <div class="falco-faq-contenedor">
 
-    <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
-    
-    <input type="text" id="faq-buscador" placeholder="Buscar pregunta...">
+    <!-- ENCABEZADO -->
+    <div class="falco-faq-encabezado">
 
+      <span class="falco-faq-etiqueta">
+        Información útil
+      </span>
 
-    <div class="faq-item">
-    <h3>¿Qué es una pericia psicológica?</h3>
-    <p>Es una evaluación psicológica realizada por un profesional para aportar información técnica a un proceso judicial.</p>
+      <h2 id="tituloFaq">
+        Preguntas Frecuentes
+      </h2>
+
+      <p>
+        Respuestas generales sobre evaluación psicológica forense,
+        daño psíquico, informes periciales y asistencia técnica.
+      </p>
+
     </div>
-    
-    <div class="faq-item">
-    <h3>¿Para qué sirve una pericia psicológica?</h3>
-    <p>Permite evaluar el estado psicológico de una persona y aportar elementos técnicos al tribunal.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Quién puede solicitar una pericia psicológica?</h3>
-    <p>Puede ser solicitada por jueces, abogados o por las partes en un proceso judicial.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Cuánto tarda una pericia psicológica?</h3>
-    <p>Depende de la complejidad del caso y de la cantidad de entrevistas necesarias.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué es el daño psíquico?</h3>
-    <p>Es la evaluación del impacto psicológico que una persona puede sufrir luego de un hecho traumático.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué técnicas psicológicas se utilizan?</h3>
-    <p>Entrevistas clínicas y test psicodiagnósticos como Bender, PBLL o SCL-90.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué es un informe pericial psicológico?</h3>
-    <p>Es el documento técnico donde el perito presenta los resultados de la evaluación psicológica.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿El perito puede declarar en juicio?</h3>
-    <p>Sí, el perito puede ratificar su informe ante el tribunal.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Las pericias psicológicas se utilizan en derecho civil?</h3>
-    <p>Sí, especialmente en casos de daños y perjuicios.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Se realizan pericias en derecho laboral?</h3>
-    <p>Sí, en casos de accidentes laborales o estrés laboral.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué es el test de Bender?</h3>
-    <p>Es una técnica que evalúa la organización perceptual y posibles indicadores emocionales.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué es el test PBLL?</h3>
-    <p>Es una técnica proyectiva que explora aspectos de la personalidad.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué evalúa el SCL-90?</h3>
-    <p>Evalúa síntomas psicológicos y diferentes dimensiones del malestar emocional.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿La evaluación psicológica incluye entrevistas?</h3>
-    <p>Sí, la entrevista clínica es una parte fundamental del proceso.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿La pericia psicológica es confidencial?</h3>
-    <p>La información se utiliza exclusivamente dentro del contexto judicial.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Puede una persona negarse a una pericia?</h3>
-    <p>Depende de las disposiciones del tribunal en cada caso.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Los abogados pueden pedir asesoramiento pericial?</h3>
-    <p>Sí, pueden consultar con un perito psicólogo para analizar estrategias técnicas.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Qué sucede durante una entrevista pericial?</h3>
-    <p>Se exploran aspectos emocionales, cognitivos y conductuales del evaluado.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Las pericias psicológicas requieren test?</h3>
-    <p>No siempre, pero suelen utilizarse para complementar la evaluación clínica.</p>
-    </div>
-    
-    <div class="faq-item">
-    <h3>¿Cómo solicitar una pericia psicológica?</h3>
-    <p>Puede solicitarse contactando al profesional para evaluar el caso.</p>
-    </div>
-    
-    </section>
-  
-<!-- FIN DE FAQ -->
 
 
-<script>
-const buscador = document.getElementById("faq-buscador");
-const items = document.querySelectorAll(".faq-item");
+    <!-- BUSCADOR -->
+    <div class="falco-faq-buscador">
 
-buscador.addEventListener("keyup", function(){
+      <span class="falco-faq-buscador-icono" aria-hidden="true">
+        ⌕
+      </span>
 
-  let texto = buscador.value.toLowerCase();
+      <input
+        type="search"
+        id="faq-buscador"
+        placeholder="Buscar una pregunta..."
+        aria-label="Buscar dentro de las preguntas frecuentes"
+        autocomplete="off"
+      >
 
-  items.forEach(item => {
+      <button
+        type="button"
+        id="faq-limpiar"
+        class="falco-faq-limpiar"
+        aria-label="Limpiar búsqueda"
+        hidden
+      >
+        ×
+      </button>
 
-    let pregunta = item.querySelector("h3").innerText.toLowerCase();
-    let respuesta = item.querySelector("p").innerText.toLowerCase();
+    </div>
 
-    if(texto === ""){
-      item.classList.remove("visible");
-      return;
-    }
 
-    if(pregunta.includes(texto) || respuesta.includes(texto)){
-      item.classList.add("visible");
-    }else{
-      item.classList.remove("visible");
-    }
+    <!-- CATEGORÍAS -->
+    <div class="falco-faq-categorias" aria-label="Categorías de preguntas">
 
-  });
+      <button
+        type="button"
+        class="falco-faq-filtro activo"
+        data-categoria="todas"
+      >
+        Todas
+      </button>
 
-});
-</script>
+      <button
+        type="button"
+        class="falco-faq-filtro"
+        data-categoria="pericia"
+      >
+        Pericia psicológica
+      </button>
+
+      <button
+        type="button"
+        class="falco-faq-filtro"
+        data-categoria="danio"
+      >
+        Daño psíquico
+      </button>
+
+      <button
+        type="button"
+        class="falco-faq-filtro"
+        data-categoria="evaluacion"
+      >
+        Evaluación
+      </button>
+
+      <button
+        type="button"
+        class="falco-faq-filtro"
+        data-categoria="profesionales"
+      >
+        Profesionales
+      </button>
+
+    </div>
+
+
+    <!-- LISTADO -->
+    <div class="falco-faq-listado">
+
+
+      <!-- 01 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué es una pericia psicológica?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Es una evaluación psicológica realizada en el marco de un
+            proceso judicial con el propósito de aportar información
+            técnica vinculada con los puntos solicitados.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 02 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Para qué sirve una pericia psicológica?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Permite evaluar aspectos psicológicos relevantes para una
+            causa y aportar conclusiones técnicas que puedan ser
+            consideradas por el tribunal.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 03 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Quién puede solicitar una evaluación pericial?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Puede ser ordenada judicialmente o requerida por una parte,
+            su abogado o un estudio jurídico que necesite asistencia
+            técnica especializada.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 04 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Cuánto demora una pericia psicológica?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            El tiempo depende de la complejidad del caso, la cantidad de
+            entrevistas, las técnicas administradas y la documentación
+            que deba analizarse.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 05 -->
+      <article class="faq-item" data-categoria="danio">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué es el daño psíquico?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Es una alteración psicológica evaluable que puede producirse
+            como consecuencia de un hecho y generar repercusiones sobre
+            distintas áreas de funcionamiento de la persona.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 06 -->
+      <article class="faq-item" data-categoria="danio">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Todo sufrimiento constituye daño psíquico?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            No. El sufrimiento emocional no equivale automáticamente a
+            daño psíquico. Para determinarlo deben analizarse la
+            existencia de un cuadro psicológico, su entidad, evolución,
+            repercusión y relación con el hecho investigado.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 07 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué sucede durante una entrevista pericial?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Se recaban antecedentes personales, familiares, laborales,
+            clínicos y judiciales, además de información vinculada con
+            el hecho y sus posibles repercusiones actuales.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 08 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿La evaluación incluye entrevistas psicológicas?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Sí. La entrevista psicodiagnóstica es una parte central del
+            proceso y permite integrar los antecedentes, el relato y los
+            resultados obtenidos mediante otras técnicas.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 09 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Todas las evaluaciones requieren los mismos test?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            No. La perito selecciona las técnicas pertinentes según la
+            entrevista psicodiagnóstica, las características del caso y
+            los puntos que deban responderse.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 10 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué técnicas psicológicas pueden utilizarse?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Pueden emplearse entrevistas, técnicas psicométricas,
+            gráficas y proyectivas, seleccionadas según el objeto de la
+            evaluación y las características de la persona evaluada.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 11 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué evalúa el SCL-90 o BSI?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Son instrumentos que exploran la presencia e intensidad de
+            distintos síntomas psicológicos y permiten obtener
+            indicadores generales de malestar emocional.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 12 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué es la técnica de Bender?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Es una técnica de integración visomotora que puede aportar
+            información complementaria sobre el funcionamiento de la
+            persona evaluada.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 13 -->
+      <article class="faq-item" data-categoria="evaluacion">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué es la técnica de Persona Bajo la Lluvia?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Es una técnica gráfica proyectiva que puede utilizarse para
+            explorar recursos defensivos y formas de respuesta frente a
+            situaciones percibidas como adversas.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 14 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Qué es un informe pericial psicológico?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Es el documento técnico que reúne los antecedentes
+            relevantes, la metodología aplicada, los resultados, las
+            consideraciones profesionales y las conclusiones periciales.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 15 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿La perito puede ratificar el informe en juicio?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Sí. Cuando corresponde, la profesional puede concurrir a
+            audiencia, responder explicaciones y ratificar las
+            conclusiones de su informe.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 16 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Se realizan evaluaciones en causas civiles y laborales?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Sí. El Estudio interviene en causas civiles, laborales,
+            penales y de familia, según las características y
+            requerimientos de cada caso.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 17 -->
+      <article class="faq-item" data-categoria="pericia">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿La información obtenida es confidencial?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            La información se utiliza dentro de los límites propios de
+            la evaluación y del contexto judicial, respetando las
+            obligaciones éticas y profesionales correspondientes.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 18 -->
+      <article class="faq-item" data-categoria="profesionales">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Los abogados pueden solicitar asesoramiento técnico?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Sí. Se brinda asesoramiento para el análisis de casos,
+            informes periciales, puntos de pericia, impugnaciones,
+            pedidos de explicaciones y estrategia técnico-profesional.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 19 -->
+      <article class="faq-item" data-categoria="profesionales">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Se realizan supervisiones para psicólogos y peritos?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            Sí. El Estudio ofrece supervisión y orientación para el
+            análisis de casos, selección de técnicas, elaboración de
+            informes y práctica pericial.
+          </p>
+        </div>
+
+      </article>
+
+
+      <!-- 20 -->
+      <article class="faq-item" data-categoria="profesionales">
+
+        <button
+          type="button"
+          class="faq-pregunta"
+          aria-expanded="false"
+        >
+          <span>¿Cómo se inicia una consulta?</span>
+          <span class="faq-icono" aria-hidden="true">+</span>
+        </button>
+
+        <div class="faq-respuesta" hidden>
+          <p>
+            La consulta puede iniciarse mediante FALCO Admisión™, donde
+            se solicitan los datos básicos necesarios para comprender el
+            caso y determinar el tipo de intervención correspondiente.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- SIN RESULTADOS -->
+    <div
+      id="faq-sin-resultados"
+      class="falco-faq-sin-resultados"
+      hidden
+    >
+      <span>Sin coincidencias</span>
+
+      <h3>
+        No encontramos una pregunta relacionada con tu búsqueda
+      </h3>
+
+      <p>
+        Podés reformular los términos o enviar una consulta mediante
+        FALCO Admisión™.
+      </p>
+    </div>
+
+
+    <!-- CIERRE -->
+    <div class="falco-faq-cierre">
+
+      <div>
+
+        <span>
+          ¿No encontraste la respuesta que buscabas?
+        </span>
+
+        <h3>
+          Cada situación requiere una evaluación individual
+        </h3>
+
+      </div>
+
+      <a
+        href="FALCO-ADMISION/perfil.html"
+        class="falco-boton-principal"
+      >
+        Iniciar una consulta
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- FIN DE PREGUNTAS FRECUENTES -->
+
+
+
+
 
 
 
@@ -3415,6 +4728,9 @@ function toggleInfoTests(){
 <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
 
 <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+
+<script src="menu-drawer.js"></script>
+
 
 
 </body>

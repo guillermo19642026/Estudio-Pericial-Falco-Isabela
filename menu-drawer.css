@@ -1,0 +1,825 @@
+/* =========================================================
+   FALCO MENU DRAWER™ v2.0
+   Panel lateral institucional
+========================================================= */
+
+:root {
+  --falco-drawer-width: 390px;
+
+  --falco-gold: #d4af37;
+  --falco-gold-dark: #8c6918;
+  --falco-gold-soft: rgba(212, 175, 55, 0.16);
+
+  --falco-bg: #f4efe4;
+  --falco-bg-deep: #e8deca;
+  --falco-surface: #fffaf0;
+
+  --falco-text: #29251e;
+  --falco-muted: #6e665a;
+
+  --falco-border: rgba(140, 105, 24, 0.26);
+}
+
+
+/* =========================================================
+   BLOQUEO DE LA PÁGINA
+========================================================= */
+
+html.falco-menu-lock,
+body.falco-menu-lock {
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   FONDO EXTERIOR
+========================================================= */
+
+.falco-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999970;
+
+  background: rgba(25, 21, 15, 0.38);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.falco-menu-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   PANEL PRINCIPAL
+========================================================= */
+
+.falco-menu-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+
+  z-index: 999980;
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(var(--falco-drawer-width), 92vw);
+  height: 100dvh;
+
+  background:
+    radial-gradient(
+      circle at 15% 8%,
+      rgba(212, 175, 55, 0.22),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f8f2e6 0%,
+      var(--falco-bg) 48%,
+      var(--falco-bg-deep) 100%
+    );
+
+  border-right: 1px solid rgba(140, 105, 24, 0.42);
+
+  box-shadow:
+    20px 0 48px rgba(22, 18, 12, 0.2),
+    4px 0 12px rgba(140, 105, 24, 0.12);
+
+  transform: translateX(-100%);
+  visibility: hidden;
+
+  transition:
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.34s ease;
+}
+
+.falco-menu-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+
+/* Línea dorada superior */
+
+.falco-menu-drawer::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--falco-gold-dark),
+    var(--falco-gold),
+    var(--falco-gold-dark)
+  );
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.falco-menu-drawer-header {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 92px;
+  padding: 24px 24px 19px;
+
+  background: rgba(239, 229, 207, 0.88);
+
+  border-bottom: 1px solid var(--falco-border);
+}
+
+.falco-menu-drawer-heading {
+  min-width: 0;
+}
+
+.falco-menu-drawer-eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--falco-gold-dark);
+
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.falco-menu-drawer-title {
+  margin: 0;
+
+  color: var(--falco-text);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.42rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.falco-menu-close {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  color: var(--falco-text);
+  background: rgba(255, 250, 240, 0.8);
+
+  border: 1px solid rgba(140, 105, 24, 0.38);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.falco-menu-close::before,
+.falco-menu-close::after {
+  content: "";
+
+  position: absolute;
+
+  width: 17px;
+  height: 1.5px;
+
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.falco-menu-close::before {
+  transform: rotate(45deg);
+}
+
+.falco-menu-close::after {
+  transform: rotate(-45deg);
+}
+
+.falco-menu-close:hover {
+  color: #ffffff;
+  background: var(--falco-gold-dark);
+  border-color: var(--falco-gold-dark);
+  transform: rotate(5deg);
+}
+
+.falco-menu-close:focus-visible {
+  outline: 3px solid rgba(140, 105, 24, 0.24);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   CONTENIDO Y SCROLL
+========================================================= */
+
+.falco-menu-drawer-scroll {
+  flex: 1 1 auto;
+
+  min-height: 0;
+  padding: 18px 22px 30px;
+
+  background: transparent;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(140, 105, 24, 0.55)
+    rgba(140, 105, 24, 0.08);
+}
+
+.falco-menu-drawer-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+.falco-menu-drawer-scroll::-webkit-scrollbar-track {
+  background: rgba(140, 105, 24, 0.08);
+}
+
+.falco-menu-drawer-scroll::-webkit-scrollbar-thumb {
+  background: rgba(140, 105, 24, 0.48);
+  border-radius: 999px;
+}
+
+
+/* =========================================================
+   MENÚ PRINCIPAL
+========================================================= */
+
+.falco-menu-drawer #menu {
+  position: static !important;
+  inset: auto !important;
+
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 0 20px !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+
+/* Enlaces principales */
+
+.falco-menu-drawer #menu > a,
+.falco-menu-drawer #menu > .dropdown > span {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+
+  color: var(--falco-text) !important;
+  background: rgba(255, 250, 240, 0.42) !important;
+
+  border: 1px solid transparent !important;
+  border-bottom-color: rgba(140, 105, 24, 0.14) !important;
+  border-radius: 9px !important;
+
+  font-size: 0.93rem;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.falco-menu-drawer #menu > a::before,
+.falco-menu-drawer #menu > .dropdown > span::before {
+  content: "";
+
+  flex: 0 0 auto;
+
+  width: 5px;
+  height: 5px;
+  margin-right: 12px;
+
+  background: var(--falco-gold-dark);
+  border-radius: 50%;
+}
+
+
+/* Hover claramente visible */
+
+.falco-menu-drawer #menu > a:hover,
+.falco-menu-drawer #menu > a:focus-visible,
+.falco-menu-drawer #menu > .dropdown > span:hover,
+.falco-menu-drawer #menu > .dropdown > span:focus-visible {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+
+  background: #d4af37 !important;
+  border-color: #9b7721 !important;
+
+  transform: translateX(4px);
+  outline: none;
+}
+
+.falco-menu-drawer #menu > a:hover *,
+.falco-menu-drawer #menu > a:focus-visible *,
+.falco-menu-drawer #menu > .dropdown > span:hover *,
+.falco-menu-drawer #menu > .dropdown > span:focus-visible * {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background-image: none !important;
+  text-shadow: none !important;
+}
+.falco-menu-drawer #menu > a:hover::before,
+.falco-menu-drawer #menu > a:focus-visible::before,
+.falco-menu-drawer #menu > .dropdown > span:hover::before,
+.falco-menu-drawer #menu > .dropdown > span:focus-visible::before {
+  background: #111111 !important;
+}
+
+
+/* =========================================================
+   DESPLEGABLES
+========================================================= */
+
+.falco-menu-drawer #menu > .dropdown {
+  position: relative !important;
+
+  display: block !important;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.falco-menu-drawer .dropdown-menu {
+  position: static !important;
+  inset: auto !important;
+
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  margin: 5px 0 9px !important;
+  padding: 8px 7px 8px 17px !important;
+
+  background: rgba(232, 222, 202, 0.72) !important;
+
+  border: 1px solid rgba(140, 105, 24, 0.18) !important;
+  border-left: 3px solid var(--falco-gold-dark) !important;
+  border-radius: 9px !important;
+
+  box-shadow: none !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.falco-menu-drawer .dropdown.active .dropdown-menu,
+.falco-menu-drawer .dropdown.open .dropdown-menu,
+.falco-menu-drawer .dropdown.is-open .dropdown-menu,
+.falco-menu-drawer .dropdown-menu.active,
+.falco-menu-drawer .dropdown-menu.open,
+.falco-menu-drawer .dropdown-menu.show {
+  display: flex !important;
+}
+
+
+/* Enlaces secundarios */
+
+.falco-menu-drawer .dropdown-menu a {
+  display: flex !important;
+  align-items: center;
+
+  min-height: 40px;
+  padding: 9px 12px !important;
+
+  color: #51483c !important;
+  background: rgba(255, 250, 240, 0.58) !important;
+
+  border: 1px solid transparent !important;
+  border-radius: 7px !important;
+
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  line-height: 1.35;
+  text-decoration: none !important;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.falco-menu-drawer .dropdown-menu a::before {
+  content: "—";
+
+  margin-right: 8px;
+
+  color: var(--falco-gold-dark);
+}
+
+.falco-menu-drawer .dropdown-menu a:hover,
+.falco-menu-drawer .dropdown-menu a:focus-visible {
+  color: #ffffff !important;
+  background: #6f5314 !important;
+
+  border-color: #6f5314 !important;
+
+  transform: translateX(3px);
+
+  outline: none;
+}
+
+.falco-menu-drawer .dropdown-menu a:hover::before,
+.falco-menu-drawer .dropdown-menu a:focus-visible::before {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   ACCESOS DEL SISTEMA
+========================================================= */
+
+.falco-menu-drawer .header-botones {
+  position: static !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 8px;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 20px 0 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  border-top: 1px solid var(--falco-border) !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.falco-menu-drawer .header-botones::before {
+  content: "Accesos del sistema";
+
+  display: block;
+  grid-column: 1 / -1;
+
+  margin: 0 0 6px;
+  padding: 0 3px;
+
+  color: var(--falco-gold-dark);
+
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.falco-menu-drawer .btn-wrapper {
+  position: relative;
+
+  display: block !important;
+
+  width: 100%;
+  margin: 0 !important;
+}
+
+.falco-menu-drawer .btn-header-inline {
+  display: flex !important;
+  align-items: center;
+
+  width: 100% !important;
+  min-height: 44px;
+
+  margin: 0 !important;
+  padding: 10px 13px !important;
+
+  color: #40382d !important;
+  background: rgba(255, 250, 240, 0.68) !important;
+
+  border: 1px solid rgba(140, 105, 24, 0.28) !important;
+  border-radius: 9px !important;
+
+  font-size: 0.82rem !important;
+  font-weight: 550 !important;
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none !important;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.falco-menu-drawer .btn-header-inline:hover,
+.falco-menu-drawer .btn-header-inline:focus-visible {
+  color: #ffffff !important;
+  background: var(--falco-gold-dark) !important;
+
+  border-color: var(--falco-gold-dark) !important;
+
+  transform: translateX(3px);
+
+  outline: none;
+}
+
+
+/* Tooltips fuera del drawer */
+
+.falco-menu-drawer .tooltip-text {
+  display: none !important;
+}
+
+
+/* =========================================================
+   BOTÓN NAVEGACIÓN
+========================================================= */
+
+.falco-drawer-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  color: var(--falco-text);
+  background: linear-gradient(
+    180deg,
+    #fffaf0,
+    #eee4d2
+  );
+
+  border: 1px solid rgba(140, 105, 24, 0.48);
+  border-radius: 12px;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.falco-drawer-toggle:hover {
+  color: #ffffff;
+  background: var(--falco-gold-dark);
+
+  border-color: var(--falco-gold-dark);
+
+  box-shadow: 0 8px 22px rgba(58, 43, 12, 0.18);
+
+  transform: translateY(-1px);
+}
+
+.falco-drawer-toggle .menu-icon {
+  display: flex;
+  flex-direction: column;
+
+  width: 22px;
+  gap: 4px;
+}
+
+.falco-drawer-toggle .menu-icon span {
+  display: block;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--falco-gold-dark);
+  border-radius: 20px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.falco-drawer-toggle:hover .menu-icon span {
+  background: #ffffff;
+}
+
+.falco-drawer-toggle em {
+  font-style: normal;
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+
+/* Estado abierto */
+
+.falco-drawer-toggle.falco-menu-active {
+  color: #ffffff;
+  background: var(--falco-gold-dark);
+  border-color: var(--falco-gold-dark);
+}
+
+.falco-drawer-toggle.falco-menu-active .menu-icon span {
+  background: #ffffff;
+}
+
+.falco-drawer-toggle.falco-menu-active .menu-icon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.falco-drawer-toggle.falco-menu-active .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.falco-drawer-toggle.falco-menu-active .menu-icon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   AION
+
+   Ahora el panel está a la izquierda. No es necesario
+   ocultar AION, que permanece a la derecha.
+========================================================= */
+
+body.falco-menu-drawer-open .aion-float,
+body.falco-menu-drawer-open #aionFloat,
+body.falco-menu-drawer-open [data-aion-float] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    --falco-drawer-width: 370px;
+  }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+  .falco-menu-drawer {
+    width: min(89vw, 360px);
+  }
+
+  .falco-menu-drawer-header {
+    min-height: 78px;
+    padding: 18px 17px 15px;
+  }
+
+  .falco-menu-drawer-title {
+    font-size: 1.18rem;
+  }
+
+  .falco-menu-close {
+    width: 39px;
+    height: 39px;
+  }
+
+  .falco-menu-drawer-scroll {
+    padding: 14px 15px 25px;
+  }
+
+  .falco-menu-drawer #menu > a,
+  .falco-menu-drawer #menu > .dropdown > span {
+    min-height: 44px;
+    padding: 9px 11px;
+
+    font-size: 0.88rem;
+  }
+
+  .falco-menu-drawer .dropdown-menu {
+    padding-left: 12px !important;
+  }
+
+  .falco-menu-drawer .dropdown-menu a {
+    min-height: 38px;
+
+    font-size: 0.79rem !important;
+  }
+
+  .falco-menu-drawer .btn-header-inline {
+    min-height: 42px;
+    padding: 9px 11px !important;
+
+    font-size: 0.79rem !important;
+  }
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+========================================================= */
+
+@media (max-width: 390px) {
+  .falco-menu-drawer {
+    width: 92vw;
+  }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .falco-menu-drawer,
+  .falco-menu-overlay,
+  .falco-menu-close,
+  .falco-drawer-toggle,
+  .falco-menu-drawer a,
+  .falco-menu-drawer span {
+    transition: none !important;
+  }
+}
