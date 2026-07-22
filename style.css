@@ -24872,3 +24872,1593 @@ font-size:1.6rem;
         display:none;
     }
 }
+
+
+
+/* =========================================================
+   TÉCNICAS DE EVALUACIÓN PSICOLÓGICA · SISTEMA FALCO®
+========================================================= */
+
+.tecnicas-evaluacion{
+    position:relative;
+    overflow:hidden;
+
+    padding:110px 40px;
+
+    background:
+        radial-gradient(
+            circle at 13% 20%,
+            rgba(212,175,55,.06),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 88% 80%,
+            rgba(212,175,55,.04),
+            transparent 29%
+        ),
+        linear-gradient(
+            180deg,
+            #080e18 0%,
+            #0d1624 50%,
+            #080e18 100%
+        );
+
+    border-top:1px solid rgba(212,175,55,.10);
+    border-bottom:1px solid rgba(212,175,55,.10);
+}
+
+
+/* =========================================================
+   LÍNEA SUPERIOR DECORATIVA
+========================================================= */
+
+.tecnicas-evaluacion::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:50%;
+
+    width:min(900px,80%);
+    height:1px;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.42),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   BRILLO AMBIENTAL
+========================================================= */
+
+.tecnicas-evaluacion::after{
+    content:"";
+
+    position:absolute;
+    top:48%;
+    left:50%;
+
+    width:650px;
+    height:650px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.022);
+    filter:blur(100px);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.tecnicas-evaluacion .contenedor{
+    position:relative;
+    z-index:2;
+
+    width:min(1180px,100%);
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.tecnicas-evaluacion .etiqueta-seccion{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:max-content;
+
+    margin:0 auto 18px;
+    padding:8px 18px;
+
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.05);
+    color:#d4af37;
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.70rem;
+    font-weight:600;
+    line-height:1;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.tecnicas-evaluacion .titulo-seccion{
+    position:relative;
+
+    margin:0;
+
+    color:#f5f0e6;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:clamp(2.3rem,5vw,3.7rem);
+    font-weight:500;
+    line-height:1.12;
+    letter-spacing:-.025em;
+    text-align:center;
+}
+
+.tecnicas-evaluacion .titulo-seccion::after{
+    content:"";
+
+    display:block;
+
+    width:72px;
+    height:1px;
+
+    margin:22px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.85),
+            transparent
+        );
+}
+
+.tecnicas-evaluacion .intro-seccion{
+    max-width:780px;
+    margin:20px auto 64px;
+
+    color:rgba(255,255,255,.70);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:1rem;
+    line-height:1.8;
+    text-align:center;
+}
+
+
+/* =========================================================
+   GRILLA
+========================================================= */
+
+.tecnicas-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.tecnica-card{
+    position:relative;
+    overflow:hidden;
+
+    min-width:0;
+    min-height:290px;
+    padding:34px 31px 31px;
+
+    border:1px solid rgba(212,175,55,.16);
+    border-radius:23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.032),
+            rgba(212,175,55,.014)
+        );
+
+    box-shadow:
+        0 22px 50px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.03);
+
+    transition:
+        transform .30s ease,
+        border-color .30s ease,
+        background .30s ease,
+        box-shadow .30s ease;
+}
+
+
+/* Línea superior de tarjeta */
+
+.tecnica-card::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:31px;
+
+    width:64px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            rgba(212,175,55,0)
+        );
+}
+
+
+/* Resplandor decorativo */
+
+.tecnica-card::after{
+    content:"";
+
+    position:absolute;
+    right:-70px;
+    bottom:-85px;
+
+    width:185px;
+    height:185px;
+
+    border-radius:50%;
+
+    background:rgba(212,175,55,.035);
+    filter:blur(15px);
+
+    pointer-events:none;
+}
+
+.tecnica-card:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(212,175,55,.46);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.048),
+            rgba(212,175,55,.025)
+        );
+
+    box-shadow:
+        0 34px 68px rgba(0,0,0,.30),
+        0 0 28px rgba(212,175,55,.045);
+}
+
+
+/* =========================================================
+   ÍCONOS
+========================================================= */
+
+.tecnica-icono{
+    position:relative;
+    z-index:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:54px;
+    height:54px;
+    margin-bottom:23px;
+
+    border:1px solid rgba(212,175,55,.30);
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.13),
+            rgba(212,175,55,.025)
+        );
+
+    color:#dec269;
+
+    font-size:1.25rem;
+    line-height:1;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    transition:
+        transform .28s ease,
+        border-color .28s ease,
+        box-shadow .28s ease;
+}
+
+.tecnica-card:hover .tecnica-icono{
+    transform:translateY(-2px) scale(1.04);
+
+    border-color:rgba(212,175,55,.50);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.18),
+        0 0 20px rgba(212,175,55,.08);
+}
+
+
+/* =========================================================
+   TEXTOS DE TARJETAS
+========================================================= */
+
+.tecnica-card h3{
+    position:relative;
+    z-index:1;
+
+    margin:0 0 16px;
+
+    color:#efd688;
+
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:1.43rem;
+    font-weight:600;
+    line-height:1.3;
+}
+
+.tecnica-card p{
+    position:relative;
+    z-index:1;
+
+    margin:0;
+
+    color:rgba(255,255,255,.68);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.90rem;
+    line-height:1.76;
+}
+
+
+/* =========================================================
+   NOTA FINAL
+========================================================= */
+
+.tecnicas-nota{
+    position:relative;
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr);
+    align-items:center;
+    gap:25px;
+
+    margin-top:30px;
+    padding:35px 38px;
+
+    border:1px solid rgba(212,175,55,.28);
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at 88% 50%,
+            rgba(212,175,55,.09),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.062),
+            rgba(255,255,255,.022)
+        );
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.tecnicas-nota::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:38px;
+
+    width:92px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            transparent
+        );
+}
+
+.tecnicas-nota-icono{
+    position:relative;
+    z-index:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:60px;
+    height:60px;
+    flex-shrink:0;
+
+    border:1px solid rgba(212,175,55,.38);
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(212,175,55,.16),
+            rgba(212,175,55,.035)
+        );
+
+    color:#e2c66d;
+
+    font-size:1.28rem;
+}
+
+.tecnicas-nota p{
+    position:relative;
+    z-index:1;
+
+    margin:0;
+
+    color:rgba(255,255,255,.72);
+
+    font-family:"Inter","Montserrat",Arial,sans-serif;
+    font-size:.92rem;
+    line-height:1.78;
+}
+
+.tecnicas-nota strong{
+    color:#efd688;
+    font-weight:600;
+}
+
+
+/* =========================================================
+   CONSISTENCIA Y ACCESIBILIDAD
+========================================================= */
+
+.tecnicas-evaluacion,
+.tecnicas-evaluacion *,
+.tecnicas-evaluacion *::before,
+.tecnicas-evaluacion *::after{
+    box-sizing:border-box;
+}
+
+.tecnica-card h3,
+.tecnica-card p,
+.tecnicas-nota p{
+    overflow-wrap:anywhere;
+}
+
+.tecnica-card{
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================= */
+
+@keyframes falcoTecnicasEntrada{
+
+    from{
+        opacity:0;
+        transform:translateY(24px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.tecnicas-evaluacion .etiqueta-seccion,
+.tecnicas-evaluacion .titulo-seccion,
+.tecnicas-evaluacion .intro-seccion,
+.tecnica-card,
+.tecnicas-nota{
+    animation:
+        falcoTecnicasEntrada .75s ease both;
+}
+
+.tecnica-card:nth-child(1){
+    animation-delay:.06s;
+}
+
+.tecnica-card:nth-child(2){
+    animation-delay:.13s;
+}
+
+.tecnica-card:nth-child(3){
+    animation-delay:.20s;
+}
+
+.tecnica-card:nth-child(4){
+    animation-delay:.27s;
+}
+
+.tecnicas-nota{
+    animation-delay:.32s;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    .tecnicas-evaluacion{
+        padding:92px 30px;
+    }
+
+    .tecnicas-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tecnica-card{
+        min-height:0;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media(max-width:700px){
+
+    .tecnicas-evaluacion{
+        padding-left:22px;
+        padding-right:22px;
+    }
+
+    .tecnicas-evaluacion .intro-seccion{
+        margin-bottom:46px;
+    }
+
+    .tecnicas-nota{
+        grid-template-columns:1fr;
+        align-items:flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media(max-width:560px){
+
+    .tecnicas-evaluacion{
+        padding:72px 17px;
+    }
+
+    .tecnicas-evaluacion .etiqueta-seccion{
+        margin-bottom:14px;
+        padding:7px 13px;
+
+        font-size:.62rem;
+        letter-spacing:.10em;
+    }
+
+    .tecnicas-evaluacion .titulo-seccion{
+        font-size:clamp(2rem,10vw,2.55rem);
+    }
+
+    .tecnicas-evaluacion .titulo-seccion::after{
+        width:58px;
+        margin-top:17px;
+    }
+
+    .tecnicas-evaluacion .intro-seccion{
+        margin-top:17px;
+        margin-bottom:40px;
+
+        font-size:.91rem;
+        line-height:1.68;
+    }
+
+    .tecnicas-grid{
+        gap:15px;
+    }
+
+    .tecnica-card{
+        padding:27px 22px 25px;
+
+        border-radius:19px;
+    }
+
+    .tecnica-card::before{
+        left:22px;
+        width:55px;
+    }
+
+    .tecnica-icono{
+        width:48px;
+        height:48px;
+        margin-bottom:20px;
+
+        font-size:1.10rem;
+    }
+
+    .tecnica-card h3{
+        margin-bottom:14px;
+
+        font-size:1.29rem;
+    }
+
+    .tecnica-card p{
+        font-size:.85rem;
+        line-height:1.68;
+    }
+
+    .tecnicas-nota{
+        margin-top:22px;
+        padding:29px 22px;
+
+        border-radius:20px;
+    }
+
+    .tecnicas-nota::before{
+        left:22px;
+        width:70px;
+    }
+
+    .tecnicas-nota-icono{
+        width:51px;
+        height:51px;
+
+        font-size:1.12rem;
+    }
+
+    .tecnicas-nota p{
+        font-size:.86rem;
+        line-height:1.68;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media(max-width:380px){
+
+    .tecnicas-evaluacion{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .tecnica-card,
+    .tecnicas-nota{
+        padding-left:19px;
+        padding-right:19px;
+    }
+
+    .tecnica-card::before,
+    .tecnicas-nota::before{
+        left:19px;
+    }
+
+}
+
+
+/* =========================================================
+   DISPOSITIVOS TÁCTILES
+========================================================= */
+
+@media(hover:none){
+
+    .tecnica-card:hover{
+        transform:none;
+    }
+
+    .tecnica-card:hover .tecnica-icono{
+        transform:none;
+    }
+
+    .tecnica-card{
+        -webkit-tap-highlight-color:transparent;
+    }
+
+}
+
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .tecnicas-evaluacion .etiqueta-seccion,
+    .tecnicas-evaluacion .titulo-seccion,
+    .tecnicas-evaluacion .intro-seccion,
+    .tecnica-card,
+    .tecnicas-nota{
+        animation:none;
+    }
+
+    .tecnica-card,
+    .tecnica-icono{
+        transition:none;
+    }
+
+    .tecnica-card:hover,
+    .tecnica-card:hover .tecnica-icono{
+        transform:none;
+    }
+
+}
+
+
+/* ==========================================================
+   ¿QUÉ ES UNA PERICIA PSICOLÓGICA JUDICIAL
+========================================================== */
+
+.definicion-pericia{
+
+    position:relative;
+    padding:110px 0;
+    background:
+        radial-gradient(circle at top,#262626 0%,#171717 45%,#0d0d0d 100%);
+    overflow:hidden;
+
+}
+
+.definicion-pericia::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 15% 20%,rgba(212,175,55,.08),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(212,175,55,.05),transparent 35%);
+
+    pointer-events:none;
+
+}
+
+.definicion-pericia .contenedor{
+
+    position:relative;
+    z-index:2;
+
+}
+
+/*==========================================================
+ETIQUETA
+==========================================================*/
+
+.definicion-pericia .etiqueta-seccion{
+
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+
+    padding:.6rem 1.3rem;
+
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:999px;
+
+    background:rgba(212,175,55,.08);
+
+    color:#d4af37;
+
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+
+    margin-bottom:1.4rem;
+
+}
+
+/*==========================================================
+TÍTULO
+==========================================================*/
+
+.definicion-pericia .titulo-seccion{
+
+    font-family:"Playfair Display",serif;
+    font-size:clamp(2.3rem,4vw,3.5rem);
+
+    color:#fff;
+
+    margin-bottom:1.4rem;
+
+    text-align:center;
+
+}
+
+/*==========================================================
+INTRO
+==========================================================*/
+
+.definicion-pericia .intro-seccion{
+
+    max-width:900px;
+
+    margin:0 auto 70px;
+
+    color:#d9d9d9;
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+    text-align:center;
+
+}
+
+/*==========================================================
+GRID
+==========================================================*/
+
+.definicion-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-bottom:70px;
+
+}
+
+/*==========================================================
+CARD
+==========================================================*/
+
+.definicion-card{
+
+    position:relative;
+
+    padding:40px 32px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.definicion-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:#d4af37;
+
+    transform:scaleX(0);
+
+    transition:.35s;
+
+}
+
+.definicion-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(212,175,55,.45);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+.definicion-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/*==========================================================
+ICONO
+==========================================================*/
+
+.definicion-icono{
+
+    width:72px;
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    margin-bottom:25px;
+
+    background:rgba(212,175,55,.12);
+
+    color:#d4af37;
+
+    font-size:1.7rem;
+
+}
+
+/*==========================================================
+TEXTOS
+==========================================================*/
+
+.definicion-card h3{
+
+    color:#fff;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:1.45rem;
+
+    margin-bottom:16px;
+
+}
+
+.definicion-card p{
+
+    color:#d4d4d4;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+/*==========================================================
+NOTA FINAL
+==========================================================*/
+
+.definicion-nota{
+
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+
+    max-width:980px;
+
+    margin:auto;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.definicion-nota-icono{
+
+    flex-shrink:0;
+
+    width:65px;
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#d4af37;
+
+    color:#111;
+
+    font-size:1.45rem;
+
+}
+
+.definicion-nota p{
+
+    color:#ececec;
+
+    line-height:1.9;
+
+    margin:0;
+
+}
+
+.definicion-nota strong{
+
+    color:#d4af37;
+
+}
+
+/*==========================================================
+RESPONSIVE
+==========================================================*/
+
+@media (max-width:768px){
+
+    .definicion-pericia{
+
+        padding:80px 0;
+
+    }
+
+    .definicion-nota{
+
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+
+    }
+
+    .definicion-card{
+
+        padding:32px 24px;
+
+    }
+
+}
+
+
+.tecnica-icono span,
+.definicion-icono span,
+.tecnicas-nota-icono span,
+.definicion-nota-icono span {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tecnicas-nota-icono span,
+.definicion-nota-icono span {
+  color: #111;
+}
+
+
+/* ==========================================================
+   CONVOCATORIA PROFESIONAL
+========================================================== */
+
+.convocatoria-profesional {
+  position: relative;
+  padding: 70px 0;
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(212, 175, 55, 0.09),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #111111 0%,
+      #191919 50%,
+      #101010 100%
+    );
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  overflow: hidden;
+}
+
+.convocatoria-profesional::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.convocatoria-profesional-contenido {
+  position: relative;
+  z-index: 2;
+
+  width: calc(100% - 48px);
+  max-width: 1180px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+
+  padding: 42px 48px;
+
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.convocatoria-profesional-texto {
+  max-width: 820px;
+}
+
+.convocatoria-profesional .etiqueta-seccion {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 18px;
+  padding: 8px 18px;
+
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+
+  background: rgba(212, 175, 55, 0.08);
+
+  color: #d4af37;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.convocatoria-profesional h2 {
+  margin: 0 0 18px;
+
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.convocatoria-profesional p {
+  margin: 0;
+
+  color: #d7d7d7;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.convocatoria-profesional-accion {
+  flex-shrink: 0;
+}
+
+.btn-convocatoria {
+
+
+padding: 18px 34px;
+font-size: .98rem;
+letter-spacing: .03em;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 220px;
+
+
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+
+  background: #d4af37;
+
+  color: #111111;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-convocatoria:hover {
+  transform: translateY(-4px);
+
+  background: transparent;
+  color: #d4af37;
+
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==========================================================
+   MESA DE ENTRADA DIGITAL
+========================================================== */
+
+.mesa-home {
+  position: relative;
+  padding: 105px 0;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(212, 175, 55, 0.08),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 12% 85%,
+      rgba(212, 175, 55, 0.05),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #0d0d0d 0%,
+      #171717 48%,
+      #0d0d0d 100%
+    );
+
+  overflow: hidden;
+}
+
+.mesa-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.mesa-home-contenido {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  gap: 70px;
+  align-items: center;
+}
+
+.mesa-home-texto{
+    max-width:760px;
+    padding-left:18px;
+}
+
+.mesa-home .etiqueta-seccion {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 20px;
+  padding: 8px 18px;
+
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+
+  background: rgba(212, 175, 55, 0.08);
+
+  color: #d4af37;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mesa-home h2 {
+  margin: 0 0 22px;
+
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.mesa-home-desc {
+  max-width: 760px;
+  margin: 0 0 34px;
+
+  color: #d6d6d6;
+
+  font-family: "Inter", sans-serif;
+  font-size: 1.06rem;
+  line-height: 1.9;
+}
+
+.mesa-home-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+}
+
+.mesa-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #e3e3e3;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+
+  backdrop-filter: blur(10px);
+}
+
+.mesa-item span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 50%;
+
+  background: rgba(212, 175, 55, 0.1);
+
+  color: #d4af37;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.mesa-home-actions {
+  position: relative;
+
+  padding: 38px;
+
+  border: none;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32);
+
+  backdrop-filter: blur(18px);
+}
+
+
+
+.btn-mesa-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 17px 24px;
+
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+
+  background: #d4af37;
+
+  color: #111111;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-mesa-home:hover {
+  transform: translateY(-4px);
+
+  background: transparent;
+  color: #d4af37;
+
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+}
+
+.mesa-home-aclaracion {
+  margin: 20px 0 0;
+
+  color: #bdbdbd;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.mesa-home-aclaracion::before {
+  content: "✦";
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #d4af37;
+
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 960px) {
+
+  .convocatoria-profesional-contenido {
+    width: calc(100% - 36px);
+    padding: 38px 34px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .convocatoria-profesional-accion {
+    width: 100%;
+  }
+
+  .btn-convocatoria {
+    width: 100%;
+  }
+
+  .mesa-home-contenido {
+    grid-template-columns: 1fr;
+    gap: 90px;
+  }
+
+  .mesa-home-actions {
+    max-width: 620px;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .convocatoria-profesional {
+    padding: 55px 0;
+  }
+
+  .convocatoria-profesional-contenido {
+    width: calc(100% - 28px);
+    padding: 30px 24px;
+    border-radius: 18px;
+  }
+
+  .convocatoria-profesional h2 {
+    font-size: 2rem;
+  }
+
+  .mesa-home {
+    padding: 78px 0;
+  }
+
+  .mesa-home-items {
+    grid-template-columns: 1fr;
+  }
+
+  .mesa-home-actions {
+    padding: 30px 24px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .convocatoria-profesional .etiqueta-seccion,
+  .mesa-home .etiqueta-seccion {
+    font-size: 0.7rem;
+  }
+
+  .btn-convocatoria,
+  .btn-mesa-home {
+    min-width: 0;
+    padding: 15px 20px;
+  }
+
+  .mesa-item {
+    align-items: flex-start;
+  }
+
+}
+
+
+.mesa-home {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.mesa-home::before,
+.mesa-home::after {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+.mesa-home-contenido {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.mesa-home-contenido::before,
+.mesa-home-contenido::after {
+  display: none !important;
+}
