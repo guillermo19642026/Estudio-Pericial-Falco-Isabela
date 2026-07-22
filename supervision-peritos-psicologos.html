@@ -1,415 +1,3292 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
+  <!-- =====================================================
+       GOOGLE ANALYTICS
+  ====================================================== -->
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-W9RKEV2LN1");
+  </script>
 
 
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>Supervisión para Peritos Psicólogos | Buenos Aires</title>
-<meta name="description" content="Supervisión para peritos psicólogos y colegas. Asesoramiento en casos, informes periciales, escritos judiciales, impugnaciones y práctica psicológica forense.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<link rel="canonical" href="https://periciapsicologicafalco.ar/supervision-peritos-psicologos.html">
-<link rel="stylesheet" href="style.css">
-<meta name="robots" content="index, follow">
+  <title>
+    Supervisión Profesional para Psicólogos y Peritos | Isabela Falco
+  </title>
+
+  <meta
+    name="description"
+    content="Supervisión profesional en psicología jurídica y forense. Acompañamiento para psicólogos y peritos en casos, informes periciales, escritos judiciales, psicodiagnósticos, impugnaciones y práctica profesional."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://periciapsicologicafalco.ar/supervision-peritos-psicologos.html"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+  >
+
 </head>
+
 
 <body class="pagina-interna fondo-neuronal">
 
-<canvas id="neuronal-bg"></canvas>
+  <canvas
+    id="neuronal-bg"
+    aria-hidden="true"
+  ></canvas>
 
-<header>
 
-  <div class="nav-container">
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-    <div class="header-izquierda">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
-        </a>
+  <header>
+
+    <div class="nav-container">
+
+
+      <!-- LOGO -->
+
+      <div class="header-izquierda">
+
+        <div class="logo">
+
+          <a
+            href="index.html"
+            aria-label="Ir a la página principal"
+          >
+
+            <img
+              src="img/logo.png"
+              alt="Estudio Pericial Psicológico"
+            >
+
+          </a>
+
+        </div>
+
       </div>
-    </div>
 
-    <div class="header-derecha">
 
-      <div class="header-texto">
-        ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
+      <!-- IDENTIDAD Y NAVEGACIÓN -->
+
+      <div class="header-derecha">
+
+        <div class="header-texto">
+
+          ESTUDIO PERICIAL PSICOLÓGICO<br>
+
+          <span>
+            Lic. en Psicología ISABELA FALCO
+          </span>
+
+        </div>
+
+
+        <!-- BOTÓN MOBILE -->
+
+        <button
+          class="menu-toggle"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Abrir o cerrar menú"
+        >
+
+          <b class="menu-icon">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </b>
+
+          <em>Navegación</em>
+
+        </button>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <nav
+          id="menu"
+          aria-label="Navegación principal"
+        >
+
+          <a href="index.html#inicio">
+            Inicio
+          </a>
+
+          <a href="index.html#danio-psiquico">
+            Daño Psíquico
+          </a>
+
+          <a href="index.html#servicios">
+            Servicios
+          </a>
+
+          <a href="index.html#areas">
+            Áreas
+          </a>
+
+          <a href="index.html#tecnicas">
+            Recursos
+          </a>
+
+          <a href="index.html#formacion">
+            Formación
+          </a>
+
+          <a href="index.html#perito">
+            Sobre la Perito
+          </a>
+
+          <a href="FALCO-ADMISION/index.html">
+            Consultas
+          </a>
+
+          <a href="index.html#faq">
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <!-- ACCESOS DEL SISTEMA -->
+
+        <div class="header-botones">
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="escuela-login.html"
+              class="btn-header-inline"
+            >
+              🎓 Acceso al curso
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="biblioteca-login.html"
+              class="btn-header-inline"
+            >
+              📚 Acceso a biblioteca
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="login.html"
+              class="btn-header-inline"
+            >
+              🧠 Tests psicométricos
+            </a>
+
+            <span class="tooltip-text">
+              Acceso para personas evaluadas con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="profesional-login.html"
+              class="btn-header-inline"
+            >
+              🔒 Área Profesional
+            </a>
+
+            <span class="tooltip-text">
+              Recursos para psicólogos y peritos psicólogos
+            </span>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
-        <b class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </b>
-        <em>Navegación</em>
-      </button>
-
-      <nav id="menu">
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#areas">Áreas</a>
-        <a href="index.html#danio-psiquico">Daño Psíquico</a>
-        <a href="index.html#tecnicas">Recursos</a>
-        <a href="index.html#formacion">Formación</a>
-        <a href="index.html#perito">Sobre la Perito</a>
-        <a href="index.html#consultas">Consultas</a>
-        <a href="index.html#faq">FAQ</a>
-      </nav>
-
     </div>
 
-  </div>
-
-</header>
+  </header>
 
 
-<section class="hero-interno">
-  <div class="hero-contenido">
-    <div class="hero-top">
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
 
-      <h1 class="hero-titulo-principal">
-        Supervisión para Peritos Psicólogos
-      </h1>
-
-      <h2 class="hero-subtitulo-fuerte">
-        Supervisión de casos · Informes periciales · Escritos judiciales · Asesoramiento técnico
-      </h2>
+  <main>
 
 
-      <p class="hero-sello">
-        Acompañamiento profesional para psicólogos, colegas y peritos psicólogos
-      </p>
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
 
-    </div>
-  </div>
-</section>
+    <section class="hero-interno">
+
+      <div class="hero-contenido">
+
+        <div class="hero-top">
+
+          <span class="footer-etiqueta">
+            Formación aplicada y acompañamiento técnico
+          </span>
+
+          <h1 class="hero-titulo-principal">
+            Supervisión Profesional en Psicología Jurídica y Forense
+          </h1>
+
+          <h2 class="hero-subtitulo-fuerte">
+            Casos periciales · Informes psicológicos · Escritos judiciales · Estrategia profesional
+          </h2>
+
+          <p class="hero-descripcion">
+            Un espacio de consulta y acompañamiento para psicólogos,
+            peritos y profesionales que necesitan analizar casos,
+            organizar intervenciones y fortalecer su práctica
+            en el ámbito judicial.
+          </p>
+
+          <p class="hero-sello">
+            Supervisión personalizada · Análisis técnico · Aplicación práctica
+          </p>
 
 
+          <div class="hero-botones">
+
+            <a
+              href="FALCO-ADMISION/index.html"
+              class="btn-principal"
+            >
+              Consultar por supervisión
+            </a>
+
+            <a
+              href="#modalidades-supervision"
+              class="btn-secundario"
+            >
+              Conocer las modalidades
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-<section class="bloque-tests">
+    <!-- ===================================================
+         DEFINICIÓN
+    ==================================================== -->
 
-  <div class="danio-contenedor">
+    <section class="seccion-definicion">
 
-    <div class="bloque-tests-card">
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Espacio profesional
+        </span>
+
+        <h2>
+          ¿Qué es la supervisión profesional?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Es un espacio individual destinado a analizar situaciones
+          concretas de la práctica psicológica jurídica y forense,
+          con orientación técnica adaptada al nivel de experiencia
+          y a las necesidades de cada profesional.
+        </p>
+
+        <p>
+          La supervisión permite revisar el encuadre de una intervención,
+          organizar el proceso de evaluación, seleccionar técnicas,
+          interpretar resultados y construir conclusiones profesionalmente
+          fundamentadas.
+        </p>
+
+        <p>
+          También puede centrarse en la redacción de informes,
+          contestaciones, ampliaciones, observaciones, impugnaciones
+          y otros escritos vinculados con la actuación psicológica
+          en expedientes judiciales.
+        </p>
+
+        <p>
+          El objetivo no es ofrecer respuestas estandarizadas,
+          sino acompañar al profesional en la construcción
+          de un criterio propio, responsable y técnicamente sólido.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         A QUIÉN ESTÁ DIRIGIDA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Destinatarios
+        </span>
+
+        <h2>
+          ¿A quién está dirigida?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Psicólogos que comienzan
+            </h3>
+
+            <p>
+              Profesionales que desean incorporarse al ámbito pericial
+              y necesitan comprender el rol, el encuadre y las primeras
+              intervenciones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Peritos de oficio
+            </h3>
+
+            <p>
+              Profesionales designados judicialmente que requieren
+              orientación para organizar una pericia, responder puntos
+              o presentar el informe.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Peritos de parte
+            </h3>
+
+            <p>
+              Colegas que acompañan técnicamente a una de las partes
+              y necesitan analizar evaluaciones, informes o estrategias.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Psicólogos con casos judicializados
+            </h3>
+
+            <p>
+              Profesionales clínicos que reciben requerimientos,
+              oficios, citaciones o pedidos de informes vinculados
+              con sus pacientes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Profesionales con experiencia
+            </h3>
+
+            <p>
+              Colegas que desean revisar un caso complejo,
+              una conclusión diagnóstica o una intervención específica.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Estudiantes avanzados
+            </h3>
+
+            <p>
+              Personas próximas a graduarse que buscan una aproximación
+              técnica y práctica al campo jurídico-forense.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUÉ PUEDE SUPERVISARSE
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Áreas de trabajo
+        </span>
+
+        <h2>
+          ¿Qué puede trabajarse en supervisión?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Casos periciales
+            </h3>
+
+            <p>
+              Análisis del expediente, objeto de la evaluación,
+              puntos periciales y estrategia de intervención.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informes psicológicos
+            </h3>
+
+            <p>
+              Organización, redacción, revisión y fundamentación
+              de informes destinados al ámbito judicial.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Psicodiagnósticos
+            </h3>
+
+            <p>
+              Selección de técnicas, análisis de resultados,
+              integración y construcción de conclusiones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Daño psíquico
+            </h3>
+
+            <p>
+              Evaluación de cuadro psicológico, novedad,
+              causalidad, persistencia y repercusión funcional.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Puntos de pericia
+            </h3>
+
+            <p>
+              Interpretación de lo solicitado y elaboración
+              de respuestas claras, específicas y fundamentadas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Escritos judiciales
+            </h3>
+
+            <p>
+              Presentaciones, contestaciones, aclaraciones,
+              ampliaciones y respuestas a requerimientos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Impugnaciones
+            </h3>
+
+            <p>
+              Análisis técnico de informes, formulación de observaciones
+              y respuesta a cuestionamientos profesionales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Situaciones éticas
+            </h3>
+
+            <p>
+              Revisión de límites profesionales, confidencialidad,
+              consentimiento y manejo de información sensible.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SUPERVISIÓN DE CASOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Práctica aplicada
+        </span>
+
+        <h2>
+          Supervisión de casos periciales
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Cada caso presenta interrogantes técnicos, procesales
+          y profesionales diferentes. La supervisión permite ordenar
+          esos elementos antes de tomar decisiones.
+        </p>
+
+        <p>
+          Puede trabajarse desde el momento de la designación,
+          antes de la primera entrevista, durante la administración
+          de técnicas o en la etapa de integración y redacción.
+        </p>
+
+        <p>
+          También puede solicitarse supervisión cuando el informe
+          ya fue presentado y el profesional debe responder
+          observaciones, pedidos de explicaciones o una impugnación.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Lectura del expediente
+            </h3>
+
+            <p>
+              Identificación del objeto de la causa,
+              antecedentes relevantes y límites de la intervención.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Planificación
+            </h3>
+
+            <p>
+              Organización de entrevistas, documentación,
+              técnicas y tiempos de trabajo.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Hipótesis de evaluación
+            </h3>
+
+            <p>
+              Construcción de preguntas técnicas que orienten
+              el proceso sin anticipar conclusiones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Integración
+            </h3>
+
+            <p>
+              Articulación entre entrevistas, antecedentes,
+              resultados y observaciones profesionales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Conclusiones
+            </h3>
+
+            <p>
+              Elaboración de respuestas coherentes
+              con lo efectivamente evaluado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Presentación judicial
+            </h3>
+
+            <p>
+              Revisión final del documento y de su correspondencia
+              con el requerimiento recibido.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INFORMES Y ESCRITOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Producción profesional
+        </span>
+
+        <h2>
+          Acompañamiento en informes y escritos judiciales
+        </h2>
+
+        <p>
+          La supervisión puede incluir la revisión de estructura,
+          claridad, fundamentación y coherencia interna de una
+          producción profesional.
+        </p>
+
+        <p>
+          El trabajo se realiza sobre el material elaborado por el colega,
+          respetando su autoría, su responsabilidad profesional
+          y las particularidades del caso.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informes periciales
+            </h3>
+
+            <p>
+              Revisión de metodología, antecedentes,
+              resultados, conclusiones y respuestas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informes psicológicos
+            </h3>
+
+            <p>
+              Adecuación del contenido al destinatario,
+              finalidad y encuadre de la intervención.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Contestaciones
+            </h3>
+
+            <p>
+              Respuestas a pedidos de explicaciones,
+              observaciones o cuestionamientos técnicos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Ampliaciones
+            </h3>
+
+            <p>
+              Desarrollo de aspectos que requieren
+              mayor precisión o fundamentación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Impugnaciones
+            </h3>
+
+            <p>
+              Organización de observaciones técnicas
+              frente a informes de otros profesionales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Presentaciones procesales
+            </h3>
+
+            <p>
+              Orientación sobre el contenido psicológico
+              que debe incorporarse en el escrito.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+        <!-- ===================================================
+         PSICODIAGNÓSTICOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Evaluación psicológica
+        </span>
+
+        <h2>
+          Análisis de psicodiagnósticos
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La supervisión puede centrarse en la planificación,
+          administración, interpretación e integración de un
+          proceso psicodiagnóstico destinado al ámbito judicial.
+        </p>
+
+        <p>
+          Se revisa la relación entre el motivo de evaluación,
+          las entrevistas realizadas, las técnicas seleccionadas,
+          los resultados obtenidos y las conclusiones propuestas.
+        </p>
+
+        <p>
+          El objetivo es evitar interpretaciones aisladas,
+          afirmaciones que excedan el material disponible
+          o conclusiones que no respondan al requerimiento concreto.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevistas
+            </h3>
+
+            <p>
+              Organización del relevamiento de antecedentes,
+              relato del hecho, evolución y funcionamiento actual.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Observación clínica
+            </h3>
+
+            <p>
+              Análisis de la conducta, actitud,
+              modalidad expresiva y recursos durante el proceso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas psicométricas
+            </h3>
+
+            <p>
+              Revisión de la administración, puntuación,
+              alcance e interpretación de los resultados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas gráficas
+            </h3>
+
+            <p>
+              Análisis prudente de indicadores,
+              convergencias y límites interpretativos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Integración
+            </h3>
+
+            <p>
+              Articulación entre entrevistas, instrumentos,
+              antecedentes y documentación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Conclusiones
+            </h3>
+
+            <p>
+              Construcción de formulaciones claras,
+              coherentes y técnicamente sostenidas.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SELECCIÓN DE TÉCNICAS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Criterio metodológico
+        </span>
+
+        <h2>
+          Selección de técnicas de evaluación
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La batería debe responder a las características de la persona,
+          al motivo de la evaluación y a los interrogantes concretos
+          que deben analizarse.
+        </p>
+
+        <p>
+          No corresponde aplicar automáticamente el mismo conjunto
+          de instrumentos a todos los casos ni seleccionar técnicas
+          únicamente por costumbre.
+        </p>
+
+        <p>
+          Esta perito elige los test pertinentes según la entrevista
+          psicodiagnóstica, los antecedentes disponibles y los objetivos
+          específicos de la intervención.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Pertinencia
+            </h3>
+
+            <p>
+              Cada técnica debe aportar información relacionada
+              con el objeto de la evaluación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Edad y condiciones
+            </h3>
+
+            <p>
+              Los instrumentos deben adecuarse a la edad,
+              comprensión y características personales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Objetivo judicial
+            </h3>
+
+            <p>
+              La batería debe permitir responder
+              los puntos concretos del proceso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Tiempo disponible
+            </h3>
+
+            <p>
+              Se organiza el proceso sin sacrificar
+              la calidad ni la fundamentación técnica.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Complementariedad
+            </h3>
+
+            <p>
+              Se buscan datos convergentes mediante
+              técnicas de naturaleza diferente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Límites interpretativos
+            </h3>
+
+            <p>
+              Se evita atribuir a un instrumento
+              alcances que metodológicamente no posee.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            No existe un test que resuelva todo el caso
+          </h3>
+
+          <p>
+            Ningún instrumento aislado permite establecer por sí solo
+            un diagnóstico, un nexo causal o una incapacidad.
+          </p>
+
+          <p>
+            Las conclusiones deben surgir de la integración
+            del proceso completo de evaluación.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DAÑO PSÍQUICO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Criterios periciales
+        </span>
+
+        <h2>
+          Supervisión en evaluación de daño psíquico
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La existencia de sufrimiento, malestar o sintomatología
+          no implica automáticamente la configuración de daño psíquico.
+        </p>
+
+        <p>
+          En supervisión puede analizarse si los datos obtenidos
+          permiten sostener un cuadro psicológico coherente,
+          novedoso, causalmente relacionado, persistente
+          y con repercusión funcional.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Cuadro psicológico
+            </h3>
+
+            <p>
+              Se revisa si los indicadores permiten
+              identificar una alteración clínicamente consistente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Novedad
+            </h3>
+
+            <p>
+              Se analiza si existe un cambio respecto
+              del funcionamiento psicológico previo.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Nexo causal
+            </h3>
+
+            <p>
+              Se estudia la relación entre el hecho,
+              los antecedentes y el estado actual.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Persistencia
+            </h3>
+
+            <p>
+              Se considera la evolución, duración,
+              consolidación y pronóstico del cuadro.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Repercusión
+            </h3>
+
+            <p>
+              Se examina el impacto sobre las áreas
+              afectiva, familiar, social y laboral.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Concausas
+            </h3>
+
+            <p>
+              Se revisa la influencia de antecedentes,
+              condiciones previas y factores concurrentes.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INCAPACIDAD Y BAREMOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Valoración técnica
+        </span>
+
+        <h2>
+          Incapacidad psicológica y aplicación de baremos
+        </h2>
+
+        <p>
+          La supervisión puede incluir el análisis de la correspondencia
+          entre el cuadro psicológico, su repercusión funcional
+          y la eventual estimación de incapacidad.
+        </p>
+
+        <p>
+          El porcentaje no debe surgir de una aplicación automática
+          del baremo ni definirse antes de completar la evaluación.
+        </p>
+
+        <p>
+          Primero debe fundamentarse la existencia del cuadro,
+          su relación con el hecho, su persistencia y el grado
+          de limitación que produce.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Diagnóstico
+            </h3>
+
+            <p>
+              Revisión de la formulación clínica
+              y de su sustento en el material obtenido.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Funcionamiento
+            </h3>
+
+            <p>
+              Análisis de las limitaciones concretas
+              en las diferentes áreas de la vida.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Baremo aplicable
+            </h3>
+
+            <p>
+              Selección de la pauta correspondiente
+              según el ámbito y finalidad de la evaluación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Porcentaje
+            </h3>
+
+            <p>
+              Fundamentación de la estimación
+              dentro del rango previsto.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Pronóstico
+            </h3>
+
+            <p>
+              Consideración de la evolución esperable,
+              tratamientos y posibilidades de recuperación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Claridad expositiva
+            </h3>
+
+            <p>
+              Diferenciación entre diagnóstico,
+              daño psíquico e incapacidad.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SUPERVISIÓN INTEGRAL
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Acompañamiento de principio a fin
+        </span>
+
+        <h2>
+          Supervisión integral de una causa
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Cuando el profesional lo necesita, el acompañamiento puede
+          extenderse durante las distintas etapas de su intervención.
+        </p>
+
+        <p>
+          Esta modalidad permite trabajar de forma progresiva,
+          desde la recepción de la designación o consulta
+          hasta la presentación del informe y las respuestas posteriores.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Inicio de la causa
+            </h3>
+
+            <p>
+              Lectura de la designación, identificación
+              de plazos y organización de los primeros pasos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Preparación
+            </h3>
+
+            <p>
+              Análisis de documentación, puntos periciales
+              y planificación de entrevistas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Evaluación
+            </h3>
+
+            <p>
+              Seguimiento de entrevistas, selección
+              de técnicas y registro de información.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Integración
+            </h3>
+
+            <p>
+              Revisión de resultados, hipótesis,
+              diagnóstico y repercusiones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informe final
+            </h3>
+
+            <p>
+              Organización del documento,
+              respuestas y consideraciones finales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Etapa posterior
+            </h3>
+
+            <p>
+              Contestación de observaciones,
+              explicaciones, ampliaciones o impugnaciones.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            Un acompañamiento adaptado a cada profesional
+          </h3>
+
+          <p>
+            La supervisión integral no reemplaza la responsabilidad,
+            el criterio ni la firma del profesional interviniente.
+          </p>
+
+          <p>
+            Su función es brindar orientación técnica y acompañamiento
+            durante el desarrollo de la tarea.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONSULTA, CORRECCIÓN Y SUPERVISIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Modalidades de intervención
+        </span>
+
+        <h2>
+          Diferencia entre consulta, revisión y supervisión
+        </h2>
+
+        <p>
+          Cada modalidad responde a una necesidad profesional diferente.
+          El tipo de intervención se acuerda a partir del material
+          disponible y del objetivo planteado.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Consulta puntual
+            </h3>
+
+            <p>
+              Abordaje de una duda específica vinculada
+              con un caso, un escrito o una decisión técnica.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Revisión de material
+            </h3>
+
+            <p>
+              Lectura y análisis de un informe,
+              escrito, psicodiagnóstico o documento profesional.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Supervisión de caso
+            </h3>
+
+            <p>
+              Análisis integral de la intervención,
+              sus fundamentos y las decisiones adoptadas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Corrección orientativa
+            </h3>
+
+            <p>
+              Señalamiento de aspectos que pueden
+              reorganizarse, ampliarse o fundamentarse mejor.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Supervisión integral
+            </h3>
+
+            <p>
+              Acompañamiento durante varias etapas
+              del desarrollo de una causa o evaluación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Formación aplicada
+            </h3>
+
+            <p>
+              Trabajo sobre ejemplos y situaciones prácticas
+              para adquirir herramientas profesionales.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MODALIDADES DE SUPERVISIÓN
+    ==================================================== -->
+
+    <section
+      class="seccion-definicion"
+      id="modalidades-supervision"
+    >
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Organización de los encuentros
+        </span>
+
+        <h2>
+          Modalidades de trabajo
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Encuentro individual
+            </h3>
+
+            <p>
+              Espacio personalizado centrado en las necesidades,
+              dudas y material aportado por el profesional.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Modalidad virtual
+            </h3>
+
+            <p>
+              Supervisión mediante videollamada,
+              con coordinación previa del encuentro.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Modalidad presencial
+            </h3>
+
+            <p>
+              Disponible según el lugar,
+              la agenda y las características del trabajo.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Encuentro único
+            </h3>
+
+            <p>
+              Adecuado para una consulta puntual,
+              revisión específica o situación urgente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Seguimiento
+            </h3>
+
+            <p>
+              Serie de encuentros destinados
+              a acompañar la evolución de un caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Revisión documental
+            </h3>
+
+            <p>
+              Lectura previa de material cuando
+              la consulta requiere análisis detallado.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            La supervisión comienza desde el primer encuentro
+          </h3>
+
+          <p>
+            La entrevista inicial no se limita a explicar
+            cómo se trabajará.
+          </p>
+
+          <p>
+            Desde esa primera instancia se analiza el material,
+            se ordenan las preguntas y se inicia la orientación
+            técnica sobre el caso.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PREPARACIÓN DEL ENCUENTRO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Antes de la supervisión
+        </span>
+
+        <h2>
+          ¿Cómo preparar el encuentro?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Contar con información organizada permite aprovechar mejor
+          el tiempo de supervisión y trabajar sobre los aspectos
+          verdaderamente relevantes.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Motivo de consulta
+            </h3>
+
+            <p>
+              Indicar con claridad cuál es la duda,
+              dificultad o decisión que debe analizarse.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Tipo de intervención
+            </h3>
+
+            <p>
+              Informar si se actúa como perito de oficio,
+              de parte, consultor o profesional tratante.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Estado de la causa
+            </h3>
+
+            <p>
+              Precisar si la evaluación está por comenzar,
+              en proceso o ya fue presentada.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Documentación relevante
+            </h3>
+
+            <p>
+              Reunir puntos periciales, resoluciones,
+              informes y antecedentes necesarios.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Producción propia
+            </h3>
+
+            <p>
+              Adjuntar borradores, resultados,
+              protocolos o escritos que deban revisarse.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Plazos
+            </h3>
+
+            <p>
+              Informar si existe una fecha de presentación,
+              audiencia o vencimiento próximo.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            Protección de los datos del caso
+          </h3>
+
+          <p>
+            La documentación debe compartirse por los medios
+            indicados y únicamente cuando resulte necesaria.
+          </p>
+
+          <p>
+            Cuando sea posible, corresponde resguardar
+            o anonimizar los datos identificatorios sensibles.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+        <!-- ===================================================
+         OBJETIVOS DE LA SUPERVISIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Desarrollo profesional
+        </span>
+
+        <h2>
+          Objetivos de la supervisión
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La supervisión busca fortalecer la práctica profesional,
+          mejorar la toma de decisiones y favorecer intervenciones
+          técnicamente fundamentadas en el ámbito judicial.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Ordenar el caso
+            </h3>
+
+            <p>
+              Identificar el problema central,
+              las preguntas técnicas y la información relevante.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Fortalecer el criterio
+            </h3>
+
+            <p>
+              Desarrollar decisiones propias basadas
+              en fundamentos clínicos, metodológicos y forenses.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Mejorar la evaluación
+            </h3>
+
+            <p>
+              Planificar entrevistas, seleccionar técnicas
+              e integrar adecuadamente los resultados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Redactar con claridad
+            </h3>
+
+            <p>
+              Organizar informes y escritos comprensibles,
+              precisos y vinculados con lo solicitado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Prevenir errores
+            </h3>
+
+            <p>
+              Detectar contradicciones, omisiones,
+              afirmaciones excesivas o problemas metodológicos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Intervenir con seguridad
+            </h3>
+
+            <p>
+              Comprender el rol profesional,
+              sus límites y responsabilidades.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Resolver situaciones complejas
+            </h3>
+
+            <p>
+              Analizar casos que presentan dificultades
+              clínicas, técnicas, éticas o procesales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Construir autonomía
+            </h3>
+
+            <p>
+              Incorporar herramientas que puedan aplicarse
+              en futuras intervenciones profesionales.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ALCANCES Y LÍMITES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Encuadre profesional
+        </span>
+
+        <h2>
+          Alcances y límites de la supervisión
+        </h2>
+
+        <p>
+          La supervisión constituye una instancia de orientación,
+          análisis y formación aplicada. No reemplaza la intervención
+          profesional de quien tiene a su cargo el caso.
+        </p>
+
+        <p>
+          El colega conserva la responsabilidad sobre la evaluación,
+          las decisiones adoptadas, el contenido presentado,
+          la firma y su actuación dentro del expediente.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Orientación técnica
+            </h3>
+
+            <p>
+              Se analizan alternativas, fundamentos,
+              riesgos y criterios de intervención.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Revisión profesional
+            </h3>
+
+            <p>
+              Se señalan aspectos que pueden mejorarse,
+              ampliarse o reorganizarse.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Respeto por la autoría
+            </h3>
+
+            <p>
+              El informe o escrito continúa siendo
+              una producción del profesional interviniente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Sin sustitución profesional
+            </h3>
+
+            <p>
+              La supervisión no implica asumir
+              el rol ni las obligaciones del colega.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Sin resultado predeterminado
+            </h3>
+
+            <p>
+              No se construyen diagnósticos, porcentajes
+              o conclusiones para sostener una posición previa.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Responsabilidad individual
+            </h3>
+
+            <p>
+              Cada profesional debe verificar la pertinencia
+              de las decisiones aplicadas a su caso.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            La supervisión no reemplaza el patrocinio jurídico
+          </h3>
+
+          <p>
+            Cuando el caso requiere interpretación normativa,
+            estrategia procesal o asesoramiento jurídico,
+            corresponde consultar con un abogado.
+          </p>
+
+          <p>
+            La supervisión se concentra en los aspectos
+            psicológicos, metodológicos y técnico-periciales.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONFIDENCIALIDAD
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Resguardo de la información
+        </span>
+
+        <h2>
+          Confidencialidad y tratamiento del material
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Los casos se trabajan dentro de un encuadre profesional,
+          respetando la confidencialidad y la protección de los datos
+          personales y sensibles.
+        </p>
+
+        <p>
+          El colega debe compartir únicamente la documentación
+          necesaria para el objetivo de la supervisión y resguardar,
+          cuando corresponda, la identidad de las personas involucradas.
+        </p>
+
+        <p>
+          Los protocolos, informes, historias clínicas,
+          expedientes y demás materiales deben manejarse
+          de acuerdo con las obligaciones éticas y profesionales.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Datos identificatorios
+            </h3>
+
+            <p>
+              Se recomienda omitir o anonimizar información
+              que no resulte necesaria para el análisis.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Documentación sensible
+            </h3>
+
+            <p>
+              Debe compartirse mediante los medios
+              indicados para la supervisión.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Protocolos
+            </h3>
+
+            <p>
+              Su conservación y custodia continúa
+              bajo responsabilidad del profesional.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Uso limitado
+            </h3>
+
+            <p>
+              El material se utiliza exclusivamente
+              para el trabajo profesional acordado.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ÁREA PROFESIONAL
+    ==================================================== -->
+
+    <section class="bloque-tests">
+
+      <div class="danio-contenedor">
+
+        <div class="bloque-tests-card">
+
+          <span class="footer-etiqueta">
+            Sistema FALCO®
+          </span>
+
+          <h2 class="titulo-seccion">
+            Área Profesional
+          </h2>
+
+          <p class="bloque-tests-texto">
+            Espacio destinado a profesionales de la psicología,
+            peritos psicólogos y colegas que participan
+            de los servicios de formación y supervisión.
+          </p>
+
+          <p class="bloque-tests-texto">
+            Integra recursos técnicos, herramientas de organización,
+            materiales de consulta y accesos vinculados
+            con la práctica psicológica jurídica y forense.
+          </p>
+
+
+          <div class="badge-acceso-tests">
+
+            <a
+              href="profesional-login.html"
+              class="badge-link"
+            >
+
+              <span
+                class="badge-icono"
+                aria-hidden="true"
+              >
+                🔒
+              </span>
+
+              <span class="badge-texto">
+
+                Ingresar al Área Profesional
+
+                <small>
+                  Recursos técnicos y servicios para profesionales
+                </small>
+
+              </span>
+
+            </a>
+
+          </div>
+
+
+          <p class="bloque-tests-nota">
+            Acceso restringido · Uso profesional · Usuario autorizado
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RECURSOS PROFESIONALES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Ecosistema FALCO®
+        </span>
+
+        <h2>
+          Recursos para acompañar la práctica
+        </h2>
+
+        <p>
+          La supervisión puede complementarse con espacios de formación,
+          materiales técnicos y herramientas destinadas a facilitar
+          la organización del trabajo profesional.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Biblioteca FALCO®
+            </h3>
+
+            <p>
+              Materiales de consulta, modelos,
+              guías y recursos de apoyo profesional.
+            </p>
+
+            <a
+              href="biblioteca-login.html"
+              class="servicio-card-link"
+            >
+              Ingresar a la biblioteca →
+            </a>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Talleres y cursos
+            </h3>
+
+            <p>
+              Formación aplicada en psicología jurídica,
+              evaluación e intervención pericial.
+            </p>
+
+            <a
+              href="talleres-y-cursos.html"
+              class="servicio-card-link"
+            >
+              Ver propuestas de formación →
+            </a>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Método FALCO®
+            </h3>
+
+            <p>
+              Sistema de organización y desarrollo
+              de la práctica pericial psicológica.
+            </p>
+
+            <a
+              href="metodo-falco.html"
+              class="servicio-card-link"
+            >
+              Conocer el método →
+            </a>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Programa Premium
+            </h3>
+
+            <p>
+              Acompañamiento integral para profesionales
+              que buscan desarrollar su actividad pericial.
+            </p>
+
+            <a
+              href="programa-premium.html"
+              class="servicio-card-link"
+            >
+              Conocer el programa →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PREGUNTAS FRECUENTES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Consultas frecuentes
+        </span>
+
+        <h2>
+          Preguntas frecuentes
+        </h2>
+
+        <div class="faq-perito-parte">
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision1')"
+            >
+              ¿Es necesario tener experiencia como perito?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision1"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. La supervisión está dirigida tanto a profesionales
+                que comienzan como a colegas con experiencia que necesitan
+                revisar una situación específica.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision2')"
+            >
+              ¿La primera entrevista es solo informativa?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision2"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. Desde el primer encuentro se comienza a trabajar
+                sobre la consulta, el caso o el material aportado
+                por el profesional.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision3')"
+            >
+              ¿Puedo presentar un informe para que sea revisado?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision3"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Puede trabajarse sobre un borrador,
+                un informe ya elaborado o una estructura
+                que todavía se encuentra en desarrollo.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision4')"
+            >
+              ¿La supervisión incluye corrección del informe?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision4"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Puede incluir revisión, señalamientos y orientación
+                para mejorar la estructura, la claridad y la fundamentación.
+                El profesional conserva la autoría y responsabilidad
+                sobre el documento final.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision5')"
+            >
+              ¿Puedo consultar por una impugnación?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision5"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Puede analizarse una impugnación recibida,
+                la respuesta técnica necesaria o las observaciones
+                que se desea formular sobre otro informe.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision6')"
+            >
+              ¿Se puede supervisar una causa completa?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision6"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Puede acordarse un acompañamiento integral,
+                desde la recepción del caso hasta la presentación
+                del informe y sus eventuales respuestas posteriores.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision7')"
+            >
+              ¿Los encuentros son virtuales?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision7"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Pueden realizarse mediante videollamada.
+                También puede acordarse modalidad presencial,
+                según disponibilidad y ubicación.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision8')"
+            >
+              ¿Cuánto dura un encuentro?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision8"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                La duración se informa al organizar la consulta,
+                de acuerdo con la modalidad y el tipo
+                de trabajo que se realizará.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision9')"
+            >
+              ¿Puedo consultar si tengo un vencimiento próximo?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision9"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Al iniciar la consulta debe informarse
+                la fecha exacta del vencimiento para evaluar
+                la disponibilidad y el alcance posible del trabajo.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqSupervision10')"
+            >
+              ¿La supervisión es confidencial?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqSupervision10"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. El trabajo se desarrolla dentro de un encuadre
+                profesional y con resguardo de la información,
+                sin perjuicio de las obligaciones que correspondan
+                al profesional a cargo del caso.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICIOS RELACIONADOS
+    ==================================================== -->
+
+    <section
+      class="servicios-relacionados"
+      id="servicios-relacionados"
+    >
+
+      <span class="footer-etiqueta">
+        Servicios y formación
+      </span>
 
       <h2 class="titulo-seccion">
-        Acceso a tests psicométricos
+        Servicios relacionados
       </h2>
 
-      <p class="bloque-tests-texto">
-        Espacio exclusivo para profesionales de la psicología y peritos psicólogos.
-        Acceso a herramientas de evaluación psicológica, tests psicométricos y recursos técnicos utilizados en la práctica clínica y pericial.
-      </p>
+      <div class="servicios-rel-grid">
 
-      <p class="bloque-tests-texto">
-        Incluye materiales de apoyo para la evaluación, organización del proceso psicodiagnóstico y aplicación en contextos judiciales.
-      </p>
+        <a
+          href="talleres-y-cursos.html"
+          class="servicio-rel-item"
+        >
+          Talleres y cursos
+        </a>
 
-    <div class="badge-acceso-tests">
+        <a
+          href="metodo-falco.html"
+          class="servicio-rel-item"
+        >
+          Método FALCO®
+        </a>
 
-  <a href="login.html" class="badge-link">
-    <span class="badge-icono">🔒</span>
-    <span class="badge-texto">
-  Área profesional
-  <small>Tests psicométricos y recursos técnicos</small>
-</span>
+        <a
+          href="programa-premium.html"
+          class="servicio-rel-item"
+        >
+          Programa Premium
+        </a>
+
+        <a
+          href="biblioteca-login.html"
+          class="servicio-rel-item"
+        >
+          Biblioteca FALCO®
+        </a>
+
+        <a
+          href="informe-pericial-psicologico.html"
+          class="servicio-rel-item"
+        >
+          Informe pericial psicológico
+        </a>
+
+        <a
+          href="impugnacion-pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Impugnación de informes
+        </a>
+
+        <a
+          href="danio-psiquico-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Evaluación de daño psíquico
+        </a>
+
+        <a
+          href="evaluacion-psicologica-judicial-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Evaluación psicológica judicial
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA FINAL
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          FALCO Admisión™
+        </span>
+
+        <h2>
+          ¿Necesitás supervisar un caso o revisar una producción profesional?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Iniciá el recorrido de admisión e indicá qué tipo
+          de intervención realizás, en qué etapa se encuentra el caso
+          y cuál es la consulta concreta que necesitás trabajar.
+        </p>
+
+        <p>
+          También podés informar si existe un vencimiento,
+          audiencia o fecha de presentación próxima,
+          y qué documentación tenés disponible.
+        </p>
+
+        <div
+          style="
+            margin-top: 28px;
+            text-align: center;
+          "
+        >
+
+          <a
+            href="FALCO-ADMISION/index.html"
+            class="btn-principal"
+          >
+            Solicitar supervisión profesional
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       WHATSAPP FLOTANTE
+  ====================================================== -->
+
+  <a
+    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20supervisi%C3%B3n%20profesional%20en%20psicolog%C3%ADa%20jur%C3%ADdica%20y%20forense."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Consultar por supervisión profesional en WhatsApp"
+  >
+    💬 Consultar
   </a>
 
-</div>
 
-      <p class="bloque-tests-nota">
-        Acceso restringido · Uso profesional · Recursos en actualización permanente
-      </p>
+  <!-- =====================================================
+       FOOTER INSTITUCIONAL
+  ====================================================== -->
 
-    </div>
+  <footer class="footer">
 
-  </div>
+    <div class="footer-contenido">
 
-</section>
+      <div class="footer-col footer-identidad">
 
+        <span class="footer-etiqueta">
+          Estudio profesional
+        </span>
 
+        <p class="footer-titulo">
+          Estudio Pericial Psicológico
+        </p>
 
+        <p class="footer-texto">
+          Lic. en Psicología Isabela Falco
+        </p>
 
+        <p class="footer-descripcion">
+          Supervisión profesional, formación aplicada,
+          pericias psicológicas y asesoramiento técnico
+          para la práctica jurídica y forense.
+        </p>
 
+        <div class="footer-especialidades">
 
-<section class="seccion-definicion">
-<div class="danio-contenedor">
+          <span>Supervisión</span>
+          <span>Pericias</span>
+          <span>Informes</span>
+          <span>Formación</span>
 
-<p>
-La supervisión para peritos psicólogos está dirigida a colegas, profesionales de la psicología y peritos que intervienen o desean formarse en el ámbito jurídico-pericial.
-</p>
+        </div>
 
-<p>
-El espacio ofrece orientación técnica para el abordaje de casos complejos, elaboración de informes psicológicos, revisión de escritos judiciales y análisis de intervenciones periciales.
-</p>
-
-<p>
-Se trabaja sobre situaciones concretas de la práctica profesional, cuidando la confidencialidad del caso y promoviendo una mirada clínica, metodológica y jurídica.
-</p>
-
-<h2>¿A quién está dirigido?</h2>
-<ul>
-<li>Psicólogos/as que se inician en la práctica pericial</li>
-<li>Peritos psicólogos de oficio o de parte</li>
-<li>Colegas que requieren orientación en casos judiciales</li>
-<li>Profesionales que necesitan revisar informes, escritos o intervenciones técnicas</li>
-</ul>
-
-<h2>Áreas de supervisión y asesoramiento</h2>
-<ul>
-<li>Supervisión de casos periciales</li>
-<li>Elaboración y revisión de informes psicológicos</li>
-<li>Asesoramiento en puntos de pericia</li>
-<li>Revisión de escritos dirigidos a juzgados</li>
-<li>Impugnaciones, contestaciones y ampliaciones</li>
-<li>Análisis metodológico de psicodiagnósticos</li>
-<li>Orientación en daño psíquico y evaluación psicológica judicial</li>
-</ul>
-
-<h2>Supervisión de casos</h2>
-
-<p>
-La supervisión permite analizar el encuadre del caso, los objetivos de la intervención, la estrategia de evaluación, la selección de técnicas y la articulación entre los hallazgos clínicos y la demanda judicial.
-</p>
-
-<p>
-También se abordan dudas frecuentes vinculadas con el rol del perito, los límites de la intervención profesional y la forma de responder a requerimientos judiciales.
-</p>
-
-<h2>Ayuda en informes y escritos judiciales</h2>
-
-<p>
-Se brinda acompañamiento en la organización, redacción y revisión técnica de informes periciales psicológicos, observaciones, impugnaciones, contestaciones de traslado, ampliaciones y otros escritos vinculados con la práctica pericial.
-</p>
-
-<p>
-El objetivo es favorecer producciones claras, fundamentadas y coherentes con los criterios técnicos de la psicología jurídica y forense.
-</p>
-
-<h2>Modalidad de trabajo</h2>
-
-<ul>
-<li>Encuentros individuales de supervisión</li>
-<li>Modalidad virtual o presencial, según disponibilidad</li>
-<li>Análisis de material clínico-pericial</li>
-<li>Orientación técnica personalizada</li>
-<li>Trabajo confidencial y adaptado a cada caso</li>
-</ul>
-
-<h2>Objetivo</h2>
-
-<p>
-Fortalecer la práctica profesional de psicólogos y peritos psicólogos, ofreciendo un espacio de consulta, revisión y acompañamiento técnico para intervenir con mayor claridad, seguridad y fundamentación en el ámbito judicial.
-</p>
+      </div>
 
 
-<div style="margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <div class="footer-col">
 
-  <p style="font-size:1rem; color:#ccc;">
-    ¿Querés consultar por supervisión de un caso o asesoramiento pericial? Escribí para coordinar una orientación profesional.
-  </p>
+        <p class="footer-subtitulo">
+          Contacto
+        </p>
 
-  <a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20supervisi%C3%B3n%20para%20peritos%20psic%C3%B3logos%20y%20asesoramiento%20pericial." 
-     class="btn-principal" 
-     target="_blank" 
-     rel="noopener noreferrer">
-    Consultar por WhatsApp
-  </a>
+        <p class="footer-item">
 
-  <p style="font-size:0.9rem; color:#aaa;">
-    Supervisión profesional · Confidencialidad · Orientación técnica personalizada
-  </p>
+          <span class="footer-item-titulo">
+            WhatsApp
+          </span>
 
-  <a href="https://periciapsicologicafalco.ar/" class="btn-secundario">
-    Volver al inicio
-  </a>
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            11 3204 9521
+          </a>
 
-</div>
+        </p>
 
-</div>
-</section>
+        <p class="footer-item">
 
+          <span class="footer-item-titulo">
+            Correo electrónico
+          </span>
 
-<section class="servicios-relacionados">
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+            estudiopericialpsicologico@gmail.com
+          </a>
 
-  <h2 class="titulo-seccion">Servicios relacionados</h2>
+        </p>
 
-  <div class="servicios-rel-grid">
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="footer-consulta"
+        >
+          Iniciar una consulta
 
-    <a href="pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Pericia psicológica
-    </a>
-
-    <a href="danio-psiquico-buenos-aires.html" class="servicio-rel-item">
-      Daño psíquico
-    </a>
-
-    <a href="informe-pericial-psicologico.html" class="servicio-rel-item">
-      Informe pericial
-    </a>
-
-    <a href="perito-psicologa-de-parte-buenos-aires.html" class="servicio-rel-item">
-      Perito de parte
-    </a>
-
-    <a href="impugnacion-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Impugnación de pericia
-    </a>
-
-    <a href="evaluacion-psicologica-judicial-buenos-aires.html" class="servicio-rel-item">
-      Evaluación psicológica
-    </a>
-
-    <a href="talleres-cursos-psicologia-buenos-aires.html" class="servicio-rel-item">
-      Talleres y cursos
-    </a>
-
-    <a href="cuanto-cuesta-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Costos de pericia psicológica
-    </a>
-
-    <a href="cuanto-tarda-pericia-psicologica.html" class="servicio-rel-item">
-      Tiempos de evaluación pericial
-    </a>
-
-
-    <a href="supervision-peritos-psicologos.html" class="servicio-rel-item">
-  Supervisión para peritos psicólogos
-</a>
-
-
-<a href="contrainformes-psicologicos.html" class="servicio-rel-item">
-  Contra informes psicológicos
-</a>
-
-  </div>
-
-</section>
-
-
-<script src="script.js"></script>
-
-
-<a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20supervisi%C3%B3n%20para%20peritos%20psic%C3%B3logos." 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  💬 Consultar
-</a>
-
-
-<footer class="footer">
-
-  <div class="footer-contenido">
-
-    <div class="footer-col">
-      <p class="footer-titulo">
-        Lic. Isabela Falco
-      </p>
-      <p class="footer-texto">
-        Pericias Psicológicas Forenses
-      </p>
-    </div>
-
-    <div class="footer-col">
-      <p class="footer-subtitulo">Contacto</p>
-
-      <p class="footer-item">
-        WhatsApp<br>
-        <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">
-          11 3204 9521
+          <span aria-hidden="true">
+            →
+          </span>
         </a>
-      </p>
 
-      <p class="footer-item">
-        Email<br>
-        <a href="mailto:estudiopericialpsicologico@gmail.com">
-          estudiopericialpsicologico@gmail.com
-        </a>
-      </p>
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Sistema FALCO®
+        </p>
+
+        <nav
+          class="footer-navegacion"
+          aria-label="Accesos del Sistema FALCO"
+        >
+
+          <a href="FALCO-ADMISION/index.html">
+            FALCO Admisión™
+          </a>
+
+          <a href="profesional-login.html">
+            Área Profesional
+          </a>
+
+          <a href="escuela-login.html">
+            Formación FALCO®
+          </a>
+
+          <a href="biblioteca-login.html">
+            Biblioteca FALCO®
+          </a>
+
+          <a href="login.html">
+            Área de evaluación
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Modalidades
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Supervisión virtual
+          </span>
+
+          Encuentros mediante videollamada
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Supervisión presencial
+          </span>
+
+          Según disponibilidad y coordinación previa
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Buenos Aires
+          </span>
+
+          Zona Norte · Escobar · Pilar<br>
+          Zona Oeste · Ramos Mejía
+        </p>
+
+        <p class="footer-nota">
+          Atención con coordinación previa
+        </p>
+
+      </div>
+
     </div>
 
-    <div class="footer-col">
-      <p class="footer-subtitulo">Redes</p>
 
-      <p class="footer-item">
-        <a href="https://www.instagram.com/estudiopericialpsicologico/" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a><br>
+    <div class="footer-separador"></div>
 
-        <a href="https://www.facebook.com/licisabelafalco" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a><br>
 
-        <a href="https://www.linkedin.com/in/isabela-falco-1225b127a" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </p>
+    <div class="footer-ecosistema">
+
+      <a href="metodo-falco.html">
+        Método FALCO®
+      </a>
+
+      <a href="programa-premium.html">
+        Programa Premium
+      </a>
+
+      <a href="biblioteca-login.html">
+        Biblioteca FALCO®
+      </a>
+
+      <a href="talleres-y-cursos.html">
+        Talleres y cursos
+      </a>
+
+      <a href="profesional-login.html">
+        Área Profesional
+      </a>
+
     </div>
 
-    <div class="footer-col">
-      <p class="footer-subtitulo">Ámbito de atención</p>
 
-      <p class="footer-item">
-        Zona Norte (Escobar · Pilar)<br>
-        Zona Oeste (Ramos Mejía)
-      </p>
+    <div class="footer-redes">
 
-      <p class="footer-item">
-        Atención en estudio profesional<br>
-        Modalidad presencial y virtual
-      </p>
+      <span>
+        Seguinos
+      </span>
 
-      <p class="footer-nota">
-        Coordinación previa de turnos
-      </p>
+      <a
+        href="https://www.instagram.com/estudiopericialpsicologico/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://www.facebook.com/licisabelafalco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
     </div>
 
-  </div>
 
-  <div class="footer-separador"></div>
+    <div class="footer-legal">
 
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
-  </div>
+      <p>
+        La supervisión brinda orientación técnica y formación aplicada.
+        No reemplaza la responsabilidad profesional individual
+        ni el asesoramiento jurídico.
+      </p>
 
-  <div class="credito-card">
+    </div>
 
-    <p class="credito-titulo">
-      Diseño y desarrollo web
-    </p>
 
-    <a 
-      href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="credito-nombre"
-    >
-      <span class="icono-whatsapp">🟢</span>
-      Guillermo Hechem
-    </a>
+    <div class="footer-bottom">
 
-    <p class="credito-descripcion">
-      Desarrollo web profesional · Sitios modernos y optimizados
-    </p>
+      © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
 
-  </div>
+      <span>
+        Supervisión Profesional · Psicología Jurídica y Forense · Sistema FALCO®
+      </span>
 
-</footer>
+    </div>
+
+
+    <div class="credito-card">
+
+      <p class="credito-titulo">
+        Diseño y desarrollo web
+      </p>
+
+      <a
+        href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="credito-nombre"
+      >
+
+        <span
+          class="icono-whatsapp"
+          aria-hidden="true"
+        >
+          🟢
+        </span>
+
+        Guillermo Hechem
+
+      </a>
+
+      <p class="credito-descripcion">
+        Desarrollo web profesional · Sitios modernos y optimizados
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT GENERAL
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+
+  <!-- =====================================================
+       AION ENGINE™
+  ====================================================== -->
+
+  <script src="launch-panel/launch-panel.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
+
 </html>

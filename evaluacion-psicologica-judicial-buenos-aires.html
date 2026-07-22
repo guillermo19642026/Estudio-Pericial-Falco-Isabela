@@ -1,396 +1,2980 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
+  <!-- =====================================================
+       GOOGLE ANALYTICS
+  ====================================================== -->
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-W9RKEV2LN1");
+  </script>
 
 
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>Evaluación Psicológica Judicial en Buenos Aires</title>
-<meta name="description" content="Evaluación psicológica judicial en Buenos Aires. Psicodiagnóstico clínico-forense, entrevistas, técnicas de evaluación e informe pericial.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<link rel="stylesheet" href="style.css">
+  <title>
+    Evaluación Psicológica Judicial en Buenos Aires | Lic. Isabela Falco
+  </title>
 
-<link rel="stylesheet" href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css">
+  <meta
+    name="description"
+    content="Evaluación psicológica judicial en Buenos Aires. Entrevistas, psicodiagnóstico clínico-forense, técnicas de evaluación, análisis de daño psíquico e informes profesionales."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://periciapsicologicafalco.ar/evaluacion-psicologica-judicial-buenos-aires.html"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+  >
 
 </head>
 
+
 <body class="pagina-interna fondo-neuronal">
 
-<canvas id="neuronal-bg"></canvas>
+  <canvas
+    id="neuronal-bg"
+    aria-hidden="true"
+  ></canvas>
 
-<header>
 
-  <div class="nav-container">
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-    <!-- IZQUIERDA -->
-    <div class="header-izquierda">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
-        </a>
+  <header>
+
+    <div class="nav-container">
+
+
+      <!-- LOGO -->
+
+      <div class="header-izquierda">
+
+        <div class="logo">
+
+          <a
+            href="index.html"
+            aria-label="Ir a la página principal"
+          >
+
+            <img
+              src="img/logo.png"
+              alt="Estudio Pericial Psicológico"
+            >
+
+          </a>
+
+        </div>
+
       </div>
+
+
+      <!-- IDENTIDAD Y NAVEGACIÓN -->
+
+      <div class="header-derecha">
+
+        <div class="header-texto">
+          ESTUDIO PERICIAL PSICOLÓGICO<br>
+
+          <span>
+            Lic. en Psicología ISABELA FALCO
+          </span>
+        </div>
+
+
+        <!-- BOTÓN MOBILE -->
+
+        <button
+          class="menu-toggle"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Abrir o cerrar menú"
+        >
+
+          <b class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </b>
+
+          <em>Navegación</em>
+
+        </button>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <nav
+          id="menu"
+          aria-label="Navegación principal"
+        >
+
+          <a href="index.html#inicio">
+            Inicio
+          </a>
+
+          <a href="index.html#danio-psiquico">
+            Daño Psíquico
+          </a>
+
+          <a href="index.html#servicios">
+            Servicios
+          </a>
+
+          <a href="index.html#areas">
+            Áreas
+          </a>
+
+          <a href="index.html#tecnicas">
+            Recursos
+          </a>
+
+          <a href="index.html#formacion">
+            Formación
+          </a>
+
+          <a href="index.html#perito">
+            Sobre la Perito
+          </a>
+
+          <a href="FALCO-ADMISION/index.html">
+            Consultas
+          </a>
+
+          <a href="index.html#faq">
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <!-- ACCESOS DEL SISTEMA -->
+
+        <div class="header-botones">
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="escuela-login.html"
+              class="btn-header-inline"
+            >
+              🎓 Acceso al curso
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="biblioteca-login.html"
+              class="btn-header-inline"
+            >
+              📚 Acceso a biblioteca
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="login.html"
+              class="btn-header-inline"
+            >
+              🧠 Tests psicométricos
+            </a>
+
+            <span class="tooltip-text">
+              Acceso para personas evaluadas con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="profesional-login.html"
+              class="btn-header-inline"
+            >
+              🔒 Área Profesional
+            </a>
+
+            <span class="tooltip-text">
+              Recursos para psicólogos y peritos psicólogos
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- DERECHA -->
-    <div class="header-derecha">
+  </header>
 
-      <!-- TEXTO -->
-      <div class="header-texto">
-        ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero-interno">
+
+      <div class="hero-contenido">
+
+        <div class="hero-top">
+
+          <span class="footer-etiqueta">
+            Psicología aplicada al ámbito judicial
+          </span>
+
+          <h1 class="hero-titulo-principal">
+            Evaluación Psicológica Judicial en Buenos Aires
+          </h1>
+
+          <h2 class="hero-subtitulo-fuerte">
+            Entrevistas profesionales, técnicas psicodiagnósticas
+            y análisis clínico-forense
+          </h2>
+
+          <p class="hero-descripcion">
+            Evaluaciones psicológicas destinadas a aportar información
+            técnicamente fundada en procesos civiles, laborales,
+            penales y de familia.
+          </p>
+
+          <p class="hero-sello">
+            Evaluación profesional · Fundamentación técnica · Aplicación judicial
+          </p>
+
+
+          <div class="hero-botones">
+
+            <a
+              href="FALCO-ADMISION/index.html"
+              class="btn-principal"
+            >
+              Iniciar consulta
+            </a>
+
+            <a
+              href="#proceso-evaluacion"
+              class="btn-secundario"
+            >
+              Conocer el proceso
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- BOTÓN MOBILE -->
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
-        <b class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </b>
-        <em>Navegación</em>
-      </button>
-
-      <!-- MENÚ -->
-      <nav id="menu">
-
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#areas">Áreas</a>
-        <a href="index.html#danio-psiquico">Daño Psíquico</a>
-        <a href="index.html#tecnicas">Recursos</a>
-        <a href="index.html#formacion">Formación</a>
-        <a href="index.html#perito">Sobre la Perito</a>
-        <a href="index.html#consultas">Consultas</a>
-        <a href="index.html#faq">FAQ</a>
-
-      </nav>
-
-    </div>
-
-  </div>
-
-</header>
+    </section>
 
 
+    <!-- ===================================================
+         DEFINICIÓN
+    ==================================================== -->
 
-<!-- HERO INTERNO -->
+    <section class="seccion-definicion">
 
-<section class="hero-interno">
-  <div class="hero-contenido">
-    <div class="hero-top">
+      <div class="danio-contenedor">
 
-      <h1 class="hero-titulo-principal">
-        Evaluación Psicológica Judicial en Buenos Aires
-      </h1>
+        <span class="footer-etiqueta">
+          Alcance profesional
+        </span>
 
-      <h2 class="hero-subtitulo-fuerte">
-        Evaluación clínica · Fundamentación técnica · Aplicación legal
+        <h2>
+          ¿Qué es una evaluación psicológica judicial?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Es un proceso técnico destinado a estudiar el funcionamiento
+          psicológico de una persona en relación con una situación
+          jurídicamente relevante.
+        </p>
+
+        <p>
+          Comprende entrevistas clínicas, relevamiento de antecedentes,
+          selección de técnicas psicodiagnósticas y análisis integral
+          de la información obtenida.
+        </p>
+
+        <p>
+          A diferencia de una evaluación exclusivamente clínica,
+          la evaluación judicial debe responder interrogantes concretos
+          vinculados con una causa, una controversia, una medida judicial
+          o una decisión que requiere fundamento psicológico.
+        </p>
+
+        <p>
+          Sus conclusiones deben resultar claras, coherentes y sustentadas
+          en los datos obtenidos durante el proceso de evaluación.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINALIDAD
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Objetivos de la intervención
+        </span>
+
+        <h2>
+          ¿Para qué puede solicitarse?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Conocer el estado psicológico
+            </h3>
+
+            <p>
+              Analizar el funcionamiento actual, los recursos psíquicos
+              y la presencia de indicadores clínicamente relevantes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Evaluar daño psíquico
+            </h3>
+
+            <p>
+              Determinar si existe una alteración psicológica vinculada
+              con un hecho o situación investigada.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Analizar el nexo causal
+            </h3>
+
+            <p>
+              Estudiar la relación entre el acontecimiento denunciado,
+              los antecedentes personales y el cuadro psicológico actual.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Valorar repercusiones
+            </h3>
+
+            <p>
+              Examinar el impacto psicológico sobre las áreas familiar,
+              social, afectiva, laboral y cotidiana.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Responder puntos periciales
+            </h3>
+
+            <p>
+              Brindar respuestas técnicas a los interrogantes formulados
+              por las partes o por la autoridad judicial.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Orientar decisiones
+            </h3>
+
+            <p>
+              Aportar información especializada que pueda ser considerada
+              dentro del proceso judicial.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUÉ SE EVALÚA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Dimensiones exploradas
+        </span>
+
+        <h2>
+          ¿Qué aspectos pueden evaluarse?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Funcionamiento psicológico
+            </h3>
+
+            <p>
+              Modalidades de pensamiento, regulación emocional,
+              recursos personales y mecanismos de afrontamiento.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Estado emocional
+            </h3>
+
+            <p>
+              Presencia de ansiedad, angustia, tristeza, temores,
+              irritabilidad u otras manifestaciones significativas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Personalidad de base
+            </h3>
+
+            <p>
+              Características previas, modalidad vincular,
+              recursos defensivos y formas habituales de adaptación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Antecedentes
+            </h3>
+
+            <p>
+              Historia personal, familiar, médica, psicológica,
+              laboral y social relevante para el caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Sintomatología actual
+            </h3>
+
+            <p>
+              Manifestaciones psicológicas presentes,
+              intensidad, frecuencia, evolución y persistencia.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Capacidades cognitivas
+            </h3>
+
+            <p>
+              Atención, memoria, comprensión, juicio,
+              orientación y organización del pensamiento.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Vínculos interpersonales
+            </h3>
+
+            <p>
+              Relaciones familiares, afectivas, sociales
+              y modalidades de interacción con otras personas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Impacto funcional
+            </h3>
+
+            <p>
+              Consecuencias sobre la autonomía, la vida cotidiana,
+              el trabajo, los estudios y las actividades habituales.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ÁMBITOS DE APLICACIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Intervención judicial
+        </span>
+
+        <h2>
+          Ámbitos de aplicación
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Civil
+            </h3>
+
+            <p>
+              Evaluación de daño psíquico, accidentes,
+              responsabilidad civil y consecuencias psicológicas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Laboral
+            </h3>
+
+            <p>
+              Accidentes de trabajo, enfermedades profesionales,
+              incapacidad y repercusiones psicológicas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Penal
+            </h3>
+
+            <p>
+              Evaluaciones vinculadas con víctimas, imputados,
+              capacidad psíquica y consecuencias de hechos traumáticos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Familia
+            </h3>
+
+            <p>
+              Procesos de cuidado personal, comunicación,
+              revinculación y conflictos familiares.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DIFERENCIA CON EVALUACIÓN CLÍNICA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Encuadre específico
+        </span>
+
+        <h2>
+          Diferencia entre evaluación clínica y judicial
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Ambas pueden utilizar entrevistas y técnicas psicológicas,
+          pero poseen objetivos, encuadres y destinatarios diferentes.
+        </p>
+
+        <div class="tabla-comparativa">
+
+          <div class="fila-cabecera">
+
+            <div>
+              Evaluación clínica
+            </div>
+
+            <div>
+              Evaluación judicial
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              Busca comprender el padecimiento
+            </div>
+
+            <div>
+              Responde interrogantes jurídicamente relevantes
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              Puede orientar un tratamiento
+            </div>
+
+            <div>
+              Produce conclusiones para un proceso judicial
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              Se desarrolla dentro de un vínculo asistencial
+            </div>
+
+            <div>
+              Se realiza dentro de un encuadre evaluativo
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              La información se dirige al paciente
+            </div>
+
+            <div>
+              La información se integra en un informe técnico
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+        <!-- ===================================================
+         QUIÉN PUEDE SOLICITARLA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Destinatarios
+        </span>
+
+        <h2>
+          ¿Quién puede solicitar una evaluación psicológica judicial?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La modalidad de intervención se define según el motivo de consulta,
+          el tipo de proceso y la finalidad concreta de la evaluación.
+        </p>
+
+        <div class="consultoria-servicios">
+
+          <div class="servicio-item">
+            Personas particulares
+          </div>
+
+          <div class="servicio-item">
+            Abogados
+          </div>
+
+          <div class="servicio-item">
+            Estudios jurídicos
+          </div>
+
+          <div class="servicio-item">
+            Empresas
+          </div>
+
+          <div class="servicio-item">
+            Organizaciones
+          </div>
+
+          <div class="servicio-item">
+            Profesionales de otras disciplinas
+          </div>
+
+          <div class="servicio-item">
+            Personas con patrocinio letrado
+          </div>
+
+          <div class="servicio-item">
+            Instituciones
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DOCUMENTACIÓN NECESARIA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Preparación del proceso
+        </span>
+
+        <h2>
+          ¿Qué documentación puede resultar necesaria?
+        </h2>
+
+        <p>
+          La documentación se solicita de acuerdo con las características
+          de cada caso. No todas las evaluaciones requieren el mismo
+          material ni la totalidad del expediente.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Documentación personal
+            </h3>
+
+            <p>
+              Datos identificatorios y documentación básica
+              de la persona que será evaluada.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Datos del proceso
+            </h3>
+
+            <p>
+              Carátula, número de expediente, juzgado,
+              tribunal o autoridad interviniente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Puntos de evaluación
+            </h3>
+
+            <p>
+              Preguntas concretas que deberán ser respondidas
+              mediante el proceso psicológico.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Antecedentes médicos
+            </h3>
+
+            <p>
+              Historias clínicas, estudios, tratamientos,
+              certificados y documentación relacionada.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Antecedentes psicológicos
+            </h3>
+
+            <p>
+              Informes previos, constancias de tratamiento,
+              psicodiagnósticos o evaluaciones anteriores.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Documentación laboral
+            </h3>
+
+            <p>
+              Recibos, certificados, legajos, antecedentes
+              ocupacionales o constancias vinculadas con el caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Documentación judicial
+            </h3>
+
+            <p>
+              Demanda, contestación, resoluciones, denuncias,
+              declaraciones y piezas relevantes del expediente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Material complementario
+            </h3>
+
+            <p>
+              Fotografías, comunicaciones, constancias,
+              informes institucionales u otros elementos pertinentes.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROCESO DE EVALUACIÓN
+    ==================================================== -->
+
+    <section
+      class="seccion-definicion"
+      id="proceso-evaluacion"
+    >
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Recorrido profesional
+        </span>
+
+        <h2>
+          ¿Cómo se desarrolla la evaluación?
+        </h2>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              1. Consulta inicial
+            </h3>
+
+            <p>
+              Se analiza el motivo de la solicitud, la finalidad
+              de la evaluación y el contexto judicial.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              2. Recepción de documentación
+            </h3>
+
+            <p>
+              Se revisan los antecedentes y el material
+              disponible antes de iniciar las entrevistas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              3. Entrevistas psicológicas
+            </h3>
+
+            <p>
+              Se releva la historia personal, familiar,
+              laboral, médica, psicológica y judicial.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              4. Aplicación de técnicas
+            </h3>
+
+            <p>
+              Se administran los instrumentos seleccionados
+              según las características del caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              5. Integración de resultados
+            </h3>
+
+            <p>
+              Se relacionan las entrevistas, los antecedentes,
+              las técnicas y la documentación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              6. Elaboración del informe
+            </h3>
+
+            <p>
+              Se redactan conclusiones claras,
+              fundamentadas y vinculadas con lo solicitado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              7. Revisión técnica
+            </h3>
+
+            <p>
+              Se verifica la coherencia interna del documento
+              antes de su entrega o presentación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              8. Intervención posterior
+            </h3>
+
+            <p>
+              Según el caso, puede brindarse asistencia
+              frente a observaciones, explicaciones o ratificación.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ENTREVISTAS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Instancia clínica-forense
+        </span>
+
+        <h2>
+          La entrevista psicológica
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La entrevista constituye una instancia central del proceso,
+          pero sus resultados no se analizan de manera aislada.
+        </p>
+
+        <p>
+          Durante las entrevistas se exploran los antecedentes personales,
+          familiares, afectivos, sociales, educativos, laborales, médicos
+          y psicológicos que puedan resultar relevantes.
+        </p>
+
+        <p>
+          También se analiza el relato del hecho, la evolución posterior,
+          la sintomatología actual, los cambios experimentados y la
+          repercusión sobre las distintas áreas de funcionamiento.
+        </p>
+
+        <p>
+          La información obtenida debe integrarse con las técnicas
+          psicodiagnósticas, la documentación y los objetivos específicos
+          de la evaluación.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         TÉCNICAS PSICODIAGNÓSTICAS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Instrumentos de evaluación
+        </span>
+
+        <h2>
+          Técnicas psicodiagnósticas
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La batería no es idéntica en todos los casos. Esta perito
+          selecciona las técnicas pertinentes según la entrevista
+          psicodiagnóstica y los interrogantes que deben responderse.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevista clínica
+            </h3>
+
+            <p>
+              Exploración del relato, antecedentes,
+              estado actual y funcionamiento general.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas psicométricas
+            </h3>
+
+            <p>
+              Instrumentos estandarizados destinados a evaluar
+              síntomas, intensidad y áreas específicas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas gráficas
+            </h3>
+
+            <p>
+              Recursos complementarios para explorar
+              aspectos emocionales y modalidades de funcionamiento.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Inventarios psicológicos
+            </h3>
+
+            <p>
+              Evaluación de sintomatología, ansiedad,
+              depresión, malestar y otros indicadores.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Escalas específicas
+            </h3>
+
+            <p>
+              Instrumentos seleccionados para analizar
+              dimensiones particulares del caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas complementarias
+            </h3>
+
+            <p>
+              Recursos adicionales utilizados cuando
+              la complejidad de la evaluación lo requiere.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SELECCIÓN DE LA BATERÍA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Criterio profesional
+        </span>
+
+        <h2>
+          ¿Cómo se seleccionan las técnicas?
+        </h2>
+
+        <p>
+          La selección de instrumentos depende de la edad, las condiciones
+          personales, el motivo de evaluación, el tipo de proceso,
+          los antecedentes y los puntos que deben ser respondidos.
+        </p>
+
+        <p>
+          No corresponde aplicar automáticamente la misma batería
+          a todas las personas ni utilizar técnicas sin relación
+          con los objetivos de la evaluación.
+        </p>
+
+        <p>
+          Cada instrumento aporta información parcial. Las conclusiones
+          surgen de la integración de los distintos elementos y no
+          de un resultado aislado.
+        </p>
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            La batería se define caso por caso
+          </h3>
+
+          <p>
+            Las técnicas se seleccionan después de conocer la situación,
+            revisar la documentación y realizar la entrevista inicial.
+          </p>
+
+          <p>
+            Esto permite construir un proceso adecuado a las características
+            particulares de la persona y a las preguntas de la evaluación.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INTEGRACIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Análisis integral
+        </span>
+
+        <h2>
+          La importancia de integrar la información
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Ningún test, entrevista o documento permite por sí solo
+          establecer una conclusión psicológica definitiva.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Relato de la persona
+            </h3>
+
+            <p>
+              Se analiza su contenido, coherencia,
+              evolución y relación con los antecedentes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Observación profesional
+            </h3>
+
+            <p>
+              Se consideran la conducta, la modalidad expresiva,
+              la actitud y el funcionamiento durante la evaluación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Resultados técnicos
+            </h3>
+
+            <p>
+              Se examinan los indicadores obtenidos
+              mediante los instrumentos administrados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Antecedentes documentales
+            </h3>
+
+            <p>
+              Se incorporan los datos clínicos, médicos,
+              laborales, familiares y judiciales disponibles.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Contexto del caso
+            </h3>
+
+            <p>
+              Se considera la finalidad de la evaluación
+              y el marco en el que se solicita.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Coherencia final
+            </h3>
+
+            <p>
+              Las conclusiones deben resultar congruentes
+              con el conjunto de la información reunida.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INFORME
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Documento técnico
+        </span>
+
+        <h2>
+          El informe psicológico judicial
+        </h2>
+
+        <p>
+          El informe presenta el procedimiento realizado, los antecedentes
+          relevantes, las técnicas administradas, los resultados obtenidos
+          y las conclusiones profesionales.
+        </p>
+
+        <p>
+          Su contenido se organiza de acuerdo con el objeto de la evaluación
+          y debe responder de manera comprensible a los interrogantes
+          planteados.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Datos de identificación
+            </h3>
+
+            <p>
+              Información personal y referencias
+              necesarias para individualizar la evaluación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Objeto de evaluación
+            </h3>
+
+            <p>
+              Motivo de la intervención y preguntas
+              que deben ser respondidas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Metodología
+            </h3>
+
+            <p>
+              Entrevistas realizadas, documentación considerada
+              y técnicas seleccionadas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Antecedentes
+            </h3>
+
+            <p>
+              Información biográfica, médica, psicológica,
+              familiar, social y laboral relevante.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Resultados
+            </h3>
+
+            <p>
+              Integración de los principales indicadores
+              obtenidos durante el proceso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Conclusiones
+            </h3>
+
+            <p>
+              Respuestas técnicas claras, fundamentadas
+              y relacionadas con la finalidad judicial.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DAÑO PSÍQUICO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Evaluación específica
+        </span>
+
+        <h2>
+          Evaluación de daño psíquico
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La presencia de malestar, preocupación o sufrimiento
+          no implica automáticamente la existencia de daño psíquico.
+        </p>
+
+        <p>
+          Para su valoración se analiza si existe un cuadro psicológico
+          coherente, novedoso, relacionado con el hecho investigado,
+          persistente y con repercusión sobre la vida de la persona.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Existencia de un cuadro
+            </h3>
+
+            <p>
+              Se determina si se configura una alteración
+              psicológica clínicamente identificable.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Novedad
+            </h3>
+
+            <p>
+              Se analiza si el cuadro representa un cambio
+              respecto del funcionamiento previo.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Causalidad
+            </h3>
+
+            <p>
+              Se estudia la relación entre el hecho,
+              las consecuencias y los antecedentes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Persistencia
+            </h3>
+
+            <p>
+              Se considera la evolución, duración,
+              consolidación y pronóstico.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Repercusión
+            </h3>
+
+            <p>
+              Se examina el impacto sobre las áreas
+              afectiva, familiar, social y laboral.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Incapacidad
+            </h3>
+
+            <p>
+              Cuando corresponde, se analiza la existencia
+              y magnitud de una limitación psicológica.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONFIDENCIALIDAD Y LÍMITES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Encuadre profesional
+        </span>
+
+        <h2>
+          Confidencialidad y límites de la evaluación
+        </h2>
+
+        <p>
+          La información recibida es tratada con reserva profesional
+          y utilizada exclusivamente para los fines de la evaluación.
+        </p>
+
+        <p>
+          En el ámbito judicial, la confidencialidad posee características
+          diferentes a las de un tratamiento psicológico, debido a que
+          las conclusiones pueden ser comunicadas a quienes intervienen
+          legítimamente en el proceso.
+        </p>
+
+        <p>
+          Antes de comenzar, la persona evaluada debe conocer el objetivo,
+          el alcance, el destinatario y los límites de la intervención.
+        </p>
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            Evaluar no es brindar tratamiento
+          </h3>
+
+          <p>
+            La evaluación psicológica judicial tiene una finalidad
+            diagnóstica y técnico-forense. No constituye por sí misma
+            un proceso psicoterapéutico.
+          </p>
+
+          <p>
+            Cuando se detecta la necesidad de tratamiento, puede formularse
+            una recomendación profesional sin confundir ambos encuadres.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+        <!-- ===================================================
+         DURACIÓN DEL PROCESO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Organización de la evaluación
+        </span>
+
+        <h2>
+          Duración y cantidad de entrevistas
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La cantidad de encuentros no se establece de manera automática.
+          Depende de la complejidad del caso, la documentación disponible
+          y los objetivos de la evaluación.
+        </p>
+
+        <p>
+          Algunas intervenciones pueden resolverse mediante un recorrido
+          acotado, mientras que otras requieren entrevistas adicionales,
+          aplicación de distintas técnicas y revisión de documentación extensa.
+        </p>
+
+        <p>
+          El proceso debe contar con el tiempo suficiente para obtener
+          información válida, integrar los resultados y elaborar conclusiones
+          técnicamente fundamentadas.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevista inicial
+            </h3>
+
+            <p>
+              Permite conocer el motivo de la evaluación,
+              revisar antecedentes y organizar el proceso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevistas de evaluación
+            </h3>
+
+            <p>
+              Se destinan al relevamiento de la historia personal,
+              el hecho investigado y el funcionamiento actual.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Administración de técnicas
+            </h3>
+
+            <p>
+              Puede realizarse en uno o más encuentros,
+              según los instrumentos seleccionados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Análisis técnico
+            </h3>
+
+            <p>
+              Comprende la corrección, interpretación e integración
+              de la información reunida.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Elaboración del informe
+            </h3>
+
+            <p>
+              Requiere organizar antecedentes, metodología,
+              resultados y conclusiones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Intervención complementaria
+            </h3>
+
+            <p>
+              Puede incluir ampliaciones, explicaciones,
+              observaciones o ratificación.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MODALIDAD
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Modalidades disponibles
+        </span>
+
+        <h2>
+          Evaluación presencial y entrevistas virtuales
+        </h2>
+
+        <p>
+          La modalidad se define según el objetivo de la intervención,
+          el lugar de residencia, las características de la persona
+          y las técnicas que deban aplicarse.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevista inicial virtual
+            </h3>
+
+            <p>
+              Puede utilizarse para conocer el caso,
+              orientar la consulta y revisar la documentación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Evaluación presencial
+            </h3>
+
+            <p>
+              Se utiliza cuando las características del proceso
+              o de las técnicas requieren presencia física.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Modalidad combinada
+            </h3>
+
+            <p>
+              Puede integrar entrevistas virtuales,
+              encuentros presenciales y carga digital de documentación.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            La modalidad se determina técnicamente
+          </h3>
+
+          <p>
+            No todas las evaluaciones pueden desarrollarse
+            íntegramente a distancia.
+          </p>
+
+          <p>
+            La modalidad elegida debe permitir resguardar
+            la identidad, el encuadre, la calidad de la observación
+            y la validez del proceso.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         POSIBLES RESULTADOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Conclusiones profesionales
+        </span>
+
+        <h2>
+          ¿Qué puede determinar una evaluación?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Las conclusiones dependen exclusivamente de la información
+          obtenida durante el proceso. No se presume anticipadamente
+          la existencia de daño, incapacidad o diagnóstico.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Ausencia de alteración significativa
+            </h3>
+
+            <p>
+              Puede concluirse que no se observan indicadores suficientes
+              para establecer un cuadro psicológico relevante.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Malestar psicológico
+            </h3>
+
+            <p>
+              Puede identificarse sufrimiento emocional sin que
+              necesariamente configure daño psíquico.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Cuadro psicológico
+            </h3>
+
+            <p>
+              Puede establecerse la presencia de síntomas
+              compatibles con una configuración diagnóstica.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Daño psíquico
+            </h3>
+
+            <p>
+              Puede determinarse una alteración novedosa,
+              persistente, causalmente relacionada y funcionalmente relevante.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Concausas
+            </h3>
+
+            <p>
+              Puede verificarse la influencia de antecedentes
+              o factores concurrentes sobre el estado actual.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Necesidad de tratamiento
+            </h3>
+
+            <p>
+              Puede recomendarse asistencia psicológica
+              y establecerse una orientación estimativa.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Incapacidad psicológica
+            </h3>
+
+            <p>
+              Cuando corresponde, puede analizarse la existencia
+              y magnitud de una limitación funcional.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Necesidad de ampliar el estudio
+            </h3>
+
+            <p>
+              Puede indicarse que la información disponible
+              no resulta suficiente para una conclusión definitiva.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DESTINATARIOS ESPECÍFICOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Consultas y derivaciones
+        </span>
+
+        <h2>
+          ¿A quién está dirigido este servicio?
+        </h2>
+
+        <div class="consultoria-servicios">
+
+          <div class="servicio-item">
+            Personas que necesitan una evaluación para una causa
+          </div>
+
+          <div class="servicio-item">
+            Abogados que requieren orientación psicológica
+          </div>
+
+          <div class="servicio-item">
+            Estudios jurídicos
+          </div>
+
+          <div class="servicio-item">
+            Personas derivadas por profesionales
+          </div>
+
+          <div class="servicio-item">
+            Empresas y organizaciones
+          </div>
+
+          <div class="servicio-item">
+            Psicólogos que requieren supervisión
+          </div>
+
+          <div class="servicio-item">
+            Peritos de parte
+          </div>
+
+          <div class="servicio-item">
+            Instituciones que necesitan informes técnicos
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FAQ
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Consultas frecuentes
+        </span>
+
+        <h2>
+          Preguntas frecuentes
+        </h2>
+
+        <div class="faq-perito-parte">
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion1')"
+            >
+              ¿Una evaluación psicológica judicial es una pericia?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion1"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No siempre. Puede formar parte de una pericia judicial,
+                utilizarse como evaluación de parte, producir un informe
+                técnico o responder a una necesidad previa a la presentación
+                de una causa.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion2')"
+            >
+              ¿Es lo mismo que una consulta psicológica?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion2"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. La consulta inicial permite conocer la situación
+                y orientar el servicio. La evaluación es un proceso
+                más amplio que incluye entrevistas, técnicas,
+                integración y conclusiones.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion3')"
+            >
+              ¿Se aplican siempre los mismos tests?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion3"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. Esta perito selecciona las técnicas pertinentes
+                según la entrevista psicodiagnóstica, las características
+                de la persona y los objetivos concretos de la evaluación.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion4')"
+            >
+              ¿Puede hacerse completamente de manera virtual?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion4"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Depende del caso. Algunas entrevistas pueden realizarse
+                virtualmente, pero ciertas técnicas o finalidades requieren
+                encuentros presenciales.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion5')"
+            >
+              ¿Cuántas entrevistas son necesarias?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion5"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                La cantidad se define según la complejidad,
+                la documentación, las técnicas seleccionadas
+                y las preguntas que deben ser respondidas.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion6')"
+            >
+              ¿La evaluación garantiza un resultado favorable?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion6"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. La tarea profesional consiste en evaluar
+                objetivamente la información obtenida. No puede
+                garantizarse anticipadamente un diagnóstico,
+                porcentaje o conclusión determinada.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion7')"
+            >
+              ¿Es necesario contar con abogado?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion7"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Depende del objeto de la consulta. Cuando el informe
+                será utilizado dentro de un proceso judicial,
+                resulta conveniente contar con asesoramiento jurídico.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion8')"
+            >
+              ¿Puede evaluarse a niñas, niños o adolescentes?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion8"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                La posibilidad y modalidad deben analizarse según
+                la edad, el objeto de la evaluación, las autorizaciones
+                correspondientes y el contexto judicial.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion9')"
+            >
+              ¿Se entrega una devolución?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion9"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                La modalidad de comunicación se establece según
+                el tipo de evaluación, su destinatario y los límites
+                propios del encuadre judicial.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqEvaluacion10')"
+            >
+              ¿La documentación es confidencial?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqEvaluacion10"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. La información es tratada con reserva profesional,
+                dentro de los límites y finalidades previamente
+                informados para la evaluación judicial.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICIOS RELACIONADOS
+    ==================================================== -->
+
+    <section
+      class="servicios-relacionados"
+      id="servicios-relacionados"
+    >
+
+      <span class="footer-etiqueta">
+        Ecosistema profesional
+      </span>
+
+      <h2 class="titulo-seccion">
+        Servicios relacionados
       </h2>
 
-      <p class="hero-sello">
-        Evaluaciones periciales psicológicas con validez técnica y jurídica
-      </p>
+      <div class="servicios-rel-grid">
 
-
-      <div class="mesa-turno-link">
-  <a href="solicitar-turno.html">
-    📅 Solicitar entrevista profesional
-  </a>
-</div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-<section class="seccion-definicion">
-<div class="danio-contenedor">
-
-<p>
-La evaluación psicológica judicial en Buenos Aires es un proceso técnico que permite analizar el estado psíquico de una persona dentro de un contexto legal, aportando información relevante al expediente.
-</p>
-
-<p>
-Incluye entrevistas clínicas, aplicación de técnicas psicodiagnósticas y análisis integral del caso, con el objetivo de elaborar conclusiones fundamentadas desde una perspectiva clínica y forense.
-</p>
-
-<p>
-Este tipo de evaluación se utiliza en causas civiles, laborales, penales y de familia, contribuyendo a la toma de decisiones judiciales.
-</p>
-
-<h2>¿Qué se evalúa?</h2>
-<ul>
-<li>Funcionamiento psicológico</li>
-<li>Presencia de sintomatología</li>
-<li>Nexo causal</li>
-<li>Impacto en la vida cotidiana</li>
-</ul>
-
-<h2>Ámbitos de aplicación</h2>
-<p>
-Intervención en causas civiles, laborales, penales y de familia.
-</p>
-
-<h2>Importancia</h2>
-<p>
-Aporta información técnica clave para la toma de decisiones judiciales.
-</p>
-
-<!-- BLOQUE CONVERSIÓN -->
-<div style="margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
-
-  <p style="font-size:1rem; color:#ccc;">
-    ¿Necesitás evaluar un daño psíquico? Recibí orientación profesional clara y confidencial.
-  </p>
-
-  <a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20evaluaci%C3%B3n%20de%20da%C3%B1o%20ps%C3%ADquico." class="btn-principal" target="_blank" rel="noopener noreferrer">
-    Consultar por WhatsApp
-  </a>
-
-  <p style="font-size:0.9rem; color:#aaa;">
-    Atención profesional · Confidencialidad garantizada · Respuesta personalizada
-  </p>
-
-  <a href="https://periciapsicologicafalco.ar/" class="btn-secundario">
-    Volver al inicio
-  </a>
-
-</div>
-
-</div>
-</section>
-
-
-<section class="servicios-relacionados">
-
-  <h2 class="titulo-seccion">Servicios relacionados</h2>
-
-  <div class="servicios-rel-grid">
-
-    <a href="pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Pericia psicológica
-    </a>
-
-    <a href="danio-psiquico-buenos-aires.html" class="servicio-rel-item">
-      Daño psíquico
-    </a>
-
-    <a href="informe-pericial-psicologico.html" class="servicio-rel-item">
-      Informe pericial
-    </a>
-
-    <a href="perito-psicologa-de-parte-buenos-aires.html" class="servicio-rel-item">
-      Perito de parte
-    </a>
-
-    <a href="impugnacion-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Impugnación de pericia
-    </a>
-
-    <a href="evaluacion-psicologica-judicial-buenos-aires.html" class="servicio-rel-item">
-      Evaluación psicológica
-    </a>
-
-    <a href="talleres-cursos-psicologia-buenos-aires.html" class="servicio-rel-item">
-      Talleres y cursos
-    </a>
-
-
-    <a href="cuanto-cuesta-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-  Costos de pericia psicológica
-</a>
-
-<a href="cuanto-tarda-pericia-psicologica.html" class="servicio-rel-item">
-  Tiempos de evaluación pericial
-</a>
-
-
-<a href="supervision-peritos-psicologos.html" class="servicio-rel-item">
-  Supervisión para peritos psicólogos
-</a>
-
-
-<a href="contrainformes-psicologicos.html" class="servicio-rel-item">
-  Contra informes psicológicos
-</a>
-
-  </div>
-
-</section>
-
-
-<script src="script.js"></script>
-
-
-<a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20evaluaci%C3%B3n%20psicol%C3%B3gica%20judicial." 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  💬 Consultar
-</a>
-
-
-
-<!-- FOOTER -->
-<footer class="footer">
-
-  <div class="footer-contenido">
-
-    <!-- IDENTIDAD -->
-    <div class="footer-col">
-      <p class="footer-titulo">
-        Lic. Isabela Falco
-      </p>
-      <p class="footer-texto">
-        Pericias Psicológicas Forenses
-      </p>
-    </div>
-
-    <!-- CONTACTO -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Contacto</p>
-
-      <p class="footer-item">
-        WhatsApp<br>
-        <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">
-          11 3204 9521
+        <a
+          href="pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Pericia psicológica
         </a>
-      </p>
 
-      <p class="footer-item">
-        Email<br>
-        <a href="mailto:estudiopericialpsicologico@gmail.com">
-          estudiopericialpsicologico@gmail.com
+        <a
+          href="danio-psiquico-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Daño psíquico
         </a>
-      </p>
-    </div>
 
-    <!-- REDES -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Redes</p>
-
-      <p class="footer-item">
-        <a href="https://www.instagram.com/estudiopericialpsicologico/" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a><br>
-
-        <a href="https://www.facebook.com/licisabelafalco" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a><br>
-
-        <a href="https://www.linkedin.com/in/isabela-falco-1225b127a" target="_blank" rel="noopener noreferrer">
-          LinkedIn
+        <a
+          href="informe-pericial-psicologico.html"
+          class="servicio-rel-item"
+        >
+          Informe pericial psicológico
         </a>
-      </p>
-    </div>
 
-    <!-- ÁMBITO DE ATENCIÓN -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Ámbito de atención</p>
+        <a
+          href="perito-psicologa-de-parte-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Perito de parte
+        </a>
 
-      <p class="footer-item">
-        Zona Norte (Escobar · Pilar)<br>
-        Zona Oeste (Ramos Mejía)
-      </p>
+        <a
+          href="impugnacion-pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Impugnación de informes
+        </a>
 
-      <p class="footer-item">
-        Atención en estudio profesional<br>
-        Modalidad presencial y virtual
-      </p>
+        <a
+          href="talleres-y-cursos.html"
+          class="servicio-rel-item"
+        >
+          Talleres y cursos
+        </a>
 
-      <p class="footer-nota">
-        Coordinación previa de turnos
-      </p>
-    </div>
+        <a
+          href="metodo-falco.html"
+          class="servicio-rel-item"
+        >
+          Método FALCO®
+        </a>
 
-  </div>
+        <a
+          href="programa-premium.html"
+          class="servicio-rel-item"
+        >
+          Programa Premium
+        </a>
 
-  <!-- SEPARADOR -->
-  <div class="footer-separador"></div>
+      </div>
 
-  <!-- COPYRIGHT -->
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
-  </div>
+    </section>
 
-  <!-- CRÉDITO -->
-  <div class="credito-card">
 
-  <p class="credito-titulo">
-    Diseño y desarrollo web
-  </p>
+    <!-- ===================================================
+         CTA FINAL
+    ==================================================== -->
 
-  <a 
-    href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          FALCO Admisión™
+        </span>
+
+        <h2>
+          ¿Necesitás una evaluación psicológica para un proceso judicial?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Iniciá el recorrido de admisión para informar el motivo
+          de la consulta, el tipo de causa, los plazos disponibles
+          y la documentación con la que contás.
+        </p>
+
+        <p>
+          El Estudio analizará el caso para determinar el tipo
+          de intervención, la modalidad de evaluación y los pasos
+          necesarios para comenzar.
+        </p>
+
+        <div
+          style="
+            margin-top: 28px;
+            text-align: center;
+          "
+        >
+
+          <a
+            href="FALCO-ADMISION/index.html"
+            class="btn-principal"
+          >
+            Comenzar consulta
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       WHATSAPP FLOTANTE
+  ====================================================== -->
+
+  <a
+    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20evaluaci%C3%B3n%20psicol%C3%B3gica%20judicial."
+    class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
-    class="credito-nombre"
+    aria-label="Consultar por WhatsApp"
   >
-    <span class="icono-whatsapp">🟢</span>
-    Guillermo Hechem
+    💬 Consultar
   </a>
 
-  <p class="credito-descripcion">
-    Desarrollo web profesional · Sitios modernos y optimizados
-  </p>
 
-</div>
+  <!-- =====================================================
+       FOOTER INSTITUCIONAL
+  ====================================================== -->
 
-</footer>
+  <footer class="footer">
 
+    <div class="footer-contenido">
 
+      <div class="footer-col footer-identidad">
 
-<script src="launch-panel/launch-panel.js"></script>
+        <span class="footer-etiqueta">
+          Estudio profesional
+        </span>
 
+        <p class="footer-titulo">
+          Estudio Pericial Psicológico
+        </p>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+        <p class="footer-texto">
+          Lic. en Psicología Isabela Falco
+        </p>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+        <p class="footer-descripcion">
+          Pericias psicológicas, evaluación de daño psíquico,
+          informes técnicos y asesoramiento especializado
+          para procesos judiciales.
+        </p>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+        <div class="footer-especialidades">
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+          <span>Civil</span>
+          <span>Laboral</span>
+          <span>Penal</span>
+          <span>Familia</span>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+        </div>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+      </div>
 
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+      <div class="footer-col">
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+        <p class="footer-subtitulo">
+          Contacto
+        </p>
 
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            WhatsApp
+          </span>
+
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            11 3204 9521
+          </a>
+
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Correo electrónico
+          </span>
+
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+            estudiopericialpsicologico@gmail.com
+          </a>
+
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="footer-consulta"
+        >
+          Iniciar una consulta
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </a>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Sistema FALCO®
+        </p>
+
+        <nav
+          class="footer-navegacion"
+          aria-label="Accesos del Sistema FALCO"
+        >
+
+          <a href="FALCO-ADMISION/index.html">
+            FALCO Admisión™
+          </a>
+
+          <a href="login.html">
+            Área de evaluación
+          </a>
+
+          <a href="profesional-login.html">
+            Área Profesional
+          </a>
+
+          <a href="escuela-login.html">
+            Formación FALCO®
+          </a>
+
+          <a href="biblioteca-login.html">
+            Biblioteca FALCO®
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Ámbito de atención
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Buenos Aires
+          </span>
+
+          Zona Norte<br>
+          Escobar · Pilar
+
+        </p>
+
+        <p class="footer-item">
+          Zona Oeste<br>
+          Ramos Mejía
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Modalidades
+          </span>
+
+          Atención en estudio profesional<br>
+          Entrevistas presenciales y virtuales
+
+        </p>
+
+        <p class="footer-nota">
+          Atención con coordinación previa
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-separador"></div>
+
+
+    <div class="footer-ecosistema">
+
+      <a href="metodo-falco.html">
+        Método FALCO®
+      </a>
+
+      <a href="programa-premium.html">
+        Programa Premium
+      </a>
+
+      <a href="programa-premium.html#biblioteca">
+        Biblioteca FALCO®
+      </a>
+
+      <a href="talleres-y-cursos.html">
+        Talleres y cursos
+      </a>
+
+      <a href="profesional-login.html">
+        Área Profesional
+      </a>
+
+    </div>
+
+
+    <div class="footer-redes">
+
+      <span>
+        Seguinos
+      </span>
+
+      <a
+        href="https://www.instagram.com/estudiopericialpsicologico/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://www.facebook.com/licisabelafalco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
+
+    <div class="footer-legal">
+
+      <p>
+        La información publicada en este sitio tiene carácter general
+        y no reemplaza una evaluación profesional individual.
+      </p>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
+
+      <span>
+        Pericias Psicológicas Forenses · Sistema FALCO®
+      </span>
+
+    </div>
+
+
+    <div class="credito-card">
+
+      <p class="credito-titulo">
+        Diseño y desarrollo web
+      </p>
+
+      <a
+        href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="credito-nombre"
+      >
+
+        <span
+          class="icono-whatsapp"
+          aria-hidden="true"
+        >
+          🟢
+        </span>
+
+        Guillermo Hechem
+
+      </a>
+
+      <p class="credito-descripcion">
+        Desarrollo web profesional · Sitios modernos y optimizados
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT GENERAL
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+
+  <!-- =====================================================
+       AION ENGINE™
+  ====================================================== -->
+
+  <script src="launch-panel/launch-panel.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
+
 </html>

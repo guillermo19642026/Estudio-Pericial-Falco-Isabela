@@ -1,406 +1,1721 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
+  <!-- =====================================================
+       GOOGLE ANALYTICS
+  ====================================================== -->
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"
+  ></script>
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pericia Psicológica en Buenos Aires | Perito Psicóloga Forense</title>
-<meta name="description" content="Pericia psicológica en Buenos Aires. Evaluación de daño psíquico, informes periciales y asesoramiento técnico a abogados. Atención profesional en CABA y Argentina.">
-
-
-<link rel="canonical" href="https://periciapsicologicafalco.ar/pericia-psicologica-buenos-aires.html">
-<link rel="stylesheet" href="style.css">
-<meta name="robots" content="index, follow">
+    gtag("js", new Date());
+    gtag("config", "G-W9RKEV2LN1");
+  </script>
 
 
-<link rel="stylesheet" href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css">
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Pericia Psicológica en Buenos Aires | Perito Psicóloga Forense
+  </title>
+
+  <meta
+    name="description"
+    content="Pericia psicológica en Buenos Aires. Evaluación psicológica judicial, daño psíquico, informes periciales y asesoramiento técnico para abogados y particulares."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://periciapsicologicafalco.ar/pericia-psicologica-buenos-aires.html"
+  >
 
 
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+  >
 
 </head>
 
+
 <body class="pagina-interna fondo-neuronal">
 
-<canvas id="neuronal-bg"></canvas>
+  <canvas
+    id="neuronal-bg"
+    aria-hidden="true"
+  ></canvas>
 
-<header>
 
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
+  <header>
 
-  <div class="nav-container">
+    <div class="nav-container">
 
-    <!-- IZQUIERDA -->
-    <div class="header-izquierda">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
-        </a>
+      <!-- LOGO -->
+
+      <div class="header-izquierda">
+
+        <div class="logo">
+
+          <a
+            href="index.html"
+            aria-label="Ir a la página principal"
+          >
+
+            <img
+              src="img/logo.png"
+              alt="Estudio Pericial Psicológico"
+            >
+
+          </a>
+
+        </div>
+
       </div>
+
+
+      <!-- IDENTIDAD Y NAVEGACIÓN -->
+
+      <div class="header-derecha">
+
+        <div class="header-texto">
+          ESTUDIO PERICIAL PSICOLÓGICO<br>
+
+          <span>
+            Lic. en Psicología ISABELA FALCO
+          </span>
+        </div>
+
+
+        <!-- BOTÓN MOBILE -->
+
+        <button
+          class="menu-toggle"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Abrir o cerrar menú"
+        >
+
+          <b class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </b>
+
+          <em>Navegación</em>
+
+        </button>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <nav
+          id="menu"
+          aria-label="Navegación principal"
+        >
+
+          <a href="index.html#inicio">
+            Inicio
+          </a>
+
+          <a href="index.html#danio-psiquico">
+            Daño Psíquico
+          </a>
+
+          <a href="index.html#servicios">
+            Servicios
+          </a>
+
+          <a href="index.html#areas">
+            Áreas
+          </a>
+
+          <a href="index.html#tecnicas">
+            Recursos
+          </a>
+
+          <a href="index.html#formacion">
+            Formación
+          </a>
+
+          <a href="index.html#perito">
+            Sobre la Perito
+          </a>
+
+          <a href="FALCO-ADMISION/index.html">
+            Consultas
+          </a>
+
+          <a href="index.html#faq">
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <!-- ACCESOS DEL SISTEMA -->
+
+        <div class="header-botones">
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="escuela-login.html"
+              class="btn-header-inline"
+            >
+              🎓 Acceso al curso
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="biblioteca-login.html"
+              class="btn-header-inline"
+            >
+              📚 Acceso a biblioteca
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="login.html"
+              class="btn-header-inline"
+            >
+              🧠 Tests psicométricos
+            </a>
+
+            <span class="tooltip-text">
+              Acceso para personas evaluadas con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="profesional-login.html"
+              class="btn-header-inline"
+            >
+              🔒 Área Profesional
+            </a>
+
+            <span class="tooltip-text">
+              Recursos para psicólogos y peritos psicólogos
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- DERECHA -->
-    <div class="header-derecha">
+  </header>
 
-      <!-- TEXTO -->
-      <div class="header-texto">
-        ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero-interno">
+
+      <div class="hero-contenido">
+
+        <div class="hero-top">
+
+          <span class="footer-etiqueta">
+            Psicología forense
+          </span>
+
+          <h1 class="hero-titulo-principal">
+            Pericia Psicológica en Buenos Aires
+          </h1>
+
+          <h2 class="hero-subtitulo-fuerte">
+            Evaluación técnica del estado psicológico dentro de un proceso judicial
+          </h2>
+
+          <p class="hero-descripcion">
+            Intervención profesional orientada a analizar aspectos psicológicos
+            relevantes para una causa civil, laboral, penal o de familia.
+          </p>
+
+          <p class="hero-sello">
+            Evaluaciones periciales psicológicas con fundamento técnico y jurídico
+          </p>
+
+
+          <div class="hero-botones">
+
+            <a
+              href="FALCO-ADMISION/index.html"
+              class="btn-principal"
+            >
+              Iniciar una consulta
+            </a>
+
+            <a
+              href="#que-es"
+              class="btn-secundario"
+            >
+              Conocer la evaluación
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- BOTÓN MOBILE -->
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
-        <b class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </b>
-        <em>Navegación</em>
-      </button>
-
-      <!-- MENÚ -->
-      <nav id="menu">
-
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#areas">Áreas</a>
-        <a href="index.html#danio-psiquico">Daño Psíquico</a>
-        <a href="index.html#tecnicas">Recursos</a>
-        <a href="index.html#formacion">Formación</a>
-        <a href="index.html#perito">Sobre la Perito</a>
-        <a href="index.html#consultas">Consultas</a>
-        <a href="index.html#faq">FAQ</a>
-
-      </nav>
-
-    </div>
-
-  </div>
-
-</header>
+    </section>
 
 
+    <!-- ===================================================
+         DEFINICIÓN
+    ==================================================== -->
 
-<section class="hero-interno">
-  <div class="hero-contenido">
-    <div class="hero-top">
+    <section
+      class="seccion-definicion"
+      id="que-es"
+    >
 
-      <h1 class="hero-titulo-principal">
-        Pericia Psicológica en Buenos Aires
-      </h1>
+      <div class="danio-contenedor">
 
-      <h2 class="hero-subtitulo-fuerte">
-        Evaluación psicológica judicial orientada a analizar el estado psíquico de una persona dentro de un proceso legal.
+        <span class="footer-etiqueta">
+          Concepto profesional
+        </span>
 
+        <h2>
+          ¿Qué es una pericia psicológica?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La pericia psicológica es una evaluación especializada destinada
+          a aportar información técnica sobre el funcionamiento psíquico de
+          una persona dentro de un proceso judicial.
+        </p>
+
+        <p>
+          Su finalidad es responder interrogantes concretos formulados por
+          el tribunal, las partes o sus representantes legales mediante una
+          metodología psicológica fundada.
+        </p>
+
+        <p>
+          La evaluación puede incluir entrevistas psicodiagnósticas,
+          administración de técnicas psicológicas, análisis documental,
+          integración de antecedentes y elaboración de un informe pericial.
+        </p>
+
+        <p>
+          La pericia no se limita a describir síntomas. También considera
+          la historia personal, el funcionamiento previo, la evolución,
+          el contexto del hecho y la repercusión sobre las distintas áreas
+          de la vida.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         OBJETIVOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Finalidad pericial
+        </span>
+
+        <h2>
+          ¿Qué puede analizar una pericia psicológica?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Estado psicológico actual
+            </h3>
+
+            <p>
+              Se analiza el funcionamiento emocional, cognitivo,
+              conductual y vincular de la persona evaluada.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Daño psíquico
+            </h3>
+
+            <p>
+              Se estudia la posible existencia de una afectación psicológica
+              vinculada con un hecho de relevancia judicial.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Nexo causal
+            </h3>
+
+            <p>
+              Se examina la relación entre el hecho investigado,
+              los antecedentes y la sintomatología observada.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Repercusión funcional
+            </h3>
+
+            <p>
+              Se consideran los efectos sobre las áreas familiar,
+              social, afectiva, laboral y recreativa.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Personalidad de base
+            </h3>
+
+            <p>
+              Se valoran características de personalidad, recursos
+              psicológicos y modalidades habituales de afrontamiento.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Necesidad de tratamiento
+            </h3>
+
+            <p>
+              Cuando corresponde, se analiza la conveniencia de tratamiento
+              psicológico, su modalidad y una duración estimativa.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUÉ INCLUYE
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Evaluación integral
+        </span>
+
+        <h2>
+          ¿Qué incluye el proceso?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevistas psicodiagnósticas
+            </h3>
+
+            <p>
+              Permiten conocer la historia personal, el motivo de evaluación,
+              el hecho investigado y la situación psicológica actual.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas psicológicas
+            </h3>
+
+            <p>
+              Esta perito selecciona los instrumentos pertinentes según
+              la entrevista psicodiagnóstica y los objetivos del caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Análisis documental
+            </h3>
+
+            <p>
+              Se estudian escritos judiciales, historias clínicas,
+              constancias de tratamiento y documentación relevante.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Integración de resultados
+            </h3>
+
+            <p>
+              Los hallazgos obtenidos se interpretan de manera conjunta
+              y no como datos aislados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informe pericial
+            </h3>
+
+            <p>
+              Se confecciona un documento técnico con metodología,
+              análisis, conclusiones y respuesta a los puntos periciales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Asesoramiento técnico
+            </h3>
+
+            <p>
+              Puede incluir orientación a abogados, análisis de informes,
+              formulación de puntos o acompañamiento profesional.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ÁMBITOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Áreas de actuación
+        </span>
+
+        <h2>
+          ¿En qué procesos puede solicitarse?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Civil
+            </h3>
+
+            <p>
+              Daños y perjuicios, accidentes, responsabilidad civil,
+              mala praxis y reclamos indemnizatorios.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Laboral
+            </h3>
+
+            <p>
+              Accidentes de trabajo, enfermedades profesionales,
+              conflictos laborales y riesgos del trabajo.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Penal
+            </h3>
+
+            <p>
+              Situaciones de violencia, hechos traumáticos,
+              afectación psicológica y otros aspectos forenses.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Familia
+            </h3>
+
+            <p>
+              Procesos de cuidado personal, vinculación, revinculación,
+              aptitud parental y conflictos familiares.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MODALIDADES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Formas de intervención
+        </span>
+
+        <h2>
+          Modalidades de actuación profesional
+        </h2>
+
+        <div class="consultoria-servicios">
+
+          <div class="servicio-item">
+            Pericia psicológica de parte
+          </div>
+
+          <div class="servicio-item">
+            Evaluación de daño psíquico
+          </div>
+
+          <div class="servicio-item">
+            Informe psicológico judicial
+          </div>
+
+          <div class="servicio-item">
+            Asesoramiento a abogados
+          </div>
+
+          <div class="servicio-item">
+            Análisis de pericias oficiales
+          </div>
+
+          <div class="servicio-item">
+            Impugnación y observaciones
+          </div>
+
+          <div class="servicio-item">
+            Formulación de puntos periciales
+          </div>
+
+          <div class="servicio-item">
+            Ratificación y aclaraciones
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ROL PROFESIONAL
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Función técnica
+        </span>
+
+        <h2>
+          Rol del perito psicólogo
+        </h2>
+
+        <p class="texto-destacado-perito">
+          El perito psicólogo interviene como profesional especializado,
+          aplicando conocimientos de psicología al análisis de cuestiones
+          relevantes para un proceso judicial.
+        </p>
+
+        <p>
+          Su función consiste en evaluar de manera objetiva, fundamentar
+          técnicamente sus conclusiones y comunicar los resultados mediante
+          un lenguaje comprensible para operadores jurídicos.
+        </p>
+
+        <p>
+          El informe debe diferenciar los datos obtenidos, las inferencias
+          profesionales y las conclusiones que pueden sostenerse a partir
+          del material evaluado.
+        </p>
+
+        <p>
+          La actuación pericial requiere independencia de criterio,
+          respeto por los límites de la disciplina y utilización de
+          procedimientos técnicamente apropiados.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         METODOLOGÍA
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Procedimiento
+        </span>
+
+        <h2>
+          ¿Cómo se realiza una pericia psicológica?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              01 · Análisis inicial
+            </h3>
+
+            <p>
+              Se revisa el motivo de evaluación, el tipo de proceso,
+              los puntos periciales y la documentación disponible.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              02 · Entrevistas
+            </h3>
+
+            <p>
+              Se releva la historia personal, familiar, médica,
+              psicológica, laboral y judicial de la persona.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              03 · Psicodiagnóstico
+            </h3>
+
+            <p>
+              Se administran las técnicas consideradas pertinentes
+              para estudiar las variables psicológicas requeridas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              04 · Integración
+            </h3>
+
+            <p>
+              Se contrastan entrevistas, técnicas, antecedentes,
+              documentación y observaciones profesionales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              05 · Informe
+            </h3>
+
+            <p>
+              Se redactan la metodología, los resultados, las conclusiones
+              y las respuestas a los puntos solicitados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              06 · Seguimiento
+            </h3>
+
+            <p>
+              Cuando corresponde, se realizan aclaraciones, contestaciones,
+              ratificación o asistencia técnica posterior.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DESTINATARIOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Solicitud de intervención
+        </span>
+
+        <h2>
+          ¿Quién puede consultar?
+        </h2>
+
+        <div class="consultoria-servicios">
+
+          <div class="servicio-item">
+            Personas particulares
+          </div>
+
+          <div class="servicio-item">
+            Abogados
+          </div>
+
+          <div class="servicio-item">
+            Estudios jurídicos
+          </div>
+
+          <div class="servicio-item">
+            Psicólogos
+          </div>
+
+          <div class="servicio-item">
+            Peritos psicólogos
+          </div>
+
+          <div class="servicio-item">
+            Otros profesionales
+          </div>
+
+        </div>
+
+        <p
+          class="texto-destacado-perito"
+          style="margin-top: 30px;"
+        >
+          No es necesario conocer previamente el nombre técnico o jurídico
+          exacto del trámite. En la admisión se analiza el motivo de consulta
+          y el tipo de intervención que podría corresponder.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ATENCIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Buenos Aires
+        </span>
+
+        <h2>
+          Modalidad y zona de atención
+        </h2>
+
+        <div class="servicios-mini">
+
+          <span>
+            Zona Norte
+          </span>
+
+          <span>
+            Escobar
+          </span>
+
+          <span>
+            Pilar
+          </span>
+
+          <span>
+            Zona Oeste
+          </span>
+
+          <span>
+            Ramos Mejía
+          </span>
+
+          <span>
+            Entrevistas virtuales
+          </span>
+
+        </div>
+
+        <p style="margin-top: 25px;">
+          Las entrevistas se coordinan previamente de acuerdo con las
+          características del caso, la etapa del proceso y la modalidad
+          de evaluación requerida.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONSULTAS FRECUENTES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Información útil
+        </span>
+
+        <h2>
+          Consultas frecuentes
+        </h2>
+
+        <div class="faq-perito-parte">
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqPericia1')"
+            >
+              ¿Una pericia psicológica es igual a una consulta clínica?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqPericia1"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. La pericia responde a objetivos judiciales específicos
+                y utiliza una metodología orientada a producir información
+                técnica para un expediente.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqPericia2')"
+            >
+              ¿Quién elige los tests psicológicos?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqPericia2"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Esta perito selecciona los instrumentos pertinentes según
+                la entrevista psicodiagnóstica, las características de la
+                persona y los puntos que deben investigarse.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqPericia3')"
+            >
+              ¿La evaluación siempre determina daño psíquico?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqPericia3"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. La evaluación puede concluir que existe una afectación,
+                que no se verifican indicadores suficientes o que los
+                síntomas responden a otros factores.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqPericia4')"
+            >
+              ¿Puede intervenir un perito de parte?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqPericia4"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. El profesional puede intervenir como consultor o perito
+                de parte, analizar documentación, asistir a evaluaciones
+                y formular observaciones técnicas.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqPericia5')"
+            >
+              ¿Cuánto tiempo lleva una pericia?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqPericia5"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Depende del tipo de evaluación, la cantidad de entrevistas,
+                las técnicas administradas, la documentación y los plazos
+                del proceso judicial.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqPericia6')"
+            >
+              ¿Se puede realizar una entrevista inicial virtual?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqPericia6"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. La entrevista inicial de orientación puede realizarse
+                de manera virtual. La modalidad de la evaluación posterior
+                se define según las necesidades del caso.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICIOS RELACIONADOS
+    ==================================================== -->
+
+    <section
+      class="servicios-relacionados"
+      id="servicios-relacionados"
+    >
+
+      <span class="footer-etiqueta">
+        Ecosistema profesional
+      </span>
+
+      <h2 class="titulo-seccion">
+        Servicios relacionados
       </h2>
 
-      <p class="hero-sello">
-        Evaluaciones periciales psicológicas con validez técnica y jurídica
-      </p>
+      <div class="servicios-rel-grid">
 
 
-<div class="mesa-turno-link">
-  <a href="solicitar-turno.html">
-    📅 Solicitar entrevista profesional
-  </a>
-</div>
-
-
-
-    </div>
-  </div>
-</section>
-
-<section class="seccion-definicion">
-<div class="danio-contenedor">
-
-
-
-<p>
-La pericia psicológica en Buenos Aires constituye una herramienta fundamental dentro de los procesos judiciales, permitiendo evaluar el estado psíquico de una persona mediante criterios técnicos y científicos.
-</p>
-
-<p>
-La intervención de un perito psicólogo forense implica la realización de entrevistas clínicas, aplicación de técnicas psicodiagnósticas y la elaboración de un informe pericial psicológico que será incorporado como prueba en el expediente judicial.
-</p>
-
-<p>
-Este tipo de evaluación puede solicitarse en causas civiles, laborales, penales y de familia, tanto por particulares como por estudios jurídicos en Buenos Aires y Argentina.
-</p>
-
-<h2>¿Qué incluye?</h2>
-<ul>
-<li>Entrevistas clínicas</li>
-<li>Test psicodiagnósticos</li>
-<li>Análisis del expediente</li>
-<li>Informe pericial</li>
-</ul>
-
-<h2>Zona de atención</h2>
-<p>Ciudad Autónoma de Buenos Aires y alrededores.</p>
-
-<h2>¿Cuándo se necesita una pericia psicológica?</h2>
-
-<p>
-La pericia psicológica judicial es requerida cuando resulta necesario evaluar el estado psíquico 
-de una persona en el marco de un proceso legal, aportando información técnica al expediente.
-</p>
-
-<p>
-Puede ser solicitada en casos de daños y perjuicios, conflictos laborales, procesos penales 
-o situaciones familiares donde se requiere comprender el impacto psicológico de los hechos.
-</p>
-
-<h2>Rol del perito psicólogo</h2>
-
-<p>
-El perito psicólogo actúa como auxiliar de la justicia, realizando una evaluación objetiva 
-basada en entrevistas clínicas, técnicas psicodiagnósticas y análisis del caso.
-</p>
-
-<p>
-Su función principal es elaborar un informe claro, fundamentado y comprensible, 
-que permita al juez contar con elementos técnicos para la toma de decisiones.
-</p>
-
-<div style="margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
-
-  <p style="font-size:1rem; color:#ccc;">
-    ¿Necesitás una evaluación pericial? Recibí orientación profesional clara y confidencial.
-  </p>
-
-  <a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20una%20pericia%20psicol%C3%B3gica." class="btn-principal" target="_blank" rel="noopener noreferrer">
-    Consultar por WhatsApp
-  </a>
-
-  <p style="font-size:0.9rem; color:#aaa;">
-    Atención profesional · Confidencialidad garantizada · Respuesta personalizada
-  </p>
-
-  <a href="https://periciapsicologicafalco.ar/" class="btn-secundario">
-    Volver al inicio
-  </a>
-
-</div>
-
-</div>
-</section>
-
-
-<section class="servicios-relacionados">
-
-  <h2 class="titulo-seccion">Servicios relacionados</h2>
-
-  <div class="servicios-rel-grid">
-
-    <a href="pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Pericia psicológica
-    </a>
-
-    <a href="danio-psiquico-buenos-aires.html" class="servicio-rel-item">
-      Daño psíquico
-    </a>
-
-    <a href="informe-pericial-psicologico.html" class="servicio-rel-item">
-      Informe pericial
-    </a>
-
-    <a href="perito-psicologa-de-parte-buenos-aires.html" class="servicio-rel-item">
-      Perito de parte
-    </a>
-
-    <a href="impugnacion-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Impugnación de pericia
-    </a>
-
-    <a href="evaluacion-psicologica-judicial-buenos-aires.html" class="servicio-rel-item">
-      Evaluación psicológica
-    </a>
-
-    <a href="talleres-cursos-psicologia-buenos-aires.html" class="servicio-rel-item">
-      Talleres y cursos
-    </a>
-
-
-    <a href="cuanto-cuesta-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-  Costos de pericia psicológica
-</a>
-
-<a href="cuanto-tarda-pericia-psicologica.html" class="servicio-rel-item">
-  Tiempos de evaluación pericial
-</a>
-
-
-<a href="supervision-peritos-psicologos.html" class="servicio-rel-item">
-  Supervisión para peritos psicólogos
-</a>
-
-
-<a href="contrainformes-psicologicos.html" class="servicio-rel-item">
-  Contra informes psicológicos
-</a>
-
-  </div>
-
-</section>
-
-<script src="script.js"></script>
-
-
-<a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20pericia%20psicol%C3%B3gica%20judicial." 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  💬 Consultar
-</a>
-
-
-
-<!-- FOOTER -->
-<footer class="footer">
-
-  <div class="footer-contenido">
-
-    <!-- IDENTIDAD -->
-    <div class="footer-col">
-      <p class="footer-titulo">
-        Lic. Isabela Falco
-      </p>
-      <p class="footer-texto">
-        Pericias Psicológicas Forenses
-      </p>
-    </div>
-
-    <!-- CONTACTO -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Contacto</p>
-
-      <p class="footer-item">
-        WhatsApp<br>
-        <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">
-          11 3204 9521
+        <a
+          href="danio-psiquico-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Daño psíquico
         </a>
-      </p>
 
-      <p class="footer-item">
-        Email<br>
-        <a href="mailto:estudiopericialpsicologico@gmail.com">
-          estudiopericialpsicologico@gmail.com
+
+        <a
+          href="informe-pericial-psicologico.html"
+          class="servicio-rel-item"
+        >
+          Informe pericial psicológico
         </a>
-      </p>
-    </div>
 
-    <!-- REDES -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Redes</p>
 
-      <p class="footer-item">
-        <a href="https://www.instagram.com/estudiopericialpsicologico/" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a><br>
-
-        <a href="https://www.facebook.com/licisabelafalco" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a><br>
-
-        <a href="https://www.linkedin.com/in/isabela-falco-1225b127a" target="_blank" rel="noopener noreferrer">
-          LinkedIn
+        <a
+          href="perito-psicologa-de-parte-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Perito psicóloga de parte
         </a>
-      </p>
-    </div>
 
-    <!-- ÁMBITO DE ATENCIÓN -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Ámbito de atención</p>
 
-      <p class="footer-item">
-        Zona Norte (Escobar · Pilar)<br>
-        Zona Oeste (Ramos Mejía)
-      </p>
+        <a
+          href="impugnacion-pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Impugnación de pericia
+        </a>
 
-      <p class="footer-item">
-        Atención en estudio profesional<br>
-        Modalidad presencial y virtual
-      </p>
 
-      <p class="footer-nota">
-        Coordinación previa de turnos
-      </p>
-    </div>
+        <a
+          href="evaluacion-psicologica-judicial-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Evaluación psicológica judicial
+        </a>
 
-  </div>
 
-  <!-- SEPARADOR -->
-  <div class="footer-separador"></div>
+        <a
+          href="contrainformes-psicologicos.html"
+          class="servicio-rel-item"
+        >
+          Contrainformes psicológicos
+        </a>
 
-  <!-- COPYRIGHT -->
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
-  </div>
 
-  <!-- CRÉDITO -->
-  <div class="credito-card">
+        <a
+          href="supervision-peritos-psicologos.html"
+          class="servicio-rel-item"
+        >
+          Supervisión profesional
+        </a>
 
-  <p class="credito-titulo">
-    Diseño y desarrollo web
-  </p>
 
-  <a 
-    href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        <a
+          href="talleres-cursos-psicologia-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Talleres y cursos
+        </a>
+
+
+        <a
+          href="cuanto-cuesta-pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Costos de una pericia
+        </a>
+
+
+        <a
+          href="cuanto-tarda-pericia-psicologica.html"
+          class="servicio-rel-item"
+        >
+          Tiempos de evaluación
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         LLAMADO FINAL
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          FALCO Admisión™
+        </span>
+
+        <h2>
+          ¿Necesitás una evaluación pericial?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Iniciá el recorrido de admisión para informar el motivo de consulta,
+          el tipo de causa, la etapa del proceso y la documentación disponible.
+        </p>
+
+        <p>
+          El sistema permite organizar los datos iniciales antes de coordinar
+          la entrevista profesional.
+        </p>
+
+        <div
+          style="
+            margin-top: 28px;
+            text-align: center;
+          "
+        >
+
+          <a
+            href="FALCO-ADMISION/index.html"
+            class="btn-principal"
+          >
+            Comenzar consulta
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       WHATSAPP FLOTANTE
+  ====================================================== -->
+
+  <a
+    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20realizar%20una%20consulta%20sobre%20una%20pericia%20psicol%C3%B3gica."
+    class="whatsapp-float"
     target="_blank"
     rel="noopener noreferrer"
-    class="credito-nombre"
+    aria-label="Consultar por WhatsApp"
   >
-    <span class="icono-whatsapp">🟢</span>
-    Guillermo Hechem
+    💬 Consultar
   </a>
 
-  <p class="credito-descripcion">
-    Desarrollo web profesional · Sitios modernos y optimizados
-  </p>
 
-</div>
+  <!-- =====================================================
+       FOOTER INSTITUCIONAL · SISTEMA FALCO®
+  ====================================================== -->
 
-</footer>
+  <footer class="footer">
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+    <div class="footer-contenido">
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
 
-<!-- KNOWLEDGE -->
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+      <!-- IDENTIDAD -->
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+      <div class="footer-col footer-identidad">
 
-<!-- UI -->
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+        <span class="footer-etiqueta">
+          Estudio profesional
+        </span>
+
+        <p class="footer-titulo">
+          Estudio Pericial Psicológico
+        </p>
+
+        <p class="footer-texto">
+          Lic. en Psicología Isabela Falco
+        </p>
+
+        <p class="footer-descripcion">
+          Pericias psicológicas, evaluación de daño psíquico,
+          informes técnicos y asesoramiento especializado
+          para procesos judiciales.
+        </p>
+
+        <div class="footer-especialidades">
+
+          <span>Civil</span>
+          <span>Laboral</span>
+          <span>Penal</span>
+          <span>Familia</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACTO -->
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Contacto
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            WhatsApp
+          </span>
+
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            11 3204 9521
+          </a>
+
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Correo electrónico
+          </span>
+
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+            estudiopericialpsicologico@gmail.com
+          </a>
+
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="footer-consulta"
+        >
+          Iniciar una consulta
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </a>
+
+      </div>
+
+
+      <!-- SISTEMA FALCO -->
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Sistema FALCO®
+        </p>
+
+        <nav
+          class="footer-navegacion"
+          aria-label="Accesos del Sistema FALCO"
+        >
+
+          <a href="FALCO-ADMISION/index.html">
+            FALCO Admisión™
+          </a>
+
+          <a href="login.html">
+            Área de evaluación
+          </a>
+
+          <a href="profesional-login.html">
+            Área Profesional
+          </a>
+
+          <a href="escuela-login.html">
+            Formación FALCO®
+          </a>
+
+          <a href="biblioteca-login.html">
+            Biblioteca FALCO®
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <!-- ÁMBITO DE ATENCIÓN -->
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Ámbito de atención
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Buenos Aires
+          </span>
+
+          Zona Norte<br>
+          Escobar · Pilar
+
+        </p>
+
+        <p class="footer-item">
+          Zona Oeste<br>
+          Ramos Mejía
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Modalidades
+          </span>
+
+          Atención en estudio profesional<br>
+          Entrevistas presenciales y virtuales
+
+        </p>
+
+        <p class="footer-nota">
+          Atención con coordinación previa
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- SEPARADOR -->
+
+    <div class="footer-separador"></div>
+
+
+    <!-- ECOSISTEMA -->
+
+    <div class="footer-ecosistema">
+
+      <a href="metodo-falco.html">
+        Método FALCO®
+      </a>
+
+      <a href="programa-premium.html">
+        Programa Premium
+      </a>
+
+      <a href="programa-premium.html#biblioteca">
+        Biblioteca FALCO®
+      </a>
+
+      <a href="escuela-para-padres.html">
+        Escuela para Padres
+      </a>
+
+      <a href="supervision-peritos-psicologos.html">
+        Supervisión profesional
+      </a>
+
+    </div>
+
+
+    <!-- REDES -->
+
+    <div class="footer-redes">
+
+      <span>
+        Seguinos
+      </span>
+
+      <a
+        href="https://www.instagram.com/estudiopericialpsicologico/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://www.facebook.com/licisabelafalco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
+
+    <!-- INFORMACIÓN LEGAL -->
+
+    <div class="footer-legal">
+
+      <p>
+        La información publicada en este sitio tiene carácter general
+        y no reemplaza una evaluación profesional individual.
+      </p>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bottom">
+
+      © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
+
+      <span>
+        Pericias Psicológicas Forenses · Sistema FALCO®
+      </span>
+
+    </div>
+
+
+    <!-- CRÉDITO -->
+
+    <div class="credito-card">
+
+      <p class="credito-titulo">
+        Diseño y desarrollo web
+      </p>
+
+      <a
+        href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="credito-nombre"
+      >
+
+        <span
+          class="icono-whatsapp"
+          aria-hidden="true"
+        >
+          🟢
+        </span>
+
+        Guillermo Hechem
+
+      </a>
+
+      <p class="credito-descripcion">
+        Desarrollo web profesional · Sitios modernos y optimizados
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT GENERAL
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+
+  <!-- =====================================================
+       AION ENGINE™
+  ====================================================== -->
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-site-map.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
+
 </html>

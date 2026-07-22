@@ -1,641 +1,2148 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
+  <!-- =====================================================
+       GOOGLE ANALYTICS
+  ====================================================== -->
 
-  <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"
+  ></script>
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Impugnaciones de Pericias Psicológicas | Estudio Pericial Psicológico</title>
-
-<meta name="description"
-content="Impugnaciones de pericias psicológicas, pedidos de explicaciones, análisis técnico de informes periciales, daño psíquico, nexo causal y consultoría psicológica forense.">
-
-
-<link rel="stylesheet" href="style.css">
+    gtag("js", new Date());
+    gtag("config", "G-W9RKEV2LN1");
+  </script>
 
 
-<link rel="stylesheet" href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css">
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Impugnación de Informes y Pericias Psicológicas | Lic. Isabela Falco
+  </title>
+
+  <meta
+    name="description"
+    content="Impugnación de informes y pericias psicológicas. Revisión técnica, pedidos de explicaciones, observaciones, daño psíquico, nexo causal, baremos y consultoría forense."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://periciapsicologicafalco.ar/impugnacion-pericia-psicologica-buenos-aires.html"
+  >
 
 
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
 
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+  >
 
 </head>
 
+
 <body class="pagina-interna fondo-neuronal">
 
-<canvas id="neuronal-bg"></canvas>
+  <canvas
+    id="neuronal-bg"
+    aria-hidden="true"
+  ></canvas>
 
-<header>
 
-  <div class="nav-container">
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-    <!-- IZQUIERDA -->
-    <div class="header-izquierda">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+  <header>
+
+    <div class="nav-container">
+
+
+      <!-- LOGO -->
+
+      <div class="header-izquierda">
+
+        <div class="logo">
+
+          <a
+            href="index.html"
+            aria-label="Ir a la página principal"
+          >
+
+            <img
+              src="img/logo.png"
+              alt="Estudio Pericial Psicológico"
+            >
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- IDENTIDAD Y NAVEGACIÓN -->
+
+      <div class="header-derecha">
+
+        <div class="header-texto">
+          ESTUDIO PERICIAL PSICOLÓGICO<br>
+
+          <span>
+            Lic. en Psicología ISABELA FALCO
+          </span>
+        </div>
+
+
+        <!-- BOTÓN MOBILE -->
+
+        <button
+          class="menu-toggle"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Abrir o cerrar menú"
+        >
+
+          <b class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </b>
+
+          <em>Navegación</em>
+
+        </button>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <nav
+          id="menu"
+          aria-label="Navegación principal"
+        >
+
+          <a href="index.html#inicio">
+            Inicio
+          </a>
+
+          <a href="index.html#danio-psiquico">
+            Daño Psíquico
+          </a>
+
+          <a href="index.html#servicios">
+            Servicios
+          </a>
+
+          <a href="index.html#areas">
+            Áreas
+          </a>
+
+          <a href="index.html#tecnicas">
+            Recursos
+          </a>
+
+          <a href="index.html#formacion">
+            Formación
+          </a>
+
+          <a href="index.html#perito">
+            Sobre la Perito
+          </a>
+
+          <a href="FALCO-ADMISION/index.html">
+            Consultas
+          </a>
+
+          <a href="index.html#faq">
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <!-- ACCESOS DEL SISTEMA -->
+
+        <div class="header-botones">
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="escuela-login.html"
+              class="btn-header-inline"
+            >
+              🎓 Acceso al curso
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="biblioteca-login.html"
+              class="btn-header-inline"
+            >
+              📚 Acceso a biblioteca
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="login.html"
+              class="btn-header-inline"
+            >
+              🧠 Tests psicométricos
+            </a>
+
+            <span class="tooltip-text">
+              Acceso para personas evaluadas con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="profesional-login.html"
+              class="btn-header-inline"
+            >
+              🔒 Área Profesional
+            </a>
+
+            <span class="tooltip-text">
+              Recursos para psicólogos y peritos psicólogos
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero-interno">
+
+      <div class="hero-contenido">
+
+        <div class="hero-top">
+
+          <span class="footer-etiqueta">
+            Revisión técnica especializada
+          </span>
+
+          <h1 class="hero-titulo-principal">
+            Impugnación de Informes y Pericias Psicológicas
+          </h1>
+
+          <h2 class="hero-subtitulo-fuerte">
+            Análisis metodológico, diagnóstico y psicológico-forense
+            de informes incorporados a procesos judiciales
+          </h2>
+
+          <p class="hero-descripcion">
+            Revisión profesional de pericias psicológicas, informes clínicos,
+            psicodiagnósticos, conclusiones técnicas, daño psíquico,
+            nexo causal e incapacidad.
+          </p>
+
+          <p class="hero-sello">
+            Pedidos de explicaciones · Observaciones técnicas · Impugnaciones
+          </p>
+
+
+          <div class="hero-botones">
+
+            <a
+              href="FALCO-ADMISION/index.html"
+              class="btn-principal"
+            >
+              Iniciar consulta técnica
+            </a>
+
+            <a
+              href="#modalidad-impugnacion"
+              class="btn-secundario"
+            >
+              Ver modalidad de trabajo
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DEFINICIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Alcance profesional
+        </span>
+
+        <h2>
+          ¿Qué es una impugnación psicológica?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Es un cuestionamiento técnico dirigido a señalar errores,
+          omisiones, inconsistencias o insuficiencias presentes en una
+          pericia o informe psicológico.
+        </p>
+
+        <p>
+          Una impugnación no consiste simplemente en manifestar desacuerdo
+          con las conclusiones del profesional interviniente. Debe encontrarse
+          fundada en observaciones concretas vinculadas con la metodología,
+          las entrevistas, las técnicas utilizadas, la interpretación de los
+          resultados, el diagnóstico y las conclusiones.
+        </p>
+
+        <p>
+          También puede analizarse la relación entre el hecho investigado,
+          los antecedentes de la persona evaluada, la existencia de daño
+          psíquico, la determinación de incapacidad y la aplicación de
+          baremos psicológicos.
+        </p>
+
+        <p>
+          El objetivo consiste en establecer si el informe reúne condiciones
+          suficientes de coherencia, fundamentación y consistencia
+          técnico-científica.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DOCUMENTACIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Material susceptible de revisión
+        </span>
+
+        <h2>
+          ¿Qué documentación puede analizarse?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Pericias psicológicas oficiales
+            </h3>
+
+            <p>
+              Dictámenes elaborados por peritos designados dentro
+              de procesos judiciales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informes de parte
+            </h3>
+
+            <p>
+              Documentos técnicos presentados por profesionales
+              contratados por alguna de las partes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Psicodiagnósticos
+            </h3>
+
+            <p>
+              Evaluaciones psicológicas clínicas, laborales,
+              institucionales o forenses.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informes clínicos
+            </h3>
+
+            <p>
+              Informes de tratamiento, evolución psicológica,
+              asistencia o indicaciones terapéuticas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Historias clínicas
+            </h3>
+
+            <p>
+              Registros de atención psicológica o psiquiátrica
+              vinculados con el caso.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Certificados psicológicos
+            </h3>
+
+            <p>
+              Constancias que describen diagnósticos, tratamientos,
+              síntomas o indicaciones profesionales.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Informes interdisciplinarios
+            </h3>
+
+            <p>
+              Evaluaciones producidas por equipos de distintas
+              disciplinas o instituciones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Respuestas periciales
+            </h3>
+
+            <p>
+              Contestaciones a puntos de pericia, aclaraciones,
+              ampliaciones o pedidos de explicaciones.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CUÁNDO REVISAR
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Indicadores frecuentes
+        </span>
+
+        <h2>
+          ¿Cuándo corresponde revisar un informe?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Conclusiones sin fundamentación suficiente
+            </h3>
+
+            <p>
+              Cuando el informe afirma resultados o diagnósticos
+              sin explicar adecuadamente cómo fueron obtenidos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Contradicciones internas
+            </h3>
+
+            <p>
+              Cuando existen diferencias entre lo observado,
+              los resultados consignados y las conclusiones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas inadecuadas
+            </h3>
+
+            <p>
+              Cuando los instrumentos seleccionados no resultan
+              suficientes o pertinentes para responder lo solicitado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Diagnóstico sin integración
+            </h3>
+
+            <p>
+              Cuando el diagnóstico no se encuentra relacionado
+              con entrevistas, antecedentes y resultados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Antecedentes omitidos
+            </h3>
+
+            <p>
+              Cuando no se consideran antecedentes médicos,
+              psicológicos, familiares o laborales relevantes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Nexo causal insuficiente
+            </h3>
+
+            <p>
+              Cuando no se demuestra adecuadamente la relación
+              entre el hecho investigado y el cuadro psicológico.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Baremos mal aplicados
+            </h3>
+
+            <p>
+              Cuando la estimación de incapacidad no se corresponde
+              con el diagnóstico o con el baremo utilizado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Respuestas incompletas
+            </h3>
+
+            <p>
+              Cuando los puntos periciales no fueron contestados,
+              fueron respondidos parcialmente o de manera ambigua.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PEDIDO DE EXPLICACIONES
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Herramientas técnicas
+        </span>
+
+        <h2>
+          Pedido de explicaciones o impugnación
+        </h2>
+
+        <p class="texto-destacado-perito">
+          No toda observación requiere una impugnación integral.
+          En algunos casos resulta suficiente solicitar aclaraciones
+          concretas sobre aspectos ambiguos o insuficientemente desarrollados.
+        </p>
+
+        <div class="tabla-comparativa">
+
+          <div class="fila-cabecera">
+
+            <div>
+              Pedido de explicaciones
+            </div>
+
+            <div>
+              Impugnación
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              Solicita aclaraciones
+            </div>
+
+            <div>
+              Formula cuestionamientos técnicos
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              Busca ampliar aspectos ambiguos
+            </div>
+
+            <div>
+              Señala errores, omisiones o contradicciones
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              Puede limitarse a puntos específicos
+            </div>
+
+            <div>
+              Puede abarcar parte o la totalidad del informe
+            </div>
+
+          </div>
+
+          <div class="fila">
+
+            <div>
+              No necesariamente controvierte el dictamen
+            </div>
+
+            <div>
+              Discute su validez o fundamentación técnica
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ASPECTOS TÉCNICOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Revisión especializada
+        </span>
+
+        <h2>
+          Aspectos técnicos habitualmente analizados
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Encuadre y metodología
+            </h3>
+
+            <p>
+              Condiciones de la evaluación, cantidad de entrevistas,
+              procedimiento aplicado y límites del estudio.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Entrevistas
+            </h3>
+
+            <p>
+              Coherencia del relato, antecedentes relevados
+              y suficiencia de la información obtenida.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Técnicas administradas
+            </h3>
+
+            <p>
+              Pertinencia, diversidad y adecuación de los
+              instrumentos seleccionados.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Indicadores obtenidos
+            </h3>
+
+            <p>
+              Correspondencia entre los resultados consignados
+              y las interpretaciones efectuadas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Integración psicodiagnóstica
+            </h3>
+
+            <p>
+              Relación entre entrevista, antecedentes,
+              técnicas, diagnóstico y conclusiones.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Diagnóstico
+            </h3>
+
+            <p>
+              Fundamentación clínica, psicológica y
+              psicológico-forense del cuadro informado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Daño psíquico
+            </h3>
+
+            <p>
+              Existencia de una alteración psicológica relevante,
+              persistente y con repercusión funcional.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Nexo causal y concausas
+            </h3>
+
+            <p>
+              Análisis de la relación entre el hecho,
+              el cuadro actual y los antecedentes previos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Incapacidad y baremos
+            </h3>
+
+            <p>
+              Correspondencia entre diagnóstico, afectación
+              funcional, baremo aplicado y porcentaje informado.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Recomendación terapéutica
+            </h3>
+
+            <p>
+              Fundamento, duración, frecuencia y relación
+              entre tratamiento e incapacidad.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Puntos de pericia
+            </h3>
+
+            <p>
+              Correspondencia entre lo solicitado
+              y las respuestas efectivamente brindadas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Conclusiones
+            </h3>
+
+            <p>
+              Consistencia final, claridad, coherencia
+              y sustento técnico-científico.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+        <!-- ===================================================
+         CRITERIOS DE DAÑO PSÍQUICO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Criterios técnico-científicos
+        </span>
+
+        <h2>
+          ¿Qué se analiza respecto del daño psíquico?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La revisión técnica no se limita al diagnóstico. También
+          comprende la consistencia del razonamiento utilizado para
+          arribar a las conclusiones y la relación entre los distintos
+          elementos de la evaluación.
+        </p>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              Síndrome psicológico
+            </h3>
+
+            <p>
+              Se analiza si el informe demuestra la existencia
+              de un cuadro psicológico identificable y técnicamente
+              fundamentado.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              Novedad biográfica
+            </h3>
+
+            <p>
+              Se evalúa si las alteraciones descriptas aparecen
+              vinculadas al hecho investigado o si existían
+              antecedentes previos relevantes.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              Nexo causal
+            </h3>
+
+            <p>
+              Se revisa la fundamentación de la relación entre
+              el acontecimiento denunciado y las consecuencias
+              psicológicas descriptas.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              Persistencia
+            </h3>
+
+            <p>
+              Se analiza la estabilidad del cuadro,
+              su evolución y la posibilidad de reversibilidad.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              Repercusión funcional
+            </h3>
+
+            <p>
+              Se estudia el impacto sobre las distintas áreas
+              de funcionamiento de la persona.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              Fundamentación
+            </h3>
+
+            <p>
+              Se verifica que cada conclusión se encuentre
+              respaldada por entrevistas, técnicas y antecedentes.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         ANÁLISIS PREVIO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Valor agregado
+        </span>
+
+        <h2>
+          ¿Por qué realizar un análisis previo?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Antes de formular una impugnación resulta conveniente
+          efectuar una revisión técnica integral del expediente
+          y del informe cuestionado.
+        </p>
+
+        <p>
+          Este estudio permite determinar cuáles observaciones
+          poseen verdadero sustento científico y cuáles aspectos
+          pueden requerir únicamente aclaraciones complementarias.
+        </p>
+
+        <p>
+          También facilita establecer la estrategia técnica más
+          adecuada para cada caso, evitando cuestionamientos
+          innecesarios o insuficientemente fundados.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         MODALIDAD
+    ==================================================== -->
+
+    <section
+      class="seccion-definicion"
+      id="modalidad-impugnacion"
+    >
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Modalidad de trabajo
+        </span>
+
+        <h2>
+          ¿Cómo desarrollamos el análisis?
+        </h2>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+
+            <h3>
+              1. Recepción del material
+            </h3>
+
+            <p>
+              Revisión del expediente, pericia,
+              informes y documentación disponible.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              2. Estudio técnico
+            </h3>
+
+            <p>
+              Evaluación metodológica, diagnóstica,
+              documental y psicológico-forense.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              3. Identificación de observaciones
+            </h3>
+
+            <p>
+              Detección de inconsistencias,
+              omisiones o insuficiencias técnicas.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              4. Definición de estrategia
+            </h3>
+
+            <p>
+              Determinación de la modalidad de
+              intervención más conveniente.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              5. Elaboración técnica
+            </h3>
+
+            <p>
+              Desarrollo de observaciones,
+              pedidos de explicaciones o impugnaciones.
+            </p>
+
+          </article>
+
+          <article class="consultoria-card">
+
+            <h3>
+              6. Asistencia posterior
+            </h3>
+
+            <p>
+              Acompañamiento técnico frente
+              a aclaraciones o respuestas del perito.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         POSIBLES RESULTADOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Conclusiones posibles
+        </span>
+
+        <h2>
+          El análisis puede concluir que corresponde...
+        </h2>
+
+        <div class="consultoria-grid">
+
+          <article class="consultoria-card">
+            <h3>Pedido de explicaciones</h3>
+            <p>
+              Cuando el informe requiere aclaraciones
+              puntuales.
+            </p>
+          </article>
+
+          <article class="consultoria-card">
+            <h3>Observaciones técnicas</h3>
+            <p>
+              Cuando existen aspectos concretos
+              susceptibles de revisión.
+            </p>
+          </article>
+
+          <article class="consultoria-card">
+            <h3>Impugnación parcial</h3>
+            <p>
+              Cuando solamente determinadas
+              conclusiones presentan deficiencias.
+            </p>
+          </article>
+
+          <article class="consultoria-card">
+            <h3>Impugnación integral</h3>
+            <p>
+              Cuando las falencias comprometen
+              la totalidad del dictamen.
+            </p>
+          </article>
+
+          <article class="consultoria-card">
+            <h3>Contrainforme</h3>
+            <p>
+              Cuando resulta necesaria una
+              respuesta técnica independiente.
+            </p>
+          </article>
+
+          <article class="consultoria-card">
+            <h3>Consulta profesional</h3>
+            <p>
+              Cuando no corresponde efectuar
+              cuestionamientos formales.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         DESTINATARIOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Destinatarios
+        </span>
+
+        <h2>
+          ¿Quién puede solicitar este servicio?
+        </h2>
+
+        <div class="consultoria-servicios">
+
+          <div class="servicio-item">
+            Abogados particulares
+          </div>
+
+          <div class="servicio-item">
+            Estudios jurídicos
+          </div>
+
+          <div class="servicio-item">
+            Personas con patrocinio letrado
+          </div>
+
+          <div class="servicio-item">
+            Empresas
+          </div>
+
+          <div class="servicio-item">
+            Compañías aseguradoras
+          </div>
+
+          <div class="servicio-item">
+            Psicólogos
+          </div>
+
+          <div class="servicio-item">
+            Peritos de parte
+          </div>
+
+          <div class="servicio-item">
+            Otros profesionales
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         FAQ
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Consultas frecuentes
+        </span>
+
+        <h2>
+          Preguntas frecuentes
+        </h2>
+
+        <div class="faq-perito-parte">
+
+                    <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion1')"
+            >
+              ¿Puede impugnarse cualquier pericia psicológica?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion1"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No necesariamente. La conveniencia de formular una impugnación
+                depende de que existan observaciones concretas, técnicamente
+                fundadas y relevantes para el caso.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion2')"
+            >
+              ¿Toda diferencia de criterio permite impugnar?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion2"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                No. Una diferencia de criterio profesional, por sí sola,
+                no siempre resulta suficiente. El cuestionamiento debe
+                sustentarse en aspectos metodológicos, diagnósticos,
+                documentales o conclusivos verificables.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion3')"
+            >
+              ¿Puede solicitarse solamente un pedido de explicaciones?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion3"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Cuando el informe presenta puntos ambiguos, incompletos
+                o insuficientemente desarrollados, puede resultar más
+                conveniente solicitar aclaraciones específicas.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion4')"
+            >
+              ¿También pueden revisarse informes clínicos?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion4"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Pueden analizarse informes psicológicos, historias
+                clínicas, certificados, psicodiagnósticos, constancias
+                de tratamiento y demás documentación vinculada con el caso.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion5')"
+            >
+              ¿Se entrega un escrito listo para presentar?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion5"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                La modalidad se define según el caso. Puede elaborarse un
+                documento técnico, una propuesta de observaciones o un texto
+                para que el abogado integre en su presentación judicial.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion6')"
+            >
+              ¿Puede intervenir el Estudio frente a la respuesta del perito?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion6"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. Puede analizarse la contestación del profesional,
+                verificar si respondió adecuadamente las observaciones
+                y colaborar en la elaboración de nuevas consideraciones.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion7')"
+            >
+              ¿Es necesario enviar el expediente completo?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion7"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Depende del objeto de la consulta. Para una revisión completa
+                suele ser conveniente contar con la pericia, los puntos
+                periciales, los antecedentes relevantes y las presentaciones
+                vinculadas con la evaluación psicológica.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion8')"
+            >
+              ¿Puede realizarse únicamente una consulta técnica?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion8"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. También puede solicitarse una evaluación profesional
+                del informe para determinar si existen fundamentos
+                suficientes para avanzar con un cuestionamiento formal.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion9')"
+            >
+              ¿Puede analizarse una pericia después de vencido el plazo?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion9"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                El informe puede ser analizado técnicamente en cualquier
+                momento. La posibilidad de efectuar una presentación judicial
+                dependerá del estado procesal y deberá ser evaluada por el
+                profesional del derecho interviniente.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-perito-item">
+
+            <button
+              class="faq-perito-pregunta"
+              type="button"
+              onclick="toggleBloque('faqImpugnacion10')"
+            >
+              ¿La documentación recibida es confidencial?
+
+              <span aria-hidden="true">
+                +
+              </span>
+            </button>
+
+            <div
+              id="faqImpugnacion10"
+              class="faq-perito-respuesta"
+            >
+
+              <p>
+                Sí. La documentación es tratada con reserva profesional
+                y utilizada exclusivamente para el análisis técnico
+                solicitado.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICIOS RELACIONADOS
+    ==================================================== -->
+
+    <section
+      class="servicios-relacionados"
+      id="servicios-relacionados"
+    >
+
+      <span class="footer-etiqueta">
+        Ecosistema profesional
+      </span>
+
+      <h2 class="titulo-seccion">
+        Servicios relacionados
+      </h2>
+
+      <div class="servicios-rel-grid">
+
+        <a
+          href="pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Pericia psicológica
         </a>
+
+        <a
+          href="danio-psiquico-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Daño psíquico
+        </a>
+
+        <a
+          href="informe-pericial-psicologico.html"
+          class="servicio-rel-item"
+        >
+          Informe pericial
+        </a>
+
+        <a
+          href="perito-psicologa-de-parte-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Perito de parte
+        </a>
+
+        <a
+          href="evaluacion-psicologica-judicial-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Evaluación psicológica judicial
+        </a>
+
+        <a
+          href="contrainformes-psicologicos.html"
+          class="servicio-rel-item"
+        >
+          Contrainformes psicológicos
+        </a>
+
+        <a
+          href="consultoria-tecnica-abogados.html"
+          class="servicio-rel-item"
+        >
+          Consultoría técnica para abogados
+        </a>
+
+        <a
+          href="supervision-peritos-psicologos.html"
+          class="servicio-rel-item"
+        >
+          Supervisión profesional
+        </a>
+
+        <a
+          href="cuanto-cuesta-pericia-psicologica-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Costos de pericia psicológica
+        </a>
+
+        <a
+          href="cuanto-tarda-pericia-psicologica.html"
+          class="servicio-rel-item"
+        >
+          Tiempos de evaluación
+        </a>
+
       </div>
-    </div>
 
-    <!-- DERECHA -->
-    <div class="header-derecha">
+    </section>
 
-      <!-- TEXTO -->
-      <div class="header-texto">
-        ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
+
+    <!-- ===================================================
+         CTA FINAL
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          FALCO Admisión™
+        </span>
+
+        <h2>
+          ¿Necesitás revisar técnicamente un informe psicológico?
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Iniciá el recorrido de admisión para informar qué documento
+          necesitás analizar, el tipo de proceso, el plazo disponible
+          y la documentación con la que contás.
+        </p>
+
+        <p>
+          El Estudio evaluará si corresponde un pedido de explicaciones,
+          una observación técnica, una impugnación parcial o integral,
+          un contrainforme o una consulta profesional.
+        </p>
+
+        <div
+          style="
+            margin-top: 28px;
+            text-align: center;
+          "
+        >
+
+          <a
+            href="FALCO-ADMISION/index.html"
+            class="btn-principal"
+          >
+            Comenzar consulta técnica
+          </a>
+
+        </div>
+
       </div>
 
-      <!-- BOTÓN MOBILE -->
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
-        <b class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </b>
-        <em>Navegación</em>
-      </button>
+    </section>
 
-      <!-- MENÚ -->
-      <nav id="menu">
-
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#areas">Áreas</a>
-        <a href="index.html#danio-psiquico">Daño Psíquico</a>
-        <a href="index.html#tecnicas">Recursos</a>
-        <a href="index.html#formacion">Formación</a>
-        <a href="index.html#perito">Sobre la Perito</a>
-        <a href="index.html#consultas">Consultas</a>
-        <a href="index.html#faq">FAQ</a>
-
-      </nav>
-
-    </div>
-
-  </div>
-
-</header>
+  </main>
 
 
-<!-- HERO INTERNO -->
-<section class="hero-interno">
-  <div class="hero-contenido">
-    <div class="hero-top">
-
-    <h1 class="hero-titulo-principal">
-  Impugnación de Pericias Psicológicas
-</h1>
-
-<h2 class="hero-subtitulo-fuerte">
-  Pedidos de explicaciones · Observaciones técnicas · Psicología Forense
-</h2>
-
-<p class="hero-sello">
-  Revisión crítica de pericias psicológicas e informes judiciales
-</p>
-
-
-<div class="hero-botones">
+  <!-- =====================================================
+       WHATSAPP FLOTANTE
+  ====================================================== -->
 
   <a
-    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20impugnaci%C3%B3n%20de%20pericia%20psicol%C3%B3gica."
-    class="btn-principal"
+    href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20la%20revisi%C3%B3n%20o%20impugnaci%C3%B3n%20de%20un%20informe%20psicol%C3%B3gico."
+    class="whatsapp-float"
     target="_blank"
-    rel="noopener noreferrer">
-    Consultar por WhatsApp
+    rel="noopener noreferrer"
+    aria-label="Consultar por WhatsApp"
+  >
+    💬 Consultar
   </a>
 
-  <a href="#modalidad-impugnacion" class="btn-secundario">
-    Ver modalidad de trabajo
-  </a>
 
-</div>
+  <!-- =====================================================
+       FOOTER INSTITUCIONAL
+  ====================================================== -->
 
+  <footer class="footer">
+
+    <div class="footer-contenido">
+
+      <div class="footer-col footer-identidad">
+
+        <span class="footer-etiqueta">
+          Estudio profesional
+        </span>
+
+        <p class="footer-titulo">
+          Estudio Pericial Psicológico
+        </p>
+
+        <p class="footer-texto">
+          Lic. en Psicología Isabela Falco
+        </p>
+
+        <p class="footer-descripcion">
+          Pericias psicológicas, evaluación de daño psíquico,
+          informes técnicos y asesoramiento especializado
+          para procesos judiciales.
+        </p>
+
+        <div class="footer-especialidades">
+
+          <span>Civil</span>
+          <span>Laboral</span>
+          <span>Penal</span>
+          <span>Familia</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Contacto
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            WhatsApp
+          </span>
+
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            11 3204 9521
+          </a>
+
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Correo electrónico
+          </span>
+
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+            estudiopericialpsicologico@gmail.com
+          </a>
+
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="footer-consulta"
+        >
+          Iniciar una consulta
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </a>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Sistema FALCO®
+        </p>
+
+        <nav
+          class="footer-navegacion"
+          aria-label="Accesos del Sistema FALCO"
+        >
+
+          <a href="FALCO-ADMISION/index.html">
+            FALCO Admisión™
+          </a>
+
+          <a href="login.html">
+            Área de evaluación
+          </a>
+
+          <a href="profesional-login.html">
+            Área Profesional
+          </a>
+
+          <a href="escuela-login.html">
+            Formación FALCO®
+          </a>
+
+          <a href="biblioteca-login.html">
+            Biblioteca FALCO®
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Ámbito de atención
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Buenos Aires
+          </span>
+
+          Zona Norte<br>
+          Escobar · Pilar
+
+        </p>
+
+        <p class="footer-item">
+          Zona Oeste<br>
+          Ramos Mejía
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Modalidades
+          </span>
+
+          Atención en estudio profesional<br>
+          Entrevistas presenciales y virtuales
+
+        </p>
+
+        <p class="footer-nota">
+          Atención con coordinación previa
+        </p>
+
+      </div>
 
     </div>
-  </div>
-</section>
 
 
+    <div class="footer-separador"></div>
 
-<section class="seccion-definicion">
-  <div class="danio-contenedor">
 
-    <h2>Impugnaciones de pericias psicológicas</h2>
+    <div class="footer-ecosistema">
 
-    <p>
-      La impugnación de una pericia psicológica constituye una herramienta procesal destinada a cuestionar aspectos metodológicos, técnicos, diagnósticos o conclusivos de una evaluación incorporada a un expediente judicial.
-    </p>
+      <a href="metodo-falco.html">
+        Método FALCO®
+      </a>
 
-    <p>
-      Su finalidad consiste en señalar inconsistencias, omisiones, insuficiencias técnicas o conclusiones que no se encuentren adecuadamente fundamentadas en los antecedentes, entrevistas, técnicas administradas o criterios científicos aplicables.
-    </p>
+      <a href="programa-premium.html">
+        Programa Premium
+      </a>
 
-    <h2>¿Cuándo puede resultar útil una impugnación?</h2>
+      <a href="programa-premium.html#biblioteca">
+        Biblioteca FALCO®
+      </a>
 
-    <div class="consultoria-servicios">
+      <a href="escuela-para-padres.html">
+        Escuela para Padres
+      </a>
 
-      <div class="servicio-item">
-        Conclusiones insuficientemente fundamentadas
-      </div>
-
-      <div class="servicio-item">
-        Inconsistencias entre técnicas y conclusiones
-      </div>
-
-      <div class="servicio-item">
-        Errores en la valoración del daño psíquico
-      </div>
-
-      <div class="servicio-item">
-        Cuestionamientos respecto del nexo causal
-      </div>
-
-      <div class="servicio-item">
-        Aplicación incorrecta de baremos
-      </div>
-
-      <div class="servicio-item">
-        Omisión de antecedentes relevantes
-      </div>
-
-    </div>
-
-    <div class="destacado-explicaciones">
-
-  <h2>Pedidos de explicaciones</h2>
-
-  <p>
-    Cuando una pericia psicológica presenta aspectos ambiguos, insuficientemente desarrollados o técnicamente poco claros, puede resultar conveniente formular pedidos de explicaciones destinados a obtener precisiones adicionales por parte del profesional interviniente.
-  </p>
-
-  <p>
-    Esta herramienta permite solicitar aclaraciones específicas sobre puntos relevantes del informe sin necesidad de formular una impugnación integral.
-  </p>
-
-</div>
-
-    <h2>Aspectos habitualmente analizados</h2>
-
-    <div class="areas-grid">
-
-      <div class="area-card">
-        <span>📑</span>
-        <p>Fundamentación diagnóstica</p>
-      </div>
-
-      <div class="area-card">
-        <span>🧠</span>
-        <p>Valoración del daño psíquico</p>
-      </div>
-
-      <div class="area-card">
-        <span>🔍</span>
-        <p>Nexo causal</p>
-      </div>
-
-      <div class="area-card">
-        <span>⚖️</span>
-        <p>Metodología empleada</p>
-      </div>
-
-      <div class="area-card">
-        <span>📋</span>
-        <p>Baremos e incapacidad</p>
-      </div>
-
-      <div class="area-card">
-        <span>📂</span>
-        <p>Documentación clínica</p>
-      </div>
-
-      <div class="area-card">
-        <span>📊</span>
-        <p>Técnicas psicométricas</p>
-      </div>
-
-      <div class="area-card">
-        <span>📝</span>
-        <p>Conclusiones periciales</p>
-      </div>
-
-      <div class="area-card">
-        <span>👨‍⚖️</span>
-        <p>Consistencia técnico-científica</p>
-      </div>
-
-    </div>
-
-    <h2>¿Por qué realizar un análisis previo?</h2>
-
-    <div class="bloque-consulta-previa">
-
-      <p>
-        Una revisión técnica especializada permite identificar debilidades metodológicas, omisiones relevantes y aspectos susceptibles de cuestionamiento antes de formular una impugnación o pedido de explicaciones.
-      </p>
-
-      <p>
-        Este análisis previo contribuye a elaborar observaciones técnicamente fundadas y alineadas con los criterios psicológicos y psicológico-forenses vigentes.
-      </p>
-
-      <p>
-        Asimismo, permite determinar si resulta más conveniente formular una impugnación integral o solicitar aclaraciones específicas sobre determinados aspectos de la evaluación.
-      </p>
+      <a href="supervision-peritos-psicologos.html">
+        Supervisión profesional
+      </a>
 
     </div>
 
 
+    <div class="footer-redes">
 
-<h2>¿Qué aspectos suelen observarse en una impugnación?</h2>
-
-<div class="consultoria-servicios">
-
-  <div class="servicio-item">
-    Correspondencia entre entrevistas y conclusiones
-  </div>
-
-  <div class="servicio-item">
-    Fundamentación diagnóstica insuficiente
-  </div>
-
-  <div class="servicio-item">
-    Valoración de antecedentes omitidos
-  </div>
-
-  <div class="servicio-item">
-    Aplicación de técnicas psicométricas
-  </div>
-
-  <div class="servicio-item">
-    Determinación del nexo causal
-  </div>
-
-  <div class="servicio-item">
-    Criterios utilizados para estimar incapacidad
-  </div>
-
-</div>
-
-
-
-  <h2 id="modalidad-impugnacion">Modalidad de trabajo</h2>
-
-<div class="consultoria-grid">
-
-  <div class="consultoria-card">
-    <h3>1. Recepción del material</h3>
-    <p>
-      Revisión de la pericia psicológica, documentación clínica, expediente y antecedentes disponibles.
-    </p>
-  </div>
-
-  <div class="consultoria-card">
-    <h3>2. Análisis técnico</h3>
-    <p>
-      Evaluación de metodología, técnicas aplicadas, fundamentación diagnóstica, daño psíquico y nexo causal.
-    </p>
-  </div>
-
-  <div class="consultoria-card">
-    <h3>3. Observaciones</h3>
-    <p>
-      Identificación de inconsistencias, omisiones, contradicciones o aspectos que requieren aclaración.
-    </p>
-  </div>
-
-  <div class="consultoria-card">
-    <h3>4. Elaboración técnica</h3>
-    <p>
-      Preparación de observaciones, impugnación o propuesta de pedidos de explicaciones según el caso.
-    </p>
-  </div>
-
-</div>
-
-    <div style="margin-top:15px;text-align:center;">
+      <span>
+        Seguinos
+      </span>
 
       <a
-        href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20impugnación%20de%20pericia%20psicológica."
-        class="btn-principal"
+        href="https://www.instagram.com/estudiopericialpsicologico/"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
 
-        Solicitar análisis técnico
+      <a
+        href="https://www.facebook.com/licisabelafalco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
+
+    <div class="footer-legal">
+
+      <p>
+        La información publicada en este sitio tiene carácter general
+        y no reemplaza una evaluación profesional individual.
+      </p>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
+
+      <span>
+        Pericias Psicológicas Forenses · Sistema FALCO®
+      </span>
+
+    </div>
+
+
+    <div class="credito-card">
+
+      <p class="credito-titulo">
+        Diseño y desarrollo web
+      </p>
+
+      <a
+        href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="credito-nombre"
+      >
+
+        <span
+          class="icono-whatsapp"
+          aria-hidden="true"
+        >
+          🟢
+        </span>
+
+        Guillermo Hechem
 
       </a>
 
-      <p style="margin-top:15px;color:#aaa;">
-        Consultas sin compromiso · Honorarios según complejidad del caso.
+      <p class="credito-descripcion">
+        Desarrollo web profesional · Sitios modernos y optimizados
       </p>
 
     </div>
 
-   <h2>Consultas frecuentes</h2>
+  </footer>
 
-<div class="faq-perito-parte">
 
-  <div class="faq-perito-item">
-    <button class="faq-perito-pregunta" onclick="toggleBloque('faqImpugnacion1')">
-      ¿Puede impugnarse cualquier pericia psicológica?
-      <span>+</span>
-    </button>
+  <!-- =====================================================
+       JAVASCRIPT GENERAL
+  ====================================================== -->
 
-    <div id="faqImpugnacion1" class="faq-perito-respuesta">
-      <p>
-        La procedencia y conveniencia de una impugnación depende del análisis técnico del contenido de la pericia y de los aspectos concretos que se pretendan cuestionar.
-      </p>
-    </div>
-  </div>
+  <script src="script.js"></script>
 
-  <div class="faq-perito-item">
-    <button class="faq-perito-pregunta" onclick="toggleBloque('faqImpugnacion2')">
-      ¿Es posible solicitar únicamente un pedido de explicaciones?
-      <span>+</span>
-    </button>
 
-    <div id="faqImpugnacion2" class="faq-perito-respuesta">
-      <p>
-        Sí. En numerosos casos resulta suficiente requerir aclaraciones sobre determinados aspectos técnicos sin formular una impugnación integral.
-      </p>
-    </div>
-  </div>
+  <!-- =====================================================
+       AION ENGINE™
+  ====================================================== -->
 
-  <div class="faq-perito-item">
-    <button class="faq-perito-pregunta" onclick="toggleBloque('faqImpugnacion3')">
-      ¿También se analizan informes clínicos?
-      <span>+</span>
-    </button>
+  <script src="launch-panel/launch-panel.js"></script>
 
-    <div id="faqImpugnacion3" class="faq-perito-respuesta">
-      <p>
-        Sí. Pueden revisarse informes psicológicos, psicodiagnósticos, historias clínicas y demás documentación relacionada con el caso.
-      </p>
-    </div>
-  </div>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
 
-  <div class="faq-perito-item">
-    <button class="faq-perito-pregunta" onclick="toggleBloque('faqImpugnacion4')">
-      ¿La documentación es confidencial?
-      <span>+</span>
-    </button>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
 
-    <div id="faqImpugnacion4" class="faq-perito-respuesta">
-      <p>
-        Toda la documentación suministrada es tratada con estricta reserva profesional y utilizada exclusivamente para la tarea encomendada.
-      </p>
-    </div>
-  </div>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
 
-</div>
-    </div>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
 
-  </div>
-</section>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
 
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
 
-
-
-<!-- SERVICIOS RELACIONADOS -->
-
-<section class="servicios-relacionados">
-
-  <h2 class="titulo-seccion">Servicios relacionados</h2>
-
-  <div class="servicios-rel-grid">
-
-    <a href="pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Pericia psicológica
-    </a>
-
-    <a href="danio-psiquico-buenos-aires.html" class="servicio-rel-item">
-      Daño psíquico
-    </a>
-
-    <a href="informe-pericial-psicologico.html" class="servicio-rel-item">
-      Informe pericial
-    </a>
-
-    <a href="perito-psicologa-de-parte-buenos-aires.html" class="servicio-rel-item">
-      Perito de parte
-    </a>
-
-    <a href="impugnacion-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-      Impugnación de pericia
-    </a>
-
-    <a href="evaluacion-psicologica-judicial-buenos-aires.html" class="servicio-rel-item">
-      Evaluación psicológica
-    </a>
-
-    <a href="talleres-cursos-psicologia-buenos-aires.html" class="servicio-rel-item">
-      Talleres y cursos
-    </a>
-
-
-    <a href="cuanto-cuesta-pericia-psicologica-buenos-aires.html" class="servicio-rel-item">
-  Costos de pericia psicológica
-</a>
-
-<a href="cuanto-tarda-pericia-psicologica.html" class="servicio-rel-item">
-  Tiempos de evaluación pericial
-</a>
-
-
-<a href="supervision-peritos-psicologos.html" class="servicio-rel-item">
-  Supervisión para peritos psicólogos
-</a>
-
-
-<a href="contrainformes-psicologicos.html" class="servicio-rel-item">
-  Contrainformes psicológicos
-</a>
-
-<a href="consultoria-tecnica-abogados.html" class="servicio-rel-item">
-  Consultoría técnica para abogados
-</a>
-
-
-  </div>
-
-</section>
-
-<!-- FIN DE SERVICIOS RELACIONADOS -->
-
-
-<script src="script.js"></script>
-
-
-<a href="https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20impugnación%20de%20pericia%20psicológica."
-   class="whatsapp-float"
-   target="_blank"
-   rel="noopener noreferrer">
-  💬 Consultar
-</a>
-
-
-
-
-
-
-<!-- FOOTER -->
-<footer class="footer">
-
-  <div class="footer-contenido">
-
-    <!-- IDENTIDAD -->
-    <div class="footer-col">
-      <p class="footer-titulo">
-        Lic. Isabela Falco
-      </p>
-      <p class="footer-texto">
-        Pericias Psicológicas Forenses
-      </p>
-    </div>
-
-    <!-- CONTACTO -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Contacto</p>
-
-      <p class="footer-item">
-        WhatsApp<br>
-        <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">
-          11 3204 9521
-        </a>
-      </p>
-
-      <p class="footer-item">
-        Email<br>
-        <a href="mailto:estudiopericialpsicologico@gmail.com">
-          estudiopericialpsicologico@gmail.com
-        </a>
-      </p>
-    </div>
-
-    <!-- REDES -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Redes</p>
-
-      <p class="footer-item">
-        <a href="https://www.instagram.com/estudiopericialpsicologico/" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a><br>
-
-        <a href="https://www.facebook.com/licisabelafalco" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a><br>
-
-        <a href="https://www.linkedin.com/in/isabela-falco-1225b127a" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </p>
-    </div>
-
-    <!-- ÁMBITO DE ATENCIÓN -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Ámbito de atención</p>
-
-      <p class="footer-item">
-        Zona Norte (Escobar · Pilar)<br>
-        Zona Oeste (Ramos Mejía)
-      </p>
-
-      <p class="footer-item">
-        Atención en estudio profesional<br>
-        Modalidad presencial y virtual
-      </p>
-
-      <p class="footer-nota">
-        Coordinación previa de turnos
-      </p>
-    </div>
-
-  </div>
-
-  <!-- SEPARADOR -->
-  <div class="footer-separador"></div>
-
-  <!-- COPYRIGHT -->
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
-  </div>
-
-  <!-- CRÉDITO -->
-  <div class="credito-card">
-
-  <p class="credito-titulo">
-    Diseño y desarrollo web
-  </p>
-
-  <a 
-    href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
-    target="_blank"
-    rel="noopener noreferrer"
-    class="credito-nombre"
-  >
-    <span class="icono-whatsapp">🟢</span>
-    Guillermo Hechem
-  </a>
-
-  <p class="credito-descripcion">
-    Desarrollo web profesional · Sitios modernos y optimizados
-  </p>
-
-</div>
-
-</footer>
-
-
-<script src="launch-panel/launch-panel.js"></script>
-
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
-
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
-
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
-
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
+
 </html>
