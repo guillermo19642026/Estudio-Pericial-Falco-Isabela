@@ -47,14 +47,7 @@
         abrían el menú desplegable original.
       */
 
-      const cleanToggleButton = this.toggleButton.cloneNode(true);
-
-      cleanToggleButton.removeAttribute("onclick");
-      cleanToggleButton.id = "falcoMenuToggle";
-      cleanToggleButton.type = "button";
-
-      this.toggleButton.replaceWith(cleanToggleButton);
-      this.toggleButton = cleanToggleButton;
+      
 
       this.createDrawer();
       this.moveExistingElements();
