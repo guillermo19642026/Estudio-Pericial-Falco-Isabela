@@ -27468,3 +27468,63 @@ letter-spacing: .03em;
     font-size: 0.92rem;
 
 }
+
+
+
+
+/* =========================================================
+   PÁGINA CUÁNTO CUESTA UNA PERICIA
+   Marca de agua institucional
+========================================================= */
+
+.hero-con-marca {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-con-marca .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-con-marca .hero-contenido {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-marca-estudio {
+  position: absolute;
+  top: 50%;
+  right: clamp(20px, 7vw, 120px);
+  transform: translateY(-50%);
+  width: clamp(260px, 34vw, 520px);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.hero-marca-estudio img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero-marca-estudio {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: min(78vw, 390px);
+    opacity: 0.055;
+  }
+
+}
