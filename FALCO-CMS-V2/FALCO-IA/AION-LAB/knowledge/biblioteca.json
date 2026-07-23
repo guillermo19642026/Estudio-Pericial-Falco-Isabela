@@ -293,10 +293,33 @@
       "answer": "Está dirigida a familias, docentes, profesionales, instituciones educativas, municipios, empresas y organizaciones interesadas en el acompañamiento adolescente."
     },
 
-    "acceso": {
-      "question": "¿Quién puede acceder a Biblioteca FALCO®?",
-      "answer": "Los materiales Premium se encuentran disponibles para usuarios autorizados que cuentan con acceso al espacio privado de Biblioteca FALCO®."
-    },
+   "acceso": {
+  "question": "¿Quién puede acceder a Biblioteca FALCO®?",
+  "answer": "Los materiales Premium se encuentran disponibles para usuarios autorizados que cuentan con acceso al espacio privado de Biblioteca FALCO®.",
+  "keywords": [
+    "acceder",
+    "acceso",
+    "accedo",
+    "ingresar",
+    "ingreso",
+    "entrar",
+    "entrada",
+    "área privada",
+    "biblioteca privada",
+    "login",
+    "usuario"
+  ],
+  "examples": [
+    "¿Cómo puedo ingresar?",
+    "¿Cómo accedo?",
+    "Quiero entrar a la biblioteca",
+    "Necesito ingresar al área privada"
+  ]
+},
+   
+   
+   
+  
 
     "uso": {
       "question": "¿Cómo se recomienda utilizar Biblioteca FALCO®?",

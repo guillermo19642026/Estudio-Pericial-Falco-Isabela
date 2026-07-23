@@ -176,6 +176,18 @@ const AIONConversation = {
       </p>
 
       <div class="aion-conversation-options"></div>
+
+<form class="aion-conversation-form">
+
+  <input
+    type="text"
+    class="aion-conversation-input"
+    placeholder="Hacé tu consulta..."
+    autocomplete="off"
+    aria-label="Hacé tu consulta..."
+  >
+
+</form>
     `;
 
     this.container.appendChild(this.card);
@@ -195,6 +207,43 @@ const AIONConversation = {
         }
       );
     }
+
+
+const form =
+  this.card.querySelector(
+    ".aion-conversation-form"
+  );
+
+const input =
+  this.card.querySelector(
+    ".aion-conversation-input"
+  );
+
+if (form && input) {
+
+  form.addEventListener(
+    "submit",
+    (event) => {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const query =
+        input.value.trim();
+
+      if (!query) return;
+
+      this.respondFreeText(query);
+
+      input.value = "";
+
+    }
+  );
+
+}
+
+
+
   },
 
   renderHome() {
@@ -602,6 +651,61 @@ if (
     }
 
   },
+
+
+async respondFreeText(query) {
+
+  if (
+    !query ||
+    !window.AIONIntent ||
+    !this.data
+  ) {
+    return;
+  }
+
+  const result =
+    AIONIntent.find(
+      query,
+      this.data
+    );
+
+  if (
+    result.matched &&
+    result.answerKey
+  ) {
+
+    const answerData =
+      this.data?.answers?.[
+        result.answerKey
+      ];
+
+    if (answerData) {
+
+      await this.respond({
+        label: query,
+        answerKey:
+          result.answerKey
+      });
+
+      return;
+
+    }
+
+  }
+
+  /*
+   * Si no encuentra una intención clara,
+   * conserva el respaldo actual del Corpus.
+   */
+  await this.respond({
+    label: query
+  });
+
+},
+
+
+
+
 
   bindOpen() {
     const being =
