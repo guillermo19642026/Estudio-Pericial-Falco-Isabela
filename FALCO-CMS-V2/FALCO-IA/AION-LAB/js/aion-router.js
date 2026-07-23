@@ -102,6 +102,23 @@ class AIONRouter {
       };
     }
 
+
+
+    if (this.path.includes("metodo-falco")) {
+      return {
+        slug: "metodo-falco",
+        title: "Método FALCO®",
+        knowledge: "metodo-falco",
+        greeting:
+          "Bienvenido al Método FALCO®. Puedo orientarte sobre sus fundamentos, programas, recursos y aplicaciones para familias, profesionales e instituciones.",
+        role: "familia",
+        primaryAction: "orientar"
+      };
+    }
+
+
+
+
     if (this.path.includes("escuela-para-padres")) {
       return {
         slug: "escuela-para-padres",
