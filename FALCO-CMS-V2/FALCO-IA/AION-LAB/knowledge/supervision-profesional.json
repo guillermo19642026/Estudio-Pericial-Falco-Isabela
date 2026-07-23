@@ -1,0 +1,245 @@
+{
+  "slug": "supervision-profesional",
+
+  "title": "Supervisión Profesional",
+
+  "greeting": "Estás consultando sobre supervisión profesional en psicología jurídica y forense. Puedo orientarte sobre acompañamiento técnico, análisis de casos, informes periciales, escritos judiciales, psicodiagnósticos y desarrollo profesional.",
+
+  "description": "Espacio de supervisión profesional destinado a psicólogos, peritos y profesionales que intervienen en el ámbito jurídico y forense, orientado al análisis técnico de casos, informes, evaluaciones y decisiones metodológicas.",
+
+  "summary": "La supervisión profesional brinda acompañamiento técnico para el análisis de casos periciales, psicodiagnósticos, informes, escritos judiciales, daño psíquico, selección de técnicas y construcción de criterios profesionales sólidos.",
+
+  "keywords": [
+    "supervisión profesional",
+    "supervisión psicológica",
+    "supervisión pericial",
+    "supervisión jurídica",
+    "supervisión forense",
+    "psicología jurídica",
+    "psicología forense",
+    "perito psicólogo",
+    "perito de oficio",
+    "perito de parte",
+    "casos judiciales",
+    "informes periciales",
+    "informes psicológicos",
+    "psicodiagnóstico",
+    "escritos judiciales",
+    "daño psíquico",
+    "puntos de pericia",
+    "impugnaciones",
+    "contestaciones",
+    "ampliaciones",
+    "selección de técnicas",
+    "evaluación psicológica",
+    "integración diagnóstica",
+    "criterio profesional",
+    "acompañamiento profesional",
+    "formación aplicada",
+    "práctica pericial",
+    "supervisión de casos",
+    "metodología pericial",
+    "criterio técnico"
+  ],
+
+  "concepts": [
+
+    {
+      "id": "SUP-001",
+      "name": "Supervisión profesional",
+      "definition": "Espacio individual destinado al análisis técnico de situaciones concretas de la práctica psicológica jurídica y forense, adaptado a las necesidades de cada profesional."
+    },
+
+    {
+      "id": "SUP-002",
+      "name": "Acompañamiento técnico",
+      "definition": "Proceso de orientación profesional destinado a fortalecer el criterio metodológico, diagnóstico y pericial durante el desarrollo de un caso."
+    },
+
+    {
+      "id": "SUP-003",
+      "name": "Supervisión de casos",
+      "definition": "Análisis integral del expediente, la evaluación, las decisiones metodológicas, la integración diagnóstica y las conclusiones propuestas."
+    },
+
+    {
+      "id": "SUP-004",
+      "name": "Criterio profesional",
+      "definition": "Capacidad de construir decisiones fundamentadas a partir del análisis clínico, metodológico y psicológico-forense, evitando respuestas estandarizadas."
+    },
+
+    {
+      "id": "SUP-005",
+      "name": "Psicodiagnóstico supervisado",
+      "definition": "Revisión de entrevistas, técnicas, integración de resultados y construcción de conclusiones dentro del proceso de evaluación."
+    },
+
+    {
+      "id": "SUP-006",
+      "name": "Selección de técnicas",
+      "definition": "Elección de los instrumentos de evaluación considerando la entrevista psicodiagnóstica, los antecedentes disponibles y los objetivos específicos del caso."
+    },
+
+    {
+      "id": "SUP-007",
+      "name": "Integración diagnóstica",
+      "definition": "Proceso de articulación entre entrevistas, antecedentes, documentación, técnicas administradas y observaciones clínicas para elaborar conclusiones técnicamente fundamentadas."
+    },
+
+    {
+      "id": "SUP-008",
+      "name": "Supervisión integral",
+      "definition": "Acompañamiento profesional que puede extenderse desde el inicio de una causa hasta la presentación del informe y las respuestas posteriores."
+    },
+
+    {
+      "id": "SUP-009",
+      "name": "Orientación metodológica",
+      "definition": "Revisión del procedimiento de evaluación, planificación de entrevistas, organización del trabajo y construcción de estrategias de intervención."
+    },
+
+    {
+      "id": "SUP-010",
+      "name": "Responsabilidad profesional",
+      "definition": "La supervisión orienta técnicamente al profesional, pero no reemplaza su criterio, autoría, firma ni responsabilidad sobre la actuación realizada."
+    }
+
+  ],
+
+    "relatedTopics": [
+    "pericia_psicologica",
+    "informe_pericial",
+    "perito_de_oficio",
+    "perito_de_parte",
+    "evaluacion_psicologica_judicial",
+    "danio_psiquico",
+    "psicodiagnostico",
+    "tecnicas_psicodiagnosticas",
+    "impugnaciones",
+    "escritos_judiciales",
+    "metodo_falco",
+    "formacion_profesional"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es la supervisión profesional?",
+      "¿A quién está dirigida la supervisión?",
+      "¿Qué puede trabajarse en supervisión?",
+      "¿Se puede supervisar una causa completa?",
+      "¿La supervisión incluye la revisión de informes?"
+    ],
+
+    "medium": [
+      "¿Cómo se desarrolla la supervisión de un caso pericial?",
+      "¿Cómo se seleccionan las técnicas de evaluación?",
+      "¿Puede supervisarse la evaluación de daño psíquico?",
+      "¿Qué diferencia hay entre consulta, revisión y supervisión?",
+      "¿Qué modalidades de trabajo existen?",
+      "¿Cómo preparar el encuentro?"
+    ],
+
+    "low": [
+      "¿Es necesario tener experiencia como perito?",
+      "¿La primera entrevista es solo informativa?",
+      "¿Los encuentros son virtuales?",
+      "¿Cuánto dura un encuentro?",
+      "¿La supervisión es confidencial?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Qué es la supervisión profesional?",
+    "¿A quién está dirigida?",
+    "¿Qué puede trabajarse en supervisión?",
+    "¿Puedo presentar un informe para que sea revisado?",
+    "¿Se puede supervisar una causa completa?",
+    "¿La supervisión incluye corrección del informe?",
+    "¿Puedo consultar por una impugnación?",
+    "¿Cómo se seleccionan las técnicas de evaluación?",
+    "¿Qué modalidades de trabajo existen?",
+    "¿Cómo preparar el encuentro?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Informe Pericial Psicológico",
+    "Perito de Oficio",
+    "Perito de Parte",
+    "Evaluación Psicológica Judicial",
+    "Daño Psíquico",
+    "Psicodiagnósticos",
+    "Impugnaciones",
+    "Talleres y Cursos",
+    "Método FALCO®",
+    "Programa Premium",
+    "Biblioteca FALCO®"
+  ],
+
+  "answers": {
+
+        "que_es_supervision": {
+      "question": "¿Qué es la supervisión profesional?",
+      "answer": "La supervisión profesional es un espacio individual de análisis técnico destinado a psicólogos y peritos que intervienen en el ámbito jurídico y forense. Permite revisar casos, organizar evaluaciones, seleccionar técnicas, interpretar resultados y fortalecer el criterio profesional mediante un acompañamiento adaptado a las necesidades de cada caso."
+    },
+
+    "destinatarios": {
+      "question": "¿A quién está dirigida la supervisión?",
+      "answer": "Está dirigida a psicólogos que comienzan su actividad pericial, peritos de oficio, peritos de parte, psicólogos con casos judicializados, profesionales con experiencia que desean revisar casos complejos y estudiantes avanzados interesados en la práctica jurídica y forense."
+    },
+
+    "casos": {
+      "question": "¿Qué puede trabajarse durante una supervisión?",
+      "answer": "Puede supervisarse el análisis de expedientes, casos periciales, informes psicológicos, informes periciales, psicodiagnósticos, daño psíquico, selección de técnicas, puntos de pericia, escritos judiciales, impugnaciones, contestaciones, ampliaciones y situaciones éticas vinculadas con la práctica profesional."
+    },
+
+    "informes": {
+      "question": "¿Puede revisarse un informe profesional?",
+      "answer": "Sí. La supervisión puede incluir la revisión metodológica, estructural y técnica de informes psicológicos, informes periciales, contestaciones, ampliaciones y otros escritos judiciales, respetando siempre la autoría y la responsabilidad del profesional que los presenta."
+    },
+
+    "psicodiagnostico": {
+      "question": "¿Se supervisan psicodiagnósticos?",
+      "answer": "Sí. Puede analizarse la planificación de entrevistas, la selección de técnicas, la administración de instrumentos, la integración de resultados y la construcción de conclusiones técnicamente fundamentadas."
+    },
+
+    "tecnicas": {
+      "question": "¿Cómo se seleccionan las técnicas de evaluación?",
+      "answer": "Las técnicas se seleccionan considerando la entrevista psicodiagnóstica, los antecedentes disponibles, las características de la persona evaluada y los objetivos específicos de la intervención. No corresponde aplicar automáticamente la misma batería de instrumentos en todos los casos."
+    },
+
+    "danio_psiquico": {
+      "question": "¿Puede supervisarse una evaluación de daño psíquico?",
+      "answer": "Sí. Puede analizarse la existencia de un cuadro psicológico consistente, la novedad del trastorno, el nexo causal, la persistencia, la repercusión funcional y la aplicación técnicamente fundamentada de los criterios utilizados en la evaluación."
+    },
+
+    "integral": {
+      "question": "¿Es posible supervisar una causa completa?",
+      "answer": "Sí. El acompañamiento puede desarrollarse desde la recepción de la designación, la planificación de entrevistas y técnicas, la integración diagnóstica, la elaboración del informe y las respuestas posteriores a observaciones, pedidos de explicaciones o impugnaciones."
+    },
+
+    "modalidades": {
+      "question": "¿Qué modalidades de supervisión existen?",
+      "answer": "La supervisión puede realizarse mediante encuentros individuales, en modalidad virtual o presencial según disponibilidad. También puede consistir en una consulta puntual, seguimiento de una causa o revisión documental específica."
+    },
+
+    "confidencialidad": {
+      "question": "¿La supervisión es confidencial?",
+      "answer": "Sí. El trabajo se desarrolla dentro de un encuadre profesional, respetando la confidencialidad y la protección de la documentación compartida. Cuando corresponde, se recomienda resguardar o anonimizar los datos identificatorios sensibles."
+    },
+
+    "limites": {
+      "question": "¿La supervisión reemplaza la responsabilidad del profesional?",
+      "answer": "No. La supervisión constituye un espacio de orientación técnica y formación aplicada. El profesional conserva la responsabilidad sobre la evaluación realizada, las decisiones adoptadas, el contenido presentado, la firma y su actuación dentro del expediente."
+    },
+
+    "objetivos": {
+      "question": "¿Cuál es el objetivo de la supervisión profesional?",
+      "answer": "El objetivo es fortalecer el criterio profesional, mejorar la calidad de las evaluaciones, organizar la toma de decisiones, prevenir errores metodológicos y favorecer intervenciones psicológicas técnicamente fundamentadas en el ámbito jurídico y forense."
+    }
+
+  }
+
+}

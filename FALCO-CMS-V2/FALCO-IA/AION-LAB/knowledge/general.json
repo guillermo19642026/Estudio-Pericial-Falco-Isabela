@@ -1,89 +1,111 @@
 {
   "slug": "general",
   "title": "Sistema FALCO®",
-  "greeting": "Hola. Soy AION. Puedo orientarte dentro del Sistema FALCO® según lo que necesites.",
-  "description": "Orientación central para visitantes de la página principal.",
+  "greeting": "Hola. Soy AION. Puedo orientarte dentro del Sistema FALCO® según el tipo de consulta o acceso que necesites.",
+  "description": "Orientación central sobre servicios periciales, consultas profesionales, formación, evaluación psicológica y accesos privados del Sistema FALCO®.",
 
   "suggestions": [
     {
-      "label": "No sé qué necesito",
-      "response": "Puedo ayudarte a orientarte. Si tu consulta está vinculada a una causa judicial, una evaluación psicológica, daño psíquico, informe, honorarios o asesoramiento a abogados, puedo indicarte el camino más adecuado.",
-      "action": "Ver accesos rápidos",
-      "url": "#accesos-rapidos",
-      "whatsappLabel": "Consultar orientación",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20orientaci%C3%B3n%20para%20saber%20qu%C3%A9%20servicio%20necesito."
+      "label": "No sé qué tipo de consulta necesito",
+      "response": "No es necesario que conozcas el nombre técnico o jurídico exacto del trámite. A través de FALCO Admisiones™ podés explicar tu situación, indicar qué documentación tenés y recibir una orientación inicial del Estudio.",
+      "action": "Iniciar orientación",
+      "url": "FALCO-ADMISION/index.html"
     },
     {
-      "label": "Necesito una pericia psicológica",
-      "response": "Te conviene comenzar por la sección de Pericia Psicológica, donde se explica qué es, cuándo se necesita, qué incluye y cómo solicitar orientación profesional.",
-      "action": "Ver información",
-      "url": "pericia-psicologica-buenos-aires.html",
-      "whatsappLabel": "Consultar por WhatsApp",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20pericia%20psicol%C3%B3gica."
-    },
-    {
-      "label": "Quiero consultar por daño psíquico",
-      "response": "El daño psíquico se evalúa cuando se necesita analizar secuelas emocionales, nexo causal o impacto psicológico derivado de un hecho con relevancia judicial.",
-      "action": "Ver información",
-      "url": "danio-psiquico-buenos-aires.html",
-      "whatsappLabel": "Consultar daño psíquico",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20una%20evaluaci%C3%B3n%20de%20da%C3%B1o%20ps%C3%ADquico."
+      "label": "Soy particular",
+      "response": "El Estudio brinda orientación a particulares que necesitan consultar por evaluaciones psicológicas, daño psíquico, informes o situaciones con relevancia judicial.",
+      "action": "Iniciar recorrido para particulares",
+      "url": "FALCO-ADMISION/index.html?tipo=persona"
     },
     {
       "label": "Soy abogado o estudio jurídico",
-      "response": "Para abogados y estudios jurídicos, el Estudio brinda asesoramiento técnico, revisión de informes, perito de parte, contrainformes, impugnaciones y orientación pericial.",
-      "action": "Ver servicios para abogados",
-      "url": "perito-psicologa-de-parte-buenos-aires.html",
-      "whatsappLabel": "Consultar como abogado",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20soy%20abogado/a%20y%20quisiera%20realizar%20una%20consulta%20profesional."
+      "response": "El Estudio brinda asistencia técnico-forense para abogados y estudios jurídicos mediante perito psicóloga de parte, revisión de informes, impugnaciones, observaciones, consultoría técnica y análisis de documentación.",
+      "action": "Iniciar consulta profesional",
+      "url": "FALCO-ADMISION/index.html?tipo=profesional"
     },
     {
-      "label": "Necesito revisar una pericia",
-      "response": "Si necesitás revisar una pericia psicológica, puede realizarse un análisis técnico, contrainforme, pedido de explicaciones o impugnación según el caso.",
-      "action": "Ver información",
-      "url": "impugnaciones-pericias-psicologicas.html",
-      "whatsappLabel": "Consultar revisión",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20necesito%20revisar%20una%20pericia%20psicol%C3%B3gica%20y%20quisiera%20recibir%20asesoramiento."
+      "label": "Soy psicólogo o profesional",
+      "response": "El Sistema FALCO® ofrece supervisión de casos, corrección de informes, orientación técnico-forense, formación profesional, Biblioteca FALCO® y recursos especializados.",
+      "action": "Ver formación y supervisión",
+      "url": "#formacion"
     },
     {
-      "label": "Quiero saber honorarios",
-      "response": "Los honorarios dependen del tipo de intervención, complejidad del caso, documentación a analizar, entrevistas, técnicas administradas y tipo de informe requerido.",
-      "action": "Ver honorarios",
-      "url": "honorarios-informes-psicologicos.html",
-      "whatsappLabel": "Consultar honorarios",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20consultar%20por%20honorarios%20profesionales."
+      "label": "Necesito una pericia psicológica",
+      "response": "La pericia psicológica es una evaluación especializada aplicada al ámbito judicial. Puede incluir entrevistas psicodiagnósticas, técnicas psicológicas, análisis documental e integración de resultados.",
+      "action": "Ver pericia psicológica",
+      "url": "pericia-psicologica-buenos-aires.html"
     },
     {
-      "label": "Quiero solicitar turno",
-      "response": "Podés solicitar una entrevista profesional para orientar el caso, revisar documentación y definir la modalidad de intervención adecuada.",
-      "action": "Solicitar turno",
-      "url": "solicitar-turno.html",
-      "whatsappLabel": "Consultar turno",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20solicitar%20una%20entrevista%20profesional."
+      "label": "Quiero consultar por daño psíquico",
+      "response": "La evaluación de daño psíquico analiza la existencia de afectación psicológica, su posible relación causal con el hecho investigado y sus repercusiones en las distintas áreas de funcionamiento.",
+      "action": "Ver daño psíquico",
+      "url": "danio-psiquico-buenos-aires.html"
     },
     {
-      "label": "Busco tests psicométricos",
-      "response": "La plataforma psicométrica permite el acceso privado a instrumentos como SCL-90/BSI, BDI, BAI y Desesperanza para usuarios autorizados.",
-      "action": "Acceder a tests",
-      "url": "login.html",
-      "whatsappLabel": "Consultar acceso",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20la%20plataforma%20de%20evaluaci%C3%B3n%20psicom%C3%A9trica%20online."
+      "label": "Necesito una perito de parte",
+      "response": "La perito psicóloga de parte brinda asistencia técnica durante el proceso judicial, acompaña evaluaciones, analiza actuaciones y colabora con el abogado en la comprensión de los aspectos psicológicos relevantes.",
+      "action": "Ver perito de parte",
+      "url": "perito-psicologa-de-parte-buenos-aires.html"
     },
     {
-      "label": "Busco formación profesional",
-      "response": "El Sistema FALCO® incluye espacios de formación, supervisión y actualización profesional para psicólogos, peritos y profesionales de la salud mental.",
-      "action": "Ver formación",
-      "url": "#formacion",
-      "whatsappLabel": "Consultar formación",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20formaci%C3%B3n%20profesional."
+      "label": "Necesito revisar o impugnar una pericia",
+      "response": "Puede realizarse una revisión técnica del informe psicológico, su metodología, los instrumentos utilizados, los baremos, la fundamentación y las conclusiones periciales.",
+      "action": "Ver impugnaciones",
+      "url": "impugnacion-informes-psicologicos.html"
+    },
+    {
+      "label": "Quiero saber sobre honorarios",
+      "response": "Los honorarios dependen del tipo de intervención, la documentación disponible, la cantidad de entrevistas, las técnicas necesarias y la complejidad del caso. El presupuesto se informa luego de conocer el alcance del trabajo.",
+      "action": "Ver honorarios e informes",
+      "url": "honorarios-informes-psicologicos.html"
+    },
+    {
+      "label": "Quiero iniciar FALCO Admisiones™",
+      "response": "FALCO Admisiones™ es el ingreso guiado y confidencial para que el Estudio conozca tu consulta, la documentación disponible y el tipo de orientación que necesitás.",
+      "action": "Iniciar admisión",
+      "url": "FALCO-ADMISION/index.html"
+    },
+    {
+      "label": "Tengo que completar una evaluación",
+      "response": "El Área de Evaluación permite completar instrumentos psicológicos, la ficha integral, documentación y etapas asignadas por el Estudio. El acceso es personal y debe estar previamente habilitado.",
+      "action": "Ingresar a la evaluación",
+      "url": "login.html"
+    },
+    {
+      "label": "Quiero ingresar al Área Profesional",
+      "response": "El Área Profesional permite a profesionales autorizados gestionar evaluados, expedientes, documentación y recursos asignados dentro del Sistema FALCO®.",
+      "action": "Ingresar al Área Profesional",
+      "url": "profesional-login.html"
     },
     {
       "label": "Quiero acceder a Biblioteca FALCO®",
-      "response": "La Biblioteca FALCO® reúne materiales y recursos profesionales. El acceso completo está reservado para usuarios autorizados o con membresía habilitada.",
-      "action": "Acceder a Biblioteca",
-      "url": "biblioteca-login.html",
-      "whatsappLabel": "Consultar biblioteca",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20el%20acceso%20a%20la%20Biblioteca%20FALCO%C2%AE."
+      "response": "Biblioteca FALCO® reúne publicaciones, documentos técnicos, bibliografía especializada y recursos profesionales. El acceso requiere una cuenta previamente habilitada.",
+      "action": "Ingresar a Biblioteca FALCO®",
+      "url": "biblioteca-login.html"
+    },
+    {
+      "label": "Busco formación o supervisión",
+      "response": "El Estudio ofrece supervisión profesional, corrección de informes, orientación técnico-forense, cursos, talleres, seminarios y acompañamiento para psicólogos y peritos.",
+      "action": "Ver formación",
+      "url": "talleres-y-cursos.html"
+    },
+    {
+      "label": "Quiero conocer el Método FALCO®",
+      "response": "El Método FALCO® integra orientación, formación y recursos destinados a familias, profesionales e instituciones, con especial desarrollo en adolescencia, comunicación, vínculos y acompañamiento adulto.",
+      "action": "Conocer el Método FALCO®",
+      "url": "metodo-falco.html"
+    },
+    {
+      "label": "Quiero conocer FALCO Experience™",
+      "response": "FALCO Experience™ ofrece un recorrido visual por la plataforma de evaluación, el Área Profesional, Biblioteca FALCO®, Formación y los distintos espacios que integran el ecosistema.",
+      "action": "Iniciar experiencia",
+      "url": "falco-experience/falco-experience.html?autoplay=1"
+    },
+    {
+      "label": "Quiero conocer a la perito",
+      "response": "La Lic. Isabela Falco es perito psicóloga forense especializada en evaluación psicológica judicial, daño psíquico, psicodiagnóstico clínico-forense y asesoramiento técnico en procesos judiciales.",
+      "action": "Ver sobre la perito",
+      "url": "#perito"
     }
   ]
 }

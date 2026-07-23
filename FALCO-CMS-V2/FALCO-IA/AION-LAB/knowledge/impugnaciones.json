@@ -1,66 +1,225 @@
 {
   "slug": "impugnaciones",
+
   "title": "Impugnaciones y Contrainformes",
-  "greeting": "Estás consultando sobre impugnaciones, contrainformes o revisión técnica de informes psicológicos.",
-  "description": "Servicio orientado al análisis crítico de informes psicológicos o pericias, identificando inconsistencias metodológicas, técnicas o argumentales.",
-  "summary": "Permite revisar una pericia psicológica, evaluar su coherencia técnica y colaborar en observaciones, pedidos de explicaciones o impugnaciones.",
+
+  "greeting": "Estás consultando sobre impugnaciones, contrainformes, pedidos de explicaciones o revisión técnica de informes y pericias psicológicas. Puedo orientarte sobre el análisis metodológico, diagnóstico y psicológico-forense de una evaluación.",
+
+  "description": "Servicio orientado al análisis crítico de informes psicológicos, pericias, psicodiagnósticos y documentación técnica, identificando inconsistencias metodológicas, diagnósticas, documentales o argumentales.",
+
+  "summary": "Permite revisar técnicamente una pericia psicológica, evaluar su coherencia metodológica, analizar entrevistas, técnicas, diagnóstico, daño psíquico, nexo causal, baremos y colaborar en observaciones, pedidos de explicaciones, impugnaciones o contrainformes.",
+
   "keywords": [
     "impugnación",
     "impugnar pericia",
+    "impugnación psicológica",
+    "impugnación de informes",
     "contrainforme",
+    "contrainforme psicológico",
+    "revisión técnica",
     "revisión de informe",
     "pedido de explicaciones",
-    "observaciones",
-    "pericia mal hecha",
-    "inconsistencias"
+    "observaciones técnicas",
+    "pericia psicológica",
+    "informe pericial",
+    "psicodiagnóstico",
+    "entrevistas",
+    "técnicas psicodiagnósticas",
+    "diagnóstico",
+    "integración diagnóstica",
+    "daño psíquico",
+    "nexo causal",
+    "concausas",
+    "incapacidad psicológica",
+    "baremos",
+    "puntos periciales",
+    "consistencia metodológica",
+    "fundamentación técnica",
+    "errores metodológicos",
+    "omisiones",
+    "contradicciones",
+    "consultoría técnica"
   ],
+
   "concepts": [
+
     {
       "id": "IMP-001",
       "name": "Impugnación",
-      "definition": "Cuestionamiento técnico fundado frente a aspectos metodológicos, conclusivos o argumentales de una pericia."
+      "definition": "Cuestionamiento técnico fundado dirigido a señalar errores, omisiones, inconsistencias o insuficiencias presentes en una pericia o informe psicológico."
     },
+
     {
       "id": "IMP-002",
       "name": "Contrainforme",
-      "definition": "Informe técnico que analiza críticamente una evaluación o dictamen psicológico previo."
+      "definition": "Documento técnico independiente que analiza críticamente una evaluación o dictamen psicológico previo desde una perspectiva metodológica y clínico-forense."
     },
+
     {
       "id": "IMP-003",
       "name": "Pedido de explicaciones",
-      "definition": "Solicitud de aclaración sobre aspectos técnicos de una pericia psicológica."
+      "definition": "Solicitud destinada a obtener aclaraciones sobre aspectos técnicos ambiguos, incompletos o insuficientemente desarrollados de una pericia psicológica."
+    },
+
+    {
+      "id": "IMP-004",
+      "name": "Observaciones técnicas",
+      "definition": "Señalamientos profesionales sobre inconsistencias metodológicas, diagnósticas, documentales o conclusivas detectadas durante la revisión."
+    },
+
+    {
+      "id": "IMP-005",
+      "name": "Revisión metodológica",
+      "definition": "Análisis del procedimiento utilizado, cantidad de entrevistas, técnicas aplicadas, documentación considerada y coherencia del proceso evaluativo."
+    },
+
+    {
+      "id": "IMP-006",
+      "name": "Integración psicodiagnóstica",
+      "definition": "Evaluación de la relación entre entrevistas, antecedentes, técnicas administradas, diagnóstico y conclusiones finales."
+    },
+
+    {
+      "id": "IMP-007",
+      "name": "Nexo causal",
+      "definition": "Análisis de la fundamentación que vincula el hecho investigado con el cuadro psicológico informado."
+    },
+
+    {
+      "id": "IMP-008",
+      "name": "Daño psíquico",
+      "definition": "Valoración de la existencia de una alteración psicológica relevante considerando síndrome, novedad, causalidad, persistencia y repercusión funcional."
+    },
+
+    {
+      "id": "IMP-009",
+      "name": "Baremos",
+      "definition": "Criterios técnicos utilizados para valorar incapacidad psicológica y verificar la correspondencia entre diagnóstico y porcentaje informado."
+    },
+
+    {
+      "id": "IMP-010",
+      "name": "Consistencia técnico-científica",
+      "definition": "Coherencia interna y fundamentación metodológica que debe presentar una pericia o informe psicológico."
     }
+
   ],
-  "suggestions": [
-    "¿Cuándo se puede impugnar una pericia?",
-    "¿Qué es un contrainforme psicológico?",
-    "¿Qué se revisa en una pericia?",
-    "¿Puede pedirlo un abogado?",
-    "¿Qué diferencia hay entre observación e impugnación?"
-  ],
-  "answers": {
-    "¿Cuándo se puede impugnar una pericia?": "Cuando existen fundamentos técnicos para cuestionar metodología, conclusiones, omisiones, contradicciones o falta de sustento clínico-forense.",
-    "¿Qué es un contrainforme psicológico?": "Es un análisis técnico de una pericia o informe psicológico previo, destinado a revisar su consistencia metodológica y conclusiva.",
-    "¿Qué se revisa en una pericia?": "Se revisan técnicas utilizadas, coherencia interna, integración de resultados, fundamentación, conclusiones y relación con los puntos periciales.",
-    "¿Puede pedirlo un abogado?": "Sí. Los abogados o estudios jurídicos pueden solicitar revisión técnica, contrainformes u orientación para pedidos de explicaciones.",
-    "¿Qué diferencia hay entre observación e impugnación?": "La observación puede señalar aspectos a aclarar o ampliar; la impugnación plantea un cuestionamiento técnico más fuerte sobre la validez o consistencia del informe."
-  },
-  "relatedTopics": [
-    "perito_de_parte",
-    "informe_pericial",
+
+    "relatedTopics": [
     "pericia_psicologica",
-    "abogados"
+    "informe_pericial",
+    "perito_de_parte",
+    "evaluacion_psicologica_judicial",
+    "danio_psiquico",
+    "consultoria_tecnica",
+    "metodo_falco",
+    "entrevista_psicologica",
+    "tecnicas_psicodiagnosticas",
+    "contrainformes"
   ],
+
   "importance": {
+
     "high": [
       "¿Cuándo se puede impugnar una pericia?",
       "¿Qué es un contrainforme psicológico?",
-      "¿Qué se revisa en una pericia?"
+      "¿Qué se revisa en una pericia?",
+      "¿Qué diferencia hay entre un pedido de explicaciones y una impugnación?"
     ],
+
     "medium": [
+      "¿Qué documentación puede analizarse?",
+      "¿Qué aspectos técnicos se revisan?",
+      "¿Cómo se desarrolla el análisis?",
       "¿Puede pedirlo un abogado?",
-      "¿Qué diferencia hay entre observación e impugnación?"
+      "¿Qué puede concluir una revisión técnica?"
     ],
-    "low": []
+
+    "low": [
+      "¿Puede analizarse una pericia fuera de plazo?",
+      "¿La documentación es confidencial?",
+      "¿Es necesario enviar el expediente completo?",
+      "¿Puede solicitarse solamente una consulta técnica?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Cuándo se puede impugnar una pericia?",
+    "¿Qué es un contrainforme psicológico?",
+    "¿Qué diferencia hay entre un pedido de explicaciones y una impugnación?",
+    "¿Qué documentación puede analizarse?",
+    "¿Qué aspectos técnicos se revisan?",
+    "¿Cómo se desarrolla el análisis?",
+    "¿Qué se revisa en una pericia?",
+    "¿Puede pedirlo un abogado?",
+    "¿Qué puede concluir una revisión técnica?",
+    "¿Se entrega un escrito técnico?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Informe Pericial Psicológico",
+    "Perito de Parte",
+    "Evaluación Psicológica Judicial",
+    "Daño Psíquico",
+    "Contrainformes Psicológicos",
+    "Consultoría Técnica",
+    "Método FALCO®",
+    "Supervisión Profesional",
+    "Documentación Pericial"
+  ],
+
+  "answers": {
+
+        "¿Cuándo se puede impugnar una pericia?":
+      "Cuando existen fundamentos técnicos para cuestionar la metodología utilizada, las entrevistas realizadas, las técnicas administradas, la integración diagnóstica, las conclusiones, la existencia de omisiones, contradicciones o falta de fundamentación técnico-científica.",
+
+    "¿Qué es un contrainforme psicológico?":
+      "Es un documento técnico independiente que analiza críticamente una pericia, informe psicológico o psicodiagnóstico previo, evaluando su consistencia metodológica, diagnóstica y psicológico-forense.",
+
+    "¿Qué documentación puede analizarse?":
+      "Pueden revisarse pericias psicológicas oficiales, informes de parte, psicodiagnósticos, informes clínicos, historias clínicas, certificados psicológicos, informes interdisciplinarios, respuestas periciales, pedidos de explicaciones y demás documentación vinculada con el caso.",
+
+    "¿Qué se revisa en una pericia?":
+      "Se analizan el encuadre metodológico, las entrevistas, las técnicas administradas, los indicadores obtenidos, la integración psicodiagnóstica, el diagnóstico, el daño psíquico, el nexo causal, las concausas, la incapacidad, los baremos utilizados, la respuesta a los puntos periciales y la consistencia de las conclusiones.",
+
+    "¿Qué diferencia hay entre un pedido de explicaciones y una impugnación?":
+      "El pedido de explicaciones procura aclarar aspectos ambiguos, incompletos o insuficientemente desarrollados del informe. La impugnación formula cuestionamientos técnicos dirigidos a señalar errores, omisiones, contradicciones o deficiencias metodológicas que comprometen la validez o fundamentación del dictamen.",
+
+    "¿Qué aspectos técnicos se revisan?":
+      "Se evalúan la metodología aplicada, la cantidad de entrevistas, la pertinencia de las técnicas seleccionadas, la correspondencia entre resultados e interpretaciones, la integración diagnóstica, la fundamentación del diagnóstico, la existencia de daño psíquico, el nexo causal, la aplicación de baremos y la coherencia de las conclusiones.",
+
+    "¿Qué se analiza respecto del daño psíquico?":
+      "Se verifica la existencia de un síndrome psicológico, la novedad biográfica del cuadro, la adecuada fundamentación del nexo causal, la persistencia de las alteraciones, su repercusión funcional y el respaldo técnico de cada conclusión.",
+
+    "¿Cómo se desarrolla el análisis?":
+      "El trabajo suele comprender la recepción del material, el estudio metodológico y documental, la identificación de observaciones técnicas, la definición de la estrategia más conveniente, la elaboración de observaciones, pedidos de explicaciones, impugnaciones o contrainformes y, cuando corresponde, la asistencia posterior frente a respuestas del perito.",
+
+    "¿Qué puede concluir una revisión técnica?":
+      "El análisis puede determinar que corresponde formular un pedido de explicaciones, realizar observaciones técnicas, presentar una impugnación parcial o integral, elaborar un contrainforme o simplemente brindar una consulta profesional cuando no existan fundamentos suficientes para un cuestionamiento formal.",
+
+    "¿Puede pedirlo un abogado?":
+      "Sí. El servicio puede ser solicitado por abogados particulares, estudios jurídicos, personas con patrocinio letrado, empresas, compañías aseguradoras, psicólogos, peritos de parte y otros profesionales que requieran una revisión técnica especializada.",
+
+    "¿Es necesario enviar el expediente completo?":
+      "Depende del alcance de la consulta. Para una revisión integral suele ser conveniente contar con la pericia, los puntos periciales, antecedentes relevantes, documentación clínica y demás actuaciones relacionadas con la evaluación psicológica.",
+
+    "¿Puede analizarse una pericia fuera de plazo?":
+      "Sí. El análisis técnico puede realizarse en cualquier momento. La posibilidad de efectuar presentaciones judiciales dependerá del estado procesal del expediente y deberá ser evaluada por el abogado interviniente.",
+
+    "¿Se entrega un escrito técnico?":
+      "La modalidad se define según cada caso. Puede elaborarse un documento técnico, observaciones especializadas, un contrainforme o un texto destinado a ser incorporado por el abogado en la presentación judicial correspondiente.",
+
+    "¿Puede intervenirse luego de la respuesta del perito?":
+      "Sí. También puede analizarse la contestación del profesional, evaluar si respondió adecuadamente las observaciones formuladas y colaborar en la elaboración de nuevas consideraciones técnicas cuando resulte necesario.",
+
+    "¿Puede solicitarse solamente una consulta técnica?":
+      "Sí. Es posible realizar una evaluación profesional del informe para determinar si existen fundamentos técnicos suficientes para avanzar con un pedido de explicaciones, una observación o una impugnación formal.",
+
+    "¿La documentación es confidencial?":
+      "Sí. Toda la documentación recibida es tratada con reserva profesional y utilizada exclusivamente para el análisis técnico solicitado."
+
   }
+
 }

@@ -1,39 +1,318 @@
 {
   "slug": "escuela-para-padres",
+
   "title": "Escuela para Padres FALCO®",
-  "greeting": "Bienvenido a la Escuela para Padres FALCO®. Puedo orientarte sobre el programa, sus contenidos y modalidad.",
-  "description": "Programa de formación para madres, padres y familias que buscan herramientas para comprender y acompañar la adolescencia.",
+
+  "greeting": "Bienvenido a la Escuela para Padres FALCO®. Puedo orientarte sobre el programa, los encuentros, los materiales, las modalidades y el recorrido formativo basado en el Método FALCO®.",
+
+  "description": "La Escuela para Padres FALCO® es un espacio de formación continua destinado a familias, docentes y adultos responsables que desean incorporar herramientas para comprender, acompañar y fortalecer el vínculo con adolescentes.",
+
+  "summary": "La Escuela para Padres FALCO® constituye un espacio de acompañamiento progresivo basado en el Método FALCO®. Integra formación continua, encuentros teórico-prácticos, materiales exclusivos, actividades, Biblioteca FALCO®, recursos digitales y certificación para fortalecer el acompañamiento durante la adolescencia.",
+
   "keywords": [
-    "escuela para padres",
+    "Escuela para Padres",
+    "Escuela para Padres FALCO",
+    "Método FALCO",
+    "Programa Formativo",
+    "Programa Premium",
+    "Biblioteca FALCO",
+    "Aprendiendo a ser Padres de un Adolescente",
+    "familias",
     "padres",
-    "adolescente",
+    "madres",
+    "adolescentes",
     "adolescencia",
-    "curso",
-    "familia",
+    "docentes",
+    "adultos responsables",
+    "comunicación",
+    "límites saludables",
+    "autoestima",
+    "emociones",
+    "salud mental adolescente",
+    "redes sociales",
+    "tecnología",
+    "proyecto de vida",
+    "formación continua",
+    "encuentros",
+    "curso para padres",
     "crianza",
-    "límites",
-    "comunicación"
+    "prevención",
+    "orientación familiar",
+    "certificación",
+    "20 horas reloj",
+    "cohorte fundadora"
   ],
+
+  "concepts": [
+
+    {
+      "id": "EP-001",
+      "name": "Escuela para Padres FALCO®",
+      "definition": "Espacio de formación continua destinado a familias, docentes y adultos responsables para acompañar la adolescencia mediante herramientas prácticas."
+    },
+
+    {
+      "id": "EP-002",
+      "name": "Acompañamiento continuo",
+      "definition": "Propuesta progresiva basada en el Método FALCO® que acompaña el proceso de aprendizaje de las familias más allá de un curso aislado."
+    },
+
+    {
+      "id": "EP-003",
+      "name": "Método FALCO®",
+      "definition": "Modelo que integra comprender la adolescencia, fortalecer vínculos, acompañar emociones, promover límites saludables y orientar proyectos de vida."
+    },
+
+    {
+      "id": "EP-004",
+      "name": "Programa de ocho encuentros",
+      "definition": "Recorrido formativo organizado en ocho encuentros teórico-prácticos para desarrollar herramientas concretas de acompañamiento familiar."
+    },
+
+    {
+      "id": "EP-005",
+      "name": "Material exclusivo",
+      "definition": "Conjunto de recursos digitales, guías, actividades, presentaciones y herramientas prácticas destinadas a los participantes."
+    },
+
+    {
+      "id": "EP-006",
+      "name": "Biblioteca FALCO®",
+      "definition": "Espacio de acceso a materiales descargables y recursos complementarios vinculados con el Programa Formativo Premium."
+    },
+
+    {
+      "id": "EP-007",
+      "name": "Cohorte Fundadora",
+      "definition": "Primera edición de la Escuela para Padres FALCO® destinada a un grupo limitado de familias que participan del recorrido completo."
+    },
+
+    {
+      "id": "EP-008",
+      "name": "Certificación",
+      "definition": "Certificado de aprobación otorgado a quienes cumplen con los requisitos de participación y las actividades integradoras."
+    },
+
+    {
+      "id": "EP-009",
+      "name": "Modalidades",
+      "definition": "La propuesta puede desarrollarse en modalidad online, presencial o institucional."
+    },
+
+    {
+      "id": "EP-010",
+      "name": "Beneficios para las familias",
+      "definition": "Comprender mejor la adolescencia, fortalecer vínculos, mejorar la comunicación e incorporar herramientas prácticas para la convivencia."
+    },
+
+    {
+      "id": "EP-011",
+      "name": "Recursos prácticos",
+      "definition": "Actividades, ejercicios, materiales imprimibles y herramientas para aplicar entre encuentros."
+    },
+
+      {
+      "id": "EP-012",
+      "name": "Ecosistema FALCO®",
+      "definition": "Conjunto integrado por el Método FALCO®, el Programa Formativo Premium, la Biblioteca FALCO® y la Escuela para Padres."
+    }
+  ],
+
+  "relatedTopics": [
+    "metodo_falco",
+    "programa_premium",
+    "biblioteca_falco",
+    "formacion_continua",
+    "familias",
+    "adolescencia",
+    "comunicacion_familiar",
+    "limites_saludables",
+    "emociones",
+    "autoestima",
+    "redes_sociales",
+    "salud_mental_adolescente",
+    "docentes",
+    "instituciones",
+    "municipios",
+    "empresas",
+    "proyecto_de_vida",
+    "prevencion"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es la Escuela para Padres FALCO®?",
+      "¿Qué incluye el programa?",
+      "¿Cuántos encuentros tiene?",
+      "¿Qué temas se trabajan?",
+      "¿A quién está dirigida?"
+    ],
+
+    "medium": [
+      "¿Qué materiales incluye?",
+      "¿Qué modalidades existen?",
+      "¿Qué beneficios ofrece?",
+      "¿Está basada en el Método FALCO®?",
+      "¿Qué es la Cohorte Fundadora?",
+      "¿Entrega certificado?"
+    ],
+
+    "low": [
+      "¿Cómo solicitar información?",
+      "¿Puede implementarse en instituciones?",
+      "¿Qué relación tiene con la Biblioteca FALCO®?",
+      "¿Qué integra el Ecosistema FALCO®?",
+      "¿Cómo es el recorrido formativo?"
+    ]
+
+  },
+
   "suggestions": [
-    "¿En qué consiste el programa?",
+    "¿Qué es la Escuela para Padres?",
+    "¿Qué incluye el programa?",
     "¿Cuántos encuentros tiene?",
     "¿Qué temas se trabajan?",
     "¿Qué materiales incluye?",
-    "¿Se entrega certificado?",
-    "¿Cómo ingreso al curso?"
+    "¿Entrega certificado?",
+    "¿Qué modalidades existen?",
+    "¿Qué beneficios ofrece?",
+    "¿Qué es la Cohorte Fundadora?",
+    "¿Cómo solicitar información?"
   ],
+
+  "related": [
+    "Método FALCO®",
+    "Programa Formativo Premium",
+    "Biblioteca FALCO®",
+    "Aprendiendo a ser Padres de un Adolescente®",
+    "Formación Continua",
+    "Comunicación Familiar",
+    "Límites Saludables",
+    "Salud Mental Adolescente",
+    "Proyecto de Vida",
+    "Cohorte Fundadora",
+    "Certificación",
+    "Ecosistema FALCO®"
+  ],
+
   "answers": {
-    "¿En qué consiste el programa?": "Es una propuesta de formación destinada a brindar herramientas prácticas para comprender y acompañar la adolescencia.",
-    "¿Cuántos encuentros tiene?": "El programa Aprendiendo a ser Padres de un Adolescente® está organizado en ocho encuentros, con una carga total de dieciséis horas.",
-    "¿Qué temas se trabajan?": "Se abordan adolescencia, comunicación, vínculos, límites, emociones, acompañamiento parental y situaciones frecuentes de la vida familiar.",
-    "¿Qué materiales incluye?": "Incluye cuadernillos, actividades, contenidos digitales, libro y recursos complementarios.",
-    "¿Se entrega certificado?": "Sí. El programa contempla certificación para quienes cumplan las condiciones establecidas.",
-    "¿Cómo ingreso al curso?": "El acceso se realiza mediante las credenciales asignadas en la plataforma de la Escuela para Padres FALCO®."
-  },
-  "relatedTopics": [
-    "adolescencia_hoy",
-    "formacion",
-    "familia",
-    "curso_padres"
-  ]
+
+        "que_es": {
+      "question": "¿Qué es la Escuela para Padres FALCO®?",
+      "answer": "La Escuela para Padres FALCO® es un espacio de formación continua destinado a familias, docentes y adultos responsables que desean incorporar herramientas para comprender, acompañar y fortalecer el vínculo con adolescentes."
+    },
+
+    "objetivo": {
+      "question": "¿Cuál es el objetivo de la Escuela para Padres?",
+      "answer": "Su objetivo es brindar un acompañamiento progresivo mediante herramientas prácticas para comprender la adolescencia, fortalecer la comunicación familiar y promover vínculos saludables."
+    },
+
+    "acompanamiento": {
+      "question": "¿Es un curso aislado?",
+      "answer": "No. Se trata de una propuesta de acompañamiento continuo basada en el Método FALCO®, orientada a desarrollar recursos que puedan aplicarse en la vida cotidiana de las familias."
+    },
+
+    "incluye": {
+      "question": "¿Qué incluye la Escuela para Padres?",
+      "answer": "Incluye encuentros formativos, material exclusivo, actividades prácticas, espacios de consulta, acceso a la Biblioteca FALCO® y certificación de aprobación."
+    },
+
+    "encuentros": {
+      "question": "¿Cuántos encuentros tiene el programa?",
+      "answer": "El recorrido formativo está organizado en ocho encuentros teórico-prácticos destinados a comprender la adolescencia y adquirir herramientas concretas para acompañar esta etapa."
+    },
+
+    "encuentro1": {
+      "question": "¿Qué se trabaja en el primer encuentro?",
+      "answer": "Comprender la adolescencia, sus cambios físicos, emocionales, sociales y las nuevas necesidades evolutivas."
+    },
+
+    "encuentro2": {
+      "question": "¿Qué se trabaja en el segundo encuentro?",
+      "answer": "Comunicación efectiva mediante escucha activa, preguntas abiertas y conversaciones que fortalecen el vínculo familiar."
+    },
+
+    "encuentro3": {
+      "question": "¿Qué se trabaja en el tercer encuentro?",
+      "answer": "Emociones y autoestima, promoviendo la validación emocional y el reconocimiento de fortalezas."
+    },
+
+    "encuentro4": {
+      "question": "¿Qué se trabaja en el cuarto encuentro?",
+      "answer": "Identidad y pertenencia, abordando autonomía, grupo de pares y construcción de identidad."
+    },
+
+    "encuentro5": {
+      "question": "¿Qué se trabaja en el quinto encuentro?",
+      "answer": "Redes sociales y tecnología, promoviendo acuerdos familiares y prevención de riesgos digitales."
+    },
+
+    "encuentro6": {
+      "question": "¿Qué se trabaja en el sexto encuentro?",
+      "answer": "Límites saludables mediante normas claras, autoridad respetuosa y consecuencias educativas."
+    },
+
+    "encuentro7": {
+      "question": "¿Qué se trabaja en el séptimo encuentro?",
+      "answer": "Salud mental adolescente, factores protectores, señales de alerta y cuándo solicitar ayuda profesional."
+    },
+
+    "encuentro8": {
+      "question": "¿Qué se trabaja en el octavo encuentro?",
+      "answer": "Proyecto de vida, fortalezas personales, autonomía progresiva y elaboración del Plan Familiar FALCO®."
+    },
+
+    "materiales": {
+      "question": "¿Qué materiales reciben los participantes?",
+      "answer": "Los participantes cuentan con cuadernillo del participante, actividades imprimibles, presentaciones premium, recursos digitales y materiales complementarios."
+    },
+
+    "biblioteca": {
+      "question": "¿Incluye acceso a Biblioteca FALCO®?",
+      "answer": "Sí. La propuesta incorpora acceso a materiales descargables y recursos complementarios disponibles en Biblioteca FALCO®."
+    },
+
+    "certificacion": {
+      "question": "¿Se entrega certificado?",
+      "answer": "Sí. Se entrega un certificado de aprobación correspondiente a veinte horas reloj, sujeto a la participación y a las actividades integradoras."
+    },
+
+    "cohorte": {
+      "question": "¿Qué es la Cohorte Fundadora?",
+      "answer": "Es la primera edición de la Escuela para Padres FALCO®, destinada a un grupo limitado de familias que realizan el recorrido completo de formación."
+    },
+
+    "modalidades": {
+      "question": "¿Qué modalidades ofrece la Escuela?",
+      "answer": "La propuesta puede desarrollarse en modalidad online, presencial o institucional, adaptándose a familias, instituciones educativas, municipios, empresas y organizaciones."
+    },
+
+    "beneficios": {
+      "question": "¿Qué beneficios ofrece a las familias?",
+      "answer": "Permite comprender mejor la adolescencia, fortalecer el vínculo familiar, mejorar la comunicación, reducir conflictos cotidianos, incorporar herramientas prácticas, acceder a recursos descargables y recibir orientación profesional."
+    },
+
+    "destinatarios": {
+      "question": "¿A quién está dirigida?",
+      "answer": "Está dirigida a madres, padres, familias, docentes y adultos responsables interesados en acompañar el desarrollo de adolescentes."
+    },
+
+    "metodo": {
+      "question": "¿Está basada en el Método FALCO®?",
+      "answer": "Sí. Toda la Escuela para Padres se desarrolla sobre los principios del Método FALCO®, integrando comprender la adolescencia, acompañar emociones, fortalecer vínculos, promover límites saludables y orientar proyectos de vida."
+    },
+
+    "ecosistema": {
+      "question": "¿Qué integra el Ecosistema FALCO®?",
+      "answer": "La Escuela para Padres forma parte del ecosistema integrado por el Método FALCO®, el Programa Formativo Premium y la Biblioteca FALCO®."
+    },
+
+    "informacion": {
+      "question": "¿Cómo puedo solicitar información o inscribirme?",
+      "answer": "Podés solicitar información sobre modalidades, inscripción, fechas y propuestas institucionales a través de los canales de contacto del Estudio."
+    }
+
+  }
+
 }

@@ -1,998 +1,1815 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
 
-<!-- Google Analytics -->
+  <!-- =====================================================
+       GOOGLE ANALYTICS
+  ====================================================== -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1">
+  </script>
 
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-<title>Biblioteca Falco® | Material Exclusivo</title>
+    gtag("js", new Date());
+    gtag("config", "G-W9RKEV2LN1");
+  </script>
 
-<meta name="description"
-content="Biblioteca privada con acceso a materiales exclusivos del Método FALCO®, Programa Premium y Escuela para Padres.">
 
-<link rel="stylesheet" href="style.css">
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
 
-<!-- =====================================
-     AION Engine™
-====================================== -->
+  <meta charset="UTF-8">
 
-<link rel="stylesheet" href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
+  <title>
+    Biblioteca FALCO® | Material exclusivo
+  </title>
+
+  <meta
+    name="description"
+    content="Biblioteca privada con acceso a materiales exclusivos del Método FALCO®, Programa Premium, recursos para familias y formación continua.">
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css">
 
 </head>
 
+
 <body class="pagina-interna fondo-neuronal biblioteca-page">
 
-<canvas id="neuronal-bg"></canvas>
-
-<header>
-
-<div class="nav-container">
-
-<div class="header-izquierda">
-
-<div class="logo">
-<a href="biblioteca-falco.html">
-<img src="img/logo.png" alt="Estudio Pericial Psicológico">
-</a>
-</div>
-
-</div>
-
-<div class="header-derecha">
-
-<div class="header-texto">
-ESTUDIO PERICIAL PSICOLÓGICO<br>
-<span>Lic. en Psicología ISABELA FALCO</span>
-</div>
-
-<button type="button" id="logoutBtn" class="btn-header-inline">
-  🔓 Cerrar sesión
-</button>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero-interno taller-hero">
-
-<div class="hero-contenido">
-
-<div class="hero-top">
-
-<span class="tests-nuevo">
-Colección Adolescencia y Familia
-</span>
-
-<h1 class="hero-titulo-principal">
-Biblioteca Falco®
-</h1>
-
-<div class="hero-badges">
-
-  <span>📖 Libro</span>
-
-  <span>📘 Programa</span>
-
-  <span>📝 Cuadernillos</span>
-
-  <span>🎓 Formación</span>
-
-</div>
-
-<h2 class="hero-subtitulo-fuerte">
-Biblioteca digital del Método FALCO®
-</h2>
-
-<p class="hero-descripcion">
-
-Un espacio exclusivo con programas formativos,
-manuales, cuadernillos y recursos desarrollados
-para comprender, acompañar y fortalecer vínculos
-durante la adolescencia.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
+  <canvas id="neuronal-bg"></canvas>
 
 
+  <!-- =====================================================
+       HEADER PRIVADO
+  ====================================================== -->
 
-<!-- ESTADO DE ACCESO -->
+  <header>
 
-<div class="biblioteca-acceso-ok">
+    <div class="nav-container">
 
-  <span>🔒 Acceso autorizado</span>
+      <div class="header-izquierda">
 
-  <p>
-    Usted se encuentra dentro del espacio privado de Biblioteca Falco®.
-  </p>
+        <div class="logo">
 
-</div>
+          <a
+            href="biblioteca-falco.html"
+            aria-label="Inicio de Biblioteca FALCO®">
 
+            <img
+              src="img/logo.png"
+              alt="Estudio Pericial Psicológico – Lic. Isabela Falco">
 
+          </a>
 
+        </div>
 
-<div class="biblioteca-lema">
-
-  <p>
-    📚 Biblioteca Falco® · 🧠 Método FALCO® · 🎓 Formación Continua
-  </p>
-
-</div>
-
-
-<!-- FRASE -->
-
-<section class="frase-taller">
-
-<p>
-
-"La formación continua constituye uno de los recursos más valiosos
-para acompañar a adolescentes, familias e instituciones."
-
-</p>
-
-</section>
+      </div>
 
 
+      <div class="header-derecha">
+
+        <div class="header-texto">
+
+          ESTUDIO PERICIAL PSICOLÓGICO
+
+          <br>
+
+          <span>
+            Lic. en Psicología ISABELA FALCO
+          </span>
+
+        </div>
 
 
+        <button
+          type="button"
+          id="logoutBtn"
+          class="btn-header-inline">
 
-<!-- DOCUMENTOS -->
+          Cerrar sesión
 
-<section id="recursos-principales" class="seccion-definicion">
+        </button>
 
-  <div class="danio-contenedor">
+      </div>
 
-    <span class="tests-nuevo">
-      Material disponible
-    </span>
+    </div>
 
-    <h2 class="titulo-seccion">
-      Materiales Premium
-    </h2>
+  </header>
 
-    <p class="descripcion-seccion">
-      Recursos exclusivos disponibles para usuarios autorizados de Biblioteca Falco®.
-    </p>
 
-    <div class="consultoria-grid biblioteca-grid">
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
 
-      <a href="https://drive.google.com/file/d/12gkfJ2Ev5JBOJV7rQlhDpEVGM6tt5U6w/view?usp=sharing"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="consultoria-card biblioteca-card">
+  <main>
 
-        <span class="biblioteca-etiqueta">
-          Muestra gratuita
+    <section class="hero-interno taller-hero">
+
+      <div class="hero-contenido">
+
+        <div class="hero-top">
+
+          <span class="tests-nuevo">
+            Espacio privado de formación y recursos
+          </span>
+
+
+          <h1 class="hero-titulo-principal">
+            Biblioteca FALCO®
+          </h1>
+
+
+          <div class="hero-badges">
+
+            <span>
+              📖 Libros
+            </span>
+
+            <span>
+              📘 Programas
+            </span>
+
+            <span>
+              📝 Cuadernillos
+            </span>
+
+            <span>
+              🎓 Formación
+            </span>
+
+          </div>
+
+
+          <h2 class="hero-subtitulo-fuerte">
+            Biblioteca digital del Método FALCO®
+          </h2>
+
+
+          <p class="hero-descripcion">
+
+            Un espacio exclusivo que reúne programas formativos,
+            manuales, cuadernillos y herramientas desarrolladas para
+            comprender, acompañar y fortalecer los vínculos familiares
+            durante la adolescencia.
+
+          </p>
+
+
+          <div class="hero-acciones">
+
+            <a
+              href="#recursos-principales"
+              class="btn-principal">
+
+              Explorar materiales
+
+            </a>
+
+            <a
+              href="#recursos-gratuitos"
+              class="btn-secundario">
+
+              Ver recursos gratuitos
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ESTADO DE ACCESO
+    ====================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <div class="biblioteca-acceso-ok">
+
+          <span>
+            🔒 Acceso autorizado
+          </span>
+
+          <p>
+            Se encuentra dentro del espacio privado de Biblioteca FALCO®.
+          </p>
+
+        </div>
+
+
+        <div class="biblioteca-lema">
+
+          <p>
+            📚 Biblioteca FALCO® · 🧠 Método FALCO® · 🎓 Formación continua
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ACCESOS RÁPIDOS
+    ====================================================== -->
+
+    <section class="seccion-definicion biblioteca-indice">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Navegación
         </span>
 
-        <h3>
-          📖 Aprendiendo a ser Padres de un Adolescente®
-        </h3>
 
-        <p>
-          Acceda gratuitamente a un adelanto del libro que dio origen al Método FALCO®.
+        <h2 class="titulo-seccion">
+          Accesos rápidos
+        </h2>
+
+
+        <p class="descripcion-seccion">
+
+          Ingrese directamente al sector de Biblioteca FALCO®
+          que desee consultar.
+
         </p>
 
-        <span class="biblioteca-link">
-          Leer muestra gratuita
+
+        <div class="biblioteca-accesos">
+
+          <a href="#recursos-principales">
+            📚 Materiales principales
+          </a>
+
+          <a href="#recorrido-biblioteca">
+            🧭 Recorrido formativo
+          </a>
+
+          <a href="#recursos-gratuitos">
+            📄 Recursos gratuitos
+          </a>
+
+          <a href="#ecosistema">
+            🧠 Ecosistema FALCO®
+          </a>
+
+          <a href="#proximamente">
+            🎓 Próximos desarrollos
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FRASE INSTITUCIONAL
+    ====================================================== -->
+
+    <section class="frase-taller">
+
+      <p>
+
+        “La formación continua constituye uno de los recursos
+        más valiosos para acompañar a adolescentes,
+        familias e instituciones.”
+
+      </p>
+
+      <span>
+        Biblioteca FALCO®
+      </span>
+
+    </section>
+
+
+    <!-- =====================================================
+         MATERIALES PRINCIPALES
+    ====================================================== -->
+
+    <section
+      id="recursos-principales"
+      class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Material disponible
         </span>
 
-      </a>
 
-      <div class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Volumen principal</span>
+        <h2 class="titulo-seccion">
+          Materiales principales
+        </h2>
 
-        <h3>📘 Programa Formativo Premium</h3>
 
-        <p>
-          Formación completa en 8 módulos basada en el Método FALCO®.
+        <p class="descripcion-seccion">
+
+          Recursos exclusivos disponibles para usuarios
+          autorizados de Biblioteca FALCO®.
+
         </p>
 
-        <div class="biblioteca-link-disabled">
-          🔒 Disponible en Biblioteca Falco®
+
+        <div class="consultoria-grid biblioteca-grid">
+
+
+          <!-- LIBRO -->
+
+          <a
+            href="https://drive.google.com/file/d/12gkfJ2Ev5JBOJV7rQlhDpEVGM6tt5U6w/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Muestra gratuita
+            </span>
+
+            <h3>
+              📖 Aprendiendo a ser Padres de un Adolescente®
+            </h3>
+
+            <p>
+
+              Acceda gratuitamente a un adelanto del libro
+              que dio origen al Método FALCO®.
+
+            </p>
+
+            <span class="biblioteca-link">
+              Leer muestra gratuita
+            </span>
+
+          </a>
+
+
+          <!-- PROGRAMA PREMIUM -->
+
+          <div class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Programa principal
+            </span>
+
+            <h3>
+              📘 Programa Formativo Premium
+            </h3>
+
+            <p>
+
+              Formación completa compuesta por siete módulos,
+              con contenidos, ejercicios y herramientas prácticas
+              basadas en el Método FALCO®.
+
+            </p>
+
+            <div class="biblioteca-link-disabled">
+              🔒 Disponible en Biblioteca FALCO®
+            </div>
+
+          </div>
+
+
+          <!-- MANUAL -->
+
+          <div class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Guía práctica
+            </span>
+
+            <h3>
+              📄 Manual Práctico para Familias
+            </h3>
+
+            <p>
+
+              Claves orientativas, preguntas frecuentes
+              y recursos para abordar conversaciones difíciles.
+
+            </p>
+
+            <div class="biblioteca-link-disabled">
+              🔒 Disponible en Biblioteca FALCO®
+            </div>
+
+          </div>
+
+
+          <!-- CUADERNILLO -->
+
+          <div class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Material imprimible
+            </span>
+
+            <h3>
+              📝 Cuadernillo del Participante
+            </h3>
+
+            <p>
+
+              Actividades, ejercicios, listas de revisión
+              y propuestas para construir un plan de acción familiar.
+
+            </p>
+
+            <div class="biblioteca-link-disabled">
+              🔒 Disponible en Biblioteca FALCO®
+            </div>
+
+          </div>
+
+
+          <!-- DOSSIER -->
+
+          <div class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Propuesta institucional
+            </span>
+
+            <h3>
+              🏫 Dossier Institucional
+            </h3>
+
+            <p>
+
+              Presentación destinada a colegios, municipios,
+              empresas, organismos y otras instituciones.
+
+            </p>
+
+            <div class="biblioteca-link-disabled">
+              🔒 Disponible en Biblioteca FALCO®
+            </div>
+
+          </div>
+
         </div>
+
       </div>
 
-      <div class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Guía práctica</span>
+    </section>
 
-        <h3>📄 Manual Práctico para Familias</h3>
 
-        <p>
-          10 claves, preguntas frecuentes y conversaciones difíciles.
+    <!-- =====================================================
+         PRESENTACIÓN DE LA BIBLIOTECA
+    ====================================================== -->
+
+    <section class="seccion-definicion biblioteca-presentacion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Colección Adolescencia y Familia
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          ¿Qué es Biblioteca FALCO®?
+        </h2>
+
+
+        <div class="definicion-card">
+
+          <p>
+
+            Biblioteca FALCO® es un espacio digital de recursos
+            educativos, programas formativos y materiales prácticos
+            desarrollados por la Lic. Isabela Falco.
+
+          </p>
+
+          <p>
+
+            Sus contenidos están dirigidos a familias, docentes,
+            profesionales e instituciones interesadas en comprender
+            y acompañar los procesos propios de la adolescencia.
+
+          </p>
+
+          <p>
+
+            Los materiales se integran dentro del Método FALCO®,
+            una propuesta centrada en comprender la adolescencia,
+            acompañar las emociones, favorecer límites saludables,
+            fortalecer los vínculos y orientar proyectos de vida.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RECORRIDO FORMATIVO
+    ====================================================== -->
+
+    <section
+      id="recorrido-biblioteca"
+      class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Recorrido formativo
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          El recorrido de Biblioteca FALCO®
+        </h2>
+
+
+        <p class="descripcion-seccion">
+
+          Una propuesta organizada para avanzar desde la lectura
+          inicial hacia la formación, la aplicación práctica
+          y el acompañamiento continuo.
+
         </p>
 
-        <div class="biblioteca-link-disabled">
-          🔒 Disponible en Biblioteca Falco®
+
+        <div class="recorrido-falco">
+
+
+          <article class="recorrido-item">
+
+            <div class="recorrido-numero">
+              1
+            </div>
+
+            <h3>
+              📖 Libro
+            </h3>
+
+            <p>
+
+              Aprendiendo a ser Padres de un Adolescente®
+              constituye la obra inicial de reflexión,
+              comprensión y orientación.
+
+            </p>
+
+          </article>
+
+
+          <article class="recorrido-item">
+
+            <div class="recorrido-numero">
+              2
+            </div>
+
+            <h3>
+              📘 Programa Formativo
+            </h3>
+
+            <p>
+
+              Siete módulos con contenidos, actividades
+              y situaciones prácticas basadas en el Método FALCO®.
+
+            </p>
+
+          </article>
+
+
+          <article class="recorrido-item">
+
+            <div class="recorrido-numero">
+              3
+            </div>
+
+            <h3>
+              📝 Cuadernillo
+            </h3>
+
+            <p>
+
+              Herramientas imprimibles para trabajar en familia,
+              registrar aprendizajes y construir acuerdos.
+
+            </p>
+
+          </article>
+
+
+          <article class="recorrido-item">
+
+            <div class="recorrido-numero">
+              4
+            </div>
+
+            <h3>
+              🎓 Formación continua
+            </h3>
+
+            <p>
+
+              Espacios y propuestas destinados a familias,
+              docentes, profesionales e instituciones.
+
+            </p>
+
+          </article>
+
         </div>
+
       </div>
 
-      <div class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Material imprimible</span>
+    </section>
 
-        <h3>📝 Cuadernillo del Participante</h3>
 
-        <p>
-          Actividades, ejercicios, checklist y plan de acción familiar.
-        </p>
+    <!-- =====================================================
+         DIFERENCIALES
+    ====================================================== -->
 
-        <div class="biblioteca-link-disabled">
-          🔒 Disponible en Biblioteca Falco®
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Nuestra propuesta
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          ¿Por qué Biblioteca FALCO®?
+        </h2>
+
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              🧠 Método propio
+            </h3>
+
+            <p>
+
+              Los materiales se encuentran basados en el
+              Método FALCO®, desarrollado para comprender
+              y acompañar la adolescencia desde una perspectiva
+              preventiva, educativa y vincular.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📚 Recursos integrados
+            </h3>
+
+            <p>
+
+              Libros, programas, manuales, cuadernillos
+              y propuestas institucionales forman parte
+              de un mismo ecosistema formativo.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              🎓 Formación continua
+            </h3>
+
+            <p>
+
+              Biblioteca FALCO® se encuentra en crecimiento,
+              incorporando progresivamente nuevos recursos,
+              guías y espacios de aprendizaje.
+
+            </p>
+
+          </article>
+
         </div>
+
       </div>
 
-      <div class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Institucional</span>
-
-        <h3>🏫 Dossier Institucional</h3>
-
-        <p>
-          Propuesta para colegios, municipios, empresas y organizaciones.
-        </p>
-
-        <div class="biblioteca-link-disabled">
-          🔒 Disponible en Biblioteca Falco®
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
 
-<!-- PRESENTACIÓN BIBLIOTECA -->
+    <!-- =====================================================
+         FRASE MÉTODO FALCO
+    ====================================================== -->
 
-<section class="seccion-definicion biblioteca-presentacion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Colección Adolescencia y Familia
-    </span>
-
-    <h2 class="titulo-seccion">
-      ¿Qué es Biblioteca Falco®?
-    </h2>
-
-    <div class="definicion-card">
+    <section class="frase-taller">
 
       <p>
-        Biblioteca Falco® es un espacio digital de recursos educativos,
-        programas formativos y materiales prácticos desarrollados por la
-        Lic. Isabela Falco, orientados a familias, docentes, profesionales
-        e instituciones interesadas en comprender y acompañar la adolescencia.
+
+        “Ninguna familia necesita ser perfecta para convertirse
+        en un espacio de crecimiento. Acompañar implica aprender,
+        escuchar y permanecer disponibles.”
+
       </p>
+
+      <span>
+        Método FALCO® · Biblioteca FALCO®
+      </span>
+
+    </section>
+
+
+    <!-- =====================================================
+         RECURSOS GRATUITOS
+    ====================================================== -->
+
+    <section
+      id="recursos-gratuitos"
+      class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Material complementario
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          Recursos gratuitos FALCO®
+        </h2>
+
+
+        <p class="descripcion-seccion">
+
+          Herramientas breves destinadas a acompañar,
+          reflexionar y fortalecer los vínculos familiares.
+
+        </p>
+
+
+        <div class="consultoria-grid biblioteca-grid">
+
+
+          <a
+            href="pdf/10-claves-adolescente.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Guía breve
+            </span>
+
+            <h3>
+              📄 10 claves para comprender a un adolescente
+            </h3>
+
+            <p>
+
+              Recurso introductorio para familias
+              y otros adultos significativos.
+
+            </p>
+
+            <span class="biblioteca-link">
+              Abrir PDF
+            </span>
+
+          </a>
+
+
+          <a
+            href="pdf/checklist-familiar.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Autoevaluación
+            </span>
+
+            <h3>
+              ✅ Checklist Familiar
+            </h3>
+
+            <p>
+
+              Herramienta para revisar comunicación,
+              límites y formas de acompañamiento.
+
+            </p>
+
+            <span class="biblioteca-link">
+              Abrir PDF
+            </span>
+
+          </a>
+
+
+          <a
+            href="pdf/acuerdo-digital-familiar.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Tecnología
+            </span>
+
+            <h3>
+              📱 Acuerdo Digital Familiar
+            </h3>
+
+            <p>
+
+              Guía práctica para construir acuerdos
+              saludables sobre el uso de pantallas.
+
+            </p>
+
+            <span class="biblioteca-link">
+              Abrir PDF
+            </span>
+
+          </a>
+
+
+          <a
+            href="pdf/semaforo-familiar-falco.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="consultoria-card biblioteca-card">
+
+            <span class="biblioteca-etiqueta">
+              Herramienta visual
+            </span>
+
+            <h3>
+              🚦 Semáforo Familiar FALCO®
+            </h3>
+
+            <p>
+
+              Recurso para identificar fortalezas,
+              dificultades y áreas que requieren atención.
+
+            </p>
+
+            <span class="biblioteca-link">
+              Abrir PDF
+            </span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ECOSISTEMA FALCO
+    ====================================================== -->
+
+    <section
+      id="ecosistema"
+      class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Sistema integrado
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          Ecosistema de Formación FALCO®
+        </h2>
+
+
+        <p class="descripcion-seccion">
+
+          Biblioteca FALCO® forma parte de una propuesta
+          más amplia de orientación, formación y acompañamiento.
+
+        </p>
+
+
+        <div class="consultoria-grid">
+
+
+          <a
+            href="metodo-falco.html"
+            class="consultoria-card">
+
+            <h3>
+              Método FALCO®
+            </h3>
+
+            <p>
+              Comprender · Acompañar · Fortalecer.
+            </p>
+
+          </a>
+
+
+          <a
+            href="programa-premium.html"
+            class="consultoria-card">
+
+            <h3>
+              Programa Premium
+            </h3>
+
+            <p>
+              Formación completa compuesta por siete módulos.
+            </p>
+
+          </a>
+
+
+          <a
+            href="escuela-para-padres.html"
+            class="consultoria-card">
+
+            <h3>
+              Escuela para Padres
+            </h3>
+
+            <p>
+              Espacio de formación continua para familias.
+            </p>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CÓMO APROVECHAR LA BIBLIOTECA
+    ====================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          Uso recomendado
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          ¿Cómo aprovechar Biblioteca FALCO®?
+        </h2>
+
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              1. Comenzar por el programa
+            </h3>
+
+            <p>
+
+              Inicie con el Programa Formativo Premium
+              para recorrer los siete módulos centrales
+              del Método FALCO®.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              2. Trabajar con el cuadernillo
+            </h3>
+
+            <p>
+
+              Utilice el Cuadernillo del Participante
+              para registrar reflexiones, actividades
+              y acuerdos familiares.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              3. Consultar el manual
+            </h3>
+
+            <p>
+
+              El Manual Práctico para Familias permite
+              revisar claves, preguntas frecuentes
+              y conversaciones difíciles.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              4. Explorar recursos complementarios
+            </h3>
+
+            <p>
+
+              Los materiales gratuitos pueden utilizarse
+              como herramientas breves para situaciones
+              y necesidades específicas.
+
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRÓXIMAMENTE
+    ====================================================== -->
+
+    <section
+      id="proximamente"
+      class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="tests-nuevo">
+          En desarrollo
+        </span>
+
+
+        <h2 class="titulo-seccion">
+          Nuevos desarrollos de Biblioteca FALCO®
+        </h2>
+
+
+        <p class="descripcion-seccion">
+
+          Nuevos materiales y espacios formativos destinados
+          a familias, docentes y profesionales interesados
+          en el acompañamiento de adolescentes.
+
+        </p>
+
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              🎓 Escuela para Padres FALCO®
+            </h3>
+
+            <p>
+
+              Programa de formación continua con encuentros,
+              recursos descargables y actividades prácticas.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              🏫 Recursos para docentes
+            </h3>
+
+            <p>
+
+              Materiales destinados a fortalecer estrategias
+              de acompañamiento dentro del ámbito educativo.
+
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📚 Guías temáticas
+            </h3>
+
+            <p>
+
+              Recursos específicos sobre límites, emociones,
+              tecnología, comunicación y bienestar adolescente.
+
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FRASE DE CIERRE
+    ====================================================== -->
+
+    <section class="frase-taller">
 
       <p>
-        Sus contenidos se basan en el Método FALCO®, una propuesta centrada
-        en fortalecer vínculos, acompañar emociones, promover límites
-        saludables, comprender la adolescencia y orientar proyectos de vida.
+
+        “Una biblioteca no solo reúne materiales.
+        También organiza caminos posibles para aprender,
+        reflexionar y transformar la manera de acompañar.”
+
+      </p>
+
+      <span>
+        Biblioteca FALCO® · Colección Adolescencia y Familia
+      </span>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA FINAL
+    ====================================================== -->
+
+    <section class="cta-final-estudio">
+
+      <div class="cta-final-card">
+
+        <span class="tests-nuevo">
+          Biblioteca FALCO®
+        </span>
+
+
+        <h2>
+          ¿Necesita orientación sobre algún material?
+        </h2>
+
+
+        <p>
+
+          Consulte por los programas, recursos descargables,
+          propuestas formativas o materiales institucionales
+          disponibles dentro de Biblioteca FALCO®.
+
+        </p>
+
+
+        <a
+          href="https://wa.me/5491132049521?text=Hola,%20necesito%20orientaci%C3%B3n%20sobre%20la%20Biblioteca%20FALCO%C2%AE."
+          class="btn-principal"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Consultar por Biblioteca FALCO®
+
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER INSTITUCIONAL
+  ====================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-contenido">
+
+      <div class="footer-col footer-identidad">
+
+        <span class="footer-etiqueta">
+          Estudio profesional
+        </span>
+
+        <p class="footer-titulo">
+          Estudio Pericial Psicológico
+        </p>
+
+        <p class="footer-texto">
+          Lic. en Psicología Isabela Falco
+        </p>
+
+        <p class="footer-descripcion">
+          Supervisión profesional, formación aplicada,
+          pericias psicológicas y asesoramiento técnico
+          para la práctica jurídica y forense.
+        </p>
+
+        <div class="footer-especialidades">
+
+          <span>Supervisión</span>
+          <span>Pericias</span>
+          <span>Informes</span>
+          <span>Formación</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Contacto
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            WhatsApp
+          </span>
+
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            11 3204 9521
+          </a>
+
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Correo electrónico
+          </span>
+
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+            estudiopericialpsicologico@gmail.com
+          </a>
+
+        </p>
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="footer-consulta"
+        >
+          Iniciar una consulta
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </a>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Sistema FALCO®
+        </p>
+
+        <nav
+          class="footer-navegacion"
+          aria-label="Accesos del Sistema FALCO"
+        >
+
+          <a href="FALCO-ADMISION/index.html">
+            FALCO Admisión™
+          </a>
+
+          <a href="profesional-login.html">
+            Área Profesional
+          </a>
+
+          <a href="escuela-login.html">
+            Formación FALCO®
+          </a>
+
+          <a href="biblioteca-login.html">
+            Biblioteca FALCO®
+          </a>
+
+          <a href="login.html">
+            Área de evaluación
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Modalidades
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Supervisión virtual
+          </span>
+
+          Encuentros mediante videollamada
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Supervisión presencial
+          </span>
+
+          Según disponibilidad y coordinación previa
+        </p>
+
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Buenos Aires
+          </span>
+
+          Zona Norte · Escobar · Pilar<br>
+          Zona Oeste · Ramos Mejía
+        </p>
+
+        <p class="footer-nota">
+          Atención con coordinación previa
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-separador"></div>
+
+
+    <div class="footer-ecosistema">
+
+      <a href="metodo-falco.html">
+        Método FALCO®
+      </a>
+
+      <a href="programa-premium.html">
+        Programa Premium
+      </a>
+
+      <a href="biblioteca-login.html">
+        Biblioteca FALCO®
+      </a>
+
+      <a href="talleres-y-cursos.html">
+        Talleres y cursos
+      </a>
+
+      <a href="profesional-login.html">
+        Área Profesional
+      </a>
+
+    </div>
+
+
+    <div class="footer-redes">
+
+      <span>
+        Seguinos
+      </span>
+
+      <a
+        href="https://www.instagram.com/estudiopericialpsicologico/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://www.facebook.com/licisabelafalco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
+
+    <div class="footer-legal">
+
+      <p>
+        La supervisión brinda orientación técnica y formación aplicada.
+        No reemplaza la responsabilidad profesional individual
+        ni el asesoramiento jurídico.
       </p>
 
     </div>
 
-  </div>
 
-</section>
+    <div class="footer-bottom">
 
+      © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
 
-
-<!-- INDICE VISUAL -->
-
-<section class="seccion-definicion biblioteca-indice">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Acceso rápido
-    </span>
-
-    <h2 class="titulo-seccion">
-      Explorar Biblioteca Falco®
-    </h2>
-
-    <div class="biblioteca-accesos">
-
-      <a href="#recursos-principales">
-        📚 Recursos principales
-      </a>
-
-      <a href="#recursos-gratuitos">
-        📄 Recursos gratuitos
-      </a>
-
-      <a href="#proximamente">
-        🎓 Próximamente
-      </a>
-
-      <a href="#ecosistema">
-        🧠 Ecosistema Falco®
-      </a>
+      <span>
+        Supervisión Profesional · Psicología Jurídica y Forense · Sistema FALCO®
+      </span>
 
     </div>
 
-  </div>
 
-</section>
+    <div class="credito-card">
 
+      <p class="credito-titulo">
+        Diseño y desarrollo web
+      </p>
 
-<!-- RECORRIDO BIBLIOTECA -->
+      <a
+        href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="credito-nombre"
+      >
 
-<section class="seccion-definicion">
+        <span
+          class="icono-whatsapp"
+          aria-hidden="true"
+        >
+          🟢
+        </span>
 
-  <div class="danio-contenedor">
+        Guillermo Hechem
 
-    <span class="tests-nuevo">
-      Recorrido formativo
-    </span>
-
-    <h2 class="titulo-seccion">
-      El recorrido de Biblioteca Falco®
-    </h2>
-
-    <p class="descripcion-seccion">
-      Una propuesta pensada para avanzar desde la lectura inicial
-      hacia la formación, la práctica y el acompañamiento continuo.
-    </p>
-
-    <div class="recorrido-falco">
-
-      <div class="recorrido-item">
-        <div class="recorrido-numero">1</div>
-        <h3>📖 Libro</h3>
-        <p>
-          Aprendiendo a ser Padres de un Adolescente® como obra base
-          de reflexión y comprensión.
-        </p>
-      </div>
-
-      <div class="recorrido-item">
-        <div class="recorrido-numero">2</div>
-        <h3>📘 Programa Formativo</h3>
-        <p>
-          Siete módulos con contenidos, actividades y casos prácticos
-          basados en el Método FALCO®.
-        </p>
-      </div>
-
-      <div class="recorrido-item">
-        <div class="recorrido-numero">3</div>
-        <h3>📝 Cuadernillo</h3>
-        <p>
-          Herramientas imprimibles para trabajar en familia,
-          registrar aprendizajes y construir acuerdos.
-        </p>
-      </div>
-
-      <div class="recorrido-item">
-        <div class="recorrido-numero">4</div>
-        <h3>🎓 Escuela para Padres</h3>
-        <p>
-          Espacio de formación continua orientado a familias,
-          docentes e instituciones.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- DIFERENCIALES -->
-
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Nuestra propuesta
-    </span>
-
-    <h2 class="titulo-seccion">
-      ¿Por qué Biblioteca Falco®?
-    </h2>
-
-    <div class="consultoria-grid">
-
-      <div class="consultoria-card">
-
-        <h3>🧠 Método propio</h3>
-
-        <p>
-          Todos los materiales se encuentran basados en el Método FALCO®,
-          desarrollado para comprender y acompañar la adolescencia desde
-          una perspectiva preventiva y vincular.
-        </p>
-
-      </div>
-
-      <div class="consultoria-card">
-
-        <h3>📚 Recursos integrados</h3>
-
-        <p>
-          Libro, programa, manuales, cuadernillos y propuestas institucionales
-          forman parte de un mismo ecosistema formativo.
-        </p>
-
-      </div>
-
-      <div class="consultoria-card">
-
-        <h3>🎓 Formación continua</h3>
-
-        <p>
-          Biblioteca Falco® se encuentra en constante crecimiento,
-          incorporando nuevos recursos y espacios de aprendizaje.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FILOSOFÍA -->
-
-<section class="frase-taller">
-
-  <p>
-
-    "Creemos que ninguna familia necesita ser perfecta para convertirse
-    en un espacio de crecimiento. Acompañar implica aprender,
-    escuchar y permanecer disponibles."
-
-  </p>
-
-  <span>
-    Método FALCO® · Biblioteca Falco®
-  </span>
-
-</section>
-
-
-
-
-<!-- RECURSOS GRATUITOS -->
-
-<section id="recursos-gratuitos" class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Descarga complementaria
-    </span>
-
-    <h2 class="titulo-seccion">
-      Recursos Gratuitos Falco®
-    </h2>
-
-    <p class="descripcion-seccion">
-      Herramientas breves para acompañar, reflexionar y fortalecer vínculos familiares.
-    </p>
-
-    <div class="consultoria-grid biblioteca-grid">
-
-      <a href="pdf/10-claves-adolescente.pdf" target="_blank" class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Guía breve</span>
-        <h3>📄 10 claves para comprender a un adolescente</h3>
-        <p>
-          Recurso introductorio para familias y adultos significativos.
-        </p>
-        <span class="biblioteca-link">Descargar PDF</span>
       </a>
 
-      <a href="pdf/checklist-familiar.pdf" target="_blank" class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Autoevaluación</span>
-        <h3>✅ Checklist Familiar</h3>
-        <p>
-          Herramienta para revisar comunicación, límites y acompañamiento.
-        </p>
-        <span class="biblioteca-link">Descargar PDF</span>
-      </a>
-
-      <a href="pdf/acuerdo-digital-familiar.pdf" target="_blank" class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Tecnología</span>
-        <h3>📱 Acuerdo Digital Familiar</h3>
-        <p>
-          Guía práctica para construir acuerdos saludables sobre pantallas.
-        </p>
-        <span class="biblioteca-link">Descargar PDF</span>
-      </a>
-
-      <a href="pdf/semaforo-familiar-falco.pdf" target="_blank" class="consultoria-card biblioteca-card">
-        <span class="biblioteca-etiqueta">Herramienta rápida</span>
-        <h3>🚦 Semáforo Familiar Falco®</h3>
-        <p>
-          Recurso visual para identificar fortalezas y áreas a trabajar.
-        </p>
-        <span class="biblioteca-link">Descargar PDF</span>
-      </a>
+      <p class="credito-descripcion">
+        Desarrollo web profesional · Sitios modernos y optimizados
+      </p>
 
     </div>
 
-  </div>
+  </footer>
 
-</section>
 
+  <!-- =====================================================
+       SCRIPT GENERAL
+  ====================================================== -->
 
+  <script src="script.js"></script>
 
 
-<!-- PRÓXIMAMENTE -->
+  <!-- =====================================================
+       PROTECCIÓN DE ACCESO
+       Se conserva la lógica actual.
+  ====================================================== -->
 
-<section id="proximamente" class="seccion-definicion">
+  <script type="module">
 
-  <div class="danio-contenedor">
+    import {
+      auth,
+      db
+    } from "./firebase-config.js";
 
-    <span class="tests-nuevo">
-      En desarrollo
-    </span>
 
-   <h2 class="titulo-seccion">
-Nuevos desarrollos Biblioteca Falco®
-</h2>
+    import {
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-    <p class="descripcion-seccion">
-      Nuevos materiales y espacios formativos destinados a familias,
-      docentes y profesionales interesados en el acompañamiento adolescente.
-    </p>
 
-    <div class="consultoria-grid">
+    import {
+      doc,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-      <div class="consultoria-card">
-        <h3>🎓 Escuela para Padres Falco®</h3>
 
-        <p>
-          Programa de formación continua con encuentros,
-          recursos descargables y actividades prácticas.
-        </p>
-      </div>
+    const ADMIN_EMAIL =
+      "estudiopericialpsicologico@gmail.com";
 
-      <div class="consultoria-card">
-        <h3>🏫 Recursos para Docentes</h3>
 
-        <p>
-          Materiales destinados a fortalecer estrategias de
-          acompañamiento en el ámbito educativo.
-        </p>
-      </div>
+    const logoutBtn =
+      document.getElementById("logoutBtn");
 
-      <div class="consultoria-card">
-        <h3>📚 Guías Temáticas</h3>
 
-        <p>
-          Recursos específicos sobre límites, emociones,
-          tecnología, comunicación y bienestar adolescente.
-        </p>
-      </div>
+    onAuthStateChanged(auth, async user => {
 
-    </div>
+      if (!user) {
 
-  </div>
+        window.location.href =
+          "biblioteca-login.html";
 
-</section>
+        return;
 
-
-
-<!-- ECOSISTEMA -->
-
-<section id="ecosistema" class="seccion-definicion">
-
-<div class="danio-contenedor">
-
-<h2 class="titulo-seccion">
-Ecosistema de Formación Falco®
-</h2>
-
-<div class="consultoria-grid">
-
-<a href="metodo-falco.html"
-class="consultoria-card">
-
-<h3>Método FALCO®</h3>
-
-<p>
-Comprender · Acompañar · Fortalecer.
-</p>
-
-</a>
-
-<a href="programa-premium.html"
-class="consultoria-card">
-
-<h3>Programa Premium</h3>
-
-<p>
-Formación completa compuesta por siete módulos.
-</p>
-
-</a>
-
-<a href="escuela-para-padres.html"
-class="consultoria-card">
-
-<h3>Escuela para Padres</h3>
-
-<p>
-Espacio de formación continua para familias.
-</p>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ACCESO Y USO -->
-
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Uso recomendado
-    </span>
-
-    <h2 class="titulo-seccion">
-      ¿Cómo aprovechar Biblioteca Falco®?
-    </h2>
-
-    <div class="consultoria-grid">
-
-      <div class="consultoria-card">
-        <h3>1. Comenzar por el programa</h3>
-        <p>
-          Inicie con el Programa Formativo Premium para recorrer los
-          siete módulos centrales del Método FALCO®.
-        </p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>2. Trabajar con el cuadernillo</h3>
-        <p>
-          Utilice el Cuadernillo del Participante para registrar
-          reflexiones, actividades y acuerdos familiares.
-        </p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>3. Consultar el manual</h3>
-        <p>
-          El Manual Práctico para Familias permite revisar claves,
-          preguntas frecuentes y conversaciones difíciles.
-        </p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>4. Explorar recursos gratuitos</h3>
-        <p>
-          Los recursos complementarios pueden utilizarse como herramientas
-          breves para situaciones específicas.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FRASE CIERRE BIBLIOTECA -->
-
-<section class="frase-taller">
-
-  <p>
-    "Una biblioteca no solo reúne materiales.
-    También organiza caminos posibles para aprender,
-    reflexionar y transformar la manera de acompañar."
-  </p>
-
-  <span>
-    Biblioteca Falco® · Colección Adolescencia y Familia
-  </span>
-
-</section>
-
-
-
-<!-- CTA -->
-
-<section class="cta-final-estudio">
-
-<div class="cta-final-card">
-
-<h2>
-¿Desea conocer más sobre Biblioteca Falco®?
-</h2>
-
-<p>
-Solicite información sobre programas, talleres, recursos descargables
-o propuestas institucionales basadas en el Método FALCO®.
-</p>
-
-<a
-href="https://wa.me/5491132049521?text=Hola,%20necesito%20ayuda%20con%20la%20Biblioteca%20Falco"
-class="btn-principal"
-target="_blank"
-rel="noopener noreferrer">
-
-Contactar a Biblioteca Falco®
-
-</a>
-
-</div>
-
-
-
-
-
-<footer class="footer">
-
-  <div class="footer-contenido">
-
-    <p class="footer-titulo">
-      Biblioteca Falco®
-    </p>
-
-    <p class="footer-texto">
-      Colección Adolescencia y Familia
-    </p>
-
-    <p class="footer-texto">
-      Método FALCO®
-    </p>
-
-    <p class="footer-texto">
-      Comprender · Acompañar · Fortalecer
-    </p>
-
-
-    <p class="footer-texto">
-Directora: Lic. Isabela Falco
-</p>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Todos los derechos reservados.
-  </div>
-
-
-
-
-</footer>
-
-<script src="script.js"></script>
-
-
-
-
-
-<!-- PROTECCIÓN LOGIN -->
-
-<script type="module">
-
-import { auth, db } from "./firebase-config.js";
-
-import {
-  onAuthStateChanged,
-  signOut
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-import {
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const ADMIN_EMAIL = "estudiopericialpsicologico@gmail.com";
-
-const logoutBtn = document.getElementById("logoutBtn");
-
-onAuthStateChanged(auth, async (user) => {
-
-  if (!user) {
-    window.location.href = "biblioteca-login.html";
-    return;
-  }
-
-  const ref = doc(db, "usuarios", user.uid);
-  const snap = await getDoc(ref);
-
-  const dataUsuario = snap.exists() ? snap.data() : {};
-
-  const rol =
-    user.email === ADMIN_EMAIL
-      ? "admin"
-      : (dataUsuario.rol || "periciado");
-
-  if (
-    rol !== "biblioteca" &&
-    rol !== "admin" &&
-    rol !== "perito"
-  ) {
-    window.location.href = "biblioteca-login.html";
-    return;
-  }
-
-});
-
-logoutBtn.addEventListener("click", async () => {
-  await signOut(auth);
-  window.location.href = "biblioteca-login.html";
-});
-
-</script>
-
-
-
-<script>
-window.KnowledgeEngine = class KnowledgeEngine {
-  constructor() {
-    this.cache = {};
-  }
-
-  async getCurrentPageKnowledge() {
-    const slug = "biblioteca";
-
-    if (this.cache[slug]) {
-      return this.cache[slug];
-    }
-
-    try {
-      const response = await fetch(
-        "FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/biblioteca.json"
-      );
-
-      if (!response.ok) {
-        throw new Error(`Error ${response.status}`);
       }
 
-      const data = await response.json();
 
-      this.cache[slug] = data;
+      try {
 
-      return data;
-    } catch (error) {
-      console.warn("AION Biblioteca:", error);
+        const ref =
+          doc(db, "usuarios", user.uid);
 
-      return {
-        slug: "biblioteca",
-        title: "Biblioteca FALCO®",
-        greeting: "Puedo orientarte sobre los recursos disponibles.",
-        suggestions: [
-          "¿Qué contiene la Biblioteca FALCO®?",
-          "¿Quién puede acceder?",
-          "¿Cómo obtengo acceso?"
-        ],
-        answers: {}
-      };
-    }
-  }
-};
-</script>
+        const snap =
+          await getDoc(ref);
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine-router.js"></script>
 
-<script>
-window.KnowledgeEngine = class KnowledgeEngine {
+        const dataUsuario =
+          snap.exists()
+            ? snap.data()
+            : {};
 
-    constructor(){
-        this.cache = {};
-    }
 
-    async getCurrentPageKnowledge(){
+        const rol =
+          user.email === ADMIN_EMAIL
+            ? "admin"
+            : (dataUsuario.rol || "periciado");
 
-        const slug = "biblioteca";
 
-        if(this.cache[slug]){
-            return this.cache[slug];
+        const rolesAutorizados = [
+          "biblioteca",
+          "admin",
+          "perito"
+        ];
+
+
+        if (!rolesAutorizados.includes(rol)) {
+
+          window.location.href =
+            "biblioteca-login.html";
+
         }
 
-        try{
+      } catch (error) {
 
-            const response = await fetch(
-                "FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/biblioteca.json"
+        console.error(
+          "Error al verificar el acceso a Biblioteca FALCO®:",
+          error
+        );
+
+        window.location.href =
+          "biblioteca-login.html";
+
+      }
+
+    });
+
+
+    if (logoutBtn) {
+
+      logoutBtn.addEventListener(
+        "click",
+        async () => {
+
+          try {
+
+            await signOut(auth);
+
+            window.location.href =
+              "biblioteca-login.html";
+
+          } catch (error) {
+
+            console.error(
+              "No se pudo cerrar la sesión:",
+              error
             );
 
-            const data = await response.json();
+          }
 
-            this.cache[slug] = data;
+        }
+      );
+
+    }
+
+  </script>
+
+
+  <!-- =====================================================
+       CONOCIMIENTO ESPECÍFICO DE BIBLIOTECA
+       Se mantiene el contexto que ya funciona.
+  ====================================================== -->
+
+  <script>
+
+    window.KnowledgeEngine =
+      class KnowledgeEngine {
+
+        constructor() {
+
+          this.cache = {};
+
+        }
+
+
+        async getCurrentPageKnowledge() {
+
+          const slug = "biblioteca";
+
+
+          if (this.cache[slug]) {
+
+            return this.cache[slug];
+
+          }
+
+
+          try {
+
+            const response = await fetch(
+              "FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/biblioteca.json"
+            );
+
+
+            if (!response.ok) {
+
+              throw new Error(
+                `Error ${response.status}`
+              );
+
+            }
+
+
+            const data =
+              await response.json();
+
+
+            this.cache[slug] =
+              data;
+
 
             return data;
 
-        }catch(e){
+          } catch (error) {
 
-            console.error(e);
+            console.warn(
+              "AION Biblioteca:",
+              error
+            );
+
 
             return {
-                slug:"biblioteca",
-                title:"Biblioteca FALCO®",
-                greeting:"Puedo ayudarte con la Biblioteca.",
-                suggestions:[
-                    "¿Qué contiene la Biblioteca FALCO®?",
-                    "¿Quién puede acceder?",
-                    "¿Cómo obtengo acceso?"
-                ],
-                answers:{}
+
+              slug: "biblioteca",
+
+              title: "Biblioteca FALCO®",
+
+              greeting:
+                "Puedo orientarte sobre los recursos disponibles.",
+
+              suggestions: [
+
+                "¿Qué contiene la Biblioteca FALCO®?",
+
+                "¿Quién puede acceder?",
+
+                "¿Cómo obtengo acceso?"
+
+              ],
+
+              answers: {}
+
             };
+
+          }
 
         }
 
-    }
+      };
 
-};
-</script>
-
-<script src="launch-panel/launch-panel.js"></script>
+  </script>
 
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+  <script
+    src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine-router.js">
+  </script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+  <!-- =====================================================
+       AION ENGINE™
+       Se conserva el bloque operativo.
+  ====================================================== -->
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+  <script src="launch-panel/launch-panel.js"></script>
+
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+
 <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-site-map.js"></script>
+
 <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
 
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
 
-<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
 
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+
+  <script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
+
 </html>

@@ -7,7 +7,7 @@
 
   "description": "La pericia psicológica es una evaluación técnica realizada en un contexto judicial o prejudicial, orientada a responder puntos periciales mediante criterios clínicos, psicodiagnósticos y forenses.",
 
-  "summary": "La evaluación puede realizarse en causas civiles, laborales, penales y de familia. Comprende entrevistas, administración de técnicas psicodiagnósticas, análisis del expediente e integración de resultados en un informe pericial.",
+  "summary": "La evaluación puede realizarse en causas civiles, laborales, penales y de familia. Comprende entrevistas, administración de técnicas psicodiagnósticas, análisis documental, integración de resultados, elaboración del informe pericial y, cuando corresponde, asesoramiento técnico posterior.",
 
   "keywords": [
     "pericia",
@@ -17,72 +17,113 @@
     "evaluación judicial",
     "psicólogo forense",
     "psicodiagnóstico",
+    "entrevista psicodiagnóstica",
     "informe pericial",
     "juicio",
     "expediente",
-    "daño psíquico"
+    "daño psíquico",
+    "nexo causal",
+    "repercusión funcional",
+    "personalidad de base",
+    "tratamiento psicológico",
+    "causa civil",
+    "causa laboral",
+    "causa penal",
+    "causa de familia",
+    "psicología forense"
   ],
 
-
-"concepts": [
-  {
-    "id": "PER-001",
-    "name": "Pericia psicológica",
-    "definition": "Evaluación técnica realizada por un profesional de la psicología en un contexto judicial o prejudicial, orientada a analizar el estado psíquico de una persona y responder puntos periciales."
-  },
-  {
-    "id": "PER-002",
-    "name": "Entrevista clínica",
-    "definition": "Instancia de evaluación en la que se exploran antecedentes, estado emocional, relato, funcionamiento psíquico y aspectos relevantes del caso."
-  },
-  {
-    "id": "PER-003",
-    "name": "Técnicas psicodiagnósticas",
-    "definition": "Instrumentos psicológicos utilizados para explorar indicadores clínicos, emocionales, cognitivos o de personalidad dentro del proceso de evaluación."
-  },
-  {
-    "id": "PER-004",
-    "name": "Informe pericial psicológico",
-    "definition": "Documento técnico que integra entrevistas, técnicas administradas, análisis del expediente y conclusiones profesionales para ser presentado en un contexto judicial."
-  },
-  {
-    "id": "PER-005",
-    "name": "Puntos periciales",
-    "definition": "Preguntas o aspectos técnicos que orientan la intervención del perito y que deben ser respondidos en el informe."
-  }
-],
-
-"relatedTopics": [
-  "danio_psiquico",
-  "informe_pericial",
-  "perito_de_parte",
-  "honorarios",
-  "evaluacion_psicologica_judicial"
-],
-
-"importance": {
-  "high": [
-    "¿Qué es una pericia psicológica?",
-    "¿Cómo es el proceso de evaluación?",
-    "¿Qué incluye el informe pericial?"
+  "concepts": [
+    {
+      "id": "PER-001",
+      "name": "Pericia psicológica",
+      "definition": "Evaluación técnica realizada por un profesional de la psicología en un contexto judicial o prejudicial, orientada a analizar el estado psíquico de una persona y responder puntos periciales."
+    },
+    {
+      "id": "PER-002",
+      "name": "Entrevista clínica",
+      "definition": "Instancia de evaluación en la que se exploran antecedentes, estado emocional, relato, funcionamiento psíquico y aspectos relevantes del caso."
+    },
+    {
+      "id": "PER-003",
+      "name": "Técnicas psicodiagnósticas",
+      "definition": "Instrumentos psicológicos utilizados para explorar indicadores clínicos, emocionales, cognitivos o de personalidad dentro del proceso de evaluación."
+    },
+    {
+      "id": "PER-004",
+      "name": "Informe pericial psicológico",
+      "definition": "Documento técnico que integra entrevistas, técnicas administradas, análisis del expediente y conclusiones profesionales para ser presentado en un contexto judicial."
+    },
+    {
+      "id": "PER-005",
+      "name": "Puntos periciales",
+      "definition": "Preguntas o aspectos técnicos que orientan la intervención del perito y que deben ser respondidos en el informe."
+    },
+    {
+      "id": "PER-006",
+      "name": "Nexo causal",
+      "definition": "Análisis de la relación entre el hecho investigado, los antecedentes y la sintomatología observada."
+    },
+    {
+      "id": "PER-007",
+      "name": "Repercusión funcional",
+      "definition": "Evaluación del impacto del hecho sobre las áreas familiar, laboral, social, afectiva y recreativa."
+    },
+    {
+      "id": "PER-008",
+      "name": "Personalidad de base",
+      "definition": "Valoración de las características psicológicas previas, recursos personales y modalidades habituales de afrontamiento."
+    },
+    {
+      "id": "PER-009",
+      "name": "Asesoramiento técnico",
+      "definition": "Intervención profesional destinada a orientar abogados, estudios jurídicos u otros profesionales sobre aspectos psicológicos periciales."
+    }
   ],
-  "medium": [
-    "¿Qué documentación conviene preparar?",
-    "¿Cuánto tiempo demora una evaluación?",
-    "¿En qué tipos de causas interviene un perito psicólogo?"
+
+  "relatedTopics": [
+    "danio_psiquico",
+    "informe_pericial",
+    "perito_de_parte",
+    "honorarios",
+    "evaluacion_psicologica_judicial",
+    "metodo_falco",
+    "tests",
+    "formacion"
   ],
-  "low": [
-    "Zona de atención",
-    "Servicios relacionados"
-  ]
-},
 
-
+  "importance": {
+    "high": [
+      "¿Qué es una pericia psicológica?",
+      "¿Qué analiza una pericia psicológica?",
+      "¿Cómo es el proceso de evaluación?",
+      "¿Quién puede solicitar una pericia psicológica?",
+      "¿Qué incluye el informe pericial?"
+    ],
+    "medium": [
+      "¿Qué documentación conviene preparar?",
+      "¿Qué técnicas pueden utilizarse?",
+      "¿Puede intervenir un perito de parte?",
+      "¿Puede realizarse una entrevista virtual?",
+      "¿Cuánto tiempo demora una evaluación?",
+      "¿En qué tipos de causas interviene un perito psicólogo?"
+    ],
+    "low": [
+      "Zona de atención",
+      "Servicios relacionados",
+      "¿Qué ocurre después del informe?"
+    ]
+  },
 
   "suggestions": [
     "¿Qué es una pericia psicológica?",
+    "¿Qué analiza una pericia psicológica?",
     "¿Cómo es el proceso de evaluación?",
     "¿Qué documentación conviene preparar?",
+    "¿Qué técnicas pueden utilizarse?",
+    "¿Quién puede solicitar una pericia psicológica?",
+    "¿Puede intervenir un perito de parte?",
+    "¿Puede realizarse una entrevista virtual?",
     "¿Cuánto tiempo demora una evaluación?",
     "¿En qué tipos de causas interviene un perito psicólogo?",
     "¿Qué incluye el informe pericial?"
@@ -92,8 +133,11 @@
     "Daño Psíquico",
     "Perito de Parte",
     "Informe Pericial Psicológico",
-    "Honorarios",
-    "Evaluación Psicológica Judicial"
+    "Evaluación Psicológica Judicial",
+    "Método FALCO®",
+    "Tests Psicométricos",
+    "Formación FALCO®",
+    "Honorarios"
   ],
 
   "answers": {
@@ -101,21 +145,38 @@
     "¿Qué es una pericia psicológica?":
       "La pericia psicológica es una evaluación técnica realizada por un profesional de la psicología en un contexto judicial o prejudicial. Su finalidad es responder puntos periciales mediante entrevistas, técnicas psicodiagnósticas e integración clínica-forense.",
 
+    "¿Qué analiza una pericia psicológica?":
+      "La evaluación puede analizar el estado psicológico actual, la posible existencia de daño psíquico, el nexo causal con el hecho investigado, la repercusión funcional sobre distintas áreas de la vida, la personalidad de base y, cuando corresponde, la necesidad de tratamiento psicológico.",
+
     "¿Cómo es el proceso de evaluación?":
-      "El proceso suele incluir entrevista inicial, lectura de antecedentes relevantes, administración de técnicas psicológicas, análisis intertest e integración de resultados. Luego se elabora un informe técnico que responde a los puntos periciales solicitados.",
+      "El proceso suele incluir análisis inicial del caso, entrevistas psicodiagnósticas, administración de técnicas psicológicas, análisis documental, integración de resultados y elaboración del informe pericial.",
 
     "¿Qué documentación conviene preparar?":
-      "Puede resultar útil contar con DNI, antecedentes médicos o psicológicos, constancias de tratamiento, certificados, estudios previos y toda documentación vinculada al hecho o situación que motiva la evaluación.",
+      "Puede resultar útil contar con DNI, antecedentes médicos o psicológicos, historias clínicas, constancias de tratamiento, certificados y toda documentación vinculada al hecho o situación que motiva la evaluación.",
+
+    "¿Qué técnicas pueden utilizarse?":
+      "Las técnicas son seleccionadas por esta perito según la entrevista psicodiagnóstica, las características del caso y los objetivos de la evaluación. No existe una batería fija aplicable a todos los casos.",
+
+    "¿Quién puede solicitar una pericia psicológica?":
+      "Pueden consultar personas particulares, abogados, estudios jurídicos, psicólogos, peritos psicólogos y otros profesionales que requieran una evaluación o asesoramiento técnico.",
+
+    "¿Puede intervenir un perito de parte?":
+      "Sí. El profesional puede intervenir como perito de parte o consultor técnico, asistir a evaluaciones, analizar documentación, formular observaciones e impugnaciones y brindar asesoramiento especializado.",
+
+    "¿Puede realizarse una entrevista virtual?":
+      "Sí. La entrevista inicial de orientación puede realizarse de manera virtual. La modalidad de la evaluación posterior dependerá de las características del caso y del proceso judicial.",
 
     "¿Cuánto tiempo demora una evaluación?":
-      "El tiempo depende de la complejidad del caso, la cantidad de entrevistas necesarias, la documentación a analizar y las técnicas que deban administrarse.",
+      "El tiempo depende de la complejidad del caso, la cantidad de entrevistas necesarias, las técnicas que deban administrarse, la documentación disponible y los requerimientos del expediente.",
 
     "¿En qué tipos de causas interviene un perito psicólogo?":
-      "El perito psicólogo puede intervenir en causas civiles, laborales, penales y de familia, realizando evaluaciones técnicas para aportar elementos objetivos al expediente.",
+      "El perito psicólogo puede intervenir en causas civiles, laborales, penales y de familia, aportando una evaluación técnica basada en criterios científicos y forenses.",
 
     "¿Qué incluye el informe pericial?":
-      "El informe integra entrevistas clínicas, técnicas psicodiagnósticas, análisis del expediente, integración de resultados y conclusiones técnicas elaboradas conforme a criterios científicos y forenses."
+      "El informe integra entrevistas clínicas, técnicas psicodiagnósticas, análisis documental, integración de resultados, fundamentos técnicos, conclusiones y respuestas a los puntos periciales solicitados.",
 
+    "¿Qué ocurre después del informe?":
+      "Según las necesidades del proceso, el profesional puede responder pedidos de aclaración, efectuar ratificaciones, brindar asesoramiento técnico complementario o intervenir en otras actuaciones periciales."
   }
 
 }

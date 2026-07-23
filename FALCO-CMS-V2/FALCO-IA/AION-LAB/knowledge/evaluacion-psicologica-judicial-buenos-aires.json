@@ -1,38 +1,240 @@
 {
   "slug": "evaluacion-psicologica-judicial-buenos-aires",
+
   "title": "Evaluación Psicológica Judicial",
-  "greeting": "Estás consultando sobre evaluación psicológica judicial. Puedo orientarte sobre su finalidad, proceso y aplicación.",
-  "description": "La evaluación psicológica judicial analiza aspectos psíquicos relevantes dentro de un proceso legal mediante entrevistas, técnicas y criterios forenses.",
+
+  "greeting": "Estás consultando sobre evaluación psicológica judicial. Puedo orientarte sobre su finalidad, proceso, metodología, técnicas utilizadas y aplicación dentro de distintos procesos judiciales.",
+
+  "description": "La evaluación psicológica judicial es un proceso técnico destinado a analizar el funcionamiento psicológico de una persona en relación con una situación jurídicamente relevante mediante entrevistas, técnicas psicodiagnósticas, análisis documental e integración clínico-forense.",
+
+  "summary": "La evaluación psicológica judicial comprende entrevistas, análisis de antecedentes, selección de técnicas psicodiagnósticas, integración de la información y elaboración de conclusiones técnicamente fundamentadas para responder interrogantes vinculados con un proceso judicial.",
+
   "keywords": [
     "evaluación psicológica judicial",
     "evaluación judicial",
     "psicodiagnóstico",
-    "pericia",
-    "proceso legal",
-    "informe",
-    "entrevista",
-    "test psicológicos"
+    "psicodiagnóstico forense",
+    "evaluación psicológica",
+    "pericia psicológica",
+    "entrevista clínica",
+    "entrevista psicológica",
+    "técnicas psicodiagnósticas",
+    "test psicológicos",
+    "inventarios psicológicos",
+    "escalas psicológicas",
+    "técnicas gráficas",
+    "integración diagnóstica",
+    "análisis clínico forense",
+    "funcionamiento psicológico",
+    "estado emocional",
+    "personalidad",
+    "antecedentes",
+    "documentación",
+    "proceso judicial",
+    "daño psíquico",
+    "nexo causal",
+    "incapacidad psicológica",
+    "informe psicológico judicial"
   ],
-  "suggestions": [
-    "¿Qué es una evaluación psicológica judicial?",
-    "¿Qué incluye?",
-    "¿En qué causas puede utilizarse?",
-    "¿Qué diferencia hay con una evaluación clínica?",
-    "¿Qué documentación conviene presentar?",
-    "¿Se entrega un informe?"
+
+  "concepts": [
+
+    {
+      "id": "EPJ-001",
+      "name": "Evaluación psicológica judicial",
+      "definition": "Proceso técnico destinado a estudiar el funcionamiento psicológico de una persona en relación con una situación jurídicamente relevante."
+    },
+
+    {
+      "id": "EPJ-002",
+      "name": "Entrevista psicológica",
+      "definition": "Instancia central del proceso destinada a relevar antecedentes personales, familiares, laborales, médicos, psicológicos y el motivo de la evaluación."
+    },
+
+    {
+      "id": "EPJ-003",
+      "name": "Técnicas psicodiagnósticas",
+      "definition": "Instrumentos seleccionados según las características del caso, la entrevista inicial y los interrogantes que deben responderse."
+    },
+
+    {
+      "id": "EPJ-004",
+      "name": "Integración de resultados",
+      "definition": "Proceso mediante el cual se relacionan entrevistas, antecedentes, documentación y resultados de las técnicas para elaborar conclusiones fundamentadas."
+    },
+
+    {
+      "id": "EPJ-005",
+      "name": "Evaluación clínica",
+      "definition": "Evaluación orientada al diagnóstico y tratamiento dentro de un vínculo asistencial."
+    },
+
+    {
+      "id": "EPJ-006",
+      "name": "Evaluación judicial",
+      "definition": "Evaluación destinada a responder interrogantes jurídicamente relevantes dentro de un proceso legal."
+    },
+
+    {
+      "id": "EPJ-007",
+      "name": "Análisis documental",
+      "definition": "Revisión de expedientes, antecedentes médicos, psicológicos, laborales, judiciales y demás documentación relevante."
+    },
+
+    {
+      "id": "EPJ-008",
+      "name": "Funcionamiento psicológico",
+      "definition": "Análisis integral de los recursos personales, estado emocional, personalidad, capacidades cognitivas y modalidades de adaptación."
+    },
+
+    {
+      "id": "EPJ-009",
+      "name": "Informe psicológico judicial",
+      "definition": "Documento técnico que presenta metodología, antecedentes, resultados y conclusiones de la evaluación."
+    },
+
+    {
+      "id": "EPJ-010",
+      "name": "Integración clínico-forense",
+      "definition": "Proceso de análisis conjunto de entrevistas, observación profesional, documentación y técnicas psicodiagnósticas para responder a la finalidad judicial."
+    },
+
+    {
+      "id": "EPJ-011",
+      "name": "Daño psíquico",
+      "definition": "Alteración psicológica que debe analizarse considerando la existencia de un cuadro, su novedad, nexo causal, persistencia y repercusión funcional."
+    },
+
+    {
+      "id": "EPJ-012",
+      "name": "Confidencialidad",
+      "definition": "La información obtenida durante la evaluación se encuentra protegida por reserva profesional dentro de los límites propios del ámbito judicial."
+    }
+
   ],
-  "answers": {
-    "¿Qué es una evaluación psicológica judicial?": "Es una evaluación técnica realizada para analizar aspectos psicológicos relevantes dentro de una causa o situación con finalidad legal.",
-    "¿Qué incluye?": "Puede incluir entrevistas, técnicas psicodiagnósticas, análisis de antecedentes, documentación y elaboración de conclusiones técnicas.",
-    "¿En qué causas puede utilizarse?": "Puede intervenir en causas civiles, laborales, penales, de familia y otras situaciones que requieran valoración psicológica.",
-    "¿Qué diferencia hay con una evaluación clínica?": "La evaluación judicial responde a una finalidad legal y a puntos técnicos concretos; la evaluación clínica se orienta principalmente al diagnóstico y tratamiento.",
-    "¿Qué documentación conviene presentar?": "Puede ser útil aportar DNI, expediente, antecedentes médicos o psicológicos, certificados, constancias de tratamiento e informes previos.",
-    "¿Se entrega un informe?": "Sí. Según la modalidad acordada, puede elaborarse un informe técnico con integración de resultados y conclusiones."
-  },
-  "relatedTopics": [
+
+    "relatedTopics": [
     "pericia_psicologica",
     "danio_psiquico",
     "informe_pericial",
-    "documentacion"
-  ]
+    "perito_de_parte",
+    "documentacion",
+    "entrevista_psicologica",
+    "tecnicas_psicodiagnosticas",
+    "metodo_falco",
+    "impugnaciones",
+    "consultoria_tecnica"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es una evaluación psicológica judicial?",
+      "¿Qué diferencia hay con una evaluación clínica?",
+      "¿Cómo se desarrolla la evaluación?",
+      "¿Qué técnicas se utilizan?"
+    ],
+
+    "medium": [
+      "¿Qué aspectos pueden evaluarse?",
+      "¿Qué documentación conviene presentar?",
+      "¿Se entrega un informe?",
+      "¿Cuántas entrevistas son necesarias?",
+      "¿Puede realizarse de manera virtual?",
+      "¿Quién puede solicitar una evaluación?"
+    ],
+
+    "low": [
+      "¿Qué puede determinar una evaluación?",
+      "¿Qué es la integración de resultados?",
+      "¿Cómo se seleccionan las técnicas?",
+      "¿La documentación es confidencial?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Qué es una evaluación psicológica judicial?",
+    "¿Qué incluye?",
+    "¿Cómo se desarrolla la evaluación?",
+    "¿Qué diferencia hay con una evaluación clínica?",
+    "¿Qué aspectos pueden evaluarse?",
+    "¿Qué técnicas se utilizan?",
+    "¿Qué documentación conviene presentar?",
+    "¿Cuántas entrevistas son necesarias?",
+    "¿Puede realizarse de manera virtual?",
+    "¿Se entrega un informe?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Daño Psíquico",
+    "Informe Pericial Psicológico",
+    "Perito de Parte",
+    "Impugnación de Informes",
+    "Método FALCO®",
+    "Consultoría Técnica",
+    "Documentación",
+    "Técnicas Psicodiagnósticas",
+    "Entrevista Psicológica"
+  ],
+
+  "answers": {
+
+        "¿Qué es una evaluación psicológica judicial?":
+      "Es un proceso técnico destinado a estudiar el funcionamiento psicológico de una persona en relación con una situación jurídicamente relevante. Comprende entrevistas, análisis de antecedentes, selección de técnicas psicodiagnósticas e integración clínico-forense para responder interrogantes propios de un proceso judicial.",
+
+    "¿Qué incluye?":
+      "Puede comprender entrevistas psicológicas, análisis de antecedentes personales, familiares, médicos y laborales, revisión de documentación, administración de técnicas psicodiagnósticas, integración de resultados y elaboración de un informe técnico.",
+
+    "¿Cómo se desarrolla la evaluación?":
+      "Habitualmente comprende una consulta inicial, recepción de documentación, entrevistas psicológicas, aplicación de técnicas, integración de la información, elaboración del informe, revisión técnica y, cuando corresponde, asistencia posterior mediante aclaraciones, observaciones o ratificación.",
+
+    "¿Qué diferencia hay con una evaluación clínica?":
+      "La evaluación clínica se orienta principalmente al diagnóstico y tratamiento dentro de un vínculo asistencial. La evaluación judicial tiene finalidad técnico-forense y responde preguntas concretas vinculadas con un proceso legal.",
+
+    "¿Qué aspectos pueden evaluarse?":
+      "Puede analizarse el funcionamiento psicológico, el estado emocional, la personalidad, los antecedentes, la sintomatología actual, las capacidades cognitivas, los vínculos interpersonales y la repercusión funcional del cuadro psicológico.",
+
+    "¿En qué causas puede utilizarse?":
+      "Puede intervenir en procesos civiles, laborales, penales y de familia, así como en otras situaciones que requieran una valoración psicológica técnicamente fundamentada.",
+
+    "¿Qué técnicas se utilizan?":
+      "Las técnicas se seleccionan según las características del caso, la entrevista inicial y los objetivos de la evaluación. Pueden incluir entrevistas clínicas, técnicas psicométricas, inventarios psicológicos, escalas específicas, técnicas gráficas y otros recursos complementarios.",
+
+    "¿Cómo se seleccionan las técnicas?":
+      "La batería no es idéntica para todas las personas. Se define considerando la edad, el motivo de la evaluación, el tipo de proceso, la documentación disponible, los antecedentes y los interrogantes que deben responderse.",
+
+    "¿Qué documentación conviene presentar?":
+      "Según cada caso, puede resultar útil aportar documentación personal, expediente judicial, antecedentes médicos y psicológicos, certificados, constancias de tratamiento, informes previos, documentación laboral y demás elementos relacionados con la evaluación.",
+
+    "¿Qué es la integración de resultados?":
+      "Consiste en relacionar la información obtenida mediante entrevistas, observación profesional, documentación y técnicas psicodiagnósticas para elaborar conclusiones técnicamente fundamentadas.",
+
+    "¿Se entrega un informe?":
+      "Sí. Habitualmente se elabora un informe técnico que describe la metodología utilizada, los antecedentes relevantes, las técnicas administradas, los resultados obtenidos y las conclusiones correspondientes.",
+
+    "¿Puede evaluarse el daño psíquico?":
+      "Sí. Cuando corresponde, se analiza la existencia de un cuadro psicológico, su novedad, el nexo causal, la persistencia, la repercusión funcional y, si corresponde, la eventual incapacidad psicológica.",
+
+    "¿Cuántas entrevistas son necesarias?":
+      "La cantidad de encuentros depende de la complejidad del caso, la documentación disponible, las técnicas seleccionadas y los objetivos específicos de la evaluación. No existe un número fijo aplicable a todas las situaciones.",
+
+    "¿Puede realizarse de manera virtual?":
+      "La modalidad depende de las características del caso y de las técnicas que deban administrarse. Algunas etapas pueden realizarse virtualmente, mientras que otras requieren encuentros presenciales para garantizar la adecuada evaluación.",
+
+    "¿Quién puede solicitar una evaluación?":
+      "Puede ser solicitada por personas particulares, abogados, estudios jurídicos, empresas, instituciones, organizaciones y otros profesionales que requieran una evaluación psicológica con finalidad judicial.",
+
+    "¿Qué puede determinar una evaluación?":
+      "Las conclusiones dependen exclusivamente de la información obtenida durante el proceso. Puede determinarse la ausencia de alteraciones relevantes, la existencia de malestar psicológico, un cuadro clínico, daño psíquico, concausas, necesidad de tratamiento, incapacidad psicológica o la conveniencia de ampliar la evaluación.",
+
+    "¿La documentación es confidencial?":
+      "Sí. La información se trata con reserva profesional dentro de los límites propios del ámbito judicial. Antes de comenzar, la persona evaluada es informada acerca del objetivo, alcance y destinatarios de la evaluación.",
+
+    "¿Una evaluación psicológica judicial es un tratamiento?":
+      "No. La evaluación tiene una finalidad diagnóstica y técnico-forense. Su objetivo es obtener información psicológica relevante para responder cuestiones jurídicas y no constituye un proceso psicoterapéutico."
+
+  }
+
 }

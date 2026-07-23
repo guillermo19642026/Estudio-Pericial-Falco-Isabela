@@ -1,62 +1,278 @@
 {
   "slug": "honorarios",
-  "title": "Honorarios e Informes",
-  "greeting": "Estás consultando sobre honorarios, informes o costos de intervención profesional.",
-  "description": "Los honorarios dependen del tipo de intervención, complejidad del caso, documentación a analizar, cantidad de entrevistas, técnicas administradas y tipo de informe requerido.",
-  "summary": "La estimación de honorarios requiere conocer el tipo de evaluación o informe solicitado, la finalidad de la intervención y la complejidad del caso.",
+
+  "title": "Honorarios e Informes Psicológicos",
+
+  "greeting": "Puedo orientarte sobre honorarios profesionales, psicodiagnósticos, informes psicológicos, evaluaciones periciales y los factores que determinan el alcance de cada intervención.",
+
+  "description": "Información orientativa sobre honorarios profesionales correspondientes a psicodiagnósticos, informes psicológicos y evaluaciones periciales. El presupuesto depende del destino del informe, la complejidad del caso y el alcance profesional requerido.",
+
+  "summary": "Los honorarios profesionales no poseen un valor único. Se determinan luego de analizar el motivo de consulta, el destino del informe, la documentación disponible, la complejidad del caso y las posibles actuaciones profesionales posteriores.",
+
   "keywords": [
     "honorarios",
+    "honorarios profesionales",
     "precio",
     "costo",
-    "cuánto cuesta",
     "arancel",
     "presupuesto",
     "valor",
-    "informe",
-    "pericia"
+    "psicodiagnóstico",
+    "informe psicológico",
+    "informe pericial",
+    "evaluación psicológica",
+    "pericia psicológica",
+    "perito psicóloga",
+    "psicología jurídica",
+    "psicología forense",
+    "causa judicial",
+    "expediente",
+    "ratificación",
+    "aclaraciones",
+    "ampliaciones",
+    "consulta profesional",
+    "instituciones educativas",
+    "juzgados",
+    "familia",
+    "civil",
+    "laboral",
+    "penal",
+    "organismos administrativos",
+    "orientación profesional"
   ],
+
   "concepts": [
+
     {
       "id": "HON-001",
       "name": "Honorarios profesionales",
-      "definition": "Retribución correspondiente a la intervención técnica realizada por la profesional."
+      "definition": "Retribución correspondiente a la intervención técnica realizada por la profesional según el alcance efectivo del trabajo."
     },
+
     {
       "id": "HON-002",
-      "name": "Presupuesto",
-      "definition": "Estimación económica realizada según el tipo de servicio, complejidad y alcance de la intervención."
+      "name": "Presupuesto profesional",
+      "definition": "Estimación económica elaborada luego de conocer las características particulares del caso y la intervención requerida."
+    },
+
+    {
+      "id": "HON-003",
+      "name": "Alcance de la intervención",
+      "definition": "Conjunto de tareas técnicas comprendidas dentro de la prestación profesional solicitada."
+    },
+
+    {
+      "id": "HON-004",
+      "name": "Destino del informe",
+      "definition": "Finalidad para la cual será utilizado el informe psicológico o psicodiagnóstico."
+    },
+
+    {
+      "id": "HON-005",
+      "name": "Psicodiagnóstico",
+      "definition": "Proceso profesional que comprende entrevistas, administración de técnicas, análisis e integración de resultados."
+    },
+
+    {
+      "id": "HON-006",
+      "name": "Intervención pericial",
+      "definition": "Actividad profesional desarrollada dentro o en relación con procesos judiciales."
+    },
+
+    {
+      "id": "HON-007",
+      "name": "Actuaciones posteriores",
+      "definition": "Intervenciones adicionales como aclaraciones, ampliaciones, ratificaciones, respuestas técnicas o participación en audiencias."
+    },
+
+    {
+      "id": "HON-008",
+      "name": "Consulta profesional inicial",
+      "definition": "Primera instancia de orientación destinada a analizar el caso, definir el alcance de la intervención y estimar honorarios."
+    },
+
+    {
+      "id": "HON-009",
+      "name": "Documentación",
+      "definition": "Expedientes, historias clínicas, informes previos y demás antecedentes necesarios para la evaluación."
+    },
+
+    {
+      "id": "HON-010",
+      "name": "Responsabilidad profesional",
+      "definition": "Compromiso técnico y ético asumido durante toda la intervención psicológica y pericial."
+    },
+
+    {
+      "id": "HON-011",
+      "name": "Informes psicológicos",
+      "definition": "Documentos técnicos elaborados para instituciones educativas, organismos administrativos o procesos judiciales."
+    },
+
+       {
+      "id": "HON-012",
+      "name": "Orientación profesional",
+      "definition": "Instancia destinada a evaluar la consulta y determinar la modalidad de intervención más adecuada."
     }
   ],
-  "suggestions": [
-    "¿Cuánto cuesta una pericia psicológica?",
-    "¿De qué dependen los honorarios?",
-    "¿El costo cambia según el informe?",
-    "¿Cómo solicito un presupuesto?",
-    "¿Los honorarios incluyen entrevistas y técnicas?"
-  ],
-  "answers": {
-    "¿Cuánto cuesta una pericia psicológica?": "El valor depende del tipo de evaluación, complejidad del caso, cantidad de entrevistas, técnicas necesarias y tipo de informe requerido.",
-    "¿De qué dependen los honorarios?": "Dependen del alcance de la intervención, documentación a analizar, tiempo profesional requerido y finalidad del informe.",
-    "¿El costo cambia según el informe?": "Sí. No es lo mismo una orientación inicial, un informe técnico, una evaluación pericial completa o un contrainforme.",
-    "¿Cómo solicito un presupuesto?": "Podés solicitar una consulta inicial indicando el tipo de caso, finalidad del informe y documentación disponible.",
-    "¿Los honorarios incluyen entrevistas y técnicas?": "Depende de la modalidad acordada. En una evaluación completa suelen contemplarse entrevistas, técnicas, análisis e informe."
-  },
+
   "relatedTopics": [
     "pericia_psicologica",
     "informe_pericial",
+    "evaluacion_psicologica",
     "danio_psiquico",
-    "turnos"
+    "perito_de_parte",
+    "impugnaciones",
+    "consultoria_tecnica",
+    "psicodiagnostico",
+    "expedientes_judiciales",
+    "ratificacion",
+    "familia",
+    "civil",
+    "laboral",
+    "penal",
+    "instituciones_educativas",
+    "organismos_administrativos"
   ],
+
   "importance": {
+
     "high": [
-      "¿Cuánto cuesta una pericia psicológica?",
+      "¿Cuánto cuesta un informe psicológico?",
       "¿De qué dependen los honorarios?",
-      "¿Cómo solicito un presupuesto?"
+      "¿Cómo se determina el presupuesto?",
+      "¿Qué incluye la intervención profesional?",
+      "¿La consulta inicial es arancelada?"
     ],
+
     "medium": [
-      "¿El costo cambia según el informe?",
-      "¿Los honorarios incluyen entrevistas y técnicas?"
+      "¿Qué factores influyen en los honorarios?",
+      "¿Qué tipos de informes se realizan?",
+      "¿Qué tareas comprende un psicodiagnóstico?",
+      "¿Puede haber honorarios posteriores?",
+      "¿Qué documentación se analiza?"
     ],
-    "low": []
+
+    "low": [
+      "¿Qué organismos requieren informes?",
+      "¿Qué actuaciones posteriores pueden surgir?",
+      "¿Cómo solicitar orientación profesional?",
+      "¿Qué destinos puede tener un informe?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Cuánto cuesta un informe psicológico?",
+    "¿De qué dependen los honorarios?",
+    "¿Qué factores influyen en el presupuesto?",
+    "¿Qué incluye la intervención profesional?",
+    "¿La consulta inicial es arancelada?",
+    "¿Puede haber honorarios posteriores?",
+    "¿Qué tipos de informes realizan?",
+    "¿Cómo solicitar orientación?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Informe Pericial",
+    "Evaluación Psicológica",
+    "Daño Psíquico",
+    "Perito de Parte",
+    "Impugnaciones",
+    "Consultoría Técnica para Abogados",
+    "Psicodiagnóstico",
+    "Ratificación",
+    "Honorarios Profesionales"
+  ],
+
+  "answers": {
+
+        "costo": {
+      "question": "¿Cuánto cuesta un psicodiagnóstico o informe psicológico?",
+      "answer": "Los honorarios no poseen un valor único. Se determinan luego de conocer el motivo de consulta, el destino del informe, la documentación disponible, la complejidad del caso y el alcance profesional requerido."
+    },
+
+    "presupuesto": {
+      "question": "¿Cómo se determina el presupuesto?",
+      "answer": "El presupuesto se establece luego de analizar las características particulares de cada solicitud, considerando el tipo de intervención, el tiempo profesional requerido y las posibles actuaciones posteriores."
+    },
+
+    "factores": {
+      "question": "¿Qué factores influyen en los honorarios?",
+      "answer": "Influyen el motivo y finalidad de la evaluación, la lectura del expediente, la intervención judicial, la asistencia técnica al abogado, el seguimiento del proceso, la administración e interpretación de técnicas psicológicas, la complejidad del informe y los plazos solicitados."
+    },
+
+    "informes": {
+      "question": "¿Qué tipos de informes realizan?",
+      "answer": "Se realizan informes para instituciones educativas, juzgados de familia, causas civiles, laborales, penales, organismos administrativos y otras intervenciones profesionales."
+    },
+
+    "judicial": {
+      "question": "¿Un informe judicial tiene el mismo valor que otro tipo de informe?",
+      "answer": "No necesariamente. Un informe judicial puede requerir mayor fundamentación técnica, análisis documental, seguimiento del expediente y actuaciones posteriores dentro del proceso."
+    },
+
+    "intervencion": {
+      "question": "¿Qué incluye la intervención profesional?",
+      "answer": "La intervención puede comprender entrevistas profesionales, administración de técnicas psicológicas, corrección e interpretación de resultados, análisis documental, lectura de expedientes, elaboración del informe, fundamentación técnica, orientación profesional, asistencia al abogado y seguimiento posterior."
+    },
+
+    "psicodiagnostico": {
+      "question": "¿Qué comprende un psicodiagnóstico?",
+      "answer": "Comprende entrevistas clínicas, administración de técnicas psicológicas, análisis e integración de resultados, elaboración del informe y las actuaciones técnicas que el caso pudiera requerir."
+    },
+
+    "expediente": {
+      "question": "¿Se analiza el expediente judicial?",
+      "answer": "Sí. Cuando corresponde, la intervención puede incluir la lectura y análisis técnico del expediente judicial y de la documentación relacionada con el caso."
+    },
+
+    "documentacion": {
+      "question": "¿Qué documentación puede analizarse?",
+      "answer": "Según cada intervención pueden analizarse expedientes judiciales, historias clínicas, informes previos, documentación institucional y otros antecedentes relevantes."
+    },
+
+    "actuaciones": {
+      "question": "¿La intervención finaliza con la entrega del informe?",
+      "answer": "No siempre. En algunos casos pueden requerirse aclaraciones, ampliaciones, ratificaciones, respuestas técnicas, pedidos de explicaciones o participación en audiencias."
+    },
+
+    "adicionales": {
+      "question": "¿Pueden existir honorarios posteriores?",
+      "answer": "Sí. Cuando se solicitan actuaciones posteriores a la entrega del informe, estas pueden generar honorarios adicionales según el alcance y complejidad de la nueva intervención."
+    },
+
+    "adicionales2": {
+      "question": "¿Qué tareas adicionales pueden surgir?",
+      "answer": "Entre otras, lectura de expedientes extensos, análisis de historias clínicas, revisión de informes previos, seguimiento procesal, ampliaciones, ratificaciones, respuestas a observaciones y participación en audiencias."
+    },
+
+    "consulta": {
+      "question": "¿La consulta profesional inicial es gratuita?",
+      "answer": "No. La orientación profesional inicial constituye una prestación arancelada en la que se analiza el motivo de consulta, el destino del informe, la documentación disponible y la modalidad de intervención más adecuada."
+    },
+
+    "valor_consulta": {
+      "question": "¿Cuándo se informa el valor de la consulta inicial?",
+      "answer": "El valor de la consulta profesional inicial se informa al momento de coordinar la orientación profesional."
+    },
+
+    "orientacion": {
+      "question": "¿Cómo puedo solicitar orientación profesional?",
+      "answer": "Podés solicitar una orientación profesional indicando el motivo de consulta, el destino del informe, la existencia o no de una causa judicial, la documentación disponible y los plazos requeridos."
+    },
+
+    "responsabilidad": {
+      "question": "¿Qué contemplan los honorarios profesionales?",
+      "answer": "Los honorarios contemplan el conjunto de actividades técnicas desarrolladas, la experiencia especializada y la responsabilidad profesional asumida durante toda la intervención."
+    },
+
+    "destino": {
+      "question": "¿Por qué es importante conocer el destino del informe?",
+      "answer": "Porque el destino del informe determina el nivel de análisis, fundamentación técnica, responsabilidad profesional y las posibles actuaciones posteriores que pueden ser necesarias."
+    }
+
   }
+
 }

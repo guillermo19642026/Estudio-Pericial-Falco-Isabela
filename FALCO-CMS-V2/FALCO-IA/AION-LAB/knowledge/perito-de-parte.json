@@ -1,67 +1,232 @@
 {
   "slug": "perito-de-parte",
+
   "title": "Perito Psicóloga de Parte",
-  "greeting": "Estás consultando sobre perito psicóloga de parte. Puedo orientarte sobre su función, cuándo conviene intervenir y cómo puede asistir técnicamente en una causa.",
-  "description": "La perito psicóloga de parte brinda asesoramiento técnico en causas judiciales con componente psicológico, acompañando a abogados, estudios jurídicos o particulares.",
-  "summary": "La intervención de un perito de parte permite revisar actuaciones, analizar informes, acompañar la prueba pericial y formular observaciones técnicas cuando corresponda.",
+
+  "greeting": "Estás consultando sobre perito psicóloga de parte. Puedo orientarte sobre su función, cuándo conviene intervenir, qué puede controlar y cómo brinda asistencia técnica durante una causa judicial.",
+
+  "description": "Intervención profesional especializada destinada a acompañar, analizar y controlar técnicamente la prueba pericial psicológica en representación de una de las partes.",
+
+  "summary": "La perito psicóloga de parte brinda asistencia técnica a abogados, estudios jurídicos y personas involucradas en procesos judiciales. Puede analizar el expediente, revisar puntos periciales, controlar la metodología, acompañar la evaluación, examinar el informe oficial y colaborar en observaciones, pedidos de explicaciones e impugnaciones.",
+
   "keywords": [
     "perito de parte",
     "perito psicóloga de parte",
+    "perito psicólogo de parte",
+    "asistencia técnica",
+    "asesoramiento técnico",
+    "consultoría técnica",
     "abogado",
     "estudio jurídico",
-    "asesoramiento técnico",
     "prueba pericial",
-    "observaciones",
+    "seguimiento pericial",
+    "control de pericia",
+    "control de metodología",
+    "análisis del expediente",
+    "puntos periciales",
+    "informe oficial",
+    "observaciones técnicas",
+    "pedido de explicaciones",
     "impugnación",
-    "contrainforme"
+    "contrainforme",
+    "ratificación",
+    "evaluación psicológica",
+    "daño psíquico",
+    "incapacidad psicológica",
+    "procesos civiles",
+    "procesos laborales",
+    "procesos penales",
+    "procesos de familia"
   ],
+
   "concepts": [
+
     {
       "id": "PDP-001",
       "name": "Perito de parte",
-      "definition": "Profesional que asesora técnicamente a una de las partes en una causa judicial."
+      "definition": "Profesional designado por una de las partes para brindar asistencia técnica especializada durante el desarrollo de la prueba pericial psicológica."
     },
+
     {
       "id": "PDP-002",
       "name": "Asesoramiento técnico",
-      "definition": "Análisis especializado de aspectos psicológicos relevantes para la estrategia pericial."
+      "definition": "Análisis profesional de los aspectos psicológicos relevantes del caso para colaborar con la comprensión y la estrategia jurídica."
     },
+
     {
       "id": "PDP-003",
       "name": "Seguimiento pericial",
-      "definition": "Acompañamiento técnico durante el desarrollo de la prueba psicológica."
+      "definition": "Acompañamiento técnico durante las distintas etapas de la prueba psicológica, desde el estudio inicial del expediente hasta la presentación y análisis del informe."
+    },
+
+    {
+      "id": "PDP-004",
+      "name": "Control de metodología",
+      "definition": "Revisión del procedimiento aplicado, las entrevistas realizadas, las técnicas seleccionadas y los criterios utilizados para interpretar los resultados."
+    },
+
+    {
+      "id": "PDP-005",
+      "name": "Análisis del expediente",
+      "definition": "Revisión de la demanda, contestación, puntos periciales, documentación médica, psicológica, judicial y demás antecedentes relevantes."
+    },
+
+    {
+      "id": "PDP-006",
+      "name": "Observaciones técnicas",
+      "definition": "Señalamientos profesionales sobre omisiones, contradicciones, limitaciones metodológicas o problemas de fundamentación detectados durante la prueba o en el informe."
+    },
+
+    {
+      "id": "PDP-007",
+      "name": "Impugnación pericial",
+      "definition": "Cuestionamiento técnico fundado respecto de la metodología, los resultados, la integración o las conclusiones de un informe pericial."
+    },
+
+    {
+      "id": "PDP-008",
+      "name": "Perito oficial",
+      "definition": "Profesional designado por el tribunal que actúa como auxiliar de la justicia, produce el dictamen principal y responde los puntos de pericia."
+    },
+
+    {
+      "id": "PDP-009",
+      "name": "Intervención temprana",
+      "definition": "Participación del perito de parte desde el inicio de la etapa pericial para analizar el expediente, revisar los puntos y acompañar técnicamente todo el procedimiento."
+    },
+
+    {
+      "id": "PDP-010",
+      "name": "Consultoría técnica",
+      "definition": "Intervención profesional de carácter documental y asesor, que puede realizarse aunque no exista una designación formal dentro de la causa."
+    },
+
+    {
+      "id": "PDP-011",
+      "name": "Ratificación",
+      "definition": "Intervención profesional destinada a brindar explicaciones, ampliaciones o fundamentos técnicos cuando son requeridos dentro del proceso."
+    },
+
+    {
+      "id": "PDP-012",
+      "name": "Estrategia técnica",
+      "definition": "Planificación del alcance de la intervención, del seguimiento pericial y de las acciones profesionales necesarias según el caso y el momento procesal."
     }
+
   ],
-  "suggestions": [
-    "¿Qué hace un perito psicólogo de parte?",
-    "¿Cuándo conviene contar con uno?",
-    "¿Puede ayudar a un abogado?",
-    "¿Puede revisar una pericia psicológica?",
-    "¿Puede hacer observaciones o impugnaciones?"
-  ],
-  "answers": {
-    "¿Qué hace un perito psicólogo de parte?": "Asesora técnicamente a una parte, analiza actuaciones, revisa informes y acompaña el desarrollo de la prueba pericial psicológica.",
-    "¿Cuándo conviene contar con uno?": "Puede ser conveniente cuando una causa incluye aspectos psicológicos relevantes, daño psíquico, informes periciales o necesidad de revisión técnica.",
-    "¿Puede ayudar a un abogado?": "Sí. Puede asistir al abogado en la interpretación de documentación psicológica, estrategia pericial, observaciones, pedidos de explicaciones o impugnaciones.",
-    "¿Puede revisar una pericia psicológica?": "Sí. Puede analizar metodología, coherencia interna, técnicas utilizadas, conclusiones y posibles inconsistencias.",
-    "¿Puede hacer observaciones o impugnaciones?": "Puede colaborar técnicamente en la elaboración de observaciones, pedidos de explicaciones, contrainformes o impugnaciones."
-  },
-  "relatedTopics": [
+
+    "relatedTopics": [
     "pericia_psicologica",
+    "informe_pericial",
+    "evaluacion_psicologica_judicial",
+    "danio_psiquico",
     "impugnaciones",
     "contrainformes",
-    "danio_psiquico"
+    "consultoria_tecnica",
+    "metodo_falco",
+    "honorarios",
+    "supervision"
   ],
+
   "importance": {
+
     "high": [
       "¿Qué hace un perito psicólogo de parte?",
-      "¿Cuándo conviene contar con uno?",
-      "¿Puede ayudar a un abogado?"
+      "¿Cuándo conviene designarlo?",
+      "¿Qué diferencia existe con el perito oficial?",
+      "¿Qué puede controlar durante la pericia?"
     ],
+
     "medium": [
+      "¿Puede ayudar a un abogado?",
       "¿Puede revisar una pericia psicológica?",
-      "¿Puede hacer observaciones o impugnaciones?"
+      "¿Puede formular observaciones o impugnaciones?",
+      "¿Puede intervenir aunque ya exista una pericia?",
+      "¿Puede asistir a entrevistas o evaluaciones?",
+      "¿Qué procesos suelen requerir un perito de parte?"
     ],
-    "low": []
+
+    "low": [
+      "¿Quién puede solicitar este servicio?",
+      "¿Cómo se desarrolla la intervención?",
+      "¿Puede actuar solamente como consultora técnica?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Qué hace un perito psicólogo de parte?",
+    "¿Cuándo conviene designarlo?",
+    "¿Qué diferencia existe con el perito oficial?",
+    "¿Puede ayudar a un abogado?",
+    "¿Qué puede controlar durante la pericia?",
+    "¿Puede revisar una pericia psicológica?",
+    "¿Puede formular observaciones o impugnaciones?",
+    "¿Puede intervenir aunque ya exista una pericia?",
+    "¿Puede asistir a entrevistas o evaluaciones?",
+    "¿Quién puede solicitar este servicio?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Informe Pericial",
+    "Evaluación Psicológica Judicial",
+    "Daño Psíquico",
+    "Impugnación de Pericias",
+    "Contrainformes Psicológicos",
+    "Consultoría Técnica para Abogados",
+    "Método FALCO®",
+    "Honorarios",
+    "Supervisión Profesional"
+  ],
+
+  "answers": {
+
+        "¿Qué hace un perito psicólogo de parte?":
+      "Brinda asistencia técnica especializada a una de las partes durante el desarrollo de la prueba pericial psicológica. Analiza el expediente, revisa la metodología utilizada, controla el desarrollo de la evaluación y asesora técnicamente sobre los aspectos psicológicos relevantes del caso.",
+
+    "¿Cuándo conviene designarlo?":
+      "Preferentemente antes del inicio de la evaluación psicológica, ya que esto permite analizar el expediente, revisar los puntos periciales y realizar un seguimiento técnico durante toda la producción de la prueba.",
+
+    "¿Qué diferencia existe con el perito oficial?":
+      "El perito oficial es designado por el tribunal, actúa como auxiliar de la justicia y produce el dictamen principal. El perito de parte representa técnicamente a una de las partes, controla el procedimiento, analiza el informe oficial y puede formular observaciones o impugnaciones cuando corresponda.",
+
+    "¿Puede ayudar a un abogado?":
+      "Sí. Puede colaborar en la interpretación de informes psicológicos, documentación clínica, antecedentes, puntos periciales y demás aspectos técnicos que resulten relevantes para la estrategia jurídica del caso.",
+
+    "¿Qué puede controlar durante la pericia?":
+      "Puede revisar la documentación utilizada, la metodología aplicada, las entrevistas, las técnicas administradas, la integración diagnóstica, la fundamentación científica y la correspondencia entre los puntos periciales y las respuestas brindadas.",
+
+    "¿Puede revisar una pericia psicológica?":
+      "Sí. Puede analizar la metodología empleada, los instrumentos administrados, la coherencia entre resultados y conclusiones, la fundamentación técnica y detectar posibles inconsistencias u omisiones.",
+
+    "¿Puede formular observaciones o impugnaciones?":
+      "Sí. Puede colaborar técnicamente en la elaboración de observaciones, pedidos de explicaciones, ampliaciones, contrainformes e impugnaciones respecto del informe pericial cuando existan fundamentos técnicos para ello.",
+
+    "¿Puede intervenir aunque ya exista una pericia?":
+      "Sí. Puede revisar actuaciones ya producidas, analizar el informe presentado, identificar inconsistencias metodológicas y colaborar técnicamente en la elaboración de observaciones o impugnaciones.",
+
+    "¿Puede asistir a entrevistas o evaluaciones?":
+      "Su participación dependerá de las normas procesales aplicables, del fuero interviniente y de las condiciones establecidas por el tribunal o por el profesional responsable de la evaluación.",
+
+    "¿Puede observar la pericia oficial?":
+      "Cuando las condiciones procesales lo permiten, puede efectuar un seguimiento técnico del procedimiento, observar la metodología aplicada y controlar el adecuado desarrollo de la prueba psicológica.",
+
+    "¿Cuándo resulta especialmente recomendable su intervención?":
+      "Suele resultar especialmente útil en causas por daño psíquico, accidentes de tránsito, accidentes laborales, enfermedades profesionales, mala praxis, violencia, procesos de familia, incapacidad psicológica y responsabilidad civil.",
+
+    "¿Cómo se desarrolla la intervención?":
+      "Habitualmente comprende una consulta inicial, el estudio del expediente, la planificación de la estrategia técnica, el seguimiento de la etapa pericial, la elaboración de observaciones cuando corresponda y el acompañamiento profesional hasta la finalización de la intervención.",
+
+    "¿Quién puede solicitar este servicio?":
+      "Puede ser solicitado por abogados particulares, estudios jurídicos, personas involucradas en procesos judiciales, empresas, compañías aseguradoras y otros profesionales que requieran asistencia técnica especializada.",
+
+    "¿Puede actuar solamente como consultora técnica?":
+      "Sí. También puede intervenir realizando un análisis documental, asesorando técnicamente al abogado o revisando una pericia psicológica, aun cuando no exista una designación formal dentro de la causa.",
+
+    "¿Cuál es el objetivo principal de un perito de parte?":
+      "Su finalidad es aportar una mirada técnica especializada que permita controlar la calidad metodológica de la prueba psicológica, colaborar con la comprensión de los aspectos psicológicos del caso y asistir profesionalmente durante todo el proceso pericial."
+
   }
+
 }

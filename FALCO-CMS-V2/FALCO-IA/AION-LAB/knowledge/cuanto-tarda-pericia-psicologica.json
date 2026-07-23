@@ -1,36 +1,272 @@
 {
   "slug": "cuanto-tarda-pericia-psicologica",
+
   "title": "Tiempos de una Pericia Psicológica",
-  "greeting": "Puedo orientarte sobre la duración aproximada de una evaluación pericial psicológica.",
-  "description": "La duración depende de la complejidad del caso, cantidad de entrevistas, técnicas administradas, documentación disponible y elaboración del informe.",
+
+  "greeting": "Puedo orientarte sobre las etapas de una pericia psicológica, los factores que influyen en su duración y el desarrollo del proceso de evaluación.",
+
+  "description": "Información profesional sobre la duración de una pericia psicológica, las distintas etapas del proceso, los factores que influyen en los plazos y las intervenciones posteriores al informe.",
+
+  "summary": "No existe un plazo único para todas las pericias psicológicas. La duración depende de la complejidad del caso, la cantidad de entrevistas, la documentación disponible, las técnicas administradas, la elaboración del informe y las posibles actuaciones posteriores.",
+
   "keywords": [
     "cuánto tarda",
     "tiempo",
     "duración",
+    "plazos",
     "demora",
-    "plazo",
-    "entrega",
-    "informe",
-    "pericia psicológica"
+    "pericia psicológica",
+    "evaluación psicológica",
+    "entrevistas",
+    "psicodiagnóstico",
+    "documentación",
+    "expediente",
+    "informe pericial",
+    "integración",
+    "corrección",
+    "ratificación",
+    "aclaraciones",
+    "ampliaciones",
+    "impugnaciones",
+    "urgencia",
+    "pericia urgente",
+    "audiencias",
+    "proceso judicial",
+    "civil",
+    "laboral",
+    "familia",
+    "penal",
+    "consultoría técnica",
+    "FALCO Admisión"
   ],
-  "suggestions": [
-    "¿Cuánto tarda una pericia psicológica?",
-    "¿Cuántas entrevistas se realizan?",
-    "¿Qué puede demorar el proceso?",
-    "¿Cuándo se entrega el informe?",
-    "¿Se puede pedir urgencia?"
-  ],
-  "answers": {
-    "¿Cuánto tarda una pericia psicológica?": "No existe un plazo único. La duración depende de la complejidad, entrevistas, técnicas, documentación y modalidad del informe.",
-    "¿Cuántas entrevistas se realizan?": "La cantidad de entrevistas se determina según las características del caso y las necesidades de la evaluación.",
-    "¿Qué puede demorar el proceso?": "La falta de documentación, la complejidad del expediente, la necesidad de ampliar entrevistas o administrar técnicas adicionales pueden extender los tiempos.",
-    "¿Cuándo se entrega el informe?": "El informe se elabora una vez finalizada la evaluación y analizada toda la información relevante.",
-    "¿Se puede pedir urgencia?": "La posibilidad de una modalidad urgente debe consultarse previamente y dependerá de la disponibilidad y complejidad del caso."
-  },
+
+  "concepts": [
+
+    {
+      "id": "TMP-001",
+      "name": "Duración de la pericia",
+      "definition": "Tiempo necesario para desarrollar una evaluación psicológica completa según las características particulares del caso."
+    },
+
+    {
+      "id": "TMP-002",
+      "name": "Complejidad del caso",
+      "definition": "Nivel de análisis requerido según las particularidades del expediente y los objetivos de la evaluación."
+    },
+
+    {
+      "id": "TMP-003",
+      "name": "Entrevistas",
+      "definition": "Encuentros profesionales destinados a obtener la información necesaria para la evaluación psicológica."
+    },
+
+    {
+      "id": "TMP-004",
+      "name": "Documentación",
+      "definition": "Expedientes, historias clínicas, informes y antecedentes que requieren lectura y análisis profesional."
+    },
+
+    {
+      "id": "TMP-005",
+      "name": "Técnicas psicológicas",
+      "definition": "Instrumentos psicodiagnósticos seleccionados específicamente según las necesidades de cada evaluación."
+    },
+
+    {
+      "id": "TMP-006",
+      "name": "Elaboración del informe",
+      "definition": "Etapa destinada a integrar toda la información obtenida y redactar el informe pericial."
+    },
+
+    {
+      "id": "TMP-007",
+      "name": "Etapas de la pericia",
+      "definition": "Secuencia profesional que comprende estudio inicial, entrevistas, técnicas, corrección, integración e informe."
+    },
+
+    {
+      "id": "TMP-008",
+      "name": "Intervenciones posteriores",
+      "definition": "Actuaciones que pueden realizarse luego del informe, como aclaraciones, ampliaciones, ratificaciones o contestaciones técnicas."
+    },
+
+    {
+      "id": "TMP-009",
+      "name": "Pericia urgente",
+      "definition": "Evaluación cuya viabilidad depende de la disponibilidad profesional y del tiempo técnicamente necesario."
+    },
+
+    {
+      "id": "TMP-010",
+      "name": "Planificación profesional",
+      "definition": "Organización de la evaluación considerando plazos judiciales, documentación y características del caso."
+    },
+
+    {
+      "id": "TMP-011",
+      "name": "Proceso judicial",
+      "definition": "Ámbito donde pueden desarrollarse evaluaciones civiles, laborales, de familia, penales o extrajudiciales."
+    },
+
+    {
+      "id": "TMP-012",
+      "name": "Calidad técnica",
+      "definition": "Objetivo de realizar una evaluación completa, objetiva y técnicamente fundamentada, priorizando la calidad del informe."
+    }
+
+      ],
+
   "relatedTopics": [
     "pericia_psicologica",
     "informe_pericial",
+    "evaluacion_psicologica",
+    "danio_psiquico",
     "honorarios",
-    "documentacion"
-  ]
+    "perito_de_parte",
+    "impugnaciones",
+    "ratificacion",
+    "consultoria_tecnica",
+    "civil",
+    "laboral",
+    "familia",
+    "penal",
+    "documentacion",
+    "psicodiagnostico",
+    "falco_admision"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Cuánto tarda una pericia psicológica?",
+      "¿Qué factores influyen en la duración?",
+      "¿Cuántas entrevistas se realizan?",
+      "¿Cuándo se entrega el informe?",
+      "¿Puede hacerse una pericia urgente?"
+    ],
+
+    "medium": [
+      "¿Cuáles son las etapas de la pericia?",
+      "¿Qué ocurre entre las entrevistas y el informe?",
+      "¿Qué puede extender los plazos?",
+      "¿La duración depende del tipo de proceso?",
+      "¿Qué sucede después del informe?"
+    ],
+
+    "low": [
+      "¿Cómo evitar demoras?",
+      "¿Qué documentación conviene reunir?",
+      "¿Qué pasa si hay reprogramaciones?",
+      "¿Cómo conocer el plazo estimado del caso?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Cuánto tarda una pericia psicológica?",
+    "¿Qué factores influyen en la duración?",
+    "¿Cuáles son las etapas de la pericia?",
+    "¿Cuántas entrevistas se realizan?",
+    "¿Qué ocurre después de las entrevistas?",
+    "¿Puede hacerse una evaluación urgente?",
+    "¿Qué puede extender los plazos?",
+    "¿Cómo evitar demoras?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Evaluación Psicológica Judicial",
+    "Informe Pericial",
+    "Daño Psíquico",
+    "Perito de Parte",
+    "Impugnaciones",
+    "Honorarios",
+    "Supervisión Profesional",
+    "FALCO Admisión"
+  ],
+
+  "answers": {
+
+        "duracion": {
+      "question": "¿Cuánto tarda una pericia psicológica?",
+      "answer": "No existe un plazo único. La duración depende de la complejidad del caso, la cantidad de entrevistas, la documentación disponible, las técnicas psicológicas necesarias, la elaboración del informe y las posibles actuaciones posteriores."
+    },
+
+    "factores": {
+      "question": "¿Qué factores influyen en la duración?",
+      "answer": "Influyen la complejidad del expediente, la cantidad de entrevistas, la documentación a analizar, la batería psicodiagnóstica seleccionada, la elaboración del informe y los requerimientos posteriores del proceso judicial."
+    },
+
+    "entrevistas": {
+      "question": "¿Cuántas entrevistas se realizan?",
+      "answer": "La cantidad de entrevistas se determina según las características de cada persona, los objetivos de la evaluación y la información necesaria para arribar a conclusiones técnicamente fundamentadas."
+    },
+
+    "etapas": {
+      "question": "¿Cuáles son las etapas de una pericia psicológica?",
+      "answer": "Habitualmente comprende el estudio inicial del caso, entrevistas, administración de técnicas psicodiagnósticas, corrección de protocolos, integración de resultados y elaboración del informe pericial."
+    },
+
+    "proceso": {
+      "question": "¿Qué ocurre entre las entrevistas y el informe?",
+      "answer": "El trabajo profesional continúa con el análisis de la documentación, la interpretación de las técnicas, la integración clínica de la información y la redacción del informe técnico."
+    },
+
+    "informe": {
+      "question": "¿Cuándo se entrega el informe?",
+      "answer": "El informe se elabora una vez finalizada la evaluación, analizada toda la documentación e integrada técnicamente la información obtenida durante el proceso."
+    },
+
+    "demoras": {
+      "question": "¿Qué puede extender los plazos?",
+      "answer": "Los expedientes extensos, la incorporación de nueva documentación, la evaluación de varias personas, las reprogramaciones, las solicitudes judiciales y la complejidad técnica pueden extender la duración del proceso."
+    },
+
+    "posteriores": {
+      "question": "¿Qué sucede después del informe?",
+      "answer": "Dependiendo del expediente pueden solicitarse aclaraciones, ampliaciones, contestaciones de impugnaciones, ratificaciones, nuevas presentaciones o participación en audiencias."
+    },
+
+    "urgencia": {
+      "question": "¿Puede hacerse una pericia urgente?",
+      "answer": "Puede evaluarse cuando existe una fecha próxima, siempre que la disponibilidad profesional y el tiempo disponible permitan realizar una evaluación técnicamente adecuada."
+    },
+
+    "plazos": {
+      "question": "¿Qué debo informar si tengo una fecha judicial próxima?",
+      "answer": "Es importante informar desde el primer contacto si existe una audiencia, vencimiento, entrevista oficial o presentación judicial ya fijada."
+    },
+
+    "documentacion": {
+      "question": "¿La documentación influye en los tiempos?",
+      "answer": "Sí. El análisis de expedientes, historias clínicas, informes previos y demás antecedentes forma parte del trabajo profesional y puede influir en la duración de la evaluación."
+    },
+
+    "fuero": {
+      "question": "¿La duración depende del tipo de proceso?",
+      "answer": "Sí. Las evaluaciones civiles, laborales, penales, de familia, extrajudiciales o de consultoría técnica pueden requerir tiempos diferentes según sus objetivos y particularidades."
+    },
+
+    "inasistencias": {
+      "question": "¿Qué ocurre si existen reprogramaciones o inasistencias?",
+      "answer": "Las reprogramaciones, cambios de fecha o inasistencias pueden modificar la planificación inicial y extender los plazos de la evaluación."
+    },
+
+    "calidad": {
+      "question": "¿Una evaluación más rápida siempre es mejor?",
+      "answer": "No. El objetivo es realizar una evaluación completa, objetiva y técnicamente fundamentada, respetando los tiempos necesarios para garantizar la calidad del informe."
+    },
+
+    "evitar_demoras": {
+      "question": "¿Cómo pueden evitarse demoras innecesarias?",
+      "answer": "Informar los plazos judiciales, reunir la documentación disponible, asistir a las entrevistas programadas, brindar la información solicitada y mantener actualizado al profesional facilita la organización de la evaluación."
+    },
+
+    "estimacion": {
+      "question": "¿Cómo puedo conocer el plazo estimado para mi caso?",
+      "answer": "Es necesario conocer el motivo de la consulta, el tipo de intervención requerida, la documentación disponible y la existencia de fechas judiciales para poder realizar una estimación orientativa."
+    }
+
+  }
+
 }

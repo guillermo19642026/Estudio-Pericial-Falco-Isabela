@@ -1,66 +1,215 @@
 {
   "slug": "informe-pericial",
+
   "title": "Informe Pericial Psicológico",
-  "greeting": "Estás consultando sobre informe pericial psicológico. Puedo orientarte sobre qué incluye, para qué sirve y cómo se utiliza en un proceso judicial.",
-  "description": "El informe pericial psicológico integra entrevistas, técnicas psicodiagnósticas, análisis del caso y conclusiones profesionales para su utilización en un contexto judicial o prejudicial.",
-  "summary": "El informe permite presentar de manera clara, técnica y fundada los resultados de una evaluación psicológica con finalidad pericial.",
+
+  "greeting": "Estás consultando sobre informe pericial psicológico. Puedo orientarte sobre qué incluye, cómo se elabora, cuál es su finalidad y cómo se utiliza dentro de un proceso judicial.",
+
+  "description": "Documento técnico que integra entrevistas, técnicas psicodiagnósticas, antecedentes, documentación judicial, análisis clínico-forense y conclusiones profesionales para responder los puntos periciales en un contexto judicial o prejudicial.",
+
+  "summary": "El informe pericial psicológico constituye la integración técnica de toda la evaluación realizada. Expone de manera clara, metodológicamente fundada y profesional los resultados obtenidos, su interpretación clínica-forense y las conclusiones que pueden sostenerse técnicamente dentro del proceso judicial.",
+
   "keywords": [
     "informe pericial",
+    "informe pericial psicológico",
     "informe psicológico",
     "dictamen",
-    "conclusiones",
+    "dictamen psicológico",
     "pericia",
+    "pericia psicológica",
     "psicodiagnóstico",
+    "evaluación psicológica",
+    "entrevista psicodiagnóstica",
     "puntos periciales",
-    "evaluación psicológica"
+    "conclusiones",
+    "metodología",
+    "integración de resultados",
+    "diagnóstico",
+    "nexo causal",
+    "repercusión funcional",
+    "fundamentación técnica",
+    "contrainforme",
+    "impugnación",
+    "ampliación",
+    "aclaración",
+    "proceso judicial"
   ],
+
   "concepts": [
+
     {
       "id": "INF-001",
       "name": "Informe pericial psicológico",
-      "definition": "Documento técnico que integra evaluación clínica, técnicas psicodiagnósticas y conclusiones profesionales para un contexto judicial."
+      "definition": "Documento técnico mediante el cual el perito psicólogo presenta la metodología utilizada, los resultados obtenidos, su análisis profesional y las conclusiones correspondientes dentro de un proceso judicial."
     },
+
     {
       "id": "INF-002",
       "name": "Conclusiones periciales",
-      "definition": "Síntesis técnica final que responde a los puntos relevantes de la evaluación."
+      "definition": "Síntesis técnica final sustentada en la integración de entrevistas, técnicas psicológicas, antecedentes y documentación analizada."
     },
+
     {
       "id": "INF-003",
       "name": "Integración de resultados",
-      "definition": "Análisis conjunto de entrevistas, técnicas, antecedentes y documentación."
+      "definition": "Proceso mediante el cual toda la información obtenida durante la evaluación se analiza de manera conjunta para arribar a conclusiones técnicamente fundadas."
+    },
+
+    {
+      "id": "INF-004",
+      "name": "Metodología pericial",
+      "definition": "Descripción del procedimiento aplicado, incluyendo entrevistas, técnicas psicodiagnósticas, documentación revisada y criterios profesionales utilizados."
+    },
+
+    {
+      "id": "INF-005",
+      "name": "Puntos periciales",
+      "definition": "Interrogantes formulados por el tribunal o por las partes que deben responderse individualmente dentro del informe."
+
+    },
+
+    {
+      "id": "INF-006",
+      "name": "Fundamentación técnica",
+      "definition": "Explicación profesional que sustenta las conclusiones alcanzadas mediante criterios científicos, clínicos y forenses."
+
+    },
+
+    {
+      "id": "INF-007",
+      "name": "Repercusión funcional",
+      "definition": "Valoración del impacto psicológico sobre las áreas familiar, laboral, social, afectiva y recreativa de la persona evaluada."
+
+    },
+
+    {
+      "id": "INF-008",
+      "name": "Diagnóstico",
+      "definition": "Formulación diagnóstica realizada cuando corresponde, basada en los datos obtenidos durante la evaluación."
+
+    },
+
+    {
+      "id": "INF-009",
+      "name": "Nexo causal",
+      "definition": "Análisis técnico destinado a establecer la relación entre el hecho investigado, la sintomatología observada y los antecedentes personales."
+
+    },
+
+    {
+      "id": "INF-010",
+      "name": "Recomendaciones",
+      "definition": "Orientaciones profesionales que pueden incorporarse cuando el objeto de la evaluación así lo requiere, incluyendo tratamiento, modalidad y frecuencia estimada."
+
     }
+
   ],
-  "suggestions": [
-    "¿Qué es un informe pericial psicológico?",
-    "¿Qué incluye el informe?",
-    "¿Para qué sirve en un juicio?",
-    "¿Puede solicitarlo un abogado?",
-    "¿Qué diferencia hay entre informe psicológico e informe pericial?"
-  ],
-  "answers": {
-    "¿Qué es un informe pericial psicológico?": "Es un documento técnico que presenta los resultados de una evaluación psicológica realizada con finalidad judicial o prejudicial.",
-    "¿Qué incluye el informe?": "Puede incluir entrevistas, técnicas psicodiagnósticas, antecedentes, análisis clínico-forense, integración de resultados y conclusiones técnicas.",
-    "¿Para qué sirve en un juicio?": "Sirve para aportar elementos técnicos al expediente y colaborar con la valoración judicial del caso.",
-    "¿Puede solicitarlo un abogado?": "Sí. Puede ser solicitado por abogados, estudios jurídicos, particulares o en el marco de un proceso judicial.",
-    "¿Qué diferencia hay entre informe psicológico e informe pericial?": "El informe pericial está orientado a responder cuestiones técnicas dentro de un proceso judicial o prejudicial, mientras que un informe psicológico puede tener finalidades clínicas, institucionales o particulares."
-  },
-  "relatedTopics": [
+
+    "relatedTopics": [
     "pericia_psicologica",
     "danio_psiquico",
     "perito_de_parte",
-    "impugnaciones"
+    "evaluacion_psicologica_judicial",
+    "impugnaciones",
+    "metodo_falco",
+    "honorarios",
+    "tests"
   ],
+
   "importance": {
+
     "high": [
       "¿Qué es un informe pericial psicológico?",
       "¿Qué incluye el informe?",
-      "¿Para qué sirve en un juicio?"
+      "¿Para qué sirve en un juicio?",
+      "¿Cómo se elabora?"
     ],
+
     "medium": [
-      "¿Puede solicitarlo un abogado?",
-      "¿Qué diferencia hay entre informe psicológico e informe pericial?"
+      "¿Qué diferencia existe entre un informe clínico y uno pericial?",
+      "¿Qué procesos judiciales utilizan informes periciales?",
+      "¿Qué características debe reunir un informe técnicamente fundado?",
+      "¿Qué son los puntos periciales?",
+      "¿Puede incluir diagnóstico?"
     ],
-    "low": []
+
+    "low": [
+      "¿Quién puede solicitar orientación?",
+      "¿Puede impugnarse un informe?",
+      "¿Puede ampliarse un informe?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Qué es un informe pericial psicológico?",
+    "¿Qué incluye el informe?",
+    "¿Cómo se elabora?",
+    "¿Para qué sirve en un juicio?",
+    "¿Qué son los puntos periciales?",
+    "¿Puede incluir diagnóstico?",
+    "¿Qué es el nexo causal?",
+    "¿Puede impugnarse un informe?",
+    "¿Qué diferencia existe entre un informe clínico y uno pericial?",
+    "¿Qué procesos judiciales utilizan informes periciales?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Daño Psíquico",
+    "Perito de Parte",
+    "Evaluación Psicológica Judicial",
+    "Impugnación de Pericias",
+    "Contrainformes Psicológicos",
+    "Método FALCO®",
+    "Tests Psicométricos",
+    "Honorarios"
+  ],
+
+  "answers": {
+
+        "¿Qué es un informe pericial psicológico?":
+      "Es el documento técnico mediante el cual el perito psicólogo expone la metodología utilizada, los resultados de la evaluación, el análisis profesional realizado y las conclusiones alcanzadas dentro de un proceso judicial o prejudicial.",
+
+    "¿Qué incluye el informe?":
+      "Habitualmente comprende la identificación del caso, la metodología aplicada, entrevistas, técnicas psicodiagnósticas, antecedentes relevantes, análisis documental, resultados obtenidos, integración clínica-forense, diagnóstico cuando corresponde, análisis del nexo causal, repercusión funcional, respuestas a los puntos periciales, conclusiones y, cuando resulta pertinente, recomendaciones profesionales.",
+
+    "¿Para qué sirve en un juicio?":
+      "Su finalidad es aportar conocimientos técnicos especializados que permitan comprender aspectos psicológicos relevantes del caso, colaborando con la valoración de la prueba sin sustituir la decisión jurídica que corresponde al tribunal.",
+
+    "¿Cómo se elabora?":
+      "La elaboración comprende el análisis del pedido, la revisión de la documentación disponible, la evaluación psicológica, la administración de las técnicas pertinentes, la integración de toda la información obtenida, la redacción del informe y una revisión final destinada a verificar la coherencia técnica del documento.",
+
+    "¿Qué son los puntos periciales?":
+      "Son los interrogantes formulados por el tribunal o por las partes que el perito debe responder de manera individual, clara, fundada y dentro de los límites propios de la evaluación realizada.",
+
+    "¿Puede incluir diagnóstico?":
+      "Sí. Cuando los datos obtenidos durante la evaluación resultan suficientes y el objeto de la pericia así lo requiere, puede formularse un diagnóstico técnicamente fundamentado.",
+
+    "¿Qué es el nexo causal?":
+      "Es el análisis técnico destinado a determinar la relación existente entre el hecho investigado, la sintomatología observada, los antecedentes personales y la evolución posterior de la persona evaluada.",
+
+    "¿Puede impugnarse un informe?":
+      "Sí. Las partes pueden formular observaciones o impugnaciones respecto del informe presentado. Cuando corresponde, dichas observaciones deben ser respondidas mediante una fundamentación técnica.",
+
+    "¿Puede ampliarse un informe?":
+      "Sí. Cuando el tribunal o las partes requieren aclaraciones o precisiones adicionales, el informe puede ser ampliado dentro del alcance de la evaluación realizada.",
+
+    "¿Qué diferencia existe entre un informe clínico y uno pericial?":
+      "El informe clínico tiene finalidad asistencial o terapéutica, mientras que el informe pericial responde a objetivos judiciales específicos, aplica una metodología pericial y se orienta a contestar los puntos sometidos a evaluación.",
+
+    "¿Qué procesos judiciales utilizan informes periciales?":
+      "Los informes periciales psicológicos pueden utilizarse en procesos civiles, laborales, penales y de familia, así como en otras actuaciones judiciales que requieran una evaluación psicológica especializada.",
+
+    "¿Qué características debe reunir un informe técnicamente fundado?":
+      "Debe presentar claridad expositiva, coherencia interna, fundamentación técnica, metodología identificable, lenguaje comprensible, conclusiones consistentes y adecuada respuesta a los puntos periciales.",
+
+    "¿Pueden interpretarse los resultados de una técnica de manera aislada?":
+      "No. Ninguna técnica psicológica permite por sí sola arribar a conclusiones definitivas. Todos los resultados deben integrarse con las entrevistas, la conducta observada, los antecedentes, la documentación y el resto del material obtenido durante la evaluación.",
+
+    "¿Quién puede solicitar orientación?":
+      "Pueden solicitar orientación personas particulares, abogados, estudios jurídicos, psicólogos, peritos psicólogos y otros profesionales que requieran un informe técnico vinculado con un proceso judicial."
+
   }
+
 }

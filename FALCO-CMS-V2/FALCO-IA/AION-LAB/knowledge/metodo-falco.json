@@ -1,74 +1,420 @@
 {
   "slug": "metodo-falco",
+
   "title": "Método FALCO®",
-  "greeting": "Hola. Soy AION. Puedo orientarte sobre el Método FALCO®, sus fundamentos, programas y recursos para familias, profesionales e instituciones.",
-  "description": "Propuesta de orientación, formación y prevención para acompañar la adolescencia con mayor comprensión, comunicación y herramientas prácticas.",
-  "suggestions": [
-    {
-      "label": "¿Qué es el Método FALCO®?",
-      "response": "El Método FALCO® es una propuesta de orientación, formación y prevención desarrollada por la Lic. en Psicología Isabela Falco. Integra conocimientos psicológicos, experiencia profesional y herramientas prácticas para acompañar la adolescencia desde una presencia adulta más comprensiva, coherente y disponible."
-    },
-    {
-      "label": "Quiero conocer los cinco pilares",
-      "response": "El Método FALCO® se organiza alrededor de cinco pilares: comprender la adolescencia, fortalecer la comunicación, establecer límites que cuidan, acompañar el desarrollo emocional y favorecer una autonomía progresiva."
-    },
-    {
-      "label": "Busco orientación para familias",
-      "response": "La propuesta para familias brinda herramientas para comprender los cambios adolescentes, mejorar el diálogo, revisar los límites, abordar conflictos cotidianos y reconocer cuándo una situación puede requerir orientación profesional.",
-      "url": "escuela-para-padres.html",
-      "action": "Ver Escuela para Padres"
-    },
-    {
-      "label": "Quiero conocer el Programa Premium",
-      "response": "El Programa Formativo Premium desarrolla los contenidos del Método FALCO® mediante un recorrido organizado. Aborda adolescencia, comunicación, límites, vínculos, desarrollo emocional y autonomía.",
-      "url": "programa-premium.html",
-      "action": "Ver Programa Premium"
-    },
-    {
-      "label": "Quiero conocer la Escuela para Padres",
-      "response": "La Escuela para Padres FALCO® ofrece contenidos y herramientas para madres, padres y referentes afectivos que desean comprender mejor la adolescencia y fortalecer sus recursos de acompañamiento.",
-      "url": "escuela-para-padres.html",
-      "action": "Ver Escuela para Padres"
-    },
-    {
-      "label": "Quiero acceder a Biblioteca FALCO®",
-      "response": "La Biblioteca FALCO® reúne materiales, recursos y contenidos vinculados con psicología, adolescencia, formación y práctica profesional. El acceso depende de la modalidad o programa correspondiente.",
-      "url": "biblioteca-login.html",
-      "action": "Acceder a Biblioteca FALCO®"
-    },
-    {
-      "label": "Busco talleres y capacitaciones",
-      "response": "El Método FALCO® puede desarrollarse mediante talleres, cursos y actividades formativas dirigidas a familias, profesionales, instituciones educativas y organizaciones.",
-      "url": "talleres-y-cursos.html",
-      "action": "Ver talleres y cursos"
-    },
-    {
-      "label": "Necesito una propuesta institucional",
-      "response": "Las propuestas institucionales pueden adaptarse a escuelas, municipios, empresas y organizaciones. La modalidad, duración y selección de contenidos se definen según los objetivos, destinatarios y necesidades de cada institución.",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20información%20sobre%20una%20propuesta%20institucional%20del%20Método%20FALCO®.",
-      "whatsappLabel": "Consultar propuesta institucional"
-    },
-    {
-      "label": "¿Cuándo conviene consultar?",
-      "response": "Puede resultar conveniente solicitar orientación cuando existen conflictos familiares persistentes, aislamiento, cambios emocionales intensos, dificultades escolares, alteraciones del sueño, conductas de riesgo o preocupación sostenida por parte de los adultos responsables. La orientación no reemplaza una evaluación psicológica individual."
-    },
-    {
-      "label": "Quiero recibir información",
-      "response": "Podés consultar sobre el Método FALCO®, el Programa Premium, la Escuela para Padres, talleres, capacitaciones o propuestas institucionales mediante el sistema de admisión o por WhatsApp.",
-      "whatsapp": "https://wa.me/5491132049521?text=Hola,%20quiero%20recibir%20información%20sobre%20el%20Método%20FALCO®.",
-      "whatsappLabel": "Consultar por WhatsApp"
-    }
+
+  "greeting": "Estás consultando sobre el Método FALCO®. Puedo explicarte en qué consiste esta metodología, cuáles son sus principios, sus objetivos y cómo se aplica en familias, instituciones y espacios de formación.",
+
+  "description": "Metodología propia desarrollada por la Lic. Isabela Falco orientada a la formación, prevención y acompañamiento de familias, profesionales e instituciones, basada en la comprensión de la adolescencia, el fortalecimiento de los vínculos y la promoción de herramientas prácticas para la vida cotidiana.",
+
+  "summary": "El Método FALCO® constituye una propuesta integral que transforma conocimientos psicológicos en herramientas concretas para comprender la adolescencia, fortalecer la comunicación, establecer límites saludables, promover la prevención y acompañar el desarrollo de personas, familias e instituciones.",
+
+  "keywords": [
+
+    "Método FALCO",
+    "metodología FALCO",
+    "formación",
+    "prevención",
+    "acompañamiento",
+    "familias",
+    "adolescencia",
+    "psicología",
+    "comunicación familiar",
+    "límites saludables",
+    "vínculos",
+    "salud mental",
+    "prevención en adolescencia",
+    "Escuela para Padres",
+    "Programa Premium",
+    "Biblioteca FALCO",
+    "talleres",
+    "capacitaciones",
+    "instituciones",
+    "municipios",
+    "escuelas",
+    "organizaciones",
+    "docentes",
+    "familias",
+    "recursos prácticos",
+    "herramientas",
+    "educación emocional",
+    "autonomía",
+    "proyectos de vida",
+    "acompañamiento familiar"
+
   ],
-  "answers": {
-    "¿Qué es el Método FALCO®?": "El Método FALCO® es una propuesta de orientación, formación y prevención desarrollada por la Lic. en Psicología Isabela Falco.",
-    "¿Cuáles son sus pilares?": "Sus pilares son comprender la adolescencia, fortalecer la comunicación, establecer límites que cuidan, acompañar el desarrollo emocional y favorecer la autonomía progresiva.",
-    "¿Reemplaza una terapia?": "No. El Método FALCO® es una propuesta formativa y preventiva. No reemplaza una evaluación psicológica, un diagnóstico ni un tratamiento psicoterapéutico.",
-    "¿Está dirigido solamente a padres?": "No. Está dirigido a familias, referentes afectivos, docentes, profesionales, instituciones educativas, municipios y organizaciones."
+
+  "concepts": [
+
+    {
+      "id": "MET-001",
+      "name": "Método FALCO®",
+      "definition": "Metodología integral de formación, prevención y acompañamiento desarrollada por la Lic. Isabela Falco para brindar herramientas aplicables a familias, profesionales e instituciones."
+    },
+
+    {
+      "id": "MET-002",
+      "name": "Comprender antes de intervenir",
+      "definition": "Principio metodológico que propone comprender el momento evolutivo, las necesidades emocionales y el contexto antes de decidir una forma de intervención."
+    },
+
+    {
+      "id": "MET-003",
+      "name": "Herramientas prácticas",
+      "definition": "Transformación de conocimientos psicológicos en recursos concretos aplicables a situaciones reales de la vida cotidiana."
+    },
+
+    {
+      "id": "MET-004",
+      "name": "Prevención",
+      "definition": "Conjunto de estrategias destinadas a reconocer tempranamente señales de alerta, fortalecer factores protectores y favorecer intervenciones oportunas."
+    },
+
+    {
+      "id": "MET-005",
+      "name": "Fortalecimiento de vínculos",
+      "definition": "Promoción de relaciones familiares basadas en la comunicación, la confianza, la presencia adulta y el acompañamiento emocional."
+    },
+
+    {
+      "id": "MET-006",
+      "name": "Comunicación familiar",
+      "definition": "Desarrollo de formas de diálogo, escucha y expresión que permitan mejorar la convivencia y disminuir los conflictos."
+    },
+
+    {
+      "id": "MET-007",
+      "name": "Límites saludables",
+      "definition": "Construcción de normas claras, coherentes y consistentes entendidas como una forma de cuidado y orientación."
+    },
+
+    {
+      "id": "MET-008",
+      "name": "Autonomía progresiva",
+      "definition": "Proceso mediante el cual los adolescentes desarrollan independencia y responsabilidad con el acompañamiento de adultos disponibles."
+    },
+
+    {
+      "id": "MET-009",
+      "name": "Aplicación institucional",
+      "definition": "Adaptación del Método FALCO® para escuelas, municipios, organizaciones, empresas y espacios comunitarios según sus necesidades."
+    },
+
+    {
+      "id": "MET-010",
+      "name": "Ecosistema FALCO®",
+      "definition": "Conjunto integrado por el Método FALCO®, Programa Premium, Escuela para Padres, Biblioteca FALCO®, talleres, recursos y capacitaciones que comparten una misma orientación conceptual y práctica."
+    }
+
+  ],
+
+    "relatedTopics": [
+    "programa_premium",
+    "escuela_para_padres",
+    "biblioteca_falco",
+    "talleres",
+    "capacitaciones",
+    "familias",
+    "adolescencia",
+    "comunicacion_familiar",
+    "limites_saludables",
+    "salud_mental",
+    "prevencion",
+    "vinculos",
+    "instituciones",
+    "escuelas",
+    "municipios"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es el Método FALCO®?",
+      "¿Cuál es el objetivo del Método FALCO®?",
+      "¿Cuáles son los cinco pilares FALCO®?",
+      "¿Cómo funciona el método?",
+      "¿Qué diferencia existe entre el método y el Programa Premium?"
+    ],
+
+    "medium": [
+      "¿Qué necesidades busca abordar?",
+      "¿Qué áreas comprende el método?",
+      "¿Qué recursos integran el ecosistema FALCO®?",
+      "¿Quiénes pueden participar?",
+      "¿Puede implementarse en instituciones?",
+      "¿Qué modalidades existen?"
+    ],
+
+    "low": [
+      "¿Incluye materiales?",
+      "¿Puede realizarse de forma virtual?",
+      "¿Está dirigido únicamente a padres?",
+      "¿Reemplaza una terapia?",
+      "¿Cómo solicitar información?"
+    ]
+
   },
+
+  "suggestions": [
+    "¿Qué es el Método FALCO®?",
+    "¿Cómo funciona?",
+    "¿Cuáles son los pilares FALCO®?",
+    "¿Qué necesidades aborda?",
+    "¿Qué diferencia existe con el Programa Premium?",
+    "¿Qué recursos incluye?",
+    "¿A quién está dirigido?",
+    "¿Puede implementarse en escuelas?",
+    "¿Qué modalidades existen?",
+    "¿Reemplaza una terapia?"
+  ],
+
   "related": [
-    "programa-premium",
-    "escuela-para-padres",
-    "biblioteca",
-    "formacion"
-  ]
+    "Programa Premium",
+    "Escuela para Padres",
+    "Biblioteca FALCO®",
+    "Talleres",
+    "Capacitaciones",
+    "Familias",
+    "Adolescencia",
+    "Comunicación Familiar",
+    "Límites Saludables",
+    "Prevención",
+    "Salud Mental",
+    "Instituciones"
+  ],
+
+  "answers": {
+
+        "que_es": {
+      "question": "¿Qué es el Método FALCO®?",
+      "answer": "El Método FALCO® es una propuesta integral de formación, prevención y acompañamiento desarrollada por la Lic. Isabela Falco. Su objetivo es transformar conocimientos psicológicos en herramientas concretas para la vida cotidiana de familias, profesionales e instituciones."
+    },
+
+    "finalidad": {
+      "question": "¿Cuál es la finalidad del Método FALCO®?",
+      "answer": "Su finalidad es ayudar a comprender los cambios propios de la adolescencia y brindar recursos que puedan aplicarse en situaciones reales, sin reducir la experiencia familiar a explicaciones exclusivamente teóricas."
+    },
+
+    "comprender_antes_de_intervenir": {
+      "question": "¿Qué significa comprender antes de intervenir?",
+      "answer": "Significa reconocer el momento evolutivo, las necesidades emocionales y el contexto en el que aparece cada dificultad antes de decidir cómo actuar. El método propone revisar la situación, las respuestas adultas y las formas de comunicación antes de buscar soluciones inmediatas."
+    },
+
+    "necesidades": {
+      "question": "¿Qué necesidades busca abordar?",
+      "answer": "Busca abordar dudas, preocupaciones y dificultades vinculadas con los cambios emocionales, la búsqueda de autonomía, la comunicación familiar, el uso de la tecnología, los conflictos por los límites, los vínculos y la salud mental adolescente."
+    },
+
+    "diferencia_taller": {
+      "question": "¿En qué se diferencia de un taller aislado?",
+      "answer": "El Método FALCO® no se limita a una charla o actividad puntual. Es una estructura metodológica que organiza principios, objetivos, contenidos, herramientas y propuestas formativas bajo una misma identidad."
+    },
+
+    "metodo_programa": {
+      "question": "¿Qué diferencia existe entre el método y el Programa Premium?",
+      "answer": "El método reúne los principios, pilares y criterios generales de la propuesta. El Programa Formativo Premium es una de las modalidades mediante las cuales esos contenidos se desarrollan en un recorrido organizado de siete módulos."
+    },
+
+    "pilar_f": {
+      "question": "¿Qué representa la letra F del Método FALCO®?",
+      "answer": "La letra F representa fortalecer el vínculo. El vínculo con adultos disponibles constituye uno de los principales factores protectores durante la adolescencia."
+    },
+
+    "pilar_a": {
+      "question": "¿Qué representa la letra A del Método FALCO®?",
+      "answer": "La letra A representa acompañar emociones. Implica comprender, validar y acompañar el mundo emocional adolescente sin minimizarlo ni responder únicamente desde el enojo."
+    },
+
+    "pilar_l": {
+      "question": "¿Qué representa la letra L del Método FALCO®?",
+      "answer": "La letra L representa límites saludables. Propone educar con firmeza, respeto, claridad y coherencia, entendiendo el límite como una forma de cuidado."
+    },
+
+    "pilar_c": {
+      "question": "¿Qué representa la letra C del Método FALCO®?",
+      "answer": "La letra C representa comprender la adolescencia. Implica conocer los cambios físicos, emocionales, sociales y psicológicos propios de esta etapa del desarrollo."
+    },
+
+    "pilar_o": {
+      "question": "¿Qué representa la letra O del Método FALCO®?",
+      "answer": "La letra O representa orientar proyectos de vida. Busca favorecer la autonomía, la construcción de objetivos, el sentido de responsabilidad y la proyección hacia el futuro."
+    },
+
+    "funcionamiento": {
+      "question": "¿Cómo funciona el Método FALCO®?",
+      "answer": "El método propone un recorrido progresivo que consiste en comprender la situación, observar las formas de comunicación, organizar las preocupaciones, acompañar emocionalmente, establecer límites y evaluar los cambios logrados."
+    },
+
+    "comprender": {
+      "question": "¿Qué implica la etapa de comprender?",
+      "answer": "Implica reconocer los cambios propios de la adolescencia, las necesidades emocionales y el contexto en el que aparece cada dificultad."
+    },
+
+    "observar": {
+      "question": "¿Qué implica la etapa de observar?",
+      "answer": "Implica revisar las formas de comunicación, los acuerdos familiares, los conflictos y las respuestas habituales de los adultos."
+    },
+
+    "organizar": {
+      "question": "¿Qué implica la etapa de organizar?",
+      "answer": "Implica diferenciar las preocupaciones, establecer prioridades y reconocer qué situaciones requieren una intervención inmediata."
+    },
+
+    "acompanar": {
+      "question": "¿Qué implica la etapa de acompañar?",
+      "answer": "Implica incorporar formas de presencia, escucha y orientación compatibles con el momento evolutivo adolescente."
+    },
+
+    "establecer_limites": {
+      "question": "¿Cómo propone establecer límites el Método FALCO®?",
+      "answer": "Propone construir normas claras, acuerdos posibles y consecuencias coherentes, sin confundir firmeza con autoritarismo."
+    },
+
+    "evaluar": {
+      "question": "¿Qué implica la etapa de evaluar?",
+      "answer": "Implica observar los cambios logrados, revisar las estrategias utilizadas y ajustar aquello que todavía no funciona."
+    },
+
+    "areas": {
+      "question": "¿Qué áreas aborda el Método FALCO®?",
+      "answer": "Aborda adolescencia actual, comunicación familiar, límites y acuerdos, mundo emocional, tecnología y redes, autonomía progresiva, salud mental, vínculos, pertenencia y proyecto de vida."
+    },
+
+    "tecnologia": {
+      "question": "¿El método aborda tecnología y redes sociales?",
+      "answer": "Sí. Incluye el uso de dispositivos, la exposición digital, la privacidad, los videojuegos, las redes sociales y el acompañamiento adulto."
+    },
+
+    "salud_mental": {
+      "question": "¿El método trabaja temas de salud mental?",
+      "answer": "Sí. Incluye contenidos de prevención, señales de alerta y criterios para reconocer cuándo resulta conveniente consultar a un profesional."
+    },
+
+    "ecosistema": {
+      "question": "¿Qué integra el Ecosistema FALCO®?",
+      "answer": "El ecosistema incluye el libro Aprendiendo a ser Padres de un Adolescente, el Programa Formativo Premium, el manual práctico, el cuadernillo de actividades, la Escuela para Padres FALCO®, la Biblioteca FALCO®, talleres temáticos, capacitaciones institucionales y la Comunidad FALCO®."
+    },
+
+    "recursos": {
+      "question": "¿Qué recursos pueden integrar las propuestas?",
+      "answer": "Según la modalidad, pueden incluir libro digital, módulos formativos, manual práctico, cuadernillo del participante, actividades descargables, ejercicios de reflexión, guías para acuerdos familiares, listas de revisión, material complementario, acceso a Biblioteca FALCO®, certificación y Comunidad FALCO®."
+    },
+
+    "programas": {
+      "question": "¿Qué programas y propuestas están disponibles?",
+      "answer": "Pueden desarrollarse talleres introductorios, el Programa Formativo Premium, la Escuela para Padres FALCO®, talleres específicos, capacitaciones para escuelas y programas institucionales."
+    },
+
+    "destinatarios": {
+      "question": "¿A quién está dirigido el Método FALCO®?",
+      "answer": "Está dirigido a madres, padres, familias, referentes afectivos, docentes, equipos de orientación escolar, psicólogos, profesionales, instituciones educativas, municipios, empresas, organizaciones sociales y espacios comunitarios."
+    },
+
+    "solo_padres": {
+      "question": "¿El Método FALCO® es solamente para padres?",
+      "answer": "No. También está dirigido a familias, referentes afectivos, docentes, profesionales, instituciones educativas, municipios, empresas y organizaciones."
+    },
+
+    "familias": {
+      "question": "¿Cómo puede ayudar a las familias?",
+      "answer": "Puede ayudar a comprender qué está ocurriendo antes de reaccionar, revisar decisiones, sostener límites, mejorar la comunicación y contar con criterios para abordar situaciones cotidianas."
+    },
+
+    "situaciones_familiares": {
+      "question": "¿Qué situaciones familiares pueden trabajarse?",
+      "answer": "Pueden trabajarse discusiones frecuentes, aislamiento, incumplimiento de acuerdos, uso excesivo de dispositivos, cambios emocionales, dificultades escolares y preocupaciones relacionadas con la conducta adolescente."
+    },
+
+    "instituciones": {
+      "question": "¿Puede implementarse en instituciones?",
+      "answer": "Sí. Puede adaptarse a instituciones educativas, municipios, empresas, organizaciones y equipos de trabajo, considerando la población destinataria, los objetivos institucionales y el formato disponible."
+    },
+
+    "escuelas": {
+      "question": "¿Qué propuestas pueden realizarse en escuelas?",
+      "answer": "Pueden desarrollarse talleres para familias, docentes, equipos de orientación y comunidad educativa."
+    },
+
+    "municipios": {
+      "question": "¿Qué propuestas pueden realizarse en municipios?",
+      "answer": "Pueden desarrollarse programas preventivos, encuentros comunitarios y espacios de formación para familias."
+    },
+
+    "empresas": {
+      "question": "¿Qué propuestas pueden realizarse en empresas?",
+      "answer": "Pueden desarrollarse actividades de acompañamiento para colaboradores que atraviesan desafíos vinculados con la crianza."
+    },
+
+    "modalidades": {
+      "question": "¿Qué modalidades de implementación existen?",
+      "answer": "Las propuestas pueden organizarse como encuentro único, ciclo de encuentros, programa completo o propuesta personalizada."
+    },
+
+    "virtual_presencial": {
+      "question": "¿Las actividades pueden ser virtuales?",
+      "answer": "Sí. Según la propuesta, pueden organizarse encuentros virtuales, presenciales o combinados."
+    },
+
+    "beneficios": {
+      "question": "¿Qué beneficios ofrece el Método FALCO®?",
+      "answer": "Busca favorecer una mayor comprensión de la adolescencia, una comunicación más clara, límites coherentes, fortalecimiento del vínculo, prevención, mayor coherencia adulta, autonomía progresiva y herramientas prácticas para familias e instituciones."
+    },
+
+    "prevencion": {
+      "question": "¿Por qué comprender también es prevenir?",
+      "answer": "Porque la prevención comienza cuando los adultos pueden observar, escuchar y reconocer cambios significativos antes de que una dificultad se profundice."
+    },
+
+    "cuando_consultar": {
+      "question": "¿Cuándo puede resultar conveniente realizar una consulta profesional?",
+      "answer": "Puede resultar conveniente cuando los cambios son intensos, persistentes o afectan de manera considerable la vida cotidiana, los vínculos, el rendimiento escolar, el descanso, la conducta o el bienestar emocional."
+    },
+
+    "senales": {
+      "question": "¿Qué señales pueden requerir orientación profesional?",
+      "answer": "Entre las situaciones mencionadas se encuentran el aislamiento persistente, cambios emocionales intensos, dificultades escolares, alteraciones del sueño, conductas de riesgo, conflictos familiares permanentes, expresiones de desesperanza, cambios bruscos de conducta y preocupación familiar sostenida."
+    },
+
+    "urgencias": {
+      "question": "¿Qué hacer ante una situación de riesgo o urgencia?",
+      "answer": "Ante manifestaciones relacionadas con autolesiones, riesgo suicida, violencia, abuso o peligro inmediato, corresponde solicitar asistencia profesional y recurrir a los servicios de emergencia disponibles en la jurisdicción."
+    },
+
+    "aprendizajes": {
+      "question": "¿Qué pueden llevarse las familias?",
+      "answer": "Pueden llevarse una mayor comprensión de la adolescencia, criterios para establecer límites, recursos para mejorar la comunicación, estrategias para abordar conflictos, herramientas para revisar acuerdos, orientación sobre salud mental e indicadores para saber cuándo consultar."
+    },
+
+    "reemplaza_terapia": {
+      "question": "¿El Método FALCO® reemplaza una terapia?",
+      "answer": "No. Es una propuesta de formación, prevención y orientación general. No reemplaza una evaluación psicológica, un diagnóstico clínico, un tratamiento psicoterapéutico ni la atención de una situación de urgencia."
+    },
+
+    "conflicto_previo": {
+      "question": "¿Es necesario estar atravesando un conflicto para participar?",
+      "answer": "No. La propuesta también tiene una finalidad preventiva y puede realizarse para adquirir herramientas antes de que aparezca una dificultad importante."
+    },
+
+    "materiales": {
+      "question": "¿Las propuestas incluyen materiales?",
+      "answer": "Los materiales dependen de la modalidad seleccionada. Algunas propuestas pueden incluir manuales, cuadernillos, actividades descargables, recursos complementarios y acceso a la Biblioteca FALCO®."
+    },
+
+    "adaptacion_institucional": {
+      "question": "¿Los contenidos se adaptan a cada institución?",
+      "answer": "Sí. La modalidad, la duración y la selección de contenidos pueden ajustarse a los objetivos, destinatarios y características de la institución solicitante."
+    },
+
+    "autora": {
+      "question": "¿Quién desarrolló el Método FALCO®?",
+      "answer": "El Método FALCO® fue desarrollado por la Lic. en Psicología Isabela Falco, autora del libro Aprendiendo a ser Padres de un Adolescente, directora de Estudio Pericial Psicológico y fundadora del Método FALCO®."
+    },
+
+    "informacion": {
+      "question": "¿Cómo se solicita información sobre el Método FALCO®?",
+      "answer": "La consulta puede realizarse mediante WhatsApp o desde el sistema de admisión del Estudio."
+    }
+
+  }
+
 }

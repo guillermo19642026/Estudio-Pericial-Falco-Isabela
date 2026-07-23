@@ -1,532 +1,1648 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <!-- =====================================================
+       GOOGLE ANALYTICS
+  ====================================================== -->
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"
+  ></script>
 
-<title>Programa Formativo Premium | Aprendiendo a ser Padres de un Adolescente | Lic. Isabela Falco</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-<meta name="description" content="Programa Formativo Premium Aprendiendo a ser Padres de un Adolescente. Siete módulos, material descargable, cuadernillo, certificación y recursos para familias.">
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
 
-<link rel="stylesheet" href="style.css">
+    gtag("js", new Date());
+    gtag("config", "G-W9RKEV2LN1");
+  </script>
+
+
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+  ====================================================== -->
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Programa Formativo Premium | Aprendiendo a ser Padres de un Adolescente
+  </title>
+
+  <meta
+    name="description"
+    content="Programa Formativo Premium Aprendiendo a ser Padres de un Adolescente. Siete módulos, materiales exclusivos, cuadernillo, certificación y recursos para familias, profesionales e instituciones."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://periciapsicologicafalco.ar/programa-premium.html"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+  >
+
 </head>
 
+
 <body class="pagina-interna fondo-neuronal">
-<canvas id="neuronal-bg"></canvas>
 
-<header>
-  <div class="nav-container">
+  <canvas
+    id="neuronal-bg"
+    aria-hidden="true"
+  ></canvas>
 
-    <div class="header-izquierda">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
-        </a>
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header>
+
+    <div class="nav-container">
+
+
+      <!-- LOGO -->
+
+      <div class="header-izquierda">
+
+        <div class="logo">
+
+          <a
+            href="index.html"
+            aria-label="Ir a la página principal"
+          >
+
+            <img
+              src="img/logo.png"
+              alt="Estudio Pericial Psicológico"
+            >
+
+          </a>
+
+        </div>
+
       </div>
+
+
+      <!-- IDENTIDAD Y NAVEGACIÓN -->
+
+      <div class="header-derecha">
+
+        <div class="header-texto">
+
+          ESTUDIO PERICIAL PSICOLÓGICO<br>
+
+          <span>
+            Lic. en Psicología ISABELA FALCO
+          </span>
+
+        </div>
+
+
+        <!-- BOTÓN MOBILE -->
+
+        <button
+          class="menu-toggle"
+          type="button"
+          onclick="toggleMenu()"
+          aria-label="Abrir o cerrar menú"
+        >
+
+          <b class="menu-icon">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </b>
+
+          <em>Navegación</em>
+
+        </button>
+
+
+        <!-- MENÚ PRINCIPAL -->
+
+        <nav
+          id="menu"
+          aria-label="Navegación principal"
+        >
+
+          <a href="index.html#inicio">
+            Inicio
+          </a>
+
+          <a href="index.html#danio-psiquico">
+            Daño Psíquico
+          </a>
+
+          <a href="index.html#servicios">
+            Servicios
+          </a>
+
+          <a href="index.html#areas">
+            Áreas
+          </a>
+
+          <a href="index.html#tecnicas">
+            Recursos
+          </a>
+
+          <a href="index.html#formacion">
+            Formación
+          </a>
+
+          <a href="index.html#perito">
+            Sobre la Perito
+          </a>
+
+          <a href="FALCO-ADMISION/index.html">
+            Consultas
+          </a>
+
+          <a href="index.html#faq">
+            FAQ
+          </a>
+
+        </nav>
+
+
+        <!-- ACCESOS DEL SISTEMA -->
+
+        <div class="header-botones">
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="escuela-login.html"
+              class="btn-header-inline"
+            >
+              🎓 Acceso al curso
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="biblioteca-login.html"
+              class="btn-header-inline"
+            >
+              📚 Acceso a biblioteca
+            </a>
+
+            <span class="tooltip-text">
+              Ingreso exclusivo con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="login.html"
+              class="btn-header-inline"
+            >
+              🧠 Tests psicométricos
+            </a>
+
+            <span class="tooltip-text">
+              Acceso para personas evaluadas con usuario autorizado
+            </span>
+
+          </div>
+
+
+          <div class="btn-wrapper tooltip-container">
+
+            <a
+              href="profesional-login.html"
+              class="btn-header-inline"
+            >
+              🔒 Área Profesional
+            </a>
+
+            <span class="tooltip-text">
+              Recursos para psicólogos y peritos psicólogos
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="header-derecha">
-      <div class="header-texto">
-        ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
+  </header>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero-interno taller-hero">
+
+      <div class="hero-contenido">
+
+        <div class="hero-top">
+
+          <span class="footer-etiqueta">
+            Programa Formativo Premium
+          </span>
+
+          <h1 class="hero-titulo-principal">
+            Aprendiendo a ser Padres de un Adolescente®
+          </h1>
+
+          <h2 class="hero-subtitulo-fuerte">
+            Siete módulos · Materiales exclusivos · Certificación
+          </h2>
+
+          <p class="hero-descripcion">
+            Programa integral basado en el Método FALCO®, destinado
+            a familias, docentes, profesionales e instituciones
+            interesadas en comprender la adolescencia y fortalecer
+            los vínculos familiares.
+          </p>
+
+          <p class="hero-sello">
+            Comprender · Acompañar · Fortalecer
+          </p>
+
+
+          <div class="hero-botones">
+
+            <a
+              href="FALCO-ADMISION/index.html"
+              class="btn-principal"
+            >
+              Consultar por el programa
+            </a>
+
+            <a
+              href="#contenido-programa"
+              class="btn-secundario"
+            >
+              Conocer los módulos
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <a href="metodo-falco.html" class="btn-header-inline">
-        Volver al Método FALCO®
-      </a>
-    </div>
+    </section>
 
-  </div>
-</header>
 
-<!-- HERO -->
-<section class="hero-interno taller-hero">
+    <!-- ===================================================
+         FRASE INSTITUCIONAL
+    ==================================================== -->
 
-  <div class="hero-contenido">
+    <section class="frase-taller">
 
-    <div class="hero-top">
-
-      <span class="tests-nuevo">
-        Programa Formativo Premium
-      </span>
-
-      <h1 class="hero-titulo-principal">
-        Aprendiendo a ser Padres de un Adolescente®
-      </h1>
-
-      <h2 class="hero-subtitulo-fuerte">
-        7 módulos · Material descargable · Certificación
-      </h2>
-
-      <p class="hero-descripcion">
-        Programa integral basado en el Método FALCO®, destinado a familias,
-        docentes, profesionales e instituciones interesadas en comprender la adolescencia
-        y fortalecer los vínculos familiares.
+      <p>
+        “Comprender para acompañar. Acompañar para fortalecer.
+        Fortalecer para crecer.”
       </p>
 
-      <div class="hero-botones">
+    </section>
+
+
+    <!-- ===================================================
+         PRESENTACIÓN
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Formación para familias
+        </span>
+
+        <h2>
+          Programa Formativo Premium
+        </h2>
+
+        <p class="texto-destacado-perito">
+          Un recorrido formativo destinado a comprender los cambios
+          propios de la adolescencia y desarrollar herramientas
+          concretas para acompañar esta etapa.
+        </p>
+
+        <p>
+          El Programa Formativo Premium profundiza los contenidos
+          de <strong>Aprendiendo a ser Padres de un Adolescente®</strong>
+          mediante siete módulos orientados a familias, docentes,
+          profesionales e instituciones.
+        </p>
+
+        <p>
+          Su finalidad es favorecer la comprensión de la adolescencia
+          actual, mejorar la comunicación familiar, fortalecer los vínculos
+          y promover el bienestar emocional adolescente desde una mirada
+          preventiva y profesional.
+        </p>
+
+        <p>
+          El programa combina contenidos conceptuales, situaciones
+          cotidianas, herramientas prácticas y materiales de apoyo
+          para facilitar la aplicación de lo aprendido.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUÉ INCLUYE
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Recursos del programa
+        </span>
+
+        <h2>
+          ¿Qué incluye?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📘 Libro
+            </h3>
+
+            <p>
+              Contenidos basados en el libro
+              <strong>Aprendiendo a ser Padres de un Adolescente</strong>.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              🎓 Programa Premium
+            </h3>
+
+            <p>
+              Siete módulos de formación para comprender
+              y acompañar la adolescencia.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📄 Manual práctico
+            </h3>
+
+            <p>
+              Guía con claves, preguntas frecuentes,
+              errores comunes y situaciones prácticas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📝 Cuadernillo
+            </h3>
+
+            <p>
+              Actividades, ejercicios, acuerdos familiares,
+              listas de orientación y plan de acción.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📜 Certificación
+            </h3>
+
+            <p>
+              Certificado digital de participación
+              al completar el recorrido correspondiente.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              👨‍👩‍👧‍👦 Continuidad formativa
+            </h3>
+
+            <p>
+              Recursos complementarios para continuar
+              profundizando los contenidos trabajados.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MÓDULOS
+    ==================================================== -->
+
+    <section
+      class="seccion-definicion"
+      id="contenido-programa"
+    >
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Contenido académico
+        </span>
+
+        <h2>
+          Los siete módulos del programa
+        </h2>
+
+        <p class="texto-destacado-perito">
+          El recorrido aborda los principales desafíos emocionales,
+          familiares, sociales y tecnológicos vinculados con la adolescencia.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              01 · Comprender la adolescencia
+            </h3>
+
+            <p>
+              Cambios físicos, emocionales, cognitivos y sociales
+              que caracterizan esta etapa del desarrollo.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              02 · Comunicación efectiva
+            </h3>
+
+            <p>
+              Escucha activa, validación emocional,
+              diálogo y construcción de confianza.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              03 · Emociones y autoestima
+            </h3>
+
+            <p>
+              Ansiedad, frustración, reconocimiento
+              de fortalezas y desarrollo de la autoestima.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              04 · Identidad y pertenencia
+            </h3>
+
+            <p>
+              Grupo de pares, autonomía, identidad,
+              vínculos y sentido de pertenencia.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              05 · Redes sociales y tecnología
+            </h3>
+
+            <p>
+              Huella digital, grooming, sexting,
+              ciberbullying y acuerdos tecnológicos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              06 · Límites saludables
+            </h3>
+
+            <p>
+              Autoridad saludable, normas, consecuencias
+              educativas y acuerdos familiares.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              07 · Salud mental adolescente
+            </h3>
+
+            <p>
+              Factores protectores, señales de alerta,
+              prevención y criterios para solicitar orientación.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MÉTODO FALCO
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Marco conceptual
+        </span>
+
+        <h2>
+          Basado en el Método FALCO®
+        </h2>
+
+        <p class="texto-destacado-perito">
+          El programa propone una forma de acompañamiento centrada
+          en el vínculo, la comprensión emocional, los límites saludables
+          y la construcción progresiva de autonomía.
+        </p>
+
+        <div class="falco-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              F
+            </h3>
+
+            <p>
+              <strong>Fortalecer el vínculo</strong>
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              A
+            </h3>
+
+            <p>
+              <strong>Acompañar emociones</strong>
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              L
+            </h3>
+
+            <p>
+              <strong>Límites saludables</strong>
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              C
+            </h3>
+
+            <p>
+              <strong>Comprender la adolescencia</strong>
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              O
+            </h3>
+
+            <p>
+              <strong>Orientar proyectos de vida</strong>
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            Una orientación que no ofrece fórmulas rígidas
+          </h3>
+
+          <p>
+            Cada adolescente y cada familia presentan características,
+            necesidades y formas de vinculación diferentes.
+          </p>
+
+          <p>
+            El Método FALCO® brinda criterios de orientación que deben
+            adaptarse a la realidad particular de cada grupo familiar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DESTINATARIOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Destinatarios
+        </span>
+
+        <h2>
+          ¿A quién está dirigido?
+        </h2>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Padres y madres
+            </h3>
+
+            <p>
+              Personas que desean comprender mejor esta etapa
+              y fortalecer el vínculo con sus hijos adolescentes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Familias
+            </h3>
+
+            <p>
+              Grupos familiares que necesitan incorporar herramientas
+              para mejorar la convivencia y la comunicación.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Docentes
+            </h3>
+
+            <p>
+              Profesionales de la educación interesados en comprender
+              las necesidades emocionales y vinculares de los adolescentes.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Equipos de orientación
+            </h3>
+
+            <p>
+              Equipos escolares que trabajan con estudiantes,
+              familias, docentes y comunidades educativas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Psicólogos y profesionales
+            </h3>
+
+            <p>
+              Profesionales interesados en incorporar recursos
+              preventivos y psicoeducativos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Instituciones
+            </h3>
+
+            <p>
+              Escuelas, municipios, empresas y organizaciones
+              que desarrollan propuestas para familias.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         BENEFICIOS
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Aplicación práctica
+        </span>
+
+        <h2>
+          Beneficios del programa
+        </h2>
+
+        <div class="servicios-mini">
+
+          <span>
+            Herramientas prácticas
+          </span>
+
+          <span>
+            Comprensión de la adolescencia
+          </span>
+
+          <span>
+            Fortalecimiento del vínculo familiar
+          </span>
+
+          <span>
+            Recursos para mejorar la comunicación
+          </span>
+
+          <span>
+            Estrategias para establecer límites
+          </span>
+
+          <span>
+            Orientación sobre salud mental adolescente
+          </span>
+
+          <span>
+            Materiales complementarios
+          </span>
+
+          <span>
+            Certificación
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         BIBLIOTECA FALCO
+    ==================================================== -->
+
+    <section
+      class="seccion-definicion"
+      id="biblioteca"
+    >
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Materiales exclusivos
+        </span>
+
+        <h2>
+          Biblioteca FALCO®
+        </h2>
+
+        <p class="texto-destacado-perito">
+          La Biblioteca FALCO® reúne recursos diseñados para acompañar
+          a familias, docentes, profesionales e instituciones en la
+          comprensión de la adolescencia y el fortalecimiento de los vínculos.
+        </p>
+
+        <p>
+          Los materiales vinculados con el Programa Premium,
+          el Método FALCO® y la Escuela para Padres se encuentran
+          disponibles mediante usuario autorizado.
+        </p>
+
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📘 Programa Formativo Premium
+            </h3>
+
+            <p>
+              Manual completo correspondiente
+              a los siete módulos del programa.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📄 Manual práctico para familias
+            </h3>
+
+            <p>
+              Claves de orientación, preguntas frecuentes,
+              errores comunes y situaciones prácticas.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              📝 Cuadernillo del participante
+            </h3>
+
+            <p>
+              Actividades, ejercicios y herramientas
+              para aplicar los contenidos del programa.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              🏫 Dossier institucional
+            </h3>
+
+            <p>
+              Presentación del programa para colegios,
+              municipios, empresas y organizaciones.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="bloque-consulta-previa">
+
+          <h3>
+            Acceso exclusivo con usuario autorizado
+          </h3>
+
+          <p>
+            Los materiales de la Biblioteca FALCO® se encuentran
+            disponibles para usuarios habilitados del Programa Premium
+            y de la Escuela para Padres.
+          </p>
+
+          <div
+            class="hero-botones"
+            style="margin-top: 25px;"
+          >
+
+            <a
+              href="biblioteca-login.html"
+              class="btn-principal"
+            >
+              Ingresar a la Biblioteca
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROPUESTA INSTITUCIONAL
+    ==================================================== -->
+
+    <section class="seccion-definicion">
+
+      <div class="danio-contenedor">
+
+        <span class="footer-etiqueta">
+          Implementación institucional
+        </span>
+
+        <h2>
+          Disponible para instituciones
+        </h2>
+
+        <p class="texto-destacado-perito">
+          El Programa Formativo Premium puede adaptarse según
+          las características, destinatarios y objetivos
+          de cada organización.
+        </p>
+
+        <div class="consultoria-grid">
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Instituciones educativas
+            </h3>
+
+            <p>
+              Propuestas para familias, docentes,
+              equipos de orientación escolar y directivos.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Municipios
+            </h3>
+
+            <p>
+              Espacios preventivos vinculados con juventud,
+              salud mental, familia y comunidad.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Empresas
+            </h3>
+
+            <p>
+              Talleres para colaboradores con hijos adolescentes,
+              orientados al bienestar familiar.
+            </p>
+
+          </article>
+
+
+          <article class="consultoria-card">
+
+            <h3>
+              Organizaciones comunitarias
+            </h3>
+
+            <p>
+              Actividades de orientación y prevención
+              adaptadas a las necesidades de la comunidad.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICIOS RELACIONADOS
+    ==================================================== -->
+
+    <section
+      class="servicios-relacionados"
+      id="servicios-relacionados"
+    >
+
+      <span class="footer-etiqueta">
+        Ecosistema formativo
+      </span>
+
+      <h2 class="titulo-seccion">
+        Recursos relacionados
+      </h2>
+
+      <div class="servicios-rel-grid">
+
 
         <a
-          href="https://wa.me/5491132049521?text=Hola,%20quiero%20información%20sobre%20el%20Programa%20Formativo%20Premium"
-          class="btn-principal"
-          target="_blank"
-          rel="noopener noreferrer">
-          Consultar por WhatsApp
+          href="metodo-falco.html"
+          class="servicio-rel-item"
+        >
+          Método FALCO®
         </a>
 
-        <a href="#biblioteca" class="btn-secundario">
-          Ver materiales
+
+        <a
+          href="escuela-para-padres.html"
+          class="servicio-rel-item"
+        >
+          Escuela para Padres
+        </a>
+
+
+        <a
+          href="biblioteca-login.html"
+          class="servicio-rel-item"
+        >
+          Biblioteca FALCO®
+        </a>
+
+
+        <a
+          href="talleres-cursos-psicologia-buenos-aires.html"
+          class="servicio-rel-item"
+        >
+          Talleres y cursos
+        </a>
+
+
+        <a
+          href="supervision-peritos-psicologos.html"
+          class="servicio-rel-item"
+        >
+          Supervisión profesional
+        </a>
+
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="servicio-rel-item"
+        >
+          FALCO Admisión™
         </a>
 
       </div>
 
-    </div>
+    </section>
 
-  </div>
 
-</section>
+    <!-- ===================================================
+         LLAMADO FINAL
+    ==================================================== -->
 
-<!-- FRASE -->
-<section class="frase-taller">
-  <p>
-    “Comprender para acompañar. Acompañar para fortalecer. Fortalecer para crecer.”
-  </p>
-</section>
+    <section class="seccion-definicion">
 
-<!-- PRESENTACION -->
-<section class="seccion-definicion">
+      <div class="danio-contenedor">
 
-  <div class="danio-contenedor">
+        <span class="footer-etiqueta">
+          Programa Premium
+        </span>
 
-    <h2 class="titulo-seccion">
-      Programa Formativo Premium
-    </h2>
+        <h2>
+          ¿Querés recibir información sobre el programa?
+        </h2>
 
-    <p>
-      El Programa Formativo Premium profundiza los contenidos del taller
-      <strong>Aprendiendo a ser Padres de un Adolescente®</strong> mediante siete módulos
-      orientados a brindar herramientas prácticas para familias, docentes, profesionales
-      e instituciones.
-    </p>
-
-    <p>
-      Su finalidad es favorecer la comprensión de la adolescencia actual, mejorar la
-      comunicación familiar, fortalecer los vínculos y promover el bienestar emocional
-      adolescente desde una mirada preventiva y profesional.
-    </p>
-
-  </div>
-
-</section>
-
-<!-- QUE INCLUYE -->
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <h2 class="titulo-seccion">
-      ¿Qué incluye?
-    </h2>
-
-    <div class="consultoria-grid">
-
-      <div class="consultoria-card">
-        <h3>📘 Libro</h3>
-        <p>
-          Basado en el libro <strong>Aprendiendo a ser Padres de un Adolescente</strong>.
+        <p class="texto-destacado-perito">
+          Podés iniciar una consulta para conocer la modalidad,
+          los materiales incluidos, las formas de acceso
+          o las propuestas destinadas a instituciones.
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>🎓 Programa Premium</h3>
         <p>
-          Siete módulos de formación para comprender y acompañar la adolescencia.
+          No es necesario conocer previamente qué modalidad
+          resulta más adecuada. En la admisión se analiza
+          el tipo de consulta y la orientación requerida.
         </p>
+
+        <div
+          class="hero-botones"
+          style="margin-top: 28px;"
+        >
+
+          <a
+            href="FALCO-ADMISION/index.html"
+            class="btn-principal"
+          >
+            Iniciar una consulta
+          </a>
+
+          <a
+            href="https://wa.me/5491132049521?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Programa%20Formativo%20Premium."
+            class="btn-secundario"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar por WhatsApp
+          </a>
+
+        </div>
+
       </div>
 
-      <div class="consultoria-card">
-        <h3>📄 Manual Práctico</h3>
-        <p>
-          Guía con claves, preguntas frecuentes, errores comunes y casos prácticos.
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       WHATSAPP FLOTANTE
+  ====================================================== -->
+
+  <a
+    href="https://wa.me/5491132049521?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20Programa%20Formativo%20Premium."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Consultar por WhatsApp"
+  >
+    💬 Consultar
+  </a>
+
+
+  <!-- =====================================================
+       FOOTER INSTITUCIONAL · SISTEMA FALCO®
+  ====================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-contenido">
+
+
+      <!-- IDENTIDAD -->
+
+      <div class="footer-col footer-identidad">
+
+        <span class="footer-etiqueta">
+          Estudio profesional
+        </span>
+
+        <p class="footer-titulo">
+          Estudio Pericial Psicológico
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>📝 Cuadernillo</h3>
-        <p>
-          Actividades, ejercicios, contrato familiar, checklist y plan de acción.
+        <p class="footer-texto">
+          Lic. en Psicología Isabela Falco
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>📜 Certificación</h3>
-        <p>
-          Certificado digital de participación.
+        <p class="footer-descripcion">
+          Pericias psicológicas, evaluación de daño psíquico,
+          informes técnicos, formación y orientación especializada.
         </p>
+
+        <div class="footer-especialidades">
+
+          <span>
+            Civil
+          </span>
+
+          <span>
+            Laboral
+          </span>
+
+          <span>
+            Penal
+          </span>
+
+          <span>
+            Familia
+          </span>
+
+        </div>
+
       </div>
 
-      <div class="consultoria-card">
-        <h3>👨‍👩‍👧‍👦 Comunidad</h3>
-        <p>
-          Recursos complementarios y continuidad formativa.
+
+      <!-- CONTACTO -->
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Contacto
         </p>
-      </div>
 
-    </div>
+        <p class="footer-item">
 
-  </div>
+          <span class="footer-item-titulo">
+            WhatsApp
+          </span>
 
-</section>
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            11 3204 9521
+          </a>
 
-<!-- MODULOS -->
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Contenido académico
-    </span>
-
-    <h2 class="titulo-seccion">
-      Los 7 módulos del programa
-    </h2>
-
-    <div class="consultoria-grid">
-
-      <div class="consultoria-card">
-        <h3>Módulo 1</h3>
-        <p>
-          <strong>Comprender la adolescencia</strong><br>
-          Cambios físicos, emocionales, cognitivos y sociales.
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>Módulo 2</h3>
-        <p>
-          <strong>Comunicación efectiva</strong><br>
-          Escucha activa, validación emocional y construcción de confianza.
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Correo electrónico
+          </span>
+
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+            estudiopericialpsicologico@gmail.com
+          </a>
+
         </p>
+
+        <a
+          href="FALCO-ADMISION/index.html"
+          class="footer-consulta"
+        >
+          Iniciar una consulta
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </a>
+
       </div>
 
-      <div class="consultoria-card">
-        <h3>Módulo 3</h3>
-        <p>
-          <strong>Emociones y autoestima</strong><br>
-          Ansiedad, frustración, reconocimiento de fortalezas y autoestima.
+
+      <!-- SISTEMA FALCO -->
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Sistema FALCO®
         </p>
+
+        <nav
+          class="footer-navegacion"
+          aria-label="Accesos del Sistema FALCO"
+        >
+
+          <a href="FALCO-ADMISION/index.html">
+            FALCO Admisión™
+          </a>
+
+          <a href="login.html">
+            Área de evaluación
+          </a>
+
+          <a href="profesional-login.html">
+            Área Profesional
+          </a>
+
+          <a href="escuela-login.html">
+            Formación FALCO®
+          </a>
+
+          <a href="biblioteca-login.html">
+            Biblioteca FALCO®
+          </a>
+
+        </nav>
+
       </div>
 
-      <div class="consultoria-card">
-        <h3>Módulo 4</h3>
-        <p>
-          <strong>Identidad y pertenencia</strong><br>
-          Grupo de pares, autonomía, identidad y sentido de pertenencia.
+
+      <!-- ÁMBITO DE ATENCIÓN -->
+
+      <div class="footer-col">
+
+        <p class="footer-subtitulo">
+          Ámbito de atención
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>Módulo 5</h3>
-        <p>
-          <strong>Redes sociales y tecnología</strong><br>
-          Huella digital, grooming, sexting, ciberbullying y acuerdos tecnológicos.
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Buenos Aires
+          </span>
+
+          Zona Norte<br>
+          Escobar · Pilar
+
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>Módulo 6</h3>
-        <p>
-          <strong>Límites saludables</strong><br>
-          Autoridad saludable, consecuencias educativas y contrato familiar.
+        <p class="footer-item">
+
+          Zona Oeste<br>
+          Ramos Mejía
+
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>Módulo 7</h3>
-        <p>
-          <strong>Salud mental adolescente</strong><br>
-          Factores protectores, señales de alerta, prevención y cuándo consultar.
+        <p class="footer-item">
+
+          <span class="footer-item-titulo">
+            Modalidades
+          </span>
+
+          Atención en estudio profesional<br>
+          Entrevistas presenciales y virtuales
+
         </p>
-      </div>
 
-    </div>
-
-  </div>
-
-</section>
-
-<!-- METODO FALCO -->
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Marco conceptual
-    </span>
-
-    <h2 class="titulo-seccion">
-      Basado en el Método FALCO®
-    </h2>
-
-    <div class="falco-grid">
-
-      <div class="consultoria-card">
-        <h3>F</h3>
-        <p><strong>Fortalecer el vínculo</strong></p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>A</h3>
-        <p><strong>Acompañar emociones</strong></p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>L</h3>
-        <p><strong>Límites saludables</strong></p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>C</h3>
-        <p><strong>Comprender la adolescencia</strong></p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>O</h3>
-        <p><strong>Orientar proyectos de vida</strong></p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<section class="frase-taller">
-
-  <p>
-    La Biblioteca Falco® reúne materiales diseñados para acompañar a familias, docentes e instituciones en la comprensión de la adolescencia y el fortalecimiento de los vínculos.
-  </p>
-
-</section>
-
-
-
-
-<!-- BIBLIOTECA -->
-<section id="biblioteca" class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <span class="tests-nuevo">
-      Material descargable
-    </span>
-
-    <h2 class="titulo-seccion">
-      Biblioteca Falco®
-    </h2>
-
-    <p>
-  Acceda a materiales exclusivos del Programa Premium, Método FALCO® y Escuela para Padres mediante usuario autorizado.
-</p>
-
-
-
-<div class="cta-final-card" style="margin-bottom:40px;">
-
-  <h3>🔒 Acceso a Biblioteca Falco®</h3>
-
-  <p>
-    Los materiales de la Biblioteca Falco® se encuentran disponibles
-    para usuarios autorizados del Programa Premium y de la Escuela para Padres.
-  </p>
-
-  <a href="biblioteca-login.html" class="btn-principal">
-  Ingresar a la Biblioteca
-</a>
-
-</div>
-
-
-
-  <div class="consultoria-grid">
-
-  <div class="consultoria-card">
-    <h3>📘 Programa Formativo Premium</h3>
-
-    <p>
-      Manual completo con los ocho módulos del programa.
-    </p>
-  </div>
-
-  <div class="consultoria-card">
-    <h3>📄 Manual Práctico para Familias</h3>
-
-    <p>
-      Las 10 claves, preguntas frecuentes, errores comunes y casos prácticos.
-    </p>
-  </div>
-
-  <div class="consultoria-card">
-    <h3>📝 Cuadernillo del Participante</h3>
-
-    <p>
-      Actividades, ejercicios y herramientas prácticas.
-    </p>
-  </div>
-
-  <div class="consultoria-card">
-    <h3>🏫 Dossier Institucional</h3>
-
-    <p>
-      Propuesta para colegios, municipios, empresas y organizaciones.
-    </p>
-  
-
-</div>
-</div>
-
-</section>
-
-
-<!-- DESTINATARIOS -->
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <h2 class="titulo-seccion">
-      ¿A quién está dirigido?
-    </h2>
-
-    <div class="servicios-mini">
-
-      <span>Padres y madres</span>
-      <span>Familias</span>
-      <span>Docentes</span>
-      <span>Equipos de orientación escolar</span>
-      <span>Psicólogos y profesionales</span>
-      <span>Instituciones educativas</span>
-      <span>Municipios</span>
-      <span>Empresas</span>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BENEFICIOS -->
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <h2 class="titulo-seccion">
-      Beneficios del programa
-    </h2>
-
-    <div class="servicios-mini">
-
-      <span>Herramientas prácticas</span>
-      <span>Mayor comprensión de la adolescencia</span>
-      <span>Fortalecimiento del vínculo familiar</span>
-      <span>Recursos para mejorar la comunicación</span>
-      <span>Estrategias para establecer límites saludables</span>
-      <span>Orientación sobre salud mental adolescente</span>
-      <span>Material descargable</span>
-      <span>Certificación</span>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PROPUESTA INSTITUCIONAL -->
-<section class="seccion-definicion">
-
-  <div class="danio-contenedor">
-
-    <h2 class="titulo-seccion">
-      Disponible para instituciones
-    </h2>
-
-    <p>
-      El Programa Formativo Premium puede adaptarse para instituciones educativas,
-      municipios, empresas, centros culturales y organizaciones comunitarias.
-    </p>
-
-    <div class="consultoria-grid">
-
-      <div class="consultoria-card">
-        <h3>Instituciones educativas</h3>
-        <p>
-          Propuestas para familias, docentes, equipos de orientación escolar y directivos.
+        <p class="footer-nota">
+          Atención con coordinación previa
         </p>
-      </div>
 
-      <div class="consultoria-card">
-        <h3>Municipios</h3>
-        <p>
-          Espacios preventivos vinculados a juventud, salud mental, familia y comunidad.
-        </p>
-      </div>
-
-      <div class="consultoria-card">
-        <h3>Empresas</h3>
-        <p>
-          Talleres para colaboradores con hijos adolescentes, orientados al bienestar familiar.
-        </p>
       </div>
 
     </div>
 
-  </div>
 
-</section>
+    <!-- SEPARADOR -->
 
-<!-- CTA FINAL -->
-<section class="cta-final-estudio">
+    <div class="footer-separador"></div>
 
-  <div class="cta-final-card">
 
-    <h2>
-      ¿Querés recibir información del Programa Premium?
-    </h2>
+    <!-- ECOSISTEMA -->
 
-    <p>
-      Solicitá información sobre modalidad, fechas, inscripción o propuestas institucionales.
-    </p>
+    <div class="footer-ecosistema">
 
-    <a
-      href="https://wa.me/5491132049521?text=Hola,%20quiero%20información%20sobre%20el%20Programa%20Formativo%20Premium"
-      class="btn-principal"
-      target="_blank"
-      rel="noopener noreferrer">
-      Consultar por WhatsApp
-    </a>
+      <a href="metodo-falco.html">
+        Método FALCO®
+      </a>
 
-  </div>
+      <a href="programa-premium.html">
+        Programa Premium
+      </a>
 
-</section>
+      <a href="biblioteca-login.html">
+        Biblioteca FALCO®
+      </a>
 
-<footer class="footer">
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Programa Formativo Premium
-  </div>
-</footer>
+      <a href="escuela-para-padres.html">
+        Escuela para Padres
+      </a>
 
-<script src="script.js"></script>
+      <a href="supervision-peritos-psicologos.html">
+        Supervisión profesional
+      </a>
+
+    </div>
+
+
+    <!-- REDES -->
+
+    <div class="footer-redes">
+
+      <span>
+        Seguinos
+      </span>
+
+      <a
+        href="https://www.instagram.com/estudiopericialpsicologico/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="https://www.facebook.com/licisabelafalco"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
+
+    <!-- INFORMACIÓN LEGAL -->
+
+    <div class="footer-legal">
+
+      <p>
+        La información publicada en este sitio tiene carácter general
+        y no reemplaza una evaluación ni una orientación profesional individual.
+      </p>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bottom">
+
+      © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
+
+      <span>
+        Programa Formativo Premium · Sistema FALCO®
+      </span>
+
+    </div>
+
+
+    <!-- CRÉDITO -->
+
+    <div class="credito-card">
+
+      <p class="credito-titulo">
+        Diseño y desarrollo web
+      </p>
+
+      <a
+        href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="credito-nombre"
+      >
+
+        <span
+          class="icono-whatsapp"
+          aria-hidden="true"
+        >
+          🟢
+        </span>
+
+        Guillermo Hechem
+
+      </a>
+
+      <p class="credito-descripcion">
+        Desarrollo web profesional · Sitios modernos y optimizados
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT GENERAL
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+<!-- =====================================================
+     AION ENGINE™
+====================================================== -->
+
+<script src="launch-panel/launch-panel.js"></script>
+
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/context-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/action-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-core.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-config.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-site-map.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-router.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/presence-director.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+
+<script src="FALCO-CMS-V2/FALCO-IA/AION-LAB/js/aion-float.js"></script>
+
 
 </body>
+
 </html>

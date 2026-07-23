@@ -7,100 +7,184 @@
 
   "description": "Evaluación técnica destinada a determinar la existencia de daño psíquico, analizar el nexo causal y valorar las secuelas emocionales en un contexto judicial o prejudicial.",
 
-  "summary": "La evaluación integra entrevistas clínicas, técnicas psicodiagnósticas, antecedentes relevantes y análisis del nexo causal para determinar la existencia y magnitud del daño psíquico.",
+  "summary": "La evaluación integra entrevistas clínicas, técnicas psicodiagnósticas, antecedentes personales, documentación relevante, análisis del nexo causal e integración clínica-forense para determinar la existencia, magnitud y repercusión funcional del daño psíquico.",
 
   "keywords": [
     "daño psíquico",
+    "daño psicológico",
     "daño psicologico",
     "secuelas",
+    "secuelas emocionales",
     "trauma",
+    "hecho traumático",
+    "violencia",
     "accidente",
     "accidente laboral",
     "accidente de tránsito",
-    "violencia",
+    "riesgos del trabajo",
+    "responsabilidad civil",
+    "familia",
     "nexo causal",
-    "pericia psicológica",
+    "impacto funcional",
     "incapacidad psicológica",
-    "evaluación"
+    "evaluación",
+    "pericia psicológica",
+    "psicología forense",
+    "entrevista psicodiagnóstica",
+    "valoración pericial",
+    "informe pericial"
   ],
 
   "concepts": [
+
     {
       "id": "DP-001",
       "name": "Daño psíquico",
-      "definition": "Afectación psicológica producida como consecuencia de un hecho traumático o situación con relevancia judicial."
+      "definition": "Afectación psicológica producida como consecuencia de un hecho traumático o de una situación con relevancia judicial cuya existencia debe determinarse mediante una evaluación técnica."
     },
+
     {
       "id": "DP-002",
       "name": "Nexo causal",
-      "definition": "Relación técnica entre el hecho investigado y las manifestaciones psicológicas observadas."
+      "definition": "Relación técnica entre el hecho investigado y las manifestaciones psicológicas observadas, considerando antecedentes y evolución posterior."
     },
+
     {
       "id": "DP-003",
       "name": "Secuelas emocionales",
-      "definition": "Manifestaciones psicológicas persistentes derivadas del hecho evaluado."
+      "definition": "Manifestaciones psicológicas persistentes que pueden derivarse del hecho evaluado y afectar distintas áreas del funcionamiento."
     },
+
     {
       "id": "DP-004",
       "name": "Valoración pericial",
-      "definition": "Integración de entrevistas, técnicas psicodiagnósticas y antecedentes para emitir una conclusión técnica."
+      "definition": "Integración técnica de entrevistas, técnicas psicodiagnósticas, documentación, antecedentes y observaciones profesionales para emitir conclusiones fundadas."
     },
+
     {
       "id": "DP-005",
       "name": "Impacto funcional",
-      "definition": "Consecuencias del daño en la vida cotidiana, laboral, familiar y social."
+      "definition": "Consecuencias del daño sobre la vida cotidiana, familiar, social, afectiva, recreativa y laboral."
+    },
+
+    {
+      "id": "DP-006",
+      "name": "Antecedentes personales",
+      "definition": "Información biográfica, médica, psicológica y familiar relevante para comprender el funcionamiento previo de la persona evaluada."
+    },
+
+    {
+      "id": "DP-007",
+      "name": "Técnicas psicodiagnósticas",
+      "definition": "Instrumentos seleccionados por esta perito según la entrevista psicodiagnóstica y las características particulares del caso."
+    },
+
+    {
+      "id": "DP-008",
+      "name": "Incapacidad psicológica",
+      "definition": "Consecuencia que puede o no derivarse del daño psíquico y cuya existencia requiere una valoración pericial específica; no se presume por la sola presencia de sufrimiento emocional."
+    },
+
+    {
+      "id": "DP-009",
+      "name": "Repercusión funcional",
+      "definition": "Evaluación del modo en que la afectación psicológica incide sobre las distintas áreas de la vida de la persona."
     }
+
   ],
+
+    "relatedTopics": [
+    "pericia_psicologica",
+    "informe_pericial",
+    "perito_de_parte",
+    "evaluacion_psicologica_judicial",
+    "honorarios",
+    "metodo_falco",
+    "tests",
+    "formacion"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es el daño psíquico?",
+      "¿Qué se evalúa en una pericia de daño psíquico?",
+      "¿Qué es el nexo causal?",
+      "¿Siempre existe incapacidad psicológica?"
+    ],
+
+    "medium": [
+      "¿Quién puede solicitar esta evaluación?",
+      "¿Qué documentación conviene presentar?",
+      "¿Qué técnicas psicológicas pueden utilizarse?",
+      "¿Qué antecedentes se analizan?",
+      "¿Cómo se realiza la evaluación?"
+    ],
+
+    "low": [
+      "¿En qué situaciones puede solicitarse?",
+      "Ámbitos de actuación",
+      "Servicios relacionados"
+    ]
+
+  },
 
   "suggestions": [
     "¿Qué es el daño psíquico?",
     "¿Qué se evalúa en una pericia de daño psíquico?",
     "¿Qué es el nexo causal?",
     "¿Siempre existe incapacidad psicológica?",
+    "¿Cómo se realiza la evaluación?",
+    "¿Qué técnicas psicológicas pueden utilizarse?",
+    "¿Qué antecedentes se analizan?",
     "¿Quién puede solicitar esta evaluación?",
-    "¿Qué documentación conviene presentar?"
+    "¿Qué documentación conviene presentar?",
+    "¿En qué situaciones puede solicitarse?"
+  ],
+
+  "related": [
+    "Pericia Psicológica",
+    "Informe Pericial Psicológico",
+    "Perito de Parte",
+    "Evaluación Psicológica Judicial",
+    "Método FALCO®",
+    "Tests Psicométricos",
+    "Formación FALCO®",
+    "Honorarios"
   ],
 
   "answers": {
 
-    "¿Qué es el daño psíquico?":
-      "El daño psíquico es la afectación psicológica que puede producirse como consecuencia de un hecho traumático o situación con relevancia judicial. Su existencia debe determinarse mediante una evaluación pericial.",
+        "¿Qué es el daño psíquico?":
+      "El daño psíquico es la afectación psicológica que puede producirse como consecuencia de un hecho traumático o de una situación con relevancia judicial. Su existencia no se presume y debe determinarse mediante una evaluación pericial basada en entrevistas, técnicas psicodiagnósticas y análisis clínico-forense.",
 
     "¿Qué se evalúa en una pericia de daño psíquico?":
-      "Se analizan la sintomatología psicológica, el nexo causal, las secuelas emocionales, el impacto funcional y los antecedentes relevantes del caso mediante entrevistas y técnicas psicodiagnósticas.",
+      "Se analizan la sintomatología psicológica, el nexo causal, las secuelas emocionales, la repercusión funcional sobre las distintas áreas de la vida, los antecedentes personales y la documentación relevante, integrando toda la información obtenida durante el proceso de evaluación.",
 
     "¿Qué es el nexo causal?":
-      "Es el análisis técnico destinado a determinar si existe relación entre el hecho investigado y las manifestaciones psicológicas actuales.",
+      "Es el análisis técnico destinado a determinar si existe una relación entre el hecho investigado y las manifestaciones psicológicas observadas, considerando también la evolución posterior y los antecedentes personales.",
 
     "¿Siempre existe incapacidad psicológica?":
-      "No. La existencia de daño psíquico no implica necesariamente incapacidad. Cada caso debe evaluarse individualmente.",
+      "No. La presencia de sufrimiento emocional o de síntomas psicológicos no implica automáticamente la existencia de incapacidad. Cada caso requiere una valoración pericial individual.",
+
+    "¿Cómo se realiza la evaluación?":
+      "Habitualmente comprende una entrevista inicial, la administración de técnicas psicodiagnósticas seleccionadas según las características del caso, el análisis de la documentación disponible, la integración clínica-forense de los resultados y la elaboración del informe pericial.",
+
+    "¿Qué técnicas psicológicas pueden utilizarse?":
+      "Las técnicas son seleccionadas por esta perito de acuerdo con la entrevista psicodiagnóstica, las características particulares del caso y los objetivos específicos de la evaluación. No existe una batería única aplicable a todas las personas.",
+
+    "¿Qué antecedentes se analizan?":
+      "Se consideran antecedentes psicológicos, médicos, familiares, laborales y biográficos relevantes para comprender el funcionamiento previo de la persona evaluada y valorar adecuadamente el nexo causal.",
 
     "¿Quién puede solicitar esta evaluación?":
-      "Puede ser requerida por particulares, abogados, estudios jurídicos o en el marco de un proceso judicial.",
+      "Puede ser solicitada por personas particulares, abogados, estudios jurídicos o dentro de un proceso judicial cuando resulte necesario evaluar la existencia de daño psíquico o brindar asesoramiento técnico.",
 
     "¿Qué documentación conviene presentar?":
-      "Es recomendable aportar DNI, antecedentes médicos o psicológicos, certificados, constancias de tratamiento y toda documentación vinculada con el hecho que origina la evaluación."
-  },
+      "Según las características del caso, puede resultar conveniente aportar DNI, historias clínicas, certificados médicos, constancias de tratamiento psicológico o psiquiátrico, estudios complementarios, denuncias, escritos judiciales y toda otra documentación relacionada con el hecho evaluado.",
 
-  "relatedTopics": [
-    "pericia_psicologica",
-    "informe_pericial",
-    "perito_de_parte",
-    "evaluacion_psicologica_judicial"
-  ],
+    "¿En qué situaciones puede solicitarse?":
+      "La evaluación puede resultar pertinente en accidentes de tránsito, accidentes laborales, hechos traumáticos, situaciones de violencia, conflictos laborales, procesos de responsabilidad civil, causas de familia y otros casos con relevancia judicial en los que deba analizarse la existencia de daño psíquico."
 
-  "importance": {
-    "high": [
-      "¿Qué es el daño psíquico?",
-      "¿Qué se evalúa en una pericia de daño psíquico?",
-      "¿Qué es el nexo causal?"
-    ],
-    "medium": [
-      "¿Siempre existe incapacidad psicológica?",
-      "¿Quién puede solicitar esta evaluación?"
-    ],
-    "low": [
-      "¿Qué documentación conviene presentar?"
-    ]
   }
+
 }

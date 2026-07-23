@@ -1,17 +1,271 @@
 {
   "slug": "escritos-judiciales",
-  "title": "Escritos Judiciales",
-  "greeting": "Bienvenido al Centro de Escritos Judiciales. Puedo orientarte sobre modelos, presentaciones y recursos para la práctica pericial.",
-  "description": "Recursos técnicos para psicólogos y peritos psicólogos.",
-  "suggestions": [
-    "¿Qué escritos judiciales están disponibles?",
-    "¿Cómo se organiza la biblioteca de escritos?",
-    "¿Los modelos pueden adaptarse a distintas causas?"
+
+  "title": "Centro de Escritos Judiciales",
+
+  "greeting": "Bienvenido al Centro de Escritos Judiciales FALCO®. Puedo orientarte sobre modelos de escritos, recursos técnicos y herramientas para la práctica profesional y pericial.",
+
+  "description": "Biblioteca técnica destinada a psicólogos y peritos psicólogos con modelos de escritos judiciales, recursos especializados y documentación para la práctica profesional.",
+
+  "summary": "El Centro de Escritos Judiciales reúne modelos de escritos, recursos técnicos y herramientas organizadas por categorías para facilitar la práctica pericial y la actuación profesional en distintos fueros.",
+
+  "keywords": [
+    "escritos judiciales",
+    "centro de escritos",
+    "perito psicólogo",
+    "psicología forense",
+    "psicología jurídica",
+    "modelos judiciales",
+    "aceptación de cargo",
+    "pedidos de prórroga",
+    "honorarios",
+    "impugnaciones",
+    "aclaraciones",
+    "oficios",
+    "presentaciones",
+    "recursos",
+    "biblioteca técnica",
+    "bibliografía",
+    "daño psíquico",
+    "psicodiagnóstico",
+    "evaluación psicológica",
+    "informes",
+    "escritos profesionales",
+    "fuero civil",
+    "fuero laboral",
+    "fuero familia",
+    "área profesional",
+    "centro profesional"
   ],
-  "answers": {
-    "¿Qué escritos judiciales están disponibles?": "La sección reúne modelos de aceptación de cargo, pedidos de prórroga, honorarios, impugnaciones, aclaraciones, oficios, presentaciones varias y recursos.",
-    "¿Cómo se organiza la biblioteca de escritos?": "Los recursos se organizan por categoría, fuero, subcategoría, formato y fecha de actualización para facilitar su búsqueda profesional.",
-    "¿Los modelos pueden adaptarse a distintas causas?": "Sí. Los modelos deben adaptarse a las circunstancias concretas de cada expediente, al fuero interviniente y a la normativa aplicable."
+
+  "concepts": [
+
+    {
+      "id": "EJ-001",
+      "name": "Centro de Escritos Judiciales",
+      "definition": "Biblioteca técnica que reúne modelos de escritos para la práctica profesional y pericial."
+    },
+
+    {
+      "id": "EJ-002",
+      "name": "Modelos judiciales",
+      "definition": "Escritos profesionales adaptables a distintos procesos judiciales y actuaciones periciales."
+    },
+
+    {
+      "id": "EJ-003",
+      "name": "Aceptación de cargo",
+      "definition": "Modelo de escrito utilizado por el perito psicólogo para aceptar formalmente la designación judicial."
+    },
+
+    {
+      "id": "EJ-004",
+      "name": "Colección destacada",
+      "definition": "Conjunto de modelos de uso frecuente para la práctica pericial organizado por categorías."
+    },
+
+    {
+      "id": "EJ-005",
+      "name": "Biblioteca técnica",
+      "definition": "Repositorio de recursos especializados destinado a profesionales de la psicología."
+    },
+
+    {
+      "id": "EJ-006",
+      "name": "Recursos profesionales",
+      "definition": "Documentación técnica utilizada para el ejercicio profesional y la actividad pericial."
+    },
+
+    {
+      "id": "EJ-007",
+      "name": "Clasificación por categorías",
+      "definition": "Sistema de organización que permite localizar recursos según categoría, fuero o temática."
+    },
+
+    {
+      "id": "EJ-008",
+      "name": "Práctica pericial",
+      "definition": "Conjunto de actuaciones desarrolladas por el perito psicólogo dentro del ámbito judicial."
+    },
+
+    {
+      "id": "EJ-009",
+      "name": "Área Profesional",
+      "definition": "Espacio exclusivo destinado a psicólogos y peritos psicólogos con recursos técnicos especializados."
+    },
+
+    {
+      "id": "EJ-010",
+      "name": "Buscador profesional",
+      "definition": "Herramienta para localizar escritos por título, categoría, fuero o palabras clave."
+    },
+
+    {
+      "id": "EJ-011",
+      "name": "Filtros de búsqueda",
+      "definition": "Sistema de filtrado que organiza los recursos por categorías profesionales."
+    },
+
+       {
+      "id": "EJ-012",
+      "name": "Recursos en actualización",
+      "definition": "Materiales técnicos organizados y actualizados para facilitar la práctica profesional."
+    }
+  ],
+
+  "relatedTopics": [
+    "area_profesional",
+    "biblioteca_profesional",
+    "practica_pericial",
+    "aceptacion_de_cargo",
+    "pedidos_de_prorroga",
+    "honorarios",
+    "impugnaciones",
+    "aclaraciones",
+    "oficios",
+    "presentaciones_judiciales",
+    "recursos_judiciales",
+    "informes_modelos",
+    "evaluacion_psicologica",
+    "area_pericial",
+    "formacion_profesional",
+    "consultoria_profesional",
+    "recursos_tecnicos"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es el Centro de Escritos Judiciales?",
+      "¿Qué escritos judiciales están disponibles?",
+      "¿A quién está dirigido?",
+      "¿Cómo se organiza la biblioteca?",
+      "¿Cómo se buscan los recursos?"
+    ],
+
+    "medium": [
+      "¿Qué es la colección destacada?",
+      "¿Qué es la aceptación de cargo?",
+      "¿Los modelos pueden adaptarse?",
+      "¿Cómo se clasifican los escritos?",
+      "¿Qué recursos profesionales incluye?"
+    ],
+
+    "low": [
+      "¿Qué áreas se relacionan con esta sección?",
+      "¿Los recursos están actualizados?",
+      "¿Qué formatos pueden tener los materiales?",
+      "¿Cómo vuelvo al Panel Profesional?"
+    ]
+
   },
-  "related": []
+
+  "suggestions": [
+    "¿Qué es el Centro de Escritos Judiciales?",
+    "¿Qué escritos están disponibles?",
+    "¿Cómo se organiza la biblioteca?",
+    "¿Cómo busco un escrito?",
+    "¿Qué es la colección destacada?",
+    "¿Qué es una aceptación de cargo?",
+    "¿Los modelos pueden adaptarse?",
+    "¿A quién está dirigida esta sección?"
+  ],
+
+  "related": [
+    "Panel Profesional",
+    "Área Profesional",
+    "Biblioteca Profesional",
+    "Evaluación Psicológica",
+    "Informes y Modelos",
+    "Área Pericial",
+    "Formación Profesional",
+    "Consultoría Profesional",
+    "Recursos Técnicos",
+    "Novedades Profesionales"
+  ],
+
+  "answers": {
+
+        "que_es": {
+      "question": "¿Qué es el Centro de Escritos Judiciales?",
+      "answer": "Es una biblioteca técnica del Centro Profesional FALCO® que reúne modelos de escritos judiciales y recursos para la práctica profesional y pericial."
+    },
+
+    "disponibles": {
+      "question": "¿Qué escritos judiciales están disponibles?",
+      "answer": "La sección reúne modelos de aceptación de cargo, pedidos de prórroga, honorarios, impugnaciones, aclaraciones, oficios, presentaciones varias y recursos."
+    },
+
+    "destinatarios": {
+      "question": "¿A quién está dirigido el Centro de Escritos Judiciales?",
+      "answer": "Está destinado exclusivamente a profesionales de la psicología y peritos psicólogos."
+    },
+
+    "organizacion": {
+      "question": "¿Cómo se organiza la biblioteca de escritos?",
+      "answer": "Los recursos se organizan por categorías y pueden identificarse según título, fuero, subcategoría, formato y fecha de actualización."
+    },
+
+    "busqueda": {
+      "question": "¿Cómo puedo buscar un escrito?",
+      "answer": "Podés utilizar el buscador para localizar recursos por título, categoría, fuero o palabra clave."
+    },
+
+    "filtros": {
+      "question": "¿La biblioteca tiene filtros?",
+      "answer": "Sí. La sección incorpora filtros por categoría para facilitar la localización de los recursos disponibles."
+    },
+
+    "coleccion": {
+      "question": "¿Qué es la colección destacada?",
+      "answer": "Es una selección de accesos rápidos a los principales modelos utilizados por peritos psicólogos en presentaciones judiciales."
+    },
+
+    "aceptacion": {
+      "question": "¿Qué es el modelo de aceptación de cargo?",
+      "answer": "Es un modelo de escrito para la aceptación del cargo de perito psicólogo, adaptable a procesos civiles, laborales y de familia."
+    },
+
+    "adaptacion": {
+      "question": "¿Los modelos pueden adaptarse a distintas causas?",
+      "answer": "Sí. Los modelos pueden adaptarse según el tipo de proceso, el fuero interviniente y las características particulares de cada presentación."
+    },
+
+    "categorias": {
+      "question": "¿Qué categorías principales incluye la colección?",
+      "answer": "Incluye aceptación de cargo, pedidos de prórroga, honorarios, impugnaciones, aclaraciones, oficios, presentaciones varias y recursos."
+    },
+
+    "formato": {
+      "question": "¿En qué formato se presentan los recursos?",
+      "answer": "La página identifica recursos profesionales en formato PDF."
+    },
+
+    "actualizacion": {
+      "question": "¿Los recursos indican fecha de actualización?",
+      "answer": "Sí. Las fichas pueden incluir la fecha de actualización del material."
+    },
+
+    "fuero": {
+      "question": "¿Los escritos se organizan por fuero?",
+      "answer": "Sí. Los recursos pueden identificarse según el fuero correspondiente, como civil, laboral o familia."
+    },
+
+    "recursos": {
+      "question": "¿Qué otros recursos profesionales se relacionan con esta sección?",
+      "answer": "La navegación permite acceder al Panel Profesional, Novedades Profesionales, Biblioteca, Evaluación Psicológica, Informes y Modelos, Área Pericial, Formación Profesional, Consultoría y Recursos Técnicos."
+    },
+
+    "biblioteca": {
+      "question": "¿Forma parte de la Biblioteca Profesional?",
+      "answer": "Sí. El Centro de Escritos Judiciales integra los recursos técnicos disponibles dentro del Área Profesional."
+    },
+
+    "uso": {
+      "question": "¿Para qué sirve esta sección?",
+      "answer": "Sirve para facilitar el acceso ordenado a modelos y recursos técnicos utilizados en la práctica profesional y pericial."
+    }
+
+  }
+
 }

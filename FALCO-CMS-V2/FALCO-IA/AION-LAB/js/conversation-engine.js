@@ -264,6 +264,79 @@ const AIONConversation = {
     });
   },
 
+
+findAnswer(question) {
+
+  const answers = this.data?.answers;
+
+  if (!answers || !question) {
+    return "";
+  }
+
+  const directAnswer = answers[question];
+
+  if (typeof directAnswer === "string") {
+    return directAnswer;
+  }
+
+  if (
+    directAnswer &&
+    typeof directAnswer === "object"
+  ) {
+    return (
+      directAnswer.answer ||
+      directAnswer.response ||
+      ""
+    );
+  }
+
+  const normalize = (text) =>
+    String(text || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[¿?¡!.,;:®™"'()]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const normalizedQuestion =
+    normalize(question);
+
+
+
+
+
+
+
+
+
+
+const lista = Object.values(answers);
+
+const found = lista.find((item) => {
+
+  if (!item || typeof item !== "object") {
+    return false;
+  }
+
+  return (
+    normalize(item.question) ===
+    normalizedQuestion
+  );
+
+});
+
+  return (
+    found?.answer ||
+    found?.response ||
+    ""
+  );
+
+},
+
+
+
+
   async respond(item) {
     if (!this.card) return;
 
@@ -296,51 +369,86 @@ const AIONConversation = {
 
    
 
-    let finalText = "";
 
-    if (isObject) {
-      finalText =
-        item.response ||
-        this.data?.answers?.[question] ||
-        "Puedo orientarte sobre este punto dentro del Sistema FALCO®.";
 
-    } else {
-      finalText =
-        this.data?.answers?.[question];
 
-      if (!finalText && this.corpus) {
-        if (textEl) {
-          textEl.textContent =
-            "Consultando el Corpus FALCO®...";
-        }
 
-        try {
-          const response =
-            await this.corpus.answer(question);
+let finalText = "";
 
-          const view =
-            this.responseEngine
-              ? this.responseEngine.format(response)
-              : response;
+// 1. Busca directamente mediante answerKey
+if (
+  isObject &&
+  item.answerKey &&
+  this.data?.answers?.[item.answerKey]
+) {
 
-          finalText =
-            view?.text ||
-            response?.answer ||
-            "Puedo orientarte sobre este punto desde el enfoque técnico del Sistema FALCO®.";
+  finalText =
+    this.data.answers[item.answerKey].answer ||
+    this.data.answers[item.answerKey].response ||
+    "";
 
-        } catch (error) {
-          console.warn(
-            "AION Conversation™: error al consultar el Corpus.",
-            error
-          );
-        }
-      }
+}
 
-      if (!finalText) {
-        finalText =
-          "Puedo orientarte sobre este punto dentro del Sistema FALCO®.";
-      }
-    }
+
+
+
+
+
+
+
+// 2. Solo si no encontró respuesta por clave,
+// utiliza el método anterior como respaldo
+if (!finalText) {
+
+  finalText =
+    this.findAnswer(question);
+
+}
+
+// 3. Solo consulta el Corpus si todavía no encontró respuesta
+if (!finalText && this.corpus) {
+
+  if (textEl) {
+    textEl.textContent =
+      "Consultando el Corpus FALCO®...";
+  }
+
+  try {
+
+    const response =
+      await this.corpus.answer(question);
+
+    const view =
+      this.responseEngine
+        ? this.responseEngine.format(response)
+        : response;
+
+    finalText =
+      view?.text ||
+      response?.answer ||
+      "";
+
+  } catch (error) {
+
+    console.warn(
+      "AION Conversation™: error al consultar el Corpus.",
+      error
+    );
+
+  }
+
+}
+
+if (!finalText) {
+
+  finalText =
+    "Puedo orientarte sobre este punto dentro del Sistema FALCO®.";
+
+}
+
+
+
+
 
 
 
@@ -368,7 +476,7 @@ if (
     await PresenceDirector.respond(
       finalText,
       {
-        thinkingTime: 650
+        thinkingTime: 0
       }
     );
 
@@ -381,8 +489,12 @@ if (
       AionFloat.setState("thinking");
     }
 
+
+
+
+
     await new Promise((resolve) => {
-      setTimeout(resolve, 650);
+      setTimeout(resolve, 0);
     });
 
     if (

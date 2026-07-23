@@ -1,0 +1,315 @@
+{
+  "slug": "programa-premium",
+
+  "title": "Programa Formativo Premium",
+
+  "greeting": "Estás consultando sobre el Programa Formativo Premium «Aprendiendo a ser Padres de un Adolescente®». Puedo explicarte en qué consiste el programa, sus módulos, los materiales incluidos, los destinatarios y la forma de participación.",
+
+  "description": "Programa formativo integral basado en el Método FALCO®, destinado a familias, docentes, profesionales e instituciones interesadas en comprender la adolescencia, fortalecer los vínculos familiares y adquirir herramientas prácticas para el acompañamiento adolescente.",
+
+  "summary": "El Programa Formativo Premium desarrolla los contenidos del Método FALCO® mediante un recorrido estructurado de siete módulos, acompañado por material descargable, manual práctico, cuadernillo de actividades, certificación y recursos complementarios para promover una comprensión integral de la adolescencia.",
+
+  "keywords": [
+
+    "Programa Premium",
+    "Programa Formativo Premium",
+    "Aprendiendo a ser Padres de un Adolescente",
+    "Método FALCO",
+    "formación",
+    "adolescencia",
+    "familias",
+    "padres",
+    "madres",
+    "docentes",
+    "profesionales",
+    "instituciones",
+    "salud mental adolescente",
+    "comunicación familiar",
+    "límites saludables",
+    "vínculos",
+    "Biblioteca FALCO",
+    "Escuela para Padres",
+    "material descargable",
+    "manual práctico",
+    "cuadernillo",
+    "certificación",
+    "prevención",
+    "educación emocional",
+    "autonomía",
+    "tecnología",
+    "redes sociales",
+    "grooming",
+    "ciberbullying",
+    "programa educativo"
+
+  ],
+
+  "concepts": [
+
+    {
+      "id": "PREM-001",
+      "name": "Programa Formativo Premium",
+      "definition": "Programa integral basado en el Método FALCO® que desarrolla contenidos organizados en siete módulos destinados a familias, profesionales e instituciones."
+    },
+
+    {
+      "id": "PREM-002",
+      "name": "Formación estructurada",
+      "definition": "Recorrido organizado mediante módulos secuenciales que permiten comprender progresivamente los distintos aspectos de la adolescencia."
+    },
+
+    {
+      "id": "PREM-003",
+      "name": "Material descargable",
+      "definition": "Conjunto de recursos complementarios que acompañan el desarrollo del programa, incluyendo manuales, cuadernillos y documentación práctica."
+    },
+
+    {
+      "id": "PREM-004",
+      "name": "Manual práctico",
+      "definition": "Material de consulta que reúne claves, preguntas frecuentes, errores habituales y situaciones prácticas para el acompañamiento familiar."
+    },
+
+    {
+      "id": "PREM-005",
+      "name": "Cuadernillo del participante",
+      "definition": "Material de trabajo que incluye actividades, ejercicios, listas de verificación, contrato familiar y herramientas de aplicación práctica."
+    },
+
+    {
+      "id": "PREM-006",
+      "name": "Biblioteca FALCO®",
+      "definition": "Espacio de acceso para usuarios autorizados donde se encuentran disponibles materiales exclusivos relacionados con el Programa Premium y el Método FALCO®."
+    },
+
+    {
+      "id": "PREM-007",
+      "name": "Certificación",
+      "definition": "Constancia digital de participación entregada al finalizar el programa."
+    },
+
+    {
+      "id": "PREM-008",
+      "name": "Comunidad FALCO®",
+      "definition": "Espacio destinado a brindar continuidad formativa mediante recursos complementarios y materiales adicionales."
+    },
+
+    {
+      "id": "PREM-009",
+      "name": "Programa institucional",
+      "definition": "Adaptación del Programa Formativo Premium para instituciones educativas, municipios, empresas y organizaciones."
+    },
+
+    {
+      "id": "PREM-010",
+      "name": "Método FALCO®",
+      "definition": "Marco conceptual sobre el cual se desarrolla todo el contenido académico del Programa Formativo Premium."
+    }
+
+  ],
+
+    "relatedTopics": [
+    "metodo_falco",
+    "biblioteca_falco",
+    "escuela_para_padres",
+    "talleres",
+    "capacitaciones",
+    "familias",
+    "adolescencia",
+    "comunicacion_familiar",
+    "limites_saludables",
+    "salud_mental",
+    "prevencion",
+    "instituciones",
+    "docentes",
+    "municipios",
+    "empresas"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es el Programa Formativo Premium?",
+      "¿Qué incluye el programa?",
+      "¿Cuáles son los siete módulos?",
+      "¿Está basado en el Método FALCO®?",
+      "¿A quién está dirigido?"
+    ],
+
+    "medium": [
+      "¿Qué materiales se entregan?",
+      "¿Incluye certificación?",
+      "¿Qué beneficios ofrece?",
+      "¿Puede implementarse en instituciones?",
+      "¿Cómo se accede a la Biblioteca FALCO®?",
+      "¿Qué modalidades existen?"
+    ],
+
+    "low": [
+      "¿Es virtual o presencial?",
+      "¿Quiénes pueden acceder?",
+      "¿Hay material descargable?",
+      "¿Qué recursos complementarios incluye?",
+      "¿Cómo solicitar información?"
+    ]
+
+  },
+
+  "suggestions": [
+    "¿Qué es el Programa Premium?",
+    "¿Qué incluye?",
+    "¿Cuáles son los siete módulos?",
+    "¿Qué materiales entrega?",
+    "¿Está basado en el Método FALCO®?",
+    "¿A quién está dirigido?",
+    "¿Incluye certificación?",
+    "¿Cómo acceder a la Biblioteca FALCO®?",
+    "¿Puede realizarse en instituciones?",
+    "¿Cómo solicitar información?"
+  ],
+
+  "related": [
+    "Método FALCO®",
+    "Biblioteca FALCO®",
+    "Escuela para Padres",
+    "Aprendiendo a ser Padres de un Adolescente®",
+    "Material descargable",
+    "Manual práctico",
+    "Cuadernillo del participante",
+    "Certificación",
+    "Instituciones",
+    "Familias",
+    "Docentes",
+    "Salud Mental Adolescente"
+  ],
+
+  "answers": {
+
+        "que_es": {
+      "question": "¿Qué es el Programa Formativo Premium?",
+      "answer": "El Programa Formativo Premium «Aprendiendo a ser Padres de un Adolescente®» desarrolla los contenidos del Método FALCO® mediante un recorrido organizado de siete módulos destinados a familias, docentes, profesionales e instituciones."
+    },
+
+    "objetivo": {
+      "question": "¿Cuál es el objetivo del programa?",
+      "answer": "Su objetivo es brindar herramientas prácticas para comprender la adolescencia, fortalecer los vínculos familiares, mejorar la comunicación y promover el bienestar emocional desde una perspectiva preventiva y profesional."
+    },
+
+    "incluye": {
+      "question": "¿Qué incluye el Programa Premium?",
+      "answer": "Incluye el libro «Aprendiendo a ser Padres de un Adolescente®», siete módulos de formación, manual práctico, cuadernillo del participante, material descargable, certificación digital y acceso a recursos complementarios."
+    },
+
+    "libro": {
+      "question": "¿El programa incluye un libro?",
+      "answer": "Sí. El programa se basa en el libro «Aprendiendo a ser Padres de un Adolescente®», que constituye uno de los materiales centrales de la propuesta formativa."
+    },
+
+    "manual": {
+      "question": "¿Qué contiene el Manual Práctico?",
+      "answer": "El Manual Práctico reúne claves de trabajo, preguntas frecuentes, errores habituales y situaciones prácticas para el acompañamiento de adolescentes."
+    },
+
+    "cuadernillo": {
+      "question": "¿Qué contiene el Cuadernillo del Participante?",
+      "answer": "Incluye actividades, ejercicios, contrato familiar, listas de verificación y herramientas prácticas para aplicar los contenidos del programa."
+    },
+
+    "certificacion": {
+      "question": "¿El programa entrega certificación?",
+      "answer": "Sí. Al finalizar el recorrido se entrega un certificado digital de participación."
+    },
+
+    "comunidad": {
+      "question": "¿Existe continuidad luego del programa?",
+      "answer": "Sí. El programa contempla continuidad formativa mediante recursos complementarios y la Comunidad FALCO®."
+    },
+
+    "metodo": {
+      "question": "¿Está basado en el Método FALCO®?",
+      "answer": "Sí. Todo el contenido académico del Programa Formativo Premium se desarrolla a partir del Método FALCO® y sus principios."
+    },
+
+    "modulo1": {
+      "question": "¿Qué se trabaja en el Módulo 1?",
+      "answer": "Comprender la adolescencia: cambios físicos, emocionales, cognitivos y sociales."
+    },
+
+    "modulo2": {
+      "question": "¿Qué se trabaja en el Módulo 2?",
+      "answer": "Comunicación efectiva: escucha activa, validación emocional y construcción de confianza."
+    },
+
+    "modulo3": {
+      "question": "¿Qué se trabaja en el Módulo 3?",
+      "answer": "Emociones y autoestima: ansiedad, frustración, reconocimiento de fortalezas y autoestima."
+    },
+
+    "modulo4": {
+      "question": "¿Qué se trabaja en el Módulo 4?",
+      "answer": "Identidad y pertenencia: grupo de pares, autonomía, identidad y sentido de pertenencia."
+    },
+
+    "modulo5": {
+      "question": "¿Qué se trabaja en el Módulo 5?",
+      "answer": "Redes sociales y tecnología: huella digital, grooming, sexting, ciberbullying y acuerdos tecnológicos."
+    },
+
+    "modulo6": {
+      "question": "¿Qué se trabaja en el Módulo 6?",
+      "answer": "Límites saludables: autoridad saludable, consecuencias educativas y contrato familiar."
+    },
+
+    "modulo7": {
+      "question": "¿Qué se trabaja en el Módulo 7?",
+      "answer": "Salud mental adolescente: factores protectores, señales de alerta, prevención y criterios para consultar oportunamente."
+    },
+
+    "biblioteca": {
+      "question": "¿Qué es la Biblioteca FALCO®?",
+      "answer": "Es el espacio donde los usuarios autorizados pueden acceder a los materiales exclusivos del Programa Premium, del Método FALCO® y de la Escuela para Padres."
+    },
+
+    "materiales": {
+      "question": "¿Qué materiales pueden encontrarse en la Biblioteca FALCO®?",
+      "answer": "Entre otros recursos, pueden encontrarse el Programa Formativo Premium, el Manual Práctico para Familias, el Cuadernillo del Participante y el Dossier Institucional."
+    },
+
+    "destinatarios": {
+      "question": "¿A quién está dirigido el Programa Premium?",
+      "answer": "Está dirigido a padres, madres, familias, docentes, equipos de orientación escolar, psicólogos, profesionales, instituciones educativas, municipios y empresas."
+    },
+
+    "beneficios": {
+      "question": "¿Qué beneficios ofrece el programa?",
+      "answer": "Brinda herramientas prácticas, mayor comprensión de la adolescencia, fortalecimiento del vínculo familiar, recursos para mejorar la comunicación, estrategias para establecer límites saludables, orientación sobre salud mental adolescente, material descargable y certificación."
+    },
+
+    "instituciones": {
+      "question": "¿Puede implementarse en instituciones?",
+      "answer": "Sí. El Programa Formativo Premium puede adaptarse para instituciones educativas, municipios, empresas, centros culturales y organizaciones comunitarias."
+    },
+
+    "escuelas": {
+      "question": "¿Qué propuestas ofrece para instituciones educativas?",
+      "answer": "Incluye propuestas dirigidas a familias, docentes, equipos de orientación escolar y directivos."
+    },
+
+    "municipios": {
+      "question": "¿Puede desarrollarse en municipios?",
+      "answer": "Sí. Puede implementarse mediante espacios preventivos vinculados con juventud, salud mental, familia y comunidad."
+    },
+
+    "empresas": {
+      "question": "¿Puede desarrollarse en empresas?",
+      "answer": "Sí. Puede ofrecer talleres destinados a colaboradores con hijos adolescentes, orientados al bienestar familiar."
+    },
+
+    "modalidad": {
+      "question": "¿Cómo se solicita información sobre el programa?",
+      "answer": "La información sobre modalidades, inscripción, fechas y propuestas institucionales puede solicitarse mediante los canales de contacto del Estudio."
+    }
+
+  }
+
+}

@@ -3,23 +3,331 @@
 
   "title": "Biblioteca FALCO®",
 
-  "greeting": "Bienvenido a la Biblioteca FALCO®. Puedo orientarte sobre los recursos disponibles.",
+  "greeting": "Estás dentro de la Biblioteca FALCO®. Puedo orientarte sobre los materiales Premium, los recursos gratuitos, el recorrido formativo y los contenidos vinculados con el Método FALCO®.",
 
-  "description": "La Biblioteca FALCO® reúne modelos, escritos, artículos, material técnico y documentación especializada desarrollada para profesionales.",
+  "description": "Biblioteca digital privada que reúne programas formativos, manuales, cuadernillos, recursos educativos y materiales prácticos desarrollados para familias, docentes, profesionales e instituciones interesadas en comprender y acompañar la adolescencia.",
 
-  "suggestions": [
-    "¿Qué contiene la Biblioteca FALCO®?",
-    "¿Quién puede acceder?",
-    "¿Cómo obtengo acceso?"
+  "summary": "Biblioteca FALCO® es un espacio digital de formación continua basado en el Método FALCO®. Organiza un recorrido que comienza con el libro «Aprendiendo a ser Padres de un Adolescente®» y continúa con el Programa Formativo Premium, el Manual Práctico para Familias, el Cuadernillo del Participante, los recursos gratuitos y la Escuela para Padres.",
+
+  "keywords": [
+    "Biblioteca FALCO",
+    "Biblioteca Falco",
+    "biblioteca digital",
+    "Método FALCO",
+    "Programa Formativo Premium",
+    "Programa Premium",
+    "Aprendiendo a ser Padres de un Adolescente",
+    "Escuela para Padres",
+    "Colección Adolescencia y Familia",
+    "familias",
+    "adolescencia",
+    "docentes",
+    "profesionales",
+    "instituciones",
+    "formación continua",
+    "materiales Premium",
+    "recursos gratuitos",
+    "manual práctico",
+    "cuadernillo del participante",
+    "dossier institucional",
+    "libro",
+    "programa formativo",
+    "herramientas familiares",
+    "comunicación familiar",
+    "límites saludables",
+    "acompañamiento adolescente",
+    "salud mental adolescente",
+    "recursos educativos",
+    "material descargable",
+    "acceso autorizado"
+  ],
+
+  "concepts": [
+    {
+      "id": "BIB-001",
+      "name": "Biblioteca FALCO®",
+      "definition": "Espacio digital privado de recursos educativos, programas formativos y materiales prácticos desarrollados para comprender, acompañar y fortalecer vínculos durante la adolescencia."
+    },
+
+    {
+      "id": "BIB-002",
+      "name": "Colección Adolescencia y Familia",
+      "definition": "Conjunto de contenidos y recursos orientados a familias, docentes, profesionales e instituciones interesados en el acompañamiento adolescente."
+    },
+
+    {
+      "id": "BIB-003",
+      "name": "Materiales Premium",
+      "definition": "Recursos exclusivos disponibles para usuarios autorizados de Biblioteca FALCO®, entre ellos el Programa Formativo Premium, el Manual Práctico para Familias, el Cuadernillo del Participante y el Dossier Institucional."
+    },
+
+    {
+      "id": "BIB-004",
+      "name": "Muestra gratuita",
+      "definition": "Adelanto de acceso libre del libro «Aprendiendo a ser Padres de un Adolescente®», obra que dio origen al Método FALCO®."
+    },
+
+    {
+      "id": "BIB-005",
+      "name": "Programa Formativo Premium",
+      "definition": "Propuesta formativa basada en el Método FALCO® que desarrolla contenidos, actividades y casos prácticos para comprender y acompañar la adolescencia."
+    },
+
+    {
+      "id": "BIB-006",
+      "name": "Manual Práctico para Familias",
+      "definition": "Guía que reúne diez claves, preguntas frecuentes y orientaciones para abordar conversaciones y situaciones familiares complejas."
+    },
+
+    {
+      "id": "BIB-007",
+      "name": "Cuadernillo del Participante",
+      "definition": "Material imprimible con actividades, ejercicios, listas de verificación, reflexiones y un plan de acción familiar."
+    },
+
+    {
+      "id": "BIB-008",
+      "name": "Dossier Institucional",
+      "definition": "Propuesta destinada a colegios, municipios, empresas y organizaciones interesadas en implementar contenidos del Método FALCO®."
+    },
+
+    {
+      "id": "BIB-009",
+      "name": "Recursos Gratuitos FALCO®",
+      "definition": "Herramientas breves de descarga libre para reflexionar, acompañar y fortalecer vínculos familiares."
+    },
+
+    {
+      "id": "BIB-010",
+      "name": "Recorrido formativo",
+      "definition": "Secuencia de aprendizaje que integra libro, programa formativo, cuadernillo y Escuela para Padres."
+    },
+
+    {
+      "id": "BIB-011",
+      "name": "Formación continua",
+      "definition": "Proceso de aprendizaje sostenido mediante la incorporación progresiva de programas, recursos, actividades y nuevos espacios formativos."
+    },
+
+    {
+      "id": "BIB-012",
+      "name": "Acceso autorizado",
+      "definition": "Condición requerida para ingresar al espacio privado y consultar los materiales exclusivos de Biblioteca FALCO®."
+    }
+  ],
+
+    "relatedTopics": [
+    "metodo_falco",
+    "programa_premium",
+    "escuela_para_padres",
+    "formacion_continua",
+    "familias",
+    "adolescencia",
+    "comunicacion_familiar",
+    "limites_saludables",
+    "salud_mental_adolescente",
+    "docentes",
+    "instituciones",
+    "municipios",
+    "empresas",
+    "recursos_gratuitos",
+    "materiales_premium"
+  ],
+
+  "importance": {
+
+    "high": [
+      "¿Qué es Biblioteca FALCO®?",
+      "¿Qué materiales contiene?",
+      "¿Quién puede acceder?",
+      "¿Qué es el recorrido formativo?",
+      "¿Qué recursos gratuitos ofrece?"
+    ],
+
+    "medium": [
+      "¿Qué incluye el Programa Premium?",
+      "¿Qué es el Manual Práctico?",
+      "¿Qué es el Cuadernillo del Participante?",
+      "¿Qué es el Dossier Institucional?",
+      "¿Qué es la Escuela para Padres?",
+      "¿Cómo aprovechar la Biblioteca?"
+    ],
+
+    "low": [
+      "¿Habrá nuevos materiales?",
+      "¿Qué instituciones pueden utilizarla?",
+      "¿Cómo solicitar información?",
+      "¿Qué filosofía tiene Biblioteca FALCO®?",
+      "¿Qué integra el Ecosistema FALCO®?"
+    ]
+
+  },
+
+"suggestions": [
+  {
+    "label": "¿Qué es Biblioteca FALCO®?",
+    "answerKey": "que_es"
+  },
+  {
+    "label": "¿Qué materiales contiene Biblioteca FALCO®?",
+    "answerKey": "materiales"
+  },
+  {
+    "label": "¿Qué recursos gratuitos ofrece Biblioteca FALCO®?",
+    "answerKey": "recursos_gratuitos"
+  },
+  {
+    "label": "¿Cómo es el recorrido formativo?",
+    "answerKey": "recorrido"
+  },
+  {
+    "label": "¿Quién puede acceder a Biblioteca FALCO®?",
+    "answerKey": "acceso"
+  },
+  {
+    "label": "¿Qué integra el Ecosistema FALCO®?",
+    "answerKey": "ecosistema"
+  },
+  {
+    "label": "¿Cómo se recomienda utilizar Biblioteca FALCO®?",
+    "answerKey": "uso"
+  },
+  {
+    "label": "¿Qué es el Programa Formativo Premium?",
+    "answerKey": "programa"
+  },
+  {
+    "label": "¿Habrá nuevos materiales?",
+    "answerKey": "proximamente"
+  },
+  {
+    "label": "¿Cómo puedo solicitar información?",
+    "answerKey": "informacion"
+  }
+],
+
+  "related": [
+    "Método FALCO®",
+    "Programa Formativo Premium",
+    "Escuela para Padres",
+    "Aprendiendo a ser Padres de un Adolescente®",
+    "Manual Práctico para Familias",
+    "Cuadernillo del Participante",
+    "Dossier Institucional",
+    "Recursos Gratuitos FALCO®",
+    "Colección Adolescencia y Familia",
+    "Formación Continua",
+    "Ecosistema FALCO®",
+    "Biblioteca Digital"
   ],
 
   "answers": {
 
-    "¿Qué contiene la Biblioteca FALCO®?": "La Biblioteca FALCO® reúne escritos judiciales, modelos, recursos técnicos, material de estudio y documentación especializada desarrollada dentro del Sistema FALCO®.",
+        "que_es": {
+      "question": "¿Qué es Biblioteca FALCO®?",
+      "answer": "Biblioteca FALCO® es un espacio digital de recursos educativos, programas formativos y materiales prácticos desarrollados por la Lic. Isabela Falco para familias, docentes, profesionales e instituciones interesadas en comprender y acompañar la adolescencia."
+    },
 
-    "¿Quién puede acceder?": "El acceso está destinado a usuarios autorizados según el tipo de membresía o perfil profesional.",
+    "objetivo": {
+      "question": "¿Cuál es el objetivo de Biblioteca FALCO®?",
+      "answer": "Su objetivo es organizar recursos formativos que permitan comprender la adolescencia, fortalecer los vínculos familiares y brindar herramientas prácticas para el acompañamiento cotidiano."
+    },
 
-    "¿Cómo obtengo acceso?": "Podés solicitar información sobre las modalidades de acceso desde la sección de contacto o mediante WhatsApp."
+    "metodo": {
+      "question": "¿En qué se basa Biblioteca FALCO®?",
+      "answer": "Todos sus contenidos se desarrollan sobre el Método FALCO®, una propuesta centrada en fortalecer vínculos, acompañar emociones, promover límites saludables, comprender la adolescencia y orientar proyectos de vida."
+    },
+
+    "materiales": {
+      "question": "¿Qué materiales contiene Biblioteca FALCO®?",
+      "answer": "Reúne el libro «Aprendiendo a ser Padres de un Adolescente®», el Programa Formativo Premium, el Manual Práctico para Familias, el Cuadernillo del Participante, el Dossier Institucional y diversos recursos complementarios."
+    },
+
+    "muestra_gratuita": {
+      "question": "¿Existe algún material gratuito?",
+      "answer": "Sí. La Biblioteca ofrece una muestra gratuita del libro «Aprendiendo a ser Padres de un Adolescente®», obra que dio origen al Método FALCO®."
+    },
+
+    "programa": {
+      "question": "¿Qué es el Programa Formativo Premium?",
+      "answer": "Es la formación principal de Biblioteca FALCO®, basada en el Método FALCO®, organizada en módulos con contenidos, actividades y casos prácticos."
+    },
+
+    "manual": {
+      "question": "¿Qué es el Manual Práctico para Familias?",
+      "answer": "Es una guía que reúne diez claves, preguntas frecuentes y orientaciones para abordar situaciones habituales durante la adolescencia."
+    },
+
+    "cuadernillo": {
+      "question": "¿Qué es el Cuadernillo del Participante?",
+      "answer": "Es un material de trabajo con actividades, ejercicios, listas de verificación, reflexiones y propuestas para construir acuerdos familiares."
+    },
+
+    "dossier": {
+      "question": "¿Qué es el Dossier Institucional?",
+      "answer": "Es un material destinado a instituciones educativas, municipios, empresas y organizaciones interesadas en implementar propuestas basadas en el Método FALCO®."
+    },
+
+    "recursos_gratuitos": {
+      "question": "¿Qué recursos gratuitos ofrece Biblioteca FALCO®?",
+      "answer": "Incluye materiales breves como la guía «10 claves para comprender a un adolescente», el Checklist Familiar, el Acuerdo Digital Familiar y el Semáforo Familiar FALCO®."
+    },
+
+    "recorrido": {
+      "question": "¿Cómo es el recorrido formativo?",
+      "answer": "El recorrido propone comenzar con el libro, continuar con el Programa Formativo Premium, trabajar con el Cuadernillo del Participante y profundizar mediante la Escuela para Padres."
+    },
+
+    "ecosistema": {
+      "question": "¿Qué integra el Ecosistema FALCO®?",
+      "answer": "El ecosistema reúne el Método FALCO®, el Programa Formativo Premium y la Escuela para Padres como espacios complementarios de formación."
+    },
+
+    "formacion": {
+      "question": "¿Qué significa formación continua?",
+      "answer": "Biblioteca FALCO® incorpora nuevos recursos y espacios de aprendizaje para acompañar el desarrollo permanente de familias, docentes y profesionales."
+    },
+
+    "destinatarios": {
+      "question": "¿A quién está dirigida Biblioteca FALCO®?",
+      "answer": "Está dirigida a familias, docentes, profesionales, instituciones educativas, municipios, empresas y organizaciones interesadas en el acompañamiento adolescente."
+    },
+
+    "acceso": {
+      "question": "¿Quién puede acceder a Biblioteca FALCO®?",
+      "answer": "Los materiales Premium se encuentran disponibles para usuarios autorizados que cuentan con acceso al espacio privado de Biblioteca FALCO®."
+    },
+
+    "uso": {
+      "question": "¿Cómo se recomienda utilizar Biblioteca FALCO®?",
+      "answer": "Se recomienda comenzar con el Programa Formativo Premium, utilizar el Cuadernillo del Participante para las actividades, consultar el Manual Práctico para Familias y complementar el recorrido con los recursos gratuitos."
+    },
+
+    "diferenciales": {
+      "question": "¿Qué diferencia a Biblioteca FALCO®?",
+      "answer": "Todos sus recursos forman parte de un mismo ecosistema basado en el Método FALCO®, integrando libro, programa, manuales, cuadernillos y propuestas institucionales bajo una misma metodología."
+    },
+
+    "proximamente": {
+      "question": "¿Habrá nuevos materiales?",
+      "answer": "La Biblioteca prevé incorporar nuevos desarrollos, entre ellos la Escuela para Padres FALCO®, recursos para docentes y nuevas guías temáticas."
+    },
+
+    "filosofia": {
+      "question": "¿Cuál es la filosofía de Biblioteca FALCO®?",
+      "answer": "La propuesta parte de la idea de que acompañar implica aprender, escuchar y permanecer disponibles, entendiendo la formación como una herramienta para fortalecer vínculos familiares."
+    },
+
+    "instituciones": {
+      "question": "¿Las instituciones pueden utilizar Biblioteca FALCO®?",
+      "answer": "Sí. Los contenidos contemplan propuestas destinadas a instituciones educativas, municipios, empresas y organizaciones interesadas en implementar espacios de formación."
+    },
+
+    "informacion": {
+      "question": "¿Cómo puedo solicitar información?",
+      "answer": "La información sobre Biblioteca FALCO®, sus programas y recursos puede solicitarse mediante los canales de contacto del Estudio."
+    }
 
   }
+
 }
