@@ -678,6 +678,59 @@ async respondFreeText(query) {
       this.data
     );
 
+
+
+
+  /*
+   * AION Brain™ v2.0
+   * Integración experimental en modo observador.
+   *
+   * Analiza la consulta real, pero no modifica:
+   * - la respuesta visible;
+   * - el Intent Engine™;
+   * - el Corpus;
+   * - la interfaz.
+   */
+  if (
+    window.AIONBrainBridge &&
+    typeof AIONBrainBridge.forward === "function"
+  ) {
+
+    const brainObservation =
+      AIONBrainBridge.forward({
+        question: query,
+
+        answerKey:
+          result?.answerKey ||
+          "general",
+
+        source:
+          "conversation_free_text",
+
+        metadata: {
+          conversationSlug:
+            this.data?.slug ||
+            "general",
+
+          intentMatched:
+            Boolean(result?.matched),
+
+          observerMode:
+            true
+        }
+      });
+
+    console.log(
+      "AION Conversation™ → Brain Observer:",
+      brainObservation
+    );
+  }
+
+
+
+
+
+
   if (
     result.matched &&
     result.answerKey
