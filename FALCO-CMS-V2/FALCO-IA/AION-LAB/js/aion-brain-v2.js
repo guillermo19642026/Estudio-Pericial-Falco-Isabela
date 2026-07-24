@@ -141,6 +141,59 @@ if (!resolutionResult.success) {
 const resolvedContext =
   resolutionResult.resolution.context;
 
+/*
+ * Genera el plan de respuesta
+ * a partir del contexto ya resuelto.
+ */
+const planningResult =
+  window.AIONResponsePlanner.plan({
+
+    topic:
+      resolutionResult
+        .resolution
+        .resolvedTopic,
+
+    dependent:
+      resolutionResult
+        .resolution
+        .dependent,
+
+    inherited:
+      resolutionResult
+        .resolution
+        .inherited,
+
+    originalTopic:
+      resolutionResult
+        .resolution
+        .originalTopic,
+
+    previousTopic:
+      resolutionResult
+        .resolution
+        .previousTopic,
+
+    context:
+      resolvedContext
+
+  });
+
+if (!planningResult.success) {
+
+  this.state.lastError = {
+    type: "planning_error",
+    details: planningResult
+  };
+
+  return {
+    success: false,
+    error:
+      "No se pudo generar el plan de respuesta.",
+    details:
+      planningResult
+  };
+}
+
 const enrichedContext =
   window.AIONMemoryContextEngine.enrich(
     resolvedContext
