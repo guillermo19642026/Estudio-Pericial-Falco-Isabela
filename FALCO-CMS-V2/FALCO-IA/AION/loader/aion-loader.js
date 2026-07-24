@@ -57,220 +57,92 @@ const AIONModuleLoader = {
     "FALCO-CMS-V2/FALCO-IA/AION-LAB/js/",
 
 
+  
   /* =======================================================
-     3. LISTA ORDENADA DE MÓDULOS
+     3. OBTENCIÓN DEL INVENTARIO DESDE AION REGISTRY™
 
-     El orden es obligatorio.
+     El Registry es ahora la fuente central de módulos.
 
-     No modificarlo sin verificar previamente las
-     dependencias entre motores.
+     En esta primera integración, el Loader carga solamente
+     los módulos:
+
+     - habilitados;
+     - obligatorios;
+     - ordenados según la propiedad order.
+
+     Los módulos opcionales permanecen registrados, pero no
+     son cargados automáticamente.
   ======================================================= */
 
-  modules: [
+  getModules() {
 
-    /* -----------------------------------------------------
-       CONOCIMIENTO Y NAVEGACIÓN
-    ----------------------------------------------------- */
+    if (
+      !window.AIONRegistry ||
+      typeof window.AIONRegistry.getModules !== "function"
+    ) {
 
-    {
-      name: "Knowledge Engine Router™",
-      file: "knowledge-engine-router.js"
-    },
+      throw new Error(
+        "AION Module Loader™ no encontró AION Registry™."
+      );
 
-    /* -----------------------------------------------------
-       MOTORES DE PRESENCIA Y REPRESENTACIÓN VISUAL
-    ----------------------------------------------------- */
-
-    {
-      name: "Presence Engine™",
-      file: "presence-engine.js"
-    },
-
-    {
-      name: "Gesture Engine™",
-      file: "gesture-engine.js"
-    },
-
-    {
-      name: "Eye Engine™",
-      file: "eye-engine.js"
-    },
-
-    {
-      name: "Animation Engine™",
-      file: "animation-engine.js"
-    },
-
-    {
-      name: "Context Engine™",
-      file: "context-engine.js"
-    },
-
-    {
-      name: "Identity Engine™",
-      file: "identity-engine.js"
-    },
-
-    {
-      name: "Memory Engine™",
-      file: "memory-engine.js"
-    },
-
-    {
-      name: "Brain Engine™",
-      file: "brain-engine.js"
-    },
-
-    {
-      name: "Perception Engine™",
-      file: "perception-engine.js"
-    },
-
-    {
-      name: "Action Engine™",
-      file: "action-engine.js"
-    },
-
-    {
-      name: "AION Observer™",
-      file: "aion-observer.js"
-    },
-
-    {
-      name: "Visual Cortex™",
-      file: "visual-cortex.js"
-    },
-
-    /* -----------------------------------------------------
-       NÚCLEO CENTRAL
-    ----------------------------------------------------- */
-
-    {
-      name: "AION Core™",
-      file: "aion-core.js"
-    },
-
-    {
-      name: "AION Config™",
-      file: "aion-config.js"
-    },
-
-    {
-      name: "AION Site Map™",
-      file: "aion-site-map.js"
-    },
-
-    {
-      name: "AION Router™",
-      file: "aion-router.js"
-    },
-
-    /* -----------------------------------------------------
-       CONOCIMIENTO Y CORPUS
-    ----------------------------------------------------- */
-
-    {
-      name: "Knowledge Engine™",
-      file: "knowledge-engine.js"
-    },
-
-    {
-      name: "Knowledge Search™",
-      file: "knowledge-search.js"
-    },
-
-    {
-      name: "Interaction Manager™",
-      file: "interaction-manager.js"
-    },
-
-    {
-      name: "AION Guide™",
-      file: "aion-guide.js"
-    },
-
-    {
-      name: "Corpus Engine™",
-      file: "corpus-engine.js"
-    },
-
-    /* -----------------------------------------------------
-       VOZ Y DIRECCIÓN DE PRESENCIA
-    ----------------------------------------------------- */
-
-    {
-      name: "AION Voice™",
-      file: "aion-voice.js"
-    },
-
-    {
-      name: "Presence Director™",
-      file: "presence-director.js"
-    },
-
-    /* -----------------------------------------------------
-       COMPRENSIÓN CONVERSACIONAL
-    ----------------------------------------------------- */
-
-    {
-      name: "Intent Engine™",
-      file: "intent-engine.js"
-    },
-
-    {
-      name: "Conversation Context Engine™",
-      file: "conversation-context-engine.js"
-    },
-
-    {
-      name: "AION Context Schema™",
-      file: "aion-context-schema.js"
-    },
-
-    {
-      name: "Memory Context Engine™",
-      file: "memory-context-engine.js"
-    },
-
-    {
-      name: "Context Resolution Engine™",
-      file: "context-resolution-engine.js"
-    },
-
-    {
-      name: "Response Planner™",
-      file: "response-planner-engine.js"
-    },
-
-    /* -----------------------------------------------------
-       AION BRAIN™ v2.0
-    ----------------------------------------------------- */
-
-    {
-      name: "AION Brain™ v2.0",
-      file: "aion-brain-v2.js"
-    },
-
-    {
-      name: "AION Brain Bridge™",
-      file: "aion-brain-bridge.js"
-    },
-
-    /* -----------------------------------------------------
-       CONVERSACIÓN E INTERFAZ FINAL
-    ----------------------------------------------------- */
-
-    {
-      name: "Conversation Engine™",
-      file: "conversation-engine.js"
-    },
-
-    {
-      name: "AION Float™",
-      file: "aion-float.js"
     }
 
-  ],
+
+    return window.AIONRegistry
+      .getModules()
+      .filter(module =>
+        module.enabled === true &&
+        module.required === true
+      )
+      .sort(
+        (a, b) =>
+          a.order - b.order
+      )
+      .map(module => {
+
+        if (module.source !== "aion-lab") {
+
+          throw new Error(
+            `Fuente no reconocida: ${module.source} en ${module.id}.`
+          );
+
+        }
+
+
+        return {
+
+          id:
+            module.id,
+
+          name:
+            module.name,
+
+          file:
+            module.file,
+
+          description:
+            module.description,
+
+          version:
+            module.version,
+
+          group:
+            module.group,
+
+          dependencies:
+            [...module.dependencies],
+
+          contexts:
+            [...module.contexts],
+
+          required:
+            module.required
+
+        };
+
+      });
+
+  },
 
 
   /* =======================================================
@@ -391,7 +263,10 @@ const AIONModuleLoader = {
 
   async loadAllModules() {
 
-    for (const module of this.modules) {
+    const modules =
+      this.getModules();
+
+    for (const module of modules) {
 
       await this.loadModule(module);
 
@@ -573,8 +448,8 @@ const AIONModuleLoader = {
       loading:
         this.loading,
 
-      totalModules:
-        this.modules.length,
+           totalModules:
+        this.getModules().length,
 
       loadedCount:
         this.loadedModules.length,
