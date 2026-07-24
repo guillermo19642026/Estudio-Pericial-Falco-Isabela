@@ -187,6 +187,15 @@ const AIONConversation = {
     aria-label="Hacé tu consulta..."
   >
 
+  <button
+    type="submit"
+    class="aion-conversation-submit"
+    aria-label="Enviar consulta"
+    title="Enviar consulta"
+  >
+    <span aria-hidden="true">➜</span>
+  </button>
+
 </form>
     `;
 
