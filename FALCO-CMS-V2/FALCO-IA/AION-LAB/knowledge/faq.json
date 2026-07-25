@@ -1,0 +1,563 @@
+{
+  "slug": "faq",
+
+  "title": "Preguntas Frecuentes",
+
+  "greeting": "Puedo responder las consultas más frecuentes sobre el Estudio Pericial Psicológico.",
+
+  "description": "Respuestas a las consultas más habituales relacionadas con los servicios, las pericias psicológicas, el daño psíquico, la actividad profesional y el funcionamiento del Estudio.",
+
+    "faq": [
+
+    {
+      "question": "¿Qué servicios ofrecen?",
+      "answer": "El Estudio Pericial Psicológico brinda servicios de pericias psicológicas, evaluación de daño psíquico, informes periciales, pericias de parte, impugnaciones, evaluaciones psicológicas judiciales, consultoría técnica, supervisión profesional y formación especializada."
+    },
+
+    {
+      "question": "No sé qué servicio necesito.",
+      "answer": "Puedo ayudarte a orientarte. Contame brevemente tu situación y te indicaré cuál es el servicio del Estudio que mejor se adapta a tu caso."
+    },
+
+    {
+      "question": "¿Cómo puedo comenzar?",
+      "answer": "El primer paso es realizar una consulta inicial para conocer tu situación y determinar cuál es el servicio más adecuado."
+    },
+
+    {
+      "question": "¿Cómo funciona el proceso?",
+      "answer": "El proceso depende del servicio solicitado. Generalmente comienza con una entrevista inicial, continúa con la evaluación correspondiente y finaliza con la elaboración del informe o la intervención profesional que requiera el caso."
+    },
+
+    {
+      "question": "¿Atienden de forma virtual?",
+      "answer": "Sí. La entrevista inicial y determinados servicios pueden realizarse de forma virtual cuando las características del caso lo permiten."
+    },
+
+    {
+      "question": "¿Dónde trabajan?",
+      "answer": "El Estudio desarrolla su actividad principalmente en la Provincia de Buenos Aires y ofrece entrevistas iniciales virtuales."
+    },
+
+    {
+      "question": "¿Cómo me comunico?",
+      "answer": "Podés comunicarte a través de los medios de contacto disponibles en el sitio para realizar una consulta inicial o solicitar una entrevista."
+    },
+
+    {
+      "question": "¿Cómo solicito una entrevista?",
+      "answer": "Podés iniciar una consulta desde el sitio y coordinar una entrevista inicial con el Estudio."
+    },
+
+    {
+      "question": "¿Qué documentación necesito?",
+      "answer": "La documentación necesaria depende del tipo de consulta. Durante el primer contacto se indicará qué documentación conviene aportar según cada caso."
+    },
+
+    {
+      "question": "¿Quiénes pueden consultar?",
+      "answer": "Pueden realizar consultas particulares, abogados, estudios jurídicos, profesionales y organismos que requieran intervención en el ámbito de la psicología forense."
+    },
+
+        {
+      "question": "¿Qué es una pericia psicológica?",
+      "answer": "Es una evaluación psicológica realizada con fines judiciales para responder los puntos de pericia solicitados dentro de una causa."
+    },
+
+    {
+      "question": "¿Para qué sirve una pericia psicológica?",
+      "answer": "Permite aportar al proceso judicial una evaluación técnica e imparcial sobre aspectos psicológicos relevantes para la causa."
+    },
+
+    {
+      "question": "¿Quién puede solicitar una pericia psicológica?",
+      "answer": "Puede ser solicitada por un juez, por las partes a través de sus abogados o requerirse la intervención de un perito de parte, según el tipo de proceso."
+    },
+
+    {
+      "question": "¿En qué tipos de causas realizan pericias?",
+      "answer": "El Estudio interviene en causas civiles, laborales, penales y de familia, según las características de cada caso."
+    },
+
+    {
+      "question": "¿Qué diferencia hay entre una pericia psicológica y un informe psicológico?",
+      "answer": "La pericia psicológica tiene finalidad judicial y responde a puntos de pericia dentro de un expediente. El informe psicológico puede tener otros objetivos y no necesariamente forma parte de un proceso judicial."
+    },
+
+    {
+      "question": "¿Cómo se realiza una pericia psicológica?",
+      "answer": "La evaluación puede incluir entrevista clínica, administración de técnicas y tests psicológicos, análisis de la documentación y elaboración del informe pericial."
+    },
+
+    {
+      "question": "¿Cuánto demora una pericia psicológica?",
+      "answer": "El tiempo depende de la complejidad del caso, la documentación disponible y las características de la evaluación."
+    },
+
+    {
+      "question": "¿Qué pruebas psicológicas utilizan?",
+      "answer": "Las técnicas se seleccionan según cada caso. La batería de evaluación depende de la entrevista psicodiagnóstica y de los objetivos periciales."
+    },
+
+    {
+      "question": "¿Debo llevar documentación a la entrevista?",
+      "answer": "Sí. Cuando corresponda, es conveniente aportar la documentación relacionada con el caso para facilitar la evaluación."
+    },
+
+    {
+      "question": "¿Qué sucede después de la evaluación?",
+      "answer": "Una vez finalizada la evaluación se analizan los resultados y se confecciona el informe o la intervención técnica correspondiente."
+    },
+
+        {
+      "question": "¿Qué es el daño psíquico?",
+      "answer": "El daño psíquico consiste en una alteración psicológica atribuible a un hecho determinado, cuya existencia, magnitud y repercusión deben evaluarse mediante una pericia psicológica."
+    },
+
+    {
+      "question": "¿Cómo se evalúa el daño psíquico?",
+      "answer": "Se evalúa mediante entrevistas clínicas, técnicas y tests psicológicos, el análisis de la documentación disponible y la valoración integral de cada caso."
+    },
+
+    {
+      "question": "¿Siempre existe daño psíquico después de un accidente?",
+      "answer": "No. La existencia de daño psíquico debe determinarse en cada caso a partir de una evaluación profesional."
+    },
+
+    {
+      "question": "¿Qué aspectos analiza la evaluación?",
+      "answer": "Se analizan los antecedentes, el funcionamiento psíquico, la repercusión del hecho, los síntomas actuales y el impacto en las distintas áreas de la vida de la persona."
+    },
+
+    {
+      "question": "¿Qué técnicas utilizan para evaluar el daño psíquico?",
+      "answer": "La selección de las técnicas depende de cada caso. La batería de evaluación se define luego de la entrevista psicodiagnóstica."
+    },
+
+    {
+      "question": "¿Puede recomendarse tratamiento psicológico?",
+      "answer": "Sí. Cuando la evaluación lo justifica, el informe puede incluir la recomendación de tratamiento psicológico y una estimación de su duración."
+    },
+
+    {
+      "question": "¿Cómo se determina la incapacidad psicológica?",
+      "answer": "La valoración se realiza considerando los hallazgos de la evaluación, la repercusión funcional y los criterios técnico-científicos aplicables a cada caso."
+    },
+
+    {
+      "question": "¿Qué documentación conviene presentar?",
+      "answer": "Es conveniente aportar toda la documentación relacionada con el hecho, antecedentes médicos o psicológicos e informes que resulten relevantes para la evaluación."
+    },
+
+    {
+      "question": "¿El daño psíquico puede ser permanente?",
+      "answer": "Depende de cada caso. La evaluación profesional determinará si las secuelas son transitorias o presentan características de mayor estabilidad."
+    },
+
+    {
+      "question": "¿El informe explica las conclusiones?",
+      "answer": "Sí. El informe pericial expone los fundamentos técnicos de las conclusiones obtenidas durante la evaluación."
+    },
+
+        {
+      "question": "Soy abogado. ¿Cómo pueden ayudarme?",
+      "answer": "El Estudio brinda asesoramiento técnico a abogados, pericias psicológicas, actuaciones como perito de parte, impugnaciones de informes, consultoría técnica y evaluación de daño psíquico."
+    },
+
+    {
+      "question": "Soy psicólogo. ¿Qué servicios ofrecen para profesionales?",
+      "answer": "El Estudio ofrece supervisión profesional, consultoría técnica, formación especializada, acceso a recursos profesionales y acompañamiento en la práctica pericial."
+    },
+
+    {
+      "question": "¿Qué es un perito de parte?",
+      "answer": "Es el profesional designado por una de las partes para asesorar técnicamente, controlar la producción de la prueba pericial y emitir las observaciones que correspondan."
+    },
+
+    {
+      "question": "¿Realizan impugnaciones de informes psicológicos?",
+      "answer": "Sí. El Estudio realiza análisis técnico e impugnación de informes psicológicos cuando corresponde, fundamentando las observaciones desde criterios científicos y periciales."
+    },
+
+    {
+      "question": "¿Qué es una consultoría técnica?",
+      "answer": "Es un servicio de asesoramiento profesional destinado a analizar aspectos técnicos de una causa judicial y orientar la estrategia desde la psicología forense."
+    },
+
+    {
+      "question": "¿Qué es la supervisión profesional?",
+      "answer": "Es un espacio destinado a psicólogos que desean recibir acompañamiento técnico en evaluaciones, informes periciales, escritos judiciales y práctica profesional."
+    },
+
+    {
+      "question": "¿Disponen de modelos de escritos judiciales?",
+      "answer": "Sí. El Centro de Escritos Judiciales reúne modelos y recursos técnicos destinados a facilitar la práctica profesional y pericial."
+    },
+
+    {
+      "question": "¿Qué recursos ofrece la Biblioteca Profesional?",
+      "answer": "La Biblioteca Profesional reúne material técnico, bibliografía, escritos judiciales, recursos especializados y documentación para la práctica pericial."
+    },
+
+    {
+      "question": "¿Pueden revisar un informe ya realizado?",
+      "answer": "Sí. El Estudio puede analizar informes psicológicos existentes y brindar una opinión técnica o realizar una impugnación cuando corresponda."
+    },
+
+    {
+      "question": "¿Brindan capacitación en psicología forense?",
+      "answer": "Sí. El Estudio desarrolla actividades de formación, supervisión y capacitación destinadas a profesionales interesados en la práctica pericial."
+    },
+
+        {
+      "question": "¿Qué es el Método FALCO®?",
+      "answer": "Es la metodología de trabajo desarrollada por el Estudio para la evaluación psicológica forense, basada en criterios técnicos, organización del proceso pericial y rigurosidad profesional."
+    },
+
+    {
+      "question": "¿Qué es el Programa Premium?",
+      "answer": "Es un espacio de formación y recursos destinado a profesionales que desean profundizar sus conocimientos en psicología forense y práctica pericial."
+    },
+
+    {
+      "question": "¿Qué cursos ofrecen?",
+      "answer": "El Estudio desarrolla propuestas de formación, supervisión y actualización profesional vinculadas con la psicología forense y la actividad pericial."
+    },
+
+    {
+      "question": "¿Qué puedo encontrar en la Biblioteca FALCO®?",
+      "answer": "La Biblioteca reúne material técnico, bibliografía, escritos judiciales, recursos profesionales y documentación especializada para la práctica pericial."
+    },
+
+    {
+      "question": "¿Cómo ingreso a la Biblioteca?",
+      "answer": "El acceso depende del tipo de usuario y de los permisos asignados dentro del Sistema FALCO®."
+    },
+
+    {
+      "question": "¿Cómo me contacto con el Estudio?",
+      "answer": "Podés comunicarte mediante los canales de contacto disponibles en el sitio para realizar consultas o solicitar una entrevista."
+    },
+
+    {
+      "question": "¿Cómo envío documentación?",
+      "answer": "Durante el proceso de admisión o evaluación se informará la forma adecuada de presentar la documentación necesaria."
+    },
+
+    {
+      "question": "¿Qué hago si no encuentro la información que necesito?",
+      "answer": "Podés realizar una consulta describiendo tu situación y AION te orientará hacia el servicio o la sección más adecuada."
+    },
+
+    {
+      "question": "¿Puedo hacer una consulta antes de contratar un servicio?",
+      "answer": "Sí. Podés realizar una consulta inicial para recibir orientación y conocer cuál es el servicio más adecuado para tu caso."
+    },
+
+    {
+      "question": "Necesito orientación sobre mi caso.",
+      "answer": "Contame brevemente tu situación y te ayudaré a identificar el servicio del Estudio que mejor se adapta a tus necesidades."
+    },
+
+        {
+      "question": "¿Qué es un informe pericial psicológico?",
+      "answer": "Es el documento técnico elaborado por el perito psicólogo en el que se desarrollan la evaluación realizada, los fundamentos y las conclusiones periciales."
+    },
+
+    {
+      "question": "¿Qué diferencia hay entre un perito oficial y un perito de parte?",
+      "answer": "El perito oficial es designado por el tribunal. El perito de parte interviene a solicitud de una de las partes para brindar asesoramiento técnico y controlar la producción de la prueba pericial."
+    },
+
+    {
+      "question": "¿Pueden actuar en causas de familia?",
+      "answer": "Sí. El Estudio interviene en causas de familia cuando la naturaleza del caso requiere una evaluación psicológica forense."
+    },
+
+    {
+      "question": "¿Pueden actuar en causas laborales?",
+      "answer": "Sí. El Estudio realiza intervenciones en causas laborales, incluyendo evaluaciones de daño psíquico y pericias psicológicas."
+    },
+
+    {
+      "question": "¿Pueden actuar en causas civiles?",
+      "answer": "Sí. El Estudio desarrolla actividad pericial en el ámbito civil, según las particularidades de cada expediente."
+    },
+
+    {
+      "question": "¿Pueden actuar en causas penales?",
+      "answer": "Sí. El Estudio puede intervenir en causas penales cuando corresponde una evaluación psicológica forense."
+    },
+
+    {
+      "question": "¿Qué experiencia tiene el Estudio?",
+      "answer": "El Estudio desarrolla su actividad en el ámbito de la psicología forense, realizando pericias psicológicas, evaluaciones de daño psíquico, consultorías técnicas y asesoramiento profesional."
+    },
+
+    {
+      "question": "¿Cómo sé qué servicio necesito?",
+      "answer": "Si no estás seguro del servicio adecuado, describí brevemente tu situación y AION te orientará hacia la alternativa más conveniente."
+    },
+
+    {
+      "question": "¿Qué debo hacer antes de la entrevista?",
+      "answer": "Es recomendable reunir la documentación disponible y preparar una breve descripción del motivo de la consulta."
+    },
+
+    {
+      "question": "¿Qué sucede durante la entrevista inicial?",
+      "answer": "Durante la entrevista se analiza la consulta, se evalúa la situación planteada y se determina cuál es el servicio más adecuado."
+    },
+
+    {
+      "question": "¿La información que brindo es confidencial?",
+      "answer": "Sí. La información es tratada conforme a los principios éticos y las normas aplicables al ejercicio profesional."
+    },
+
+    {
+      "question": "¿Cómo eligen las pruebas psicológicas?",
+      "answer": "Las técnicas y los tests se seleccionan en función de la entrevista psicodiagnóstica y de los objetivos específicos de la evaluación."
+    },
+
+    {
+      "question": "¿Trabajan con adultos y adolescentes?",
+      "answer": "La intervención depende del tipo de causa y de las características de la evaluación solicitada."
+    },
+
+    {
+      "question": "¿Qué ocurre si necesito más información?",
+      "answer": "Podés continuar realizando preguntas o solicitar una consulta para recibir orientación específica sobre tu situación."
+    },
+
+    {
+      "question": "¿Cómo funciona AION?",
+      "answer": "AION es el asistente del Sistema FALCO®. Su función es orientar al usuario, responder consultas frecuentes y ayudar a encontrar el servicio o la información adecuada."
+    },
+
+    {
+      "question": "¿AION reemplaza una consulta profesional?",
+      "answer": "No. AION brinda orientación general. Cuando la consulta requiere una evaluación profesional, derivará al servicio correspondiente."
+    },
+
+    {
+      "question": "¿Puedo hacer varias consultas?",
+      "answer": "Sí. Podés realizar todas las consultas que necesites para orientarte dentro del Sistema FALCO®."
+    },
+
+    {
+      "question": "¿Qué pasa si AION no entiende mi consulta?",
+      "answer": "Podés reformular la pregunta o describir tu situación con más detalle para que AION pueda orientarte mejor."
+    },
+
+    {
+      "question": "¿Cómo encuentro la información que busco?",
+      "answer": "Podés escribir tu consulta en lenguaje natural. AION intentará identificar el tema y ofrecer la respuesta más adecuada."
+    },
+
+    {
+      "question": "¿Qué puede hacer AION?",
+      "answer": "AION puede orientar sobre los servicios del Estudio, responder preguntas frecuentes, brindar información sobre pericias psicológicas y guiar al usuario hacia la sección correspondiente del Sistema FALCO®."
+    },
+
+        {
+      "question": "¿Qué es el Sistema FALCO®?",
+      "answer": "El Sistema FALCO® integra los servicios, recursos y herramientas desarrollados por el Estudio Pericial Psicológico para orientar a particulares, abogados y profesionales."
+    },
+
+    {
+      "question": "¿Quién puede utilizar el Sistema FALCO®?",
+      "answer": "El sistema está destinado a particulares, abogados, psicólogos, peritos y otros profesionales que requieran orientación o servicios vinculados con la psicología forense."
+    },
+
+    {
+      "question": "¿Cómo encuentro un servicio?",
+      "answer": "Podés escribir tu consulta en lenguaje natural o navegar por las distintas secciones del sitio. AION te ayudará a encontrar el servicio más adecuado."
+    },
+
+    {
+      "question": "¿Cómo encuentro información técnica?",
+      "answer": "La Biblioteca FALCO® y el Área Profesional reúnen material técnico, escritos judiciales y recursos especializados para profesionales."
+    },
+
+    {
+      "question": "¿Qué hago si mi consulta no aparece aquí?",
+      "answer": "Podés formular tu pregunta con tus propias palabras. AION intentará identificar el tema y orientarte hacia la respuesta más adecuada."
+    },
+
+    {
+      "question": "¿Cómo puedo volver al inicio?",
+      "answer": "Podés regresar a la página principal desde el menú del sitio o utilizando las opciones de navegación disponibles."
+    },
+
+    {
+      "question": "¿Cómo continúo después de leer una respuesta?",
+      "answer": "Podés realizar una nueva consulta, explorar las sugerencias relacionadas o acceder directamente a la sección correspondiente."
+    },
+
+    {
+      "question": "¿Qué tipo de consultas puede responder AION?",
+      "answer": "AION responde consultas relacionadas con los servicios del Estudio, psicología forense, pericias psicológicas, daño psíquico, formación profesional y funcionamiento del Sistema FALCO®."
+    },
+
+    {
+      "question": "¿Puedo escribir mi consulta con mis propias palabras?",
+      "answer": "Sí. No es necesario utilizar frases exactas. AION intentará comprender la intención de la consulta y responder de la forma más adecuada."
+    },
+
+    {
+      "question": "¿Qué hago si necesito atención personalizada?",
+      "answer": "Si tu consulta requiere una evaluación específica o asesoramiento profesional, podés solicitar una entrevista con el Estudio."
+    },
+
+        {
+      "question": "¿Qué es una evaluación psicológica judicial?",
+      "answer": "Es una evaluación psicológica realizada en el marco de un proceso judicial para responder los puntos de pericia o los requerimientos del expediente."
+    },
+
+    {
+      "question": "¿Qué es un psicodiagnóstico?",
+      "answer": "Es un proceso de evaluación psicológica que integra entrevistas, técnicas y tests con el objetivo de comprender el funcionamiento psíquico de la persona evaluada."
+    },
+
+    {
+      "question": "¿Realizan entrevistas presenciales?",
+      "answer": "Sí. La modalidad de la entrevista dependerá de las características del caso y de la organización del Estudio."
+    },
+
+    {
+      "question": "¿Realizan entrevistas virtuales?",
+      "answer": "Sí. Cuando el caso lo permite, la entrevista inicial y determinadas intervenciones pueden realizarse de forma virtual."
+    },
+
+    {
+      "question": "¿Cómo sé si necesito una pericia o un informe?",
+      "answer": "La finalidad de la consulta determinará cuál es el servicio adecuado. Si describís tu situación, AION puede orientarte sobre la alternativa más conveniente."
+    },
+
+    {
+      "question": "¿Puedo consultar aunque todavía no haya iniciado una causa judicial?",
+      "answer": "Sí. Podés realizar una consulta inicial para recibir orientación y evaluar cuál es el servicio más adecuado para tu situación."
+    },
+
+    {
+      "question": "¿Atienden únicamente a particulares?",
+      "answer": "No. El Estudio también brinda servicios a abogados, estudios jurídicos, profesionales e instituciones que requieren intervención en el ámbito de la psicología forense."
+    },
+
+    {
+      "question": "¿Cómo puedo acceder a los recursos profesionales?",
+      "answer": "Los recursos profesionales se encuentran disponibles dentro del Área Profesional y de la Biblioteca FALCO®, según el tipo de acceso habilitado."
+    },
+
+    {
+      "question": "¿Qué diferencia hay entre orientación y asesoramiento profesional?",
+      "answer": "La orientación brinda información general sobre los servicios del Estudio. El asesoramiento profesional implica el análisis específico de un caso concreto."
+    },
+
+    {
+      "question": "¿Con qué puedo ayudarte?",
+      "answer": "Puedo orientarte sobre los servicios del Estudio, responder preguntas frecuentes, ayudarte a identificar el servicio adecuado y guiarte hacia la información que estás buscando dentro del Sistema FALCO®."
+    },
+
+        {
+      "question": "¿Necesito un abogado para solicitar una pericia?",
+      "answer": "Depende del tipo de intervención. En causas judiciales la actuación suele canalizarse a través del abogado o por disposición del tribunal."
+    },
+
+    {
+      "question": "¿Qué debo llevar a la primera entrevista?",
+      "answer": "Es conveniente llevar toda la documentación disponible relacionada con el caso, como expedientes, informes, estudios o constancias que puedan resultar de utilidad."
+    },
+
+    {
+      "question": "¿Cómo sé si mi caso requiere una evaluación psicológica?",
+      "answer": "Si tenés dudas, describí brevemente tu situación. AION puede orientarte sobre si corresponde una evaluación psicológica y cuál es el servicio más adecuado."
+    },
+
+    {
+      "question": "¿Qué sucede si no tengo toda la documentación?",
+      "answer": "Podés realizar igualmente la consulta inicial. Durante la entrevista se evaluará qué documentación resulta necesaria para continuar."
+    },
+
+    {
+      "question": "¿Cuándo conviene solicitar una pericia psicológica?",
+      "answer": "Depende del momento procesal y de las características del caso. El Estudio puede orientarte sobre la conveniencia de la intervención profesional."
+    },
+
+    {
+      "question": "¿Realizan evaluación de daño psíquico en accidentes de tránsito?",
+      "answer": "Sí. El Estudio interviene en la evaluación de daño psíquico cuando las características del caso y la documentación lo requieren."
+    },
+
+    {
+      "question": "¿Realizan evaluaciones en accidentes laborales?",
+      "answer": "Sí. El Estudio realiza evaluaciones psicológicas y de daño psíquico en causas laborales cuando corresponde."
+    },
+
+    {
+      "question": "¿Puedo consultar antes de iniciar una demanda?",
+      "answer": "Sí. La consulta inicial permite analizar la situación y orientar sobre las alternativas disponibles antes de iniciar un proceso judicial."
+    },
+
+    {
+      "question": "¿Cómo elijo el servicio adecuado?",
+      "answer": "No es necesario conocer previamente el nombre del servicio. Describí tu situación y AION te orientará hacia la opción más conveniente."
+    },
+
+    {
+      "question": "¿Dónde puedo obtener más información?",
+      "answer": "Podés continuar consultando a AION o recorrer las distintas secciones del Sistema FALCO® para ampliar la información sobre cada servicio."
+    },
+
+        {
+      "question": "¿Dónde encuentro la Biblioteca FALCO®?",
+      "answer": "Podés acceder a la Biblioteca FALCO® desde el menú principal del sitio o desde el Área Profesional, según el tipo de acceso habilitado."
+    },
+
+    {
+      "question": "¿Cómo ingreso al Área Profesional?",
+      "answer": "El Área Profesional cuenta con un acceso específico para profesionales autorizados mediante su correspondiente inicio de sesión."
+    },
+
+    {
+      "question": "¿Dónde encuentro los honorarios?",
+      "answer": "La información sobre honorarios se encuentra disponible en la sección correspondiente del Sistema FALCO®."
+    },
+
+    {
+      "question": "¿Dónde están los escritos judiciales?",
+      "answer": "Los modelos de escritos judiciales se encuentran en el Centro de Escritos Judiciales dentro del Área Profesional."
+    },
+
+    {
+      "question": "¿Dónde encuentro el Programa Premium?",
+      "answer": "Podés acceder al Programa Premium desde la sección Formación del Sistema FALCO®."
+    },
+
+    {
+      "question": "¿Cómo ingreso a la Escuela FALCO®?",
+      "answer": "La Escuela FALCO® dispone de un acceso específico para alumnos y profesionales habilitados."
+    },
+
+    {
+      "question": "¿Dónde encuentro el material técnico?",
+      "answer": "El material técnico se encuentra organizado en la Biblioteca FALCO®, el Área Profesional y las distintas secciones de recursos especializados."
+    },
+
+    {
+      "question": "¿Cómo ingreso como profesional?",
+      "answer": "Los profesionales pueden acceder mediante el portal de acceso profesional utilizando sus credenciales correspondientes."
+    },
+
+    {
+      "question": "¿Cómo ingreso como periciado?",
+      "answer": "Los periciados cuentan con un acceso específico para completar evaluaciones, cargar documentación y consultar el estado de su proceso."
+    },
+
+    {
+      "question": "¿Cómo vuelvo a la página principal?",
+      "answer": "Podés regresar al inicio utilizando el menú principal del Sistema FALCO® o el enlace correspondiente disponible en el sitio."
+    }
+
+  ]
+}

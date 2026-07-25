@@ -3,23 +3,49 @@
 
   "title": "Contacto",
 
-  "greeting": "Estoy para ayudarte a encontrar el canal de contacto adecuado.",
+  "greeting": "Puedo orientarte sobre cómo comunicarte con el Estudio Pericial Psicológico.",
 
-  "description": "Desde esta sección podrás comunicarte con el Estudio Pericial Psicológico según el tipo de consulta.",
+  "description": "Información sobre los distintos canales de contacto, consultas iniciales y modalidades de atención.",
 
   "suggestions": [
-    "Quiero solicitar una pericia",
-    "Necesito asesoramiento profesional",
-    "Quiero comunicarme por WhatsApp"
+    {
+      "label": "Quiero solicitar una pericia",
+      "response": "Podés comunicarte con el Estudio para coordinar una entrevista inicial y recibir orientación sobre el servicio más adecuado para tu caso."
+    },
+    {
+      "label": "Soy abogado",
+      "response": "Si sos abogado o integrás un estudio jurídico, podés solicitar asesoramiento técnico, consultorías, pericias de parte, impugnaciones o supervisión profesional."
+    },
+    {
+      "label": "Quiero comunicarme por WhatsApp",
+      "response": "Podés utilizar el botón de WhatsApp disponible en el sitio para realizar una consulta inicial."
+    },
+    {
+      "label": "¿Las entrevistas pueden ser virtuales?",
+      "response": "Sí. La entrevista inicial puede realizarse de manera virtual cuando el caso lo permita."
+    },
+    {
+      "label": "Necesito enviar documentación",
+      "response": "Durante el proceso de admisión o evaluación se indicará la documentación necesaria y la forma de enviarla."
+    }
   ],
 
-  "answers": {
-
-    "Quiero solicitar una pericia": "Podés iniciar el contacto para coordinar una entrevista y recibir orientación sobre el proceso pericial.",
-
-    "Necesito asesoramiento profesional": "Si sos abogado o profesional, podés realizar consultas técnicas vinculadas a pericias psicológicas y psicodiagnósticos.",
-
-    "Quiero comunicarme por WhatsApp": "Podés comunicarte directamente mediante el botón de WhatsApp disponible en el sitio."
-
-  }
+  "faq": [
+    {
+      "question": "¿La consulta inicial tiene costo?",
+      "answer": "La modalidad y el arancel de la entrevista inicial se informan al momento de coordinar la consulta."
+    },
+    {
+      "question": "¿Atienden únicamente en Buenos Aires?",
+      "answer": "El Estudio desarrolla su actividad principalmente en la Provincia de Buenos Aires. La entrevista inicial puede realizarse de forma virtual."
+    },
+    {
+      "question": "¿Puedo realizar una consulta antes de contratar el servicio?",
+      "answer": "Sí. Podés comunicarte con el Estudio para recibir una orientación inicial y determinar cuál es el servicio que mejor se adapta a tu situación."
+    },
+    {
+      "question": "¿Cómo coordino una entrevista?",
+      "answer": "Podés iniciar el contacto a través de los medios disponibles en el sitio y se te indicarán los pasos para coordinar la entrevista."
+    }
+  ]
 }

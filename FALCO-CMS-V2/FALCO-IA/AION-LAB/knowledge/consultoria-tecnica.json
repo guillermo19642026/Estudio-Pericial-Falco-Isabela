@@ -1,0 +1,48 @@
+{
+  "slug": "consultoria-tecnica",
+  "title": "Consultoría Técnica",
+  "greeting": "Puedo orientarte sobre el servicio de consultoría técnica del Estudio Pericial Psicológico.",
+  "description": "Información destinada a abogados y profesionales que requieren asesoramiento técnico en materia de psicología forense.",
+
+  "suggestions": [
+    {
+      "label": "¿Qué es una consultoría técnica?",
+      "response": "La consultoría técnica consiste en un asesoramiento profesional destinado a analizar aspectos psicológicos de una causa judicial antes, durante o después de una pericia. Permite evaluar estrategias, interpretar informes y orientar la intervención desde el punto de vista técnico."
+    },
+    {
+      "label": "¿A quién está dirigida?",
+      "response": "Está dirigida principalmente a abogados, estudios jurídicos y profesionales que necesitan apoyo técnico especializado en psicología forense."
+    },
+    {
+      "label": "¿Qué temas pueden consultarse?",
+      "response": "Pueden consultarse estrategias periciales, análisis de informes psicológicos, preparación de puntos de pericia, valoración de daño psíquico, conveniencia de nuevas evaluaciones y otros aspectos técnicos relacionados con una causa."
+    },
+    {
+      "label": "¿Incluye la confección de escritos?",
+      "response": "La consultoría técnica puede complementarse con otros servicios del Estudio, como la elaboración de informes, escritos técnicos, impugnaciones o actuaciones como perito de parte, según las necesidades del caso."
+    },
+    {
+      "label": "Quiero realizar una consulta",
+      "response": "Si desea una consultoría técnica, puede solicitar una entrevista inicial para analizar su caso y determinar el servicio más adecuado."
+    }
+  ],
+
+  "faq": [
+    {
+      "question": "¿La consultoría reemplaza una pericia psicológica?",
+      "answer": "No. La consultoría técnica es un servicio de asesoramiento profesional y no reemplaza una pericia psicológica judicial."
+    },
+    {
+      "question": "¿Está destinada únicamente a abogados?",
+      "answer": "Principalmente sí, aunque también puede estar dirigida a otros profesionales que requieran orientación técnica vinculada con psicología forense."
+    },
+    {
+      "question": "¿Se puede realizar de forma virtual?",
+      "answer": "Sí. La entrevista inicial puede realizarse de manera virtual."
+    },
+    {
+      "question": "¿Se analizan expedientes e informes existentes?",
+      "answer": "Sí. Durante la consultoría pueden analizarse expedientes, informes psicológicos y demás documentación aportada para orientar técnicamente el caso."
+    }
+  ]
+}

@@ -4,76 +4,131 @@
 ========================================================= */
 
 window.KnowledgeEngine = class KnowledgeEngine {
+
   constructor() {
+
     this.cache = {};
 
     this.router = window.AIONRouter
       ? new window.AIONRouter()
       : null;
+
   }
 
   getSlug() {
+
     if (!this.router) {
+
       console.warn(
         "AION Router™ no está disponible."
       );
 
       return "general";
+
     }
 
     const context =
       this.router.getContext();
 
     return context?.knowledge || "general";
+
   }
 
-  async getCurrentPageKnowledge() {
-    const slug = this.getSlug();
 
-    if (this.cache[slug]) {
-      return this.cache[slug];
-    }
+
+
+async getCurrentPageKnowledge() {
+
+  const slug = this.getSlug();
+
+
+
+
+
+  if (this.cache[slug]) {
+    return this.cache[slug];
+  }
+
+  const load = async (name) => {
 
     try {
+
       const response = await fetch(
-        `/FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${slug}.json`
+        `/FALCO-CMS-V2/FALCO-IA/AION-LAB/knowledge/${name}.json`
       );
 
       if (!response.ok) {
-        console.warn(
-          `No se pudo cargar ${slug}.json. Estado: ${response.status}`
-        );
-
-        return this.getFallback(slug);
+        return {};
       }
 
-      const data =
-        await response.json();
-
-      this.cache[slug] = data;
-
-      return data;
+      return await response.json();
 
     } catch (error) {
+
       console.warn(
-        `AION Knowledge™ fallback para ${slug}:`,
+        `No se pudo cargar ${name}.json.`,
         error
       );
 
-      return this.getFallback(slug);
+      return {};
+
     }
+
+  };
+
+  const general = await load("general");
+  const faq = await load("faq");
+  const page = await load(slug);
+
+
+
+const data = {
+
+  ...general,
+
+  ...page,
+
+  faq: [
+    ...(general.faq || []),
+    ...(faq.faq || []),
+    ...(page.faq || [])
+  ],
+
+  answers: {
+    ...(general.answers || {}),
+    ...(page.answers || {})
   }
 
+};
+
+
+  this.cache[slug] = data;
+
+  return data;
+
+}
+
   getFallback(slug = "general") {
+
     return {
+
       slug,
+
       title: "Sistema FALCO®",
+
       greeting:
         "Estoy disponible para orientarte.",
+
       description: "",
+
       suggestions: [],
+
       answers: {},
+
       related: []
+
     };
+
   }
+
 };

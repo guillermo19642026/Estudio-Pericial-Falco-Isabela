@@ -18,9 +18,7 @@ const AIONConversation = {
 
     if (!this.container) return;
 
-    this.knowledge = window.KnowledgeEngine
-      ? new KnowledgeEngine()
-      : null;
+  
 
     this.responseEngine = window.ResponseEngine
       ? new ResponseEngine()
@@ -45,17 +43,21 @@ const AIONConversation = {
      * intenta cargar mediante Knowledge Engine.
      */
 
-    if (this.knowledge) {
-      try {
-        this.data =
-          await this.knowledge.getCurrentPageKnowledge();
-      } catch (error) {
-        console.warn(
-          "AION Conversation™: Knowledge Engine no pudo cargar.",
-          error
-        );
-      }
-    }
+  if (!this.knowledge && window.KnowledgeEngine) {
+  this.knowledge = new window.KnowledgeEngine();
+}
+
+if (this.knowledge) {
+  try {
+    this.data =
+      await this.knowledge.getCurrentPageKnowledge();
+  } catch (error) {
+    console.warn(
+      "AION Conversation™: Knowledge Engine no pudo cargar.",
+      error
+    );
+  }
+}
 
     /*
      * Respaldo seguro:
@@ -81,21 +83,23 @@ const AIONConversation = {
      * Las páginas que ya funcionan no se modifican.
      */
 
-    if (
-      expectedSlug !== "general" &&
-      (
-        !this.data ||
-        loadedSlug === "general" ||
-        loadedSlug !== expectedSlug
-      )
-    ) {
-      const contextualData =
-        await this.loadContextualKnowledge(expectedSlug);
+  if (
+  expectedSlug !== "general" &&
+  (
+    !this.data ||
+    loadedSlug === "general" ||
+    loadedSlug !== expectedSlug
+  )
+) {
 
-      if (contextualData) {
-        this.data = contextualData;
-      }
-    }
+  if (this.knowledge) {
+
+    this.data =
+      await this.knowledge.getCurrentPageKnowledge();
+
+  }
+
+}
 
     /*
      * Respaldo final para evitar una tarjeta vacía.
@@ -384,11 +388,42 @@ const found = lista.find((item) => {
 
 });
 
+if (found) {
+
   return (
-    found?.answer ||
-    found?.response ||
+    found.answer ||
+    found.response ||
     ""
   );
+
+}
+
+/* ==========================================
+   Buscar en FAQ
+========================================== */
+
+const faq = this.data?.faq || [];
+
+const faqFound = faq.find((item) => {
+
+  return (
+    normalize(item.question) ===
+    normalizedQuestion
+  );
+
+});
+
+if (faqFound) {
+
+  return (
+    faqFound.answer ||
+    faqFound.response ||
+    ""
+  );
+
+}
+
+return "";
 
 },
 
