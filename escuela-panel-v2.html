@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Campus Virtual | Escuela para Padres FALCO®
+  </title>
+
+  <meta
+    name="description"
+    content="Campus Virtual de la Escuela para Padres FALCO®. Aprendiendo a ser Padres de un Adolescente®.">
+
+  <!-- =====================================================
+       CSS EXCLUSIVO DEL CAMPUS V2
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="escuela-panel-v2.css">
+
+</head>
+
+<body class="campus-falco">
+
+  <!-- =====================================================
+       FONDO DECORATIVO
+  ====================================================== -->
+
+  <div
+    class="campus-fondo"
+    aria-hidden="true">
+
+    <div class="campus-luz campus-luz-uno"></div>
+    <div class="campus-luz campus-luz-dos"></div>
+    <div class="campus-trama"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="campus-header">
+
+    <div class="campus-header-contenedor">
+
+      <a
+        href="index.html"
+        class="campus-marca"
+        aria-label="Ir al inicio de Escuela para Padres FALCO®">
+
+        <img
+          src="img/logo.png"
+          alt="Escuela para Padres FALCO®"
+          class="campus-marca-logo">
+
+        <div class="campus-marca-texto">
+
+          <strong>
+            Escuela para Padres FALCO®
+          </strong>
+
+          <span>
+            Campus Virtual
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <div class="campus-header-acciones">
+
+        <div class="campus-participante">
+
+          <span class="campus-participante-etiqueta">
+            Participante
+          </span>
+
+          <!--
+            Conservamos este ID para la integración futura
+            con escuela-panel.js.
+          -->
+
+          <strong
+            id="nombreParticipante"
+            class="campus-participante-nombre">
+
+            Bienvenida/o
+
+          </strong>
+
+        </div>
+
+
+        <a
+          id="btnAdminComentarios"
+          href="admin-escuela-comentarios.html"
+          class="campus-btn campus-btn-discreto"
+          style="display: none;">
+
+          Comentarios
+
+        </a>
+
+
+        <button
+          id="btnCerrarSesion"
+          type="button"
+          class="campus-btn campus-btn-salir">
+
+          Cerrar sesión
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="campus-main">
+
+
+    <!-- ===================================================
+         HERO / BIENVENIDA
+    ==================================================== -->
+
+    <section class="campus-hero">
+
+      <div class="campus-hero-contenido">
+
+        <div class="campus-hero-texto">
+
+          <span class="campus-etiqueta">
+            Programa psicoeducativo
+          </span>
+
+          <p class="campus-hero-saludo">
+            Bienvenida/o a tu recorrido formativo
+          </p>
+
+          <h1>
+            Aprendiendo a ser Padres de un Adolescente®
+          </h1>
+
+          <p class="campus-hero-descripcion">
+
+            Un espacio creado para comprender la adolescencia,
+            fortalecer los vínculos familiares y desarrollar
+            herramientas concretas para acompañar esta etapa
+            desde una mirada psicológica, práctica y basada
+            en evidencia.
+
+          </p>
+
+
+          <div class="campus-hero-acciones">
+
+            <a
+              href="#continuarCurso"
+              class="campus-btn campus-btn-principal">
+
+              Continuar mi recorrido
+
+            </a>
+
+            <a
+              href="#antesDeComenzar"
+              class="campus-btn campus-btn-secundario">
+
+              Cómo funciona el curso
+
+            </a>
+
+          </div>
+
+
+          <div class="campus-hero-datos">
+
+            <div class="campus-hero-dato">
+
+              <span class="campus-hero-dato-icono">
+                08
+              </span>
+
+              <div>
+
+                <strong>
+                  Encuentros
+                </strong>
+
+                <small>
+                  Recorrido progresivo
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="campus-hero-dato">
+
+              <span class="campus-hero-dato-icono">
+                24/7
+              </span>
+
+              <div>
+
+                <strong>
+                  Acceso virtual
+                </strong>
+
+                <small>
+                  Avance a tu propio ritmo
+                </small>
+
+              </div>
+
+            </div>
+
+
+            <div class="campus-hero-dato">
+
+              <span class="campus-hero-dato-icono">
+                ✓
+              </span>
+
+              <div>
+
+                <strong>
+                  Certificación
+                </strong>
+
+                <small>
+                  Al completar el programa
+                </small>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="campus-hero-identidad">
+
+          <div class="campus-hero-logo-marco">
+
+            <span class="campus-hero-logo-resplandor"></span>
+
+            <img
+              src="img/logo-escuela.png"
+              alt="Escuela para Padres FALCO®"
+              class="campus-hero-logo">
+
+          </div>
+
+          <div class="campus-hero-firma">
+
+            <span>
+              Coordinación académica
+            </span>
+
+            <strong>
+              Lic. Isabela Falco
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RESUMEN DEL PARTICIPANTE
+    ==================================================== -->
+
+    <section
+      class="campus-seccion campus-resumen"
+      aria-labelledby="tituloResumen">
+
+      <div class="campus-seccion-encabezado">
+
+        <div>
+
+          <span class="campus-etiqueta">
+            Mi espacio
+          </span>
+
+          <h2 id="tituloResumen">
+            Tu recorrido en el Campus
+          </h2>
+
+        </div>
+
+        <p>
+          Desde aquí podés continuar el curso, revisar tu avance
+          y acceder a todos los recursos del programa.
+        </p>
+
+      </div>
+
+
+      <div class="campus-resumen-grid">
+
+
+        <!-- PROGRESO -->
+
+        <article class="campus-card campus-card-progreso">
+
+          <div class="campus-card-encabezado">
+
+            <div>
+
+              <span class="campus-card-kicker">
+                Progreso general
+              </span>
+
+              <h3>
+                Tu avance
+              </h3>
+
+            </div>
+
+            <span class="campus-progreso-porcentaje">
+              0%
+            </span>
+
+          </div>
+
+
+          <div class="campus-progreso-texto">
+
+            <!-- ID conservado para la integración futura -->
+
+            <strong id="textoProgreso">
+              0 de 8 encuentros completados
+            </strong>
+
+            <span>
+              Cada encuentro completado quedará registrado
+              automáticamente.
+            </span>
+
+          </div>
+
+
+          <div
+            class="campus-barra-progreso"
+            role="progressbar"
+            aria-label="Progreso del curso"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0">
+
+            <!-- ID conservado para la integración futura -->
+
+            <div
+              id="barraProgreso"
+              class="campus-barra-progreso-interna">
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- MODALIDAD -->
+
+        <article class="campus-card campus-card-dato">
+
+          <span class="campus-card-icono">
+            ◷
+          </span>
+
+          <span class="campus-card-kicker">
+            Modalidad
+          </span>
+
+          <h3>
+            A tu propio ritmo
+          </h3>
+
+          <p>
+            Accedé a cada encuentro cuando se encuentre habilitado
+            y organizá el recorrido según tus tiempos.
+          </p>
+
+        </article>
+
+
+        <!-- CERTIFICACIÓN -->
+
+        <article class="campus-card campus-card-dato">
+
+          <span class="campus-card-icono">
+            ◇
+          </span>
+
+          <span class="campus-card-kicker">
+            Etapa final
+          </span>
+
+          <h3>
+            Certificación
+          </h3>
+
+          <p>
+            Al finalizar los ocho encuentros se habilitarán
+            la encuesta de satisfacción y el certificado.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTINUAR CURSO
+    ==================================================== -->
+
+    <section
+      id="continuarCurso"
+      class="campus-seccion">
+
+      <article class="campus-continuar">
+
+        <div class="campus-continuar-contenido">
+
+          <span class="campus-etiqueta">
+            Próximo paso
+          </span>
+
+          <h2>
+            Continuá tu recorrido formativo
+          </h2>
+
+          <p>
+            Avanzá encuentro por encuentro, revisá las ideas
+            principales y completá las actividades propuestas
+            antes de continuar.
+          </p>
+
+          <a
+            href="#encuentrosCurso"
+            class="campus-btn campus-btn-principal">
+
+            Ver encuentros
+
+          </a>
+
+        </div>
+
+
+        <div class="campus-continuar-indicador">
+
+          <span>
+            Próximo encuentro
+          </span>
+
+          <strong>
+            Encuentro 1
+          </strong>
+
+          <small>
+            Introducción al recorrido
+          </small>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- ===================================================
+         ENCUENTROS
+    ==================================================== -->
+
+    <section
+      id="encuentrosCurso"
+      class="campus-seccion"
+      aria-labelledby="tituloEncuentros">
+
+      <div class="campus-seccion-encabezado">
+
+        <div>
+
+          <span class="campus-etiqueta">
+            Aula FALCO®
+          </span>
+
+          <h2 id="tituloEncuentros">
+            Encuentros del programa
+          </h2>
+
+        </div>
+
+        <p>
+          Los encuentros están organizados de manera progresiva.
+          Cada uno mantiene la misma estructura para facilitar
+          tu experiencia dentro del Campus.
+        </p>
+
+      </div>
+
+
+      <!--
+        Este contenedor conserva el ID utilizado por
+        escuela-panel.js.
+
+        Durante la Fase 1 contiene tarjetas demostrativas.
+        Más adelante el JavaScript volverá a generarlas
+        dinámicamente.
+      -->
+
+     <div
+  id="contenedorModulos"
+  class="campus-encuentros-grid">
+</div>
+
+
+       
+
+
+    </section>
+
+
+    <!-- ===================================================
+         ANTES DE COMENZAR
+    ==================================================== -->
+
+    <section
+      id="antesDeComenzar"
+      class="campus-seccion campus-inicio">
+
+      <div class="campus-inicio-contenido">
+
+        <div class="campus-inicio-presentacion">
+
+          <span class="campus-etiqueta">
+            Orientación inicial
+          </span>
+
+          <h2>
+            Antes de comenzar
+          </h2>
+
+          <p>
+            Conocer la dinámica del programa te permitirá
+            aprovechar mejor cada encuentro y organizar
+            tu recorrido de manera sencilla.
+          </p>
+
+        </div>
+
+
+        <div class="campus-inicio-pasos">
+
+          <article class="campus-paso">
+
+            <span>
+              01
+            </span>
+
+            <div>
+
+              <h3>
+                Ingresá al encuentro
+              </h3>
+
+              <p>
+                Cada encuentro presenta una clase breve,
+                ideas centrales y una actividad práctica.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="campus-paso">
+
+            <span>
+              02
+            </span>
+
+            <div>
+
+              <h3>
+                Avanzá a tu ritmo
+              </h3>
+
+              <p>
+                Podés revisar los contenidos y volver a ingresar
+                antes de marcar el encuentro como finalizado.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="campus-paso">
+
+            <span>
+              03
+            </span>
+
+            <div>
+
+              <h3>
+                Completá la actividad
+              </h3>
+
+              <p>
+                Las propuestas ayudan a trasladar los contenidos
+                del curso a situaciones familiares concretas.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="campus-paso">
+
+            <span>
+              04
+            </span>
+
+            <div>
+
+              <h3>
+                Registrá tu avance
+              </h3>
+
+              <p>
+                Al finalizar, tu progreso quedará guardado y
+                podrás continuar con la siguiente etapa.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RECURSOS
+    ==================================================== -->
+
+    <section
+      class="campus-seccion"
+      aria-labelledby="tituloRecursos">
+
+      <div class="campus-seccion-encabezado">
+
+        <div>
+
+          <span class="campus-etiqueta">
+            Área del participante
+          </span>
+
+          <h2 id="tituloRecursos">
+            Recursos del programa
+          </h2>
+
+        </div>
+
+        <p>
+          Materiales disponibles para complementar el recorrido,
+          profundizar los contenidos y finalizar la cursada.
+        </p>
+
+      </div>
+
+
+      <div class="campus-recursos-grid">
+
+
+        <article class="campus-recurso campus-recurso-destacado">
+
+          <span class="campus-recurso-icono">
+            📘
+          </span>
+
+          <span class="campus-card-kicker">
+            Recurso principal
+          </span>
+
+          <h3>
+            Libro digital
+          </h3>
+
+          <p>
+            Accedé al libro
+            <strong>
+              Aprendiendo a ser Padres de un Adolescente®
+            </strong>
+            en formato digital.
+          </p>
+
+          <a
+            href="https://drive.google.com/uc?export=download&id=1niWj3Xs4FUzCsGzHeCTXU-G_znxFKTKj"
+            class="campus-btn campus-btn-principal"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Descargar libro
+
+          </a>
+
+        </article>
+
+
+        <article class="campus-recurso">
+
+          <span class="campus-recurso-icono">
+            📝
+          </span>
+
+          <span class="campus-card-kicker">
+            Por encuentro
+          </span>
+
+          <h3>
+            Cuaderno de actividades
+          </h3>
+
+          <p>
+            Ejercicios y propuestas prácticas disponibles
+            dentro de cada etapa del programa.
+          </p>
+
+          <span class="campus-recurso-estado">
+            Acceso progresivo
+          </span>
+
+        </article>
+
+
+        <article class="campus-recurso">
+
+          <span class="campus-recurso-icono">
+            📄
+          </span>
+
+          <span class="campus-card-kicker">
+            Etapa final
+          </span>
+
+          <h3>
+            Certificación
+          </h3>
+
+          <p>
+            La certificación se habilitará luego de completar
+            los ocho encuentros y la encuesta final.
+          </p>
+
+          <a
+            href="#encuestaFinal"
+            class="campus-btn campus-btn-secundario">
+
+            Ver etapa final
+
+          </a>
+
+        </article>
+
+
+        <article class="campus-recurso">
+
+          <span class="campus-recurso-icono">
+            🎁
+          </span>
+
+          <span class="campus-card-kicker">
+            Beneficio final
+          </span>
+
+          <h3>
+            Sorteo del libro
+          </h3>
+
+          <p>
+            Al finalizar la cursada podrás participar del
+            sorteo de un ejemplar impreso.
+          </p>
+
+          <span class="campus-recurso-estado">
+            Disponible al cierre
+          </span>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MENSAJE INSTITUCIONAL
+    ==================================================== -->
+
+    <section class="campus-frase">
+
+      <div class="campus-frase-contenido">
+
+        <span class="campus-frase-comillas">
+          “
+        </span>
+
+        <blockquote>
+
+          Acompañar a un adolescente no significa tener todas
+          las respuestas, sino estar disponible para construir
+          juntos nuevos caminos.
+
+        </blockquote>
+
+        <span>
+          Escuela para Padres FALCO®
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ETAPA FINAL
+    ==================================================== -->
+
+    <section
+      id="encuestaFinal"
+      class="campus-seccion">
+
+      <article class="campus-final">
+
+        <div class="campus-final-contenido">
+
+          <span class="campus-etiqueta">
+            Etapa final
+          </span>
+
+          <h2 id="tituloFinal">
+            Encuesta de satisfacción y certificación
+          </h2>
+
+          <p id="textoFinal">
+
+            Al completar los ocho encuentros se habilitará
+            automáticamente la encuesta final y la descarga
+            de la certificación de participación.
+
+          </p>
+
+          <p class="campus-final-aclaracion">
+
+            Continuá avanzando encuentro por encuentro
+            para completar tu recorrido formativo.
+
+          </p>
+
+        </div>
+
+
+        <div class="campus-final-accion">
+
+          <span class="campus-final-icono">
+            🔒
+          </span>
+
+          <a
+            href="#"
+            id="btnFinal"
+            class="campus-btn campus-btn-bloqueado">
+
+            Disponible al finalizar
+
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- ===================================================
+         PREGUNTAS FRECUENTES
+    ==================================================== -->
+
+    <section
+      class="campus-seccion"
+      aria-labelledby="tituloPreguntas">
+
+      <div class="campus-seccion-encabezado">
+
+        <div>
+
+          <span class="campus-etiqueta">
+            Ayuda
+          </span>
+
+          <h2 id="tituloPreguntas">
+            Preguntas frecuentes
+          </h2>
+
+        </div>
+
+        <p>
+          Información básica para resolver las dudas más habituales
+          durante el recorrido.
+        </p>
+
+      </div>
+
+
+      <div class="campus-faq">
+
+        <details>
+
+          <summary>
+            ¿Debo completar los encuentros en orden?
+          </summary>
+
+          <p>
+            Sí. Se recomienda avanzar progresivamente desde el
+            Encuentro 1 hasta el Encuentro 8 para aprovechar
+            la continuidad de los contenidos.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Puedo volver a ver un encuentro?
+          </summary>
+
+          <p>
+            Podrás volver a ingresar a los encuentros disponibles
+            para revisar sus contenidos y materiales.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Cuánto tiempo necesito para cada encuentro?
+          </summary>
+
+          <p>
+            La duración puede variar según el contenido y el tiempo
+            dedicado a las actividades. El programa está diseñado
+            para realizarse de manera flexible.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Cómo obtengo la certificación?
+          </summary>
+
+          <p>
+            La certificación se habilitará cuando hayas completado
+            los ocho encuentros y la encuesta final de satisfacción.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Este programa reemplaza una consulta psicológica?
+          </summary>
+
+          <p>
+            No. Se trata de un programa formativo y psicoeducativo.
+            No reemplaza procesos psicoterapéuticos ni atención
+            psicológica individual.
+          </p>
+
+        </details>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONSULTAS
+    ==================================================== -->
+
+    <section class="campus-seccion">
+
+      <article class="campus-consultas">
+
+        <div class="campus-consultas-contenido">
+
+          <span class="campus-etiqueta">
+            Soporte y orientación
+          </span>
+
+          <h2>
+            ¿Necesitás realizar una consulta?
+          </h2>
+
+          <p>
+            Para dudas relacionadas con un encuentro específico
+            podrás utilizar el acceso de consulta disponible
+            dentro de cada aula.
+          </p>
+
+          <p>
+            Para consultas generales sobre acceso, materiales
+            o certificación, comunicate con la coordinación
+            de la Escuela para Padres FALCO®.
+          </p>
+
+          <small>
+            Las consultas serán respondidas dentro de las
+            48 horas hábiles.
+          </small>
+
+        </div>
+
+
+        <div class="campus-consultas-accion">
+
+          <a
+            href="https://wa.me/5491132049521?text=Hola,%20soy%20participante%20de%20la%20Escuela%20para%20Padres%20FALCO%C2%AE%20y%20quisiera%20realizar%20una%20consulta."
+            class="campus-btn campus-btn-principal"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Realizar una consulta
+
+          </a>
+
+          <span>
+            Este espacio no constituye atención psicológica
+            individual.
+          </span>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL — SE CONSERVA PARA LA INTEGRACIÓN POSTERIOR
+  ====================================================== -->
+
+  <div
+    id="modalEncuentro"
+    class="campus-modal"
+    aria-hidden="true">
+
+    <div class="campus-modal-card">
+
+      <button
+        type="button"
+        class="campus-modal-cerrar"
+        aria-label="Cerrar">
+
+        ×
+
+      </button>
+
+      <span class="campus-etiqueta">
+        Encuesta breve
+      </span>
+
+      <h2 id="modalTitulo">
+        Finalizar encuentro
+      </h2>
+
+      <p>
+        Antes de finalizar, te invitamos a dejar
+        una breve devolución sobre la experiencia.
+      </p>
+
+      <label for="valoracionEncuentro">
+        Valoración del encuentro
+      </label>
+
+      <select id="valoracionEncuentro">
+
+        <option value="">
+          Seleccionar
+        </option>
+
+        <option value="5">
+          Excelente
+        </option>
+
+        <option value="4">
+          Muy bueno
+        </option>
+
+        <option value="3">
+          Bueno
+        </option>
+
+        <option value="2">
+          Regular
+        </option>
+
+        <option value="1">
+          Necesita mejorar
+        </option>
+
+      </select>
+
+      <label for="comentarioEncuentro">
+        Comentario breve
+      </label>
+
+      <textarea
+        id="comentarioEncuentro"
+        placeholder="Escribí aquí tu comentario..."></textarea>
+
+      <button
+        type="button"
+        class="campus-btn campus-btn-principal campus-btn-ancho">
+
+        Enviar y finalizar encuentro
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="campus-footer">
+
+    <div class="campus-footer-contenido">
+
+      <div class="campus-footer-identidad">
+
+        <img
+          src="img/logo.png"
+          alt="Escuela para Padres FALCO®">
+
+        <div>
+
+          <strong>
+            Escuela para Padres FALCO®
+          </strong>
+
+          <span>
+            Aprendiendo a ser Padres de un Adolescente®
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="campus-footer-grid">
+
+        <div>
+
+          <h3>
+            Soporte
+          </h3>
+
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            WhatsApp: 11 3204 9521
+
+          </a>
+
+          <a href="mailto:estudiopericialpsicologico@gmail.com">
+
+            estudiopericialpsicologico@gmail.com
+
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Modalidad
+          </h3>
+
+          <p>
+            Formación virtual y asincrónica.
+          </p>
+
+          <p>
+            Acceso exclusivo para participantes autorizados.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Coordinación académica
+          </h3>
+
+          <p>
+            Lic. Isabela Falco
+          </p>
+
+          <p>
+            Escuela para Padres FALCO®
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="campus-footer-inferior">
+
+      <span>
+        © 2026 Escuela para Padres FALCO®
+      </span>
+
+      <span>
+        Todos los derechos reservados
+      </span>
+
+    </div>
+
+  </footer>
+
+
+<script type="module" src="escuela-panel-v2.js"></script>
+
+</body>
+
+</html>
