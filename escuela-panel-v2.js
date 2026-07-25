@@ -4,6 +4,15 @@
 ========================================================= */
 
 import {
+  encuentros as encuentrosData
+} from "./escuela-data.js";
+
+import EscuelaProgressEngine
+  from "./escuela-progress-engine.js";
+
+
+
+import {
   auth,
   db
 } from "./firebase-config.js";
@@ -84,84 +93,7 @@ const administradores = [
    INFORMACIÓN DE LOS ENCUENTROS
 ========================================================= */
 
-const encuentros = {
 
-  1: {
-    titulo: "Comprender la adolescencia",
-
-    descripcion:
-      "Una introducción a los cambios físicos, emocionales, psicológicos y vinculares propios de la adolescencia.",
-
-    video:
-      "https://youtu.be/WCho7jEDE04"
-  },
-
-  2: {
-    titulo: "Comunicación efectiva",
-
-    descripcion:
-      "Herramientas para escuchar, comprender y construir una comunicación familiar más clara y respetuosa.",
-
-    video:
-      "https://youtu.be/OKk_VZ9UIG8"
-  },
-
-  3: {
-    titulo: "Emociones y autoestima",
-
-    descripcion:
-      "Recursos para acompañar la expresión emocional y favorecer una autoestima saludable durante la adolescencia.",
-
-    video:
-      "https://youtu.be/dyOhU4rP8Do"
-  },
-
-  4: {
-    titulo: "Identidad y pertenencia",
-
-    descripcion:
-      "Un recorrido por la construcción de la identidad, los grupos de pertenencia y la necesidad de autonomía.",
-
-    video: null
-  },
-
-  5: {
-    titulo: "Redes sociales y tecnología",
-
-    descripcion:
-      "Orientaciones para acompañar el uso de pantallas, redes sociales y entornos digitales de manera responsable.",
-
-    video: null
-  },
-
-  6: {
-    titulo: "Límites saludables",
-
-    descripcion:
-      "Criterios para establecer límites claros, consistentes y respetuosos sin deteriorar el vínculo familiar.",
-
-    video: null
-  },
-
-  7: {
-    titulo: "Salud mental adolescente",
-
-    descripcion:
-      "Indicadores para reconocer cambios emocionales, situaciones de riesgo y momentos en los que conviene consultar.",
-
-    video: null
-  },
-
-  8: {
-    titulo: "Proyecto de vida y cierre",
-
-    descripcion:
-      "Integración de los aprendizajes y acompañamiento del adolescente en la construcción de su proyecto personal.",
-
-    video: null
-  }
-
-};
 
 
 /* =========================================================
@@ -628,11 +560,35 @@ function actualizarEtapaFinal(
    RENDERIZAR LOS OCHO ENCUENTROS
 ========================================================= */
 
+/* =========================================================
+   RENDERIZAR LOS OCHO ENCUENTROS
+========================================================= */
+
 function renderizarEncuentros(datos) {
 
   if (!contenedor) return;
 
   contenedor.innerHTML = "";
+
+  const completadosFirebase = [];
+
+  for (
+    let numero = 1;
+    numero <= 8;
+    numero++
+  ) {
+
+    if (
+      datos[`completado${numero}`] === true
+    ) {
+      completadosFirebase.push(numero);
+    }
+
+  }
+
+  EscuelaProgressEngine.cargarCompletados(
+    completadosFirebase
+  );
 
   for (
     let numero = 1;
@@ -644,10 +600,12 @@ function renderizarEncuentros(datos) {
       datos[`modulo${numero}`] === true;
 
     const completado =
-      datos[`completado${numero}`] === true;
+      EscuelaProgressEngine.estaCompletado(
+        numero
+      );
 
     const encuentro =
-      encuentros[numero];
+      encuentrosData[numero];
 
     contenedor.insertAdjacentHTML(
       "beforeend",
@@ -662,7 +620,6 @@ function renderizarEncuentros(datos) {
   }
 
 }
-
 
 /* =========================================================
    CREAR TARJETA DE ENCUENTRO
@@ -803,77 +760,31 @@ function crearAccionesEncuentro(
 
     <div class="modulo-acciones">
 
-      ${crearBotonVideo(encuentro)}
-
       <a
-        href="escuela/modulo${numero}/cuadernillo.pdf"
-        class="campus-btn campus-btn-secundario campus-btn-ancho"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="encuentro-v2.html?id=${numero}"
+        class="campus-btn campus-btn-principal campus-btn-ancho"
       >
-        Acceder al cuadernillo
+        ${
+          completado
+            ? "Revisar encuentro"
+            : "Ingresar al encuentro"
+        }
       </a>
-
-      <a
-        href="escuela/modulo${numero}/actividad.pdf"
-        class="campus-btn campus-btn-secundario campus-btn-ancho"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Actividad del encuentro
-      </a>
-
-      <a
-        href="escuela/modulo${numero}/presentacion.pptx"
-        class="campus-btn campus-btn-secundario campus-btn-ancho"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Presentación del encuentro
-      </a>
-
-      <a
-        href="escuela/modulo${numero}/recursos.pdf"
-        class="campus-btn campus-btn-secundario campus-btn-ancho"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Recursos adicionales
-      </a>
-
-      <a
-        href="${obtenerLinkConsulta(numero)}"
-        class="campus-btn campus-btn-discreto campus-btn-ancho"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Consultar a la Lic. Isabela Falco
-      </a>
-
-      <p class="consulta-modulo">
-        Las consultas serán respondidas dentro
-        de las 48 horas hábiles.
-      </p>
 
       ${
         completado
           ? `
-            <button
-              type="button"
-              class="campus-btn campus-btn-bloqueado campus-btn-ancho"
-              disabled
-            >
-              Encuentro completado
-            </button>
+            <p class="consulta-modulo">
+              Este encuentro ya fue completado.
+              Podés volver a ingresar para revisar
+              sus contenidos y materiales.
+            </p>
           `
           : `
-            <button
-              type="button"
-              class="campus-btn campus-btn-principal campus-btn-ancho"
-              onclick="marcarCompletado(${numero})"
-            >
-              Finalizar encuentro y dejar comentario
-            </button>
+            <p class="consulta-modulo">
+              Accedé al video, materiales,
+              actividad, consulta y finalización.
+            </p>
           `
       }
 
@@ -955,7 +866,7 @@ function crearEstadoBloqueado() {
 function obtenerLinkConsulta(numero) {
 
   const encuentro =
-    encuentros[numero];
+  encuentrosData[numero];
 
   const titulo =
     encuentro?.titulo ||

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Encuentro | Escuela para Padres FALCO®</title>
+
+  <meta
+    name="description"
+    content="Aula Virtual de la Escuela para Padres FALCO®."
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="encuentro-v2.css"
+  >
+
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ENCABEZADO
+  ====================================================== -->
+
+  <header class="encuentro-header">
+
+    <div class="encuentro-header-contenedor">
+
+      <a
+        href="escuela-panel-v2.html"
+        class="encuentro-marca"
+        aria-label="Volver al Campus Virtual"
+      >
+
+        <span class="encuentro-marca-sello">
+          F
+        </span>
+
+        <span class="encuentro-marca-textos">
+
+          <strong>
+            Escuela para Padres FALCO®
+          </strong>
+
+          <small>
+            Aula Virtual
+          </small>
+
+        </span>
+
+      </a>
+
+      <a
+        href="escuela-panel-v2.html"
+        class="encuentro-volver"
+      >
+        ← Volver al Campus
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="encuentro-main">
+
+    <!-- ===================================================
+         PORTADA DEL ENCUENTRO
+    ==================================================== -->
+
+    <section class="encuentro-portada">
+
+      <div class="encuentro-portada-contenido">
+
+        <div class="encuentro-etiqueta">
+
+          <span id="encuentroNumero">
+            Encuentro
+          </span>
+
+          <span
+            id="encuentroEstado"
+            class="encuentro-estado"
+          >
+            Cargando
+          </span>
+
+        </div>
+
+        <h1 id="encuentroTitulo">
+          Cargando encuentro...
+        </h1>
+
+        <p id="encuentroDescripcion">
+          Estamos preparando el contenido de este encuentro.
+        </p>
+
+        <div class="encuentro-progreso-resumen">
+
+          <div class="encuentro-progreso-textos">
+
+            <span>
+              Progreso del encuentro
+            </span>
+
+            <strong id="encuentroPorcentaje">
+              0%
+            </strong>
+
+          </div>
+
+          <div
+            class="encuentro-progreso-barra"
+            aria-label="Progreso del encuentro"
+          >
+
+            <div
+              id="encuentroProgresoBarra"
+              class="encuentro-progreso-barra-activa"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         NAVEGACIÓN INTERNA
+    ==================================================== -->
+
+    <nav
+      class="encuentro-navegacion"
+      aria-label="Contenido del encuentro"
+    >
+
+      <a href="#clasePrincipal">
+        Clase
+      </a>
+
+      <a href="#objetivos">
+        Objetivos
+      </a>
+
+      <a href="#materiales">
+        Materiales
+      </a>
+
+      <a href="#actividad">
+        Actividad
+      </a>
+
+      <a href="#consulta">
+        Consulta
+      </a>
+
+    </nav>
+
+
+    <!-- ===================================================
+         CLASE PRINCIPAL
+    ==================================================== -->
+
+    <section
+      id="clasePrincipal"
+      class="encuentro-seccion"
+    >
+
+      <div class="encuentro-seccion-encabezado">
+
+        <span class="encuentro-seccion-numero">
+          01
+        </span>
+
+        <div>
+
+          <p class="encuentro-seccion-superior">
+            Contenido principal
+          </p>
+
+          <h2>
+            Clase del encuentro
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="encuentro-video-card">
+
+        <div
+          id="encuentroVideoContenedor"
+          class="encuentro-video-contenedor"
+        >
+
+          <div class="encuentro-video-placeholder">
+
+            <span class="encuentro-video-icono">
+              ▶
+            </span>
+
+            <h3>
+              Video del encuentro
+            </h3>
+
+            <p>
+              El contenido audiovisual se mostrará en este espacio.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="encuentro-video-informacion">
+
+          <div>
+
+            <span class="encuentro-contenido-tipo">
+              Clase audiovisual
+            </span>
+
+            <h3 id="encuentroVideoTitulo">
+              Video principal
+            </h3>
+
+            <p id="encuentroVideoDescripcion">
+              Accedé al desarrollo central de este encuentro.
+            </p>
+
+          </div>
+
+          <button
+            id="btnMarcarVideo"
+            class="encuentro-btn encuentro-btn-secundario"
+            type="button"
+          >
+            Marcar como visto
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         OBJETIVOS
+    ==================================================== -->
+
+    <section
+      id="objetivos"
+      class="encuentro-seccion"
+    >
+
+      <div class="encuentro-seccion-encabezado">
+
+        <span class="encuentro-seccion-numero">
+          02
+        </span>
+
+        <div>
+
+          <p class="encuentro-seccion-superior">
+            Orientación
+          </p>
+
+          <h2>
+            Objetivos del encuentro
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="encuentro-objetivos-card">
+
+        <p class="encuentro-objetivos-intro">
+          Al finalizar este encuentro se espera que puedas:
+        </p>
+
+        <ul id="encuentroObjetivosLista">
+
+          <li>
+            Comprender los conceptos principales desarrollados.
+          </li>
+
+          <li>
+            Reflexionar sobre su aplicación en la vida cotidiana.
+          </li>
+
+          <li>
+            Reconocer herramientas para acompañar a niños y adolescentes.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MATERIALES
+    ==================================================== -->
+
+    <section
+      id="materiales"
+      class="encuentro-seccion"
+    >
+
+      <div class="encuentro-seccion-encabezado">
+
+        <span class="encuentro-seccion-numero">
+          03
+        </span>
+
+        <div>
+
+          <p class="encuentro-seccion-superior">
+            Recursos de estudio
+          </p>
+
+          <h2>
+            Materiales del encuentro
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="encuentro-materiales-grid">
+
+        <!-- CUADERNILLO -->
+
+        <article class="encuentro-material-card">
+
+          <div class="encuentro-material-icono">
+            PDF
+          </div>
+
+          <div class="encuentro-material-contenido">
+
+            <span class="encuentro-contenido-tipo">
+              Material de lectura
+            </span>
+
+            <h3>
+              Cuadernillo
+            </h3>
+
+            <p>
+              Contenido teórico para profundizar los temas del encuentro.
+            </p>
+
+            <a
+              id="enlaceCuadernillo"
+              href="#"
+              class="encuentro-btn encuentro-btn-secundario"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acceder al cuadernillo
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRESENTACIÓN -->
+
+        <article class="encuentro-material-card">
+
+          <div class="encuentro-material-icono">
+            PPT
+          </div>
+
+          <div class="encuentro-material-contenido">
+
+            <span class="encuentro-contenido-tipo">
+              Apoyo visual
+            </span>
+
+            <h3>
+              Presentación
+            </h3>
+
+            <p>
+              Recorrido visual con los principales contenidos trabajados.
+            </p>
+
+            <a
+              id="enlacePresentacion"
+              href="#"
+              class="encuentro-btn encuentro-btn-secundario"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver presentación
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- RECURSOS -->
+
+        <article class="encuentro-material-card">
+
+          <div class="encuentro-material-icono">
+            +
+          </div>
+
+          <div class="encuentro-material-contenido">
+
+            <span class="encuentro-contenido-tipo">
+              Material complementario
+            </span>
+
+            <h3>
+              Recursos adicionales
+            </h3>
+
+            <p>
+              Lecturas, herramientas y materiales complementarios.
+            </p>
+
+            <a
+              id="enlaceRecursos"
+              href="#"
+              class="encuentro-btn encuentro-btn-secundario"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver recursos
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ACTIVIDAD PRÁCTICA
+    ==================================================== -->
+
+    <section
+      id="actividad"
+      class="encuentro-seccion"
+    >
+
+      <div class="encuentro-seccion-encabezado">
+
+        <span class="encuentro-seccion-numero">
+          04
+        </span>
+
+        <div>
+
+          <p class="encuentro-seccion-superior">
+            Aplicación
+          </p>
+
+          <h2>
+            Actividad práctica
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="encuentro-actividad-card">
+
+        <div class="encuentro-actividad-contenido">
+
+          <span class="encuentro-contenido-tipo">
+            Propuesta de reflexión
+          </span>
+
+          <h3 id="encuentroActividadTitulo">
+            Actividad del encuentro
+          </h3>
+
+          <p id="encuentroActividadDescripcion">
+            Realizá la actividad propuesta para integrar los contenidos
+            desarrollados.
+          </p>
+
+        </div>
+
+        <a
+          id="enlaceActividad"
+          href="#"
+          class="encuentro-btn encuentro-btn-principal"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Iniciar actividad
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONSULTA
+    ==================================================== -->
+
+    <section
+      id="consulta"
+      class="encuentro-seccion"
+    >
+
+      <div class="encuentro-seccion-encabezado">
+
+        <span class="encuentro-seccion-numero">
+          05
+        </span>
+
+        <div>
+
+          <p class="encuentro-seccion-superior">
+            Acompañamiento
+          </p>
+
+          <h2>
+            Consulta sobre el encuentro
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="encuentro-consulta-card">
+
+        <div>
+
+          <h3>
+            ¿Necesitás orientación?
+          </h3>
+
+          <p>
+            Podés enviar una consulta relacionada específicamente con los
+            contenidos de este encuentro.
+          </p>
+
+        </div>
+
+        <a
+          id="enlaceConsulta"
+          href="#"
+          class="encuentro-btn encuentro-btn-secundario"
+        >
+          Realizar una consulta
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FINALIZACIÓN
+    ==================================================== -->
+
+    <section class="encuentro-finalizacion">
+
+      <div class="encuentro-finalizacion-contenido">
+
+        <span class="encuentro-contenido-tipo">
+          Cierre del recorrido
+        </span>
+
+        <h2>
+          Finalizar encuentro
+        </h2>
+
+        <p>
+          Cuando hayas revisado la clase, los materiales y la actividad,
+          podés registrar este encuentro como completado.
+        </p>
+
+      </div>
+
+      <button
+        id="btnFinalizarEncuentro"
+        class="encuentro-btn encuentro-btn-principal"
+        type="button"
+      >
+        Finalizar encuentro
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL DE FINALIZACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalFinalizarEncuentro"
+    class="encuentro-modal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="encuentro-modal-fondo"
+      data-cerrar-modal
+    ></div>
+
+    <div
+      class="encuentro-modal-contenido"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalFinalizarTitulo"
+    >
+
+      <button
+        class="encuentro-modal-cerrar"
+        type="button"
+        aria-label="Cerrar"
+        data-cerrar-modal
+      >
+        ×
+      </button>
+
+      <span class="encuentro-modal-icono">
+        ✓
+      </span>
+
+      <h2 id="modalFinalizarTitulo">
+        ¿Finalizar este encuentro?
+      </h2>
+
+      <p>
+        El progreso quedará registrado en tu Campus Virtual.
+      </p>
+
+      <div class="encuentro-modal-acciones">
+
+        <button
+          id="btnCancelarFinalizacion"
+          class="encuentro-btn encuentro-btn-secundario"
+          type="button"
+        >
+          Cancelar
+        </button>
+
+        <button
+          id="btnConfirmarFinalizacion"
+          class="encuentro-btn encuentro-btn-principal"
+          type="button"
+        >
+          Confirmar finalización
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       CARGA
+  ====================================================== -->
+
+  <div
+    id="encuentroLoader"
+    class="encuentro-loader"
+  >
+
+    <div class="encuentro-loader-spinner"></div>
+
+    <p>
+      Cargando encuentro...
+    </p>
+
+  </div>
+
+
+  <!-- =====================================================
+       MENSAJE DE ERROR
+  ====================================================== -->
+
+  <div
+    id="encuentroError"
+    class="encuentro-error"
+    hidden
+  >
+
+    <div class="encuentro-error-contenido">
+
+      <span>
+        !
+      </span>
+
+      <h2>
+        No pudimos cargar el encuentro
+      </h2>
+
+      <p id="encuentroErrorMensaje">
+        Verificá el enlace e intentá nuevamente.
+      </p>
+
+      <a
+        href="escuela-panel-v2.html"
+        class="encuentro-btn encuentro-btn-principal"
+      >
+        Volver al Campus
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       PIE
+  ====================================================== -->
+
+  <footer class="encuentro-footer">
+
+    <div class="encuentro-footer-contenido">
+
+      <p>
+        Escuela para Padres FALCO®
+      </p>
+
+      <span>
+        Sistema FALCO®
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script
+    type="module"
+    src="encuentro-v2.js"
+  ></script>
+
+</body>
+
+</html>
