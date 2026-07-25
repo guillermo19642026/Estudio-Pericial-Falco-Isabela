@@ -45,6 +45,10 @@ const AIONModuleLoader = {
 
   failedModules: [],
 
+    pageContext: "general",
+
+  optionalModules: [],
+
 
   /* =======================================================
      2. RUTA BASE DE AION
@@ -74,75 +78,75 @@ const AIONModuleLoader = {
      son cargados automáticamente.
   ======================================================= */
 
-  getModules() {
+getModules() {
 
-    if (
-      !window.AIONRegistry ||
-      typeof window.AIONRegistry.getModules !== "function"
-    ) {
+  if (
+    !window.AIONRegistry ||
+    typeof window.AIONRegistry.getModulesByContext !== "function"
+  ) {
 
-      throw new Error(
-        "AION Module Loader™ no encontró AION Registry™."
-      );
+    throw new Error(
+      "AION Module Loader™ no encontró AION Registry™."
+    );
 
-    }
-
-
-   return window.AIONRegistry
-  .getModulesByContext(this.pageContext)
-  .filter(module =>
-    module.enabled === true &&
-    module.required === true
-  )
-      .sort(
-        (a, b) =>
-          a.order - b.order
-      )
-      .map(module => {
-
-        if (module.source !== "aion-lab") {
-
-          throw new Error(
-            `Fuente no reconocida: ${module.source} en ${module.id}.`
-          );
-
-        }
+  }
 
 
-        return {
+  return window.AIONRegistry
+    .getModulesByContext(this.pageContext)
+ .filter(module =>
+  module.enabled === true &&
+  module.required === true
+)
+    .sort(
+      (a, b) =>
+        a.order - b.order
+    )
+    .map(module => {
 
-          id:
-            module.id,
+      if (module.source !== "aion-lab") {
 
-          name:
-            module.name,
+        throw new Error(
+          `Fuente no reconocida: ${module.source} en ${module.id}.`
+        );
 
-          file:
-            module.file,
+      }
 
-          description:
-            module.description,
 
-          version:
-            module.version,
+      return {
 
-          group:
-            module.group,
+        id:
+          module.id,
 
-          dependencies:
-            [...module.dependencies],
+        name:
+          module.name,
 
-          contexts:
-            [...module.contexts],
+        file:
+          module.file,
 
-          required:
-            module.required
+        description:
+          module.description,
 
-        };
+        version:
+          module.version,
 
-      });
+        group:
+          module.group,
 
-  },
+        dependencies:
+          [...module.dependencies],
+
+        contexts:
+          [...module.contexts],
+
+        required:
+          module.required
+
+      };
+
+    });
+
+},
 
 
 
@@ -178,6 +182,50 @@ getPageContext() {
   return declaredContext
     .trim()
     .toLowerCase();
+
+},
+
+
+
+/* =======================================================
+   5. DETECCIÓN DE MÓDULOS OPCIONALES
+
+   Lee el atributo data-aion-optional-modules del <body>.
+======================================================= */
+
+getOptionalModules() {
+
+  const body =
+    document.body;
+
+  if (!body) {
+
+    return [];
+
+  }
+
+  const declaredModules =
+    body.dataset.aionOptionalModules;
+
+  if (
+    typeof declaredModules !== "string" ||
+    declaredModules.trim() === ""
+  ) {
+
+    return [];
+
+  }
+
+  return declaredModules
+    .split(",")
+    .map(moduleId =>
+      moduleId
+        .trim()
+        .toLowerCase()
+    )
+    .filter(moduleId =>
+      moduleId !== ""
+    );
 
 },
 
@@ -223,12 +271,21 @@ getPageContext() {
 this.pageContext =
   this.getPageContext();
 
+  this.optionalModules =
+  this.getOptionalModules();
+
 console.log(
   `AION Module Loader™ v${this.version} iniciando...`
 );
 
 console.log(
   `AION Module Loader™ Context: ${this.pageContext}`
+);
+
+
+console.log(
+  "AION Module Loader™ Optional Modules:",
+  this.optionalModules
 );
 
 
@@ -496,6 +553,10 @@ console.log(
 
     pageContext:
       this.pageContext,
+
+    optionalModules:
+      [...this.optionalModules],
+
 
     totalModules:
       this.getModules().length,
