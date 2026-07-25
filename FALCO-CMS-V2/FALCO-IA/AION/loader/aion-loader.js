@@ -49,6 +49,8 @@ const AIONModuleLoader = {
 
   optionalModules: [],
 
+  dependencyValidation: null,
+
 
   /* =======================================================
      2. RUTA BASE DE AION
@@ -231,6 +233,107 @@ getOptionalModules() {
 
 
 
+/* =======================================================
+   6. VALIDACIÓN DE DEPENDENCIAS
+
+   Verifica que las dependencias declaradas por cada módulo:
+
+   - existan dentro del inventario seleccionado;
+   - estén ordenadas antes que el módulo dependiente.
+
+   Esta validación todavía no interrumpe la carga.
+======================================================= */
+
+validateDependencies(modules = this.getModules()) {
+
+  const moduleMap =
+    new Map(
+      modules.map(module => [
+        module.id,
+        module
+      ])
+    );
+
+  const missingDependencies = [];
+
+  const invalidOrderDependencies = [];
+
+
+  modules.forEach(module => {
+
+    module.dependencies.forEach(dependencyId => {
+
+      const dependency =
+        moduleMap.get(dependencyId);
+
+
+      if (!dependency) {
+
+        missingDependencies.push({
+
+          moduleId:
+            module.id,
+
+          dependencyId
+
+        });
+
+        return;
+
+      }
+
+
+      const dependencyIndex =
+        modules.findIndex(item =>
+          item.id === dependencyId
+        );
+
+      const moduleIndex =
+        modules.findIndex(item =>
+          item.id === module.id
+        );
+
+
+      if (dependencyIndex >= moduleIndex) {
+
+        invalidOrderDependencies.push({
+
+          moduleId:
+            module.id,
+
+          dependencyId,
+
+          dependencyIndex,
+
+          moduleIndex
+
+        });
+
+      }
+
+    });
+
+  });
+
+
+  return {
+
+    success:
+      missingDependencies.length === 0 &&
+      invalidOrderDependencies.length === 0,
+
+    totalModules:
+      modules.length,
+
+    missingDependencies,
+
+    invalidOrderDependencies
+
+  };
+
+},
+
+
 
   /* =======================================================
      4. INICIALIZACIÓN GENERAL
@@ -289,9 +392,30 @@ console.log(
 );
 
 
-    try {
+   try {
 
-      await this.loadAllModules();
+ this.dependencyValidation =
+  this.validateDependencies();
+
+const dependencyValidation =
+  this.dependencyValidation;
+
+  console.log(
+    "AION Module Loader™ Dependency Validation:",
+    dependencyValidation
+  );
+
+
+  if (!dependencyValidation.success) {
+
+    throw new Error(
+      "AION Module Loader™ detectó dependencias inválidas."
+    );
+
+  }
+
+
+  await this.loadAllModules();
 
       this.initialized = true;
       this.loading = false;
@@ -556,6 +680,30 @@ console.log(
 
     optionalModules:
       [...this.optionalModules],
+
+
+      dependencyValidation:
+  this.dependencyValidation
+    ? {
+        success:
+          this.dependencyValidation.success,
+
+        totalModules:
+          this.dependencyValidation.totalModules,
+
+        missingDependencies:
+          [
+            ...this.dependencyValidation
+              .missingDependencies
+          ],
+
+        invalidOrderDependencies:
+          [
+            ...this.dependencyValidation
+              .invalidOrderDependencies
+          ]
+      }
+    : null,
 
 
     totalModules:
