@@ -88,12 +88,12 @@ const AIONModuleLoader = {
     }
 
 
-    return window.AIONRegistry
-      .getModules()
-      .filter(module =>
-        module.enabled === true &&
-        module.required === true
-      )
+   return window.AIONRegistry
+  .getModulesByContext(this.pageContext)
+  .filter(module =>
+    module.enabled === true &&
+    module.required === true
+  )
       .sort(
         (a, b) =>
           a.order - b.order
@@ -145,6 +145,45 @@ const AIONModuleLoader = {
   },
 
 
+
+ /* =======================================================
+   4. DETECCIÓN DEL CONTEXTO DE PÁGINA
+
+   Lee el atributo data-aion-context del <body>.
+======================================================= */
+
+getPageContext() {
+
+  const body =
+    document.body;
+
+  if (!body) {
+
+    return "general";
+
+  }
+
+  const declaredContext =
+    body.dataset.aionContext;
+
+  if (
+    typeof declaredContext !== "string" ||
+    declaredContext.trim() === ""
+  ) {
+
+    return "general";
+
+  }
+
+  return declaredContext
+    .trim()
+    .toLowerCase();
+
+},
+
+
+
+
   /* =======================================================
      4. INICIALIZACIÓN GENERAL
   ======================================================= */
@@ -179,11 +218,18 @@ const AIONModuleLoader = {
     }
 
 
-    this.loading = true;
+   this.loading = true;
 
-    console.log(
-      `AION Module Loader™ v${this.version} iniciando...`
-    );
+this.pageContext =
+  this.getPageContext();
+
+console.log(
+  `AION Module Loader™ v${this.version} iniciando...`
+);
+
+console.log(
+  `AION Module Loader™ Context: ${this.pageContext}`
+);
 
 
     try {
@@ -435,37 +481,40 @@ const AIONModuleLoader = {
      cargados y si ocurrió algún error.
   ======================================================= */
 
-  getState() {
+ getState() {
 
-    return {
+  return {
 
-      version:
-        this.version,
+    version:
+      this.version,
 
-      initialized:
-        this.initialized,
+    initialized:
+      this.initialized,
 
-      loading:
-        this.loading,
+    loading:
+      this.loading,
 
-           totalModules:
-        this.getModules().length,
+    pageContext:
+      this.pageContext,
 
-      loadedCount:
-        this.loadedModules.length,
+    totalModules:
+      this.getModules().length,
 
-      failedCount:
-        this.failedModules.length,
+    loadedCount:
+      this.loadedModules.length,
 
-      loadedModules:
-        [...this.loadedModules],
+    failedCount:
+      this.failedModules.length,
 
-      failedModules:
-        [...this.failedModules]
+    loadedModules:
+      [...this.loadedModules],
 
-    };
+    failedModules:
+      [...this.failedModules]
 
-  }
+  };
+
+}
 
 };
 

@@ -1265,6 +1265,50 @@ const AIONRegistry = {
   },
 
 
+
+  /* =======================================================
+     6. OBTENER MÓDULOS POR CONTEXTO
+
+     Devuelve únicamente los módulos compatibles con el
+     contexto solicitado.
+
+     También incluye los módulos marcados como "all",
+     que representan módulos universales.
+  ======================================================= */
+
+  getModulesByContext(context) {
+
+    if (
+      typeof context !== "string" ||
+      !context.trim()
+    ) {
+
+      context = "general";
+
+    }
+
+
+    const normalizedContext =
+      context
+        .trim()
+        .toLowerCase();
+
+
+    return this.getModules()
+      .filter(module =>
+
+        module.contexts.includes("all") ||
+
+        module.contexts.includes(normalizedContext)
+
+      );
+
+  },
+
+
+
+
+
   /* =======================================================
      6. BUSCAR UN MÓDULO POR ID
   ======================================================= */
