@@ -557,7 +557,15 @@
     {
       "question": "¿Cómo vuelvo a la página principal?",
       "answer": "Podés regresar al inicio utilizando el menú principal del Sistema FALCO® o el enlace correspondiente disponible en el sitio."
-    }
+    },
+    {
+  "question": "¿Cuánto demora una pericia?",
+  "answer": "La duración depende del tipo de evaluación, la complejidad del caso, la documentación disponible y la cantidad de entrevistas necesarias. En términos generales, el proceso puede incluir entrevista inicial, administración de técnicas, análisis e informe."
+},
+{
+  "question": "¿Cómo solicito una evaluación?",
+  "answer": "Podés iniciar una consulta desde los canales de contacto del Estudio. Primero se revisa el motivo de consulta y la documentación disponible para indicar el tipo de evaluación o intervención más adecuada."
+}
 
   ]
 }
