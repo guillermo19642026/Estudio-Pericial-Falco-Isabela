@@ -51,6 +51,8 @@ const AIONModuleLoader = {
 
   dependencyValidation: null,
 
+  registryValidation: null,
+
 
   /* =======================================================
      2. RUTA BASE DE AION
@@ -125,6 +127,9 @@ getModules() {
 
         file:
           module.file,
+
+          order:
+  module.order,
 
         description:
           module.description,
@@ -334,6 +339,91 @@ validateDependencies(modules = this.getModules()) {
 },
 
 
+/* =======================================================
+   7. VALIDACIÓN DE INTEGRIDAD DEL REGISTRY
+
+   Comprueba que:
+
+   - no existan IDs duplicados;
+   - no existan órdenes repetidos.
+
+======================================================= */
+
+validateRegistry(modules = this.getModules()) {
+
+  const ids =
+    new Map();
+
+  const orders =
+    new Map();
+
+  const duplicatedIds = [];
+
+  const duplicatedOrders = [];
+
+
+  modules.forEach(module => {
+
+    if (ids.has(module.id)) {
+
+      duplicatedIds.push({
+
+        id: module.id
+
+      });
+
+    } else {
+
+      ids.set(
+        module.id,
+        true
+      );
+
+    }
+
+
+    if (orders.has(module.order)) {
+
+      duplicatedOrders.push({
+
+        order:
+          module.order,
+
+        moduleId:
+          module.id
+
+      });
+
+    } else {
+
+      orders.set(
+        module.order,
+        true
+      );
+
+    }
+
+  });
+
+
+  return {
+
+    success:
+      duplicatedIds.length === 0 &&
+      duplicatedOrders.length === 0,
+
+    duplicatedIds,
+
+    duplicatedOrders,
+
+    totalModules:
+      modules.length
+
+  };
+
+},
+
+
 
   /* =======================================================
      4. INICIALIZACIÓN GENERAL
@@ -393,6 +483,25 @@ console.log(
 
 
    try {
+
+   this.registryValidation =
+  this.validateRegistry();
+
+const registryValidation =
+  this.registryValidation;
+
+console.log(
+  "AION Module Loader™ Registry Validation:",
+  registryValidation
+);
+
+if (!registryValidation.success) {
+
+  throw new Error(
+    "AION Module Loader™ detectó inconsistencias en el Registry."
+  );
+
+}
 
  this.dependencyValidation =
   this.validateDependencies();
@@ -680,6 +789,30 @@ const dependencyValidation =
 
     optionalModules:
       [...this.optionalModules],
+
+
+      registryValidation:
+  this.registryValidation
+    ? {
+        success:
+          this.registryValidation.success,
+
+        totalModules:
+          this.registryValidation.totalModules,
+
+        duplicatedIds:
+          [
+            ...this.registryValidation
+              .duplicatedIds
+          ],
+
+        duplicatedOrders:
+          [
+            ...this.registryValidation
+              .duplicatedOrders
+          ]
+      }
+    : null,
 
 
       dependencyValidation:
