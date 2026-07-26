@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Administración de participantes de la Escuela para Padres del Sistema FALCO®."
+  >
+
+  <title>
+    Participantes | Escuela para Padres | Sistema FALCO®
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="participantes.css"
+  >
+
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <div
+      data-admin-sidebar
+      data-active="participantes"
+      data-base="../"
+    ></div>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="admin-main">
+
+      <!-- ===================================================
+           ENCABEZADO
+      ==================================================== -->
+
+      <header class="admin-header">
+
+        <div>
+
+          <div class="admin-eyebrow">
+            Escuela para Padres
+          </div>
+
+          <h1>
+            Participantes
+          </h1>
+
+          <p class="admin-subtitulo">
+            Gestioná las personas incorporadas al programa, consultá sus
+            datos generales, su estado de acceso y el avance de su recorrido.
+          </p>
+
+        </div>
+
+
+        <div class="admin-user">
+
+          <span class="admin-user-role">
+            Administración
+          </span>
+
+          <strong>
+            Sistema FALCO®
+          </strong>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           ACCIONES PRINCIPALES
+      ==================================================== -->
+
+      <section class="participantes-acciones-superiores">
+
+        <a
+          class="admin-boton admin-boton-secundario"
+          href="../dashboard/dashboard.html"
+        >
+          ← Volver al inicio
+        </a>
+
+        <a
+          class="admin-boton admin-boton-principal"
+          href="../alta/alta-participante.html"
+        >
+          + Nuevo participante
+        </a>
+
+      </section>
+
+
+      <!-- ===================================================
+           RESUMEN GENERAL
+      ==================================================== -->
+
+      <section
+        class="admin-resumen participantes-resumen"
+        aria-label="Resumen de participantes"
+      >
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            Total
+          </span>
+
+          <strong
+            id="totalParticipantes"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Participantes registrados
+          </span>
+
+        </article>
+
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            Activos
+          </span>
+
+          <strong
+            id="totalActivos"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Con acceso habilitado
+          </span>
+
+        </article>
+
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            En curso
+          </span>
+
+          <strong
+            id="totalEnCurso"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Con recorrido iniciado
+          </span>
+
+        </article>
+
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            Finalizados
+          </span>
+
+          <strong
+            id="totalFinalizados"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Con recorrido completo
+          </span>
+
+        </article>
+
+      </section>
+
+
+      <!-- ===================================================
+           LISTADO GENERAL
+      ==================================================== -->
+
+      <section class="admin-seccion participantes-seccion">
+
+        <div class="admin-seccion-header">
+
+          <div>
+
+            <div class="admin-eyebrow">
+              Administración general
+            </div>
+
+            <h2>
+              Listado de participantes
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             FILTROS
+        ================================================ -->
+
+        <div class="participantes-filtros">
+
+          <div class="participantes-campo participantes-campo-busqueda">
+
+            <label for="buscarParticipante">
+              Buscar participante
+            </label>
+
+            <input
+              id="buscarParticipante"
+              name="buscarParticipante"
+              type="search"
+              placeholder="Nombre, apellido, DNI o correo electrónico"
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <div class="participantes-campo">
+
+            <label for="filtroEstado">
+              Estado
+            </label>
+
+            <select
+              id="filtroEstado"
+              name="filtroEstado"
+            >
+              <option value="todos">
+                Todos
+              </option>
+
+              <option value="activo">
+                Activos
+              </option>
+
+              <option value="pendiente">
+                Pendientes
+              </option>
+
+              <option value="inactivo">
+                Inactivos
+              </option>
+
+              <option value="finalizado">
+                Finalizados
+              </option>
+            </select>
+
+          </div>
+
+
+          <div class="participantes-campo">
+
+            <label for="filtroProgreso">
+              Progreso
+            </label>
+
+            <select
+              id="filtroProgreso"
+              name="filtroProgreso"
+            >
+              <option value="todos">
+                Todos
+              </option>
+
+              <option value="sin-iniciar">
+                Sin iniciar
+              </option>
+
+              <option value="en-curso">
+                En curso
+              </option>
+
+              <option value="completo">
+                Completo
+              </option>
+            </select>
+
+          </div>
+
+
+          <div class="participantes-filtros-acciones">
+
+            <button
+              id="btnLimpiarFiltros"
+              class="admin-boton admin-boton-secundario"
+              type="button"
+            >
+              Limpiar filtros
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             TABLA
+        ================================================ -->
+
+        <div
+          id="tablaParticipantesContenedor"
+          class="participantes-tabla-contenedor"
+        >
+
+          <table class="participantes-tabla">
+
+            <thead>
+
+              <tr>
+
+                <th scope="col">
+                  Participante
+                </th>
+
+                <th scope="col">
+                  Contacto
+                </th>
+
+                <th scope="col">
+                  Fecha de alta
+                </th>
+
+                <th scope="col">
+                  Estado
+                </th>
+
+                <th scope="col">
+                  Progreso
+                </th>
+
+                <th
+                  scope="col"
+                  class="participantes-columna-acciones"
+                >
+                  Acciones
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="participantesTablaBody">
+
+              <!--
+                Las filas se cargarán desde participantes.js
+                y posteriormente desde Firebase.
+              -->
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <!-- ===============================================
+             PAGINACIÓN
+        ================================================ -->
+
+        <div
+          id="participantesPaginacion"
+          class="participantes-paginacion"
+          hidden
+        >
+
+          <button
+            id="btnPaginaAnterior"
+            class="admin-boton admin-boton-secundario"
+            type="button"
+          >
+            ← Anterior
+          </button>
+
+          <span id="paginacionInformacion">
+            Página 1
+          </span>
+
+          <button
+            id="btnPaginaSiguiente"
+            class="admin-boton admin-boton-secundario"
+            type="button"
+          >
+            Siguiente →
+          </button>
+
+        </div>
+
+
+        <!-- ===============================================
+             ESTADO VACÍO
+        ================================================ -->
+
+        <div
+          id="estadoVacio"
+          class="admin-empty-state participantes-estado-vacio"
+        >
+
+          <div class="admin-eyebrow">
+            Escuela para Padres
+          </div>
+
+          <h3>
+            Todavía no hay participantes registrados
+          </h3>
+
+          <p>
+            Cuando incorpores una persona al programa, sus datos generales,
+            su estado y su progreso aparecerán en este espacio.
+          </p>
+
+          <a
+            class="admin-boton admin-boton-principal"
+            href="../alta/alta-participante.html"
+          >
+            Registrar primer participante
+          </a>
+
+        </div>
+
+
+        <!-- ===============================================
+             SIN RESULTADOS
+        ================================================ -->
+
+        <div
+          id="estadoSinResultados"
+          class="admin-empty-state participantes-estado-vacio"
+          hidden
+        >
+
+          <div class="admin-eyebrow">
+            Resultado de búsqueda
+          </div>
+
+          <h3>
+            No se encontraron coincidencias
+          </h3>
+
+          <p>
+            Revisá el texto ingresado o modificá los filtros seleccionados.
+          </p>
+
+          <button
+            id="btnRestablecerBusqueda"
+            class="admin-boton admin-boton-principal"
+            type="button"
+          >
+            Restablecer búsqueda
+          </button>
+
+        </div>
+
+
+        <!-- ===============================================
+             ESTADO DE CARGA
+        ================================================ -->
+
+        <div
+          id="estadoCarga"
+          class="participantes-mensaje participantes-mensaje-carga"
+          hidden
+          aria-live="polite"
+        >
+
+          <span
+            class="participantes-spinner"
+            aria-hidden="true"
+          ></span>
+
+          <p>
+            Cargando participantes…
+          </p>
+
+        </div>
+
+
+        <!-- ===============================================
+             ESTADO DE ERROR
+        ================================================ -->
+
+        <div
+          id="estadoError"
+          class="participantes-mensaje participantes-mensaje-error"
+          hidden
+          role="alert"
+        >
+
+          <strong>
+            No fue posible cargar los participantes.
+          </strong>
+
+          <p id="estadoErrorMensaje">
+            Revisá la conexión e intentá nuevamente.
+          </p>
+
+          <button
+            id="btnReintentar"
+            class="admin-boton admin-boton-secundario"
+            type="button"
+          >
+            Reintentar
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           MODAL DE CONFIRMACIÓN
+      ==================================================== -->
+
+      <div
+        id="modalConfirmacion"
+        class="participantes-modal"
+        hidden
+        aria-hidden="true"
+      >
+
+        <div
+          class="participantes-modal-fondo"
+          data-modal-cerrar
+        ></div>
+
+        <div
+          class="participantes-modal-contenido"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modalConfirmacionTitulo"
+        >
+
+          <div class="admin-eyebrow">
+            Confirmación
+          </div>
+
+          <h2 id="modalConfirmacionTitulo">
+            Confirmar acción
+          </h2>
+
+          <p id="modalConfirmacionTexto">
+            ¿Deseás continuar con esta acción?
+          </p>
+
+          <div class="participantes-modal-acciones">
+
+            <button
+              id="btnCancelarAccion"
+              class="admin-boton admin-boton-secundario"
+              type="button"
+            >
+              Cancelar
+            </button>
+
+            <button
+              id="btnConfirmarAccion"
+              class="admin-boton admin-boton-principal"
+              type="button"
+            >
+              Confirmar
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="participantes.js"
+  ></script>
+
+  <script
+    type="module"
+    src="../shared/components/falco-admin-sidebar.js"
+  ></script>
+
+</body>
+
+</html>

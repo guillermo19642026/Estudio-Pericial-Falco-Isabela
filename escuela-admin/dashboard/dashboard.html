@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Administración Escuela para Padres | Sistema FALCO®
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="dashboard.css"
+  >
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- BARRA LATERAL REUTILIZABLE -->
+
+    <div
+      data-admin-sidebar
+      data-active="dashboard"
+      data-base="../"
+    ></div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="admin-main">
+
+      <header class="admin-header">
+
+        <div>
+
+          <p class="admin-eyebrow">
+            Panel administrativo
+          </p>
+
+          <h1>
+            Escuela para Padres
+          </h1>
+
+          <p class="admin-subtitulo">
+            Administración de participantes, encuentros,
+            progreso y certificaciones.
+          </p>
+
+        </div>
+
+        <div class="admin-user">
+
+          <span class="admin-user-role">
+            Administrador
+          </span>
+
+          <strong id="adminNombre">
+            Sistema FALCO®
+          </strong>
+
+        </div>
+
+      </header>
+
+      <!-- TARJETAS -->
+
+      <section class="admin-resumen">
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            Participantes
+          </span>
+
+          <strong
+            id="totalParticipantes"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <a href="../participantes/participantes.html">
+            Ver participantes
+          </a>
+
+        </article>
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            En curso
+          </span>
+
+          <strong
+            id="participantesEnCurso"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Participantes activos
+          </span>
+
+        </article>
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            Finalizados
+          </span>
+
+          <strong
+            id="participantesFinalizados"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Con el 100% completado
+          </span>
+
+        </article>
+
+        <article class="admin-card">
+
+          <span class="admin-card-label">
+            Certificados
+          </span>
+
+          <strong
+            id="totalCertificados"
+            class="admin-card-numero"
+          >
+            0
+          </strong>
+
+          <span class="admin-card-texto">
+            Certificados emitidos
+          </span>
+
+        </article>
+
+      </section>
+
+      <!-- ACCESOS PRINCIPALES -->
+
+      <section class="admin-seccion">
+
+        <div class="admin-seccion-header">
+
+          <div>
+
+            <p class="admin-eyebrow">
+              Gestión
+            </p>
+
+            <h2>
+              Accesos principales
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div class="admin-accesos">
+
+          <a
+            href="../alta/alta-participante.html"
+            class="admin-acceso"
+          >
+
+            <span class="admin-acceso-numero">
+              01
+            </span>
+
+            <div>
+
+              <h3>
+                Crear participante
+              </h3>
+
+              <p>
+                Registrar un nuevo participante
+                y preparar su acceso a la escuela.
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="../participantes/participantes.html"
+            class="admin-acceso"
+          >
+
+            <span class="admin-acceso-numero">
+              02
+            </span>
+
+            <div>
+
+              <h3>
+                Administrar participantes
+              </h3>
+
+              <p>
+                Consultar datos, progreso,
+                estados y certificaciones.
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="#"
+            class="admin-acceso"
+          >
+
+            <span class="admin-acceso-numero">
+              03
+            </span>
+
+            <div>
+
+              <h3>
+                Gestionar encuentros
+              </h3>
+
+              <p>
+                Revisar contenidos, videos
+                y materiales de los ocho encuentros.
+              </p>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- ACTIVIDAD RECIENTE -->
+
+      <section class="admin-seccion">
+
+        <div class="admin-seccion-header">
+
+          <div>
+
+            <p class="admin-eyebrow">
+              Seguimiento
+            </p>
+
+            <h2>
+              Actividad reciente
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div class="admin-empty-state">
+
+          <p>
+            La actividad de los participantes aparecerá
+            en esta sección cuando conectemos el panel
+            con Firebase.
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script
+    type="module"
+    src="dashboard.js"
+  ></script>
+
+  <script
+    type="module"
+    src="../shared/components/falco-admin-sidebar.js"
+  ></script>
+
+</body>
+
+</html>

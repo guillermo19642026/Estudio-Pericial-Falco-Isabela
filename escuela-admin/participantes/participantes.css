@@ -1,0 +1,1008 @@
+/* =========================================================
+   SISTEMA FALCO®
+   ESCUELA PARA PADRES
+   MÓDULO PARTICIPANTES
+
+   Archivo:
+   escuela-admin/participantes/participantes.css
+
+   Versión:
+   Participantes Admin™ v1.0
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES DEL MÓDULO
+========================================================= */
+
+:root {
+  --participantes-dorado: #d4af37;
+  --participantes-dorado-claro: #f1dc8a;
+  --participantes-dorado-suave: rgba(212, 175, 55, 0.12);
+
+  --participantes-azul: #08172f;
+  --participantes-azul-medio: #102448;
+  --participantes-azul-claro: #18345f;
+
+  --participantes-texto: #e9eef8;
+  --participantes-texto-secundario: #aebbd0;
+  --participantes-texto-oscuro: #152039;
+
+  --participantes-borde: rgba(212, 175, 55, 0.22);
+  --participantes-borde-suave: rgba(255, 255, 255, 0.09);
+
+  --participantes-fondo-panel: rgba(12, 29, 57, 0.78);
+  --participantes-fondo-control: rgba(255, 255, 255, 0.055);
+
+  --participantes-exito: #5ed6a5;
+  --participantes-advertencia: #efc76a;
+  --participantes-error: #ef7a88;
+  --participantes-info: #74a7ef;
+
+  --participantes-sombra:
+    0 24px 65px rgba(0, 0, 0, 0.22);
+
+  --participantes-radio: 20px;
+  --participantes-transicion: 180ms ease;
+}
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.participantes-seccion {
+  position: relative;
+  overflow: visible;
+}
+
+
+/* =========================================================
+   ACCIONES SUPERIORES
+========================================================= */
+
+.participantes-acciones-superiores {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin: 0 0 30px;
+}
+
+
+/* =========================================================
+   TARJETAS DE RESUMEN
+========================================================= */
+
+.participantes-resumen {
+  margin-bottom: 34px;
+}
+
+.participantes-resumen .admin-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 175px;
+
+  transition:
+    transform var(--participantes-transicion),
+    border-color var(--participantes-transicion),
+    box-shadow var(--participantes-transicion);
+}
+
+.participantes-resumen .admin-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--participantes-dorado),
+      transparent
+    );
+
+  opacity: 0.75;
+}
+
+.participantes-resumen .admin-card::after {
+  content: "";
+
+  position: absolute;
+  top: -55px;
+  right: -55px;
+
+  width: 130px;
+  height: 130px;
+
+  border: 1px solid rgba(212, 175, 55, 0.13);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.participantes-resumen .admin-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(212, 175, 55, 0.38);
+
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.participantes-filtros {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 1.8fr)
+    minmax(170px, 0.75fr)
+    minmax(170px, 0.75fr)
+    auto;
+
+  align-items: end;
+  gap: 18px;
+
+  margin: 28px 0 26px;
+  padding: 22px;
+
+  border: 1px solid var(--participantes-borde-suave);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+.participantes-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.participantes-campo label {
+  color: var(--participantes-texto-secundario);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.participantes-campo input,
+.participantes-campo select {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 0 15px;
+
+  border: 1px solid var(--participantes-borde-suave);
+  border-radius: 12px;
+  outline: none;
+
+  color: var(--participantes-texto);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+
+  transition:
+    border-color var(--participantes-transicion),
+    background var(--participantes-transicion),
+    box-shadow var(--participantes-transicion);
+}
+
+.participantes-campo input::placeholder {
+  color: rgba(174, 187, 208, 0.62);
+}
+
+.participantes-campo input:hover,
+.participantes-campo select:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.participantes-campo input:focus,
+.participantes-campo select:focus {
+  border-color: var(--participantes-dorado);
+
+  background: rgba(255, 255, 255, 0.075);
+
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.11);
+}
+
+.participantes-campo select {
+  cursor: pointer;
+}
+
+.participantes-campo select option {
+  color: #17213a;
+  background: #ffffff;
+}
+
+.participantes-filtros-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.participantes-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+
+  border: 1px solid var(--participantes-borde-suave);
+  border-radius: var(--participantes-radio);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.15);
+}
+
+.participantes-tabla {
+  width: 100%;
+  min-width: 980px;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.participantes-tabla thead {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(212, 175, 55, 0.1),
+      rgba(212, 175, 55, 0.035)
+    );
+}
+
+.participantes-tabla th {
+  padding: 17px 18px;
+
+  border-bottom: 1px solid var(--participantes-borde);
+
+  color: var(--participantes-dorado-claro);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.participantes-tabla td {
+  padding: 18px;
+
+  border-bottom: 1px solid var(--participantes-borde-suave);
+
+  color: var(--participantes-texto);
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+
+  vertical-align: middle;
+}
+
+.participantes-tabla tbody tr {
+  transition:
+    background var(--participantes-transicion),
+    box-shadow var(--participantes-transicion);
+}
+
+.participantes-tabla tbody tr:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.participantes-tabla tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.participantes-columna-acciones {
+  text-align: right !important;
+}
+
+
+/* =========================================================
+   PARTICIPANTE DENTRO DE LA TABLA
+========================================================= */
+
+.participante-identidad {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  min-width: 230px;
+}
+
+.participante-avatar {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  border-radius: 50%;
+
+  color: var(--participantes-dorado-claro);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(212, 175, 55, 0.18),
+      rgba(212, 175, 55, 0.055)
+    );
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+.participante-identidad-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.participante-identidad-texto strong {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 0.94rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.participante-identidad-texto span {
+  color: var(--participantes-texto-secundario);
+
+  font-size: 0.79rem;
+}
+
+.participante-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 180px;
+}
+
+.participante-contacto a,
+.participante-contacto span {
+  color: var(--participantes-texto-secundario);
+
+  font-size: 0.82rem;
+
+  text-decoration: none;
+}
+
+.participante-contacto a:hover {
+  color: var(--participantes-dorado-claro);
+}
+
+
+/* =========================================================
+   BADGES DE ESTADO
+========================================================= */
+
+.participante-estado {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-width: 92px;
+
+  padding: 7px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.participante-estado::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  box-shadow: 0 0 8px currentColor;
+}
+
+.participante-estado--activo {
+  border-color: rgba(94, 214, 165, 0.3);
+
+  color: var(--participantes-exito);
+
+  background: rgba(94, 214, 165, 0.09);
+}
+
+.participante-estado--pendiente {
+  border-color: rgba(239, 199, 106, 0.3);
+
+  color: var(--participantes-advertencia);
+
+  background: rgba(239, 199, 106, 0.09);
+}
+
+.participante-estado--inactivo {
+  border-color: rgba(174, 187, 208, 0.22);
+
+  color: var(--participantes-texto-secundario);
+
+  background: rgba(174, 187, 208, 0.07);
+}
+
+.participante-estado--finalizado {
+  border-color: rgba(116, 167, 239, 0.3);
+
+  color: var(--participantes-info);
+
+  background: rgba(116, 167, 239, 0.09);
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+.participante-progreso {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 145px;
+}
+
+.participante-progreso-barra {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 7px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.participante-progreso-valor {
+  display: block;
+
+  width: 0;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b98d20,
+      var(--participantes-dorado-claro)
+    );
+
+  box-shadow:
+    0 0 12px rgba(212, 175, 55, 0.36);
+
+  transition: width 300ms ease;
+}
+
+.participante-progreso-numero {
+  min-width: 38px;
+
+  color: var(--participantes-dorado-claro);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   ACCIONES POR FILA
+========================================================= */
+
+.participante-acciones-fila {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.participante-boton-accion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 36px;
+
+  padding: 7px 11px;
+
+  border: 1px solid var(--participantes-borde-suave);
+  border-radius: 9px;
+
+  color: var(--participantes-texto);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition:
+    color var(--participantes-transicion),
+    border-color var(--participantes-transicion),
+    background var(--participantes-transicion),
+    transform var(--participantes-transicion);
+}
+
+.participante-boton-accion:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(212, 175, 55, 0.4);
+
+  color: var(--participantes-dorado-claro);
+
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.participante-boton-accion--peligro:hover {
+  border-color: rgba(239, 122, 136, 0.45);
+
+  color: var(--participantes-error);
+
+  background: rgba(239, 122, 136, 0.08);
+}
+
+
+/* =========================================================
+   PAGINACIÓN
+========================================================= */
+
+.participantes-paginacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  margin-top: 25px;
+}
+
+.participantes-paginacion[hidden] {
+  display: none;
+}
+
+.participantes-paginacion span {
+  color: var(--participantes-texto-secundario);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   ESTADOS VACÍOS
+========================================================= */
+
+.participantes-estado-vacio {
+  max-width: 720px;
+
+  margin: 30px auto 0;
+  padding: 52px 34px;
+}
+
+.participantes-estado-vacio[hidden] {
+  display: none;
+}
+
+.participantes-estado-vacio h3 {
+  margin: 10px 0 12px;
+
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  line-height: 1.2;
+}
+
+.participantes-estado-vacio p {
+  max-width: 570px;
+
+  margin: 0 auto 24px;
+
+  color: var(--participantes-texto-secundario);
+
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MENSAJES DE CARGA Y ERROR
+========================================================= */
+
+.participantes-mensaje {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  min-height: 190px;
+
+  margin-top: 28px;
+  padding: 30px;
+
+  border: 1px solid var(--participantes-borde-suave);
+  border-radius: var(--participantes-radio);
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.participantes-mensaje[hidden] {
+  display: none;
+}
+
+.participantes-mensaje p {
+  margin: 0;
+
+  color: var(--participantes-texto-secundario);
+}
+
+.participantes-mensaje strong {
+  color: #ffffff;
+}
+
+.participantes-mensaje-error {
+  border-color: rgba(239, 122, 136, 0.3);
+
+  background: rgba(239, 122, 136, 0.055);
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.participantes-spinner {
+  width: 34px;
+  height: 34px;
+
+  border: 3px solid rgba(212, 175, 55, 0.17);
+  border-top-color: var(--participantes-dorado);
+  border-radius: 50%;
+
+  animation:
+    participantesSpinner 750ms linear infinite;
+}
+
+@keyframes participantesSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.participantes-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 22px;
+}
+
+.participantes-modal[hidden] {
+  display: none;
+}
+
+.participantes-modal-fondo {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(2, 8, 20, 0.78);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.participantes-modal-contenido {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 520px);
+
+  padding: 34px;
+
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #102448,
+      #08172f
+    );
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.48);
+}
+
+.participantes-modal-contenido h2 {
+  margin: 10px 0 13px;
+
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+}
+
+.participantes-modal-contenido p {
+  margin: 0;
+
+  color: var(--participantes-texto-secundario);
+
+  line-height: 1.7;
+}
+
+.participantes-modal-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+
+/* =========================================================
+   COMPORTAMIENTO DE HIDDEN
+========================================================= */
+
+#tablaParticipantesContenedor[hidden],
+#estadoVacio[hidden],
+#estadoSinResultados[hidden],
+#estadoCarga[hidden],
+#estadoError[hidden] {
+  display: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .participantes-filtros {
+    grid-template-columns:
+      minmax(250px, 1.4fr)
+      minmax(160px, 0.8fr)
+      minmax(160px, 0.8fr);
+  }
+
+  .participantes-filtros-acciones {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+}
+
+
+@media (max-width: 820px) {
+
+  .participantes-acciones-superiores {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .participantes-acciones-superiores .admin-boton {
+    width: 100%;
+  }
+
+  .participantes-filtros {
+    grid-template-columns: 1fr;
+
+    padding: 18px;
+  }
+
+  .participantes-filtros-acciones {
+    grid-column: auto;
+  }
+
+  .participantes-filtros-acciones .admin-boton {
+    width: 100%;
+  }
+
+  .participantes-modal-contenido {
+    padding: 28px 22px;
+  }
+
+  .participantes-modal-acciones {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .participantes-modal-acciones .admin-boton {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .participantes-resumen .admin-card {
+    min-height: 150px;
+  }
+
+  .participantes-estado-vacio {
+    padding: 38px 20px;
+  }
+
+  .participantes-paginacion {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .participantes-paginacion .admin-boton {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   BOTONES DEL MÓDULO PARTICIPANTES
+   Corrección visual sobre estilos heredados
+========================================================= */
+
+.participantes-seccion .admin-boton-principal,
+.participantes-acciones-superiores .admin-boton-principal,
+#estadoVacio .admin-boton-principal,
+#estadoSinResultados .admin-boton-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 46px;
+  padding: 12px 20px;
+
+  border: 1px solid #d4af37;
+  border-radius: 11px;
+
+  color: #08172f !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f1dc8a 0%,
+      #d4af37 52%,
+      #b98d20 100%
+    ) !important;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.79rem;
+  font-weight: 700;
+
+  letter-spacing: 0.025em;
+  text-decoration: none !important;
+
+  box-shadow:
+    0 10px 24px rgba(212, 175, 55, 0.18);
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.participantes-seccion .admin-boton-principal:hover,
+.participantes-acciones-superiores .admin-boton-principal:hover,
+#estadoVacio .admin-boton-principal:hover,
+#estadoSinResultados .admin-boton-principal:hover {
+  transform: translateY(-2px);
+
+  color: #08172f !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f6e8ad 0%,
+      #dfbd4c 52%,
+      #c69b2c 100%
+    ) !important;
+
+  box-shadow:
+    0 15px 32px rgba(212, 175, 55, 0.28);
+
+  filter: brightness(1.03);
+}
+
+.participantes-seccion .admin-boton-principal:focus-visible,
+.participantes-acciones-superiores .admin-boton-principal:focus-visible,
+#estadoVacio .admin-boton-principal:focus-visible,
+#estadoSinResultados .admin-boton-principal:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.2),
+    0 15px 32px rgba(212, 175, 55, 0.24);
+}
+
+.participantes-seccion .admin-boton-principal:visited,
+.participantes-acciones-superiores .admin-boton-principal:visited,
+#estadoVacio .admin-boton-principal:visited,
+#estadoSinResultados .admin-boton-principal:visited {
+  color: #08172f !important;
+}

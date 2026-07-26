@@ -1,0 +1,957 @@
+/* =========================================================
+   SISTEMA FALCO®
+   ESCUELA PARA PADRES
+   FICHA DEL PARTICIPANTE
+
+   Archivo específico del módulo:
+   escuela-admin/ficha/participante.css
+
+   Los estilos generales se encuentran en:
+   ../shared/css/admin-framework.css
+========================================================= */
+
+
+/* =========================================================
+   ACCIONES SUPERIORES
+========================================================= */
+
+.participante-acciones-superiores {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   TARJETAS DE RESUMEN
+========================================================= */
+
+.admin-resumen {
+  margin-bottom: 30px;
+}
+
+.admin-resumen .admin-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-resumen .admin-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 175, 55, 0.75),
+      transparent
+    );
+}
+
+.admin-resumen .admin-card::after {
+  content: "";
+
+  position: absolute;
+  top: -45px;
+  right: -45px;
+
+  width: 110px;
+  height: 110px;
+
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   INFORMACIÓN GENERAL
+========================================================= */
+
+#participanteDatos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.participante-dato {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  min-width: 0;
+  padding: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+.participante-dato--completo {
+  grid-column: 1 / -1;
+}
+
+.participante-dato span {
+  color: #8f9db4;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.participante-dato strong,
+.participante-dato p,
+.participante-dato a {
+  margin: 0;
+
+  color: #e9eef8;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+.participante-dato p {
+  color: #c4cede;
+  font-weight: 400;
+}
+
+.participante-dato a {
+  color: #f1dc8a;
+
+  text-decoration: none;
+}
+
+.participante-dato a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   CABECERA DE IDENTIDAD DEL PARTICIPANTE
+========================================================= */
+
+.participante-identidad-principal {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  grid-column: 1 / -1;
+
+  padding: 22px;
+
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(212, 175, 55, 0.08),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+.participante-avatar-grande {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+
+  width: 72px;
+  height: 72px;
+
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 50%;
+
+  color: #f1dc8a;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(212, 175, 55, 0.2),
+      rgba(212, 175, 55, 0.055)
+    );
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.participante-identidad-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  min-width: 0;
+}
+
+.participante-identidad-contenido h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.participante-identidad-contenido p {
+  margin: 0;
+
+  color: #aebbd0;
+
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.participante-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  width: fit-content;
+
+  padding: 7px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.participante-badge::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  box-shadow: 0 0 8px currentColor;
+}
+
+.participante-badge--activo {
+  border-color: rgba(94, 214, 165, 0.3);
+
+  color: #5ed6a5;
+
+  background: rgba(94, 214, 165, 0.08);
+}
+
+.participante-badge--pendiente {
+  border-color: rgba(239, 199, 106, 0.3);
+
+  color: #efc76a;
+
+  background: rgba(239, 199, 106, 0.08);
+}
+
+.participante-badge--inactivo {
+  border-color: rgba(174, 187, 208, 0.25);
+
+  color: #aebbd0;
+
+  background: rgba(174, 187, 208, 0.07);
+}
+
+.participante-badge--finalizado {
+  border-color: rgba(116, 167, 239, 0.3);
+
+  color: #74a7ef;
+
+  background: rgba(116, 167, 239, 0.08);
+}
+
+
+/* =========================================================
+   PROGRESO GENERAL
+========================================================= */
+
+.participante-progreso-general {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.participante-progreso-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.participante-progreso-cabecera span {
+  color: #aebbd0;
+
+  font-size: 0.82rem;
+}
+
+.participante-progreso-cabecera strong {
+  color: #f1dc8a;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+}
+
+.participante-progreso-barra {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 10px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.participante-progreso-valor {
+  display: block;
+
+  width: 0;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b98d20,
+      #f1dc8a
+    );
+
+  box-shadow:
+    0 0 14px rgba(212, 175, 55, 0.35);
+
+  transition: width 350ms ease;
+}
+
+
+/* =========================================================
+   HISTORIAL
+========================================================= */
+
+#participanteHistorial {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.participante-historial-item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  gap: 14px;
+
+  padding: 0 0 24px;
+}
+
+.participante-historial-item:last-child {
+  padding-bottom: 0;
+}
+
+.participante-historial-item::before {
+  content: "";
+
+  position: absolute;
+  top: 13px;
+  left: 6px;
+
+  width: 1px;
+  height: calc(100% - 1px);
+
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.participante-historial-item:last-child::before {
+  display: none;
+}
+
+.participante-historial-marca {
+  position: relative;
+  z-index: 1;
+
+  width: 13px;
+  height: 13px;
+  margin-top: 5px;
+
+  border: 3px solid #102448;
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.4),
+    0 0 10px rgba(212, 175, 55, 0.28);
+}
+
+.participante-historial-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.participante-historial-contenido strong {
+  color: #ffffff;
+
+  font-size: 0.9rem;
+}
+
+.participante-historial-contenido p {
+  margin: 0;
+
+  color: #aebbd0;
+
+  font-size: 0.81rem;
+  line-height: 1.55;
+}
+
+.participante-historial-fecha {
+  color: #8f9db4;
+
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ENCUENTROS
+========================================================= */
+
+#participanteEncuentros {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.participante-encuentro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.participante-encuentro:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(212, 175, 55, 0.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(212, 175, 55, 0.06),
+      rgba(255, 255, 255, 0.02)
+    );
+}
+
+.participante-encuentro-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.participante-encuentro-numero {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  border-radius: 50%;
+
+  color: #f1dc8a;
+
+  background: rgba(212, 175, 55, 0.08);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.participante-encuentro h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.participante-encuentro p {
+  margin: 0;
+
+  color: #aebbd0;
+
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   VIDEOS, MATERIAL, ENCUESTAS Y CERTIFICADOS
+========================================================= */
+
+#participanteVideos,
+#participanteMaterial,
+#participanteEncuestas,
+#participanteCertificados {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.participante-recurso {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-width: 0;
+  padding: 19px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.016)
+    );
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.participante-recurso:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.participante-recurso-icono {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+
+  color: #f1dc8a;
+
+  background: rgba(212, 175, 55, 0.07);
+
+  font-size: 1rem;
+}
+
+.participante-recurso h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.participante-recurso p {
+  margin: 0;
+
+  color: #aebbd0;
+
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.participante-recurso-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-top: auto;
+  padding-top: 10px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: #8f9db4;
+
+  font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   ESTADOS VACÍOS
+========================================================= */
+
+.participante-vacio {
+  grid-column: 1 / -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 180px;
+
+  padding: 30px;
+
+  border: 1px dashed rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.participante-vacio strong {
+  color: #ffffff;
+
+  font-size: 0.92rem;
+}
+
+.participante-vacio p {
+  max-width: 520px;
+  margin: 0;
+
+  color: #aebbd0;
+
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACCIONES ADMINISTRATIVAS
+========================================================= */
+
+.participante-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 30px;
+  padding-top: 26px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#btnEliminar {
+  border-color: rgba(239, 122, 136, 0.3);
+
+  color: #ef9ba5;
+}
+
+#btnEliminar:hover {
+  border-color: rgba(239, 122, 136, 0.55);
+
+  color: #ffffff;
+
+  background: rgba(239, 122, 136, 0.12);
+}
+
+
+/* =========================================================
+   MENSAJES DE CARGA Y ERROR
+========================================================= */
+
+.participante-mensaje {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 210px;
+
+  padding: 32px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.participante-mensaje[hidden] {
+  display: none;
+}
+
+.participante-mensaje strong {
+  color: #ffffff;
+}
+
+.participante-mensaje p {
+  margin: 0;
+
+  color: #aebbd0;
+}
+
+.participante-mensaje--error {
+  border-color: rgba(239, 122, 136, 0.3);
+
+  background: rgba(239, 122, 136, 0.05);
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.participante-spinner {
+  width: 36px;
+  height: 36px;
+
+  border: 3px solid rgba(212, 175, 55, 0.17);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+
+  animation:
+    participanteSpinner 750ms linear infinite;
+}
+
+@keyframes participanteSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.participante-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  padding: 22px;
+}
+
+.participante-modal[hidden] {
+  display: none;
+}
+
+.participante-modal-fondo {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(2, 8, 20, 0.8);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.participante-modal-contenido {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 520px);
+
+  padding: 34px;
+
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #102448,
+      #08172f
+    );
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.5);
+}
+
+.participante-modal-contenido h2 {
+  margin: 10px 0 13px;
+
+  color: #ffffff;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+}
+
+.participante-modal-contenido p {
+  margin: 0;
+
+  color: #aebbd0;
+
+  line-height: 1.7;
+}
+
+.participante-modal-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 27px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  #participanteDatos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #participanteVideos,
+  #participanteMaterial,
+  #participanteEncuestas,
+  #participanteCertificados {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 820px) {
+
+  .participante-acciones-superiores {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .participante-acciones-superiores .admin-boton {
+    width: 100%;
+  }
+
+  #participanteDatos,
+  #participanteEncuentros,
+  #participanteVideos,
+  #participanteMaterial,
+  #participanteEncuestas,
+  #participanteCertificados {
+    grid-template-columns: 1fr;
+  }
+
+  .participante-dato--completo {
+    grid-column: auto;
+  }
+
+  .participante-identidad-principal {
+    align-items: flex-start;
+  }
+
+  .participante-historial-item {
+    grid-template-columns: 26px minmax(0, 1fr);
+  }
+
+  .participante-historial-fecha {
+    grid-column: 2;
+
+    white-space: normal;
+  }
+
+  .participante-acciones {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .participante-acciones .admin-boton {
+    width: 100%;
+  }
+
+  .participante-modal-acciones {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .participante-modal-acciones .admin-boton {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 540px) {
+
+  .participante-identidad-principal {
+    flex-direction: column;
+  }
+
+  .participante-avatar-grande {
+    width: 62px;
+    height: 62px;
+  }
+
+  .participante-modal-contenido {
+    padding: 28px 22px;
+  }
+
+}

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Alta de participantes de la Escuela para Padres del Sistema FALCO®."
+  >
+
+  <title>
+    Alta de Participante | Escuela para Padres | Sistema FALCO®
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="alta-participante.css"
+  >
+
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <div
+      data-admin-sidebar
+      data-active="alta"
+      data-base="../"
+    ></div>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="admin-main">
+
+      <!-- ===================================================
+           ENCABEZADO
+      ==================================================== -->
+
+      <header class="admin-header">
+
+        <div>
+
+          <div class="admin-eyebrow">
+            Escuela para Padres
+          </div>
+
+          <h1>
+            Nuevo participante
+          </h1>
+
+          <p class="admin-subtitulo">
+            Registrá una nueva persona, configurá su acceso y prepará
+            su incorporación al programa psicoeducativo.
+          </p>
+
+        </div>
+
+
+        <div class="admin-user">
+
+          <span class="admin-user-role">
+            Administración
+          </span>
+
+          <strong>
+            Sistema FALCO®
+          </strong>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           ACCIONES SUPERIORES
+      ==================================================== -->
+
+      <section class="alta-acciones-superiores">
+
+        <a
+          class="admin-boton admin-boton-secundario"
+          href="../participantes/participantes.html"
+        >
+          ← Volver a participantes
+        </a>
+
+      </section>
+
+
+      <!-- ===================================================
+           FORMULARIO PRINCIPAL
+      ==================================================== -->
+
+      <form
+        id="formAltaParticipante"
+        class="alta-formulario"
+        novalidate
+      >
+
+        <!-- ===============================================
+             DATOS PERSONALES
+        ================================================ -->
+
+        <section class="alta-seccion">
+
+          <div class="alta-seccion-header">
+
+            <div class="alta-seccion-identidad">
+
+              <span class="alta-seccion-numero">
+                01
+              </span>
+
+              <div>
+
+                <h2>
+                  Datos personales
+                </h2>
+
+                <p>
+                  Información principal de la persona que será incorporada.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="alta-grid alta-grid-dos">
+
+            <div class="alta-campo">
+
+              <label for="nombre">
+                Nombre
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                autocomplete="given-name"
+                required
+              >
+
+              <small
+                class="alta-error"
+                data-error-for="nombre"
+              ></small>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="apellido">
+                Apellido
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="apellido"
+                name="apellido"
+                type="text"
+                autocomplete="family-name"
+                required
+              >
+
+              <small
+                class="alta-error"
+                data-error-for="apellido"
+              ></small>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="dni">
+                DNI
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="dni"
+                name="dni"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                maxlength="10"
+                required
+              >
+
+              <small
+                class="alta-error"
+                data-error-for="dni"
+              ></small>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="fechaNacimiento">
+                Fecha de nacimiento
+              </label>
+
+              <input
+                id="fechaNacimiento"
+                name="fechaNacimiento"
+                type="date"
+              >
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="telefono">
+                Teléfono
+              </label>
+
+              <input
+                id="telefono"
+                name="telefono"
+                type="tel"
+                autocomplete="tel"
+                placeholder="Ej.: 11 3204 9521"
+              >
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="correo">
+                Correo electrónico
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="correo"
+                name="correo"
+                type="email"
+                autocomplete="email"
+                required
+              >
+
+              <small
+                class="alta-error"
+                data-error-for="correo"
+              ></small>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             DATOS DEL PROGRAMA
+        ================================================ -->
+
+        <section class="alta-seccion">
+
+          <div class="alta-seccion-header">
+
+            <div class="alta-seccion-identidad">
+
+              <span class="alta-seccion-numero">
+                02
+              </span>
+
+              <div>
+
+                <h2>
+                  Incorporación al programa
+                </h2>
+
+                <p>
+                  Configuración inicial del recorrido dentro de la Escuela
+                  para Padres.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="alta-grid alta-grid-dos">
+
+            <div class="alta-campo">
+
+              <label for="fechaAlta">
+                Fecha de alta
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="fechaAlta"
+                name="fechaAlta"
+                type="date"
+                required
+              >
+
+              <small
+                class="alta-error"
+                data-error-for="fechaAlta"
+              ></small>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="estado">
+                Estado inicial
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <select
+                id="estado"
+                name="estado"
+                required
+              >
+                <option value="activo">
+                  Activo
+                </option>
+
+                <option value="pendiente">
+                  Pendiente
+                </option>
+
+                <option value="inactivo">
+                  Inactivo
+                </option>
+              </select>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="tipoParticipante">
+                Tipo de participante
+              </label>
+
+              <select
+                id="tipoParticipante"
+                name="tipoParticipante"
+              >
+                <option value="madre">
+                  Madre
+                </option>
+
+                <option value="padre">
+                  Padre
+                </option>
+
+                <option value="responsable">
+                  Persona responsable
+                </option>
+
+                <option value="otro">
+                  Otro
+                </option>
+              </select>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="modalidad">
+                Modalidad
+              </label>
+
+              <select
+                id="modalidad"
+                name="modalidad"
+              >
+                <option value="virtual">
+                  Virtual
+                </option>
+
+                <option value="presencial">
+                  Presencial
+                </option>
+
+                <option value="mixta">
+                  Mixta
+                </option>
+              </select>
+
+            </div>
+
+
+            <div class="alta-campo alta-campo-completo">
+
+              <label for="observaciones">
+                Observaciones administrativas
+              </label>
+
+              <textarea
+                id="observaciones"
+                name="observaciones"
+                rows="5"
+                placeholder="Información interna relevante sobre la incorporación."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             ACCESO A LA PLATAFORMA
+        ================================================ -->
+
+        <section class="alta-seccion">
+
+          <div class="alta-seccion-header">
+
+            <div class="alta-seccion-identidad">
+
+              <span class="alta-seccion-numero">
+                03
+              </span>
+
+              <div>
+
+                <h2>
+                  Acceso a la plataforma
+                </h2>
+
+                <p>
+                  Datos necesarios para habilitar el ingreso al panel
+                  formativo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="alta-grid alta-grid-dos">
+
+            <div class="alta-campo">
+
+              <label for="usuarioAcceso">
+                Usuario
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <input
+                id="usuarioAcceso"
+                name="usuarioAcceso"
+                type="text"
+                autocomplete="off"
+                required
+              >
+
+              <small class="alta-ayuda">
+                Puede utilizarse el correo electrónico.
+              </small>
+
+              <small
+                class="alta-error"
+                data-error-for="usuarioAcceso"
+              ></small>
+
+            </div>
+
+
+            <div class="alta-campo">
+
+              <label for="claveTemporal">
+                Contraseña temporal
+                <span aria-hidden="true">*</span>
+              </label>
+
+              <div class="alta-clave-control">
+
+                <input
+                  id="claveTemporal"
+                  name="claveTemporal"
+                  type="text"
+                  autocomplete="new-password"
+                  required
+                >
+
+                <button
+                  id="btnGenerarClave"
+                  class="admin-boton admin-boton-secundario"
+                  type="button"
+                >
+                  Generar
+                </button>
+
+              </div>
+
+              <small class="alta-ayuda">
+                Podrá reemplazarse posteriormente desde la administración.
+              </small>
+
+              <small
+                class="alta-error"
+                data-error-for="claveTemporal"
+              ></small>
+
+            </div>
+
+
+            <div class="alta-campo alta-campo-completo">
+
+              <label class="alta-check">
+
+                <input
+                  id="enviarAcceso"
+                  name="enviarAcceso"
+                  type="checkbox"
+                >
+
+                <span>
+                  Enviar los datos de acceso al correo registrado cuando
+                  el participante sea creado.
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CONFIGURACIÓN INICIAL
+        ================================================ -->
+
+        <section class="alta-seccion">
+
+          <div class="alta-seccion-header">
+
+            <div class="alta-seccion-identidad">
+
+              <span class="alta-seccion-numero">
+                04
+              </span>
+
+              <div>
+
+                <h2>
+                  Configuración inicial
+                </h2>
+
+                <p>
+                  Definí cómo comenzará el recorrido formativo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="alta-opciones">
+
+            <label class="alta-opcion">
+
+              <input
+                id="habilitarAcceso"
+                name="habilitarAcceso"
+                type="checkbox"
+                checked
+              >
+
+              <span class="alta-opcion-contenido">
+
+                <strong>
+                  Habilitar acceso inmediatamente
+                </strong>
+
+                <small>
+                  El participante podrá ingresar apenas se complete el alta.
+                </small>
+
+              </span>
+
+            </label>
+
+
+            <label class="alta-opcion">
+
+              <input
+                id="iniciarRecorrido"
+                name="iniciarRecorrido"
+                type="checkbox"
+                checked
+              >
+
+              <span class="alta-opcion-contenido">
+
+                <strong>
+                  Preparar recorrido formativo
+                </strong>
+
+                <small>
+                  Se asignará el primer encuentro disponible del programa.
+                </small>
+
+              </span>
+
+            </label>
+
+
+            <label class="alta-opcion">
+
+              <input
+                id="registrarActividad"
+                name="registrarActividad"
+                type="checkbox"
+                checked
+              >
+
+              <span class="alta-opcion-contenido">
+
+                <strong>
+                  Registrar actividad administrativa
+                </strong>
+
+                <small>
+                  El alta quedará asentada en el historial interno.
+                </small>
+
+              </span>
+
+            </label>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             RESUMEN PREVIO
+        ================================================ -->
+
+        <section class="alta-seccion alta-resumen">
+
+          <div class="alta-seccion-header">
+
+            <div class="alta-seccion-identidad">
+
+              <span class="alta-seccion-numero">
+                05
+              </span>
+
+              <div>
+
+                <h2>
+                  Revisión final
+                </h2>
+
+                <p>
+                  Verificá los datos antes de registrar al participante.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="alta-resumen-grid">
+
+            <div class="alta-resumen-item">
+
+              <span>
+                Participante
+              </span>
+
+              <strong id="resumenNombre">
+                Sin completar
+              </strong>
+
+            </div>
+
+
+            <div class="alta-resumen-item">
+
+              <span>
+                Correo
+              </span>
+
+              <strong id="resumenCorreo">
+                Sin completar
+              </strong>
+
+            </div>
+
+
+            <div class="alta-resumen-item">
+
+              <span>
+                Estado inicial
+              </span>
+
+              <strong id="resumenEstado">
+                Activo
+              </strong>
+
+            </div>
+
+
+            <div class="alta-resumen-item">
+
+              <span>
+                Modalidad
+              </span>
+
+              <strong id="resumenModalidad">
+                Virtual
+              </strong>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             ACCIONES
+        ================================================ -->
+
+        <section class="alta-acciones">
+
+          <a
+            class="admin-boton admin-boton-secundario"
+            href="../participantes/participantes.html"
+          >
+            Cancelar
+          </a>
+
+          <button
+            id="btnGuardarBorrador"
+            class="admin-boton admin-boton-secundario"
+            type="button"
+          >
+            Guardar borrador
+          </button>
+
+          <button
+            id="btnGuardarParticipante"
+            class="admin-boton admin-boton-principal"
+            type="submit"
+          >
+            Registrar participante
+          </button>
+
+        </section>
+
+      </form>
+
+
+      <!-- ===================================================
+           ESTADOS DEL PROCESO
+      ==================================================== -->
+
+      <section
+        id="altaEstadoCarga"
+        class="alta-mensaje alta-mensaje-carga"
+        hidden
+        aria-live="polite"
+      >
+
+        <span
+          class="alta-spinner"
+          aria-hidden="true"
+        ></span>
+
+        <p>
+          Registrando participante…
+        </p>
+
+      </section>
+
+
+      <section
+        id="altaEstadoExito"
+        class="alta-mensaje alta-mensaje-exito"
+        hidden
+        aria-live="polite"
+      >
+
+        <strong>
+          Participante registrado correctamente.
+        </strong>
+
+        <p>
+          Ya puede consultarse desde el listado general.
+        </p>
+
+        <div class="alta-mensaje-acciones">
+
+          <a
+            class="admin-boton admin-boton-principal"
+            href="../participantes/participantes.html"
+          >
+            Ver participantes
+          </a>
+
+          <button
+            id="btnRegistrarOtro"
+            class="admin-boton admin-boton-secundario"
+            type="button"
+          >
+            Registrar otro
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <section
+        id="altaEstadoError"
+        class="alta-mensaje alta-mensaje-error"
+        hidden
+        role="alert"
+      >
+
+        <strong>
+          No fue posible registrar al participante.
+        </strong>
+
+        <p id="altaErrorMensaje">
+          Revisá los datos e intentá nuevamente.
+        </p>
+
+      </section>
+
+
+      <!-- ===================================================
+           MODAL DE SALIDA
+      ==================================================== -->
+
+      <div
+        id="modalSalir"
+        class="alta-modal"
+        hidden
+        aria-hidden="true"
+      >
+
+        <div
+          class="alta-modal-fondo"
+          data-modal-cerrar
+        ></div>
+
+        <div
+          class="alta-modal-contenido"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modalSalirTitulo"
+        >
+
+          <div class="admin-eyebrow">
+            Cambios sin guardar
+          </div>
+
+          <h2 id="modalSalirTitulo">
+            ¿Deseás salir del formulario?
+          </h2>
+
+          <p>
+            Los datos que todavía no hayan sido guardados se perderán.
+          </p>
+
+          <div class="alta-modal-acciones">
+
+            <button
+              id="btnContinuarEditando"
+              class="admin-boton admin-boton-secundario"
+              type="button"
+            >
+              Continuar editando
+            </button>
+
+            <button
+              id="btnConfirmarSalida"
+              class="admin-boton admin-boton-principal"
+              type="button"
+            >
+              Salir sin guardar
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="alta-participante.js"
+  ></script>
+
+  <script
+    type="module"
+    src="../shared/components/falco-admin-sidebar.js"
+  ></script>
+
+</body>
+
+</html>
