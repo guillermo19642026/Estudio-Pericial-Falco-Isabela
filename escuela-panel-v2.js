@@ -10,25 +10,26 @@ import {
 import EscuelaProgressEngine
   from "./escuela-progress-engine.js";
 
-
+window.EscuelaProgressEngine =
+  EscuelaProgressEngine;
 
 import {
   auth,
   db
 } from "./firebase-config.js";
 
-
 import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
 
 import {
   doc,
   getDoc,
   updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+
 
 
 /* =========================================================
@@ -46,6 +47,9 @@ const btnAdminComentarios =
 
 const nombreParticipante =
   document.getElementById("nombreParticipante");
+
+  const numeroProgreso =
+  document.getElementById("numeroProgreso");
 
 const textoProgreso =
   document.getElementById("textoProgreso");
@@ -257,16 +261,24 @@ async function cargarParticipante(user) {
       completado8: false
     };
 
-    actualizarProgreso(
-      datosAdministrador
-    );
+   EscuelaProgressEngine.cargarCompletados(
+  []
+);
 
-    renderizarEncuentros(
-      datosAdministrador
-    );
+actualizarProgreso(
+  datosAdministrador
+);
 
-    return;
+renderizarEncuentros(
+  datosAdministrador
+);
 
+console.log(
+  "Escuela Progress Engine™: modo administrador cargado",
+  EscuelaProgressEngine.getState()
+);
+
+return;
   }
 
   mostrarSinAcceso();
@@ -275,16 +287,20 @@ async function cargarParticipante(user) {
 
 }
 
-    const datosParticipante =
-      resultado.data();
+   const datosParticipante =
+  resultado.data();
 
-    actualizarProgreso(
-      datosParticipante
-    );
+await EscuelaProgressEngine.cargar(
+  user.uid
+);
 
-    renderizarEncuentros(
-      datosParticipante
-    );
+actualizarProgreso(
+  datosParticipante
+);
+
+renderizarEncuentros(
+  datosParticipante
+);
 
   } catch (error) {
 
@@ -457,6 +473,13 @@ function actualizarProgreso(datos) {
 
   const porcentajeRedondeado =
     Math.round(porcentaje);
+
+  if (numeroProgreso) {
+
+    numeroProgreso.textContent =
+      `${porcentajeRedondeado}%`;
+
+  }
 
   if (textoProgreso) {
 

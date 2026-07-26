@@ -8,8 +8,76 @@ import {
   encuentros
 } from "./escuela-data.js";
 
+import EscuelaProgressEngine
+  from "./escuela-progress-engine.js";
+
+  window.EscuelaProgressEngine =
+  EscuelaProgressEngine;
+
+import {
+  auth
+} from "./firebase-config.js";
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  onAuthStateChanged(
+    auth,
+    async (user) => {
+
+      if (!user) {
+
+        console.warn(
+          "Escuela Progress Engine™: usuario no autenticado"
+        );
+
+        return;
+      }
+
+      await EscuelaProgressEngine.cargar(
+        user.uid
+      );
+
+
+      if (
+  EscuelaProgressEngine.estaCompletado(
+    encuentroId
+  )
+) {
+
+  estado.textContent =
+    "Completado";
+
+  estado.classList.remove(
+    "disponible",
+    "bloqueado"
+  );
+
+  estado.classList.add(
+    "completado"
+  );
+
+  actualizarProgreso(100);
+
+  btnFinalizar.textContent =
+    "Encuentro completado";
+
+  btnFinalizar.disabled =
+    true;
+
+}
+
+      console.log(
+        "Escuela Progress Engine™: usuario cargado en el encuentro",
+        EscuelaProgressEngine.getState()
+      );
+
+    }
+  );
+
 
   /* =======================================================
      DATOS DE LOS ENCUENTROS
@@ -497,29 +565,37 @@ configurarEnlace(
 
     });
 
-  btnConfirmar.addEventListener("click", () => {
+  btnConfirmar.addEventListener("click", async () => {
 
-    estado.textContent = "Completado";
+ await EscuelaProgressEngine.marcarCompletado(
+  encuentroId
+);
 
-    estado.classList.remove(
-      "disponible",
-      "bloqueado"
-    );
+  estado.textContent = "Completado";
 
-    estado.classList.add(
-      "completado"
-    );
+  estado.classList.remove(
+    "disponible",
+    "bloqueado"
+  );
 
-    actualizarProgreso(100);
+  estado.classList.add(
+    "completado"
+  );
 
-    btnFinalizar.textContent =
-      "Encuentro completado";
+  actualizarProgreso(100);
 
-    btnFinalizar.disabled = true;
+  btnFinalizar.textContent =
+    "Encuentro completado";
 
-    cerrarModal();
+  btnFinalizar.disabled = true;
 
-  });
+  console.log(
+    EscuelaProgressEngine.getState()
+  );
+
+  cerrarModal();
+
+});
 
 
   /* =======================================================
@@ -616,22 +692,31 @@ configurarEnlace(
   }
 
 
-  function cerrarModal() {
+ function cerrarModal() {
 
-    modal.classList.remove(
-      "activo"
-    );
-
-    modal.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-    document.body.classList.remove(
-      "modal-abierto"
-    );
-
+  if (
+    document.activeElement &&
+    modal.contains(document.activeElement)
+  ) {
+    document.activeElement.blur();
   }
+
+  modal.classList.remove(
+    "activo"
+  );
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-abierto"
+  );
+
+  btnFinalizar.focus();
+
+}
 
 
  function mostrarError(
