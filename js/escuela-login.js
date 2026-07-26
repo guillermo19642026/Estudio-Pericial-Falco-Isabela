@@ -26,9 +26,9 @@ loginForm.addEventListener("submit", async (e) => {
     loginMensaje.textContent = "Acceso correcto. Redirigiendo...";
     loginMensaje.style.color = "#9ee6b8";
 
-    setTimeout(() => {
-      window.location.href = "./escuela-panel.html";
-    }, 800);
+  setTimeout(() => {
+  window.location.href = "./escuela-panel-v2.html";
+}, 800);
 
   } catch (error) {
     console.error(error);
