@@ -620,12 +620,14 @@ function renderizarEncuentros(datos) {
   ) {
 
     const habilitado =
-      datos[`modulo${numero}`] === true;
+  EscuelaProgressEngine.estaHabilitado(
+    numero
+  );
 
-    const completado =
-      EscuelaProgressEngine.estaCompletado(
-        numero
-      );
+const completado =
+  EscuelaProgressEngine.estaCompletado(
+    numero
+  );
 
     const encuentro =
       encuentrosData[numero];

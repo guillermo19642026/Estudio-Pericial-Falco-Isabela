@@ -477,6 +477,62 @@ return this.getState();
 
 
 
+  /* =======================================================
+     VERIFICAR ENCUENTRO HABILITADO
+  ======================================================= */
+
+  estaHabilitado(numero) {
+
+    const encuentro =
+      Number(numero);
+
+    if (
+      !Number.isInteger(encuentro) ||
+      encuentro < 1 ||
+      encuentro > 8
+    ) {
+
+      return false;
+
+    }
+
+    /*
+      El primer encuentro siempre está habilitado.
+    */
+
+    if (encuentro === 1) {
+
+      return true;
+
+    }
+
+    /*
+      Los encuentros ya completados permanecen
+      habilitados para poder revisarlos.
+    */
+
+    if (
+      this.estaCompletado(encuentro)
+    ) {
+
+      return true;
+
+    }
+
+    /*
+      Cada encuentro se habilita cuando el
+      encuentro anterior fue completado.
+    */
+
+    return this.estaCompletado(
+      encuentro - 1
+    );
+
+  },
+
+
+
+
 
   /* =======================================================
      VERIFICAR ENCUENTRO COMPLETADO
