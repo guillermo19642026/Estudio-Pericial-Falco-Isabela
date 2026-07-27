@@ -1,3 +1,7 @@
+
+import { crear } from "../shared/firebase/participantes.js";
+
+
 /* =========================================================
    SISTEMA FALCO®
    ESCUELA PARA PADRES
@@ -25,6 +29,10 @@
 /* =========================================================
    CONFIGURACIÓN
 ========================================================= */
+
+
+import { crear } from "../shared/firebase/participantes.js";
+
 
 const CONFIG = {
 
@@ -1431,15 +1439,11 @@ async function guardarParticipante() {
     */
 
 
-    await simularGuardado();
+  const documento =
+  await crear(participante);
 
-
-    const idTemporal =
-      generarIdTemporal();
-
-
-    participante.id =
-      idTemporal;
+participante.id =
+  documento.id;
 
 
     localStorage.removeItem(
