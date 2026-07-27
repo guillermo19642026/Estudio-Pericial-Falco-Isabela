@@ -31,9 +31,6 @@ import { crear } from "../shared/firebase/participantes.js";
 ========================================================= */
 
 
-import { crear } from "../shared/firebase/participantes.js";
-
-
 const CONFIG = {
 
   listadoUrl:
