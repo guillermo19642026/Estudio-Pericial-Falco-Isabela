@@ -479,3 +479,70 @@
 #modalEncuentro .modal-header h2{
     color:#d4af37;
 }
+
+
+/* =========================================================
+   AJUSTE DE ESPACIADOS - ENCUENTROS
+========================================================= */
+
+/* Botones superiores */
+
+.participantes-acciones-superiores{
+    margin-bottom:48px !important;
+}
+
+/* Tarjetas resumen */
+
+.admin-resumen{
+    margin-bottom:48px !important;
+}
+
+/* Inicio del bloque Programa de Encuentros */
+
+.encuentros-seccion{
+    margin-top:12px;
+}
+
+/* Contenido del modal */
+
+#modalEncuentroContenido{
+    margin-bottom:34px;
+}
+
+/* Botones inferiores del modal */
+
+.participantes-modal-acciones{
+    margin-top:34px !important;
+    padding-top:24px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   RECURSOS DEL ENCUENTRO
+========================================================= */
+
+.encuentro-recurso,
+.recurso-item,
+.recurso-card {
+
+    min-height: 82px;
+
+    padding: 22px 20px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.encuentro-recurso label,
+.recurso-item label,
+.recurso-card label{
+
+    margin-top: 6px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+}

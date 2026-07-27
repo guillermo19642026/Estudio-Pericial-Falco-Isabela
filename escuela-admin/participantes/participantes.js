@@ -14,6 +14,9 @@
    La fuente de datos temporal está vacía.
 ========================================================= */
 
+import {
+  obtenerTodos
+} from "../shared/firebase/participantes.js";
 
 /* =========================================================
    CONFIGURACIÓN
@@ -198,7 +201,8 @@ async function cargarParticipantes() {
       ======================================================
     */
 
-    const participantes = [];
+    const participantes =
+  await obtenerTodos();
 
 
     state.participantes =

@@ -22,6 +22,14 @@
    CONFIGURACIÓN
 ========================================================= */
 
+import {
+  obtenerPorId,
+  actualizar,
+  eliminar
+} from "../shared/firebase/participantes.js";
+
+
+
 const CONFIG = {
 
   totalEncuentros: 8,
@@ -32,8 +40,7 @@ const CONFIG = {
   altaUrl:
     "../alta/alta-participante.html",
 
-  claveLocal:
-    "falco_escuela_participante_ficha",
+ 
 
   estadosPermitidos: [
     "activo",
@@ -236,261 +243,6 @@ const dom = {
 };
 
 
-/* =========================================================
-   DATOS DEMOSTRATIVOS
-
-   Esta información será reemplazada posteriormente
-   por la lectura desde Firestore.
-========================================================= */
-
-const PARTICIPANTE_DEMO = {
-
-  id:
-    "demo-participante-001",
-
-  nombre:
-    "Mariana",
-
-  apellido:
-    "López",
-
-  nombreCompleto:
-    "Mariana López",
-
-  dni:
-    "30123456",
-
-  correo:
-    "mariana.lopez@email.com",
-
-  telefono:
-    "11 3204 9521",
-
-  fechaNacimiento:
-    "1986-04-12",
-
-  fechaAlta:
-    "2026-07-26",
-
-  estado:
-    "activo",
-
-  tipoParticipante:
-    "madre",
-
-  modalidad:
-    "virtual",
-
-  usuarioAcceso:
-    "mariana.lopez@email.com",
-
-  accesoHabilitado:
-    true,
-
-  recorridoPreparado:
-    true,
-
-  encuentroActual:
-    3,
-
-  observaciones:
-    "Participante incorporada al programa regular.",
-
-  encuentros: [
-
-    {
-      numero: 1,
-      titulo: "Comprender la adolescencia",
-      habilitado: true,
-      completado: true,
-      fechaCompletado: "2026-07-20"
-    },
-
-    {
-      numero: 2,
-      titulo: "Cambios emocionales y conductuales",
-      habilitado: true,
-      completado: true,
-      fechaCompletado: "2026-07-23"
-    },
-
-    {
-      numero: 3,
-      titulo: "Comunicación familiar",
-      habilitado: true,
-      completado: false,
-      fechaCompletado: null
-    },
-
-    {
-      numero: 4,
-      titulo: "Límites y acompañamiento",
-      habilitado: false,
-      completado: false,
-      fechaCompletado: null
-    },
-
-    {
-      numero: 5,
-      titulo: "Conflictos familiares",
-      habilitado: false,
-      completado: false,
-      fechaCompletado: null
-    },
-
-    {
-      numero: 6,
-      titulo: "Autonomía y responsabilidad",
-      habilitado: false,
-      completado: false,
-      fechaCompletado: null
-    },
-
-    {
-      numero: 7,
-      titulo: "Prevención y factores de riesgo",
-      habilitado: false,
-      completado: false,
-      fechaCompletado: null
-    },
-
-    {
-      numero: 8,
-      titulo: "Integración y cierre",
-      habilitado: false,
-      completado: false,
-      fechaCompletado: null
-    }
-
-  ],
-
-  videos: [
-
-    {
-      id: "video-1",
-      encuentro: 1,
-      titulo: "Video del Encuentro 1",
-      visto: true,
-      fechaVisualizacion: "2026-07-20"
-    },
-
-    {
-      id: "video-2",
-      encuentro: 2,
-      titulo: "Video del Encuentro 2",
-      visto: true,
-      fechaVisualizacion: "2026-07-23"
-    },
-
-    {
-      id: "video-3",
-      encuentro: 3,
-      titulo: "Video del Encuentro 3",
-      visto: false,
-      fechaVisualizacion: null
-    }
-
-  ],
-
-  materiales: [
-
-    {
-      id: "material-1",
-      encuentro: 1,
-      titulo: "Cuadernillo del Encuentro 1",
-      tipo: "PDF",
-      descargado: true,
-      fechaDescarga: "2026-07-20"
-    },
-
-    {
-      id: "material-2",
-      encuentro: 2,
-      titulo: "Actividad del Encuentro 2",
-      tipo: "PDF",
-      descargado: true,
-      fechaDescarga: "2026-07-23"
-    },
-
-    {
-      id: "material-3",
-      encuentro: 3,
-      titulo: "Presentación del Encuentro 3",
-      tipo: "Presentación",
-      descargado: false,
-      fechaDescarga: null
-    }
-
-  ],
-
-  encuestas: [
-
-    {
-      id: "encuesta-inicial",
-      titulo: "Encuesta inicial",
-      estado: "completada",
-      fecha: "2026-07-19"
-    },
-
-    {
-      id: "encuesta-satisfaccion",
-      titulo: "Encuesta de satisfacción",
-      estado: "pendiente",
-      fecha: null
-    },
-
-    {
-      id: "encuesta-final",
-      titulo: "Encuesta final",
-      estado: "bloqueada",
-      fecha: null
-    }
-
-  ],
-
-  certificados: [],
-
-  historial: [
-
-    {
-      fecha: "2026-07-26T18:10:00",
-      tipo: "administracion",
-      titulo: "Ficha consultada",
-      detalle: "La administración abrió la ficha del participante."
-    },
-
-    {
-      fecha: "2026-07-23T19:30:00",
-      tipo: "encuentro",
-      titulo: "Encuentro 2 completado",
-      detalle: "El participante finalizó el segundo encuentro."
-    },
-
-    {
-      fecha: "2026-07-20T18:00:00",
-      tipo: "encuentro",
-      titulo: "Encuentro 1 completado",
-      detalle: "El participante finalizó el primer encuentro."
-    },
-
-    {
-      fecha: "2026-07-19T15:00:00",
-      tipo: "encuesta",
-      titulo: "Encuesta inicial completada",
-      detalle: "Se registró la encuesta inicial del programa."
-    },
-
-    {
-      fecha: "2026-07-18T11:30:00",
-      tipo: "alta",
-      titulo: "Participante registrado",
-      detalle: "Se creó el acceso a la Escuela para Padres."
-    }
-
-  ]
-
-};
-
 
 /* =========================================================
    INICIALIZACIÓN
@@ -533,7 +285,7 @@ function obtenerParticipanteId() {
   return (
     parametros.get("id") ||
     parametros.get("uid") ||
-    PARTICIPANTE_DEMO.id
+    null
   );
 
 }
@@ -555,29 +307,26 @@ async function cargarParticipante() {
 
   try {
 
-    /*
-      En la integración Firebase se reemplazará por:
+    if (!state.participanteId) {
 
-      const referencia = doc(
-        db,
-        "escuela_participantes",
+      throw new Error(
+        "No se recibió el ID del participante."
+      );
+
+    }
+
+    const participante =
+      await obtenerPorId(
         state.participanteId
       );
 
-      const snapshot = await getDoc(referencia);
-    */
+    if (!participante) {
 
-    await esperar(350);
+      throw new Error(
+        "El participante no existe."
+      );
 
-    const datosLocales =
-      cargarDatosLocales();
-
-    const participante =
-      datosLocales ||
-      clonarObjeto(PARTICIPANTE_DEMO);
-
-    participante.id =
-      state.participanteId;
+    }
 
     normalizarParticipante(
       participante
@@ -587,12 +336,16 @@ async function cargarParticipante() {
       participante;
 
     state.datosOriginales =
-      clonarObjeto(participante);
+      clonarObjeto(
+        participante
+      );
 
     state.cambiosSinGuardar =
       false;
 
     renderizarFicha();
+
+    actualizarEstadoGuardado();
 
   } catch (error) {
 
@@ -602,6 +355,7 @@ async function cargarParticipante() {
     );
 
     mostrarErrorGeneral(
+      error.message ||
       "No fue posible cargar la ficha del participante."
     );
 
@@ -635,12 +389,43 @@ function normalizarParticipante(
     participante.estado ||
     "pendiente";
 
+  participante.fechaAlta =
+    participante.fechaAlta ||
+    convertirTimestampAFecha(
+      participante.creado
+    );
+
+  participante.tipoParticipante =
+    participante.tipoParticipante ||
+    "";
+
+  participante.modalidad =
+    participante.modalidad ||
+    "";
+
+  participante.usuarioAcceso =
+    participante.usuarioAcceso ||
+    participante.correo ||
+    "";
+
+  participante.accesoHabilitado =
+    typeof participante.accesoHabilitado === "boolean"
+      ? participante.accesoHabilitado
+      : false;
+
+  participante.recorridoPreparado =
+    typeof participante.recorridoPreparado === "boolean"
+      ? participante.recorridoPreparado
+      : false;
+
+  participante.observaciones =
+    participante.observaciones ||
+    "";
+
   participante.encuentros =
-    Array.isArray(
+    normalizarEncuentros(
       participante.encuentros
-    )
-      ? participante.encuentros
-      : [];
+    );
 
   participante.videos =
     Array.isArray(
@@ -664,11 +449,9 @@ function normalizarParticipante(
       : [];
 
   participante.certificados =
-    Array.isArray(
-      participante.certificados
-    )
-      ? participante.certificados
-      : [];
+    normalizarCertificados(
+      participante
+    );
 
   participante.historial =
     Array.isArray(
@@ -678,6 +461,180 @@ function normalizarParticipante(
       : [];
 
 }
+
+
+function normalizarEncuentros(
+  encuentros
+) {
+
+  const titulos = [
+    "Comprender la adolescencia",
+    "Cambios emocionales y conductuales",
+    "Comunicación familiar",
+    "Límites y acompañamiento",
+    "Conflictos familiares",
+    "Autonomía y responsabilidad",
+    "Prevención y factores de riesgo",
+    "Integración y cierre"
+  ];
+
+  if (Array.isArray(encuentros)) {
+    return encuentros;
+  }
+
+  return Array.from(
+    {
+      length: CONFIG.totalEncuentros
+    },
+    (_, indice) => {
+
+      const numero =
+        indice + 1;
+
+      const datos =
+        encuentros?.[numero] ||
+        encuentros?.[String(numero)] ||
+        {};
+
+      return {
+
+        numero,
+
+        titulo:
+          titulos[indice],
+
+        habilitado:
+          Boolean(
+            datos.habilitado ??
+            numero === 1
+          ),
+
+        completado:
+          Boolean(
+            datos.completado
+          ),
+
+        fechaCompletado:
+          datos.fechaCompletado ||
+          datos.fecha ||
+          null
+
+      };
+
+    }
+  );
+
+}
+
+
+function normalizarCertificados(
+  participante
+) {
+
+  if (
+    Array.isArray(
+      participante.certificados
+    )
+  ) {
+    return participante.certificados;
+  }
+
+  if (
+    participante.certificado?.emitido
+  ) {
+
+    return [
+      {
+        id:
+          "certificado-principal",
+
+        titulo:
+          "Certificado de participación",
+
+        codigo:
+          participante.certificado.codigo ||
+          "FALCO-ESC",
+
+        fechaEmision:
+          participante.certificado.fecha ||
+          null,
+
+        url:
+          participante.certificado.url ||
+          null,
+
+        estado:
+          "emitido"
+      }
+    ];
+
+  }
+
+  return [];
+
+}
+
+
+function convertirTimestampAFecha(
+  timestamp
+) {
+
+  if (!timestamp) {
+    return null;
+  }
+
+  let fecha = null;
+
+  if (
+    typeof timestamp.toDate === "function"
+  ) {
+
+    fecha =
+      timestamp.toDate();
+
+  } else if (
+    typeof timestamp.seconds === "number"
+  ) {
+
+    fecha =
+      new Date(
+        timestamp.seconds * 1000
+      );
+
+  } else {
+
+    fecha =
+      new Date(timestamp);
+
+  }
+
+  if (
+    Number.isNaN(
+      fecha.getTime()
+    )
+  ) {
+    return null;
+  }
+
+  const anio =
+    fecha.getFullYear();
+
+  const mes =
+    String(
+      fecha.getMonth() + 1
+    ).padStart(2, "0");
+
+  const dia =
+    String(
+      fecha.getDate()
+    ).padStart(2, "0");
+
+  return `${anio}-${mes}-${dia}`;
+
+}
+
+
+
 
 
 /* =========================================================
@@ -2485,26 +2442,30 @@ async function guardarCambios() {
 
   try {
 
-    /*
-      En Firebase se reemplazará por updateDoc().
-    */
-
-    await esperar(500);
-
     registrarHistorial(
       "administracion",
       "Cambios administrativos guardados",
       "Se actualizaron los datos de la ficha del participante."
     );
 
-    guardarDatosLocales();
+    const {
+      id,
+      creado,
+      actualizado,
+      ...datosParaGuardar
+    } = state.participante;
+
+    await actualizar(
+      state.participanteId,
+      datosParaGuardar
+    );
 
     state.datosOriginales =
       clonarObjeto(
         state.participante
       );
 
-       state.cambiosSinGuardar =
+    state.cambiosSinGuardar =
       false;
 
     actualizarEstadoGuardado();
@@ -2516,8 +2477,8 @@ async function guardarCambios() {
     );
 
     console.log(
-      "FALCO Participante Admin™: cambios guardados",
-      state.participante
+      "FALCO Participante Admin™: cambios guardados en Firestore",
+      state.participanteId
     );
 
   } catch (error) {
@@ -2619,23 +2580,30 @@ function solicitarEliminacion() {
 }
 
 
+
+
+
+
 async function eliminarParticipante() {
 
   try {
 
-    /*
-      En Firebase se reemplazará por deleteDoc().
-    */
-
-    localStorage.removeItem(
-      obtenerClaveParticipante()
+    await eliminar(
+      state.participanteId
     );
 
-    state.cambiosSinGuardar =
-      false;
+    state.cambiosSinGuardar = false;
 
-    window.location.href =
-      CONFIG.listadoUrl;
+    mostrarNotificacion(
+      "Participante eliminado correctamente."
+    );
+
+    setTimeout(() => {
+
+      window.location.href =
+        CONFIG.listadoUrl;
+
+    }, 600);
 
   } catch (error) {
 
@@ -2695,60 +2663,6 @@ function configurarEnlaceEdicion() {
     `${CONFIG.altaUrl}?id=${encodeURIComponent(
       state.participanteId
     )}&modo=editar`;
-
-}
-
-
-/* =========================================================
-   ALMACENAMIENTO LOCAL
-========================================================= */
-
-function guardarDatosLocales() {
-
-  localStorage.setItem(
-    obtenerClaveParticipante(),
-    JSON.stringify(
-      state.participante
-    )
-  );
-
-}
-
-
-function cargarDatosLocales() {
-
-  const contenido =
-    localStorage.getItem(
-      obtenerClaveParticipante()
-    );
-
-  if (!contenido) {
-    return null;
-  }
-
-  try {
-
-    return JSON.parse(
-      contenido
-    );
-
-  } catch (error) {
-
-    console.warn(
-      "No se pudieron recuperar los datos locales:",
-      error
-    );
-
-    return null;
-
-  }
-
-}
-
-
-function obtenerClaveParticipante() {
-
-  return `${CONFIG.claveLocal}_${state.participanteId}`;
 
 }
 
@@ -3312,19 +3226,6 @@ function clonarObjeto(objeto) {
 
 }
 
-
-function esperar(milisegundos) {
-
-  return new Promise(resolve => {
-
-    window.setTimeout(
-      resolve,
-      milisegundos
-    );
-
-  });
-
-}
 
 
 /* =========================================================

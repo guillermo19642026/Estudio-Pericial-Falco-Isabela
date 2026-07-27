@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -22,13 +23,16 @@
     rel="stylesheet"
     href="dashboard.css"
   >
+
 </head>
 
 <body>
 
   <div class="admin-layout">
 
-    <!-- BARRA LATERAL REUTILIZABLE -->
+    <!-- =====================================================
+         BARRA LATERAL REUTILIZABLE
+    ====================================================== -->
 
     <div
       data-admin-sidebar
@@ -36,9 +40,16 @@
       data-base="../"
     ></div>
 
-    <!-- CONTENIDO PRINCIPAL -->
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
 
     <main class="admin-main">
+
+      <!-- ===================================================
+           ENCABEZADO
+      ==================================================== -->
 
       <header class="admin-header">
 
@@ -73,9 +84,15 @@
 
       </header>
 
-      <!-- TARJETAS -->
 
-      <section class="admin-resumen">
+      <!-- ===================================================
+           TARJETAS DE RESUMEN
+      ==================================================== -->
+
+      <section
+        class="admin-resumen"
+        aria-label="Resumen administrativo"
+      >
 
         <article class="admin-card">
 
@@ -96,6 +113,7 @@
 
         </article>
 
+
         <article class="admin-card">
 
           <span class="admin-card-label">
@@ -115,6 +133,7 @@
 
         </article>
 
+
         <article class="admin-card">
 
           <span class="admin-card-label">
@@ -133,6 +152,7 @@
           </span>
 
         </article>
+
 
         <article class="admin-card">
 
@@ -155,7 +175,10 @@
 
       </section>
 
-      <!-- ACCESOS PRINCIPALES -->
+
+      <!-- ===================================================
+           ACCESOS PRINCIPALES
+      ==================================================== -->
 
       <section class="admin-seccion">
 
@@ -174,6 +197,7 @@
           </div>
 
         </div>
+
 
         <div class="admin-accesos">
 
@@ -201,6 +225,7 @@
 
           </a>
 
+
           <a
             href="../participantes/participantes.html"
             class="admin-acceso"
@@ -225,8 +250,9 @@
 
           </a>
 
+
           <a
-            href="#"
+            href="../encuentros/encuentros.html"
             class="admin-acceso"
           >
 
@@ -253,7 +279,10 @@
 
       </section>
 
-      <!-- ACTIVIDAD RECIENTE -->
+
+      <!-- ===================================================
+           ACTIVIDAD RECIENTE
+      ==================================================== -->
 
       <section class="admin-seccion">
 
@@ -273,12 +302,16 @@
 
         </div>
 
-        <div class="admin-empty-state">
+
+        <div
+          id="actividadReciente"
+          class="admin-empty-state"
+        >
 
           <p>
             La actividad de los participantes aparecerá
-            en esta sección cuando conectemos el panel
-            con Firebase.
+            automáticamente a medida que utilicen la plataforma,
+            completen encuentros y avancen en el programa.
           </p>
 
         </div>
@@ -288,6 +321,11 @@
     </main>
 
   </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
 
   <script
     type="module"

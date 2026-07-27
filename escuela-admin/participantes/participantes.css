@@ -1006,3 +1006,270 @@
 #estadoSinResultados .admin-boton-principal:visited {
   color: #08172f !important;
 }
+
+
+/* =========================================================
+   CORRECCIÓN DEFINITIVA
+   LISTADO DE PARTICIPANTES
+========================================================= */
+
+.participantes-seccion .participantes-tabla-contenedor {
+  border: 1px solid rgba(212, 175, 55, 0.24) !important;
+  background:
+    linear-gradient(
+      145deg,
+      #102448 0%,
+      #08172f 100%
+    ) !important;
+
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.28) !important;
+}
+
+.participantes-seccion .participantes-tabla {
+  background: transparent !important;
+}
+
+.participantes-seccion .participantes-tabla thead,
+.participantes-seccion .participantes-tabla thead tr {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(212, 175, 55, 0.17),
+      rgba(212, 175, 55, 0.055)
+    ) !important;
+}
+
+.participantes-seccion .participantes-tabla th {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28) !important;
+
+  color: #f1dc8a !important;
+  background: transparent !important;
+}
+
+.participantes-seccion .participantes-tabla tbody,
+.participantes-seccion .participantes-tabla tbody tr,
+.participantes-seccion .participantes-tabla td {
+  color: #e9eef8 !important;
+  background: transparent !important;
+}
+
+.participantes-seccion .participantes-tabla tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+.participantes-seccion .participantes-tabla tbody tr:hover {
+  background: rgba(212, 175, 55, 0.075) !important;
+}
+
+.participantes-seccion .participantes-tabla td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075) !important;
+}
+
+.participantes-seccion .participante-identidad-texto strong {
+  color: #ffffff !important;
+}
+
+.participantes-seccion .participante-identidad-texto span,
+.participantes-seccion .participante-contacto span,
+.participantes-seccion .participante-contacto a {
+  color: #aebbd0 !important;
+}
+
+.participantes-seccion .participante-contacto a:hover {
+  color: #f1dc8a !important;
+}
+
+/* Botón Abrir ficha */
+
+.participantes-seccion .participante-boton-accion-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 36px;
+  padding: 8px 13px;
+
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  border-radius: 9px;
+
+  color: #f1dc8a !important;
+  background: rgba(212, 175, 55, 0.09) !important;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  text-decoration: none !important;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.participantes-seccion .participante-boton-accion-principal:hover {
+  transform: translateY(-1px);
+
+  border-color: #d4af37;
+
+  color: #08172f !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f1dc8a,
+      #d4af37
+    ) !important;
+}
+
+/* Botones editar y eliminar */
+
+.participantes-seccion .participante-boton-icono {
+  display: inline-grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+
+  color: #e9eef8 !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+
+  font-size: 0.9rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.participantes-seccion .participante-boton-icono:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(212, 175, 55, 0.45);
+
+  color: #f1dc8a !important;
+  background: rgba(212, 175, 55, 0.1) !important;
+}
+
+
+/* =========================================================
+   CORRECCIÓN DE FILTROS Y BUSCADOR
+========================================================= */
+
+.participantes-seccion .participantes-filtros {
+  background:
+    linear-gradient(
+      145deg,
+      #102448 0%,
+      #08172f 100%
+    ) !important;
+
+  border-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+/* Títulos: Buscar participante, Estado y Progreso */
+
+.participantes-seccion .participantes-campo label {
+  color: #f1dc8a !important;
+  opacity: 1 !important;
+}
+
+/* Campo de búsqueda y selectores */
+
+.participantes-seccion .participantes-campo input,
+.participantes-seccion .participantes-campo select {
+  color: #ffffff !important;
+
+  background: rgba(255, 255, 255, 0.08) !important;
+
+  border-color: rgba(212, 175, 55, 0.24) !important;
+}
+
+/* Texto de ayuda dentro del buscador */
+
+.participantes-seccion .participantes-campo input::placeholder {
+  color: #c5cfdf !important;
+  opacity: 1 !important;
+}
+
+/* Valor seleccionado: Todos */
+
+.participantes-seccion .participantes-campo select {
+  color: #ffffff !important;
+}
+
+/* Opciones desplegadas */
+
+.participantes-seccion .participantes-campo select option {
+  color: #152039 !important;
+  background: #ffffff !important;
+}
+
+/* Al escribir o seleccionar */
+
+.participantes-seccion .participantes-campo input:focus,
+.participantes-seccion .participantes-campo select:focus {
+  color: #ffffff !important;
+
+  border-color: #d4af37 !important;
+
+  background: rgba(255, 255, 255, 0.11) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.12) !important;
+}
+
+/* Botón Limpiar filtros */
+
+.participantes-seccion #btnLimpiarFiltros {
+  color: #f1dc8a !important;
+
+  background: rgba(212, 175, 55, 0.08) !important;
+
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+}
+
+.participantes-seccion #btnLimpiarFiltros:hover {
+  color: #08172f !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f1dc8a,
+      #d4af37
+    ) !important;
+}
+
+
+/* =========================================================
+   ESPACIADO ENTRE SECCIONES
+========================================================= */
+
+/* Barra superior */
+
+.encuentros-acciones-superiores {
+  margin-bottom: 36px;
+}
+
+/* Bloques o tarjetas de la página */
+
+.encuentros-seccion,
+.encuentros-card,
+.encuentros-panel {
+  margin-bottom: 36px;
+}
+
+/* Barra inferior */
+
+.encuentros-acciones-finales {
+  margin-top: 36px;
+}
