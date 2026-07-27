@@ -635,35 +635,34 @@ function crearFilaParticipante(participante) {
 
         <div class="participante-acciones-fila">
 
-          <a
-            class="participante-boton-accion"
-            href="${fichaUrl}"
-          >
-            Ver ficha
-          </a>
+  <a
+    class="participante-boton-accion participante-boton-accion-principal"
+    href="${fichaUrl}"
+  >
+    Abrir ficha
+  </a>
 
-          <button
-            class="participante-boton-accion"
-            type="button"
-            data-accion="editar"
-            data-id="${escapeHTML(participante.id)}"
-          >
-            Editar
-          </button>
+  <button
+    class="participante-boton-icono"
+    type="button"
+    title="Editar"
+    data-accion="editar"
+    data-id="${escapeHTML(participante.id)}"
+  >
+    ✎
+  </button>
 
-          <button
-            class="
-              participante-boton-accion
-              participante-boton-accion--peligro
-            "
-            type="button"
-            data-accion="eliminar"
-            data-id="${escapeHTML(participante.id)}"
-          >
-            Eliminar
-          </button>
+  <button
+    class="participante-boton-icono"
+    type="button"
+    title="Eliminar"
+    data-accion="eliminar"
+    data-id="${escapeHTML(participante.id)}"
+  >
+    🗑
+  </button>
 
-        </div>
+</div>
 
       </td>
 

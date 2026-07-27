@@ -103,29 +103,249 @@ Sistema FALCO®
 
 </header>
 
-<!-- Navegación -->
+
+<!-- Estado de guardado -->
+
+<div
+  id="estadoGuardado"
+  class="participante-guardado participante-guardado-ok"
+  role="status"
+  aria-live="polite"
+>
+  <span
+    id="estadoGuardadoPunto"
+    class="participante-guardado-punto"
+  ></span>
+
+  <span id="estadoGuardadoTexto">
+    Todos los cambios guardados
+  </span>
+</div>
+
+
+
+
+<!-- Navegación superior -->
 
 <section class="participante-acciones-superiores">
 
-<a
-class="admin-boton admin-boton-secundario"
-href="../participantes/participantes.html"
->
+  <a
+    class="admin-boton admin-boton-secundario"
+    href="../participantes/participantes.html"
+  >
+    ← Volver al listado
+  </a>
 
-← Volver al listado
+  <div class="participante-acciones-superiores-grupo">
 
-</a>
+    <button
+      id="btnAccesoRapido"
+      class="admin-boton admin-boton-secundario"
+      type="button"
+    >
+      Administrar acceso
+    </button>
 
-<a
-class="admin-boton admin-boton-principal"
-href="../alta/alta-participante.html"
->
+    <a
+      id="btnEditarParticipante"
+      class="admin-boton admin-boton-principal"
+      href="../alta/alta-participante.html"
+    >
+      Editar participante
+    </a>
 
-Editar participante
-
-</a>
+  </div>
 
 </section>
+
+
+<!-- Cabecera premium del participante -->
+
+<section
+  id="participanteCabecera"
+  class="participante-cabecera"
+>
+
+  <div class="participante-cabecera-principal">
+
+    <div
+      id="participanteAvatar"
+      class="participante-avatar"
+      aria-hidden="true"
+    >
+      ML
+    </div>
+
+    <div class="participante-identidad">
+
+      <div class="participante-identidad-superior">
+
+        <div>
+
+          <div class="admin-eyebrow">
+            Participante
+          </div>
+
+          <h2 id="participanteNombreCabecera">
+            Cargando participante…
+          </h2>
+
+        </div>
+
+        <span
+          id="participanteEstadoCabecera"
+          class="participante-badge participante-badge-activo"
+        >
+          Activo
+        </span>
+
+      </div>
+
+      <p
+        id="participanteDescripcionCabecera"
+        class="participante-descripcion"
+      >
+        Información general del participante.
+      </p>
+
+      <div class="participante-meta">
+
+        <span>
+          <strong>DNI:</strong>
+          <span id="participanteDniCabecera">
+            —
+          </span>
+        </span>
+
+        <span>
+          <strong>Correo:</strong>
+          <span id="participanteCorreoCabecera">
+            —
+          </span>
+        </span>
+
+        <span>
+          <strong>Alta:</strong>
+          <span id="participanteAltaCabecera">
+            —
+          </span>
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="participante-cabecera-progreso">
+
+    <div class="participante-progreso-cabecera">
+
+      <div>
+
+        <span class="participante-progreso-label">
+          Progreso general
+        </span>
+
+        <strong id="participanteProgresoCabecera">
+          0%
+        </strong>
+
+      </div>
+
+      <span id="participanteEncuentrosCabecera">
+        0 de 8 encuentros completados
+      </span>
+
+    </div>
+
+    <div
+      class="participante-barra"
+      role="progressbar"
+      aria-label="Progreso del programa"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      id="participanteBarraProgreso"
+    >
+
+      <span
+        id="participanteBarraProgresoValor"
+        style="width: 0%;"
+      ></span>
+
+    </div>
+
+  </div>
+
+  <div class="participante-cabecera-acciones">
+
+    <button
+      id="btnGuardarSuperior"
+      class="admin-boton admin-boton-principal"
+      type="button"
+    >
+      Guardar cambios
+    </button>
+
+    <button
+      id="btnAlternarAcceso"
+      class="admin-boton admin-boton-secundario"
+      type="button"
+    >
+      Deshabilitar acceso
+    </button>
+
+    <button
+      id="btnRegistrarActividad"
+      class="admin-boton admin-boton-secundario"
+      type="button"
+    >
+      Registrar actividad
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- Navegación interna -->
+
+<nav
+  class="participante-navegacion"
+  aria-label="Secciones de la ficha"
+>
+
+  <a href="#seccionInformacion">
+    Información
+  </a>
+
+  <a href="#seccionHistorial">
+    Actividad
+  </a>
+
+  <a href="#seccionEncuentros">
+    Encuentros
+  </a>
+
+  <a href="#seccionVideos">
+    Videos
+  </a>
+
+  <a href="#seccionMaterial">
+    Material
+  </a>
+
+  <a href="#seccionEncuestas">
+    Encuestas
+  </a>
+
+  <a href="#seccionCertificados">
+    Certificados
+  </a>
+
+</nav>
+
 
 <!-- Resumen -->
 
@@ -235,7 +455,10 @@ Emitidos
 
 <!-- Información -->
 
-<section class="admin-seccion">
+<section
+  id="seccionInformacion"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 
@@ -267,7 +490,10 @@ Datos del participante
 
 <!-- Actividad -->
 
-<section class="admin-seccion">
+<section
+  id="seccionHistorial"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 
@@ -299,7 +525,10 @@ Historial
 
 <!-- Encuentros -->
 
-<section class="admin-seccion">
+<section
+  id="seccionEncuentros"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 
@@ -331,7 +560,10 @@ Encuentros
 
 <!-- Videos -->
 
-<section class="admin-seccion">
+<section
+  id="seccionVideos"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 
@@ -363,7 +595,10 @@ Videos
 
 <!-- Material -->
 
-<section class="admin-seccion">
+<section
+  id="seccionMaterial"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 
@@ -393,7 +628,10 @@ Material descargado
 
 <!-- Encuestas -->
 
-<section class="admin-seccion">
+<section
+  id="seccionEncuestas"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 
@@ -423,7 +661,10 @@ Encuestas
 
 <!-- Certificados -->
 
-<section class="admin-seccion">
+<section
+  id="seccionCertificados"
+  class="admin-seccion participante-seccion-ancla"
+>
 
 <div class="admin-seccion-header">
 

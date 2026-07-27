@@ -35,6 +35,7 @@ const FalcoAdminSidebar = {
     console.log(
       "FALCO Admin Sidebar™ v1.0 Ready"
     );
+
   },
 
   template(moduloActivo, base) {
@@ -58,6 +59,7 @@ const FalcoAdminSidebar = {
           ${texto}
         </a>
       `;
+
     };
 
     return `
@@ -97,19 +99,19 @@ const FalcoAdminSidebar = {
 
           ${crearEnlace(
             "encuentros",
-            "#",
+            `${base}encuentros/encuentros.html`,
             "Encuentros"
           )}
 
           ${crearEnlace(
             "certificados",
-            "#",
+            `${base}certificados/certificados.html`,
             "Certificados"
           )}
 
           ${crearEnlace(
             "configuracion",
-            "#",
+            `${base}configuracion/configuracion.html`,
             "Configuración"
           )}
 
@@ -125,7 +127,9 @@ const FalcoAdminSidebar = {
 
       </aside>
     `;
+
   }
+
 };
 
 document.addEventListener(

@@ -4,9 +4,7 @@
    Carga inicial sin Firebase
 ========================================================= */
 
-import {
-  encuentros
-} from "./escuela-data.js";
+
 
 import EscuelaProgressEngine
   from "./escuela-progress-engine.js";
@@ -15,14 +13,23 @@ import EscuelaProgressEngine
   EscuelaProgressEngine;
 
 import {
-  auth
+  auth,
+  db
 } from "./firebase-config.js";
 
 import {
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
 
   onAuthStateChanged(
     auth,
@@ -79,253 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
+
+
+
   /* =======================================================
      DATOS DE LOS ENCUENTROS
   ======================================================== */
 
-  const encuentrosLocal = {
-
-    1: {
-      numero: 1,
-      titulo: "Comprender la adolescencia",
-      descripcion:
-        "Una introducción a los cambios físicos, emocionales, psicológicos y vinculares propios de la adolescencia.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Comprender la adolescencia",
-      videoDescripcion:
-        "Clase principal sobre los procesos de cambio propios de la adolescencia.",
-
-      objetivos: [
-        "Comprender los principales cambios físicos, emocionales y psicológicos de la adolescencia.",
-        "Reconocer las transformaciones vinculares propias de esta etapa.",
-        "Reflexionar sobre el acompañamiento adulto durante el crecimiento adolescente."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 1",
-      actividadDescripcion:
-        "Una propuesta de reflexión para reconocer cambios, necesidades y formas de acompañamiento durante la adolescencia.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    2: {
-      numero: 2,
-      titulo: "Comunicación y escucha",
-      descripcion:
-        "Herramientas para mejorar el diálogo, la comprensión y la escucha dentro de los vínculos familiares.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Comunicación y escucha familiar",
-      videoDescripcion:
-        "Clase orientada al desarrollo de una comunicación más clara, empática y respetuosa.",
-
-      objetivos: [
-        "Reconocer obstáculos frecuentes en la comunicación familiar.",
-        "Desarrollar recursos de escucha activa.",
-        "Favorecer formas de diálogo más respetuosas y constructivas."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 2",
-      actividadDescripcion:
-        "Ejercicio de observación y reflexión sobre las formas de comunicación utilizadas en el entorno familiar.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    3: {
-      numero: 3,
-      titulo: "Límites y acompañamiento",
-      descripcion:
-        "El valor de los límites como forma de cuidado, orientación y construcción de seguridad emocional.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Límites que acompañan",
-      videoDescripcion:
-        "Clase sobre la construcción de límites claros, sostenidos y adecuados a cada etapa.",
-
-      objetivos: [
-        "Comprender la función protectora de los límites.",
-        "Diferenciar límites de castigos o sanciones arbitrarias.",
-        "Construir acuerdos familiares claros y sostenibles."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 3",
-      actividadDescripcion:
-        "Propuesta para revisar límites, acuerdos y dificultades presentes en la dinámica familiar.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    4: {
-      numero: 4,
-      titulo: "Emociones y regulación",
-      descripcion:
-        "Comprender las emociones y acompañar su expresión de manera saludable dentro de la familia.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Emociones y regulación emocional",
-      videoDescripcion:
-        "Clase centrada en la identificación, expresión y regulación de las emociones.",
-
-      objetivos: [
-        "Reconocer las emociones como parte del desarrollo.",
-        "Acompañar la expresión emocional sin minimizarla.",
-        "Incorporar herramientas sencillas de regulación emocional."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 4",
-      actividadDescripcion:
-        "Ejercicio para identificar emociones frecuentes y formas posibles de acompañarlas.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    5: {
-      numero: 5,
-      titulo: "Conflictos familiares",
-      descripcion:
-        "Herramientas para comprender los conflictos y abordarlos sin deteriorar los vínculos.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Comprender y abordar los conflictos",
-      videoDescripcion:
-        "Clase sobre el origen de los conflictos familiares y formas de intervención más saludables.",
-
-      objetivos: [
-        "Identificar factores que intensifican los conflictos.",
-        "Diferenciar el problema de la persona.",
-        "Construir alternativas de resolución más respetuosas."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 5",
-      actividadDescripcion:
-        "Análisis de una situación cotidiana de conflicto y búsqueda de respuestas alternativas.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    6: {
-      numero: 6,
-      titulo: "Autonomía y responsabilidad",
-      descripcion:
-        "Cómo acompañar el crecimiento progresivo hacia una mayor autonomía y responsabilidad.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Autonomía y responsabilidad",
-      videoDescripcion:
-        "Clase sobre el acompañamiento gradual del desarrollo de capacidades y decisiones propias.",
-
-      objetivos: [
-        "Comprender la autonomía como un proceso progresivo.",
-        "Favorecer responsabilidades acordes a cada etapa.",
-        "Acompañar sin sobreproteger ni abandonar."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 6",
-      actividadDescripcion:
-        "Propuesta para revisar responsabilidades, permisos y niveles de autonomía presentes en la familia.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    7: {
-      numero: 7,
-      titulo: "Tecnología y vida digital",
-      descripcion:
-        "Orientaciones para acompañar el uso de pantallas, redes sociales y espacios digitales.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Tecnología y acompañamiento familiar",
-      videoDescripcion:
-        "Clase sobre hábitos digitales, prevención de riesgos y construcción de acuerdos familiares.",
-
-      objetivos: [
-        "Comprender el lugar de la tecnología en la vida cotidiana.",
-        "Reconocer riesgos y oportunidades de los entornos digitales.",
-        "Construir acuerdos de uso claros y realistas."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 7",
-      actividadDescripcion:
-        "Revisión de hábitos tecnológicos y elaboración de posibles acuerdos familiares.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    },
-
-    8: {
-      numero: 8,
-      titulo: "Integración y cierre",
-      descripcion:
-        "Recorrido final para integrar los contenidos trabajados y fortalecer los recursos familiares.",
-
-      estado: "Disponible",
-
-      videoTitulo: "Integración final",
-      videoDescripcion:
-        "Clase de cierre destinada a recuperar aprendizajes, herramientas y reflexiones del recorrido.",
-
-      objetivos: [
-        "Integrar los contenidos desarrollados durante el programa.",
-        "Reconocer recursos y fortalezas familiares.",
-        "Definir compromisos posibles para continuar el proceso."
-      ],
-
-      actividadTitulo: "Actividad práctica del Encuentro 8",
-      actividadDescripcion:
-        "Actividad final de integración, evaluación personal y proyección de próximos pasos.",
-
-      videoUrl: "#",
-      cuadernilloUrl: "#",
-      actividadUrl: "#",
-      presentacionUrl: "#",
-      recursosUrl: "#",
-      consultaUrl: "#"
-    }
-
-  };
 
 
   /* =======================================================
@@ -390,28 +157,47 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
-  /* =======================================================
-     VALIDACIÓN
-  ======================================================== */
+ /* =======================================================
+   VALIDACIÓN
+======================================================== */
 
-  if (
-    !encuentroId ||
-    !encuentros[encuentroId]
-  ) {
+if (!encuentroId) {
 
-    mostrarError(
-      "El encuentro solicitado no existe o el enlace no es válido."
-    );
+  mostrarError(
+    "El encuentro solicitado no existe o el enlace no es válido."
+  );
 
-    return;
-  }
+  return;
+}
 
 
   /* =======================================================
      CARGAR DATOS
   ======================================================== */
 
-  const encuentro = encuentros[encuentroId];
+  const referenciaEncuentro = doc(
+  db,
+  "escuela_encuentros",
+  `modulo${encuentroId}`
+);
+
+const documentoEncuentro = await getDoc(
+  referenciaEncuentro
+);
+
+if (!documentoEncuentro.exists()) {
+
+  mostrarError(
+    "El encuentro solicitado no está disponible."
+  );
+
+  return;
+}
+
+const encuentro = {
+  numero: encuentroId,
+  ...documentoEncuentro.data()
+};
 
 const estadoActual =
   encuentro.estado || "Disponible";
@@ -446,6 +232,58 @@ videoDescripcion.textContent =
   encuentro.videoDescripcion ||
   "Clase principal correspondiente a este encuentro de la Escuela para Padres FALCO®.";
 
+
+const contenedorVideo =
+  document.getElementById(
+    "encuentroVideoContenedor"
+  );
+
+if (
+  encuentro.video &&
+  encuentro.videoUrl
+) {
+
+  const videoEmbed =
+    obtenerVideoEmbed(
+      encuentro.videoUrl
+    );
+
+  if (videoEmbed) {
+
+    contenedorVideo.innerHTML = `
+
+      <iframe
+        src="${videoEmbed}"
+        title="${encuentro.titulo}"
+        width="100%"
+        height="100%"
+        style="
+          width: 100%;
+          min-height: 420px;
+          border: 0;
+          display: block;
+        "
+        allow="
+          accelerometer;
+          autoplay;
+          clipboard-write;
+          encrypted-media;
+          gyroscope;
+          picture-in-picture;
+          web-share
+        "
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+
+    `;
+
+  }
+
+}
+
+
 actividadTitulo.textContent =
   encuentro.actividadTitulo ||
   `Actividad práctica del Encuentro ${encuentroId}`;
@@ -456,12 +294,33 @@ actividadDescripcion.textContent =
 
 objetivosLista.innerHTML = "";
 
-const objetivos =
-  encuentro.objetivos || [
+let objetivos = [];
+
+if (Array.isArray(encuentro.objetivos)) {
+
+  objetivos = encuentro.objetivos;
+
+} else if (
+  typeof encuentro.objetivos === "string" &&
+  encuentro.objetivos.trim()
+) {
+
+  objetivos = encuentro.objetivos
+    .split(/\n|;/)
+    .map((objetivo) => objetivo.trim())
+    .filter(Boolean);
+
+}
+
+if (!objetivos.length) {
+
+  objetivos = [
     "Comprender los contenidos principales del encuentro.",
     "Reflexionar sobre su aplicación en la dinámica familiar.",
     "Incorporar herramientas de acompañamiento y orientación."
   ];
+
+}
 
 objetivos.forEach((objetivo) => {
 
@@ -482,21 +341,25 @@ objetivos.forEach((objetivo) => {
 
 configurarEnlace(
   enlaceCuadernillo,
+  encuentro.cuadernilloUrl,
   encuentro.cuadernillo
 );
 
 configurarEnlace(
   enlacePresentacion,
+  encuentro.presentacionUrl,
   encuentro.presentacion
 );
 
 configurarEnlace(
   enlaceRecursos,
+  encuentro.recursosUrl,
   encuentro.recursos
 );
 
 configurarEnlace(
   enlaceActividad,
+  encuentro.actividadUrl,
   encuentro.actividad
 );
 
@@ -633,42 +496,102 @@ configurarEnlace(
      FUNCIONES
   ======================================================== */
 
-  function configurarEnlace(
-    elemento,
-    url
-  ) {
+function obtenerVideoEmbed(url) {
 
-    if (
-      !url ||
-      url === "#"
-    ) {
+  if (!url) {
+    return "";
+  }
 
-      elemento.href = "#";
+  try {
 
-      elemento.classList.add(
-        "disabled"
-      );
+    const enlace = new URL(url);
 
-      elemento.setAttribute(
-        "aria-disabled",
-        "true"
-      );
+    if (enlace.hostname.includes("youtu.be")) {
 
-      elemento.addEventListener(
-        "click",
-        (evento) => {
+      const videoId =
+        enlace.pathname.replace("/", "");
 
-          evento.preventDefault();
+      return `https://www.youtube.com/embed/${videoId}`;
 
-        }
-      );
-
-      return;
     }
 
-    elemento.href = url;
+    if (enlace.hostname.includes("youtube.com")) {
+
+      if (enlace.pathname.includes("/embed/")) {
+        return url;
+      }
+
+      const videoId =
+        enlace.searchParams.get("v");
+
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+
+    }
+
+    return url;
+
+  } catch (error) {
+
+    console.warn(
+      "URL de video no válida:",
+      url
+    );
+
+    return "";
 
   }
+
+}
+
+
+function configurarEnlace(
+  elemento,
+  url,
+  habilitado = true
+) {
+
+  if (
+    !habilitado ||
+    !url ||
+    url === "#"
+  ) {
+
+    elemento.href = "#";
+
+    elemento.classList.add(
+      "disabled"
+    );
+
+    elemento.setAttribute(
+      "aria-disabled",
+      "true"
+    );
+
+    elemento.addEventListener(
+      "click",
+      (evento) => {
+
+        evento.preventDefault();
+
+      }
+    );
+
+    return;
+  }
+
+  elemento.href = url;
+
+  elemento.classList.remove(
+    "disabled"
+  );
+
+  elemento.removeAttribute(
+    "aria-disabled"
+  );
+
+}
 
 
   function actualizarProgreso(
@@ -740,9 +663,6 @@ configurarEnlace(
 ======================================================= */
 
 function obtenerLinkConsulta(numero) {
-
-  const encuentro =
-    encuentros[numero];
 
   const titulo =
     encuentro?.titulo ||

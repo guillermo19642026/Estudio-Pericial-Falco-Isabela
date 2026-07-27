@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Administración de los encuentros de la Escuela para Padres del Sistema FALCO®."
+    >
+
+    <title>
+        Encuentros | Escuela para Padres | Sistema FALCO®
+    </title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../shared/css/admin-framework.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="encuentros.css"
+    >
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <div
+        data-admin-sidebar
+        data-active="encuentros"
+        data-base="../"
+    ></div>
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="admin-main">
+
+        <!-- ===================================================
+             ENCABEZADO
+        ==================================================== -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <div class="admin-eyebrow">
+                    Escuela para Padres
+                </div>
+
+                <h1>
+                    Encuentros
+                </h1>
+
+                <p class="admin-subtitulo">
+                    Administrá el contenido, estado y recursos de los ocho encuentros del programa.
+                </p>
+
+            </div>
+
+            <div class="admin-user">
+
+                <span class="admin-user-role">
+                    Administración
+                </span>
+
+                <strong>
+                    Sistema FALCO®
+                </strong>
+
+            </div>
+
+        </header>
+
+        <!-- ===================================================
+             ACCIONES PRINCIPALES
+        ==================================================== -->
+
+        <section class="participantes-acciones-superiores">
+
+            <a
+                class="admin-boton admin-boton-secundario"
+                href="../dashboard/dashboard.html"
+            >
+                ← Volver al inicio
+            </a>
+
+            <button
+                id="btnGuardarEncuentros"
+                class="admin-boton admin-boton-principal"
+                type="button"
+                disabled
+            >
+                Guardar cambios
+            </button>
+
+        </section>
+
+        <!-- ===================================================
+             RESUMEN GENERAL
+        ==================================================== -->
+
+        <section
+            class="admin-resumen"
+            aria-label="Resumen de encuentros"
+        >
+
+            <article class="admin-card">
+
+                <span class="admin-card-label">
+                    Encuentros
+                </span>
+
+                <strong
+                    id="totalEncuentros"
+                    class="admin-card-numero"
+                >
+                    8
+                </strong>
+
+                <span class="admin-card-texto">
+                    Programa completo
+                </span>
+
+            </article>
+
+            <article class="admin-card">
+
+                <span class="admin-card-label">
+                    Publicados
+                </span>
+
+                <strong
+                    id="encuentrosPublicados"
+                    class="admin-card-numero"
+                >
+                    0
+                </strong>
+
+                <span class="admin-card-texto">
+                    Disponibles
+                </span>
+
+            </article>
+
+            <article class="admin-card">
+
+                <span class="admin-card-label">
+                    Borradores
+                </span>
+
+                <strong
+                    id="encuentrosBorrador"
+                    class="admin-card-numero"
+                >
+                    0
+                </strong>
+
+                <span class="admin-card-texto">
+                    Pendientes
+                </span>
+
+            </article>
+
+            <article class="admin-card">
+
+                <span class="admin-card-label">
+                    Configurados
+                </span>
+
+                <strong
+                    id="encuentrosConfigurados"
+                    class="admin-card-numero"
+                >
+                    0
+                </strong>
+
+                <span class="admin-card-texto">
+                    Con contenido completo
+                </span>
+
+            </article>
+
+        </section>
+
+                <!-- ===================================================
+             ENCUENTROS
+        ==================================================== -->
+
+        <section class="admin-seccion encuentros-seccion">
+
+            <div class="admin-seccion-header">
+
+                <div>
+
+                    <div class="admin-eyebrow">
+                        Administración general
+                    </div>
+
+                    <h2>
+                        Programa de Encuentros
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div
+                id="contenedorEncuentros"
+                class="encuentros-grid"
+            >
+
+                <!--
+                    Las tarjetas de los ocho encuentros
+                    se cargarán desde encuentros.js
+                    y posteriormente desde Firebase.
+                -->
+
+            </div>
+
+
+            <!-- ===============================================
+                 ESTADO VACÍO
+            ================================================ -->
+
+            <div
+                id="estadoVacio"
+                class="admin-empty-state participantes-estado-vacio"
+                hidden
+            >
+
+                <div class="admin-eyebrow">
+                    Escuela para Padres
+                </div>
+
+                <h3>
+                    Todavía no hay encuentros creados
+                </h3>
+
+                <p>
+                    Cuando incorpores el contenido del programa,
+                    los encuentros aparecerán automáticamente aquí.
+                </p>
+
+            </div>
+
+
+            <!-- ===============================================
+                 ESTADO DE CARGA
+            ================================================ -->
+
+            <div
+                id="estadoCarga"
+                class="participantes-mensaje participantes-mensaje-carga"
+                hidden
+                aria-live="polite"
+            >
+
+                <span
+                    class="participantes-spinner"
+                    aria-hidden="true"
+                ></span>
+
+                <p>
+                    Cargando encuentros…
+                </p>
+
+            </div>
+
+
+            <!-- ===============================================
+                 ESTADO DE ERROR
+            ================================================ -->
+
+            <div
+                id="estadoError"
+                class="participantes-mensaje participantes-mensaje-error"
+                hidden
+                role="alert"
+            >
+
+                <strong>
+                    No fue posible cargar los encuentros.
+                </strong>
+
+                <p id="estadoErrorMensaje">
+                    Revisá la conexión e intentá nuevamente.
+                </p>
+
+                <button
+                    id="btnReintentar"
+                    class="admin-boton admin-boton-secundario"
+                    type="button"
+                >
+                    Reintentar
+                </button>
+
+            </div>
+
+        </section>
+
+                <!-- ===================================================
+             MODAL
+        ==================================================== -->
+
+        <div
+            id="modalEncuentro"
+            class="participantes-modal"
+            hidden
+            aria-hidden="true"
+        >
+
+            <div
+                class="participantes-modal-fondo"
+                data-modal-cerrar
+            ></div>
+
+            <div
+                class="participantes-modal-contenido"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modalEncuentroTitulo"
+            >
+
+                <div class="admin-eyebrow">
+                    Administración
+                </div>
+
+                <h2 id="modalEncuentroTitulo">
+                    Encuentro
+                </h2>
+
+              <div id="modalEncuentroContenido">
+
+    <!-- El contenido dinámico se genera desde encuentros.js -->
+
+    <div class="encuentro-admin-secciones">
+
+        <section id="datosGeneralesEncuentro"></section>
+
+        <section id="contenidoEncuentro"></section>
+
+        <section id="recursosEncuentro"></section>
+
+    </div>
+
+</div>
+
+                <div class="participantes-modal-acciones">
+
+                    <button
+                        class="admin-boton admin-boton-secundario"
+                        data-modal-cerrar
+                        type="button"
+                    >
+                        Cerrar
+                    </button>
+
+                    <button
+                        id="btnGuardarModal"
+                        class="admin-boton admin-boton-principal"
+                        type="button"
+                    >
+                        Guardar cambios
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- =====================================================
+     SCRIPTS
+====================================================== -->
+
+<script
+    type="module"
+    src="encuentros.js"
+></script>
+
+<script
+    type="module"
+    src="../shared/components/falco-admin-sidebar.js"
+></script>
+
+</body>
+
+</html>
