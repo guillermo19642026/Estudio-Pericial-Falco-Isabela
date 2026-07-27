@@ -106,17 +106,41 @@ async cargarDatos() {
 
             <div class="encuentro-contenido">
 
-                ${this.item("Video",encuentro.video)}
+                ${this.item(
+    "Video",
+    encuentro.video,
+    encuentro.videoUrl
+)}
 
-                ${this.item("Cuadernillo",encuentro.cuadernillo)}
+${this.item(
+    "Cuadernillo",
+    encuentro.cuadernillo,
+    encuentro.cuadernilloUrl
+)}
 
-                ${this.item("Actividad",encuentro.actividad)}
+${this.item(
+    "Actividad",
+    encuentro.actividad,
+    encuentro.actividadUrl
+)}
 
-                ${this.item("Presentación",encuentro.presentacion)}
+${this.item(
+    "Presentación",
+    encuentro.presentacion,
+    encuentro.presentacionUrl
+)}
 
-                ${this.item("Recursos",encuentro.recursos)}
+${this.item(
+    "Recursos",
+    encuentro.recursos,
+    encuentro.recursosUrl
+)}
 
-                ${this.item("Encuesta",encuentro.encuesta)}
+${this.item(
+    "Encuesta",
+    encuentro.encuesta,
+    "#"
+)}
 
             </div>
 
@@ -137,9 +161,23 @@ async cargarDatos() {
 
     },
 
-    item(nombre,estado){
+ item(
+    nombre,
+    habilitado,
+    url = ""
+){
 
-        return `
+    let texto = "— Pendiente";
+
+    if(habilitado){
+
+        texto = url
+            ? "✔ Configurado"
+            : "⚠ Sin enlace";
+
+    }
+
+    return `
 
         <div class="encuentro-item">
 
@@ -148,18 +186,14 @@ async cargarDatos() {
             </span>
 
             <span class="encuentro-item-estado">
-
-                ${estado
-                    ? "✔ Configurado"
-                    : "— Pendiente"}
-
+                ${texto}
             </span>
 
         </div>
 
-        `;
+    `;
 
-    },
+},
 
     actualizarResumen(){
 
