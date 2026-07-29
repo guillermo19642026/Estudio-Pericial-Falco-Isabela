@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Portal de Cursos FALCO®. Acceso a programas de formación, cursos disponibles e información para alumnos."
+  >
+
+  <title>Portal de Cursos | Sistema FALCO®</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="portal-cursos.css">
+</head>
+
+<body>
+
+  <div class="portal-cursos-page">
+
+    <!-- =====================================================
+         FONDO DECORATIVO
+    ====================================================== -->
+
+    <div class="portal-background" aria-hidden="true">
+      <span class="portal-glow portal-glow-uno"></span>
+      <span class="portal-glow portal-glow-dos"></span>
+      <span class="portal-pattern"></span>
+    </div>
+
+
+    <!-- =====================================================
+         CABECERA
+    ====================================================== -->
+
+    <header class="portal-header">
+
+      <div class="portal-header-container">
+
+        <a
+          href="index.html"
+          class="portal-brand"
+          aria-label="Sistema FALCO"
+        >
+          <span class="portal-brand-mark">
+            F
+          </span>
+
+          <span class="portal-brand-text">
+            <strong>Sistema FALCO®</strong>
+            <small>Formación y desarrollo profesional</small>
+          </span>
+        </a>
+
+
+        <div class="portal-user">
+
+          <div class="portal-user-info">
+            <span class="portal-user-label">
+              Sesión activa
+            </span>
+
+            <strong id="nombreAlumno">
+              Alumno/a
+            </strong>
+          </div>
+
+          <div
+            class="portal-user-avatar"
+            id="avatarAlumno"
+            aria-hidden="true"
+          >
+            A
+          </div>
+
+          <button
+            type="button"
+            class="portal-logout-button"
+            id="btnCerrarSesion"
+            aria-label="Cerrar sesión"
+          >
+            <span aria-hidden="true">↗</span>
+            <span>Cerrar sesión</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="portal-main">
+
+      <div class="portal-main-container">
+
+
+        <!-- =================================================
+             PRESENTACIÓN
+        ================================================== -->
+
+        <section class="portal-hero">
+
+          <div class="portal-hero-content">
+
+            <span class="portal-eyebrow">
+              Campus de formación
+            </span>
+
+            <h1>
+              Cursos y programas
+              <span>FALCO®</span>
+            </h1>
+
+            <p>
+              Desde este espacio podés ingresar a los cursos en los que
+              estás inscripto y conocer las demás propuestas de formación
+              disponibles dentro del Sistema FALCO®.
+            </p>
+
+          </div>
+
+
+          <aside class="portal-summary-card">
+
+            <span class="portal-summary-label">
+              Tu recorrido académico
+            </span>
+
+            <strong id="cantidadCursosHabilitados">
+              1 curso habilitado
+            </strong>
+
+            <p>
+              Seleccioná una propuesta para continuar tu formación.
+            </p>
+
+            <div class="portal-summary-progress">
+
+              <div class="portal-summary-progress-header">
+                <span>Progreso general</span>
+                <strong id="progresoGeneral">0%</strong>
+              </div>
+
+              <div
+                class="portal-progress-track"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                id="barraProgresoGeneral"
+              >
+                <span
+                  class="portal-progress-fill"
+                  id="rellenoProgresoGeneral"
+                ></span>
+              </div>
+
+            </div>
+
+          </aside>
+
+        </section>
+
+
+        <!-- =================================================
+             MENSAJES DE ESTADO
+        ================================================== -->
+
+        <section
+          class="portal-status"
+          id="estadoPortal"
+          aria-live="polite"
+        >
+          <div class="portal-status-icon" aria-hidden="true">
+            ◌
+          </div>
+
+          <div>
+            <strong>Cargando tus cursos</strong>
+            <p>
+              Estamos verificando las propuestas disponibles.
+            </p>
+          </div>
+        </section>
+
+
+        <!-- =================================================
+             ENCABEZADO DEL CATÁLOGO
+        ================================================== -->
+
+        <section class="portal-catalog-header">
+
+          <div>
+            <span class="portal-section-kicker">
+              Oferta académica
+            </span>
+
+            <h2>
+              Todos los cursos
+            </h2>
+
+            <p>
+              Los cursos habilitados permiten ingresar directamente.
+              En las demás propuestas podés solicitar información.
+            </p>
+          </div>
+
+
+          <div class="portal-catalog-legend">
+
+            <span class="portal-legend-item">
+              <span class="portal-legend-dot portal-legend-active"></span>
+              Inscripto
+            </span>
+
+            <span class="portal-legend-item">
+              <span class="portal-legend-dot portal-legend-available"></span>
+              Disponible
+            </span>
+
+            <span class="portal-legend-item">
+              <span class="portal-legend-dot portal-legend-soon"></span>
+              Próximamente
+            </span>
+
+          </div>
+
+        </section>
+
+
+       <!-- =================================================
+     MIS CURSOS
+================================================== -->
+
+<section
+  id="seccionMisCursos"
+  class="portal-course-section"
+  hidden
+>
+
+  <header class="portal-course-section-header">
+
+    <span class="portal-section-kicker">
+      Mis cursos
+    </span>
+
+    <h2>
+      Continuá tu formación
+    </h2>
+
+    <p>
+      Estos son los cursos en los que actualmente estás inscripto.
+    </p>
+
+  </header>
+
+  <section
+    class="portal-courses-grid"
+    id="contenedorMisCursos"
+    aria-label="Mis cursos"
+  ></section>
+
+</section>
+
+
+<!-- =================================================
+     OTROS CURSOS
+================================================== -->
+
+<section
+  id="seccionOtrosCursos"
+  class="portal-course-section"
+  hidden
+>
+
+  <header class="portal-course-section-header">
+
+    <span class="portal-section-kicker">
+      Otros cursos disponibles
+    </span>
+
+    <h2>
+      Conocé nuevas propuestas
+    </h2>
+
+    <p>
+      Cursos abiertos para inscripción dentro del Sistema FALCO®.
+    </p>
+
+  </header>
+
+  <section
+    class="portal-courses-grid"
+    id="contenedorOtrosCursos"
+    aria-label="Otros cursos"
+  ></section>
+
+</section>
+
+
+<!-- =================================================
+     PRÓXIMAMENTE
+================================================== -->
+
+<section
+  id="seccionProximamente"
+  class="portal-course-section"
+  hidden
+>
+
+  <header class="portal-course-section-header">
+
+    <span class="portal-section-kicker">
+      Próximamente
+    </span>
+
+    <h2>
+      Nuevas propuestas en desarrollo
+    </h2>
+
+    <p>
+      Programas que formarán parte del Campus FALCO®.
+    </p>
+
+  </header>
+
+  <section
+    class="portal-courses-grid"
+    id="contenedorProximamente"
+    aria-label="Próximamente"
+  ></section>
+
+</section>
+
+
+        <!-- =================================================
+             ESTADO SIN CURSOS
+        ================================================== -->
+
+        <section
+          class="portal-empty-state"
+          id="estadoSinCursos"
+          hidden
+        >
+          <div class="portal-empty-icon" aria-hidden="true">
+            ◇
+          </div>
+
+          <h2>
+            No encontramos cursos disponibles
+          </h2>
+
+          <p>
+            En este momento no hay propuestas publicadas para mostrar.
+          </p>
+
+          <a
+            href="https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20los%20cursos%20del%20Sistema%20FALCO%C2%AE."
+            class="portal-button portal-button-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar por WhatsApp
+          </a>
+        </section>
+
+
+        <!-- =================================================
+             AYUDA
+        ================================================== -->
+
+        <section class="portal-help">
+
+          <div class="portal-help-content">
+
+            <span class="portal-help-icon" aria-hidden="true">
+              ?
+            </span>
+
+            <div>
+              <span class="portal-help-label">
+                Orientación académica
+              </span>
+
+              <h2>
+                ¿Querés conocer cuál es el curso adecuado para vos?
+              </h2>
+
+              <p>
+                Podés comunicarte con el Estudio para recibir información
+                sobre contenidos, modalidad, próximas aperturas e inscripción.
+              </p>
+            </div>
+
+          </div>
+
+          <a
+            href="https://wa.me/5491132049521?text=Hola,%20quisiera%20recibir%20orientaci%C3%B3n%20sobre%20los%20cursos%20del%20Sistema%20FALCO%C2%AE."
+            class="portal-button portal-button-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Solicitar orientación
+          </a>
+
+        </section>
+
+      </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         PIE
+    ====================================================== -->
+
+    <footer class="portal-footer">
+
+      <div class="portal-footer-container">
+
+        <div>
+          <strong>Sistema FALCO®</strong>
+          <span>
+            Formación, recursos y acompañamiento profesional.
+          </span>
+        </div>
+
+        <p>
+          © <span id="anioActual"></span> Estudio Pericial Psicológico
+          – Lic. en Psicología Isabela Falco.
+        </p>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =====================================================
+       PLANTILLA DE TARJETA DE CURSO
+  ====================================================== -->
+
+  <template id="templateCurso">
+
+    <article class="portal-course-card">
+
+      <div class="portal-course-cover">
+
+        <img
+          class="portal-course-image"
+          src=""
+          alt=""
+          loading="lazy"
+        >
+
+        <div
+          class="portal-course-placeholder"
+          aria-hidden="true"
+        >
+          <span>F</span>
+        </div>
+
+        <span class="portal-course-status">
+          Estado
+        </span>
+
+      </div>
+
+
+      <div class="portal-course-body">
+
+        <div class="portal-course-heading">
+
+          <span class="portal-course-category">
+            Programa FALCO®
+          </span>
+
+          <h3 class="portal-course-title">
+            Nombre del curso
+          </h3>
+
+          <p class="portal-course-description">
+            Descripción del curso.
+          </p>
+
+        </div>
+
+
+        <div class="portal-course-meta">
+
+          <span class="portal-course-meta-item">
+            <span aria-hidden="true">◫</span>
+            <strong class="portal-course-meetings">
+              0 encuentros
+            </strong>
+          </span>
+
+          <span class="portal-course-meta-item">
+            <span aria-hidden="true">◷</span>
+            <strong class="portal-course-modality">
+              Modalidad virtual
+            </strong>
+          </span>
+
+        </div>
+
+
+        <div
+          class="portal-course-progress"
+          hidden
+        >
+
+          <div class="portal-course-progress-header">
+            <span>Tu progreso</span>
+            <strong class="portal-course-progress-value">
+              0%
+            </strong>
+          </div>
+
+          <div
+            class="portal-progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <span class="portal-progress-fill"></span>
+          </div>
+
+        </div>
+
+
+        <div class="portal-course-actions">
+
+          <a
+            href="#"
+            class="portal-button portal-button-primary portal-course-main-action"
+          >
+            Ingresar al curso
+          </a>
+
+          <button
+            type="button"
+            class="portal-course-details-button"
+          >
+            Ver información
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </template>
+
+
+  <!-- =====================================================
+       MODAL DE INFORMACIÓN
+  ====================================================== -->
+
+  <div
+    class="portal-modal"
+    id="modalCurso"
+    hidden
+  >
+
+    <div
+      class="portal-modal-backdrop"
+      data-modal-close
+    ></div>
+
+    <section
+      class="portal-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalCursoTitulo"
+    >
+
+      <button
+        type="button"
+        class="portal-modal-close"
+        id="btnCerrarModal"
+        aria-label="Cerrar información"
+      >
+        ×
+      </button>
+
+
+      <span class="portal-modal-kicker">
+        Información del curso
+      </span>
+
+      <h2 id="modalCursoTitulo">
+        Curso FALCO®
+      </h2>
+
+      <p id="modalCursoDescripcion">
+        Información del curso seleccionado.
+      </p>
+
+
+      <div class="portal-modal-details">
+
+        <div>
+          <span>Modalidad</span>
+          <strong id="modalCursoModalidad">
+            Virtual
+          </strong>
+        </div>
+
+        <div>
+          <span>Encuentros</span>
+          <strong id="modalCursoEncuentros">
+            A confirmar
+          </strong>
+        </div>
+
+        <div>
+          <span>Estado</span>
+          <strong id="modalCursoEstado">
+            Disponible
+          </strong>
+        </div>
+
+      </div>
+
+
+      <a
+        href="#"
+        class="portal-button portal-button-primary"
+        id="modalCursoAccion"
+      >
+        Solicitar información
+      </a>
+
+    </section>
+
+  </div>
+
+
+  <script type="module" src="portal-cursos.js"></script>
+
+</body>
+</html>

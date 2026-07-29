@@ -1,0 +1,2244 @@
+/* =========================================================
+   PORTAL DE CURSOS FALCO®
+   Versión 1.0
+   Estética institucional premium
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --falco-navy-950: #050b14;
+  --falco-navy-900: #08111f;
+  --falco-navy-850: #0b1626;
+  --falco-navy-800: #0e1c2f;
+  --falco-navy-750: #12233a;
+  --falco-navy-700: #162a45;
+  --falco-navy-650: #1b3251;
+
+  --falco-blue-500: #326ca8;
+  --falco-blue-400: #4c86bf;
+  --falco-blue-300: #76a6d2;
+
+  --falco-gold-600: #9f7624;
+  --falco-gold-500: #c39a43;
+  --falco-gold-400: #d7b564;
+  --falco-gold-300: #ead28e;
+  --falco-gold-200: #f1dfaa;
+
+  --falco-text-main: #edf3f9;
+  --falco-text-soft: #b8c5d3;
+  --falco-text-muted: #8695a6;
+  --falco-text-dark: #08111f;
+
+  --falco-success: #49b786;
+  --falco-success-soft: rgba(73, 183, 134, 0.14);
+
+  --falco-info: #62a7df;
+  --falco-info-soft: rgba(98, 167, 223, 0.14);
+
+  --falco-warning: #d9a84f;
+  --falco-warning-soft: rgba(217, 168, 79, 0.14);
+
+  --falco-danger: #c96f75;
+  --falco-danger-soft: rgba(201, 111, 117, 0.14);
+
+  --falco-border: rgba(215, 181, 100, 0.18);
+  --falco-border-soft: rgba(218, 228, 239, 0.09);
+  --falco-border-hover: rgba(215, 181, 100, 0.46);
+
+  --falco-surface: rgba(13, 27, 46, 0.92);
+  --falco-surface-soft: rgba(16, 33, 55, 0.84);
+  --falco-surface-deep: rgba(6, 14, 25, 0.94);
+
+  --falco-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.34);
+
+  --falco-shadow-soft:
+    0 16px 42px rgba(0, 0, 0, 0.22);
+
+  --falco-radius-xl: 30px;
+  --falco-radius-lg: 24px;
+  --falco-radius-md: 18px;
+  --falco-radius-sm: 12px;
+
+  --falco-transition:
+    180ms ease;
+}
+
+
+/* =========================================================
+   REINICIO GENERAL
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+
+  color: var(--falco-text-main);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(45, 91, 137, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(195, 154, 67, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      var(--falco-navy-950) 0%,
+      var(--falco-navy-900) 48%,
+      #071421 100%
+    );
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   ESTRUCTURA GENERAL
+========================================================= */
+
+.portal-cursos-page {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.portal-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.portal-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.78;
+}
+
+.portal-glow-uno {
+  top: -170px;
+  left: -130px;
+  width: 460px;
+  height: 460px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(54, 113, 170, 0.18),
+      transparent 68%
+    );
+}
+
+.portal-glow-dos {
+  top: 310px;
+  right: -220px;
+  width: 580px;
+  height: 580px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(195, 154, 67, 0.13),
+      transparent 68%
+    );
+}
+
+.portal-pattern {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.13;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 52px 52px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      transparent 88%
+    );
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.portal-header {
+  position: relative;
+  z-index: 20;
+
+  border-bottom:
+    1px solid var(--falco-border-soft);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 11, 20, 0.97),
+      rgba(8, 17, 31, 0.91)
+    );
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(18px);
+}
+
+.portal-header-container {
+  width: min(1380px, calc(100% - 48px));
+  min-height: 92px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.portal-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+
+.portal-brand-mark {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(234, 210, 142, 0.58);
+
+  border-radius: 15px;
+
+  color: var(--falco-gold-200);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(195, 154, 67, 0.2),
+      rgba(195, 154, 67, 0.04)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 9px 26px rgba(0, 0, 0, 0.25);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+.portal-brand-text {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.portal-brand-text strong {
+  color: var(--falco-text-main);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+.portal-brand-text small {
+  overflow: hidden;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portal-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 13px;
+  min-width: 0;
+}
+
+.portal-user-info {
+  max-width: 230px;
+  display: grid;
+  gap: 3px;
+  text-align: right;
+}
+
+.portal-user-label {
+  color: var(--falco-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.portal-user-info strong {
+  overflow: hidden;
+
+  color: var(--falco-text-main);
+
+  font-size: 0.86rem;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portal-user-avatar {
+  width: 41px;
+  height: 41px;
+  flex: 0 0 41px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.4);
+
+  border-radius: 50%;
+
+  color: var(--falco-gold-200);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(195, 154, 67, 0.22),
+      rgba(32, 66, 100, 0.42)
+    );
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.portal-logout-button {
+  min-height: 42px;
+  padding: 0 15px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius: 12px;
+
+  color: var(--falco-text-soft);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  cursor: pointer;
+
+  font-size: 0.78rem;
+  font-weight: 650;
+
+  transition:
+    border-color var(--falco-transition),
+    color var(--falco-transition),
+    background var(--falco-transition),
+    transform var(--falco-transition);
+}
+
+.portal-logout-button:hover {
+  border-color:
+    rgba(201, 111, 117, 0.48);
+
+  color: #f3c3c7;
+
+  background:
+    rgba(201, 111, 117, 0.1);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
+.portal-main {
+  position: relative;
+  z-index: 2;
+
+  padding:
+    68px 0 82px;
+}
+
+.portal-main-container {
+  width: min(1380px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.portal-hero {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(320px, 0.55fr);
+
+  gap: 42px;
+  align-items: stretch;
+}
+
+.portal-hero-content {
+  min-height: 286px;
+  padding: 45px 46px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border:
+    1px solid var(--falco-border);
+
+  border-radius:
+    var(--falco-radius-xl);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 31, 52, 0.96),
+      rgba(8, 19, 33, 0.92)
+    );
+
+  box-shadow:
+    var(--falco-shadow);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-hero-content::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 200px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--falco-gold-400),
+      transparent
+    );
+}
+
+.portal-hero-content::after {
+  content: "F";
+
+  position: absolute;
+  right: 28px;
+  bottom: -77px;
+
+  color:
+    rgba(215, 181, 100, 0.035);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 18rem;
+  font-weight: 700;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+.portal-eyebrow,
+.portal-section-kicker,
+.portal-modal-kicker {
+  position: relative;
+  z-index: 1;
+
+  color: var(--falco-gold-400);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.portal-hero h1 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 810px;
+  margin:
+    15px 0 18px;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2.6rem, 5vw, 4.85rem);
+
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.portal-hero h1 span {
+  color: var(--falco-gold-400);
+}
+
+.portal-hero-content > p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 760px;
+  margin: 0;
+
+  color: var(--falco-text-soft);
+
+  font-size: 1rem;
+  line-height: 1.76;
+}
+
+
+/* =========================================================
+   RESUMEN DEL ALUMNO
+========================================================= */
+
+.portal-summary-card {
+  padding: 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border:
+    1px solid var(--falco-border);
+
+  border-radius:
+    var(--falco-radius-xl);
+
+  background:
+    linear-gradient(
+      155deg,
+      rgba(21, 43, 70, 0.94),
+      rgba(8, 18, 31, 0.96)
+    );
+
+  box-shadow:
+    var(--falco-shadow-soft);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-summary-card::before {
+  content: "";
+
+  position: absolute;
+  top: -70px;
+  right: -65px;
+
+  width: 190px;
+  height: 190px;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.12);
+
+  border-radius: 50%;
+}
+
+.portal-summary-card::after {
+  content: "";
+
+  position: absolute;
+  top: -30px;
+  right: -26px;
+
+  width: 110px;
+  height: 110px;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.1);
+
+  border-radius: 50%;
+}
+
+.portal-summary-label {
+  position: relative;
+  z-index: 1;
+
+  color: var(--falco-gold-400);
+
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.portal-summary-card > strong {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  margin-top: 13px;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.portal-summary-card > p {
+  position: relative;
+  z-index: 1;
+
+  margin:
+    11px 0 28px;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.portal-summary-progress {
+  position: relative;
+  z-index: 1;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid var(--falco-border-soft);
+}
+
+.portal-summary-progress-header,
+.portal-course-progress-header {
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.portal-summary-progress-header span,
+.portal-course-progress-header span {
+  color: var(--falco-text-soft);
+
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.portal-summary-progress-header strong,
+.portal-course-progress-header strong {
+  color: var(--falco-gold-300);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   BARRAS DE PROGRESO
+========================================================= */
+
+.portal-progress-track {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.075);
+}
+
+.portal-progress-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--falco-gold-600),
+      var(--falco-gold-300)
+    );
+
+  box-shadow:
+    0 0 15px rgba(215, 181, 100, 0.28);
+
+  transition:
+    width 450ms ease;
+}
+
+
+/* =========================================================
+   ESTADO DE CARGA
+========================================================= */
+
+.portal-status {
+  margin-top: 28px;
+  padding: 18px 21px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius:
+    var(--falco-radius-md);
+
+  color: var(--falco-text-soft);
+
+  background:
+    rgba(13, 28, 47, 0.72);
+
+  box-shadow:
+    var(--falco-shadow-soft);
+}
+
+.portal-status-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.25);
+
+  border-radius: 50%;
+
+  color: var(--falco-gold-400);
+
+  background:
+    rgba(195, 154, 67, 0.08);
+
+  animation:
+    portal-spin 1.3s linear infinite;
+}
+
+.portal-status strong {
+  display: block;
+
+  color: var(--falco-text-main);
+
+  font-size: 0.82rem;
+}
+
+.portal-status p {
+  margin: 4px 0 0;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.76rem;
+}
+
+.portal-status.is-success {
+  border-color:
+    rgba(73, 183, 134, 0.24);
+
+  background:
+    var(--falco-success-soft);
+}
+
+.portal-status.is-success .portal-status-icon {
+  border-color:
+    rgba(73, 183, 134, 0.38);
+
+  color: #83d8ad;
+
+  background:
+    rgba(73, 183, 134, 0.12);
+
+  animation: none;
+}
+
+.portal-status.is-error {
+  border-color:
+    rgba(201, 111, 117, 0.28);
+
+  background:
+    var(--falco-danger-soft);
+}
+
+.portal-status.is-error .portal-status-icon {
+  border-color:
+    rgba(201, 111, 117, 0.42);
+
+  color: #efafb4;
+
+  background:
+    rgba(201, 111, 117, 0.12);
+
+  animation: none;
+}
+
+
+/* =========================================================
+   ENCABEZADO DEL CATÁLOGO
+========================================================= */
+
+.portal-catalog-header {
+  margin-top: 72px;
+  margin-bottom: 27px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.portal-catalog-header h2 {
+  margin:
+    10px 0 8px;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2rem, 4vw, 3.2rem);
+
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.portal-catalog-header p {
+  max-width: 700px;
+  margin: 0;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.portal-catalog-legend {
+  padding: 14px 17px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius: 14px;
+
+  background:
+    rgba(11, 24, 41, 0.7);
+}
+
+.portal-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.portal-legend-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.portal-legend-active {
+  background: var(--falco-success);
+
+  box-shadow:
+    0 0 10px rgba(73, 183, 134, 0.48);
+}
+
+.portal-legend-available {
+  background: var(--falco-gold-400);
+
+  box-shadow:
+    0 0 10px rgba(215, 181, 100, 0.42);
+}
+
+.portal-legend-soon {
+  background: var(--falco-blue-300);
+
+  box-shadow:
+    0 0 10px rgba(118, 166, 210, 0.42);
+}
+
+
+/* =========================================================
+   GRILLA DE CURSOS
+========================================================= */
+
+.portal-courses-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   TARJETAS DE CURSOS
+========================================================= */
+
+.portal-course-card {
+  min-width: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius:
+    var(--falco-radius-lg);
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(15, 31, 52, 0.96),
+      rgba(8, 18, 31, 0.97)
+    );
+
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.portal-course-card:hover {
+  border-color:
+    var(--falco-border-hover);
+
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.34);
+
+  transform: translateY(-6px);
+}
+
+.portal-course-card.is-enrolled {
+  border-color:
+    rgba(73, 183, 134, 0.28);
+}
+
+.portal-course-card.is-available {
+  border-color:
+    rgba(215, 181, 100, 0.21);
+}
+
+.portal-course-card.is-coming-soon {
+  border-color:
+    rgba(118, 166, 210, 0.2);
+}
+
+
+/* =========================================================
+   PORTADA DEL CURSO
+========================================================= */
+
+.portal-course-cover {
+  position: relative;
+  min-height: 218px;
+  overflow: hidden;
+
+  border-bottom:
+    1px solid var(--falco-border-soft);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--falco-navy-750),
+      var(--falco-navy-900)
+    );
+}
+
+.portal-course-cover::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(5, 11, 20, 0.75),
+      transparent 58%
+    );
+
+  pointer-events: none;
+}
+
+.portal-course-image {
+  width: 100%;
+  height: 218px;
+
+  object-fit: cover;
+
+  transition:
+    transform 420ms ease,
+    filter 420ms ease;
+}
+
+.portal-course-card:hover .portal-course-image {
+  transform: scale(1.035);
+}
+
+.portal-course-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(65, 119, 170, 0.22),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(195, 154, 67, 0.14),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      var(--falco-navy-750),
+      var(--falco-navy-900)
+    );
+}
+
+.portal-course-placeholder::before,
+.portal-course-placeholder::after {
+  content: "";
+
+  position: absolute;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.09);
+
+  border-radius: 50%;
+}
+
+.portal-course-placeholder::before {
+  width: 190px;
+  height: 190px;
+}
+
+.portal-course-placeholder::after {
+  width: 118px;
+  height: 118px;
+}
+
+.portal-course-placeholder span {
+  position: relative;
+  z-index: 1;
+
+  color:
+    rgba(234, 210, 142, 0.72);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 5.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.portal-course-status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+
+  min-height: 29px;
+  padding: 0 11px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.26);
+
+  border-radius: 999px;
+
+  color: var(--falco-gold-200);
+
+  background:
+    rgba(5, 11, 20, 0.8);
+
+  box-shadow:
+    0 7px 20px rgba(0, 0, 0, 0.24);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.portal-course-card.is-enrolled .portal-course-status {
+  border-color:
+    rgba(73, 183, 134, 0.38);
+
+  color: #9ce0bc;
+
+  background:
+    rgba(21, 76, 55, 0.76);
+}
+
+.portal-course-card.is-coming-soon .portal-course-status {
+  border-color:
+    rgba(118, 166, 210, 0.34);
+
+  color: #b8d5ee;
+
+  background:
+    rgba(23, 55, 84, 0.8);
+}
+
+
+/* =========================================================
+   CUERPO DE TARJETA
+========================================================= */
+
+.portal-course-body {
+  padding: 26px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.portal-course-heading {
+  min-width: 0;
+}
+
+.portal-course-category {
+  display: block;
+  margin-bottom: 10px;
+
+  color: var(--falco-gold-400);
+
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.portal-course-title {
+  margin: 0;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.57rem;
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.portal-course-description {
+  margin:
+    13px 0 0;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.68;
+}
+
+.portal-course-meta {
+  margin-top: 23px;
+  padding:
+    15px 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 17px;
+
+  border-top:
+    1px solid var(--falco-border-soft);
+
+  border-bottom:
+    1px solid var(--falco-border-soft);
+}
+
+.portal-course-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.7rem;
+}
+
+.portal-course-meta-item > span {
+  color: var(--falco-gold-400);
+
+  font-size: 0.8rem;
+}
+
+.portal-course-meta-item strong {
+  color: var(--falco-text-soft);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.portal-course-progress {
+  margin-top: 19px;
+  padding:
+    16px 17px;
+
+  border:
+    1px solid rgba(73, 183, 134, 0.16);
+
+  border-radius: 14px;
+
+  background:
+    rgba(73, 183, 134, 0.07);
+}
+
+.portal-course-actions {
+  margin-top: auto;
+  padding-top: 24px;
+
+  display: grid;
+  gap: 11px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.portal-button {
+  min-height: 48px;
+  padding:
+    0 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border-radius: 13px;
+
+  cursor: pointer;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-align: center;
+
+  transition:
+    transform var(--falco-transition),
+    border-color var(--falco-transition),
+    background var(--falco-transition),
+    color var(--falco-transition),
+    box-shadow var(--falco-transition);
+}
+
+.portal-button:hover {
+  transform: translateY(-2px);
+}
+
+.portal-button-primary {
+  border:
+    1px solid var(--falco-gold-400);
+
+  color: var(--falco-text-dark);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--falco-gold-300),
+      var(--falco-gold-500)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(195, 154, 67, 0.18);
+}
+
+.portal-button-primary:hover {
+  border-color: var(--falco-gold-200);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--falco-gold-200),
+      var(--falco-gold-400)
+    );
+
+  box-shadow:
+    0 15px 34px rgba(195, 154, 67, 0.25);
+}
+
+.portal-button-secondary {
+  border:
+    1px solid rgba(215, 181, 100, 0.35);
+
+  color: var(--falco-gold-200);
+
+  background:
+    rgba(195, 154, 67, 0.07);
+}
+
+.portal-button-secondary:hover {
+  border-color:
+    rgba(215, 181, 100, 0.58);
+
+  background:
+    rgba(195, 154, 67, 0.13);
+}
+
+.portal-course-card.is-enrolled
+.portal-course-main-action {
+  border-color:
+    rgba(73, 183, 134, 0.55);
+
+  color: #06140e;
+
+  background:
+    linear-gradient(
+      135deg,
+      #8edbb3,
+      #4bb783
+    );
+
+  box-shadow:
+    0 10px 28px rgba(73, 183, 134, 0.17);
+}
+
+.portal-course-card.is-enrolled
+.portal-course-main-action:hover {
+  border-color: #a7e6c4;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a7e6c4,
+      #62c796
+    );
+}
+
+.portal-course-details-button {
+  min-height: 41px;
+  padding: 0 15px;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius: 12px;
+
+  color: var(--falco-text-soft);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  cursor: pointer;
+
+  font-size: 0.71rem;
+  font-weight: 650;
+
+  transition:
+    border-color var(--falco-transition),
+    background var(--falco-transition),
+    color var(--falco-transition);
+}
+
+.portal-course-details-button:hover {
+  border-color:
+    rgba(215, 181, 100, 0.32);
+
+  color: var(--falco-gold-200);
+
+  background:
+    rgba(195, 154, 67, 0.07);
+}
+
+
+/* =========================================================
+   ESTADO SIN CURSOS
+========================================================= */
+
+.portal-empty-state {
+  padding: 65px 30px;
+
+  display: grid;
+  justify-items: center;
+
+  border:
+    1px dashed rgba(215, 181, 100, 0.26);
+
+  border-radius:
+    var(--falco-radius-lg);
+
+  background:
+    rgba(11, 24, 41, 0.68);
+
+  text-align: center;
+}
+
+.portal-empty-icon {
+  width: 62px;
+  height: 62px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.26);
+
+  border-radius: 50%;
+
+  color: var(--falco-gold-400);
+
+  background:
+    rgba(195, 154, 67, 0.07);
+
+  font-size: 1.5rem;
+}
+
+.portal-empty-state h2 {
+  margin:
+    20px 0 9px;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.7rem;
+}
+
+.portal-empty-state p {
+  margin:
+    0 0 22px;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.83rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BLOQUE DE AYUDA
+========================================================= */
+
+.portal-help {
+  margin-top: 70px;
+  padding: 31px 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  border:
+    1px solid var(--falco-border);
+
+  border-radius:
+    var(--falco-radius-lg);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(22, 45, 73, 0.84),
+      rgba(9, 20, 35, 0.93)
+    );
+
+  box-shadow:
+    var(--falco-shadow-soft);
+}
+
+.portal-help-content {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.portal-help-icon {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.35);
+
+  border-radius: 18px;
+
+  color: var(--falco-gold-300);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(195, 154, 67, 0.16),
+      rgba(195, 154, 67, 0.04)
+    );
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.portal-help-label {
+  color: var(--falco-gold-400);
+
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.portal-help h2 {
+  margin:
+    6px 0 8px;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.48rem;
+  line-height: 1.24;
+}
+
+.portal-help p {
+  max-width: 760px;
+  margin: 0;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.79rem;
+  line-height: 1.64;
+}
+
+.portal-help > .portal-button {
+  min-width: 205px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.portal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+}
+
+.portal-modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(2, 7, 13, 0.84);
+
+  backdrop-filter: blur(11px);
+}
+
+.portal-modal-dialog {
+  position: relative;
+  z-index: 1;
+
+  width: min(580px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+
+  padding: 39px;
+
+  border:
+    1px solid rgba(215, 181, 100, 0.26);
+
+  border-radius:
+    var(--falco-radius-lg);
+
+  background:
+    linear-gradient(
+      155deg,
+      var(--falco-navy-750),
+      var(--falco-navy-900)
+    );
+
+  box-shadow:
+    0 38px 90px rgba(0, 0, 0, 0.5);
+
+  animation:
+    portal-modal-enter 220ms ease both;
+}
+
+.portal-modal-close {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius: 50%;
+
+  color: var(--falco-text-soft);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  cursor: pointer;
+
+  font-size: 1.3rem;
+  line-height: 1;
+
+  transition:
+    border-color var(--falco-transition),
+    color var(--falco-transition),
+    background var(--falco-transition),
+    transform var(--falco-transition);
+}
+
+.portal-modal-close:hover {
+  border-color:
+    rgba(201, 111, 117, 0.4);
+
+  color: #f0b4b9;
+
+  background:
+    rgba(201, 111, 117, 0.1);
+
+  transform: rotate(5deg);
+}
+
+.portal-modal-dialog h2 {
+  margin:
+    12px 42px 13px 0;
+
+  color: var(--falco-text-main);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(1.8rem, 4vw, 2.6rem);
+
+  line-height: 1.14;
+}
+
+.portal-modal-dialog > p {
+  margin: 0;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.86rem;
+  line-height: 1.72;
+}
+
+.portal-modal-details {
+  margin:
+    27px 0;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 11px;
+}
+
+.portal-modal-details > div {
+  padding: 16px;
+
+  border:
+    1px solid var(--falco-border-soft);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+.portal-modal-details span {
+  display: block;
+
+  color: var(--falco-text-muted);
+
+  font-size: 0.63rem;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.portal-modal-details strong {
+  display: block;
+  margin-top: 7px;
+
+  color: var(--falco-text-main);
+
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   PIE
+========================================================= */
+
+.portal-footer {
+  position: relative;
+  z-index: 2;
+
+  border-top:
+    1px solid var(--falco-border-soft);
+
+  background:
+    rgba(5, 11, 20, 0.72);
+}
+
+.portal-footer-container {
+  width: min(1380px, calc(100% - 48px));
+  min-height: 112px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.portal-footer-container > div {
+  display: grid;
+  gap: 5px;
+}
+
+.portal-footer strong {
+  color: var(--falco-gold-300);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 0.82rem;
+  letter-spacing: 0.035em;
+}
+
+.portal-footer span,
+.portal-footer p {
+  color: var(--falco-text-muted);
+
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.portal-footer p {
+  margin: 0;
+  text-align: right;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.portal-brand:focus-visible,
+.portal-button:focus-visible,
+.portal-logout-button:focus-visible,
+.portal-course-details-button:focus-visible,
+.portal-modal-close:focus-visible {
+  outline:
+    3px solid rgba(215, 181, 100, 0.4);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes portal-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portal-modal-enter {
+  from {
+    opacity: 0;
+    transform:
+      translateY(16px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — ESCRITORIO MEDIO
+========================================================= */
+
+@media (max-width: 1180px) {
+  .portal-hero {
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(290px, 0.75fr);
+
+    gap: 24px;
+  }
+
+  .portal-hero-content {
+    padding: 40px;
+  }
+
+  .portal-courses-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .portal-header-container,
+  .portal-main-container,
+  .portal-footer-container {
+    width:
+      min(100% - 32px, 1380px);
+  }
+
+  .portal-header-container {
+    min-height: 82px;
+  }
+
+  .portal-brand-text small {
+    display: none;
+  }
+
+  .portal-user-info {
+    display: none;
+  }
+
+  .portal-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-summary-card {
+    min-height: 230px;
+  }
+
+  .portal-catalog-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .portal-catalog-legend {
+    justify-content: flex-start;
+  }
+
+  .portal-help {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .portal-help > .portal-button {
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+========================================================= */
+
+@media (max-width: 680px) {
+  .portal-header-container,
+  .portal-main-container,
+  .portal-footer-container {
+    width:
+      min(100% - 24px, 1380px);
+  }
+
+  .portal-header-container {
+    min-height: 76px;
+  }
+
+  .portal-brand {
+    gap: 10px;
+  }
+
+  .portal-brand-mark {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+
+    border-radius: 13px;
+
+    font-size: 1.4rem;
+  }
+
+  .portal-brand-text strong {
+    font-size: 0.78rem;
+  }
+
+  .portal-user {
+    gap: 8px;
+  }
+
+  .portal-user-avatar {
+    display: none;
+  }
+
+  .portal-logout-button {
+    width: 42px;
+    min-height: 42px;
+    padding: 0;
+  }
+
+  .portal-logout-button span:last-child {
+    display: none;
+  }
+
+  .portal-main {
+    padding:
+      35px 0 56px;
+  }
+
+  .portal-hero-content {
+    min-height: 0;
+    padding:
+      34px 25px;
+
+    border-radius:
+      23px;
+  }
+
+  .portal-hero-content::after {
+    right: 4px;
+    bottom: -46px;
+
+    font-size: 11rem;
+  }
+
+  .portal-hero h1 {
+    margin:
+      13px 0 17px;
+
+    font-size:
+      clamp(2.35rem, 12vw, 3.5rem);
+  }
+
+  .portal-hero-content > p {
+    font-size: 0.9rem;
+  }
+
+  .portal-summary-card {
+    min-height: 0;
+    padding: 27px;
+
+    border-radius:
+      23px;
+  }
+
+  .portal-status {
+    align-items: flex-start;
+  }
+
+  .portal-catalog-header {
+    margin-top: 54px;
+  }
+
+  .portal-catalog-header h2 {
+    font-size: 2.15rem;
+  }
+
+  .portal-catalog-legend {
+    width: 100%;
+  }
+
+  .portal-courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-course-cover,
+  .portal-course-image {
+    height: 205px;
+    min-height: 205px;
+  }
+
+  .portal-course-body {
+    padding: 23px;
+  }
+
+  .portal-help {
+    margin-top: 53px;
+    padding: 26px;
+
+    border-radius:
+      21px;
+  }
+
+  .portal-help-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .portal-help > .portal-button {
+    width: 100%;
+  }
+
+  .portal-modal {
+    padding: 14px;
+  }
+
+  .portal-modal-dialog {
+    padding:
+      34px 24px 25px;
+
+    border-radius:
+      21px;
+  }
+
+  .portal-modal-details {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-footer-container {
+    min-height: 136px;
+    padding:
+      28px 0;
+
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .portal-footer p {
+    text-align: left;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MÓVIL PEQUEÑO
+========================================================= */
+
+@media (max-width: 420px) {
+  .portal-brand-text strong {
+    max-width: 170px;
+    display: block;
+  }
+
+  .portal-hero-content,
+  .portal-summary-card {
+    padding:
+      29px 21px;
+  }
+
+  .portal-course-title {
+    font-size: 1.42rem;
+  }
+
+  .portal-course-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .portal-button {
+    width: 100%;
+  }
+}
