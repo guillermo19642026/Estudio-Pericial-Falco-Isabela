@@ -1,0 +1,253 @@
+/* =========================================================
+   FALCO Campus Admin™
+   Cursos v1.0
+========================================================= */
+
+/* =========================================================
+   RESULTADOS
+========================================================= */
+
+.cursos-resultados {
+  color: var(--falco-text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.cursos-filter {
+  width: 210px;
+}
+
+/* =========================================================
+   GRILLA DE CURSOS
+========================================================= */
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* =========================================================
+   TARJETA DE CURSO
+========================================================= */
+
+.curso-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  transition:
+    transform var(--falco-transition),
+    border-color var(--falco-transition),
+    box-shadow var(--falco-transition);
+}
+
+.curso-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--falco-border-strong);
+  box-shadow: var(--falco-shadow-md);
+}
+
+.curso-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.curso-card-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba(200, 164, 93, 0.28);
+  border-radius: 16px;
+  color: var(--falco-gold-300);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(200, 164, 93, 0.12),
+      rgba(20, 40, 66, 0.54)
+    );
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.curso-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.curso-card-category {
+  margin: 0 0 9px;
+  color: var(--falco-gold-400);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.curso-card-title {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.curso-card-description {
+  margin: 14px 0 22px;
+  color: var(--falco-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   DATOS DEL CURSO
+========================================================= */
+
+.curso-card-data {
+  display: grid;
+  gap: 10px;
+  margin: auto 0 0;
+}
+
+.curso-card-data div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(200, 164, 93, 0.09);
+}
+
+.curso-card-data div:first-child {
+  border-top: 1px solid rgba(200, 164, 93, 0.09);
+}
+
+.curso-card-data dt,
+.curso-card-data dd {
+  margin: 0;
+}
+
+.curso-card-data dt {
+  color: var(--falco-text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.curso-card-data dd {
+  color: var(--falco-text-primary);
+  text-align: right;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.curso-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(200, 164, 93, 0.1);
+}
+
+.curso-card-actions .campus-btn {
+  flex: 1;
+}
+
+/* =========================================================
+   FILTRADO
+========================================================= */
+
+.curso-card.curso-card--hidden {
+  display: none;
+}
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+@keyframes cursoFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.curso-card {
+  animation: cursoFadeUp 420ms ease both;
+}
+
+.curso-card:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.curso-card:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+  .cursos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .cursos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cursos-filter {
+    width: 100%;
+  }
+
+  .cursos-resultados {
+    width: 100%;
+  }
+
+  .curso-card-actions {
+    flex-direction: column;
+  }
+
+  .curso-card-actions .campus-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .curso-card-title {
+    font-size: 1.32rem;
+  }
+
+  .curso-card-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .curso-card-data div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .curso-card-data dd {
+    text-align: left;
+  }
+}

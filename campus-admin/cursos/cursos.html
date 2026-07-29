@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Cursos | Campus Admin | Sistema FALCO®</title>
+
+  <meta
+    name="description"
+    content="Administración general de los cursos del Campus FALCO®."
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/campus-admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./cursos.css"
+  >
+</head>
+
+<body>
+
+  <div class="campus-admin-layout">
+
+    <aside
+      class="campus-admin-sidebar-slot"
+      data-campus-admin-sidebar
+      data-active="cursos"
+      data-base="../"
+    ></aside>
+
+    <main class="campus-admin-main">
+
+      <div class="campus-admin-container">
+
+        <header class="campus-page-header">
+
+          <div class="campus-page-heading">
+
+            <span class="campus-page-eyebrow">
+              Campus FALCO®
+            </span>
+
+            <h1 class="campus-page-title">
+              Administración de cursos
+            </h1>
+
+            <p class="campus-page-description">
+              Desde este espacio se centraliza el acceso a la administración
+              específica de cada propuesta formativa del Campus FALCO®.
+            </p>
+
+          </div>
+
+          <div class="campus-page-actions">
+
+            <a
+              class="campus-btn campus-btn--secondary"
+              href="../dashboard/dashboard.html"
+            >
+              Volver al dashboard
+            </a>
+
+            <button
+              class="campus-btn campus-btn--primary"
+              type="button"
+              id="btnNuevoCurso"
+            >
+              Nuevo curso
+            </button>
+
+          </div>
+
+        </header>
+
+        <section class="campus-toolbar">
+
+          <div class="campus-toolbar-group">
+
+            <div class="campus-search">
+
+              <span
+                class="campus-search-icon"
+                aria-hidden="true"
+              >
+                ⌕
+              </span>
+
+              <label
+                class="campus-sr-only"
+                for="buscadorCursos"
+              >
+                Buscar cursos
+              </label>
+
+              <input
+                id="buscadorCursos"
+                type="search"
+                placeholder="Buscar por nombre o descripción"
+                autocomplete="off"
+              >
+
+            </div>
+
+            <label
+              class="campus-sr-only"
+              for="filtroEstado"
+            >
+              Filtrar por estado
+            </label>
+
+            <select
+              class="campus-select cursos-filter"
+              id="filtroEstado"
+            >
+              <option value="todos">
+                Todos los estados
+              </option>
+
+              <option value="publicado">
+                Publicados
+              </option>
+
+              <option value="proximo">
+                Próximamente
+              </option>
+
+              <option value="borrador">
+                Borradores
+              </option>
+            </select>
+
+          </div>
+
+          <div class="cursos-resultados">
+
+            <span id="cantidadResultados">
+              3 cursos
+            </span>
+
+          </div>
+
+        </section>
+
+        <section
+          class="cursos-grid"
+          id="contenedorCursos"
+          aria-live="polite"
+        >
+
+          <article
+            class="campus-card curso-card"
+            data-curso
+            data-nombre="Escuela para Padres"
+            data-descripcion="Programa formativo de ocho encuentros para madres padres y cuidadores"
+            data-estado="publicado"
+          >
+
+            <div class="curso-card-header">
+
+              <div class="curso-card-icon">
+                EP
+              </div>
+
+              <span class="campus-badge campus-badge--published">
+                Publicado
+              </span>
+
+            </div>
+
+            <div class="curso-card-body">
+
+              <p class="curso-card-category">
+                Programa formativo
+              </p>
+
+              <h2 class="curso-card-title">
+                Escuela para Padres
+              </h2>
+
+              <p class="curso-card-description">
+                Programa compuesto por ocho encuentros con videos,
+                actividades, materiales y seguimiento del progreso.
+              </p>
+
+              <dl class="curso-card-data">
+
+                <div>
+                  <dt>Encuentros</dt>
+                  <dd>8</dd>
+                </div>
+
+                <div>
+                  <dt>Estado</dt>
+                  <dd>Activo</dd>
+                </div>
+
+                <div>
+                  <dt>Administrador</dt>
+                  <dd>Disponible</dd>
+                </div>
+
+              </dl>
+
+            </div>
+
+            <div class="curso-card-actions">
+
+              <a
+                class="campus-btn campus-btn--primary"
+                href="../../escuela-admin/dashboard/dashboard.html"
+              >
+                Administrar
+              </a>
+
+              <a
+                class="campus-btn campus-btn--secondary"
+                href="../../escuela-panel-v2.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver curso
+              </a>
+
+            </div>
+
+          </article>
+
+          <article
+            class="campus-card curso-card"
+            data-curso
+            data-nombre="Formación Pericial"
+            data-descripcion="Curso de formación técnica en psicología forense y práctica pericial"
+            data-estado="proximo"
+          >
+
+            <div class="curso-card-header">
+
+              <div class="curso-card-icon">
+                FP
+              </div>
+
+              <span class="campus-badge campus-badge--upcoming">
+                Próximamente
+              </span>
+
+            </div>
+
+            <div class="curso-card-body">
+
+              <p class="curso-card-category">
+                Formación profesional
+              </p>
+
+              <h2 class="curso-card-title">
+                Formación Pericial
+              </h2>
+
+              <p class="curso-card-description">
+                Propuesta destinada al desarrollo de competencias técnicas
+                aplicadas a la evaluación psicológica forense.
+              </p>
+
+              <dl class="curso-card-data">
+
+                <div>
+                  <dt>Módulos</dt>
+                  <dd>A definir</dd>
+                </div>
+
+                <div>
+                  <dt>Estado</dt>
+                  <dd>Preparación</dd>
+                </div>
+
+                <div>
+                  <dt>Administrador</dt>
+                  <dd>Pendiente</dd>
+                </div>
+
+              </dl>
+
+            </div>
+
+            <div class="curso-card-actions">
+
+              <button
+                class="campus-btn campus-btn--secondary"
+                type="button"
+                disabled
+              >
+                En preparación
+              </button>
+
+            </div>
+
+          </article>
+
+          <article
+            class="campus-card curso-card"
+            data-curso
+            data-nombre="Informes Psicológicos Judiciales"
+            data-descripcion="Formación para la elaboración técnica de informes psicológicos judiciales"
+            data-estado="proximo"
+          >
+
+            <div class="curso-card-header">
+
+              <div class="curso-card-icon">
+                IJ
+              </div>
+
+              <span class="campus-badge campus-badge--upcoming">
+                Próximamente
+              </span>
+
+            </div>
+
+            <div class="curso-card-body">
+
+              <p class="curso-card-category">
+                Formación especializada
+              </p>
+
+              <h2 class="curso-card-title">
+                Informes Psicológicos Judiciales
+              </h2>
+
+              <p class="curso-card-description">
+                Curso orientado a la planificación, elaboración y revisión
+                técnica de informes destinados al ámbito judicial.
+              </p>
+
+              <dl class="curso-card-data">
+
+                <div>
+                  <dt>Módulos</dt>
+                  <dd>A definir</dd>
+                </div>
+
+                <div>
+                  <dt>Estado</dt>
+                  <dd>Preparación</dd>
+                </div>
+
+                <div>
+                  <dt>Administrador</dt>
+                  <dd>Pendiente</dd>
+                </div>
+
+              </dl>
+
+            </div>
+
+            <div class="curso-card-actions">
+
+              <button
+                class="campus-btn campus-btn--secondary"
+                type="button"
+                disabled
+              >
+                En preparación
+              </button>
+
+            </div>
+
+          </article>
+
+        </section>
+
+        <section
+          class="campus-empty-state campus-hidden"
+          id="estadoSinResultados"
+        >
+
+          <div class="campus-empty-state-inner">
+
+            <div
+              class="campus-empty-icon"
+              aria-hidden="true"
+            >
+              ⌕
+            </div>
+
+            <h2 class="campus-empty-title">
+              No se encontraron cursos
+            </h2>
+
+            <p class="campus-empty-description">
+              Modificá la búsqueda o seleccioná otro estado para visualizar
+              las propuestas disponibles.
+            </p>
+
+            <button
+              class="campus-btn campus-btn--secondary"
+              type="button"
+              id="btnLimpiarFiltros"
+            >
+              Limpiar filtros
+            </button>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="../shared/components/campus-admin-sidebar.js"></script>
+  <script src="./cursos.js"></script>
+
+</body>
+</html>

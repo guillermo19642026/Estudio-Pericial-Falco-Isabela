@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Campus Admin | Sistema FALCO®</title>
+
+  <meta
+    name="description"
+    content="Centro de Administración General del Campus FALCO®."
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/campus-admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./dashboard.css"
+  >
+</head>
+
+<body>
+
+  <div class="campus-admin-layout">
+
+    <!-- SIDEBAR REUTILIZABLE -->
+    <aside
+      class="campus-admin-sidebar-slot"
+      data-campus-admin-sidebar
+      data-active="dashboard"
+      data-base="../"
+    ></aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="campus-admin-main">
+
+      <div class="campus-admin-container">
+
+        <!-- CABECERA -->
+        <header class="campus-page-header">
+
+          <div class="campus-page-heading">
+
+            <span class="campus-page-eyebrow">
+              Campus FALCO®
+            </span>
+
+            <h1 class="campus-page-title">
+              Centro de Administración
+            </h1>
+
+            <p class="campus-page-description">
+              Gestión general de cursos, participantes y accesos del
+              Campus FALCO®. Desde este espacio podrá ingresar a la
+              administración específica de cada propuesta formativa.
+            </p>
+
+          </div>
+
+          <div class="campus-page-actions">
+
+            <a
+              class="campus-btn campus-btn--secondary"
+              href="../../portal-cursos.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver Portal de Cursos
+            </a>
+
+            <a
+              class="campus-btn campus-btn--primary"
+              href="../cursos/cursos.html"
+            >
+              Administrar cursos
+            </a>
+
+          </div>
+
+        </header>
+
+        <!-- MÉTRICAS GENERALES -->
+        <section
+          class="campus-grid campus-grid--4"
+          aria-label="Resumen general del Campus"
+        >
+
+          <article class="campus-card campus-stat-card">
+
+            <div class="campus-stat-top">
+
+              <div>
+                <p class="campus-stat-label">
+                  Cursos registrados
+                </p>
+
+                <p
+                  class="campus-stat-value"
+                  id="totalCursos"
+                >
+                  3
+                </p>
+              </div>
+
+              <div
+                class="campus-stat-icon"
+                aria-hidden="true"
+              >
+                ◫
+              </div>
+
+            </div>
+
+            <p class="campus-stat-note">
+              Incluye cursos publicados y próximos.
+            </p>
+
+          </article>
+
+          <article class="campus-card campus-stat-card">
+
+            <div class="campus-stat-top">
+
+              <div>
+                <p class="campus-stat-label">
+                  Cursos publicados
+                </p>
+
+                <p
+                  class="campus-stat-value"
+                  id="cursosPublicados"
+                >
+                  1
+                </p>
+              </div>
+
+              <div
+                class="campus-stat-icon"
+                aria-hidden="true"
+              >
+                ✓
+              </div>
+
+            </div>
+
+            <p class="campus-stat-note">
+              Disponibles actualmente en el Campus.
+            </p>
+
+          </article>
+
+          <article class="campus-card campus-stat-card">
+
+            <div class="campus-stat-top">
+
+              <div>
+                <p class="campus-stat-label">
+                  Próximos cursos
+                </p>
+
+                <p
+                  class="campus-stat-value"
+                  id="cursosProximos"
+                >
+                  2
+                </p>
+              </div>
+
+              <div
+                class="campus-stat-icon"
+                aria-hidden="true"
+              >
+                ◷
+              </div>
+
+            </div>
+
+            <p class="campus-stat-note">
+              Propuestas en preparación o lanzamiento.
+            </p>
+
+          </article>
+
+          <article class="campus-card campus-stat-card">
+
+            <div class="campus-stat-top">
+
+              <div>
+                <p class="campus-stat-label">
+                  Participantes
+                </p>
+
+                <p
+                  class="campus-stat-value"
+                  id="totalParticipantes"
+                >
+                  0
+                </p>
+              </div>
+
+              <div
+                class="campus-stat-icon"
+                aria-hidden="true"
+              >
+                ◉
+              </div>
+
+            </div>
+
+            <p class="campus-stat-note">
+              Se actualizará al conectar la base general.
+            </p>
+
+          </article>
+
+        </section>
+
+        <!-- CURSOS PRINCIPALES -->
+        <section class="campus-card campus-mt-24">
+
+          <div class="campus-card-header">
+
+            <div>
+
+              <h2 class="campus-card-title">
+                Cursos del Campus
+              </h2>
+
+              <p class="campus-card-subtitle">
+                Acceso directo a la administración de cada curso.
+              </p>
+
+            </div>
+
+            <a
+              class="campus-btn campus-btn--small campus-btn--secondary"
+              href="../cursos/cursos.html"
+            >
+              Ver todos
+            </a>
+
+          </div>
+
+          <div class="campus-list">
+
+            <!-- ESCUELA PARA PADRES -->
+            <article class="campus-list-item">
+
+              <div class="campus-list-item-main">
+
+                <div class="dashboard-course-heading">
+
+                  <h3 class="campus-list-item-title">
+                    Escuela para Padres
+                  </h3>
+
+                  <span class="campus-badge campus-badge--published">
+                    Publicado
+                  </span>
+
+                </div>
+
+                <p class="campus-list-item-meta">
+                  Curso activo · 8 encuentros · Administración específica disponible
+                </p>
+
+              </div>
+
+              <a
+                class="campus-btn campus-btn--small campus-btn--primary"
+                href="../../escuela-admin/dashboard/dashboard.html"
+              >
+                Administrar curso
+              </a>
+
+            </article>
+
+            <!-- FORMACIÓN PERICIAL -->
+            <article class="campus-list-item">
+
+              <div class="campus-list-item-main">
+
+                <div class="dashboard-course-heading">
+
+                  <h3 class="campus-list-item-title">
+                    Formación Pericial
+                  </h3>
+
+                  <span class="campus-badge campus-badge--upcoming">
+                    Próximamente
+                  </span>
+
+                </div>
+
+                <p class="campus-list-item-meta">
+                  Propuesta en preparación · Administración todavía no disponible
+                </p>
+
+              </div>
+
+              <button
+                class="campus-btn campus-btn--small campus-btn--secondary"
+                type="button"
+                disabled
+              >
+                En preparación
+              </button>
+
+            </article>
+
+            <!-- INFORMES PSICOLÓGICOS -->
+            <article class="campus-list-item">
+
+              <div class="campus-list-item-main">
+
+                <div class="dashboard-course-heading">
+
+                  <h3 class="campus-list-item-title">
+                    Informes Psicológicos Judiciales
+                  </h3>
+
+                  <span class="campus-badge campus-badge--upcoming">
+                    Próximamente
+                  </span>
+
+                </div>
+
+                <p class="campus-list-item-meta">
+                  Propuesta futura · Administración todavía no disponible
+                </p>
+
+              </div>
+
+              <button
+                class="campus-btn campus-btn--small campus-btn--secondary"
+                type="button"
+                disabled
+              >
+                En preparación
+              </button>
+
+            </article>
+
+          </div>
+
+        </section>
+
+        <!-- SEGUNDA FILA -->
+        <section class="campus-grid campus-grid--2 campus-mt-24">
+
+          <!-- ACCESOS RÁPIDOS -->
+          <article class="campus-card">
+
+            <div class="campus-card-header">
+
+              <div>
+
+                <h2 class="campus-card-title">
+                  Accesos rápidos
+                </h2>
+
+                <p class="campus-card-subtitle">
+                  Herramientas principales del Campus.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="dashboard-quick-actions">
+
+              <a
+                class="dashboard-quick-action"
+                href="../cursos/cursos.html"
+              >
+
+                <span
+                  class="dashboard-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  ◫
+                </span>
+
+                <span>
+
+                  <strong>
+                    Administrar cursos
+                  </strong>
+
+                  <small>
+                    Ver cursos publicados y próximos.
+                  </small>
+
+                </span>
+
+              </a>
+
+              <a
+                class="dashboard-quick-action"
+                href="../../escuela-admin/dashboard/dashboard.html"
+              >
+
+                <span
+                  class="dashboard-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  ◉
+                </span>
+
+                <span>
+
+                  <strong>
+                    Escuela para Padres
+                  </strong>
+
+                  <small>
+                    Ingresar al administrador actual.
+                  </small>
+
+                </span>
+
+              </a>
+
+              <a
+                class="dashboard-quick-action"
+                href="../../portal-cursos.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span
+                  class="dashboard-quick-action-icon"
+                  aria-hidden="true"
+                >
+                  ↗
+                </span>
+
+                <span>
+
+                  <strong>
+                    Portal del alumno
+                  </strong>
+
+                  <small>
+                    Revisar la vista pública del Campus.
+                  </small>
+
+                </span>
+
+              </a>
+
+            </div>
+
+          </article>
+
+          <!-- ESTADO DEL SISTEMA -->
+          <article class="campus-card">
+
+            <div class="campus-card-header">
+
+              <div>
+
+                <h2 class="campus-card-title">
+                  Estado del Campus
+                </h2>
+
+                <p class="campus-card-subtitle">
+                  Resumen de la estructura administrativa.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="campus-list">
+
+              <div class="campus-list-item">
+
+                <div class="campus-list-item-main">
+
+                  <p class="campus-list-item-title">
+                    Portal de Cursos
+                  </p>
+
+                  <p class="campus-list-item-meta">
+                    Navegación general disponible
+                  </p>
+
+                </div>
+
+                <span class="campus-badge campus-badge--success">
+                  Operativo
+                </span>
+
+              </div>
+
+              <div class="campus-list-item">
+
+                <div class="campus-list-item-main">
+
+                  <p class="campus-list-item-title">
+                    Escuela para Padres
+                  </p>
+
+                  <p class="campus-list-item-meta">
+                    Administrador específico conectado
+                  </p>
+
+                </div>
+
+                <span class="campus-badge campus-badge--success">
+                  Operativo
+                </span>
+
+              </div>
+
+              <div class="campus-list-item">
+
+                <div class="campus-list-item-main">
+
+                  <p class="campus-list-item-title">
+                    Administración general
+                  </p>
+
+                  <p class="campus-list-item-meta">
+                    Primera versión en construcción
+                  </p>
+
+                </div>
+
+                <span class="campus-badge campus-badge--warning">
+                  En desarrollo
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="../shared/components/campus-admin-sidebar.js"></script>
+  <script src="./dashboard.js"></script>
+
+</body>
+</html>

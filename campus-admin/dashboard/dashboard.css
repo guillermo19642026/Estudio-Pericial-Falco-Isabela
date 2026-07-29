@@ -1,0 +1,251 @@
+/* =========================================================
+   FALCO Campus Admin™
+   Dashboard General v1.0
+========================================================= */
+
+/* =========================================================
+   ENCABEZADO DE CURSOS
+========================================================= */
+
+.dashboard-course-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================================================
+   ACCESOS RÁPIDOS
+========================================================= */
+
+.dashboard-quick-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.dashboard-quick-action {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 76px;
+  padding: 14px 16px;
+  border: 1px solid rgba(200, 164, 93, 0.14);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 40, 66, 0.72),
+      rgba(11, 23, 40, 0.72)
+    );
+  transition:
+    transform var(--falco-transition),
+    border-color var(--falco-transition),
+    background var(--falco-transition),
+    box-shadow var(--falco-transition);
+}
+
+.dashboard-quick-action:hover {
+  transform: translateY(-2px);
+  border-color: var(--falco-border-strong);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(28, 54, 87, 0.86),
+      rgba(16, 32, 54, 0.86)
+    );
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-quick-action-icon {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(200, 164, 93, 0.24);
+  border-radius: 13px;
+  color: var(--falco-gold-300);
+  background: rgba(200, 164, 93, 0.08);
+  font-size: 1.05rem;
+}
+
+.dashboard-quick-action span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dashboard-quick-action strong {
+  color: var(--falco-text-primary);
+  font-size: 0.89rem;
+  font-weight: 700;
+}
+
+.dashboard-quick-action small {
+  color: var(--falco-text-muted);
+  font-size: 0.77rem;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   TARJETAS DE MÉTRICAS
+========================================================= */
+
+.campus-stat-card {
+  transition:
+    transform var(--falco-transition),
+    border-color var(--falco-transition),
+    box-shadow var(--falco-transition);
+}
+
+.campus-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--falco-shadow-md);
+}
+
+.campus-stat-card:nth-child(1) .campus-stat-icon {
+  color: var(--falco-gold-300);
+  border-color: rgba(200, 164, 93, 0.26);
+  background: rgba(200, 164, 93, 0.09);
+}
+
+.campus-stat-card:nth-child(2) .campus-stat-icon {
+  color: #a9ddc4;
+  border-color: rgba(95, 168, 137, 0.28);
+  background: rgba(95, 168, 137, 0.1);
+}
+
+.campus-stat-card:nth-child(3) .campus-stat-icon {
+  color: #c9def2;
+  border-color: rgba(102, 148, 191, 0.28);
+  background: rgba(102, 148, 191, 0.1);
+}
+
+.campus-stat-card:nth-child(4) .campus-stat-icon {
+  color: #efd39d;
+  border-color: rgba(212, 164, 81, 0.28);
+  background: rgba(212, 164, 81, 0.1);
+}
+
+/* =========================================================
+   LISTADO DE CURSOS
+========================================================= */
+
+.campus-list-item {
+  position: relative;
+}
+
+.campus-list-item-main {
+  flex: 1;
+}
+
+.campus-list-item .campus-btn {
+  flex-shrink: 0;
+}
+
+.campus-list-item-title {
+  letter-spacing: 0.005em;
+}
+
+/* =========================================================
+   ESTADO DEL CAMPUS
+========================================================= */
+
+.campus-list-item .campus-badge {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   CARGA INICIAL
+========================================================= */
+
+body.dashboard-loading .campus-admin-main {
+  opacity: 0;
+}
+
+.campus-admin-main {
+  opacity: 1;
+  transition: opacity 220ms ease;
+}
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================= */
+
+@keyframes dashboardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.campus-page-header,
+.campus-grid,
+.campus-card {
+  animation: dashboardFadeUp 420ms ease both;
+}
+
+.campus-grid:nth-of-type(1) {
+  animation-delay: 60ms;
+}
+
+.campus-card.campus-mt-24 {
+  animation-delay: 110ms;
+}
+
+.campus-grid:nth-of-type(2) {
+  animation-delay: 160ms;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+  .campus-stat-card {
+    min-height: 142px;
+  }
+}
+
+@media (max-width: 720px) {
+  .campus-list-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campus-list-item .campus-btn {
+    width: 100%;
+  }
+
+  .dashboard-quick-action {
+    min-height: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-course-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-quick-action {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .dashboard-quick-action-icon {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .campus-stat-value {
+    font-size: 1.85rem;
+  }
+}
