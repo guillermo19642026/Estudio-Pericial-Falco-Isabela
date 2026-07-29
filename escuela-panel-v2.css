@@ -3290,3 +3290,44 @@ body.campus-falco {
 .modulo-acciones .consulta-modulo {
   margin: 2px 0 6px;
 }
+
+
+
+/* =========================================================
+   ACCESO ADMINISTRATIVO
+========================================================= */
+
+.campus-admin-link{
+
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+
+  margin-top:1rem;
+
+  color:var(--color-dorado,#d4af37);
+
+  font-size:.92rem;
+  font-weight:600;
+
+  text-decoration:none;
+
+  transition:all .25s ease;
+
+}
+
+.campus-admin-link:hover{
+
+  color:#f3d56b;
+
+  transform:translateX(4px);
+
+}
+
+.campus-admin-link:focus-visible{
+
+  outline:2px solid rgba(212,175,55,.45);
+  outline-offset:4px;
+  border-radius:6px;
+
+}

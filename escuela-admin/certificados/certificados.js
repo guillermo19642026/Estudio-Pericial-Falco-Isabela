@@ -150,7 +150,61 @@ function registrarEventos() {
     limpiarFiltros
   );
 
+
+  tablaBody?.addEventListener(
+    "click",
+    manejarAccionesTabla
+  );
+
+
 }
+
+
+
+/* ==========================================================
+   ACCIONES DE LA TABLA
+========================================================== */
+
+function manejarAccionesTabla(evento) {
+
+  const botonCertificado =
+    evento.target.closest(
+      "[data-ver-certificado]"
+    );
+
+  if (!botonCertificado) {
+
+    return;
+
+  }
+
+  const participanteId =
+    botonCertificado.dataset.participanteId;
+
+  if (!participanteId) {
+
+    console.error(
+      "No se encontró el ID del participante."
+    );
+
+    return;
+
+  }
+
+  const certificadoUrl =
+    `../../certificado.html?id=${encodeURIComponent(
+      participanteId
+    )}`;
+
+  window.open(
+    certificadoUrl,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+
 
 
 /* ==========================================================

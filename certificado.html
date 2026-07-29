@@ -1,63 +1,403 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Certificado | Escuela para Padres FALCO®</title>
-<link rel="stylesheet" href="style.css">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+Certificado | Escuela para Padres FALCO®
+</title>
+
+<meta
+    name="description"
+    content="Certificado oficial de participación emitido por la Escuela para Padres FALCO®."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="css/certificado.css">
+
 </head>
 
-<body class="certificado-body">
+<body class="certificado-cargando">
 
-<section class="certificado">
+<main class="certificado">
 
+<section class="certificado-card">
 
-  
+<!-- =====================================================
+     MARCOS
+===================================================== -->
 
+<div class="marco marco-exterior"></div>
+<div class="marco marco-interior"></div>
 
+<!-- =====================================================
+     ENCABEZADO
+===================================================== -->
 
-    
+<header class="cert-header">
 
-  <h1>Certificado de Participación</h1>
+<div class="header-left">
 
-  <p>Se certifica que</p>
+<div class="logo-falco">
 
-  <h2 id="nombreCertificado">Participante</h2>
-
-  <p>
-    ha completado satisfactoriamente la
-    <strong>Escuela para Padres FALCO®</strong>
-  </p>
-
-  <h3>Aprendiendo a ser Padres de un Adolescente®</h3>
-
-  <p>
-    Programa formativo de 8 encuentros asincrónicos,
-    con una carga horaria total de 16 horas.
-  </p>
-
-  <p class="fecha-certificado">
-    Fecha de emisión: <span id="fechaCertificado"></span>
-  </p>
-
- <div class="firma-certificado">
-
-  <img
-    src="img/firma-isabela.png"
-    alt="Firma Lic. Isabela Falco"
-    class="firma-img">
-
-  <p>Lic. Isabela Falco</p>
-  <span>Coordinación Académica</span>
+F
 
 </div>
 
-  <button onclick="window.print()" class="btn-principal no-print">
-    🏆 Descargar / Imprimir certificado
-  </button>
+<div class="header-brand">
+
+<p class="brand-top">
+
+SISTEMA FALCO®
+
+</p>
+
+<h2>
+
+Escuela para Padres
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="header-right">
+
+<span>
+
+PROGRAMA FORMATIVO
+
+</span>
+
+<strong>
+
+Edición 2026
+
+</strong>
+
+</div>
+
+</header>
+
+<div class="linea-superior"></div>
+
+<!-- =====================================================
+     CONTENIDO
+===================================================== -->
+
+<section class="cert-contenido">
+
+<div class="hero-certificado">
+
+<p class="intro">
+
+LA ESCUELA PARA PADRES FALCO® OTORGA EL PRESENTE
+
+</p>
+
+<h1>
+
+CERTIFICADO
+
+</h1>
+
+<h3>
+
+DE PARTICIPACIÓN
+
+</h3>
+
+<p class="certifica">
+
+Se certifica que
+
+</p>
+
+<div class="nombre-contenedor">
+
+<h2 id="nombreCertificado"></h2>
+
+</div>
+
+<div class="linea-nombre"></div>
+
+<p class="texto">
+
+ha completado satisfactoriamente el programa de formación de la
+
+<strong>
+
+Escuela para Padres FALCO®
+
+</strong>
+
+</p>
+
+<div class="programa-box">
+
+<span>
+
+PROGRAMA
+
+</span>
+
+<h4>
+
+Aprendiendo a ser Padres de un Adolescente®
+
+</h4>
+
+<p>
+
+Recorrido formativo integrado por ocho encuentros asincrónicos,
+actividades de reflexión y materiales complementarios,
+con una carga horaria total de dieciséis horas.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="indicadores">
+
+    <div class="indicador">
+
+        <div class="indicador-icono">
+
+            🖥
+
+        </div>
+
+        <span>
+
+            MODALIDAD
+
+        </span>
+
+        <strong>
+
+            Virtual asincrónica
+
+        </strong>
+
+    </div>
+
+    <div class="indicador">
+
+        <div class="indicador-icono">
+
+            👥
+
+        </div>
+
+        <span>
+
+            DURACIÓN
+
+        </span>
+
+        <strong>
+
+            8 encuentros
+
+        </strong>
+
+    </div>
+
+    <div class="indicador">
+
+        <div class="indicador-icono">
+
+            🕒
+
+        </div>
+
+        <span>
+
+            CARGA HORARIA
+
+        </span>
+
+        <strong>
+
+            16 horas
+
+        </strong>
+
+    </div>
+
+</div>
 
 </section>
 
-<script type="module" src="js/certificado.js"></script>
+<!-- =====================================================
+     FRANJA INFERIOR
+===================================================== -->
+
+<footer class="cert-footer">
+
+<div class="footer-grid">
+
+<div class="footer-fecha">
+
+<div class="footer-icono">
+
+📅
+
+</div>
+
+<div>
+
+<span>
+
+FECHA DE EMISIÓN
+
+</span>
+
+<strong id="fechaCertificado">
+
+--
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="footer-qr">
+
+<div id="certificadoQR" class="qr-box">
+
+QR
+
+</div>
+
+</div>
+
+<div class="footer-firma">
+
+<img
+    src="img/firma-isabela.png"
+    alt="Firma Lic. Isabela Falco"
+    class="firma-img"
+>
+
+<div class="firma-linea"></div>
+
+<strong>
+
+Lic. Isabela Falco
+
+</strong>
+
+<small>
+
+Dirección y Coordinación Académica
+
+</small>
+
+<p>
+
+Escuela para Padres FALCO®
+
+</p>
+
+</div>
+
+<div class="footer-codigo">
+
+    <div class="footer-icono">
+
+        🔒
+
+    </div>
+
+    <div>
+
+        <span>
+
+            CÓDIGO DE CERTIFICADO
+
+        </span>
+
+        <strong id="codigoCertificado">
+
+            FALCO-EP-2026-000001
+
+        </strong>
+
+    </div>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =====================================================
+     IDENTIDAD INSTITUCIONAL
+===================================================== -->
+
+<div class="cert-bottom">
+
+    <span>
+
+        Formación · Orientación · Acompañamiento
+
+    </span>
+
+    <strong>
+
+        Sistema FALCO®
+
+    </strong>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     ACCIONES
+===================================================== -->
+
+<div class="cert-acciones no-print">
+
+    <button
+        type="button"
+        id="btnImprimirCertificado"
+        class="btn-imprimir"
+    >
+
+        Descargar / Imprimir certificado
+
+    </button>
+
+</div>
+
+<script
+    type="module"
+    src="js/certificado.js"
+></script>
 
 </body>
+
 </html>
+

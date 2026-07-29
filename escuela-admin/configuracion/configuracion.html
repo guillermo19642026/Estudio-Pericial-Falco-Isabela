@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Configuración | Escuela para Padres FALCO®
+  </title>
+
+  <meta
+    name="description"
+    content="Configuración general de la Escuela para Padres FALCO®."
+  >
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="configuracion.css"
+  >
+
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- =====================================================
+         BARRA LATERAL
+    ====================================================== -->
+
+    <div
+      data-admin-sidebar
+      data-active="configuracion"
+      data-base="../"
+    ></div>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="admin-main configuracion-main">
+
+      <!-- ===================================================
+           ENCABEZADO
+      ==================================================== -->
+
+      <header class="admin-header configuracion-header">
+
+        <div>
+
+          <p class="admin-eyebrow">
+            Administración institucional
+          </p>
+
+          <h1>
+            Configuración
+          </h1>
+
+          <p class="admin-subtitulo">
+            Ajustes generales de la Escuela para Padres FALCO®,
+            certificaciones, comunicaciones y funcionamiento
+            institucional.
+          </p>
+
+        </div>
+
+
+        <div
+          class="configuracion-estado"
+          aria-live="polite"
+        >
+
+          <span
+            id="estadoIndicador"
+            class="configuracion-estado-indicador"
+          ></span>
+
+          <span id="estadoGuardado">
+            Todos los cambios guardados
+          </span>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           MENSAJES
+      ==================================================== -->
+
+      <div
+        id="configuracionMensaje"
+        class="configuracion-mensaje"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+
+
+      <!-- ===================================================
+           FORMULARIO
+      ==================================================== -->
+
+      <form
+        id="formConfiguracion"
+        class="configuracion-formulario"
+        novalidate
+      >
+
+        <!-- =================================================
+             IDENTIDAD INSTITUCIONAL
+        ================================================== -->
+
+        <section class="configuracion-seccion">
+
+          <div class="configuracion-seccion-header">
+
+            <div>
+
+              <p class="admin-eyebrow">
+                Identidad
+              </p>
+
+              <h2>
+                Información institucional
+              </h2>
+
+              <p>
+                Datos generales que identifican a la Escuela
+                y a su coordinación académica.
+              </p>
+
+            </div>
+
+            <span class="configuracion-seccion-numero">
+              01
+            </span>
+
+          </div>
+
+
+          <div class="configuracion-grid">
+
+            <div class="configuracion-campo configuracion-campo-ancho">
+
+              <label for="institucionNombre">
+                Nombre institucional
+              </label>
+
+              <input
+                type="text"
+                id="institucionNombre"
+                name="institucionNombre"
+                value="Escuela para Padres FALCO®"
+                autocomplete="organization"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo configuracion-campo-ancho">
+
+              <label for="programaNombre">
+                Nombre del programa
+              </label>
+
+              <input
+                type="text"
+                id="programaNombre"
+                name="programaNombre"
+                value="Aprendiendo a ser Padres de un Adolescente®"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="coordinacionNombre">
+                Coordinación académica
+              </label>
+
+              <input
+                type="text"
+                id="coordinacionNombre"
+                name="coordinacionNombre"
+                value="Lic. Isabela Falco"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="anioVigente">
+                Año vigente
+              </label>
+
+              <input
+                type="number"
+                id="anioVigente"
+                name="anioVigente"
+                min="2026"
+                max="2100"
+                value="2026"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="emailContacto">
+                Correo de contacto
+              </label>
+
+              <input
+                type="email"
+                id="emailContacto"
+                name="emailContacto"
+                value="estudiopericialpsicologico@gmail.com"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="whatsappContacto">
+                WhatsApp
+              </label>
+
+              <input
+                type="tel"
+                id="whatsappContacto"
+                name="whatsappContacto"
+                value="1132049521"
+                autocomplete="tel"
+                required
+              >
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONFIGURACIÓN DEL CURSO
+        ================================================== -->
+
+        <section class="configuracion-seccion">
+
+          <div class="configuracion-seccion-header">
+
+            <div>
+
+              <p class="admin-eyebrow">
+                Programa
+              </p>
+
+              <h2>
+                Configuración del curso
+              </h2>
+
+              <p>
+                Parámetros generales del recorrido formativo.
+              </p>
+
+            </div>
+
+            <span class="configuracion-seccion-numero">
+              02
+            </span>
+
+          </div>
+
+
+          <div class="configuracion-grid">
+
+            <div class="configuracion-campo">
+
+              <label for="totalEncuentros">
+                Cantidad de encuentros
+              </label>
+
+              <input
+                type="number"
+                id="totalEncuentros"
+                name="totalEncuentros"
+                min="1"
+                max="30"
+                value="8"
+                required
+              >
+
+              <small>
+                Actualmente el programa está organizado
+                en ocho encuentros.
+              </small>
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="modalidadCurso">
+                Modalidad
+              </label>
+
+              <select
+                id="modalidadCurso"
+                name="modalidadCurso"
+                required
+              >
+
+                <option value="Virtual y asincrónica" selected>
+                  Virtual y asincrónica
+                </option>
+
+                <option value="Virtual y sincrónica">
+                  Virtual y sincrónica
+                </option>
+
+                <option value="Modalidad mixta">
+                  Modalidad mixta
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="plazoRespuesta">
+                Plazo de respuesta
+              </label>
+
+              <input
+                type="text"
+                id="plazoRespuesta"
+                name="plazoRespuesta"
+                value="48 horas hábiles"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="duracionAcceso">
+                Duración del acceso
+              </label>
+
+              <select
+                id="duracionAcceso"
+                name="duracionAcceso"
+              >
+
+                <option value="sin-vencimiento" selected>
+                  Sin vencimiento automático
+                </option>
+
+                <option value="30-dias">
+                  30 días
+                </option>
+
+                <option value="60-dias">
+                  60 días
+                </option>
+
+                <option value="90-dias">
+                  90 días
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="configuracion-opciones">
+
+            <label class="configuracion-switch">
+
+              <input
+                type="checkbox"
+                id="habilitacionProgresiva"
+                name="habilitacionProgresiva"
+                checked
+              >
+
+              <span class="configuracion-switch-control"></span>
+
+              <span class="configuracion-switch-contenido">
+
+                <strong>
+                  Habilitación progresiva
+                </strong>
+
+                <small>
+                  Los encuentros se habilitan de manera gradual.
+                </small>
+
+              </span>
+
+            </label>
+
+
+            <label class="configuracion-switch">
+
+              <input
+                type="checkbox"
+                id="permitirRevision"
+                name="permitirRevision"
+                checked
+              >
+
+              <span class="configuracion-switch-control"></span>
+
+              <span class="configuracion-switch-contenido">
+
+                <strong>
+                  Permitir revisar encuentros
+                </strong>
+
+                <small>
+                  El participante podrá volver a contenidos
+                  ya completados.
+                </small>
+
+              </span>
+
+            </label>
+
+
+            <label class="configuracion-switch">
+
+              <input
+                type="checkbox"
+                id="registrarProgreso"
+                name="registrarProgreso"
+                checked
+              >
+
+              <span class="configuracion-switch-control"></span>
+
+              <span class="configuracion-switch-contenido">
+
+                <strong>
+                  Registrar progreso automáticamente
+                </strong>
+
+                <small>
+                  El avance se conserva dentro de la plataforma.
+                </small>
+
+              </span>
+
+            </label>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CERTIFICACIONES
+        ================================================== -->
+
+        <section class="configuracion-seccion">
+
+          <div class="configuracion-seccion-header">
+
+            <div>
+
+              <p class="admin-eyebrow">
+                Certificación
+              </p>
+
+              <h2>
+                Emisión de certificados
+              </h2>
+
+              <p>
+                Condiciones y datos institucionales utilizados
+                en la certificación final.
+              </p>
+
+            </div>
+
+            <span class="configuracion-seccion-numero">
+              03
+            </span>
+
+          </div>
+
+
+          <div class="configuracion-grid">
+
+            <div class="configuracion-campo">
+
+              <label for="modeloCertificado">
+                Modelo activo
+              </label>
+
+              <select
+                id="modeloCertificado"
+                name="modeloCertificado"
+              >
+
+                <option value="modelo-b" selected>
+                  FALCO® Modelo B
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="configuracion-campo">
+
+              <label for="firmaCertificado">
+                Firma institucional
+              </label>
+
+              <input
+                type="text"
+                id="firmaCertificado"
+                name="firmaCertificado"
+                value="Lic. Isabela Falco"
+                required
+              >
+
+            </div>
+
+
+            <div class="configuracion-campo configuracion-campo-ancho">
+
+              <label for="textoCertificado">
+                Texto de certificación
+              </label>
+
+              <textarea
+                id="textoCertificado"
+                name="textoCertificado"
+                rows="5"
+                required
+              >Se certifica que la persona participante ha completado satisfactoriamente el programa psicoeducativo Aprendiendo a ser Padres de un Adolescente®.</textarea>
+
+            </div>
+
+          </div>
+
+
+          <div class="configuracion-opciones">
+
+            <label class="configuracion-switch">
+
+              <input
+                type="checkbox"
+                id="requiereCursoCompleto"
+                name="requiereCursoCompleto"
+                checked
+              >
+
+              <span class="configuracion-switch-control"></span>
+
+              <span class="configuracion-switch-contenido">
+
+                <strong>
+                  Exigir curso completo
+                </strong>
+
+                <small>
+                  El participante deberá completar los ocho encuentros.
+                </small>
+
+              </span>
+
+            </label>
+
+
+            <label class="configuracion-switch">
+
+              <input
+                type="checkbox"
+                id="requiereEncuesta"
+                name="requiereEncuesta"
+                checked
+              >
+
+              <span class="configuracion-switch-control"></span>
+
+              <span class="configuracion-switch-contenido">
+
+                <strong>
+                  Exigir encuesta final
+                </strong>
+
+                <small>
+                  La certificación se habilitará después
+                  de completar la encuesta.
+                </small>
+
+              </span>
+
+            </label>
+
+
+            <label class="configuracion-switch">
+
+              <input
+                type="checkbox"
+                id="numeracionAutomatica"
+                name="numeracionAutomatica"
+                checked
+              >
+
+              <span class="configuracion-switch-control"></span>
+
+              <span class="configuracion-switch-contenido">
+
+                <strong>
+                  Numeración automática
+                </strong>
+
+                <small>
+                  Cada certificado recibirá una referencia única.
+                </small>
+
+              </span>
+
+            </label>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COMUNICACIONES
+        ================================================== -->
+
+        <section class="configuracion-seccion">
+
+          <div class="configuracion-seccion-header">
+
+            <div>
+
+              <p class="admin-eyebrow">
+                Comunicación
+              </p>
+
+              <h2>
+                Mensajes institucionales
+              </h2>
+
+              <p>
+                Textos de referencia para la comunicación
+                con participantes.
+              </p>
+
+            </div>
+
+            <span class="configuracion-seccion-numero">
+              04
+            </span>
+
+          </div>
+
+
+          <div class="configuracion-grid">
+
+            <div class="configuracion-campo configuracion-campo-ancho">
+
+              <label for="mensajeBienvenida">
+                Mensaje de bienvenida
+              </label>
+
+              <textarea
+                id="mensajeBienvenida"
+                name="mensajeBienvenida"
+                rows="5"
+              >Te damos la bienvenida a la Escuela para Padres FALCO®. Desde tu Campus podrás acceder a los encuentros, actividades, materiales y recursos del programa.</textarea>
+
+            </div>
+
+
+            <div class="configuracion-campo configuracion-campo-ancho">
+
+              <label for="mensajeFinalizacion">
+                Mensaje de finalización
+              </label>
+
+              <textarea
+                id="mensajeFinalizacion"
+                name="mensajeFinalizacion"
+                rows="5"
+              >Felicitaciones por haber completado el programa. Ya podés realizar la encuesta final y acceder a tu certificación.</textarea>
+
+            </div>
+
+
+            <div class="configuracion-campo configuracion-campo-ancho">
+
+              <label for="mensajeSoporte">
+                Mensaje de soporte
+              </label>
+
+              <textarea
+                id="mensajeSoporte"
+                name="mensajeSoporte"
+                rows="4"
+              >Las consultas serán respondidas dentro de las 48 horas hábiles.</textarea>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ESTADO DE LA PLATAFORMA
+        ================================================== -->
+
+        <section class="configuracion-seccion">
+
+          <div class="configuracion-seccion-header">
+
+            <div>
+
+              <p class="admin-eyebrow">
+                Sistema
+              </p>
+
+              <h2>
+                Estado de la plataforma
+              </h2>
+
+              <p>
+                Referencia general sobre los módulos que integran
+                actualmente la Escuela.
+              </p>
+
+            </div>
+
+            <span class="configuracion-seccion-numero">
+              05
+            </span>
+
+          </div>
+
+
+          <div class="configuracion-sistema-grid">
+
+            <article class="configuracion-sistema-item">
+
+              <span class="configuracion-sistema-estado activo"></span>
+
+              <div>
+
+                <strong>
+                  Campus del alumno
+                </strong>
+
+                <small>
+                  Activo
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="configuracion-sistema-item">
+
+              <span class="configuracion-sistema-estado activo"></span>
+
+              <div>
+
+                <strong>
+                  Centro administrativo
+                </strong>
+
+                <small>
+                  Activo
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="configuracion-sistema-item">
+
+              <span class="configuracion-sistema-estado activo"></span>
+
+              <div>
+
+                <strong>
+                  Firebase Authentication
+                </strong>
+
+                <small>
+                  Conectado
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="configuracion-sistema-item">
+
+              <span class="configuracion-sistema-estado activo"></span>
+
+              <div>
+
+                <strong>
+                  Firestore
+                </strong>
+
+                <small>
+                  Conectado
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="configuracion-sistema-item">
+
+              <span class="configuracion-sistema-estado desarrollo"></span>
+
+              <div>
+
+                <strong>
+                  Certificados
+                </strong>
+
+                <small>
+                  En desarrollo
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="configuracion-sistema-item">
+
+              <span class="configuracion-sistema-estado desarrollo"></span>
+
+              <div>
+
+                <strong>
+                  Encuestas
+                </strong>
+
+                <small>
+                  En desarrollo
+                </small>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ACCIONES
+        ================================================== -->
+
+        <section class="configuracion-acciones">
+
+          <a
+            href="../dashboard/dashboard.html"
+            class="configuracion-btn configuracion-btn-secundario"
+          >
+            Volver al dashboard
+          </a>
+
+
+          <button
+            type="button"
+            id="btnRestaurar"
+            class="configuracion-btn configuracion-btn-secundario"
+          >
+            Restaurar valores
+          </button>
+
+
+          <button
+            type="submit"
+            id="btnGuardarConfiguracion"
+            class="configuracion-btn configuracion-btn-principal"
+          >
+
+            <span class="configuracion-btn-texto">
+              Guardar configuración
+            </span>
+
+            <span
+              class="configuracion-btn-loader"
+              aria-hidden="true"
+            ></span>
+
+          </button>
+
+        </section>
+
+      </form>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="configuracion.js"
+  ></script>
+
+  <script
+    type="module"
+    src="../shared/components/falco-admin-sidebar.js"
+  ></script>
+
+</body>
+
+</html>

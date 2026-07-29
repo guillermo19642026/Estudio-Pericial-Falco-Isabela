@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Acceso administrativo a la Escuela para Padres FALCO®."
+  >
+
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  >
+
+  <title>
+    Acceso administrativo | Escuela para Padres FALCO®
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./login.css"
+  >
+</head>
+
+<body>
+
+  <div
+    class="admin-login-shell"
+    aria-live="polite"
+  >
+
+    <!-- =====================================================
+         PANEL INSTITUCIONAL
+    ====================================================== -->
+
+    <section
+      class="admin-login-brand"
+      aria-label="Escuela para Padres FALCO"
+    >
+
+      <div class="admin-login-brand__glow"></div>
+
+      <div class="admin-login-brand__content">
+
+        <a
+          class="admin-login-brand__identity"
+          href="../../index.html"
+          aria-label="Volver al sitio principal de FALCO"
+        >
+          <span class="admin-login-brand__seal">
+            F
+          </span>
+
+          <span class="admin-login-brand__name">
+            Sistema FALCO<sup>®</sup>
+          </span>
+        </a>
+
+        <div class="admin-login-brand__main">
+
+          <p class="admin-login-brand__eyebrow">
+            Centro Administrativo
+          </p>
+
+          <h1 class="admin-login-brand__title">
+            Escuela para Padres
+          </h1>
+
+          <p class="admin-login-brand__description">
+            Gestión integral de participantes, encuentros,
+            progreso académico, encuestas y certificados.
+          </p>
+
+          <div class="admin-login-brand__features">
+
+            <div class="admin-login-brand__feature">
+              <span
+                class="admin-login-brand__feature-icon"
+                aria-hidden="true"
+              >
+                01
+              </span>
+
+              <span>
+                Administración centralizada
+              </span>
+            </div>
+
+            <div class="admin-login-brand__feature">
+              <span
+                class="admin-login-brand__feature-icon"
+                aria-hidden="true"
+              >
+                02
+              </span>
+
+              <span>
+                Seguimiento de cada participante
+              </span>
+            </div>
+
+            <div class="admin-login-brand__feature">
+              <span
+                class="admin-login-brand__feature-icon"
+                aria-hidden="true"
+              >
+                03
+              </span>
+
+              <span>
+                Acceso profesional protegido
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="admin-login-brand__legal">
+          Estudio Pericial Psicológico · Lic. Isabela Falco
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FORMULARIO DE ACCESO
+    ====================================================== -->
+
+    <main class="admin-login-main">
+
+      <div class="admin-login-card">
+
+        <div class="admin-login-card__header">
+
+          <span class="admin-login-card__label">
+            Acceso restringido
+          </span>
+
+          <h2 class="admin-login-card__title">
+            Iniciar sesión
+          </h2>
+
+          <p class="admin-login-card__description">
+            Ingresá con tus credenciales administrativas.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             ESTADO DE SESIÓN
+        ================================================== -->
+
+        <div
+          id="loginEstado"
+          class="admin-login-status"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <span
+            id="loginEstadoIcono"
+            class="admin-login-status__icon"
+            aria-hidden="true"
+          ></span>
+
+          <span id="loginEstadoTexto"></span>
+        </div>
+
+
+        <!-- =================================================
+             FORMULARIO
+        ================================================== -->
+
+        <form
+          id="formLoginAdmin"
+          class="admin-login-form"
+          novalidate
+        >
+
+          <!-- CORREO -->
+
+          <div class="admin-login-field">
+
+            <label
+              class="admin-login-field__label"
+              for="correoAdmin"
+            >
+              Correo electrónico
+            </label>
+
+            <div class="admin-login-field__control">
+
+              <span
+                class="admin-login-field__icon"
+                aria-hidden="true"
+              >
+                @
+              </span>
+
+              <input
+                id="correoAdmin"
+                class="admin-login-field__input"
+                name="correo"
+                type="email"
+                inputmode="email"
+                autocomplete="username"
+                placeholder="administracion@falco.com"
+                maxlength="160"
+                required
+              >
+
+            </div>
+
+            <p
+              id="correoAdminError"
+              class="admin-login-field__error"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+
+          <!-- CONTRASEÑA -->
+
+          <div class="admin-login-field">
+
+            <label
+              class="admin-login-field__label"
+              for="passwordAdmin"
+            >
+              Contraseña
+            </label>
+
+            <div class="admin-login-field__control">
+
+              <span
+                class="admin-login-field__icon"
+                aria-hidden="true"
+              >
+                •
+              </span>
+
+              <input
+                id="passwordAdmin"
+                class="admin-login-field__input admin-login-field__input--password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Ingresá tu contraseña"
+                minlength="6"
+                maxlength="128"
+                required
+              >
+
+              <button
+                id="btnMostrarPassword"
+                class="admin-login-password-toggle"
+                type="button"
+                aria-label="Mostrar contraseña"
+                aria-pressed="false"
+              >
+                <span
+                  id="passwordToggleText"
+                  aria-hidden="true"
+                >
+                  Ver
+                </span>
+              </button>
+
+            </div>
+
+            <p
+              id="passwordAdminError"
+              class="admin-login-field__error"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+
+          <!-- RECORDAR SESIÓN -->
+
+          <label class="admin-login-check">
+
+            <input
+              id="recordarSesion"
+              class="admin-login-check__input"
+              name="recordar"
+              type="checkbox"
+              checked
+            >
+
+            <span class="admin-login-check__box"></span>
+
+            <span class="admin-login-check__text">
+              Mantener la sesión iniciada
+            </span>
+
+          </label>
+
+
+          <!-- BOTÓN -->
+
+          <button
+            id="btnIngresarAdmin"
+            class="admin-login-submit"
+            type="submit"
+          >
+
+            <span
+              id="loginSpinner"
+              class="admin-login-submit__spinner"
+              aria-hidden="true"
+              hidden
+            ></span>
+
+            <span id="loginButtonText">
+              Ingresar al Centro Administrativo
+            </span>
+
+            <span
+              class="admin-login-submit__arrow"
+              aria-hidden="true"
+            >
+              →
+            </span>
+
+          </button>
+
+        </form>
+
+
+        <!-- =================================================
+             PIE
+        ================================================== -->
+
+        <div class="admin-login-card__footer">
+
+          <p>
+            Este acceso está reservado para personal autorizado
+            del Sistema FALCO®.
+          </p>
+
+          <a
+            href="../../index.html"
+            class="admin-login-back"
+          >
+            ← Volver al sitio principal
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <footer class="admin-login-footer">
+
+        <span>
+          Escuela para Padres FALCO®
+        </span>
+
+        <span
+          class="admin-login-footer__separator"
+          aria-hidden="true"
+        >
+          ·
+        </span>
+
+        <span id="anioActual"></span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       CAPA DE CARGA
+  ====================================================== -->
+
+  <div
+    id="loginLoader"
+    class="admin-login-loader"
+    aria-hidden="true"
+    hidden
+  >
+
+    <div class="admin-login-loader__content">
+
+      <span
+        class="admin-login-loader__spinner"
+        aria-hidden="true"
+      ></span>
+
+      <p id="loginLoaderTexto">
+        Verificando acceso administrativo…
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <script
+    type="module"
+    src="./login.js"
+  ></script>
+
+</body>
+</html>
