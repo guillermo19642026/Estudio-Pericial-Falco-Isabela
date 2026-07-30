@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gestión administrativa de instituciones de FALCO Comunidad."
+  >
+
+  <title>
+    Instituciones | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="instituciones.css"
+  >
+
+</head>
+
+
+<body>
+
+  <a
+    class="salto-contenido-admin"
+    href="#contenidoPrincipal"
+  >
+    Ir al contenido principal
+  </a>
+
+
+  <div class="admin-comunidad-app">
+
+    <div class="admin-comunidad-layout">
+
+
+      <!-- =================================================
+           SIDEBAR
+      ================================================== -->
+
+      <div class="admin-comunidad-sidebar-host">
+
+        <falco-comunidad-sidebar
+          data-active="instituciones"
+          data-base="../"
+        ></falco-comunidad-sidebar>
+
+      </div>
+
+
+      <!-- =================================================
+           CONTENIDO PRINCIPAL
+      ================================================== -->
+
+      <main
+        id="contenidoPrincipal"
+        class="admin-comunidad-principal"
+      >
+
+        <div class="admin-contenedor">
+
+
+          <!-- =============================================
+               CABECERA
+          ============================================== -->
+
+          <header class="admin-cabecera">
+
+            <div class="admin-cabecera-identidad">
+
+              <button
+                id="botonMenuAdmin"
+                class="admin-boton-menu"
+                type="button"
+                aria-label="Abrir menú administrativo"
+                aria-expanded="false"
+              >
+
+                <span
+                  class="admin-boton-menu-lineas"
+                  aria-hidden="true"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+              </button>
+
+
+              <span
+                class="admin-cabecera-simbolo"
+                aria-hidden="true"
+              >
+                F
+              </span>
+
+
+              <div class="admin-cabecera-texto">
+
+                <p>
+                  FALCO® Comunidad
+                </p>
+
+                <h1>
+                  Instituciones
+                </h1>
+
+              </div>
+
+            </div>
+
+
+            <div class="admin-cabecera-acciones">
+
+              <a
+                class="admin-boton admin-boton-secundario"
+                href="../dashboard/dashboard.html"
+              >
+                Volver al panel
+              </a>
+
+              <a
+                class="admin-boton admin-boton-primario"
+                href="nueva-institucion.html"
+              >
+                Nueva institución
+              </a>
+
+            </div>
+
+          </header>
+
+
+          <!-- =============================================
+               PRESENTACIÓN
+          ============================================== -->
+
+          <section class="admin-presentacion">
+
+            <div class="admin-presentacion-contenido">
+
+              <span class="admin-eyebrow">
+                Gestión institucional
+              </span>
+
+              <h2>
+                Instituciones de
+                <span>
+                  Comunidad
+                </span>
+              </h2>
+
+              <p class="admin-presentacion-descripcion">
+                Registro, consulta y administración de las
+                organizaciones vinculadas a los proyectos,
+                programas y actividades institucionales.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               INDICADORES
+          ============================================== -->
+
+          <section
+            class="admin-indicadores-grid instituciones-indicadores"
+            aria-label="Indicadores de instituciones"
+          >
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Total
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  01
+                </span>
+
+              </div>
+
+              <strong
+                id="totalInstituciones"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Instituciones registradas.
+              </p>
+
+            </article>
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Activas
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  02
+                </span>
+
+              </div>
+
+              <strong
+                id="totalInstitucionesActivas"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Organizaciones con actividad vigente.
+              </p>
+
+            </article>
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Pendientes
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  03
+                </span>
+
+              </div>
+
+              <strong
+                id="totalInstitucionesPendientes"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Registros pendientes de revisión.
+              </p>
+
+            </article>
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Inactivas
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  04
+                </span>
+
+              </div>
+
+              <strong
+                id="totalInstitucionesInactivas"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Organizaciones sin actividad actual.
+              </p>
+
+            </article>
+
+
+          </section>
+
+
+          <!-- =============================================
+               PANEL DE GESTIÓN
+          ============================================== -->
+
+          <section class="admin-panel instituciones-panel">
+
+
+            <!-- ===========================================
+                 CABECERA DEL PANEL
+            ============================================ -->
+
+            <div class="admin-panel-cabecera instituciones-panel-cabecera">
+
+              <div>
+
+                <h3>
+                  Registro institucional
+                </h3>
+
+                <p>
+                  Consultá, filtrá y administrá las instituciones
+                  incorporadas a FALCO® Comunidad.
+                </p>
+
+              </div>
+
+              <div class="instituciones-panel-acciones">
+
+                <button
+                  id="botonActualizarInstituciones"
+                  class="admin-boton admin-boton-secundario"
+                  type="button"
+                >
+                  Actualizar
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- ===========================================
+                 FILTROS
+            ============================================ -->
+
+            <div class="instituciones-filtros">
+
+              <div class="instituciones-buscador">
+
+                <label
+                  for="buscadorInstituciones"
+                  class="instituciones-etiqueta"
+                >
+                  Buscar institución
+                </label>
+
+                <input
+                  id="buscadorInstituciones"
+                  class="instituciones-control"
+                  type="search"
+                  placeholder="Nombre, referente, localidad o correo"
+                  autocomplete="off"
+                >
+
+              </div>
+
+
+              <div class="instituciones-filtro">
+
+                <label
+                  for="filtroTipoInstitucion"
+                  class="instituciones-etiqueta"
+                >
+                  Tipo
+                </label>
+
+                <select
+                  id="filtroTipoInstitucion"
+                  class="instituciones-control"
+                >
+
+                  <option value="">
+                    Todos los tipos
+                  </option>
+
+                  <option value="municipalidad">
+                    Municipalidad
+                  </option>
+
+                  <option value="escuela">
+                    Escuela
+                  </option>
+
+                  <option value="hospital">
+                    Hospital
+                  </option>
+
+                  <option value="ong">
+                    ONG
+                  </option>
+
+                  <option value="fundacion">
+                    Fundación
+                  </option>
+
+                  <option value="empresa">
+                    Empresa
+                  </option>
+
+                  <option value="club">
+                    Club
+                  </option>
+
+                  <option value="universidad">
+                    Universidad
+                  </option>
+
+                  <option value="organismo-publico">
+                    Organismo público
+                  </option>
+
+                  <option value="otro">
+                    Otro
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="instituciones-filtro">
+
+                <label
+                  for="filtroEstadoInstitucion"
+                  class="instituciones-etiqueta"
+                >
+                  Estado
+                </label>
+
+                <select
+                  id="filtroEstadoInstitucion"
+                  class="instituciones-control"
+                >
+
+                  <option value="">
+                    Todos los estados
+                  </option>
+
+                  <option value="activa">
+                    Activa
+                  </option>
+
+                  <option value="pendiente">
+                    Pendiente
+                  </option>
+
+                  <option value="inactiva">
+                    Inactiva
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="instituciones-filtro instituciones-filtro-accion">
+
+                <button
+                  id="botonLimpiarFiltros"
+                  class="admin-boton admin-boton-secundario"
+                  type="button"
+                >
+                  Limpiar filtros
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- ===========================================
+                 RESULTADOS
+            ============================================ -->
+
+            <div class="admin-panel-contenido instituciones-contenido">
+
+              <div
+                id="estadoCargaInstituciones"
+                class="instituciones-estado-carga"
+                hidden
+              >
+                Cargando instituciones...
+              </div>
+
+
+              <div
+                id="listaInstituciones"
+                class="instituciones-lista"
+              >
+
+                <div class="admin-panel-vacio">
+
+                  <div>
+
+                    <span
+                      class="admin-panel-vacio-icono"
+                      aria-hidden="true"
+                    >
+                      01
+                    </span>
+
+                    <h4>
+                      No hay instituciones registradas
+                    </h4>
+
+                    <p>
+                      Las instituciones incorporadas aparecerán
+                      en este listado cuando se conecte la base
+                      de datos.
+                    </p>
+
+                    <a
+                      class="admin-boton admin-boton-primario"
+                      href="nueva-institucion.html"
+                    >
+                      Registrar institución
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div
+                id="sinResultadosInstituciones"
+                class="admin-panel-vacio"
+                hidden
+              >
+
+                <div>
+
+                  <span
+                    class="admin-panel-vacio-icono"
+                    aria-hidden="true"
+                  >
+                    02
+                  </span>
+
+                  <h4>
+                    No se encontraron resultados
+                  </h4>
+
+                  <p>
+                    Probá modificando los filtros o el texto
+                    ingresado en el buscador.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- ===========================================
+                 PIE DEL PANEL
+            ============================================ -->
+
+            <div class="instituciones-panel-pie">
+
+              <p
+                id="resumenInstituciones"
+                aria-live="polite"
+              >
+                0 instituciones encontradas.
+              </p>
+
+            </div>
+
+
+          </section>
+
+
+        </div>
+
+      </main>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+  ></script>
+
+  <script
+    src="../shared/js/admin-comunidad-core.js"
+  ></script>
+
+  <script
+    src="instituciones.js"
+  ></script>
+
+</body>
+
+</html>

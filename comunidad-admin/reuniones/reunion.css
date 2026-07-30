@@ -1,0 +1,2327 @@
+/* =========================================================
+   FALCO® COMUNIDAD
+   FICHA INDIVIDUAL DE REUNIÓN
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+  --reunion-fondo:
+    #07131f;
+
+  --reunion-fondo-profundo:
+    #040b12;
+
+  --reunion-superficie:
+    rgba(14, 31, 47, 0.96);
+
+  --reunion-superficie-secundaria:
+    rgba(18, 39, 59, 0.94);
+
+  --reunion-superficie-suave:
+    rgba(255, 255, 255, 0.035);
+
+  --reunion-borde:
+    rgba(255, 255, 255, 0.1);
+
+  --reunion-borde-dorado:
+    rgba(199, 162, 90, 0.34);
+
+  --reunion-dorado:
+    #c7a25a;
+
+  --reunion-dorado-claro:
+    #e0c17d;
+
+  --reunion-texto:
+    #f3f5f7;
+
+  --reunion-texto-secundario:
+    #aebbc7;
+
+  --reunion-texto-suave:
+    #81909e;
+
+  --reunion-verde:
+    #53c48b;
+
+  --reunion-verde-fondo:
+    rgba(83, 196, 139, 0.12);
+
+  --reunion-azul:
+    #66a9e8;
+
+  --reunion-azul-fondo:
+    rgba(102, 169, 232, 0.12);
+
+  --reunion-rojo:
+    #e87979;
+
+  --reunion-rojo-fondo:
+    rgba(232, 121, 121, 0.12);
+
+  --reunion-naranja:
+    #e6ae66;
+
+  --reunion-naranja-fondo:
+    rgba(230, 174, 102, 0.12);
+
+  --reunion-violeta:
+    #ac91e3;
+
+  --reunion-violeta-fondo:
+    rgba(172, 145, 227, 0.12);
+
+  --reunion-sombra:
+    0 22px 55px rgba(0, 0, 0, 0.27);
+
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+
+  box-sizing:
+    border-box;
+
+}
+
+html {
+
+  scroll-behavior:
+    smooth;
+
+}
+
+body {
+
+  margin:
+    0;
+
+  background:
+    var(--reunion-fondo);
+
+  color:
+    var(--reunion-texto);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+}
+
+body.modal-abierto {
+
+  overflow:
+    hidden;
+
+}
+
+button,
+a {
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+/* =========================================================
+   FONDOS GENERALES
+========================================================= */
+
+.comunidad-admin-app {
+
+  min-height:
+    100vh;
+
+  background:
+    radial-gradient(
+      circle at 84% 6%,
+      rgba(199, 162, 90, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 82%,
+      rgba(45, 91, 130, 0.1),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #07131f 0%,
+      #081827 48%,
+      #050e17 100%
+    ) !important;
+
+}
+
+.comunidad-admin-main {
+
+  background:
+    transparent !important;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.comunidad-admin-header.reunion-header {
+
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    28px;
+
+  margin:
+    0 0 28px;
+
+  padding:
+    28px 30px;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid var(--reunion-borde);
+
+  border-radius:
+    21px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(19, 41, 61, 0.99),
+      rgba(8, 23, 37, 0.99)
+    ) !important;
+
+  box-shadow:
+    var(--reunion-sombra);
+
+}
+
+.comunidad-admin-header.reunion-header::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -135px;
+
+  right:
+    -85px;
+
+  width:
+    300px;
+
+  height:
+    300px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 162, 90, 0.16),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.comunidad-admin-header.reunion-header::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  bottom:
+    -150px;
+
+  left:
+    30%;
+
+  width:
+    260px;
+
+  height:
+    260px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(70, 124, 168, 0.1),
+      transparent 70%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.comunidad-admin-header-identidad,
+.comunidad-admin-header-acciones {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+}
+
+.comunidad-admin-header-identidad {
+
+  min-width:
+    0;
+
+}
+
+.comunidad-admin-eyebrow {
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-dorado-claro) !important;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
+
+}
+
+.comunidad-admin-header-identidad h1 {
+
+  margin:
+    8px 0 9px;
+
+  color:
+    var(--reunion-texto) !important;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2rem, 3vw, 2.65rem);
+
+  font-weight:
+    600;
+
+  line-height:
+    1.15;
+
+}
+
+.comunidad-admin-header-identidad > p:not(.comunidad-admin-eyebrow) {
+
+  max-width:
+    760px;
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-texto-secundario) !important;
+
+  font-size:
+    0.94rem;
+
+  line-height:
+    1.65;
+
+}
+
+.comunidad-admin-header-acciones {
+
+  display:
+    flex;
+
+  flex: 0 0 auto;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.comunidad-admin-boton {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    8px;
+
+  min-height:
+    46px;
+
+  padding:
+    0 20px;
+
+  border:
+    1px solid rgba(199, 162, 90, 0.24);
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(17, 36, 55, 0.92);
+
+  color:
+    var(--reunion-texto);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.86rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1;
+
+  text-decoration:
+    none;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+
+}
+
+.comunidad-admin-boton:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(199, 162, 90, 0.62);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.19);
+
+}
+
+.comunidad-admin-boton:focus-visible {
+
+  outline:
+    3px solid rgba(199, 162, 90, 0.28);
+
+  outline-offset:
+    3px;
+
+}
+
+.comunidad-admin-boton.primario {
+
+  border-color:
+    transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d1af69,
+      #b98c3f
+    );
+
+  color:
+    #08111b;
+
+}
+
+.comunidad-admin-boton.primario:hover {
+
+  background:
+    linear-gradient(
+      135deg,
+      #dfc17f,
+      #c99d4f
+    );
+
+}
+
+.comunidad-admin-boton.secundario {
+
+  background:
+    rgba(15, 34, 52, 0.9);
+
+  color:
+    var(--reunion-texto);
+
+}
+
+.comunidad-admin-boton.peligro {
+
+  border-color:
+    rgba(232, 121, 121, 0.28);
+
+  background:
+    rgba(108, 36, 43, 0.25);
+
+  color:
+    #f3aaaa;
+
+}
+
+.comunidad-admin-boton.peligro:hover {
+
+  border-color:
+    rgba(232, 121, 121, 0.65);
+
+  background:
+    rgba(126, 41, 49, 0.4);
+
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.reunion-mensaje {
+
+  margin:
+    0 0 24px;
+
+  padding:
+    15px 17px;
+
+  border:
+    1px solid var(--reunion-borde);
+
+  border-radius:
+    13px;
+
+  background:
+    rgba(20, 42, 62, 0.92);
+
+  color:
+    var(--reunion-texto);
+
+  font-size:
+    0.88rem;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.55;
+
+}
+
+.reunion-mensaje.es-exito {
+
+  border-color:
+    rgba(83, 196, 139, 0.38);
+
+  background:
+    var(--reunion-verde-fondo);
+
+  color:
+    #a9e7c7;
+
+}
+
+.reunion-mensaje.es-error {
+
+  border-color:
+    rgba(232, 121, 121, 0.4);
+
+  background:
+    var(--reunion-rojo-fondo);
+
+  color:
+    #f2b0b0;
+
+}
+
+.reunion-mensaje.es-aviso {
+
+  border-color:
+    rgba(230, 174, 102, 0.4);
+
+  background:
+    var(--reunion-naranja-fondo);
+
+  color:
+    #edd0a8;
+
+}
+
+
+/* =========================================================
+   CARGA Y ESTADOS ESPECIALES
+========================================================= */
+
+.reunion-estado-especial {
+
+  display:
+    flex;
+
+  min-height:
+    390px;
+
+  padding:
+    42px 26px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  flex-direction:
+    column;
+
+  text-align:
+    center;
+
+  border:
+    1px solid var(--reunion-borde);
+
+  border-radius:
+    21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 37, 56, 0.97),
+      rgba(8, 22, 35, 0.97)
+    );
+
+  box-shadow:
+    var(--reunion-sombra);
+
+}
+
+.reunion-estado-especial[hidden] {
+
+  display:
+    none !important;
+
+}
+
+.reunion-estado-especial h2 {
+
+  margin:
+    19px 0 8px;
+
+  color:
+    var(--reunion-texto);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    1.65rem;
+
+}
+
+.reunion-estado-especial p {
+
+  max-width:
+    560px;
+
+  margin:
+    0 0 24px;
+
+  color:
+    var(--reunion-texto-secundario);
+
+  font-size:
+    0.91rem;
+
+  line-height:
+    1.65;
+
+}
+
+.reunion-loader {
+
+  width:
+    43px;
+
+  height:
+    43px;
+
+  border:
+    3px solid rgba(255, 255, 255, 0.08);
+
+  border-top-color:
+    var(--reunion-dorado);
+
+  border-radius:
+    50%;
+
+  animation:
+    reunion-girar 0.85s linear infinite;
+
+}
+
+.reunion-estado-icono {
+
+  display:
+    inline-flex;
+
+  width:
+    52px;
+
+  height:
+    52px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid rgba(232, 121, 121, 0.35);
+
+  border-radius:
+    50%;
+
+  background:
+    var(--reunion-rojo-fondo);
+
+  color:
+    var(--reunion-rojo);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    1.4rem;
+
+  font-weight:
+    700;
+
+}
+
+@keyframes reunion-girar {
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
+.reunion-detalle {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    22px;
+
+}
+
+.reunion-detalle[hidden] {
+
+  display:
+    none !important;
+
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+========================================================= */
+
+.reunion-presentacion {
+
+  position:
+    relative;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 1fr) auto;
+
+  gap:
+    28px;
+
+  min-height:
+    270px;
+
+  padding:
+    34px 36px;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid var(--reunion-borde-dorado);
+
+  border-radius:
+    23px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(21, 45, 67, 0.99),
+      rgba(8, 23, 37, 0.99)
+    );
+
+  box-shadow:
+    var(--reunion-sombra);
+
+}
+
+.reunion-presentacion::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -150px;
+
+  right:
+    -70px;
+
+  width:
+    340px;
+
+  height:
+    340px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 162, 90, 0.2),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.reunion-presentacion::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  right:
+    19%;
+
+  bottom:
+    -170px;
+
+  width:
+    300px;
+
+  height:
+    300px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(74, 128, 173, 0.13),
+      transparent 69%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.reunion-presentacion-contenido,
+.reunion-presentacion-marca {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+}
+
+.reunion-presentacion-contenido {
+
+  min-width:
+    0;
+
+}
+
+.reunion-presentacion-superior {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-start;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    12px;
+
+  margin-bottom:
+    17px;
+
+}
+
+.reunion-presentacion-etiqueta {
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-dorado-claro);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.1em;
+
+  text-transform:
+    uppercase;
+
+}
+
+.reunion-presentacion h2 {
+
+  max-width:
+    850px;
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-texto);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2rem, 3.8vw, 3rem);
+
+  font-weight:
+    600;
+
+  line-height:
+    1.15;
+
+  overflow-wrap:
+    anywhere;
+
+}
+
+.reunion-presentacion-institucion {
+
+  margin:
+    13px 0 0;
+
+  color:
+    var(--reunion-texto-secundario);
+
+  font-size:
+    1rem;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.55;
+
+}
+
+.reunion-presentacion-acciones {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    11px;
+
+  margin-top:
+    27px;
+
+}
+
+.reunion-presentacion-marca {
+
+  display:
+    flex;
+
+  width:
+    128px;
+
+  min-width:
+    128px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+}
+
+.reunion-presentacion-marca span {
+
+  display:
+    inline-flex;
+
+  width:
+    105px;
+
+  height:
+    105px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid rgba(199, 162, 90, 0.36);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(199, 162, 90, 0.06);
+
+  color:
+    rgba(224, 193, 125, 0.74);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    3.8rem;
+
+  font-weight:
+    600;
+
+  box-shadow:
+    inset 0 0 35px rgba(199, 162, 90, 0.06);
+
+}
+
+
+/* =========================================================
+   ESTADOS DE REUNIÓN
+========================================================= */
+
+.reunion-estado {
+
+  display:
+    inline-flex;
+
+  min-height:
+    29px;
+
+  padding:
+    6px 11px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid rgba(102, 169, 232, 0.32);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--reunion-azul-fondo);
+
+  color:
+    #a8d1f4;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.035em;
+
+  text-transform:
+    uppercase;
+
+}
+
+.reunion-estado.estado-programada {
+
+  border-color:
+    rgba(102, 169, 232, 0.34);
+
+  background:
+    var(--reunion-azul-fondo);
+
+  color:
+    #a9d2f4;
+
+}
+
+.reunion-estado.estado-confirmada {
+
+  border-color:
+    rgba(83, 196, 139, 0.35);
+
+  background:
+    var(--reunion-verde-fondo);
+
+  color:
+    #a5e4c3;
+
+}
+
+.reunion-estado.estado-completada {
+
+  border-color:
+    rgba(172, 145, 227, 0.36);
+
+  background:
+    var(--reunion-violeta-fondo);
+
+  color:
+    #cebdf1;
+
+}
+
+.reunion-estado.estado-cancelada {
+
+  border-color:
+    rgba(232, 121, 121, 0.36);
+
+  background:
+    var(--reunion-rojo-fondo);
+
+  color:
+    #efabab;
+
+}
+
+.reunion-estado.estado-reprogramada {
+
+  border-color:
+    rgba(230, 174, 102, 0.36);
+
+  background:
+    var(--reunion-naranja-fondo);
+
+  color:
+    #edcca0;
+
+}
+
+
+/* =========================================================
+   RESUMEN RÁPIDO
+========================================================= */
+
+.reunion-resumen-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap:
+    14px;
+
+}
+
+.reunion-resumen-tarjeta {
+
+  display:
+    flex;
+
+  min-width:
+    0;
+
+  min-height:
+    112px;
+
+  padding:
+    19px;
+
+  align-items:
+    center;
+
+  gap:
+    15px;
+
+  border:
+    1px solid var(--reunion-borde);
+
+  border-radius:
+    17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 39, 59, 0.95),
+      rgba(10, 26, 40, 0.96)
+    );
+
+  box-shadow:
+    0 15px 36px rgba(0, 0, 0, 0.17);
+
+}
+
+.reunion-resumen-icono {
+
+  display:
+    inline-flex;
+
+  width:
+    41px;
+
+  height:
+    41px;
+
+  min-width:
+    41px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid rgba(199, 162, 90, 0.3);
+
+  border-radius:
+    11px;
+
+  background:
+    rgba(199, 162, 90, 0.08);
+
+  color:
+    var(--reunion-dorado-claro);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    700;
+
+}
+
+.reunion-resumen-tarjeta div {
+
+  min-width:
+    0;
+
+}
+
+.reunion-resumen-tarjeta p {
+
+  margin:
+    0 0 6px;
+
+  color:
+    var(--reunion-texto-suave);
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.055em;
+
+  text-transform:
+    uppercase;
+
+}
+
+.reunion-resumen-tarjeta strong {
+
+  display:
+    block;
+
+  color:
+    var(--reunion-texto);
+
+  font-size:
+    0.89rem;
+
+  font-weight:
+    650;
+
+  line-height:
+    1.45;
+
+  overflow-wrap:
+    anywhere;
+
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.reunion-seccion {
+
+  padding:
+    27px 29px;
+
+  border:
+    1px solid var(--reunion-borde);
+
+  border-radius:
+    20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 37, 56, 0.97),
+      rgba(8, 23, 36, 0.98)
+    );
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.19);
+
+}
+
+.reunion-seccion-administrativa {
+
+  border-color:
+    rgba(199, 162, 90, 0.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 39, 57, 0.94),
+      rgba(11, 25, 38, 0.96)
+    );
+
+}
+
+.reunion-seccion-cabecera {
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  gap:
+    16px;
+
+  margin-bottom:
+    23px;
+
+  padding-bottom:
+    20px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.075);
+
+}
+
+.reunion-seccion-numero {
+
+  display:
+    inline-flex;
+
+  width:
+    43px;
+
+  height:
+    43px;
+
+  min-width:
+    43px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid var(--reunion-borde-dorado);
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(199, 162, 90, 0.075);
+
+  color:
+    var(--reunion-dorado-claro);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.74rem;
+
+  font-weight:
+    700;
+
+}
+
+.reunion-seccion-cabecera h3 {
+
+  margin:
+    1px 0 6px;
+
+  color:
+    var(--reunion-texto);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    1.33rem;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.25;
+
+}
+
+.reunion-seccion-cabecera p {
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-texto-secundario);
+
+  font-size:
+    0.84rem;
+
+  line-height:
+    1.55;
+
+}
+
+
+/* =========================================================
+   DATOS
+========================================================= */
+
+.reunion-datos-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    15px;
+
+}
+
+.reunion-dato {
+
+  min-width:
+    0;
+
+  min-height:
+    107px;
+
+  padding:
+    18px 19px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius:
+    15px;
+
+  background:
+    rgba(255, 255, 255, 0.027);
+
+}
+
+.reunion-dato.es-completo {
+
+  grid-column:
+    1 / -1;
+
+}
+
+.reunion-dato > span {
+
+  display:
+    block;
+
+  margin:
+    0 0 9px;
+
+  color:
+    var(--reunion-texto-suave);
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.055em;
+
+  text-transform:
+    uppercase;
+
+}
+
+.reunion-dato strong,
+.reunion-dato p {
+
+  display:
+    block;
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-texto);
+
+  font-size:
+    0.91rem;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.6;
+
+  overflow-wrap:
+    anywhere;
+
+}
+
+.reunion-dato p {
+
+  color:
+    #d5dde4;
+
+  font-weight:
+    450;
+
+  white-space:
+    pre-wrap;
+
+}
+
+
+/* =========================================================
+   SEGUIMIENTO
+========================================================= */
+
+.reunion-seguimiento {
+
+  display:
+    inline-flex !important;
+
+  width:
+    fit-content;
+
+  min-height:
+    33px;
+
+  padding:
+    7px 12px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  color:
+    var(--reunion-texto-secundario) !important;
+
+  font-size:
+    0.75rem !important;
+
+  font-weight:
+    700 !important;
+
+}
+
+.reunion-seguimiento.es-pendiente {
+
+  border-color:
+    rgba(230, 174, 102, 0.37);
+
+  background:
+    var(--reunion-naranja-fondo);
+
+  color:
+    #edc998 !important;
+
+}
+
+.reunion-seguimiento.es-completo {
+
+  border-color:
+    rgba(83, 196, 139, 0.37);
+
+  background:
+    var(--reunion-verde-fondo);
+
+  color:
+    #a7e3c3 !important;
+
+}
+
+.reunion-seguimiento.es-sin-seguimiento {
+
+  border-color:
+    rgba(102, 169, 232, 0.25);
+
+  background:
+    rgba(102, 169, 232, 0.075);
+
+  color:
+    #abc8df !important;
+
+}
+
+
+/* =========================================================
+   OBSERVACIONES
+========================================================= */
+
+.reunion-observaciones {
+
+  min-height:
+    125px;
+
+  padding:
+    21px 22px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius:
+    15px;
+
+  background:
+    rgba(255, 255, 255, 0.027);
+
+}
+
+.reunion-observaciones p {
+
+  margin:
+    0;
+
+  color:
+    #d6dee5;
+
+  font-size:
+    0.91rem;
+
+  font-weight:
+    450;
+
+  line-height:
+    1.75;
+
+  white-space:
+    pre-wrap;
+
+  overflow-wrap:
+    anywhere;
+
+}
+
+
+/* =========================================================
+   ACCIONES INFERIORES
+========================================================= */
+
+.reunion-acciones-inferiores {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    14px;
+
+  padding:
+    22px 0 6px;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.reunion-modal {
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    9999;
+
+  display:
+    flex;
+
+  padding:
+    24px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  background:
+    rgba(2, 8, 14, 0.82);
+
+  backdrop-filter:
+    blur(8px);
+
+}
+
+.reunion-modal[hidden] {
+
+  display:
+    none !important;
+
+}
+
+.reunion-modal-contenido {
+
+  width:
+    min(100%, 480px);
+
+  padding:
+    33px 31px;
+
+  text-align:
+    center;
+
+  border:
+    1px solid rgba(232, 121, 121, 0.3);
+
+  border-radius:
+    21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #14283a,
+      #091722
+    );
+
+  box-shadow:
+    0 30px 85px rgba(0, 0, 0, 0.48);
+
+  animation:
+    reunion-modal-entrada 0.2s ease;
+
+}
+
+.reunion-modal-icono {
+
+  display:
+    inline-flex;
+
+  width:
+    55px;
+
+  height:
+    55px;
+
+  margin-bottom:
+    17px;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid rgba(232, 121, 121, 0.37);
+
+  border-radius:
+    50%;
+
+  background:
+    var(--reunion-rojo-fondo);
+
+  color:
+    var(--reunion-rojo);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    1.4rem;
+
+  font-weight:
+    700;
+
+}
+
+.reunion-modal-etiqueta {
+
+  margin:
+    0 0 8px !important;
+
+  color:
+    #e6a2a2 !important;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.69rem !important;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.09em;
+
+  text-transform:
+    uppercase;
+
+}
+
+.reunion-modal-contenido h2 {
+
+  margin:
+    0 0 12px;
+
+  color:
+    var(--reunion-texto);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    1.72rem;
+
+  font-weight:
+    600;
+
+}
+
+.reunion-modal-contenido > p {
+
+  margin:
+    0;
+
+  color:
+    var(--reunion-texto-secundario);
+
+  font-size:
+    0.89rem;
+
+  line-height:
+    1.65;
+
+}
+
+.reunion-modal-acciones {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    11px;
+
+  margin-top:
+    25px;
+
+}
+
+@keyframes reunion-modal-entrada {
+
+  from {
+
+    opacity:
+      0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+
+  }
+
+  to {
+
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    scroll-behavior:
+      auto !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .reunion-resumen-grid {
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .comunidad-admin-header.reunion-header {
+
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+
+  }
+
+  .comunidad-admin-header-acciones {
+
+    width:
+      100%;
+
+  }
+
+  .comunidad-admin-header-acciones .comunidad-admin-boton {
+
+    width:
+      100%;
+
+  }
+
+  .reunion-presentacion {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .reunion-presentacion-marca {
+
+    display:
+      none;
+
+  }
+
+}
+
+
+@media (max-width: 720px) {
+
+  .comunidad-admin-header.reunion-header {
+
+    padding:
+      23px 21px;
+
+    border-radius:
+      17px;
+
+  }
+
+  .reunion-presentacion {
+
+    min-height:
+      auto;
+
+    padding:
+      27px 23px;
+
+    border-radius:
+      18px;
+
+  }
+
+  .reunion-presentacion h2 {
+
+    font-size:
+      clamp(1.8rem, 9vw, 2.35rem);
+
+  }
+
+  .reunion-resumen-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .reunion-seccion {
+
+    padding:
+      23px 20px;
+
+    border-radius:
+      17px;
+
+  }
+
+  .reunion-datos-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .reunion-dato.es-completo {
+
+    grid-column:
+      auto;
+
+  }
+
+  .reunion-presentacion-acciones {
+
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+
+  }
+
+  .reunion-presentacion-acciones .comunidad-admin-boton {
+
+    width:
+      100%;
+
+  }
+
+  .reunion-acciones-inferiores {
+
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+
+  }
+
+  .reunion-acciones-inferiores .comunidad-admin-boton {
+
+    width:
+      100%;
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .comunidad-admin-header.reunion-header {
+
+    padding:
+      21px 18px;
+
+  }
+
+  .reunion-presentacion {
+
+    padding:
+      24px 19px;
+
+  }
+
+  .reunion-presentacion-superior {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+  }
+
+  .reunion-resumen-tarjeta {
+
+    min-height:
+      100px;
+
+    padding:
+      17px;
+
+  }
+
+  .reunion-seccion-cabecera {
+
+    gap:
+      12px;
+
+  }
+
+  .reunion-seccion-numero {
+
+    width:
+      39px;
+
+    height:
+      39px;
+
+    min-width:
+      39px;
+
+  }
+
+  .reunion-modal {
+
+    padding:
+      15px;
+
+  }
+
+  .reunion-modal-contenido {
+
+    padding:
+      29px 21px;
+
+  }
+
+  .reunion-modal-acciones {
+
+    align-items:
+      stretch;
+
+    flex-direction:
+      column-reverse;
+
+  }
+
+  .reunion-modal-acciones .comunidad-admin-boton {
+
+    width:
+      100%;
+
+  }
+
+}
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+[hidden] {
+
+  display:
+    none !important;
+
+}

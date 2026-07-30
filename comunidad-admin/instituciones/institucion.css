@@ -1,0 +1,787 @@
+/* =========================================================
+   FALCO® COMUNIDAD ADMIN
+   Ficha de institución
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   CONTROL DE ELEMENTOS OCULTOS
+========================================================= */
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   DISTRIBUCIÓN GENERAL
+========================================================= */
+
+.institucion-contenido {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   CARGA
+========================================================= */
+
+.institucion-carga {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 360px;
+  padding: 40px 20px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 32, 58, 0.94),
+      rgba(8, 21, 41, 0.98)
+    );
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.institucion-carga-indicador {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(212, 175, 55, 0.18);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: institucion-girar 0.85s linear infinite;
+}
+
+.institucion-carga p {
+  margin: 0;
+  color: rgba(238, 242, 248, 0.72);
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+@keyframes institucion-girar {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   ERROR GENERAL
+========================================================= */
+
+.institucion-error-general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 360px;
+  padding: 42px 24px;
+  border: 1px solid rgba(255, 112, 112, 0.28);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(47, 15, 25, 0.94),
+      rgba(20, 8, 17, 0.98)
+    );
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+.institucion-error-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(255, 112, 112, 0.42);
+  border-radius: 50%;
+  background: rgba(255, 112, 112, 0.1);
+  color: #ffaaaa;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.institucion-error-general h2 {
+  margin: 4px 0 0;
+  color: #f7f8fb;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-weight: 600;
+}
+
+.institucion-error-general p {
+  max-width: 620px;
+  margin: 0 0 8px;
+  color: rgba(238, 242, 248, 0.68);
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   HERO INSTITUCIONAL
+========================================================= */
+
+.institucion-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  width: 100%;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  border-radius: 19px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212, 175, 55, 0.12),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(16, 35, 63, 0.98),
+      rgba(7, 20, 39, 0.98)
+    );
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.institucion-hero-identidad {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.institucion-hero-avatar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(212, 175, 55, 0.48);
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(212, 175, 55, 0.19),
+      rgba(212, 175, 55, 0.06)
+    );
+  color: #e6cb6d;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow:
+    inset 0 0 22px rgba(212, 175, 55, 0.06);
+}
+
+.institucion-hero-texto {
+  min-width: 0;
+}
+
+.institucion-hero-tipo {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #d4af37;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.institucion-hero-texto h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: #f8f9fc;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.institucion-hero-texto p {
+  margin: 9px 0 0;
+  color: rgba(232, 237, 245, 0.67);
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.institucion-hero-acciones {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 13px;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.institucion-estado {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 13px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.institucion-estado-activa {
+  border-color: rgba(86, 216, 147, 0.34);
+  background: rgba(45, 157, 99, 0.12);
+  color: #82e7ad;
+}
+
+.institucion-estado-pendiente {
+  border-color: rgba(212, 175, 55, 0.34);
+  background: rgba(212, 175, 55, 0.1);
+  color: #ead580;
+}
+
+.institucion-estado-inactiva {
+  border-color: rgba(255, 126, 126, 0.32);
+  background: rgba(139, 43, 55, 0.16);
+  color: #ffaaaa;
+}
+
+
+/* =========================================================
+   RESUMEN
+========================================================= */
+
+.institucion-resumen-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 17px;
+  width: 100%;
+  min-width: 0;
+}
+
+.institucion-resumen-item {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 15px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 31, 57, 0.94),
+      rgba(7, 20, 38, 0.98)
+    );
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+.institucion-resumen-etiqueta {
+  display: block;
+  margin-bottom: 9px;
+  color: #d4af37;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.institucion-resumen-item strong,
+.institucion-resumen-item small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.institucion-resumen-item strong {
+  color: #f1f4f8;
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.institucion-resumen-item small {
+  margin-top: 6px;
+  color: rgba(223, 230, 240, 0.54);
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.institucion-panel {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.institucion-panel .admin-panel-cabecera h3 {
+  margin: 0 0 7px;
+}
+
+.institucion-panel .admin-panel-cabecera p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   DATOS
+========================================================= */
+
+.institucion-datos-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  min-width: 0;
+  padding: 1px;
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.institucion-dato {
+  min-width: 0;
+  padding: 20px 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 29, 53, 0.98),
+      rgba(7, 19, 37, 0.98)
+    );
+}
+
+.institucion-dato-completo {
+  grid-column: 1 / -1;
+}
+
+.institucion-dato > span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(212, 175, 55, 0.86);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.institucion-dato strong,
+.institucion-dato p,
+.institucion-dato a {
+  overflow-wrap: anywhere;
+  color: #edf1f7;
+  font-family: "Inter", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.institucion-dato strong {
+  display: block;
+}
+
+.institucion-dato p {
+  margin: 0;
+  color: rgba(232, 237, 245, 0.75);
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+.institucion-dato a {
+  display: inline-block;
+  color: #e3cc7b;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.institucion-dato a:hover {
+  color: #f5e7af;
+}
+
+
+/* =========================================================
+   OBSERVACIONES
+========================================================= */
+
+.institucion-observaciones {
+  padding: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 29, 53, 0.98),
+      rgba(7, 19, 37, 0.98)
+    );
+}
+
+.institucion-observaciones p {
+  margin: 0;
+  color: rgba(232, 237, 245, 0.75);
+  font-family: "Inter", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+
+/* =========================================================
+   ADMINISTRACIÓN
+========================================================= */
+
+.institucion-panel-administracion {
+  border-color: rgba(212, 175, 55, 0.22);
+}
+
+.institucion-administracion-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 13px;
+  padding: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 29, 53, 0.98),
+      rgba(7, 19, 37, 0.98)
+    );
+}
+
+.institucion-boton-peligro {
+  min-height: 46px;
+  border: 1px solid rgba(255, 112, 112, 0.38);
+  background: rgba(112, 32, 43, 0.17);
+  color: #ffaaaa;
+}
+
+.institucion-boton-peligro:hover {
+  border-color: rgba(255, 112, 112, 0.7);
+  background: rgba(139, 43, 55, 0.26);
+  color: #ffd0d0;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.institucion-mensaje {
+  width: 100%;
+  padding: 15px 17px;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #f0dc91;
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.institucion-mensaje.mensaje-exito {
+  border-color: rgba(94, 210, 145, 0.35);
+  background: rgba(36, 148, 93, 0.12);
+  color: #8be8b2;
+}
+
+.institucion-mensaje.mensaje-error {
+  border-color: rgba(255, 112, 112, 0.36);
+  background: rgba(90, 22, 30, 0.22);
+  color: #ffaaaa;
+}
+
+.institucion-mensaje.mensaje-advertencia {
+  border-color: rgba(212, 175, 55, 0.32);
+  background: rgba(212, 175, 55, 0.1);
+  color: #edd887;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.institucion-modal-fondo {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(1, 8, 18, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.institucion-modal {
+  width: min(100%, 500px);
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      #102441,
+      #07162b
+    );
+  box-shadow:
+    0 28px 75px rgba(0, 0, 0, 0.48);
+}
+
+.institucion-modal-cabecera {
+  padding: 23px 24px 18px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+.institucion-modal-cabecera h3 {
+  margin: 0;
+  color: #f6f8fb;
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+
+.institucion-modal-cuerpo {
+  padding: 22px 24px;
+}
+
+.institucion-modal-cuerpo p {
+  margin: 0 0 17px;
+  color: rgba(232, 237, 245, 0.72);
+  font-family: "Inter", sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.institucion-modal-cuerpo label {
+  display: block;
+  margin-bottom: 8px;
+  color: #d4af37;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.institucion-modal-cuerpo select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  outline: none;
+  background: #07182d;
+  color: #f4f6fa;
+  font-family: "Inter", sans-serif;
+  font-size: 0.84rem;
+  color-scheme: dark;
+}
+
+.institucion-modal-cuerpo select:focus {
+  border-color: #d4af37;
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.institucion-modal-cuerpo select option {
+  background: #0b1b32;
+  color: #f6f8fb;
+}
+
+.institucion-modal-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 18px 24px 23px;
+  border-top: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.institucion-hero .admin-boton:focus-visible,
+.institucion-administracion-acciones .admin-boton:focus-visible,
+.institucion-modal .admin-boton:focus-visible,
+.institucion-modal select:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 960px) {
+
+  .institucion-hero {
+    align-items: flex-start;
+  }
+
+  .institucion-hero-acciones {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .institucion-resumen-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .institucion-resumen-item:last-child {
+    grid-column: 1 / -1;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .institucion-contenido {
+    gap: 19px;
+  }
+
+  .institucion-hero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 22px;
+  }
+
+  .institucion-hero-identidad {
+    align-items: flex-start;
+  }
+
+  .institucion-hero-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 17px;
+    font-size: 1.7rem;
+  }
+
+  .institucion-hero-acciones {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .institucion-resumen-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .institucion-resumen-item:last-child {
+    grid-column: auto;
+  }
+
+  .institucion-datos-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .institucion-dato-completo {
+    grid-column: auto;
+  }
+
+  .institucion-administracion-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .institucion-administracion-acciones .admin-boton {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .institucion-hero {
+    padding: 18px;
+  }
+
+  .institucion-hero-identidad {
+    gap: 14px;
+  }
+
+  .institucion-hero-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 15px;
+    font-size: 1.45rem;
+  }
+
+  .institucion-hero-texto h2 {
+    font-size: 1.55rem;
+  }
+
+  .institucion-hero-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .institucion-hero-acciones .institucion-estado {
+    align-self: flex-start;
+  }
+
+  .institucion-hero-acciones .admin-boton {
+    width: 100%;
+  }
+
+  .institucion-resumen-item,
+  .institucion-dato,
+  .institucion-observaciones {
+    padding: 18px;
+  }
+
+  .institucion-modal-fondo {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .institucion-modal {
+    border-radius: 17px 17px 12px 12px;
+  }
+
+  .institucion-modal-acciones {
+    flex-direction: column-reverse;
+  }
+
+  .institucion-modal-acciones .admin-boton {
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,379 @@
+/* =========================================================
+   FALCO® COMUNIDAD ADMIN
+   Solicitudes
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   DISTRIBUCIÓN GENERAL
+========================================================= */
+
+.admin-comunidad-principal section + section {
+  margin-top: 24px;
+}
+
+.admin-cabecera + .admin-presentacion {
+  margin-top: 0;
+}
+
+.admin-presentacion + .admin-indicadores-grid {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   PANEL PRINCIPAL
+========================================================= */
+
+.solicitudes-panel {
+  overflow: hidden;
+}
+
+.solicitudes-cabecera {
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.solicitudes-cabecera > div:first-child {
+  min-width: 0;
+}
+
+.solicitudes-cabecera h3,
+.solicitudes-cabecera p {
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.solicitudes-filtros {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.solicitudes-buscador,
+.solicitudes-selector {
+  display: block;
+  min-width: 0;
+}
+
+.solicitudes-buscador {
+  width: min(310px, 100%);
+}
+
+.solicitudes-selector {
+  width: 190px;
+}
+
+.solicitudes-buscador input,
+.solicitudes-selector select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 15px;
+  border: 1px solid var(--comunidad-borde);
+  border-radius: 12px;
+  background: var(--comunidad-superficie);
+  color: var(--comunidad-texto);
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.solicitudes-buscador input::placeholder {
+  color: var(--comunidad-texto-suave);
+}
+
+.solicitudes-buscador input:hover,
+.solicitudes-selector select:hover {
+  border-color: var(--comunidad-dorado);
+}
+
+.solicitudes-buscador input:focus,
+.solicitudes-selector select:focus {
+  border-color: var(--comunidad-dorado);
+  box-shadow: 0 0 0 3px rgba(190, 151, 75, 0.14);
+}
+
+
+/* =========================================================
+   LISTADO
+========================================================= */
+
+.solicitudes-listado {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+
+.solicitud-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--comunidad-borde);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    );
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.solicitud-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(190, 151, 75, 0.55);
+  box-shadow: var(--comunidad-sombra-suave);
+}
+
+.solicitud-item-principal {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.solicitud-item-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(190, 151, 75, 0.45);
+  border-radius: 13px;
+  background: rgba(190, 151, 75, 0.08);
+  color: var(--comunidad-dorado-claro);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.solicitud-item-contenido {
+  min-width: 0;
+}
+
+.solicitud-item-contenido h4 {
+  margin: 0 0 6px;
+  color: var(--comunidad-texto);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.solicitud-item-contenido p {
+  margin: 0;
+  color: var(--comunidad-texto-suave);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.solicitud-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 10px;
+}
+
+.solicitud-item-meta span {
+  color: var(--comunidad-texto-tenue);
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.solicitud-item-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.solicitud-estado {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 11px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.solicitud-estado--nueva {
+  border-color: rgba(190, 151, 75, 0.42);
+  background: rgba(190, 151, 75, 0.1);
+  color: var(--comunidad-dorado-claro);
+}
+
+.solicitud-estado--analisis {
+  border-color: rgba(94, 141, 186, 0.42);
+  background: rgba(94, 141, 186, 0.1);
+  color: #a9cbea;
+}
+
+.solicitud-estado--respondida {
+  border-color: rgba(91, 153, 115, 0.42);
+  background: rgba(91, 153, 115, 0.1);
+  color: #a7d7b8;
+}
+
+.solicitud-estado--archivada {
+  border-color: rgba(142, 142, 142, 0.36);
+  background: rgba(142, 142, 142, 0.08);
+  color: #bdbdbd;
+}
+
+
+/* =========================================================
+   MENSAJE
+========================================================= */
+
+#mensajeSolicitudes:empty {
+  display: none;
+}
+
+#mensajeSolicitudes:not(:empty) {
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   ESTADO VACÍO
+========================================================= */
+
+.solicitudes-listado .admin-panel-vacio {
+  min-height: 300px;
+}
+
+.solicitudes-listado .admin-panel-vacio > div {
+  width: 100%;
+  max-width: 480px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px) {
+
+  .solicitudes-cabecera {
+    flex-direction: column;
+  }
+
+  .solicitudes-filtros {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .solicitudes-buscador {
+    flex: 1 1 260px;
+  }
+
+  .solicitudes-selector {
+    flex: 0 1 210px;
+  }
+
+}
+
+
+@media (max-width: 720px) {
+
+  .admin-comunidad-principal section + section {
+    margin-top: 20px;
+  }
+
+  .solicitudes-filtros {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .solicitudes-buscador,
+  .solicitudes-selector {
+    width: 100%;
+  }
+
+  .solicitud-item {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
+  .solicitud-item-acciones {
+    justify-content: flex-start;
+    padding-left: 60px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .solicitud-item {
+    padding: 16px;
+  }
+
+  .solicitud-item-principal {
+    gap: 12px;
+  }
+
+  .solicitud-item-numero {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .solicitud-item-acciones {
+    padding-left: 0;
+  }
+
+}
+
+
+
+
+/* ==========================================
+   SELECT - OPCIONES
+========================================== */
+
+select option {
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+select optgroup {
+    background: #0f172a;
+    color: #d4af37;
+}

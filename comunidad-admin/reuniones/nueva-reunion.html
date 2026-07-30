@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Registro y edición de reuniones institucionales de FALCO® Comunidad."
+  >
+
+  <title>
+    Nueva reunión | FALCO® Comunidad
+  </title>
+
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/comunidad-admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="nueva-reunion.css"
+  >
+
+</head>
+
+
+<body>
+
+  <div class="comunidad-admin-app">
+
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
+    <aside class="comunidad-admin-sidebar">
+
+      <div
+        data-comunidad-admin-sidebar
+        data-active="reuniones"
+        data-base="../"
+      ></div>
+
+    </aside>
+
+
+    <!-- ===================================================
+         CONTENIDO PRINCIPAL
+    ==================================================== -->
+
+    <main class="comunidad-admin-main">
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="comunidad-admin-header">
+
+        <div class="comunidad-admin-header-identidad">
+
+          <p class="comunidad-admin-eyebrow">
+            FALCO® Comunidad
+          </p>
+
+          <h1 id="tituloPaginaReunion">
+            Nueva reunión
+          </h1>
+
+          <p id="descripcionPaginaReunion">
+            Registrá una nueva reunión institucional y organizá su seguimiento.
+          </p>
+
+        </div>
+
+
+        <div class="comunidad-admin-header-acciones">
+
+          <a
+            class="comunidad-admin-boton secundario"
+            href="reuniones.html"
+          >
+            ← Volver a reuniones
+          </a>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           CONTENEDOR
+      ================================================== -->
+
+      <section class="nueva-reunion-contenedor">
+
+
+        <!-- ===============================================
+             PRESENTACIÓN
+        ================================================ -->
+
+        <section class="nueva-reunion-presentacion">
+
+          <div class="nueva-reunion-presentacion-texto">
+
+            <span class="nueva-reunion-presentacion-etiqueta">
+              Gestión institucional
+            </span>
+
+            <h2 id="tituloFormularioReunion">
+              Registrar reunión
+            </h2>
+
+            <p id="textoFormularioReunion">
+              Completá la información principal para incorporar la reunión al registro institucional.
+            </p>
+
+          </div>
+
+
+          <div class="nueva-reunion-presentacion-estado">
+
+            <span class="nueva-reunion-estado-punto"></span>
+
+            <span id="estadoFormularioReunion">
+              Formulario listo
+            </span>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             MENSAJES
+        ================================================ -->
+
+        <div
+          id="mensajeNuevaReunion"
+          class="nueva-reunion-mensaje"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></div>
+
+
+        <!-- ===============================================
+             FORMULARIO
+        ================================================ -->
+
+        <form
+          id="formularioNuevaReunion"
+          class="nueva-reunion-formulario"
+          novalidate
+        >
+
+
+          <!-- =============================================
+               BLOQUE 1
+          ============================================== -->
+
+          <section class="nueva-reunion-bloque">
+
+            <div class="nueva-reunion-bloque-cabecera">
+
+              <div>
+
+                <span class="nueva-reunion-bloque-numero">
+                  01
+                </span>
+
+                <h3>
+                  Información principal
+                </h3>
+
+                <p>
+                  Identificá la reunión, su institución y el motivo del encuentro.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="nueva-reunion-grid">
+
+
+              <div class="nueva-reunion-campo campo-completo">
+
+                <label for="asuntoReunion">
+                  Asunto o título
+                  <span aria-hidden="true">*</span>
+                </label>
+
+                <input
+                  id="asuntoReunion"
+                  name="asunto"
+                  type="text"
+                  maxlength="140"
+                  autocomplete="off"
+                  placeholder="Ej.: Reunión de presentación institucional"
+                  required
+                >
+
+                <small>
+                  Utilizá un título claro que permita identificar rápidamente el encuentro.
+                </small>
+
+                <span
+                  id="errorAsuntoReunion"
+                  class="nueva-reunion-error"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="institucionReunion">
+                  Institución
+                  <span aria-hidden="true">*</span>
+                </label>
+
+                <select
+                  id="institucionReunion"
+                  name="institucionId"
+                  required
+                >
+
+                  <option value="">
+                    Seleccionar institución
+                  </option>
+
+                </select>
+
+                <span
+                  id="errorInstitucionReunion"
+                  class="nueva-reunion-error"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="tipoReunion">
+                  Tipo de reunión
+                </label>
+
+                <select
+                  id="tipoReunion"
+                  name="tipo"
+                >
+
+                  <option value="">
+                    Seleccionar tipo
+                  </option>
+
+                  <option value="inicial">
+                    Reunión inicial
+                  </option>
+
+                  <option value="presentacion">
+                    Presentación institucional
+                  </option>
+
+                  <option value="propuesta">
+                    Presentación de propuesta
+                  </option>
+
+                  <option value="coordinacion">
+                    Coordinación
+                  </option>
+
+                  <option value="seguimiento">
+                    Seguimiento
+                  </option>
+
+                  <option value="cierre">
+                    Cierre
+                  </option>
+
+                  <option value="otro">
+                    Otro
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo campo-completo">
+
+                <label for="objetivoReunion">
+                  Objetivo de la reunión
+                </label>
+
+                <textarea
+                  id="objetivoReunion"
+                  name="objetivo"
+                  rows="4"
+                  maxlength="700"
+                  placeholder="Describí brevemente qué se espera abordar o alcanzar durante la reunión."
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               BLOQUE 2
+          ============================================== -->
+
+          <section class="nueva-reunion-bloque">
+
+            <div class="nueva-reunion-bloque-cabecera">
+
+              <div>
+
+                <span class="nueva-reunion-bloque-numero">
+                  02
+                </span>
+
+                <h3>
+                  Fecha y modalidad
+                </h3>
+
+                <p>
+                  Definí cuándo se realizará la reunión y cómo participarán las personas convocadas.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="nueva-reunion-grid">
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="fechaReunion">
+                  Fecha
+                  <span aria-hidden="true">*</span>
+                </label>
+
+                <input
+                  id="fechaReunion"
+                  name="fecha"
+                  type="date"
+                  required
+                >
+
+                <span
+                  id="errorFechaReunion"
+                  class="nueva-reunion-error"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="horaReunion">
+                  Horario
+                  <span aria-hidden="true">*</span>
+                </label>
+
+                <input
+                  id="horaReunion"
+                  name="hora"
+                  type="time"
+                  required
+                >
+
+                <span
+                  id="errorHoraReunion"
+                  class="nueva-reunion-error"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="duracionReunion">
+                  Duración estimada
+                </label>
+
+                <select
+                  id="duracionReunion"
+                  name="duracion"
+                >
+
+                  <option value="">
+                    Seleccionar duración
+                  </option>
+
+                  <option value="30 minutos">
+                    30 minutos
+                  </option>
+
+                  <option value="45 minutos">
+                    45 minutos
+                  </option>
+
+                  <option value="60 minutos">
+                    1 hora
+                  </option>
+
+                  <option value="90 minutos">
+                    1 hora y 30 minutos
+                  </option>
+
+                  <option value="120 minutos">
+                    2 horas
+                  </option>
+
+                  <option value="sin-definir">
+                    Sin definir
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="modalidadReunion">
+                  Modalidad
+                  <span aria-hidden="true">*</span>
+                </label>
+
+                <select
+                  id="modalidadReunion"
+                  name="modalidad"
+                  required
+                >
+
+                  <option value="">
+                    Seleccionar modalidad
+                  </option>
+
+                  <option value="virtual">
+                    Virtual
+                  </option>
+
+                  <option value="presencial">
+                    Presencial
+                  </option>
+
+                  <option value="telefonica">
+                    Telefónica
+                  </option>
+
+                  <option value="mixta">
+                    Mixta
+                  </option>
+
+                </select>
+
+                <span
+                  id="errorModalidadReunion"
+                  class="nueva-reunion-error"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+            </div>
+
+          </section>
+
+                    <!-- =============================================
+               BLOQUE 3
+          ============================================== -->
+
+          <section class="nueva-reunion-bloque">
+
+            <div class="nueva-reunion-bloque-cabecera">
+
+              <div>
+
+                <span class="nueva-reunion-bloque-numero">
+                  03
+                </span>
+
+                <h3>
+                  Participantes
+                </h3>
+
+                <p>
+                  Indicá las personas involucradas y quién será el responsable del seguimiento.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="nueva-reunion-grid">
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="referenteReunion">
+                  Referente institucional
+                </label>
+
+                <input
+                  id="referenteReunion"
+                  name="referente"
+                  type="text"
+                  maxlength="120"
+                  autocomplete="off"
+                  placeholder="Nombre y apellido"
+                >
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="responsableReunion">
+                  Responsable FALCO®
+                </label>
+
+                <input
+                  id="responsableReunion"
+                  name="responsable"
+                  type="text"
+                  maxlength="120"
+                  autocomplete="off"
+                  placeholder="Profesional responsable"
+                >
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="cantidadParticipantes">
+                  Cantidad de participantes
+                </label>
+
+                <input
+                  id="cantidadParticipantes"
+                  name="participantes"
+                  type="number"
+                  min="1"
+                  max="500"
+                  placeholder="Ej.: 5"
+                >
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="estadoReunion">
+                  Estado
+                </label>
+
+                <select
+                  id="estadoReunion"
+                  name="estado"
+                >
+
+                  <option value="programada">
+                    Programada
+                  </option>
+
+                  <option value="confirmada">
+                    Confirmada
+                  </option>
+
+                  <option value="completada">
+                    Completada
+                  </option>
+
+                  <option value="cancelada">
+                    Cancelada
+                  </option>
+
+                  <option value="reprogramada">
+                    Reprogramada
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               BLOQUE 4
+          ============================================== -->
+
+          <section class="nueva-reunion-bloque">
+
+            <div class="nueva-reunion-bloque-cabecera">
+
+              <div>
+
+                <span class="nueva-reunion-bloque-numero">
+                  04
+                </span>
+
+                <h3>
+                  Lugar y seguimiento
+                </h3>
+
+                <p>
+                  Registrá dónde se realizará la reunión y las acciones posteriores.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="nueva-reunion-grid">
+
+
+              <div class="nueva-reunion-campo campo-completo">
+
+                <label for="ubicacionReunion">
+                  Dirección, enlace o ubicación
+                </label>
+
+                <input
+                  id="ubicacionReunion"
+                  name="ubicacion"
+                  type="text"
+                  maxlength="250"
+                  autocomplete="off"
+                  placeholder="Dirección física o enlace de videollamada"
+                >
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label for="seguimientoReunion">
+                  Estado del seguimiento
+                </label>
+
+                <select
+                  id="seguimientoReunion"
+                  name="seguimientoEstado"
+                >
+
+                  <option value="">
+                    Sin seguimiento
+                  </option>
+
+                  <option value="pendiente">
+                    Pendiente
+                  </option>
+
+                  <option value="completo">
+                    Completado
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo">
+
+                <label class="nueva-reunion-checkbox">
+
+                  <input
+                    id="requiereSeguimiento"
+                    name="requiereSeguimiento"
+                    type="checkbox"
+                  >
+
+                  <span>
+                    Requiere seguimiento posterior
+                  </span>
+
+                </label>
+
+              </div>
+
+
+              <div class="nueva-reunion-campo campo-completo">
+
+                <label for="observacionesReunion">
+                  Observaciones
+                </label>
+
+                <textarea
+                  id="observacionesReunion"
+                  name="observaciones"
+                  rows="6"
+                  maxlength="2000"
+                  placeholder="Acuerdos, decisiones, tareas pendientes o cualquier información relevante."
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </section>
+
+                    <!-- =============================================
+               ACCIONES
+          ============================================== -->
+
+          <footer class="nueva-reunion-acciones">
+
+            <div class="nueva-reunion-acciones-izquierda">
+
+              <a
+                href="reuniones.html"
+                class="comunidad-admin-boton secundario"
+              >
+                Cancelar
+              </a>
+
+            </div>
+
+
+            <div class="nueva-reunion-acciones-derecha">
+
+              <button
+                type="button"
+                id="botonGuardarBorradorReunion"
+                class="comunidad-admin-boton secundario"
+              >
+                Guardar borrador
+              </button>
+
+
+              <button
+                type="submit"
+                id="botonGuardarReunion"
+                class="comunidad-admin-boton primario"
+              >
+                Registrar reunión
+              </button>
+
+            </div>
+
+          </footer>
+
+        </form>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="../shared/components/comunidad-admin-sidebar.js"
+  ></script>
+
+
+  <!-- =====================================================
+       SCRIPT DEL MÓDULO
+  ====================================================== -->
+
+  <script
+    src="nueva-reunion.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

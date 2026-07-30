@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Ficha administrativa de reunión institucional de FALCO® Comunidad."
+  >
+
+  <title>
+    Ficha de reunión | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="reunion.css"
+  >
+
+</head>
+
+
+<body>
+
+  <div class="comunidad-admin-app">
+
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
+    <div
+      data-admin-sidebar
+      data-active="reuniones"
+      data-base="../"
+    ></div>
+
+
+    <!-- ===================================================
+         CONTENIDO PRINCIPAL
+    ==================================================== -->
+
+    <main class="comunidad-admin-main">
+
+
+      <!-- =================================================
+           ENCABEZADO
+      ================================================== -->
+
+      <header class="comunidad-admin-header reunion-header">
+
+        <div class="comunidad-admin-header-identidad">
+
+          <p class="comunidad-admin-eyebrow">
+            Gestión institucional
+          </p>
+
+          <h1 id="tituloPaginaReunion">
+            Ficha de reunión
+          </h1>
+
+          <p>
+            Consultá la información registrada, el estado del encuentro y las acciones de seguimiento.
+          </p>
+
+        </div>
+
+
+        <div class="comunidad-admin-header-acciones">
+
+          <a
+            id="botonVolverReuniones"
+            class="comunidad-admin-boton secundario"
+            href="reuniones.html"
+          >
+            ← Volver a reuniones
+          </a>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           MENSAJES
+      ================================================== -->
+
+      <div
+        id="mensajeReunion"
+        class="reunion-mensaje"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+
+
+      <!-- =================================================
+           ESTADO DE CARGA
+      ================================================== -->
+
+      <section
+        id="estadoCargaReunion"
+        class="reunion-estado-especial"
+        aria-live="polite"
+      >
+
+        <div class="reunion-loader"></div>
+
+        <h2>
+          Cargando reunión
+        </h2>
+
+        <p>
+          Estamos recuperando la información del encuentro institucional.
+        </p>
+
+      </section>
+
+
+      <!-- =================================================
+           REUNIÓN NO ENCONTRADA
+      ================================================== -->
+
+      <section
+        id="estadoReunionNoEncontrada"
+        class="reunion-estado-especial"
+        hidden
+      >
+
+        <span
+          class="reunion-estado-icono"
+          aria-hidden="true"
+        >
+          !
+        </span>
+
+        <h2>
+          Reunión no encontrada
+        </h2>
+
+        <p>
+          El registro solicitado no existe, fue eliminado o el enlace utilizado no es válido.
+        </p>
+
+        <a
+          class="comunidad-admin-boton primario"
+          href="reuniones.html"
+        >
+          Volver al listado
+        </a>
+
+      </section>
+
+
+      <!-- =================================================
+           CONTENIDO DE LA FICHA
+      ================================================== -->
+
+      <div
+        id="contenidoReunion"
+        class="reunion-detalle"
+        hidden
+      >
+
+
+        <!-- ===============================================
+             PRESENTACIÓN
+        ================================================ -->
+
+        <section class="reunion-presentacion">
+
+          <div class="reunion-presentacion-contenido">
+
+            <div class="reunion-presentacion-superior">
+
+              <p class="reunion-presentacion-etiqueta">
+                Reunión institucional
+              </p>
+
+              <span
+                id="estadoReunion"
+                class="reunion-estado estado-programada"
+              >
+                Programada
+              </span>
+
+            </div>
+
+
+            <h2 id="asuntoReunion">
+              Reunión institucional
+            </h2>
+
+
+            <p
+              id="institucionReunion"
+              class="reunion-presentacion-institucion"
+            >
+              Institución sin especificar
+            </p>
+
+
+            <div class="reunion-presentacion-acciones">
+
+              <button
+                id="botonEditarReunion"
+                class="comunidad-admin-boton primario"
+                type="button"
+              >
+                Editar reunión
+              </button>
+
+              <button
+                id="botonEliminarReunion"
+                class="comunidad-admin-boton peligro"
+                type="button"
+              >
+                Eliminar reunión
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="reunion-presentacion-marca"
+            aria-hidden="true"
+          >
+
+            <span>
+              F
+            </span>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             RESUMEN RÁPIDO
+        ================================================ -->
+
+        <section
+          class="reunion-resumen-grid"
+          aria-label="Resumen de la reunión"
+        >
+
+
+          <article class="reunion-resumen-tarjeta">
+
+            <span class="reunion-resumen-icono">
+              01
+            </span>
+
+            <div>
+
+              <p>
+                Fecha
+              </p>
+
+              <strong id="fechaReunion">
+                Sin fecha informada
+              </strong>
+
+            </div>
+
+          </article>
+
+
+          <article class="reunion-resumen-tarjeta">
+
+            <span class="reunion-resumen-icono">
+              02
+            </span>
+
+            <div>
+
+              <p>
+                Horario
+              </p>
+
+              <strong id="horaReunion">
+                Sin horario informado
+              </strong>
+
+            </div>
+
+          </article>
+
+
+          <article class="reunion-resumen-tarjeta">
+
+            <span class="reunion-resumen-icono">
+              03
+            </span>
+
+            <div>
+
+              <p>
+                Modalidad
+              </p>
+
+              <strong id="modalidadReunion">
+                Sin modalidad informada
+              </strong>
+
+            </div>
+
+          </article>
+
+
+          <article class="reunion-resumen-tarjeta">
+
+            <span class="reunion-resumen-icono">
+              04
+            </span>
+
+            <div>
+
+              <p>
+                Duración estimada
+              </p>
+
+              <strong id="duracionReunion">
+                Sin duración estimada
+              </strong>
+
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- ===============================================
+             INFORMACIÓN DE LA REUNIÓN
+        ================================================ -->
+
+        <section class="reunion-seccion">
+
+          <div class="reunion-seccion-cabecera">
+
+            <div class="reunion-seccion-numero">
+              01
+            </div>
+
+            <div>
+
+              <h3>
+                Información de la reunión
+              </h3>
+
+              <p>
+                Datos principales registrados para identificar el encuentro.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="reunion-datos-grid">
+
+
+            <article class="reunion-dato">
+
+              <span>
+                Tipo de reunión
+              </span>
+
+              <strong id="tipoReunion">
+                Sin tipo informado
+              </strong>
+
+            </article>
+
+
+            <article class="reunion-dato">
+
+              <span>
+                Institución
+              </span>
+
+              <strong id="institucionReunionDetalle">
+                Se muestra en la cabecera
+              </strong>
+
+            </article>
+
+
+            <article class="reunion-dato es-completo">
+
+              <span>
+                Objetivo
+              </span>
+
+              <p id="objetivoReunion">
+                Sin objetivo informado
+              </p>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             PARTICIPANTES
+        ================================================ -->
+
+        <section class="reunion-seccion">
+
+          <div class="reunion-seccion-cabecera">
+
+            <div class="reunion-seccion-numero">
+              02
+            </div>
+
+            <div>
+
+              <h3>
+                Participantes
+              </h3>
+
+              <p>
+                Referentes involucrados y responsable interno de la gestión.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="reunion-datos-grid">
+
+
+            <article class="reunion-dato">
+
+              <span>
+                Referente institucional
+              </span>
+
+              <strong id="referenteReunion">
+                Sin referente informado
+              </strong>
+
+            </article>
+
+
+            <article class="reunion-dato">
+
+              <span>
+                Responsable FALCO®
+              </span>
+
+              <strong id="responsableReunion">
+                Sin responsable informado
+              </strong>
+
+            </article>
+
+
+            <article class="reunion-dato">
+
+              <span>
+                Cantidad de participantes
+              </span>
+
+              <strong id="participantesReunion">
+                Sin cantidad informada
+              </strong>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             UBICACIÓN Y SEGUIMIENTO
+        ================================================ -->
+
+        <section class="reunion-seccion">
+
+          <div class="reunion-seccion-cabecera">
+
+            <div class="reunion-seccion-numero">
+              03
+            </div>
+
+            <div>
+
+              <h3>
+                Ubicación y seguimiento
+              </h3>
+
+              <p>
+                Lugar del encuentro y estado de las acciones posteriores.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="reunion-datos-grid">
+
+
+            <article class="reunion-dato es-completo">
+
+              <span>
+                Dirección, enlace o ubicación
+              </span>
+
+              <p id="ubicacionReunion">
+                Sin ubicación o enlace informado
+              </p>
+
+            </article>
+
+
+            <article class="reunion-dato es-completo">
+
+              <span>
+                Estado del seguimiento
+              </span>
+
+              <strong
+                id="seguimientoReunion"
+                class="reunion-seguimiento es-sin-seguimiento"
+              >
+                Sin seguimiento pendiente
+              </strong>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             OBSERVACIONES
+        ================================================ -->
+
+        <section class="reunion-seccion">
+
+          <div class="reunion-seccion-cabecera">
+
+            <div class="reunion-seccion-numero">
+              04
+            </div>
+
+            <div>
+
+              <h3>
+                Observaciones
+              </h3>
+
+              <p>
+                Acuerdos, decisiones, tareas pendientes o información relevante.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="reunion-observaciones">
+
+            <p id="observacionesReunion">
+              Sin observaciones registradas
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             INFORMACIÓN ADMINISTRATIVA
+        ================================================ -->
+
+        <section class="reunion-seccion reunion-seccion-administrativa">
+
+          <div class="reunion-seccion-cabecera">
+
+            <div class="reunion-seccion-numero">
+              05
+            </div>
+
+            <div>
+
+              <h3>
+                Información administrativa
+              </h3>
+
+              <p>
+                Datos internos vinculados con la creación del registro.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="reunion-datos-grid">
+
+            <article class="reunion-dato es-completo">
+
+              <span>
+                Fecha de registro
+              </span>
+
+              <strong id="fechaCreacionReunion">
+                Sin fecha de registro
+              </strong>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             ACCIONES INFERIORES
+        ================================================ -->
+
+        <footer class="reunion-acciones-inferiores">
+
+          <a
+            class="comunidad-admin-boton secundario"
+            href="reuniones.html"
+          >
+            ← Volver al listado
+          </a>
+
+          <button
+            class="comunidad-admin-boton primario"
+            type="button"
+            onclick="FALCOComunidadReunion.editarReunion()"
+          >
+            Editar información
+          </button>
+
+        </footer>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL DE ELIMINACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalEliminarReunion"
+    class="reunion-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModalEliminarReunion"
+    hidden
+  >
+
+    <div class="reunion-modal-contenido">
+
+      <span
+        class="reunion-modal-icono"
+        aria-hidden="true"
+      >
+        !
+      </span>
+
+      <p class="reunion-modal-etiqueta">
+        Confirmación requerida
+      </p>
+
+      <h2 id="tituloModalEliminarReunion">
+        ¿Eliminar esta reunión?
+      </h2>
+
+      <p>
+        El registro será eliminado del listado institucional. Esta acción no se puede deshacer.
+      </p>
+
+
+      <div class="reunion-modal-acciones">
+
+        <button
+          id="botonCancelarEliminarReunion"
+          class="comunidad-admin-boton secundario"
+          type="button"
+        >
+          Cancelar
+        </button>
+
+        <button
+          id="botonConfirmarEliminarReunion"
+          class="comunidad-admin-boton peligro"
+          type="button"
+        >
+          Eliminar reunión
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       COMPONENTES Y LÓGICA
+  ====================================================== -->
+
+  <script src="../shared/components/falco-admin-sidebar.js"></script>
+
+  <script src="reunion.js"></script>
+
+</body>
+
+</html>

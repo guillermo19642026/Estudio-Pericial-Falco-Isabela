@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Registro administrativo de solicitudes institucionales de FALCO Comunidad."
+  >
+
+  <title>
+    Nueva solicitud | FALCO® Comunidad
+  </title>
+
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="nueva-solicitud.css"
+  >
+
+</head>
+
+
+<body>
+
+  <a
+    class="salto-contenido-admin"
+    href="#contenidoPrincipal"
+  >
+    Ir al contenido principal
+  </a>
+
+
+  <div class="admin-comunidad-app">
+
+    <div class="admin-comunidad-layout">
+
+
+      <div class="admin-comunidad-sidebar-host">
+
+        <falco-comunidad-sidebar
+          data-active="solicitudes"
+          data-base="../"
+        ></falco-comunidad-sidebar>
+
+      </div>
+
+
+      <main
+        id="contenidoPrincipal"
+        class="admin-comunidad-principal"
+      >
+
+        <div class="admin-contenedor">
+
+
+          <header class="admin-cabecera">
+
+            <div class="admin-cabecera-identidad">
+
+              <button
+                id="botonMenuAdmin"
+                class="admin-boton-menu"
+                type="button"
+                aria-label="Abrir menú administrativo"
+                aria-expanded="false"
+              >
+
+                <span
+                  class="admin-boton-menu-lineas"
+                  aria-hidden="true"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+              </button>
+
+
+              <span
+                class="admin-cabecera-simbolo"
+                aria-hidden="true"
+              >
+                F
+              </span>
+
+
+              <div class="admin-cabecera-texto">
+
+                <p>
+                  Mesa de entrada
+                </p>
+
+                <h1>
+                  Nueva solicitud
+                </h1>
+
+              </div>
+
+            </div>
+
+
+            <div class="admin-cabecera-acciones">
+
+              <a
+                class="admin-boton admin-boton-secundario"
+                href="solicitudes.html"
+              >
+                Volver a solicitudes
+              </a>
+
+            </div>
+
+          </header>
+
+
+          <section class="admin-presentacion">
+
+            <div class="admin-presentacion-contenido">
+
+              <span class="admin-eyebrow">
+                Registro administrativo
+              </span>
+
+              <h2>
+                Incorporar una
+                <span>
+                  solicitud institucional
+                </span>
+              </h2>
+
+              <p class="admin-presentacion-descripcion">
+                Registrá los datos de la institución, la persona
+                de contacto y el motivo de la presentación para
+                iniciar su seguimiento dentro de Comunidad.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <section class="nueva-solicitud-layout">
+
+
+            <form
+              id="formularioNuevaSolicitud"
+              class="admin-panel nueva-solicitud-formulario"
+              novalidate
+            >
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Datos de la solicitud
+                  </h3>
+
+                  <p>
+                    Los campos marcados con asterisco son obligatorios.
+                  </p>
+
+                </div>
+
+                <span class="nueva-solicitud-paso">
+                  Registro inicial
+                </span>
+
+              </div>
+
+
+              <div class="admin-panel-contenido">
+
+
+                <div
+                  id="mensajeFormulario"
+                  class="admin-mensaje"
+                  role="status"
+                  aria-live="polite"
+                ></div>
+
+
+                <fieldset class="formulario-seccion">
+
+                  <legend>
+                    Institución u organización
+                  </legend>
+
+
+                  <div class="formulario-grid formulario-grid--dos">
+
+                    <div class="admin-campo">
+
+                      <label for="nombreInstitucion">
+                        Nombre de la institución
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <input
+                        id="nombreInstitucion"
+                        name="nombreInstitucion"
+                        type="text"
+                        maxlength="120"
+                        autocomplete="organization"
+                        required
+                      >
+
+                      <small
+                        id="errorNombreInstitucion"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="tipoInstitucion">
+                        Tipo de institución
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <select
+                        id="tipoInstitucion"
+                        name="tipoInstitucion"
+                        required
+                      >
+
+                        <option value="">
+                          Seleccionar
+                        </option>
+
+                        <option value="organizacion-social">
+                          Organización social
+                        </option>
+
+                        <option value="institucion-educativa">
+                          Institución educativa
+                        </option>
+
+                        <option value="institucion-salud">
+                          Institución de salud
+                        </option>
+
+                        <option value="municipio">
+                          Municipio u organismo público
+                        </option>
+
+                        <option value="fundacion">
+                          Fundación
+                        </option>
+
+                        <option value="asociacion-civil">
+                          Asociación civil
+                        </option>
+
+                        <option value="empresa">
+                          Empresa
+                        </option>
+
+                        <option value="profesional">
+                          Profesional independiente
+                        </option>
+
+                        <option value="otra">
+                          Otra
+                        </option>
+
+                      </select>
+
+                      <small
+                        id="errorTipoInstitucion"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="localidad">
+                        Localidad
+                      </label>
+
+                      <input
+                        id="localidad"
+                        name="localidad"
+                        type="text"
+                        maxlength="80"
+                        autocomplete="address-level2"
+                      >
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="provincia">
+                        Provincia
+                      </label>
+
+                      <input
+                        id="provincia"
+                        name="provincia"
+                        type="text"
+                        maxlength="80"
+                        value="Buenos Aires"
+                        autocomplete="address-level1"
+                      >
+
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+
+                <fieldset class="formulario-seccion">
+
+                  <legend>
+                    Persona de contacto
+                  </legend>
+
+
+                  <div class="formulario-grid formulario-grid--dos">
+
+                    <div class="admin-campo">
+
+                      <label for="nombreContacto">
+                        Nombre y apellido
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <input
+                        id="nombreContacto"
+                        name="nombreContacto"
+                        type="text"
+                        maxlength="100"
+                        autocomplete="name"
+                        required
+                      >
+
+                      <small
+                        id="errorNombreContacto"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="cargoContacto">
+                        Cargo o función
+                      </label>
+
+                      <input
+                        id="cargoContacto"
+                        name="cargoContacto"
+                        type="text"
+                        maxlength="100"
+                        autocomplete="organization-title"
+                      >
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="correoContacto">
+                        Correo electrónico
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <input
+                        id="correoContacto"
+                        name="correoContacto"
+                        type="email"
+                        maxlength="120"
+                        autocomplete="email"
+                        required
+                      >
+
+                      <small
+                        id="errorCorreoContacto"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="telefonoContacto">
+                        Teléfono
+                      </label>
+
+                      <input
+                        id="telefonoContacto"
+                        name="telefonoContacto"
+                        type="tel"
+                        maxlength="40"
+                        autocomplete="tel"
+                      >
+
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+
+                <fieldset class="formulario-seccion">
+
+                  <legend>
+                    Presentación institucional
+                  </legend>
+
+
+                  <div class="formulario-grid">
+
+                    <div class="admin-campo">
+
+                      <label for="tipoSolicitud">
+                        Tipo de solicitud
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <select
+                        id="tipoSolicitud"
+                        name="tipoSolicitud"
+                        required
+                      >
+
+                        <option value="">
+                          Seleccionar
+                        </option>
+
+                        <option value="reunion-institucional">
+                          Solicitud de reunión institucional
+                        </option>
+
+                        <option value="proyecto">
+                          Presentación de proyecto
+                        </option>
+
+                        <option value="programa">
+                          Propuesta de programa
+                        </option>
+
+                        <option value="articulacion">
+                          Articulación institucional
+                        </option>
+
+                        <option value="capacitacion">
+                          Capacitación o actividad
+                        </option>
+
+                        <option value="asesoramiento">
+                          Solicitud de asesoramiento
+                        </option>
+
+                        <option value="otra">
+                          Otra consulta
+                        </option>
+
+                      </select>
+
+                      <small
+                        id="errorTipoSolicitud"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="asuntoSolicitud">
+                        Asunto
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <input
+                        id="asuntoSolicitud"
+                        name="asuntoSolicitud"
+                        type="text"
+                        maxlength="160"
+                        required
+                      >
+
+                      <small
+                        id="errorAsuntoSolicitud"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="descripcionSolicitud">
+                        Descripción de la solicitud
+                        <span aria-hidden="true">*</span>
+                      </label>
+
+                      <textarea
+                        id="descripcionSolicitud"
+                        name="descripcionSolicitud"
+                        rows="7"
+                        maxlength="2000"
+                        required
+                      ></textarea>
+
+                      <div class="campo-ayuda-fila">
+
+                        <small>
+                          Describí el motivo, los antecedentes y el resultado esperado.
+                        </small>
+
+                        <small id="contadorDescripcion">
+                          0 / 2000
+                        </small>
+
+                      </div>
+
+                      <small
+                        id="errorDescripcionSolicitud"
+                        class="campo-error"
+                      ></small>
+
+                    </div>
+
+
+                    <div class="formulario-grid formulario-grid--dos">
+
+                      <div class="admin-campo">
+
+                        <label for="prioridadSolicitud">
+                          Prioridad
+                        </label>
+
+                        <select
+                          id="prioridadSolicitud"
+                          name="prioridadSolicitud"
+                        >
+
+                          <option value="normal">
+                            Normal
+                          </option>
+
+                          <option value="alta">
+                            Alta
+                          </option>
+
+                          <option value="urgente">
+                            Urgente
+                          </option>
+
+                        </select>
+
+                      </div>
+
+
+                      <div class="admin-campo">
+
+                        <label for="estadoSolicitud">
+                          Estado inicial
+                        </label>
+
+                        <select
+                          id="estadoSolicitud"
+                          name="estadoSolicitud"
+                        >
+
+                          <option value="nueva">
+                            Nueva
+                          </option>
+
+                          <option value="analisis">
+                            En análisis
+                          </option>
+
+                        </select>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                      <label for="observacionesInternas">
+                        Observaciones internas
+                      </label>
+
+                      <textarea
+                        id="observacionesInternas"
+                        name="observacionesInternas"
+                        rows="4"
+                        maxlength="1000"
+                      ></textarea>
+
+                      <small>
+                        Este contenido será visible únicamente dentro del panel administrativo.
+                      </small>
+
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+
+                <div class="formulario-acciones">
+
+                  <a
+                    class="admin-boton admin-boton-secundario"
+                    href="solicitudes.html"
+                  >
+                    Cancelar
+                  </a>
+
+                  <button
+                    id="botonGuardarBorrador"
+                    class="admin-boton admin-boton-secundario"
+                    type="button"
+                  >
+                    Guardar borrador
+                  </button>
+
+                  <button
+                    id="botonRegistrar"
+                    class="admin-boton admin-boton-primario"
+                    type="submit"
+                  >
+                    Registrar solicitud
+                  </button>
+
+                </div>
+
+              </div>
+
+            </form>
+
+
+            <aside class="nueva-solicitud-lateral">
+
+              <section class="admin-panel nueva-solicitud-ayuda">
+
+                <div class="admin-panel-cabecera">
+
+                  <div>
+
+                    <h3>
+                      Seguimiento
+                    </h3>
+
+                    <p>
+                      Información administrativa del registro.
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                <div class="admin-panel-contenido">
+
+                  <div class="seguimiento-lista">
+
+                    <div class="seguimiento-item">
+
+                      <span>
+                        01
+                      </span>
+
+                      <div>
+
+                        <strong>
+                          Registro
+                        </strong>
+
+                        <p>
+                          Se incorporan los datos iniciales.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="seguimiento-item">
+
+                      <span>
+                        02
+                      </span>
+
+                      <div>
+
+                        <strong>
+                          Evaluación
+                        </strong>
+
+                        <p>
+                          Se analiza la presentación recibida.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="seguimiento-item">
+
+                      <span>
+                        03
+                      </span>
+
+                      <div>
+
+                        <strong>
+                          Derivación
+                        </strong>
+
+                        <p>
+                          Se asigna el área correspondiente.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="seguimiento-item">
+
+                      <span>
+                        04
+                      </span>
+
+                      <div>
+
+                        <strong>
+                          Respuesta
+                        </strong>
+
+                        <p>
+                          Se registra la resolución o acción adoptada.
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </section>
+
+
+              <section class="admin-panel nueva-solicitud-estado">
+
+                <div class="admin-panel-contenido">
+
+                  <span class="admin-eyebrow">
+                    Estado del formulario
+                  </span>
+
+                  <strong id="estadoBorrador">
+                    Sin cambios pendientes
+                  </strong>
+
+                  <p>
+                    El borrador se guardará únicamente en este navegador
+                    hasta conectar la base de datos.
+                  </p>
+
+                </div>
+
+              </section>
+
+            </aside>
+
+
+          </section>
+
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+  ></script>
+
+  <script
+    src="../shared/js/admin-comunidad-core.js"
+  ></script>
+
+  <script
+    src="nueva-solicitud.js"
+  ></script>
+
+</body>
+
+</html>

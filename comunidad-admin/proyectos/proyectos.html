@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Administración de proyectos institucionales de FALCO® Comunidad."
+  >
+
+  <title>
+    Proyectos institucionales | FALCO® Comunidad
+  </title>
+
+
+
+  <link
+    rel="stylesheet"
+    href="./proyectos.css"
+  >
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div
+    data-comunidad-sidebar
+    data-active="proyectos"
+    data-base="../"
+  ></div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+
+  <main class="comunidad-main">
+
+    <div class="proyectos-page">
+
+
+      <!-- CABECERA -->
+
+      <header class="proyectos-header">
+
+        <div class="proyectos-header__contenido">
+
+          <span class="proyectos-header__eyebrow">
+            Centro operativo
+          </span>
+
+          <h1 class="proyectos-header__titulo">
+            Proyectos institucionales
+          </h1>
+
+          <p class="proyectos-header__descripcion">
+            Gestión de proyectos, programas, convenios y acciones
+            desarrolladas desde FALCO® Comunidad.
+          </p>
+
+        </div>
+
+
+        <div class="proyectos-header__acciones">
+
+          <a
+            href="./nuevo-proyecto.html"
+            class="boton boton--principal"
+          >
+            <span aria-hidden="true">＋</span>
+            Nuevo proyecto
+          </a>
+
+        </div>
+
+      </header>
+
+
+      <!-- RESUMEN -->
+
+      <section
+        class="proyectos-resumen"
+        aria-label="Resumen de proyectos"
+      >
+
+        <article class="proyectos-resumen__tarjeta">
+
+          <div class="proyectos-resumen__icono">
+            01
+          </div>
+
+          <div class="proyectos-resumen__contenido">
+
+            <span class="proyectos-resumen__valor" id="totalProyectos">
+              0
+            </span>
+
+            <span class="proyectos-resumen__etiqueta">
+              Proyectos registrados
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article class="proyectos-resumen__tarjeta">
+
+          <div class="proyectos-resumen__icono">
+            02
+          </div>
+
+          <div class="proyectos-resumen__contenido">
+
+            <span class="proyectos-resumen__valor" id="proyectosActivos">
+              0
+            </span>
+
+            <span class="proyectos-resumen__etiqueta">
+              En ejecución
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article class="proyectos-resumen__tarjeta">
+
+          <div class="proyectos-resumen__icono">
+            03
+          </div>
+
+          <div class="proyectos-resumen__contenido">
+
+            <span
+              class="proyectos-resumen__valor"
+              id="proyectosPlanificados"
+            >
+              0
+            </span>
+
+            <span class="proyectos-resumen__etiqueta">
+              Planificados
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article class="proyectos-resumen__tarjeta">
+
+          <div class="proyectos-resumen__icono">
+            04
+          </div>
+
+          <div class="proyectos-resumen__contenido">
+
+            <span
+              class="proyectos-resumen__valor"
+              id="proyectosFinalizados"
+            >
+              0
+            </span>
+
+            <span class="proyectos-resumen__etiqueta">
+              Finalizados
+            </span>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- CONTENEDOR DEL LISTADO -->
+
+      <section class="proyectos-panel">
+
+
+        <!-- CABECERA DEL PANEL -->
+
+        <div class="proyectos-panel__header">
+
+          <div>
+
+            <span class="proyectos-panel__eyebrow">
+              Gestión institucional
+            </span>
+
+            <h2 class="proyectos-panel__titulo">
+              Registro de proyectos
+            </h2>
+
+            <p class="proyectos-panel__descripcion">
+              Consultá y administrá los proyectos institucionales
+              incorporados a Comunidad.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERRAMIENTAS -->
+
+        <div class="proyectos-herramientas">
+
+          <div class="proyectos-buscador">
+
+            <label
+              for="buscarProyecto"
+              class="sr-only"
+            >
+              Buscar proyecto
+            </label>
+
+            <span
+              class="proyectos-buscador__icono"
+              aria-hidden="true"
+            >
+              ⌕
+            </span>
+
+            <input
+              type="search"
+              id="buscarProyecto"
+              class="proyectos-buscador__input"
+              placeholder="Buscar por proyecto, institución o responsable"
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <div class="proyectos-filtros">
+
+            <label
+              for="filtroEstado"
+              class="sr-only"
+            >
+              Filtrar por estado
+            </label>
+
+            <select
+              id="filtroEstado"
+              class="proyectos-filtros__select"
+            >
+              <option value="todos">
+                Todos los estados
+              </option>
+
+              <option value="planificado">
+                Planificado
+              </option>
+
+              <option value="en_ejecucion">
+                En ejecución
+              </option>
+
+              <option value="pausado">
+                Pausado
+              </option>
+
+              <option value="finalizado">
+                Finalizado
+              </option>
+
+              <option value="cancelado">
+                Cancelado
+              </option>
+            </select>
+
+
+            <label
+              for="filtroArea"
+              class="sr-only"
+            >
+              Filtrar por área
+            </label>
+
+            <select
+              id="filtroArea"
+              class="proyectos-filtros__select"
+            >
+              <option value="todas">
+                Todas las áreas
+              </option>
+
+              <option value="comunidad">
+                Comunidad
+              </option>
+
+              <option value="formacion">
+                Formación
+              </option>
+
+              <option value="familia">
+                Familia
+              </option>
+
+              <option value="adolescencia">
+                Adolescencia
+              </option>
+
+              <option value="prevencion">
+                Prevención
+              </option>
+
+              <option value="institucional">
+                Institucional
+              </option>
+
+              <option value="otra">
+                Otra área
+              </option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- ESTADO DE CARGA -->
+
+        <div
+          class="proyectos-estado proyectos-estado--cargando"
+          id="estadoCargaProyectos"
+          aria-live="polite"
+        >
+
+          <div
+            class="proyectos-spinner"
+            aria-hidden="true"
+          ></div>
+
+          <p>
+            Cargando proyectos institucionales…
+          </p>
+
+        </div>
+
+
+        <!-- MENSAJE DE ERROR -->
+
+        <div
+          class="proyectos-estado proyectos-estado--error"
+          id="estadoErrorProyectos"
+          hidden
+          aria-live="assertive"
+        >
+
+          <span
+            class="proyectos-estado__numero"
+            aria-hidden="true"
+          >
+            !
+          </span>
+
+          <div>
+
+            <h3>
+              No pudimos cargar los proyectos
+            </h3>
+
+            <p id="mensajeErrorProyectos">
+              Se produjo un inconveniente al consultar la información.
+            </p>
+
+          </div>
+
+          <button
+            type="button"
+            class="boton boton--secundario"
+            id="reintentarCarga"
+          >
+            Reintentar
+          </button>
+
+        </div>
+
+
+        <!-- ESTADO VACÍO -->
+
+        <div
+          class="proyectos-vacio"
+          id="estadoVacioProyectos"
+          hidden
+        >
+
+          <div
+            class="proyectos-vacio__numero"
+            aria-hidden="true"
+          >
+            01
+          </div>
+
+          <div class="proyectos-vacio__contenido">
+
+            <span class="proyectos-vacio__eyebrow">
+              Sin registros
+            </span>
+
+            <h3 class="proyectos-vacio__titulo">
+              No hay proyectos registrados
+            </h3>
+
+            <p class="proyectos-vacio__descripcion">
+              Los proyectos institucionales aparecerán en este espacio
+              una vez que sean creados desde el panel de administración.
+            </p>
+
+            <a
+              href="./nuevo-proyecto.html"
+              class="boton boton--principal"
+            >
+              Crear primer proyecto
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- SIN RESULTADOS DE BÚSQUEDA -->
+
+        <div
+          class="proyectos-vacio proyectos-vacio--busqueda"
+          id="estadoSinResultados"
+          hidden
+        >
+
+          <div
+            class="proyectos-vacio__numero"
+            aria-hidden="true"
+          >
+            00
+          </div>
+
+          <div class="proyectos-vacio__contenido">
+
+            <span class="proyectos-vacio__eyebrow">
+              Búsqueda
+            </span>
+
+            <h3 class="proyectos-vacio__titulo">
+              No encontramos proyectos
+            </h3>
+
+            <p class="proyectos-vacio__descripcion">
+              Probá con otro nombre, institución, responsable
+              o modificá los filtros seleccionados.
+            </p>
+
+            <button
+              type="button"
+              class="boton boton--secundario"
+              id="limpiarFiltros"
+            >
+              Limpiar búsqueda
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- LISTADO DINÁMICO -->
+
+        <div
+          class="proyectos-grid"
+          id="contenedorProyectos"
+          aria-live="polite"
+        ></div>
+
+      </section>
+
+
+      <!-- PIE INSTITUCIONAL -->
+
+      <footer class="proyectos-footer">
+
+        <p>
+          FALCO® Comunidad · Gestión institucional centralizada
+        </p>
+
+      </footer>
+
+    </div>
+
+  </main>
+
+
+  <!-- SIDEBAR COMPARTIDO -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+
+  <!-- FIREBASE -->
+
+  <script
+    type="module"
+    src="./proyectos.js"
+  ></script>
+
+</body>
+</html>

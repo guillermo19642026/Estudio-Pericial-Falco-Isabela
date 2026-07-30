@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gestión administrativa de reuniones institucionales en FALCO Comunidad."
+  >
+
+  <title>
+    Reuniones | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="reuniones.css"
+  >
+
+</head>
+
+
+<body>
+
+  <a
+    class="salto-contenido-admin"
+    href="#contenidoPrincipal"
+  >
+    Ir al contenido principal
+  </a>
+
+
+  <div class="admin-comunidad-app">
+
+    <div class="admin-comunidad-layout">
+
+
+      <!-- =================================================
+           SIDEBAR
+      ================================================== -->
+
+      <div class="admin-comunidad-sidebar-host">
+
+        <falco-comunidad-sidebar
+          data-active="reuniones"
+          data-base="../"
+        ></falco-comunidad-sidebar>
+
+      </div>
+
+
+      <!-- =================================================
+           CONTENIDO PRINCIPAL
+      ================================================== -->
+
+      <main
+        id="contenidoPrincipal"
+        class="admin-comunidad-principal"
+      >
+
+        <div class="admin-contenedor">
+
+
+          <!-- =============================================
+               CABECERA
+          ============================================== -->
+
+          <header class="admin-cabecera">
+
+            <div class="admin-cabecera-identidad">
+
+              <button
+                id="botonMenuAdmin"
+                class="admin-boton-menu"
+                type="button"
+                aria-label="Abrir menú administrativo"
+                aria-expanded="false"
+              >
+
+                <span
+                  class="admin-boton-menu-lineas"
+                  aria-hidden="true"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+              </button>
+
+
+              <span
+                class="admin-cabecera-simbolo"
+                aria-hidden="true"
+              >
+                F
+              </span>
+
+
+              <div class="admin-cabecera-texto">
+
+                <p>
+                  FALCO® Comunidad
+                </p>
+
+                <h1>
+                  Reuniones
+                </h1>
+
+              </div>
+
+            </div>
+
+
+            <div class="admin-cabecera-acciones">
+
+              <a
+                class="admin-boton admin-boton-primario"
+                href="nueva-reunion.html"
+              >
+                Nueva reunión
+              </a>
+
+            </div>
+
+          </header>
+
+
+          <!-- =============================================
+               PRESENTACIÓN
+          ============================================== -->
+
+          <section class="admin-presentacion">
+
+            <div class="admin-presentacion-contenido">
+
+              <span class="admin-eyebrow">
+                Seguimiento institucional
+              </span>
+
+              <h2>
+                Gestión de
+                <span>
+                  reuniones
+                </span>
+              </h2>
+
+              <p class="admin-presentacion-descripcion">
+                Registrá entrevistas, encuentros institucionales,
+                acuerdos, próximos pasos y acciones de seguimiento.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               RESUMEN
+          ============================================== -->
+
+          <section
+            class="reuniones-resumen"
+            aria-label="Resumen de reuniones"
+          >
+
+
+            <article class="reuniones-resumen-tarjeta">
+
+              <span
+                class="reuniones-resumen-icono"
+                aria-hidden="true"
+              >
+                R
+              </span>
+
+              <div>
+
+                <p>
+                  Total registradas
+                </p>
+
+                <strong id="totalReuniones">
+                  0
+                </strong>
+
+              </div>
+
+            </article>
+
+
+            <article class="reuniones-resumen-tarjeta">
+
+              <span
+                class="reuniones-resumen-icono"
+                aria-hidden="true"
+              >
+                P
+              </span>
+
+              <div>
+
+                <p>
+                  Próximas
+                </p>
+
+                <strong id="totalReunionesProximas">
+                  0
+                </strong>
+
+              </div>
+
+            </article>
+
+
+            <article class="reuniones-resumen-tarjeta">
+
+              <span
+                class="reuniones-resumen-icono"
+                aria-hidden="true"
+              >
+                C
+              </span>
+
+              <div>
+
+                <p>
+                  Completadas
+                </p>
+
+                <strong id="totalReunionesCompletadas">
+                  0
+                </strong>
+
+              </div>
+
+            </article>
+
+
+            <article class="reuniones-resumen-tarjeta">
+
+              <span
+                class="reuniones-resumen-icono"
+                aria-hidden="true"
+              >
+                S
+              </span>
+
+              <div>
+
+                <p>
+                  Con seguimiento
+                </p>
+
+                <strong id="totalReunionesSeguimiento">
+                  0
+                </strong>
+
+              </div>
+
+            </article>
+
+
+          </section>
+
+
+          <!-- =============================================
+               FILTROS
+          ============================================== -->
+
+          <section class="admin-panel reuniones-filtros-panel">
+
+            <div class="admin-panel-cabecera">
+
+              <div>
+
+                <h3>
+                  Buscar reuniones
+                </h3>
+
+                <p>
+                  Filtrá por institución, estado, modalidad o fecha.
+                </p>
+
+              </div>
+
+
+              <button
+                id="botonLimpiarFiltrosReuniones"
+                class="admin-boton admin-boton-secundario"
+                type="button"
+              >
+                Limpiar filtros
+              </button>
+
+            </div>
+
+
+            <div class="reuniones-filtros">
+
+
+              <div class="reuniones-filtro reuniones-filtro-busqueda">
+
+                <label for="busquedaReuniones">
+                  Buscar
+                </label>
+
+                <input
+                  id="busquedaReuniones"
+                  type="search"
+                  placeholder="Institución, referente, asunto o ubicación"
+                  autocomplete="off"
+                >
+
+              </div>
+
+
+              <div class="reuniones-filtro">
+
+                <label for="filtroEstadoReuniones">
+                  Estado
+                </label>
+
+                <select id="filtroEstadoReuniones">
+
+                  <option value="">
+                    Todos
+                  </option>
+
+                  <option value="programada">
+                    Programada
+                  </option>
+
+                  <option value="confirmada">
+                    Confirmada
+                  </option>
+
+                  <option value="completada">
+                    Completada
+                  </option>
+
+                  <option value="cancelada">
+                    Cancelada
+                  </option>
+
+                  <option value="reprogramada">
+                    Reprogramada
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="reuniones-filtro">
+
+                <label for="filtroModalidadReuniones">
+                  Modalidad
+                </label>
+
+                <select id="filtroModalidadReuniones">
+
+                  <option value="">
+                    Todas
+                  </option>
+
+                  <option value="virtual">
+                    Virtual
+                  </option>
+
+                  <option value="presencial">
+                    Presencial
+                  </option>
+
+                  <option value="telefonica">
+                    Telefónica
+                  </option>
+
+                  <option value="mixta">
+                    Mixta
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="reuniones-filtro">
+
+                <label for="filtroPeriodoReuniones">
+                  Período
+                </label>
+
+                <select id="filtroPeriodoReuniones">
+
+                  <option value="">
+                    Todas las fechas
+                  </option>
+
+                  <option value="hoy">
+                    Hoy
+                  </option>
+
+                  <option value="proximas">
+                    Próximas
+                  </option>
+
+                  <option value="pasadas">
+                    Pasadas
+                  </option>
+
+                </select>
+
+              </div>
+
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               LISTADO
+          ============================================== -->
+
+          <section class="admin-panel reuniones-listado-panel">
+
+            <div class="admin-panel-cabecera">
+
+              <div>
+
+                <h3>
+                  Reuniones registradas
+                </h3>
+
+                <p id="textoCantidadReuniones">
+                  No hay reuniones registradas.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- ===========================================
+                 MENSAJE GENERAL
+            ============================================ -->
+
+            <div
+              id="mensajeReuniones"
+              class="reuniones-mensaje"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></div>
+
+
+            <!-- ===========================================
+                 CONTENEDOR DINÁMICO
+            ============================================ -->
+
+            <div
+              id="listaReuniones"
+              class="reuniones-lista"
+              aria-live="polite"
+            ></div>
+
+
+            <!-- ===========================================
+                 ESTADO VACÍO
+            ============================================ -->
+
+            <div
+              id="estadoVacioReuniones"
+              class="reuniones-estado-vacio"
+            >
+
+              <span
+                class="reuniones-estado-vacio-simbolo"
+                aria-hidden="true"
+              >
+                R
+              </span>
+
+              <h3>
+                Todavía no hay reuniones registradas
+              </h3>
+
+              <p>
+                Incorporá el primer encuentro institucional para
+                comenzar a organizar acuerdos y acciones de seguimiento.
+              </p>
+
+              <a
+                class="admin-boton admin-boton-primario"
+                href="nueva-reunion.html"
+              >
+                Registrar primera reunión
+              </a>
+
+            </div>
+
+
+            <!-- ===========================================
+                 SIN RESULTADOS
+            ============================================ -->
+
+            <div
+              id="sinResultadosReuniones"
+              class="reuniones-estado-vacio"
+              hidden
+            >
+
+              <span
+                class="reuniones-estado-vacio-simbolo"
+                aria-hidden="true"
+              >
+                B
+              </span>
+
+              <h3>
+                No encontramos resultados
+              </h3>
+
+              <p>
+                Probá modificando o eliminando alguno de los filtros.
+              </p>
+
+              <button
+                id="botonRestablecerBusquedaReuniones"
+                class="admin-boton admin-boton-secundario"
+                type="button"
+              >
+                Restablecer búsqueda
+              </button>
+
+            </div>
+
+
+          </section>
+
+
+        </div>
+
+      </main>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+  ></script>
+
+  <script
+    src="../shared/js/admin-comunidad-core.js"
+  ></script>
+
+  <script
+    src="reuniones.js"
+  ></script>
+
+</body>
+
+</html>

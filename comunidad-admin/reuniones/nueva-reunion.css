@@ -1,0 +1,1743 @@
+/* =========================================================
+   FALCO® COMUNIDAD
+   NUEVA REUNIÓN
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+  --nueva-reunion-fondo:
+    #07111c;
+
+  --nueva-reunion-superficie:
+    rgba(13, 29, 45, 0.96);
+
+  --nueva-reunion-superficie-secundaria:
+    rgba(17, 36, 55, 0.88);
+
+  --nueva-reunion-superficie-suave:
+    rgba(255, 255, 255, 0.035);
+
+  --nueva-reunion-borde:
+    rgba(255, 255, 255, 0.1);
+
+  --nueva-reunion-borde-suave:
+    rgba(255, 255, 255, 0.065);
+
+  --nueva-reunion-dorado:
+    #c7a25a;
+
+  --nueva-reunion-dorado-claro:
+    #dfc17f;
+
+  --nueva-reunion-dorado-suave:
+    rgba(199, 162, 90, 0.12);
+
+  --nueva-reunion-texto:
+    #f2f4f6;
+
+  --nueva-reunion-texto-secundario:
+    #b8c1cb;
+
+  --nueva-reunion-texto-suave:
+    #82909f;
+
+  --nueva-reunion-verde:
+    #62b98a;
+
+  --nueva-reunion-verde-fondo:
+    rgba(98, 185, 138, 0.12);
+
+  --nueva-reunion-rojo:
+    #d87b7b;
+
+  --nueva-reunion-rojo-fondo:
+    rgba(216, 123, 123, 0.12);
+
+  --nueva-reunion-amarillo:
+    #dbb867;
+
+  --nueva-reunion-amarillo-fondo:
+    rgba(219, 184, 103, 0.12);
+
+  --nueva-reunion-radio:
+    20px;
+
+  --nueva-reunion-radio-campo:
+    12px;
+
+  --nueva-reunion-sombra:
+    0 18px 45px rgba(0, 0, 0, 0.22);
+
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+
+  box-sizing:
+    border-box;
+
+}
+
+html {
+
+  scroll-behavior:
+    smooth;
+
+}
+
+body {
+
+  min-width:
+    320px;
+
+}
+
+button,
+input,
+select,
+textarea {
+
+  font:
+    inherit;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.nueva-reunion-contenedor {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    22px;
+
+  width:
+    100%;
+
+  max-width:
+    1500px;
+
+  margin:
+    0 auto;
+
+  padding:
+    0 0 42px;
+
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+========================================================= */
+
+.nueva-reunion-presentacion {
+
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    28px;
+
+  overflow:
+    hidden;
+
+  padding:
+    28px 30px;
+
+  border:
+    1px solid var(--nueva-reunion-borde);
+
+  border-radius:
+    var(--nueva-reunion-radio);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 39, 59, 0.98),
+      rgba(9, 23, 37, 0.98)
+    );
+
+  box-shadow:
+    var(--nueva-reunion-sombra);
+
+}
+
+.nueva-reunion-presentacion::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -130px;
+
+  right:
+    -90px;
+
+  width:
+    290px;
+
+  height:
+    290px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 162, 90, 0.15),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.nueva-reunion-presentacion::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.025),
+      transparent 42%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.nueva-reunion-presentacion-texto {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  min-width:
+    0;
+
+  max-width:
+    850px;
+
+}
+
+.nueva-reunion-presentacion-etiqueta {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  min-height:
+    28px;
+
+  margin:
+    0 0 12px;
+
+  padding:
+    6px 11px;
+
+  border:
+    1px solid rgba(199, 162, 90, 0.32);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--nueva-reunion-dorado-suave);
+
+  color:
+    var(--nueva-reunion-dorado-claro);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.075em;
+
+  line-height:
+    1;
+
+  text-transform:
+    uppercase;
+
+}
+
+.nueva-reunion-presentacion h2 {
+
+  margin:
+    0 0 9px;
+
+  color:
+    var(--nueva-reunion-texto);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(1.65rem, 3vw, 2.25rem);
+
+  font-weight:
+    600;
+
+  line-height:
+    1.2;
+
+}
+
+.nueva-reunion-presentacion p {
+
+  max-width:
+    760px;
+
+  margin:
+    0;
+
+  color:
+    var(--nueva-reunion-texto-secundario);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.94rem;
+
+  line-height:
+    1.65;
+
+}
+
+.nueva-reunion-presentacion-estado {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+  flex:
+    0 0 auto;
+
+  min-height:
+    40px;
+
+  padding:
+    9px 14px;
+
+  border:
+    1px solid rgba(98, 185, 138, 0.28);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--nueva-reunion-verde-fondo);
+
+  color:
+    #a3d9ba;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.78rem;
+
+  font-weight:
+    700;
+
+}
+
+.nueva-reunion-estado-punto {
+
+  flex:
+    0 0 8px;
+
+  width:
+    8px;
+
+  height:
+    8px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--nueva-reunion-verde);
+
+  box-shadow:
+    0 0 0 5px rgba(98, 185, 138, 0.1);
+
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.nueva-reunion-mensaje {
+
+  width:
+    100%;
+
+  padding:
+    15px 18px;
+
+  border:
+    1px solid var(--nueva-reunion-borde);
+
+  border-radius:
+    13px;
+
+  background:
+    var(--nueva-reunion-superficie);
+
+  color:
+    var(--nueva-reunion-texto-secundario);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.88rem;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.5;
+
+}
+
+.nueva-reunion-mensaje[hidden] {
+
+  display:
+    none !important;
+
+}
+
+.nueva-reunion-mensaje.es-exito {
+
+  border-color:
+    rgba(98, 185, 138, 0.35);
+
+  background:
+    var(--nueva-reunion-verde-fondo);
+
+  color:
+    #a3d9ba;
+
+}
+
+.nueva-reunion-mensaje.es-error {
+
+  border-color:
+    rgba(216, 123, 123, 0.36);
+
+  background:
+    var(--nueva-reunion-rojo-fondo);
+
+  color:
+    #efaaaa;
+
+}
+
+.nueva-reunion-mensaje.es-aviso {
+
+  border-color:
+    rgba(219, 184, 103, 0.36);
+
+  background:
+    var(--nueva-reunion-amarillo-fondo);
+
+  color:
+    #ebcc83;
+
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.nueva-reunion-formulario {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    20px;
+
+  width:
+    100%;
+
+}
+
+
+/* =========================================================
+   BLOQUES
+========================================================= */
+
+.nueva-reunion-bloque {
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid var(--nueva-reunion-borde);
+
+  border-radius:
+    var(--nueva-reunion-radio);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 34, 52, 0.98),
+      rgba(9, 23, 37, 0.98)
+    );
+
+  box-shadow:
+    var(--nueva-reunion-sombra);
+
+}
+
+.nueva-reunion-bloque::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  left:
+    0;
+
+  width:
+    100%;
+
+  height:
+    1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(199, 162, 90, 0.36),
+      transparent
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.nueva-reunion-bloque-cabecera {
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    18px;
+
+  padding:
+    24px 26px 21px;
+
+  border-bottom:
+    1px solid var(--nueva-reunion-borde-suave);
+
+  background:
+    rgba(255, 255, 255, 0.015);
+
+}
+
+.nueva-reunion-bloque-cabecera > div {
+
+  min-width:
+    0;
+
+}
+
+.nueva-reunion-bloque-numero {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-width:
+    38px;
+
+  min-height:
+    27px;
+
+  margin:
+    0 0 10px;
+
+  padding:
+    5px 9px;
+
+  border:
+    1px solid rgba(199, 162, 90, 0.32);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--nueva-reunion-dorado-suave);
+
+  color:
+    var(--nueva-reunion-dorado-claro);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.07em;
+
+}
+
+.nueva-reunion-bloque-cabecera h3 {
+
+  margin:
+    0 0 7px;
+
+  color:
+    var(--nueva-reunion-texto);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(1.3rem, 2vw, 1.65rem);
+
+  font-weight:
+    600;
+
+  line-height:
+    1.25;
+
+}
+
+.nueva-reunion-bloque-cabecera p {
+
+  max-width:
+    750px;
+
+  margin:
+    0;
+
+  color:
+    var(--nueva-reunion-texto-secundario);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.88rem;
+
+  line-height:
+    1.6;
+
+}
+
+
+/* =========================================================
+   GRILLA DEL FORMULARIO
+========================================================= */
+
+.nueva-reunion-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    22px 24px;
+
+  padding:
+    25px 26px 28px;
+
+}
+
+.nueva-reunion-campo {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    stretch;
+
+  min-width:
+    0;
+
+}
+
+.nueva-reunion-campo.campo-completo {
+
+  grid-column:
+    1 / -1;
+
+}
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.nueva-reunion-campo label {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  margin:
+    0 0 8px;
+
+  color:
+    var(--nueva-reunion-texto);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.84rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.4;
+
+}
+
+.nueva-reunion-campo label span[aria-hidden="true"] {
+
+  color:
+    var(--nueva-reunion-dorado);
+
+}
+
+.nueva-reunion-campo input,
+.nueva-reunion-campo select,
+.nueva-reunion-campo textarea {
+
+  width:
+    100%;
+
+  min-height:
+    50px;
+
+  padding:
+    13px 15px;
+
+  border:
+    1px solid var(--nueva-reunion-borde);
+
+  border-radius:
+    var(--nueva-reunion-radio-campo);
+
+  background:
+    var(--nueva-reunion-superficie-secundaria);
+
+  color:
+    var(--nueva-reunion-texto);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    .92rem;
+
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+
+}
+
+.nueva-reunion-campo textarea {
+
+  min-height:
+    150px;
+
+  resize:
+    vertical;
+
+}
+
+.nueva-reunion-campo input::placeholder,
+.nueva-reunion-campo textarea::placeholder {
+
+  color:
+    var(--nueva-reunion-texto-suave);
+
+}
+
+.nueva-reunion-campo input:focus,
+.nueva-reunion-campo select:focus,
+.nueva-reunion-campo textarea:focus {
+
+  outline:
+    none;
+
+  border-color:
+    rgba(199,162,90,.55);
+
+  background:
+    rgba(20,39,58,.98);
+
+  box-shadow:
+    0 0 0 4px rgba(199,162,90,.12);
+
+}
+
+.nueva-reunion-campo small {
+
+  margin-top:
+    7px;
+
+  color:
+    var(--nueva-reunion-texto-suave);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    .76rem;
+
+  line-height:
+    1.5;
+
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.nueva-reunion-checkbox {
+
+  display:
+    flex !important;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  min-height:
+    50px;
+
+  margin-top:
+    32px;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid var(--nueva-reunion-borde);
+
+  border-radius:
+    var(--nueva-reunion-radio-campo);
+
+  background:
+    var(--nueva-reunion-superficie-secundaria);
+
+  cursor:
+    pointer;
+
+}
+
+.nueva-reunion-checkbox input {
+
+  width:
+    18px;
+
+  height:
+    18px;
+
+  min-height:
+    auto;
+
+  margin:
+    0;
+
+  accent-color:
+    var(--nueva-reunion-dorado);
+
+}
+
+.nueva-reunion-checkbox span {
+
+  color:
+    var(--nueva-reunion-texto);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    .88rem;
+
+  font-weight:
+    600;
+
+}
+
+
+/* =========================================================
+   ERRORES
+========================================================= */
+
+.nueva-reunion-error {
+
+  min-height:
+    18px;
+
+  margin-top:
+    6px;
+
+  color:
+    #efaaaa;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    .75rem;
+
+  font-weight:
+    600;
+
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.nueva-reunion-acciones {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  margin-top:
+    8px;
+
+  padding:
+    24px 28px;
+
+  border:
+    1px solid var(--nueva-reunion-borde);
+
+  border-radius:
+    var(--nueva-reunion-radio);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,32,49,.98),
+      rgba(8,20,34,.98)
+    );
+
+  box-shadow:
+    var(--nueva-reunion-sombra);
+
+}
+
+.nueva-reunion-acciones-izquierda,
+.nueva-reunion-acciones-derecha {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    14px;
+
+}
+
+.nueva-reunion-acciones .comunidad-admin-boton {
+
+  min-width:
+    190px;
+
+}
+
+
+/* =========================================================
+   EFECTOS
+========================================================= */
+
+.nueva-reunion-bloque,
+.nueva-reunion-presentacion,
+.nueva-reunion-acciones {
+
+  animation:
+    nuevaReunionFade .22s ease;
+
+}
+
+@keyframes nuevaReunionFade {
+
+  from {
+
+    opacity:
+      0;
+
+    transform:
+      translateY(12px);
+
+  }
+
+  to {
+
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .nueva-reunion-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .nueva-reunion-campo.campo-completo {
+
+    grid-column:
+      auto;
+
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .nueva-reunion-presentacion {
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+  }
+
+  .nueva-reunion-acciones {
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+  }
+
+  .nueva-reunion-acciones-izquierda,
+  .nueva-reunion-acciones-derecha {
+
+    width:
+      100%;
+
+    justify-content:
+      stretch;
+
+  }
+
+  .nueva-reunion-acciones .comunidad-admin-boton {
+
+    flex:
+      1;
+
+    min-width:
+      0;
+
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .nueva-reunion-presentacion {
+
+    padding:
+      22px;
+
+  }
+
+  .nueva-reunion-bloque-cabecera {
+
+    padding:
+      20px;
+
+  }
+
+  .nueva-reunion-grid {
+
+    padding:
+      20px;
+
+    gap:
+      18px;
+
+  }
+
+  .nueva-reunion-acciones {
+
+    padding:
+      20px;
+
+  }
+
+  .nueva-reunion-acciones-derecha {
+
+    flex-direction:
+      column;
+
+  }
+
+  .nueva-reunion-acciones .comunidad-admin-boton {
+
+    width:
+      100%;
+
+  }
+
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+textarea::-webkit-scrollbar {
+
+  width:
+    10px;
+
+}
+
+textarea::-webkit-scrollbar-track {
+
+  background:
+    rgba(255,255,255,.03);
+
+}
+
+textarea::-webkit-scrollbar-thumb {
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(199,162,90,.35);
+
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+
+  background:
+    rgba(199,162,90,.55);
+
+}
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+.nueva-reunion-oculto {
+
+  display:
+    none !important;
+
+}
+
+.nueva-reunion-centro {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+}
+
+.nueva-reunion-texto-centro {
+
+  text-align:
+    center;
+
+}
+
+.nueva-reunion-texto-derecha {
+
+  text-align:
+    right;
+
+}
+
+.nueva-reunion-separador {
+
+  width:
+    100%;
+
+  height:
+    1px;
+
+  margin:
+    10px 0;
+
+  background:
+    rgba(255,255,255,.08);
+
+}
+
+
+/* =========================================================
+   FIN DEL ARCHIVO
+========================================================= */
+
+/* =========================================================
+   CABECERA SUPERIOR
+========================================================= */
+
+.comunidad-admin-header {
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    24px;
+
+  margin-bottom:
+    26px;
+
+}
+
+.comunidad-admin-header-identidad h1 {
+
+  margin:
+    8px 0;
+
+  color:
+    var(--nueva-reunion-texto);
+
+  font-family:
+    "Playfair Display", serif;
+
+  font-size:
+    clamp(2rem,3vw,2.6rem);
+
+}
+
+.comunidad-admin-header-identidad p {
+
+  margin:
+    0;
+
+  color:
+    var(--nueva-reunion-texto-secundario);
+
+}
+
+.comunidad-admin-eyebrow {
+
+  margin:
+    0;
+
+  color:
+    var(--nueva-reunion-dorado);
+
+  font-size:
+    .75rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    .08em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.comunidad-admin-boton {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    8px;
+
+  min-height:
+    48px;
+
+  padding:
+    0 22px;
+
+  border:
+    1px solid rgba(199,162,90,.25);
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(17,36,55,.9);
+
+  color:
+    #f2f4f6;
+
+  font-family:
+    "Inter",sans-serif;
+
+  font-size:
+    .88rem;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+
+  cursor:
+    pointer;
+
+  transition:
+    .18s ease;
+
+}
+
+.comunidad-admin-boton:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    var(--nueva-reunion-dorado);
+
+}
+
+.comunidad-admin-boton.primario {
+
+  background:
+    linear-gradient(
+      135deg,
+      #c7a25a,
+      #b58c43
+    );
+
+  color:
+    #08111b;
+
+}
+
+.comunidad-admin-boton.secundario {
+
+  background:
+    rgba(17,36,55,.92);
+
+  color:
+    #f2f4f6;
+
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.nueva-reunion-campo select {
+
+  appearance:
+    none;
+
+  background-image:
+    linear-gradient(45deg,transparent 50%,#c7a25a 50%),
+    linear-gradient(135deg,#c7a25a 50%,transparent 50%);
+
+  background-position:
+    calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+
+  background-size:
+    6px 6px,
+    6px 6px;
+
+  background-repeat:
+    no-repeat;
+
+  padding-right:
+    42px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE CABECERA
+========================================================= */
+
+@media (max-width:900px){
+
+  .comunidad-admin-header{
+
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+  }
+
+}
+
+
+/* =========================================================
+   CABECERA SUPERIOR
+========================================================= */
+
+.comunidad-admin-header {
+
+  position:
+    relative;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    24px;
+
+  margin:
+    0 0 26px;
+
+  padding:
+    26px 28px;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius:
+    20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 39, 59, 0.98),
+      rgba(9, 23, 37, 0.98)
+    ) !important;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.22);
+
+}
+
+.comunidad-admin-header::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -120px;
+
+  right:
+    -80px;
+
+  width:
+    270px;
+
+  height:
+    270px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 162, 90, 0.14),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+
+}
+
+.comunidad-admin-header-identidad,
+.comunidad-admin-header-acciones {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+}
+
+.comunidad-admin-header-identidad {
+
+  min-width:
+    0;
+
+}
+
+.comunidad-admin-header-identidad h1 {
+
+  margin:
+    7px 0 8px;
+
+  color:
+    var(--nueva-reunion-texto) !important;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2rem, 3vw, 2.6rem);
+
+  font-weight:
+    600;
+
+  line-height:
+    1.2;
+
+}
+
+.comunidad-admin-header-identidad > p:not(.comunidad-admin-eyebrow) {
+
+  margin:
+    0;
+
+  color:
+    var(--nueva-reunion-texto-secundario) !important;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.94rem;
+
+  line-height:
+    1.6;
+
+}
+
+.comunidad-admin-eyebrow {
+
+  margin:
+    0;
+
+  color:
+    var(--nueva-reunion-dorado-claro) !important;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.09em;
+
+  text-transform:
+    uppercase;
+
+
+    .comunidad-admin-main {
+
+  background:
+    transparent !important;
+
+}
+
+.comunidad-admin-app {
+
+  background:
+    var(--nueva-reunion-fondo) !important;
+
+}
+}

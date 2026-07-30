@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Centro Administrativo de FALCO Comunidad."
+  >
+
+  <title>
+    Centro Administrativo | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="dashboard.css"
+  >
+
+</head>
+
+
+<body>
+
+  <a
+    class="salto-contenido-admin"
+    href="#contenidoPrincipal"
+  >
+    Ir al contenido principal
+  </a>
+
+
+  <div class="admin-comunidad-app">
+
+    <div class="admin-comunidad-layout">
+
+
+      <!-- =================================================
+           SIDEBAR
+      ================================================== -->
+
+      <div class="admin-comunidad-sidebar-host">
+
+        <falco-comunidad-sidebar
+          data-active="dashboard"
+          data-base="../"
+        ></falco-comunidad-sidebar>
+
+      </div>
+
+
+      <!-- =================================================
+           CONTENIDO PRINCIPAL
+      ================================================== -->
+
+      <main
+        id="contenidoPrincipal"
+        class="admin-comunidad-principal"
+      >
+
+        <div class="admin-contenedor">
+
+
+          <!-- =============================================
+               CABECERA
+          ============================================== -->
+
+          <header class="admin-cabecera">
+
+            <div class="admin-cabecera-identidad">
+
+              <button
+                id="botonMenuAdmin"
+                class="admin-boton-menu"
+                type="button"
+                aria-label="Abrir menú administrativo"
+                aria-expanded="false"
+              >
+
+                <span
+                  class="admin-boton-menu-lineas"
+                  aria-hidden="true"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+              </button>
+
+
+              <span
+                class="admin-cabecera-simbolo"
+                aria-hidden="true"
+              >
+                F
+              </span>
+
+
+              <div class="admin-cabecera-texto">
+
+                <p>
+                  Centro operativo
+                </p>
+
+                <h1>
+                  FALCO® Comunidad
+                </h1>
+
+              </div>
+
+            </div>
+
+
+            <div class="admin-cabecera-acciones">
+
+              <a
+                class="admin-boton admin-boton-secundario"
+                href="../../FALCO-COMUNIDAD/index.html"
+              >
+                Ver Comunidad
+              </a>
+
+              <button
+                class="admin-boton admin-boton-primario"
+                type="button"
+                id="botonNuevaSolicitud"
+              >
+                Nueva solicitud
+              </button>
+
+            </div>
+
+          </header>
+
+
+          <!-- =============================================
+               PRESENTACIÓN
+          ============================================== -->
+
+          <section class="admin-presentacion">
+
+            <div class="admin-presentacion-contenido">
+
+              <span class="admin-eyebrow">
+                Panel institucional
+              </span>
+
+              <h2>
+                Gestión de
+                <span>
+                  Comunidad
+                </span>
+              </h2>
+
+              <p class="admin-presentacion-descripcion">
+                Administración central de solicitudes,
+                instituciones, reuniones, proyectos,
+                programas y documentación institucional.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               INDICADORES
+          ============================================== -->
+
+          <section
+            class="admin-indicadores-grid"
+            aria-label="Indicadores generales"
+          >
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Solicitudes
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  01
+                </span>
+
+              </div>
+
+              <strong
+                id="totalSolicitudes"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Presentaciones institucionales registradas.
+              </p>
+
+            </article>
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Instituciones
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  02
+                </span>
+
+              </div>
+
+              <strong
+                id="totalInstituciones"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Organizaciones incorporadas a Comunidad.
+              </p>
+
+            </article>
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Reuniones
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  03
+                </span>
+
+              </div>
+
+              <strong
+                id="totalReuniones"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Encuentros pendientes o programados.
+              </p>
+
+            </article>
+
+
+            <article class="admin-indicador">
+
+              <div class="admin-indicador-cabecera">
+
+                <p class="admin-indicador-etiqueta">
+                  Proyectos
+                </p>
+
+                <span
+                  class="admin-indicador-icono"
+                  aria-hidden="true"
+                >
+                  04
+                </span>
+
+              </div>
+
+              <strong
+                id="totalProyectos"
+                class="admin-indicador-valor"
+              >
+                0
+              </strong>
+
+              <p class="admin-indicador-detalle">
+                Proyectos institucionales activos.
+              </p>
+
+            </article>
+
+
+          </section>
+
+
+          <!-- =============================================
+               CONTENIDO DEL DASHBOARD
+          ============================================== -->
+
+          <section class="admin-grid-principal">
+
+
+            <!-- ===========================================
+                 SOLICITUDES RECIENTES
+            ============================================ -->
+
+            <article class="admin-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Solicitudes recientes
+                  </h3>
+
+                  <p>
+                    Últimas consultas institucionales
+                    recibidas por Comunidad.
+                  </p>
+
+                </div>
+
+                <a
+                  class="admin-boton admin-boton-secundario"
+                  href="../solicitudes/solicitudes.html"
+                >
+                  Ver solicitudes
+                </a>
+
+              </div>
+
+
+              <div class="admin-panel-contenido">
+
+                <div
+                  id="listaSolicitudesRecientes"
+                  class="admin-lista"
+                >
+
+                  <div class="admin-panel-vacio">
+
+                    <div>
+
+                      <span
+                        class="admin-panel-vacio-icono"
+                        aria-hidden="true"
+                      >
+                        01
+                      </span>
+
+                      <h4>
+                        No hay solicitudes registradas
+                      </h4>
+
+                      <p>
+                        Las nuevas solicitudes institucionales
+                        aparecerán en este espacio cuando
+                        se conecte la base de datos.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+
+
+          <!-- =============================================
+               SEGUNDA FILA
+          ============================================== -->
+
+          <section
+            class="admin-grid-dos dashboard-segunda-fila"
+          >
+
+
+            <!-- ===========================================
+                 REUNIONES PRÓXIMAS
+            ============================================ -->
+
+            <article class="admin-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Próximas reuniones
+                  </h3>
+
+                  <p>
+                    Encuentros institucionales programados.
+                  </p>
+
+                </div>
+
+                <a
+                  class="admin-boton admin-boton-secundario"
+                  href="../reuniones/reuniones.html"
+                >
+                  Abrir reuniones
+                </a>
+
+              </div>
+
+
+              <div class="admin-panel-contenido">
+
+                <div
+                  id="listaProximasReuniones"
+                  class="admin-lista"
+                >
+
+                  <div class="admin-panel-vacio">
+
+                    <div>
+
+                      <span
+                        class="admin-panel-vacio-icono"
+                        aria-hidden="true"
+                      >
+                        02
+                      </span>
+
+                      <h4>
+                        No hay reuniones programadas
+                      </h4>
+
+                      <p>
+                        Las reuniones agendadas aparecerán
+                        aquí cuando se habilite su gestión.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- ===========================================
+                 ACTIVIDAD RECIENTE
+            ============================================ -->
+
+            <article class="admin-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Actividad reciente
+                  </h3>
+
+                  <p>
+                    Movimientos registrados en el sistema.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="admin-panel-contenido">
+
+                <div
+                  id="listaActividadReciente"
+                  class="admin-lista"
+                >
+
+                  <div class="admin-panel-vacio">
+
+                    <div>
+
+                      <span
+                        class="admin-panel-vacio-icono"
+                        aria-hidden="true"
+                      >
+                        03
+                      </span>
+
+                      <h4>
+                        Sin actividad registrada
+                      </h4>
+
+                      <p>
+                        Los cambios administrativos aparecerán
+                        en este panel cuando se conecte
+                        el sistema de gestión.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+          </section>
+
+
+        </div>
+
+      </main>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+  ></script>
+
+  <script
+    src="../shared/js/admin-comunidad-core.js"
+  ></script>
+
+  <script
+    src="dashboard.js"
+  ></script>
+
+</body>
+
+</html>

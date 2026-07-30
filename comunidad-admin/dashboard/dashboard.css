@@ -1,0 +1,211 @@
+/* =========================================================
+   FALCO® COMUNIDAD ADMIN
+   Dashboard
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   DISTRIBUCIÓN GENERAL
+========================================================= */
+
+.admin-comunidad-principal section + section {
+  margin-top: 26px;
+}
+
+
+/* La presentación no debe heredar un margen excesivo */
+
+.admin-cabecera + .admin-presentacion {
+  margin-top: 0;
+}
+
+
+/* Los indicadores ya tienen separación propia */
+
+.admin-presentacion + .admin-indicadores-grid {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   FILAS DEL DASHBOARD
+========================================================= */
+
+.dashboard-segunda-fila {
+  margin-top: 20px;
+}
+
+
+/* Evita que los paneles se peguen verticalmente */
+
+.admin-grid-principal {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.admin-grid-dos {
+  align-items: stretch;
+}
+
+.admin-grid-principal > .admin-panel,
+.admin-grid-dos > .admin-panel {
+  min-width: 0;
+  height: 100%;
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.admin-panel {
+  overflow: hidden;
+}
+
+.admin-panel-contenido {
+  min-width: 0;
+}
+
+.admin-panel-cabecera > div {
+  min-width: 0;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE DE ACCESOS
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .admin-accesos-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+}
+
+
+
+
+
+@media (max-width: 420px) {
+
+  .admin-acceso {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .admin-acceso-icono {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .admin-acceso h4 {
+    white-space: normal;
+  }
+
+}
+
+
+/* =========================================================
+   SOLICITUDES, REUNIONES Y ACTIVIDAD
+========================================================= */
+
+#listaSolicitudesRecientes,
+#listaProximasReuniones,
+#listaActividadReciente {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   ESTADOS VACÍOS
+========================================================= */
+
+.admin-panel-vacio {
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-panel-vacio > div {
+  width: 100%;
+  max-width: 460px;
+}
+
+.admin-panel-vacio h4,
+.admin-panel-vacio p {
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.admin-indicador {
+  min-width: 0;
+}
+
+.admin-indicador-etiqueta,
+.admin-indicador-detalle {
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1260px) {
+
+  .admin-grid-principal,
+  .admin-grid-dos {
+    gap: 22px;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .admin-comunidad-principal section + section {
+    margin-top: 20px;
+  }
+
+  .dashboard-segunda-fila {
+    margin-top: 20px;
+  }
+
+  .admin-acceso {
+    min-height: 82px;
+  }
+
+  .admin-acceso h4 {
+    font-size: 0.9rem;
+  }
+
+  .admin-acceso p {
+    font-size: 0.75rem;
+  }
+
+}
+
+
+@media (max-width: 420px) {
+
+  .admin-acceso {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .admin-acceso-icono {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+}

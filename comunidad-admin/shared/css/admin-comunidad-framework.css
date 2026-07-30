@@ -1,0 +1,1990 @@
+/* =========================================================
+   FALCO® COMUNIDAD ADMIN
+   Framework visual compartido
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+  --falco-admin-fondo: #07111f;
+  --falco-admin-fondo-secundario: #0b1728;
+  --falco-admin-superficie: #101f33;
+  --falco-admin-superficie-elevada: #152740;
+  --falco-admin-superficie-suave: #0d1b2d;
+
+  --falco-admin-dorado: #c9a96e;
+  --falco-admin-dorado-claro: #e0c38d;
+  --falco-admin-dorado-oscuro: #9e7b42;
+
+  --falco-admin-azul: #1c3757;
+  --falco-admin-azul-claro: #284d77;
+
+  --falco-admin-texto: #f2f5f8;
+  --falco-admin-texto-secundario: #b5c0cd;
+  --falco-admin-texto-suave: #8492a3;
+
+  --falco-admin-borde: rgba(201, 169, 110, 0.18);
+  --falco-admin-borde-fuerte: rgba(201, 169, 110, 0.38);
+  --falco-admin-linea: rgba(255, 255, 255, 0.08);
+
+  --falco-admin-exito: #61c79a;
+  --falco-admin-advertencia: #e5b864;
+  --falco-admin-error: #e47a7a;
+  --falco-admin-info: #78aee8;
+
+  --falco-admin-sombra:
+    0 22px 55px rgba(0, 0, 0, 0.28);
+
+  --falco-admin-sombra-suave:
+    0 12px 30px rgba(0, 0, 0, 0.18);
+
+  --falco-admin-radio-grande: 24px;
+  --falco-admin-radio: 18px;
+  --falco-admin-radio-pequeno: 12px;
+
+  --falco-admin-sidebar-ancho: 286px;
+  --falco-admin-header-alto: 88px;
+
+  --falco-admin-transicion:
+    220ms ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--falco-admin-texto);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(40, 77, 119, 0.2),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      var(--falco-admin-fondo) 0%,
+      #091626 48%,
+      #06101c 100%
+    );
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.menu-admin-abierto {
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.salto-contenido-admin {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+
+  padding: 12px 18px;
+
+  color: #07111f;
+  font-weight: 800;
+
+  background: var(--falco-admin-dorado-claro);
+  border-radius: 10px;
+
+  transform: translateY(-150%);
+  transition: transform var(--falco-admin-transicion);
+}
+
+.salto-contenido-admin:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(224, 195, 141, 0.8);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ESTRUCTURA GENERAL
+========================================================= */
+
+.admin-comunidad-app {
+  min-height: 100vh;
+}
+
+.admin-comunidad-layout {
+  display: grid;
+
+  grid-template-columns:
+    var(--falco-admin-sidebar-ancho)
+    minmax(0, 1fr);
+
+  min-height: 100vh;
+}
+
+.admin-comunidad-sidebar-host {
+  position: relative;
+  z-index: 100;
+}
+
+.admin-comunidad-principal {
+  min-width: 0;
+  min-height: 100vh;
+
+  padding:
+    30px
+    clamp(22px, 4vw, 56px)
+    60px;
+}
+
+.admin-contenedor {
+  width: min(100%, 1480px);
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   CABECERA SUPERIOR
+========================================================= */
+
+.admin-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  min-height: var(--falco-admin-header-alto);
+  margin-bottom: 34px;
+
+  padding: 18px 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 31, 51, 0.92),
+      rgba(10, 24, 41, 0.84)
+    );
+
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: var(--falco-admin-radio-grande);
+
+  box-shadow: var(--falco-admin-sombra-suave);
+
+  backdrop-filter: blur(16px);
+}
+
+.admin-cabecera-identidad {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.admin-cabecera-simbolo {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+
+  color: var(--falco-admin-dorado-claro);
+  font-family: "Playfair Display", serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(201, 169, 110, 0.17),
+      rgba(201, 169, 110, 0.05)
+    );
+
+  border: 1px solid var(--falco-admin-borde-fuerte);
+  border-radius: 15px;
+}
+
+.admin-cabecera-texto {
+  min-width: 0;
+}
+
+.admin-cabecera-texto p {
+  margin-bottom: 5px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.admin-cabecera-texto h1 {
+  margin: 0;
+
+  color: var(--falco-admin-texto);
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.18;
+}
+
+.admin-cabecera-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BOTÓN MENÚ MÓVIL
+========================================================= */
+
+.admin-boton-menu {
+  display: none;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  color: var(--falco-admin-texto);
+
+  background: var(--falco-admin-superficie-elevada);
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    transform var(--falco-admin-transicion);
+}
+
+.admin-boton-menu:hover {
+  background: var(--falco-admin-azul);
+  border-color: var(--falco-admin-borde-fuerte);
+}
+
+.admin-boton-menu:active {
+  transform: scale(0.96);
+}
+
+.admin-boton-menu-lineas {
+  display: grid;
+  gap: 4px;
+}
+
+.admin-boton-menu-lineas span {
+  display: block;
+
+  width: 19px;
+  height: 2px;
+
+  background: currentColor;
+  border-radius: 999px;
+
+  transition:
+    transform var(--falco-admin-transicion),
+    opacity var(--falco-admin-transicion);
+}
+
+.admin-boton-menu.menu-activo
+.admin-boton-menu-lineas span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.admin-boton-menu.menu-activo
+.admin-boton-menu-lineas span:nth-child(2) {
+  opacity: 0;
+}
+
+.admin-boton-menu.menu-activo
+.admin-boton-menu-lineas span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   PRESENTACIÓN DE PÁGINA
+========================================================= */
+
+.admin-presentacion {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+
+  margin-bottom: 28px;
+}
+
+.admin-presentacion-contenido {
+  max-width: 860px;
+}
+
+.admin-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 12px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.admin-eyebrow::before {
+  content: "";
+
+  width: 30px;
+  height: 1px;
+
+  background: var(--falco-admin-dorado);
+}
+
+.admin-presentacion h2 {
+  margin-bottom: 12px;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+.admin-presentacion h2 span {
+  color: var(--falco-admin-dorado-claro);
+}
+
+.admin-presentacion-descripcion {
+  max-width: 760px;
+  margin-bottom: 0;
+
+  color: var(--falco-admin-texto-secundario);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.admin-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 46px;
+  padding: 12px 18px;
+
+  color: var(--falco-admin-texto);
+
+  font-size: 0.88rem;
+  font-weight: 750;
+  line-height: 1;
+
+  background: var(--falco-admin-superficie-elevada);
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: 13px;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion),
+    color var(--falco-admin-transicion),
+    box-shadow var(--falco-admin-transicion);
+}
+
+.admin-boton:hover {
+  transform: translateY(-2px);
+
+  background: var(--falco-admin-azul);
+  border-color: var(--falco-admin-borde-fuerte);
+}
+
+.admin-boton:active {
+  transform: translateY(0);
+}
+
+.admin-boton:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.admin-boton-primario {
+  color: #09111d;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--falco-admin-dorado-claro),
+      var(--falco-admin-dorado)
+    );
+
+  border-color: transparent;
+
+  box-shadow:
+    0 14px 28px rgba(201, 169, 110, 0.16);
+}
+
+.admin-boton-primario:hover {
+  color: #07111f;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eed39c,
+      var(--falco-admin-dorado-claro)
+    );
+
+  border-color: transparent;
+}
+
+.admin-boton-secundario {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.admin-boton-peligro {
+  color: #ffd7d7;
+
+  background: rgba(228, 122, 122, 0.1);
+  border-color: rgba(228, 122, 122, 0.3);
+}
+
+.admin-boton-peligro:hover {
+  background: rgba(228, 122, 122, 0.18);
+  border-color: rgba(228, 122, 122, 0.5);
+}
+
+.admin-boton-icono {
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+}
+
+
+/* =========================================================
+   TARJETAS DE INDICADORES
+========================================================= */
+
+.admin-indicadores-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 30px;
+}
+
+.admin-indicador {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 180px;
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(21, 39, 64, 0.94),
+      rgba(12, 27, 46, 0.94)
+    );
+
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: var(--falco-admin-radio-grande);
+
+  box-shadow: var(--falco-admin-sombra-suave);
+
+  transition:
+    transform var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion),
+    box-shadow var(--falco-admin-transicion);
+}
+
+.admin-indicador::after {
+  content: "";
+
+  position: absolute;
+  right: -38px;
+  bottom: -48px;
+
+  width: 130px;
+  height: 130px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(201, 169, 110, 0.13),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+.admin-indicador:hover {
+  transform: translateY(-4px);
+  border-color: var(--falco-admin-borde-fuerte);
+  box-shadow: var(--falco-admin-sombra);
+}
+
+.admin-indicador-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+
+  margin-bottom: 25px;
+}
+
+.admin-indicador-etiqueta {
+  margin: 0;
+
+  color: var(--falco-admin-texto-secundario);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-indicador-icono {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  background: rgba(201, 169, 110, 0.1);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 13px;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.admin-indicador-valor {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--falco-admin-texto);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.admin-indicador-detalle {
+  margin: 0;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.admin-panel {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 31, 51, 0.95),
+      rgba(10, 24, 41, 0.95)
+    );
+
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: var(--falco-admin-radio-grande);
+
+  box-shadow: var(--falco-admin-sombra-suave);
+}
+
+.admin-panel-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 23px 24px;
+
+  border-bottom: 1px solid var(--falco-admin-linea);
+}
+
+.admin-panel-cabecera h3 {
+  margin-bottom: 5px;
+
+  color: var(--falco-admin-texto);
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.34rem;
+  font-weight: 600;
+}
+
+.admin-panel-cabecera p {
+  margin: 0;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.admin-panel-contenido {
+  padding: 24px;
+}
+
+.admin-panel-vacio {
+  display: grid;
+  place-items: center;
+
+  min-height: 220px;
+  padding: 30px;
+
+  text-align: center;
+}
+
+.admin-panel-vacio-icono {
+  display: grid;
+  place-items: center;
+
+  width: 58px;
+  height: 58px;
+  margin-bottom: 16px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  background: rgba(201, 169, 110, 0.08);
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: 18px;
+
+  font-size: 1.3rem;
+}
+
+.admin-panel-vacio h4 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.admin-panel-vacio p {
+  max-width: 430px;
+  margin-bottom: 0;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   GRILLAS
+========================================================= */
+
+.admin-grid-principal {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(320px, 0.85fr);
+
+  gap: 20px;
+}
+
+.admin-grid-dos {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.admin-grid-tres {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   ACCESOS RÁPIDOS
+========================================================= */
+
+.admin-accesos-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.admin-acceso {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  min-height: 92px;
+  padding: 17px;
+
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--falco-admin-linea);
+  border-radius: 16px;
+
+  transition:
+    transform var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion);
+}
+
+.admin-acceso:hover {
+  transform: translateY(-3px);
+
+  background: rgba(40, 77, 119, 0.18);
+  border-color: var(--falco-admin-borde-fuerte);
+}
+
+.admin-acceso-icono {
+  display: grid;
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  background: rgba(201, 169, 110, 0.08);
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: 14px;
+
+  font-weight: 800;
+}
+
+.admin-acceso-contenido {
+  min-width: 0;
+}
+
+.admin-acceso h4 {
+  margin-bottom: 5px;
+
+  color: var(--falco-admin-texto);
+
+  font-size: 0.91rem;
+  font-weight: 750;
+}
+
+.admin-acceso p {
+  margin: 0;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   LISTADOS
+========================================================= */
+
+.admin-lista {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-lista-item {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+  gap: 15px;
+
+  padding: 15px 16px;
+
+  background: rgba(255, 255, 255, 0.024);
+  border: 1px solid var(--falco-admin-linea);
+  border-radius: 15px;
+
+  transition:
+    background var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion);
+}
+
+.admin-lista-item:hover {
+  background: rgba(40, 77, 119, 0.14);
+  border-color: var(--falco-admin-borde);
+}
+
+.admin-lista-marca {
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  background: rgba(201, 169, 110, 0.07);
+  border: 1px solid var(--falco-admin-borde);
+  border-radius: 12px;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.admin-lista-contenido {
+  min-width: 0;
+}
+
+.admin-lista-contenido strong {
+  display: block;
+  margin-bottom: 4px;
+
+  color: var(--falco-admin-texto);
+
+  font-size: 0.87rem;
+}
+
+.admin-lista-contenido span {
+  display: block;
+
+  overflow: hidden;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.75rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.admin-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  width: fit-content;
+  padding: 7px 10px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+
+.admin-estado::before {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.admin-estado-nueva {
+  color: var(--falco-admin-info);
+
+  background: rgba(120, 174, 232, 0.1);
+  border-color: rgba(120, 174, 232, 0.22);
+}
+
+.admin-estado-pendiente {
+  color: var(--falco-admin-advertencia);
+
+  background: rgba(229, 184, 100, 0.1);
+  border-color: rgba(229, 184, 100, 0.22);
+}
+
+.admin-estado-activa {
+  color: var(--falco-admin-exito);
+
+  background: rgba(97, 199, 154, 0.1);
+  border-color: rgba(97, 199, 154, 0.22);
+}
+
+.admin-estado-finalizada {
+  color: var(--falco-admin-texto-secundario);
+
+  background: rgba(181, 192, 205, 0.08);
+  border-color: rgba(181, 192, 205, 0.16);
+}
+
+.admin-estado-cancelada {
+  color: var(--falco-admin-error);
+
+  background: rgba(228, 122, 122, 0.1);
+  border-color: rgba(228, 122, 122, 0.22);
+}
+
+
+/* =========================================================
+   TABLAS
+========================================================= */
+
+.admin-tabla-contenedor {
+  overflow-x: auto;
+
+  border: 1px solid var(--falco-admin-linea);
+  border-radius: 16px;
+}
+
+.admin-tabla {
+  width: 100%;
+  min-width: 760px;
+
+  border-collapse: collapse;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+  padding: 15px 17px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  border-bottom: 1px solid var(--falco-admin-linea);
+}
+
+.admin-tabla th {
+  color: var(--falco-admin-texto-secundario);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.admin-tabla td {
+  color: var(--falco-admin-texto-secundario);
+
+  font-size: 0.82rem;
+}
+
+.admin-tabla tbody tr {
+  transition: background var(--falco-admin-transicion);
+}
+
+.admin-tabla tbody tr:hover {
+  background: rgba(40, 77, 119, 0.1);
+}
+
+.admin-tabla tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-tabla-principal {
+  display: block;
+
+  color: var(--falco-admin-texto);
+
+  font-weight: 700;
+}
+
+.admin-tabla-secundario {
+  display: block;
+  margin-top: 4px;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.73rem;
+}
+
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+.admin-formulario {
+  display: grid;
+  gap: 22px;
+}
+
+.admin-formulario-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.admin-campo {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-campo-completo {
+  grid-column: 1 / -1;
+}
+
+.admin-campo label {
+  color: var(--falco-admin-texto-secundario);
+
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.admin-campo input,
+.admin-campo select,
+.admin-campo textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+
+  color: var(--falco-admin-texto);
+
+  background: rgba(5, 15, 27, 0.66);
+  border: 1px solid var(--falco-admin-linea);
+  border-radius: 12px;
+
+  outline: none;
+
+  transition:
+    border-color var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    box-shadow var(--falco-admin-transicion);
+}
+
+.admin-campo textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.admin-campo input::placeholder,
+.admin-campo textarea::placeholder {
+  color: var(--falco-admin-texto-suave);
+}
+
+.admin-campo input:focus,
+.admin-campo select:focus,
+.admin-campo textarea:focus {
+  background: rgba(8, 21, 37, 0.88);
+  border-color: var(--falco-admin-dorado-oscuro);
+
+  box-shadow:
+    0 0 0 4px rgba(201, 169, 110, 0.08);
+}
+
+.admin-campo-ayuda {
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.admin-campo-error {
+  color: var(--falco-admin-error);
+
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.admin-campo.campo-invalido input,
+.admin-campo.campo-invalido select,
+.admin-campo.campo-invalido textarea {
+  border-color: rgba(228, 122, 122, 0.6);
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.admin-mensaje {
+  display: none;
+
+  padding: 14px 16px;
+
+  font-size: 0.8rem;
+  line-height: 1.55;
+
+  border: 1px solid transparent;
+  border-radius: 13px;
+}
+
+.admin-mensaje.visible {
+  display: block;
+}
+
+.admin-mensaje-exito {
+  color: #bdf0d8;
+
+  background: rgba(97, 199, 154, 0.1);
+  border-color: rgba(97, 199, 154, 0.24);
+}
+
+.admin-mensaje-error {
+  color: #ffd2d2;
+
+  background: rgba(228, 122, 122, 0.1);
+  border-color: rgba(228, 122, 122, 0.25);
+}
+
+.admin-mensaje-info {
+  color: #cbe2fb;
+
+  background: rgba(120, 174, 232, 0.1);
+  border-color: rgba(120, 174, 232, 0.24);
+}
+
+
+/* =========================================================
+   SEPARADORES Y UTILIDADES
+========================================================= */
+
+.admin-separador {
+  width: 100%;
+  height: 1px;
+
+  margin: 22px 0;
+
+  background: var(--falco-admin-linea);
+  border: 0;
+}
+
+.admin-texto-suave {
+  color: var(--falco-admin-texto-suave);
+}
+
+.admin-texto-dorado {
+  color: var(--falco-admin-dorado-claro);
+}
+
+.admin-solo-escritorio {
+  display: initial;
+}
+
+.admin-solo-movil {
+  display: none;
+}
+
+.admin-oculto {
+  display: none !important;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.admin-loader {
+  display: inline-block;
+
+  width: 24px;
+  height: 24px;
+
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--falco-admin-dorado-claro);
+  border-radius: 50%;
+
+  animation:
+    falcoAdminGirar
+    700ms linear infinite;
+}
+
+@keyframes falcoAdminGirar {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1260px) {
+
+  .admin-indicadores-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-grid-principal {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 1024px) {
+
+  .admin-comunidad-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-comunidad-sidebar-host {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 500;
+
+    width: min(
+      var(--falco-admin-sidebar-ancho),
+      88vw
+    );
+
+    transform: translateX(-105%);
+    transition:
+      transform
+      260ms ease;
+  }
+
+  .admin-comunidad-sidebar-host.menu-abierto {
+    transform: translateX(0);
+  }
+
+  .admin-boton-menu {
+    display: grid;
+  }
+
+  .admin-comunidad-principal {
+    padding-top: 20px;
+  }
+
+  .admin-cabecera {
+    min-height: 74px;
+  }
+
+  .admin-grid-tres {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .admin-comunidad-principal {
+    padding:
+      16px
+      14px
+      42px;
+  }
+
+  .admin-cabecera {
+    align-items: center;
+    margin-bottom: 26px;
+    padding: 14px;
+
+    border-radius: 18px;
+  }
+
+  .admin-cabecera-simbolo {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+
+    border-radius: 13px;
+  }
+
+  .admin-cabecera-texto p {
+    font-size: 0.62rem;
+  }
+
+  .admin-cabecera-texto h1 {
+    font-size: 1.1rem;
+  }
+
+  .admin-cabecera-acciones
+  .admin-boton:not(.admin-boton-icono) {
+    display: none;
+  }
+
+  .admin-presentacion {
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin-bottom: 24px;
+  }
+
+  .admin-presentacion h2 {
+    font-size: 2.15rem;
+  }
+
+  .admin-indicadores-grid,
+  .admin-grid-dos,
+  .admin-grid-tres,
+  .admin-accesos-grid,
+  .admin-formulario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-indicador {
+    min-height: 160px;
+  }
+
+  .admin-panel-cabecera {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-panel-cabecera .admin-boton {
+    width: 100%;
+  }
+
+  .admin-lista-item {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr);
+  }
+
+  .admin-lista-item > :last-child {
+    grid-column: 2;
+  }
+
+  .admin-solo-escritorio {
+    display: none !important;
+  }
+
+  .admin-solo-movil {
+    display: initial;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .admin-cabecera {
+    gap: 10px;
+  }
+
+  .admin-cabecera-identidad {
+    gap: 10px;
+  }
+
+  .admin-cabecera-texto p {
+    display: none;
+  }
+
+  .admin-presentacion h2 {
+    font-size: 1.9rem;
+  }
+
+  .admin-presentacion-descripcion {
+    font-size: 0.9rem;
+  }
+
+  .admin-indicador,
+  .admin-panel-contenido,
+  .admin-panel-cabecera {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   FALCO® COMUNIDAD ADMIN
+   SIDEBAR REUTILIZABLE
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.comunidad-admin-sidebar {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: var(--falco-admin-sidebar-ancho);
+  height: 100vh;
+  min-height: 100vh;
+
+  padding: 22px 17px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(201, 169, 110, 0.1),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #0b192b 0%,
+      #081421 55%,
+      #06101c 100%
+    );
+
+  border-right: 1px solid var(--falco-admin-borde);
+
+  box-shadow:
+    16px 0 42px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   CABECERA DEL SIDEBAR
+========================================================= */
+
+.comunidad-admin-sidebar-cabecera {
+  padding: 4px 5px 24px;
+
+  border-bottom: 1px solid var(--falco-admin-linea);
+}
+
+.comunidad-admin-marca {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  min-width: 0;
+  padding: 9px;
+
+  border-radius: 16px;
+
+  transition:
+    background var(--falco-admin-transicion),
+    transform var(--falco-admin-transicion);
+}
+
+.comunidad-admin-marca:hover {
+  background: rgba(255, 255, 255, 0.035);
+  transform: translateY(-1px);
+}
+
+.comunidad-admin-marca-simbolo {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(201, 169, 110, 0.18),
+      rgba(201, 169, 110, 0.04)
+    );
+
+  border: 1px solid var(--falco-admin-borde-fuerte);
+  border-radius: 15px;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+.comunidad-admin-marca-texto {
+  display: grid;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.comunidad-admin-marca-texto strong {
+  overflow: hidden;
+
+  color: var(--falco-admin-texto);
+
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comunidad-admin-marca-texto strong sup {
+  position: relative;
+  top: -0.25em;
+
+  margin-left: 1px;
+
+  color: var(--falco-admin-dorado-claro);
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.45em;
+}
+
+.comunidad-admin-marca-texto small {
+  overflow: hidden;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+.comunidad-admin-navegacion {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+
+  flex: 1;
+
+  min-height: 0;
+  padding: 23px 4px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(201, 169, 110, 0.3)
+    transparent;
+}
+
+.comunidad-admin-navegacion::-webkit-scrollbar {
+  width: 6px;
+}
+
+.comunidad-admin-navegacion::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.comunidad-admin-navegacion::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.22);
+  border-radius: 999px;
+}
+
+.comunidad-admin-navegacion::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 169, 110, 0.38);
+}
+
+
+/* =========================================================
+   ENLACES
+========================================================= */
+
+.comunidad-admin-enlace {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  min-height: 50px;
+  padding: 9px 12px;
+
+  color: var(--falco-admin-texto-secundario);
+
+  border: 1px solid transparent;
+  border-radius: 14px;
+
+  transition:
+    color var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion),
+    transform var(--falco-admin-transicion);
+}
+
+.comunidad-admin-enlace::before {
+  content: "";
+
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: -5px;
+
+  width: 3px;
+
+  background: transparent;
+  border-radius: 999px;
+
+  transition:
+    background var(--falco-admin-transicion),
+    box-shadow var(--falco-admin-transicion);
+}
+
+.comunidad-admin-enlace:hover {
+  color: var(--falco-admin-texto);
+
+  background: rgba(40, 77, 119, 0.18);
+  border-color: rgba(201, 169, 110, 0.1);
+
+  transform: translateX(2px);
+}
+
+.comunidad-admin-enlace-icono {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--falco-admin-linea);
+  border-radius: 10px;
+
+  transition:
+    color var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion),
+    transform var(--falco-admin-transicion);
+}
+
+.comunidad-admin-enlace-texto {
+  overflow: hidden;
+
+  font-size: 0.84rem;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comunidad-admin-enlace:hover
+.comunidad-admin-enlace-icono {
+  color: var(--falco-admin-dorado-claro);
+
+  background: rgba(201, 169, 110, 0.08);
+  border-color: var(--falco-admin-borde);
+
+  transform: scale(1.03);
+}
+
+
+/* =========================================================
+   ENLACE ACTIVO
+========================================================= */
+
+.comunidad-admin-enlace.enlace-activo {
+  color: var(--falco-admin-texto);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(201, 169, 110, 0.14),
+      rgba(40, 77, 119, 0.16)
+    );
+
+  border-color: var(--falco-admin-borde);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 10px 24px rgba(0, 0, 0, 0.11);
+}
+
+.comunidad-admin-enlace.enlace-activo::before {
+  background: var(--falco-admin-dorado-claro);
+
+  box-shadow:
+    0 0 14px rgba(224, 195, 141, 0.45);
+}
+
+.comunidad-admin-enlace.enlace-activo
+.comunidad-admin-enlace-icono {
+  color: #07111f;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--falco-admin-dorado-claro),
+      var(--falco-admin-dorado)
+    );
+
+  border-color: transparent;
+
+  box-shadow:
+    0 8px 18px rgba(201, 169, 110, 0.15);
+}
+
+
+/* =========================================================
+   ZONA INFERIOR
+========================================================= */
+
+.comunidad-admin-sidebar-inferior {
+  display: grid;
+  gap: 9px;
+
+  padding: 17px 4px 2px;
+
+  border-top: 1px solid var(--falco-admin-linea);
+}
+
+.comunidad-admin-volver {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 44px;
+  padding: 10px 12px;
+
+  color: var(--falco-admin-texto-suave);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--falco-admin-linea);
+  border-radius: 12px;
+
+  transition:
+    color var(--falco-admin-transicion),
+    background var(--falco-admin-transicion),
+    border-color var(--falco-admin-transicion),
+    transform var(--falco-admin-transicion);
+}
+
+.comunidad-admin-volver span:first-child {
+  color: var(--falco-admin-dorado-claro);
+
+  font-size: 1rem;
+
+  transition:
+    transform var(--falco-admin-transicion);
+}
+
+.comunidad-admin-volver:hover {
+  color: var(--falco-admin-texto);
+
+  background: rgba(40, 77, 119, 0.16);
+  border-color: var(--falco-admin-borde);
+
+  transform: translateY(-1px);
+}
+
+.comunidad-admin-volver:hover span:first-child {
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   FONDO MÓVIL
+========================================================= */
+
+.comunidad-admin-sidebar-fondo {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+
+  background: rgba(1, 7, 13, 0.68);
+  border: 0;
+
+  opacity: 0;
+  visibility: hidden;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(4px);
+
+  transition:
+    opacity 240ms ease,
+    visibility 240ms ease;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .admin-comunidad-sidebar-host {
+    overflow: visible;
+  }
+
+  .comunidad-admin-sidebar {
+    position: relative;
+    top: auto;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+
+    box-shadow:
+      22px 0 60px rgba(0, 0, 0, 0.42);
+  }
+
+  .comunidad-admin-sidebar-fondo {
+    display: block;
+
+    left: 100%;
+    z-index: -1;
+  }
+
+  .admin-comunidad-sidebar-host.menu-abierto
+  .comunidad-admin-sidebar-fondo {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .comunidad-admin-sidebar {
+    padding:
+      18px
+      14px;
+  }
+
+  .comunidad-admin-marca {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .comunidad-admin-marca-simbolo {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+
+    font-size: 1.5rem;
+  }
+
+  .comunidad-admin-enlace {
+    min-height: 48px;
+  }
+
+}

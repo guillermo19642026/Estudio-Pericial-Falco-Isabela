@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Ficha administrativa de instituciones en FALCO Comunidad."
+  >
+
+  <title>
+    Ficha de la institución | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="institucion.css"
+  >
+
+</head>
+
+
+<body>
+
+  <a
+    class="salto-contenido-admin"
+    href="#contenidoPrincipal"
+  >
+    Ir al contenido principal
+  </a>
+
+
+  <div class="admin-comunidad-app">
+
+    <div class="admin-comunidad-layout">
+
+
+      <!-- =================================================
+           SIDEBAR
+      ================================================== -->
+
+      <div class="admin-comunidad-sidebar-host">
+
+        <falco-comunidad-sidebar
+          data-active="instituciones"
+          data-base="../"
+        ></falco-comunidad-sidebar>
+
+      </div>
+
+
+      <!-- =================================================
+           CONTENIDO PRINCIPAL
+      ================================================== -->
+
+      <main
+        id="contenidoPrincipal"
+        class="admin-comunidad-principal"
+      >
+
+        <div class="admin-contenedor">
+
+
+          <!-- =============================================
+               CABECERA
+          ============================================== -->
+
+          <header class="admin-cabecera">
+
+            <div class="admin-cabecera-identidad">
+
+              <button
+                id="botonMenuAdmin"
+                class="admin-boton-menu"
+                type="button"
+                aria-label="Abrir menú administrativo"
+                aria-expanded="false"
+              >
+
+                <span
+                  class="admin-boton-menu-lineas"
+                  aria-hidden="true"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+
+              </button>
+
+
+              <span
+                class="admin-cabecera-simbolo"
+                aria-hidden="true"
+              >
+                F
+              </span>
+
+
+              <div class="admin-cabecera-texto">
+
+                <p>
+                  FALCO® Comunidad
+                </p>
+
+                <h1>
+                  Ficha de la institución
+                </h1>
+
+              </div>
+
+            </div>
+
+
+            <div class="admin-cabecera-acciones">
+
+              <a
+                class="admin-boton admin-boton-secundario"
+                href="instituciones.html"
+              >
+                Volver al listado
+              </a>
+
+            </div>
+
+          </header>
+
+
+          <!-- =============================================
+               ESTADO DE CARGA
+          ============================================== -->
+
+          <section
+            id="estadoCargaInstitucion"
+            class="institucion-carga"
+          >
+
+            <div class="institucion-carga-indicador"></div>
+
+            <p>
+              Cargando información institucional...
+            </p>
+
+          </section>
+
+
+          <!-- =============================================
+               ERROR
+          ============================================== -->
+
+          <section
+            id="estadoErrorInstitucion"
+            class="institucion-error-general"
+            hidden
+          >
+
+            <span
+              class="institucion-error-icono"
+              aria-hidden="true"
+            >
+              !
+            </span>
+
+            <h2>
+              No pudimos cargar la institución
+            </h2>
+
+            <p id="textoErrorInstitucion">
+              Verificá el enlace o regresá al listado institucional.
+            </p>
+
+            <a
+              class="admin-boton admin-boton-primario"
+              href="instituciones.html"
+            >
+              Volver a instituciones
+            </a>
+
+          </section>
+
+
+          <!-- =============================================
+               CONTENIDO DE LA FICHA
+          ============================================== -->
+
+          <div
+            id="contenidoInstitucion"
+            class="institucion-contenido"
+            hidden
+          >
+
+
+            <!-- ===========================================
+                 IDENTIDAD
+            ============================================ -->
+
+            <section class="institucion-hero">
+
+              <div class="institucion-hero-identidad">
+
+                <span
+                  id="avatarInstitucion"
+                  class="institucion-hero-avatar"
+                  aria-hidden="true"
+                >
+                  I
+                </span>
+
+
+                <div class="institucion-hero-texto">
+
+                  <span
+                    id="tipoInstitucion"
+                    class="institucion-hero-tipo"
+                  >
+                    Institución
+                  </span>
+
+                  <h2 id="nombreInstitucion">
+                    Institución
+                  </h2>
+
+                  <p id="ubicacionInstitucion">
+                    Sin ubicación registrada
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="institucion-hero-acciones">
+
+                <span
+                  id="estadoInstitucion"
+                  class="institucion-estado institucion-estado-pendiente"
+                >
+                  Pendiente
+                </span>
+
+                <button
+                  id="botonEditarInstitucion"
+                  class="admin-boton admin-boton-primario"
+                  type="button"
+                >
+                  Editar institución
+                </button>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 RESUMEN
+            ============================================ -->
+
+            <section class="institucion-resumen-grid">
+
+              <article class="institucion-resumen-item">
+
+                <span class="institucion-resumen-etiqueta">
+                  Referente
+                </span>
+
+                <strong id="resumenReferenteInstitucion">
+                  Sin referente
+                </strong>
+
+                <small id="resumenCargoInstitucion">
+                  Sin cargo informado
+                </small>
+
+              </article>
+
+
+              <article class="institucion-resumen-item">
+
+                <span class="institucion-resumen-etiqueta">
+                  Contacto
+                </span>
+
+                <strong id="resumenCorreoInstitucion">
+                  Sin correo registrado
+                </strong>
+
+                <small id="resumenTelefonoInstitucion">
+                  Sin teléfono informado
+                </small>
+
+              </article>
+
+
+              <article class="institucion-resumen-item">
+
+                <span class="institucion-resumen-etiqueta">
+                  Fecha de alta
+                </span>
+
+                <strong id="resumenFechaAltaInstitucion">
+                  Sin información
+                </strong>
+
+                <small id="resumenIdInstitucion">
+                  Sin identificador
+                </small>
+
+              </article>
+
+            </section>
+
+
+            <!-- ===========================================
+                 INFORMACIÓN PRINCIPAL
+            ============================================ -->
+
+            <section class="admin-panel institucion-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Información institucional
+                  </h3>
+
+                  <p>
+                    Datos generales registrados para esta organización.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="institucion-datos-grid">
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Nombre
+                  </span>
+
+                  <strong id="datoNombreInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Tipo
+                  </span>
+
+                  <strong id="datoTipoInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Estado
+                  </span>
+
+                  <strong id="datoEstadoInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato institucion-dato-completo">
+
+                  <span>
+                    Descripción institucional
+                  </span>
+
+                  <p id="datoDescripcionInstitucion">
+                    Sin descripción registrada.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 REFERENTE
+            ============================================ -->
+
+            <section class="admin-panel institucion-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Referente institucional
+                  </h3>
+
+                  <p>
+                    Persona de contacto vinculada con la institución.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="institucion-datos-grid">
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Nombre y apellido
+                  </span>
+
+                  <strong id="datoReferenteInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Cargo o función
+                  </span>
+
+                  <strong id="datoCargoInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Correo electrónico
+                  </span>
+
+                  <a
+                    id="datoCorreoInstitucion"
+                    href="#"
+                  >
+                    —
+                  </a>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Teléfono
+                  </span>
+
+                  <a
+                    id="datoTelefonoInstitucion"
+                    href="#"
+                  >
+                    —
+                  </a>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 UBICACIÓN
+            ============================================ -->
+
+            <section class="admin-panel institucion-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Ubicación
+                  </h3>
+
+                  <p>
+                    Domicilio institucional informado.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="institucion-datos-grid">
+
+                <div class="institucion-dato institucion-dato-completo">
+
+                  <span>
+                    Dirección
+                  </span>
+
+                  <strong id="datoDireccionInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Localidad
+                  </span>
+
+                  <strong id="datoLocalidadInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+
+                <div class="institucion-dato">
+
+                  <span>
+                    Provincia
+                  </span>
+
+                  <strong id="datoProvinciaInstitucion">
+                    —
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 OBSERVACIONES
+            ============================================ -->
+
+            <section class="admin-panel institucion-panel">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Observaciones administrativas
+                  </h3>
+
+                  <p>
+                    Información interna vinculada con la institución.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="institucion-observaciones">
+
+                <p id="datoObservacionesInstitucion">
+                  Sin observaciones registradas.
+                </p>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 ADMINISTRACIÓN
+            ============================================ -->
+
+            <section class="admin-panel institucion-panel institucion-panel-administracion">
+
+              <div class="admin-panel-cabecera">
+
+                <div>
+
+                  <h3>
+                    Administración institucional
+                  </h3>
+
+                  <p>
+                    Acciones disponibles para este registro.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="institucion-administracion-acciones">
+
+                <button
+                  id="botonCambiarEstadoInstitucion"
+                  class="admin-boton admin-boton-secundario"
+                  type="button"
+                >
+                  Cambiar estado
+                </button>
+
+                <button
+                  id="botonEliminarInstitucion"
+                  class="admin-boton institucion-boton-peligro"
+                  type="button"
+                >
+                  Eliminar institución
+                </button>
+
+              </div>
+
+            </section>
+
+
+            <!-- ===========================================
+                 MENSAJE
+            ============================================ -->
+
+            <div
+              id="mensajeInstitucion"
+              class="institucion-mensaje"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></div>
+
+
+          </div>
+
+        </div>
+
+      </main>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+  ></script>
+
+  <script
+    src="../shared/js/admin-comunidad-core.js"
+  ></script>
+
+  <script
+    src="institucion.js"
+  ></script>
+
+</body>
+
+</html>

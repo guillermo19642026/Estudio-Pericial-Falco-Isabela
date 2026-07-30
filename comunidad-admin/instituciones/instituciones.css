@@ -1,0 +1,617 @@
+/* =========================================================
+   FALCO® COMUNIDAD ADMIN
+   Instituciones
+   Versión 1.0
+========================================================= */
+
+
+/* =========================================================
+   DISTRIBUCIÓN GENERAL
+========================================================= */
+
+.admin-comunidad-principal section + section {
+  margin-top: 26px;
+}
+
+.admin-cabecera + .admin-presentacion {
+  margin-top: 0;
+}
+
+.admin-presentacion + .instituciones-indicadores {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.instituciones-indicadores {
+  width: 100%;
+}
+
+.instituciones-indicadores .admin-indicador {
+  min-width: 0;
+}
+
+.instituciones-indicadores .admin-indicador-etiqueta,
+.instituciones-indicadores .admin-indicador-detalle {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+
+/* =========================================================
+   PANEL PRINCIPAL
+========================================================= */
+
+.instituciones-panel {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.instituciones-panel-cabecera {
+  gap: 20px;
+}
+
+.instituciones-panel-cabecera > div:first-child {
+  min-width: 0;
+}
+
+.instituciones-panel-cabecera h3 {
+  margin: 0 0 7px;
+}
+
+.instituciones-panel-cabecera p {
+  margin: 0;
+  max-width: 720px;
+}
+
+.instituciones-panel-acciones {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.instituciones-filtros {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 1.7fr)
+    minmax(180px, 0.8fr)
+    minmax(180px, 0.8fr)
+    auto;
+  align-items: end;
+  gap: 16px;
+  padding: 22px 24px;
+  border-top: 1px solid rgba(212, 175, 55, 0.14);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 31, 56, 0.96),
+      rgba(9, 21, 41, 0.98)
+    );
+}
+
+.instituciones-buscador,
+.instituciones-filtro {
+  min-width: 0;
+}
+
+.instituciones-etiqueta {
+  display: block;
+  margin: 0 0 8px;
+  color: rgba(234, 239, 246, 0.78);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.instituciones-control {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 15px;
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(5, 16, 32, 0.84);
+  color: #f5f7fb;
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.instituciones-control::placeholder {
+  color: rgba(220, 228, 239, 0.45);
+}
+
+.instituciones-control:hover {
+  border-color: rgba(212, 175, 55, 0.58);
+}
+
+.instituciones-control:focus {
+  border-color: #d4af37;
+  background: rgba(8, 22, 43, 0.96);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.13);
+}
+
+select.instituciones-control {
+  padding-right: 42px;
+  cursor: pointer;
+  appearance: auto;
+  color-scheme: dark;
+}
+
+select.instituciones-control option {
+  background: #0b1b32;
+  color: #f5f7fb;
+}
+
+select.instituciones-control optgroup {
+  background: #0b1b32;
+  color: #d4af37;
+}
+
+.instituciones-filtro-accion {
+  display: flex;
+  align-items: flex-end;
+}
+
+.instituciones-filtro-accion .admin-boton {
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.instituciones-contenido {
+  min-width: 0;
+  min-height: 310px;
+  padding: 24px;
+}
+
+.instituciones-lista {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 14px;
+}
+
+
+/* =========================================================
+   ESTADO DE CARGA
+========================================================= */
+
+.instituciones-estado-carga {
+  width: 100%;
+  padding: 30px 20px;
+  color: rgba(232, 238, 247, 0.72);
+  font-family: "Inter", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* =========================================================
+   TARJETA DE INSTITUCIÓN
+   Preparada para renderizado desde JavaScript
+========================================================= */
+
+.institucion-item {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 1.3fr)
+    minmax(170px, 0.9fr)
+    minmax(150px, 0.75fr)
+    auto;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 32, 58, 0.94),
+      rgba(9, 22, 42, 0.98)
+    );
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.institucion-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.42);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+}
+
+.institucion-identidad {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.institucion-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(212, 175, 55, 0.36);
+  border-radius: 13px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #d4af37;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.institucion-identidad-texto {
+  min-width: 0;
+}
+
+.institucion-identidad h4 {
+  margin: 0 0 5px;
+  color: #f7f9fc;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.institucion-identidad p {
+  margin: 0;
+  color: rgba(226, 233, 243, 0.58);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.institucion-dato {
+  min-width: 0;
+}
+
+.institucion-dato-etiqueta {
+  display: block;
+  margin-bottom: 5px;
+  color: rgba(212, 175, 55, 0.74);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.institucion-dato-valor {
+  display: block;
+  color: rgba(239, 243, 249, 0.86);
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+.institucion-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: max-content;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.institucion-estado {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.institucion-estado-activa {
+  border-color: rgba(94, 210, 145, 0.32);
+  background: rgba(36, 148, 93, 0.14);
+  color: #82e6ad;
+}
+
+.institucion-estado-pendiente {
+  border-color: rgba(230, 183, 65, 0.36);
+  background: rgba(212, 175, 55, 0.13);
+  color: #e8c96f;
+}
+
+.institucion-estado-inactiva {
+  border-color: rgba(169, 179, 194, 0.26);
+  background: rgba(128, 141, 160, 0.12);
+  color: #bbc4d1;
+}
+
+
+/* =========================================================
+   ESTADO VACÍO
+========================================================= */
+
+.instituciones-contenido .admin-panel-vacio {
+  width: 100%;
+  min-width: 0;
+  min-height: 260px;
+}
+
+.instituciones-contenido .admin-panel-vacio > div {
+  width: 100%;
+  max-width: 520px;
+}
+
+.instituciones-contenido .admin-panel-vacio h4,
+.instituciones-contenido .admin-panel-vacio p {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.instituciones-contenido .admin-panel-vacio .admin-boton {
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   PIE DEL PANEL
+========================================================= */
+
+.instituciones-panel-pie {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 58px;
+  padding: 14px 24px;
+  border-top: 1px solid rgba(212, 175, 55, 0.14);
+  background: rgba(5, 15, 29, 0.46);
+}
+
+.instituciones-panel-pie p {
+  margin: 0;
+  color: rgba(224, 231, 241, 0.58);
+  font-family: "Inter", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.instituciones-control:focus-visible,
+.instituciones-panel .admin-boton:focus-visible,
+.institucion-item a:focus-visible,
+.institucion-item button:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .instituciones-filtros {
+    grid-template-columns:
+      minmax(260px, 1.5fr)
+      minmax(170px, 1fr)
+      minmax(170px, 1fr);
+  }
+
+  .instituciones-filtro-accion {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+
+  .institucion-item {
+    grid-template-columns:
+      minmax(220px, 1.2fr)
+      minmax(160px, 0.8fr)
+      auto;
+  }
+
+  .institucion-item .institucion-dato:nth-of-type(2) {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .instituciones-panel-cabecera {
+    align-items: flex-start;
+  }
+
+  .instituciones-filtros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .instituciones-buscador {
+    grid-column: 1 / -1;
+  }
+
+  .institucion-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .institucion-item .institucion-dato {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .admin-comunidad-principal section + section {
+    margin-top: 20px;
+  }
+
+  .instituciones-panel-cabecera {
+    flex-direction: column;
+  }
+
+  .instituciones-panel-acciones {
+    width: 100%;
+  }
+
+  .instituciones-panel-acciones .admin-boton {
+    width: 100%;
+  }
+
+  .instituciones-filtros {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .instituciones-buscador,
+  .instituciones-filtro,
+  .instituciones-filtro-accion {
+    grid-column: auto;
+  }
+
+  .instituciones-filtro-accion {
+    display: block;
+  }
+
+  .instituciones-filtro-accion .admin-boton {
+    width: 100%;
+  }
+
+  .instituciones-contenido {
+    padding: 18px;
+  }
+
+  .institucion-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 17px;
+  }
+
+  .institucion-acciones {
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  .instituciones-panel-pie {
+    justify-content: center;
+    padding: 14px 18px;
+    text-align: center;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .instituciones-control {
+    height: 46px;
+    font-size: 0.82rem;
+  }
+
+  .institucion-identidad {
+    align-items: flex-start;
+  }
+
+  .institucion-avatar {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .institucion-identidad h4 {
+    font-size: 0.85rem;
+  }
+
+}
+
+
+/* =========================================================
+   CONTROL DE ELEMENTOS OCULTOS
+========================================================= */
+
+[hidden] {
+  display: none !important;
+}
+
+#listaInstituciones[hidden],
+#sinResultadosInstituciones[hidden],
+#estadoCargaInstituciones[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   ACCESO A FICHA INSTITUCIONAL
+========================================================= */
+
+.institucion-item[data-institucion-id] {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.institucion-item[data-institucion-id]:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.42);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.25);
+}
+
+.institucion-item[data-institucion-id]:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
+}
