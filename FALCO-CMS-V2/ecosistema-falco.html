@@ -1,471 +1,1100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
 
-  <title>Ecosistema FALCO® | Plataforma Profesional</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="css/ecosistema-falco.css" />
+  <meta
+    name="description"
+    content="Ecosistema FALCO®. Acceso institucional al Portal del Sistema FALCO® para profesionales, peritos, periciados, alumnos y usuarios habilitados."
+  >
 
-<link
-  rel="stylesheet"
-  href="FALCO-IA/AION-LAB/css/aion-float.css"
->
+  <meta
+    name="author"
+    content="Estudio Pericial Psicológico – Lic. en Psicología Isabela Falco"
+  >
 
+  <title>Ecosistema FALCO® | Acceso Institucional</title>
+
+  <link
+    rel="stylesheet"
+    href="css/ecosistema-falco.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="FALCO-IA/AION-LAB/css/aion-float.css"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../img/favicon.png"
+  >
 
   <script src="https://unpkg.com/lucide@latest"></script>
-
 </head>
 
 <body>
 
-<header class="eco-header">
-  <div class="eco-brand">
-    <img src="https://periciapsicologicafalco.ar/img/logo.png" alt="FALCO®" class="eco-logo">
+  <!-- =====================================================
+       FONDO DECORATIVO
+  ====================================================== -->
 
-    <div>
-      <strong>Ecosistema FALCO®</strong>
-      <span>Plataforma profesional</span>
-    </div>
+  <div class="eco-background" aria-hidden="true">
+    <span class="eco-background__glow eco-background__glow--one"></span>
+    <span class="eco-background__glow eco-background__glow--two"></span>
+    <span class="eco-background__grid"></span>
   </div>
 
-  <nav class="eco-nav">
-<a href="../index.html">Inicio</a>
-    <a href="#modulos">Módulos</a>
-    <a href="#acceso">Acceso</a>
-    <a href="#ayuda">Ayuda</a>
-  </nav>
-</header>
 
-<main>
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-  <section class="eco-hero">
+  <header class="eco-header">
 
-    <div class="eco-hero-text">
+    <a
+      href="../index.html"
+      class="eco-brand"
+      aria-label="Volver al sitio principal del Sistema FALCO"
+    >
+      <img
+        src="../img/logo.png"
+        alt="Logotipo del Sistema FALCO"
+        class="eco-logo"
+      >
 
-      <h1>
-  Centro de <br>
-  <span>Operaciones FALCO®</span>
-</h1>
-
-      <p class="eco-subtitle">
-  El punto de acceso central a toda la plataforma profesional FALCO®.
-</p>
-
-      <p class="eco-description">
-  Desde este espacio se accede a evaluaciones, biblioteca, formación,
-  área profesional, administración y herramientas de gestión.
-</p>
-
-     <div class="eco-tags">
-  <span>Psicología Forense</span>
-  <span>Evaluaciones</span>
-  <span>Biblioteca</span>
-  <span>Formación</span>
-  <span>Gestión Pericial</span>
-</div>
-
-    </div>
-
-    <aside class="eco-login-card" id="login">
-
-<div class="eco-status-panel">
-  <div>
-    <strong>1.0</strong>
-    <span>Versión</span>
-  </div>
-
-  <div>
-    <strong>8</strong>
-    <span>Módulos</span>
-  </div>
-
-  <div>
-    <strong>6</strong>
-    <span>Roles</span>
-  </div>
-
-  <div>
-    <strong>Activo</strong>
-    <span>Estado</span>
-  </div>
-</div>
-
-      <h2>Acceso al Centro de Operaciones</h2>
-<p>Identificá tu perfil para acceder a los módulos habilitados.</p>
-
-      <form id="formLoginEcosistema">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" placeholder="tu@email.com" required>
-
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" placeholder="Contraseña" required>
-
-        <button type="submit">INGRESAR</button>
-      </form>
-
-      <a href="#" class="eco-forgot">¿Olvidaste tu contraseña?</a>
-
-      <p class="eco-login-note">
-        El sistema identificará automáticamente tu perfil y habilitará únicamente
-        los módulos correspondientes.
-      </p>
-    </aside>
-
-  </section>
+      <div class="eco-brand__text">
+        <strong>Ecosistema FALCO®</strong>
+        <span>Acceso institucional</span>
+      </div>
+    </a>
 
 
-<section class="eco-system-status">
-
-  <div>
-    <span>Estado</span>
-    <strong>Operativo</strong>
-  </div>
-
-  <div>
-    <span>Versión</span>
-    <strong>1.0</strong>
-  </div>
-
-  <div>
-    <span>Roles activos</span>
-    <strong>6</strong>
-  </div>
-
-  <div>
-    <span>Módulos</span>
-    <strong>8</strong>
-  </div>
-
-  <div>
-    <span>Última actualización</span>
-    <strong>Julio 2026</strong>
-  </div>
-
-</section>
+    <button
+      type="button"
+      class="eco-menu-button"
+      id="ecoMenuButton"
+      aria-label="Abrir navegación"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
 
+    <nav
+      class="eco-nav"
+      id="ecoNav"
+      aria-label="Navegación del Ecosistema FALCO"
+    >
+      <a href="../index.html">Inicio</a>
+      <a href="#ecosistema">Ecosistema</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#perfiles">Perfiles</a>
+      <a href="#acceso">Acceso</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+
+  </header>
 
 
+  <main>
 
+    <!-- ===================================================
+         HERO Y ACCESO
+    ==================================================== -->
 
-<section class="eco-news">
+    <section
+      class="eco-hero"
+      id="ecosistema"
+    >
 
-  <div class="eco-section-title">
-    <span>Actualizaciones</span>
-    <h2>Novedades del Ecosistema</h2>
-    <p>
-      Información relevante sobre recursos, formación, biblioteca y herramientas profesionales.
-    </p>
-  </div>
+      <div class="eco-hero-text">
 
-  <div class="eco-news-grid">
+        <span class="eco-eyebrow">
+          Sistema FALCO®
+        </span>
 
-    <article class="eco-news-card">
-      <span>Biblioteca</span>
-      <h3>Biblioteca FALCO® en expansión</h3>
-      <p>Nuevos escritos, modelos y recursos profesionales serán incorporados progresivamente.</p>
-    </article>
+        <h1>
+          Un ecosistema profesional,
+          <span>un único acceso institucional.</span>
+        </h1>
 
-    <article class="eco-news-card">
-      <span>Escuela</span>
-      <h3>Curso para Padres FALCO®</h3>
-      <p>El campus permite acceder a módulos, materiales, actividades y certificación.</p>
-    </article>
-
-    <article class="eco-news-card">
-      <span>Centro Profesional</span>
-      <h3>Recursos para peritos</h3>
-      <p>Área técnica para informes, escritos, modelos y herramientas de práctica pericial.</p>
-    </article>
-
-  </div>
-
-</section>
-
-
-
-
-
-  <section class="eco-modules" id="modulos">
-    <div class="eco-section-title">
-      <span>Áreas disponibles</span>
-      <h2>Módulos del Centro de Operaciones</h2>
-      <p>
-        Estas son las áreas que integran el ecosistema. Algunas son públicas
-        para conocer más y otras requieren usuario habilitado.
-      </p>
-    </div>
-
-    <div class="eco-grid">
-
-    <!-- EVALUACIONES -->
-
-    <article class="eco-card">
-
-        <div class="eco-icon">
-            <i data-lucide="brain"></i>
-        </div>
-
-        <h3>Evaluaciones Psicométricas</h3>
-
-        <p>
-            Tests psicológicos, documentación y seguimiento del proceso.
+        <p class="eco-subtitle">
+          Ingrese al Portal Institucional y acceda a las áreas,
+          herramientas y módulos habilitados para su perfil.
         </p>
 
-<a href="../login.html?destino=periciados">Conocer más</a>
-    </article>
+        <p class="eco-description">
+          El Sistema FALCO® integra evaluación psicológica, gestión
+          pericial, formación, biblioteca, admisión profesional,
+          programas institucionales y herramientas administrativas
+          dentro de una arquitectura centralizada.
+        </p>
 
 
-    <!-- ESCUELA -->
+        <div class="eco-hero-actions">
 
-    <article class="eco-card">
+          <a
+            href="#acceso"
+            class="eco-btn eco-btn--primary"
+          >
+            Ingresar al sistema
 
-        <div class="eco-icon">
+            <i
+              data-lucide="arrow-right"
+              aria-hidden="true"
+            ></i>
+          </a>
+
+          <a
+            href="#modulos"
+            class="eco-btn eco-btn--secondary"
+          >
+            Conocer los módulos
+          </a>
+
+        </div>
+
+
+        <div class="eco-tags" aria-label="Áreas del Sistema FALCO">
+
+          <span>Psicología Forense</span>
+          <span>Evaluaciones</span>
+          <span>Gestión Pericial</span>
+          <span>Formación</span>
+          <span>Instituciones</span>
+
+        </div>
+
+      </div>
+
+
+      <aside
+        class="eco-login-card"
+        id="acceso"
+        aria-labelledby="ecoLoginTitle"
+      >
+
+        <div class="eco-login-card__header">
+
+          <span class="eco-login-card__eyebrow">
+            Acceso protegido
+          </span>
+
+          <h2 id="ecoLoginTitle">
+            Ingresar al Portal Institucional
+          </h2>
+
+          <p>
+            El sistema identificará su perfil y mostrará únicamente
+            los módulos que tenga habilitados.
+          </p>
+
+        </div>
+
+
+        <div class="eco-status-panel">
+
+          <div>
+            <strong>4.0</strong>
+            <span>Versión</span>
+          </div>
+
+          <div>
+            <strong>9</strong>
+            <span>Áreas</span>
+          </div>
+
+          <div>
+            <strong>6</strong>
+            <span>Perfiles</span>
+          </div>
+
+          <div>
+            <strong>Activo</strong>
+            <span>Estado</span>
+          </div>
+
+        </div>
+
+
+        <form
+          id="formLoginEcosistema"
+          class="eco-login-form"
+        >
+
+          <div class="eco-field">
+
+            <label for="email">
+              Correo electrónico
+            </label>
+
+            <div class="eco-field__control">
+
+              <i
+                data-lucide="mail"
+                aria-hidden="true"
+              ></i>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="tu@email.com"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="eco-field">
+
+            <label for="password">
+              Contraseña
+            </label>
+
+            <div class="eco-field__control">
+
+              <i
+                data-lucide="lock-keyhole"
+                aria-hidden="true"
+              ></i>
+
+              <input
+                type="password"
+                id="password"
+                placeholder="Ingrese su contraseña"
+                autocomplete="current-password"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="eco-login-submit"
+          >
+            Ingresar al Portal
+
+            <i
+              data-lucide="log-in"
+              aria-hidden="true"
+            ></i>
+          </button>
+
+        </form>
+
+
+        <a
+          href="#ayuda"
+          class="eco-forgot"
+        >
+          ¿Necesita ayuda para ingresar?
+        </a>
+
+
+        <div class="eco-login-note">
+
+          <i
+            data-lucide="shield-check"
+            aria-hidden="true"
+          ></i>
+
+          <p>
+            Acceso seguro mediante autenticación y permisos
+            vinculados al perfil del usuario.
+          </p>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+
+    <!-- ===================================================
+         RECORRIDO DEL SISTEMA
+    ==================================================== -->
+
+    <section class="eco-flow">
+
+      <div class="eco-flow__intro">
+
+        <span class="eco-section-eyebrow">
+          Recorrido institucional
+        </span>
+
+        <h2>
+          Un ingreso, múltiples áreas de trabajo
+        </h2>
+
+        <p>
+          El Ecosistema FALCO® funciona como puerta pública.
+          Después de iniciar sesión, cada usuario accede a su
+          Portal Institucional personalizado.
+        </p>
+
+      </div>
+
+
+      <div class="eco-flow-grid">
+
+        <article class="eco-flow-card">
+
+          <span class="eco-flow-card__number">
+            01
+          </span>
+
+          <div class="eco-flow-card__icon">
+            <i data-lucide="log-in"></i>
+          </div>
+
+          <h3>Ingreso seguro</h3>
+
+          <p>
+            El usuario ingresa con su correo electrónico y contraseña.
+          </p>
+
+        </article>
+
+
+        <article class="eco-flow-card">
+
+          <span class="eco-flow-card__number">
+            02
+          </span>
+
+          <div class="eco-flow-card__icon">
+            <i data-lucide="user-check"></i>
+          </div>
+
+          <h3>Identificación del perfil</h3>
+
+          <p>
+            El sistema reconoce automáticamente el rol asignado.
+          </p>
+
+        </article>
+
+
+        <article class="eco-flow-card">
+
+          <span class="eco-flow-card__number">
+            03
+          </span>
+
+          <div class="eco-flow-card__icon">
+            <i data-lucide="layout-dashboard"></i>
+          </div>
+
+          <h3>Portal personalizado</h3>
+
+          <p>
+            Se habilita un panel adaptado a las funciones del usuario.
+          </p>
+
+        </article>
+
+
+        <article class="eco-flow-card">
+
+          <span class="eco-flow-card__number">
+            04
+          </span>
+
+          <div class="eco-flow-card__icon">
+            <i data-lucide="blocks"></i>
+          </div>
+
+          <h3>Módulos autorizados</h3>
+
+          <p>
+            Cada perfil visualiza únicamente las áreas que puede utilizar.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ESTADO DEL SISTEMA
+    ==================================================== -->
+
+    <section
+      class="eco-system-status"
+      aria-label="Estado general del Sistema FALCO"
+    >
+
+      <div>
+        <span>Estado</span>
+        <strong>Operativo</strong>
+      </div>
+
+      <div>
+        <span>Versión</span>
+        <strong>4.0</strong>
+      </div>
+
+      <div>
+        <span>Perfiles activos</span>
+        <strong>6</strong>
+      </div>
+
+      <div>
+        <span>Áreas principales</span>
+        <strong>9</strong>
+      </div>
+
+      <div>
+        <span>Última actualización</span>
+        <strong>Agosto 2026</strong>
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         MÓDULOS
+    ==================================================== -->
+
+    <section
+      class="eco-modules"
+      id="modulos"
+    >
+
+      <div class="eco-section-title">
+
+        <span class="eco-section-eyebrow">
+          Arquitectura integrada
+        </span>
+
+        <h2>
+          Áreas del Sistema FALCO®
+        </h2>
+
+        <p>
+          El ecosistema reúne soluciones profesionales, académicas,
+          institucionales y administrativas. El acceso efectivo a cada
+          módulo depende del perfil habilitado.
+        </p>
+
+      </div>
+
+
+      <div class="eco-grid">
+
+        <!-- CENTRO PROFESIONAL -->
+
+        <article class="eco-card">
+
+          <div class="eco-icon">
+            <i data-lucide="briefcase-medical"></i>
+          </div>
+
+          <span class="eco-card__category">
+            Área profesional
+          </span>
+
+          <h3>Centro Profesional</h3>
+
+          <p>
+            Recursos técnicos, informes, escritos, herramientas
+            y servicios para psicólogos y peritos.
+          </p>
+
+          <a href="../area-profesional-psicologos.html">
+            Conocer el área
+          </a>
+
+        </article>
+
+
+        <!-- EVALUACIONES -->
+
+        <article class="eco-card">
+
+          <div class="eco-icon">
+            <i data-lucide="brain-circuit"></i>
+          </div>
+
+          <span class="eco-card__category">
+            Evaluación psicológica
+          </span>
+
+          <h3>Evaluaciones</h3>
+
+          <p>
+            Instrumentos psicológicos, consentimiento, documentación
+            y seguimiento del proceso evaluativo.
+          </p>
+
+          <a href="../login.html?destino=periciados">
+            Conocer el área
+          </a>
+
+        </article>
+
+
+        <!-- ADMISIÓN -->
+
+        <article class="eco-card">
+
+          <div class="eco-icon">
+            <i data-lucide="clipboard-pen-line"></i>
+          </div>
+
+          <span class="eco-card__category">
+            Admisión institucional
+          </span>
+
+          <h3>FALCO® Admisión</h3>
+
+          <p>
+            Registro de perfiles, postulaciones, antecedentes
+            y documentación profesional.
+          </p>
+
+          <a href="../FALCO-ADMISION/index.html">
+            Conocer el sistema
+          </a>
+
+        </article>
+
+
+        <!-- COMUNIDAD -->
+
+        <article class="eco-card">
+
+          <div class="eco-icon">
+            <i data-lucide="landmark"></i>
+          </div>
+
+          <span class="eco-card__category">
+            Programas institucionales
+          </span>
+
+          <h3>FALCO® Comunidad</h3>
+
+          <p>
+            Propuestas personalizadas para municipios,
+            instituciones, organizaciones y comunidades.
+          </p>
+
+          <a href="../FALCO-COMUNIDAD/index.html">
+            Conocer los programas
+          </a>
+
+        </article>
+
+
+        <!-- CAMPUS -->
+
+        <article class="eco-card">
+
+          <div class="eco-icon">
             <i data-lucide="graduation-cap"></i>
-        </div>
+          </div>
 
-        <h3>Escuela para Padres</h3>
+          <span class="eco-card__category">
+            Formación
+          </span>
 
-        <p>
-            Campus virtual, encuentros, materiales y certificación.
-        </p>
+          <h3>Campus FALCO®</h3>
 
-<a href="../escuela-para-padres.html">Conocer más</a>
+          <p>
+            Acceso central a cursos, recorridos académicos,
+            materiales, progreso y certificación.
+          </p>
 
-</article>
+          <a href="../portal-cursos.html">
+            Conocer el campus
+          </a>
 
-
-    <!-- BIBLIOTECA -->
-
-    <article class="eco-card">
-
-        <div class="eco-icon">
-            <i data-lucide="book-open"></i>
-        </div>
-
-        <h3>Biblioteca FALCO®</h3>
-
-        <p>
-            Escritos, modelos, manuales y recursos profesionales.
-        </p>
-
-<a href="../biblioteca-falco.html">Conocer más</a>
-
-    </article>
+        </article>
 
 
-    <!-- CENTRO PROFESIONAL -->
+        <!-- ESCUELA -->
 
-    <article class="eco-card">
+        <article class="eco-card">
 
-        <div class="eco-icon">
-            <i data-lucide="scale"></i>
-        </div>
+          <div class="eco-icon">
+            <i data-lucide="users-round"></i>
+          </div>
 
-        <h3>Centro Profesional</h3>
+          <span class="eco-card__category">
+            Orientación familiar
+          </span>
 
-        <p>
-            Herramientas, informes, escritos y recursos técnicos.
-        </p>
+          <h3>Escuela para Padres</h3>
 
-<a href="../area-profesional-psicologos.html">Conocer más</a>
-    </article>
+          <p>
+            Programa virtual de ocho encuentros con materiales,
+            actividades y recursos para las familias.
+          </p>
 
-        <!-- ABOGADOS -->
+          <a href="../escuela-para-padres.html">
+            Conocer el programa
+          </a>
 
-    <article class="eco-card">
-
-        <div class="eco-icon">
-            <i data-lucide="gavel"></i>
-        </div>
-
-        <h3>Recursos para Abogados</h3>
-
-        <p>
-            Escritos, apoyo técnico y recursos jurídicos especializados.
-        </p>
-
-<a href="../perito-psicologa-de-parte-buenos-aires.html">Conocer más</a> 
-
-</article>
+        </article>
 
 
-    <!-- MÉTODO FALCO -->
+        <!-- BIBLIOTECA -->
 
-    <article class="eco-card">
+        <article class="eco-card">
 
-        <div class="eco-icon">
+          <div class="eco-icon">
+            <i data-lucide="library-big"></i>
+          </div>
+
+          <span class="eco-card__category">
+            Recursos profesionales
+          </span>
+
+          <h3>Biblioteca FALCO®</h3>
+
+          <p>
+            Modelos, escritos, manuales, guías y materiales
+            especializados para la práctica profesional.
+          </p>
+
+          <a href="../biblioteca-falco.html">
+            Conocer la biblioteca
+          </a>
+
+        </article>
+
+
+        <!-- MÉTODO -->
+
+        <article class="eco-card">
+
+          <div class="eco-icon">
             <i data-lucide="shield-check"></i>
-        </div>
+          </div>
 
-        <h3>Método FALCO®</h3>
+          <span class="eco-card__category">
+            Metodología
+          </span>
 
-        <p>
-            Metodología propia para la práctica pericial profesional.
-        </p>
+          <h3>Método FALCO®</h3>
 
-<a href="../metodo-falco.html">Conocer más</a>
-    </article>
+          <p>
+            Marco metodológico propio para la evaluación
+            psicológica y la práctica pericial profesional.
+          </p>
+
+          <a href="../metodo-falco.html">
+            Conocer el método
+          </a>
+
+        </article>
 
 
-    <!-- MESA DE ENTRADA -->
+        <!-- MESA DE ENTRADA -->
 
-    <article class="eco-card">
+        <article class="eco-card">
 
-        <div class="eco-icon">
+          <div class="eco-icon">
             <i data-lucide="inbox"></i>
-        </div>
+          </div>
 
-        <h3>Mesa de Entrada</h3>
+          <span class="eco-card__category">
+            Gestión documental
+          </span>
+
+          <h3>Mesa de Entrada</h3>
+
+          <p>
+            Recepción digital de documentación, presentaciones,
+            solicitudes y trámites institucionales.
+          </p>
+
+          <a href="../mesa-entrada.html">
+            Conocer el servicio
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PERFILES
+    ==================================================== -->
+
+    <section
+      class="eco-access"
+      id="perfiles"
+    >
+
+      <div class="eco-section-title">
+
+        <span class="eco-section-eyebrow">
+          Acceso personalizado
+        </span>
+
+        <h2>
+          Un Portal Institucional para cada perfil
+        </h2>
 
         <p>
-            Recepción y gestión de documentación y trámites.
+          Los permisos se asignan de acuerdo con la función del usuario
+          dentro del Sistema FALCO®.
         </p>
 
-<a href="../mesa-entrada.html">Conocer más</a>
-    </article>
+      </div>
 
 
-    <!-- ADMINISTRACIÓN -->
+      <div class="eco-profile-table">
 
-    <article class="eco-card">
+        <div class="eco-profile-row">
 
-        <div class="eco-icon">
-            <i data-lucide="settings"></i>
+          <div class="eco-profile-row__name">
+            <i data-lucide="shield"></i>
+            <strong>Administrador</strong>
+          </div>
+
+          <span>
+            Acceso general a usuarios, módulos, indicadores,
+            contenidos, evaluaciones y administraciones.
+          </span>
+
         </div>
 
-        <h3>Administración</h3>
+
+        <div class="eco-profile-row">
+
+          <div class="eco-profile-row__name">
+            <i data-lucide="briefcase"></i>
+            <strong>Profesional</strong>
+          </div>
+
+          <span>
+            Centro Profesional, biblioteca, formación y herramientas
+            técnicas habilitadas.
+          </span>
+
+        </div>
+
+
+        <div class="eco-profile-row">
+
+          <div class="eco-profile-row__name">
+            <i data-lucide="scale"></i>
+            <strong>Perito</strong>
+          </div>
+
+          <span>
+            Gestión pericial, evaluaciones asignadas, recursos técnicos
+            y documentación profesional.
+          </span>
+
+        </div>
+
+
+        <div class="eco-profile-row">
+
+          <div class="eco-profile-row__name">
+            <i data-lucide="user-round"></i>
+            <strong>Periciado</strong>
+          </div>
+
+          <span>
+            Instrumentos psicológicos, ficha personal, consentimiento
+            y documentación propia.
+          </span>
+
+        </div>
+
+
+        <div class="eco-profile-row">
+
+          <div class="eco-profile-row__name">
+            <i data-lucide="graduation-cap"></i>
+            <strong>Alumno</strong>
+          </div>
+
+          <span>
+            Cursos habilitados, encuentros, materiales, progreso
+            y certificados.
+          </span>
+
+        </div>
+
+
+        <div class="eco-profile-row">
+
+          <div class="eco-profile-row__name">
+            <i data-lucide="book-open"></i>
+            <strong>Biblioteca</strong>
+          </div>
+
+          <span>
+            Recursos, modelos, escritos, manuales y documentación
+            autorizada para consulta.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SEGURIDAD
+    ==================================================== -->
+
+    <section class="eco-security">
+
+      <div class="eco-security__icon">
+        <i data-lucide="shield-check"></i>
+      </div>
+
+      <div class="eco-security__content">
+
+        <span class="eco-section-eyebrow">
+          Arquitectura protegida
+        </span>
+
+        <h2>
+          Accesos diferenciados y protección de la información
+        </h2>
 
         <p>
-            Usuarios, permisos, contenidos y configuración general.
+          Cada usuario accede únicamente a las herramientas vinculadas
+          con su función. Los datos, documentos y resultados se mantienen
+          separados conforme a los permisos asignados.
         </p>
 
-<a href="cms-dashboard.html">Conocer más</a>
-    </article>
+      </div>
 
-</div>
+    </section>
 
-</section>
 
- <section class="eco-access" id="acceso">
+    <!-- ===================================================
+         AYUDA
+    ==================================================== -->
 
-  <div class="eco-section-title">
-    <span>Acceso personalizado</span>
-    <h2>Acceso inteligente por perfil</h2>
-    <p>
-      El Centro de Operaciones identifica el rol del usuario y habilita
-      únicamente los módulos correspondientes.
-    </p>
-  </div>
+    <section
+      class="eco-help"
+      id="ayuda"
+    >
 
-  <div class="eco-profile-table">
+      <article class="eco-help-box">
 
-    <div class="eco-profile-row">
-      <strong>Periciado</strong>
-      <span>Evaluaciones psicológicas, consentimiento y documentación.</span>
+        <div class="eco-help-box__icon">
+          <i data-lucide="user-plus"></i>
+        </div>
+
+        <div>
+
+          <span class="eco-section-eyebrow">
+            Nuevos usuarios
+          </span>
+
+          <h2>Solicitud de acceso</h2>
+
+          <p>
+            Solicite orientación para acceder a Evaluaciones,
+            Biblioteca, Formación o áreas profesionales.
+          </p>
+
+          <a
+            href="../login.html"
+            class="eco-btn-secondary"
+          >
+            Solicitar acceso
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="eco-help-box">
+
+        <div class="eco-help-box__icon">
+          <i data-lucide="headphones"></i>
+        </div>
+
+        <div>
+
+          <span class="eco-section-eyebrow">
+            Usuarios registrados
+          </span>
+
+          <h2>Soporte de ingreso</h2>
+
+          <p>
+            Si ya cuenta con usuario y no puede ingresar,
+            comuníquese para recibir asistencia.
+          </p>
+
+          <a
+            href="https://wa.me/5491132049521?text=Hola,%20necesito%20asistencia%20para%20ingresar%20al%20Portal%20Institucional%20FALCO%C2%AE.%0A%0AMi%20nombre%20es:%20%0AEmail:%20%0APerfil:%20%0AM%C3%B3dulo%20al%20que%20intento%20acceder:%20%0A%0ADescripci%C3%B3n%20del%20inconveniente:%20"
+            class="eco-btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contactar por WhatsApp
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="eco-footer">
+
+    <div class="eco-footer__brand">
+
+      <img
+        src="../img/logo.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <div>
+        <strong>Sistema FALCO®</strong>
+        <span>Formación, evaluación y desarrollo profesional</span>
+      </div>
+
     </div>
 
-    <div class="eco-profile-row">
-      <strong>Alumno</strong>
-      <span>Curso, materiales, actividades y certificación.</span>
-    </div>
 
-    <div class="eco-profile-row">
-      <strong>Biblioteca</strong>
-      <span>Recursos, modelos, escritos y materiales premium.</span>
-    </div>
+    <div class="eco-footer__information">
 
-    <div class="eco-profile-row">
-      <strong>Profesional</strong>
-      <span>Área técnica, informes, escritos y herramientas periciales.</span>
-    </div>
-
-    <div class="eco-profile-row">
-      <strong>Administrador</strong>
-      <span>Gestión de usuarios, contenidos, módulos y configuración.</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-  <section class="eco-help" id="ayuda">
-    <div class="eco-help-box">
-      <h2>Solicitud de acceso</h2>
-      
-       <p>
-  Solicitá la habilitación correspondiente para acceder a Biblioteca,
-  Escuela, Evaluaciones, Área Profesional o Administración.
-</p>
-      
-<a href="../login.html" class="eco-btn-secondary">Solicitar acceso</a> 
-
-</div>
-
-    <div class="eco-help-box">
-      <h2>Soporte de ingreso</h2>
       <p>
-  Si ya tenés usuario y no podés ingresar, comunicate para recibir asistencia.
-</p>
+        © 2026 Estudio Pericial Psicológico –
+        Lic. en Psicología Isabela Falco
+      </p>
+
+      <span>
+        Ecosistema FALCO® · Versión 4.0
+      </span>
+
+    </div>
+
+  </footer>
 
 
-<a href="https://wa.me/5491132049521?text=Hola,%20necesito%20asistencia%20para%20ingresar%20al%20Centro%20de%20Operaciones%20FALCO%C2%AE.%0A%0AMi%20nombre%20es:%20%0AEmail:%20%0AM%C3%B3dulo%20al%20que%20intento%20acceder:%20%0A%28Periciado%20/%20Alumno%20/%20Biblioteca%20/%20Profesional%20/%20Administrador%29%0A%0ADescripci%C3%B3n%20del%20inconveniente:%20"
-   class="eco-btn-secondary"
-   target="_blank">
-    Contactar por WhatsApp
-</a>
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
 
-</div>
-  </section>
+  <script>
+    lucide.createIcons();
 
-</main>
+    const ecoMenuButton =
+      document.getElementById("ecoMenuButton");
 
-<footer class="eco-footer">
-  <p>© 2026 FALCO®. Ecosistema Profesional de Psicología Forense.</p>
-</footer>
+    const ecoNav =
+      document.getElementById("ecoNav");
 
-<script>
-  lucide.createIcons();
-</script>
+    if (ecoMenuButton && ecoNav) {
+      ecoMenuButton.addEventListener("click", () => {
+        const abierto =
+          ecoMenuButton.getAttribute("aria-expanded") === "true";
+
+        ecoMenuButton.setAttribute(
+          "aria-expanded",
+          String(!abierto)
+        );
+
+        ecoNav.classList.toggle("is-open");
+      });
+
+      ecoNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          ecoMenuButton.setAttribute("aria-expanded", "false");
+          ecoNav.classList.remove("is-open");
+        });
+      });
+    }
+  </script>
 
 
-<script type="module" src="ecosistema-login.js"></script>
+  <script
+    type="module"
+    src="ecosistema-login.js"
+  ></script>
 
-<!-- <script src="launch-panel/launch-panel.js"></script> -->
 
-<script src="FALCO-IA/AION-LAB/js/presence-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/eye-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/animation-engine.js"></script>
+  <!-- AION LAB -->
 
-<script src="FALCO-IA/AION-LAB/js/context-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/identity-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/memory-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/brain-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/perception-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/action-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/presence-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/gesture-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/eye-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/animation-engine.js"></script>
 
-<script src="FALCO-IA/AION-LAB/js/aion-observer.js"></script>
-<script src="FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
-<script src="FALCO-IA/AION-LAB/js/aion-core.js"></script>
-<script src="FALCO-IA/AION-LAB/js/aion-config.js"></script>
-<script src="FALCO-IA/AION-LAB/js/aion-router.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/context-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/identity-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/memory-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/brain-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/perception-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/action-engine.js"></script>
 
-<script src="FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/aion-observer.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/visual-cortex.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/aion-core.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/aion-config.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/aion-router.js"></script>
 
-<script src="FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
-<script src="FALCO-IA/AION-LAB/js/aion-guide.js"></script>
-<script src="FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/knowledge-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/knowledge-search.js"></script>
 
-<script src="FALCO-IA/AION-LAB/js/aion-voice.js"></script>
-<script src="FALCO-IA/AION-LAB/js/presence-director.js"></script>
-<script src="FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
-<script src="FALCO-IA/AION-LAB/js/aion-float.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/interaction-manager.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/aion-guide.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/corpus-engine.js"></script>
 
+  <script src="FALCO-IA/AION-LAB/js/aion-voice.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/presence-director.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/conversation-engine.js"></script>
+  <script src="FALCO-IA/AION-LAB/js/aion-float.js"></script>
 
 </body>
 </html>
