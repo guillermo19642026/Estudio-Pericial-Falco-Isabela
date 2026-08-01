@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Portal Institucional del Sistema FALCO®. Punto de acceso central a los módulos profesionales, administrativos, académicos e institucionales."
+  >
+
+  <meta
+    name="author"
+    content="Estudio Pericial Psicológico – Lic. en Psicología Isabela Falco"
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Portal Institucional | Sistema FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/portal.css"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../img/favicon.png"
+  >
+</head>
+
+<body>
+
+  <!-- =====================================================
+       CAPA DECORATIVA GENERAL
+  ====================================================== -->
+
+  <div
+    class="portal-background"
+    aria-hidden="true"
+  >
+    <span class="portal-glow portal-glow--one"></span>
+    <span class="portal-glow portal-glow--two"></span>
+    <span class="portal-grid"></span>
+  </div>
+
+
+  <!-- =====================================================
+       CONTENEDOR PRINCIPAL
+  ====================================================== -->
+
+  <div class="portal-shell">
+
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
+    <aside
+      class="portal-sidebar"
+      id="portalSidebar"
+      aria-label="Navegación principal del Portal Institucional"
+    >
+
+      <div class="sidebar-header">
+
+        <a
+          href="./index.html"
+          class="sidebar-brand"
+          aria-label="Ir al inicio del Portal Institucional"
+        >
+          <span class="sidebar-brand__symbol">
+            F
+          </span>
+
+          <span class="sidebar-brand__content">
+            <strong>Sistema FALCO®</strong>
+            <small>Portal Institucional</small>
+          </span>
+        </a>
+
+        <button
+          type="button"
+          class="sidebar-close"
+          id="sidebarClose"
+          aria-label="Cerrar menú"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+
+      </div>
+
+
+      <nav class="sidebar-navigation">
+
+        <p class="sidebar-navigation__label">
+          Navegación
+        </p>
+
+        <a
+          href="#inicio"
+          class="sidebar-link is-active"
+          data-section="inicio"
+        >
+          <span class="sidebar-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 10.5 12 3l9 7.5"></path>
+              <path d="M5 9.5V21h14V9.5"></path>
+              <path d="M9 21v-7h6v7"></path>
+            </svg>
+          </span>
+
+          <span class="sidebar-link__text">
+            Inicio
+          </span>
+        </a>
+
+        <a
+          href="#modulos"
+          class="sidebar-link"
+          data-section="modulos"
+        >
+          <span class="sidebar-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+          </span>
+
+          <span class="sidebar-link__text">
+            Módulos
+          </span>
+        </a>
+
+        <a
+          href="#gestion"
+          class="sidebar-link"
+          data-section="gestion"
+        >
+          <span class="sidebar-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 20h16"></path>
+              <path d="M6 20V9"></path>
+              <path d="M10 20V4"></path>
+              <path d="M14 20v-7"></path>
+              <path d="M18 20V7"></path>
+            </svg>
+          </span>
+
+          <span class="sidebar-link__text">
+            Gestión
+          </span>
+        </a>
+
+        <a
+          href="#formacion"
+          class="sidebar-link"
+          data-section="formacion"
+        >
+          <span class="sidebar-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="m3 8 9-5 9 5-9 5-9-5Z"></path>
+              <path d="M7 10.5V16c0 1.7 2.2 3 5 3s5-1.3 5-3v-5.5"></path>
+              <path d="M21 8v6"></path>
+            </svg>
+          </span>
+
+          <span class="sidebar-link__text">
+            Formación
+          </span>
+        </a>
+
+        <a
+          href="#actividad"
+          class="sidebar-link"
+          data-section="actividad"
+        >
+          <span class="sidebar-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 8v4l3 2"></path>
+              <circle cx="12" cy="12" r="9"></circle>
+            </svg>
+          </span>
+
+          <span class="sidebar-link__text">
+            Actividad
+          </span>
+        </a>
+
+
+        <div class="sidebar-navigation__divider"></div>
+
+        <p class="sidebar-navigation__label">
+          Administración
+        </p>
+
+        <a
+          href="#configuracion"
+          class="sidebar-link"
+          data-section="configuracion"
+        >
+          <span class="sidebar-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"></path>
+            </svg>
+          </span>
+
+          <span class="sidebar-link__text">
+            Configuración
+          </span>
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-footer">
+
+        <div class="sidebar-system-status">
+
+          <span
+            class="system-status-indicator"
+            aria-hidden="true"
+          ></span>
+
+          <div>
+            <strong>Sistema disponible</strong>
+            <small>Módulos operativos</small>
+          </div>
+
+        </div>
+
+        <p class="sidebar-version">
+          Portal Institucional · Versión inicial
+        </p>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ===================================================
+         ÁREA PRINCIPAL
+    ==================================================== -->
+
+    <div class="portal-main">
+
+
+      <!-- =================================================
+           HEADER SUPERIOR
+      ================================================== -->
+
+      <header class="portal-header">
+
+        <div class="portal-header__left">
+
+          <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Abrir menú"
+            aria-controls="portalSidebar"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="portal-header__titles">
+            <span class="portal-header__eyebrow">
+              Ecosistema institucional
+            </span>
+
+            <h1>
+              Portal Institucional
+            </h1>
+          </div>
+
+        </div>
+
+
+        <div class="portal-header__right">
+
+          <button
+            type="button"
+            class="header-action"
+            aria-label="Ver notificaciones"
+            title="Notificaciones"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+              <path d="M10 21h4"></path>
+            </svg>
+
+            <span
+              class="header-action__notification"
+              aria-hidden="true"
+            ></span>
+          </button>
+
+
+          <div class="header-user">
+
+            <button
+              type="button"
+              class="header-user__button"
+              id="userMenuButton"
+              aria-expanded="false"
+              aria-controls="userDropdown"
+            >
+              <span class="header-user__avatar">
+                IF
+              </span>
+
+              <span class="header-user__information">
+                <strong>Isabela Falco</strong>
+                <small>Administradora general</small>
+              </span>
+
+              <svg
+                class="header-user__arrow"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="m7 10 5 5 5-5"></path>
+              </svg>
+            </button>
+
+
+            <div
+              class="user-dropdown"
+              id="userDropdown"
+              hidden
+            >
+              <div class="user-dropdown__header">
+                <span class="header-user__avatar">
+                  IF
+                </span>
+
+                <div>
+                  <strong>Lic. Isabela Falco</strong>
+                  <small>Administración general</small>
+                </div>
+              </div>
+
+              <div class="user-dropdown__divider"></div>
+
+              <button type="button" class="user-dropdown__item">
+                Mi perfil
+              </button>
+
+              <button type="button" class="user-dropdown__item">
+                Preferencias
+              </button>
+
+              <div class="user-dropdown__divider"></div>
+
+              <button
+                type="button"
+                class="user-dropdown__item user-dropdown__item--danger"
+              >
+                Cerrar sesión
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           CONTENIDO
+      ================================================== -->
+
+      <main class="portal-content">
+
+
+        <!-- ===============================================
+             BIENVENIDA
+        ================================================ -->
+
+        <section
+          class="welcome-section"
+          id="inicio"
+          aria-labelledby="welcomeTitle"
+        >
+
+          <div class="welcome-card">
+
+            <div class="welcome-card__content">
+
+              <span class="section-eyebrow">
+                Sistema FALCO®
+              </span>
+
+              <h2 id="welcomeTitle">
+                Bienvenida al centro institucional
+              </h2>
+
+              <p>
+                Desde este espacio podrá acceder a los módulos profesionales,
+                administrativos, académicos e institucionales que integran el
+                Sistema FALCO®.
+              </p>
+
+              <div class="welcome-card__actions">
+
+                <a
+                  href="#modulos"
+                  class="button button--primary"
+                >
+                  Ver todos los módulos
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+                <button
+                  type="button"
+                  class="button button--secondary"
+                >
+                  Consultar actividad
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="welcome-card__visual"
+              aria-hidden="true"
+            >
+              <div class="welcome-emblem">
+                <span class="welcome-emblem__outer"></span>
+                <span class="welcome-emblem__middle"></span>
+                <span class="welcome-emblem__letter">F</span>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             RESUMEN DEL SISTEMA
+        ================================================ -->
+
+        <section
+          class="summary-section"
+          aria-label="Resumen del Sistema FALCO"
+        >
+
+          <article class="summary-card">
+
+            <div class="summary-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              </svg>
+            </div>
+
+            <div class="summary-card__content">
+              <span>Módulos integrados</span>
+              <strong>9</strong>
+              <small>Estructura institucional</small>
+            </div>
+
+          </article>
+
+
+          <article class="summary-card">
+
+            <div class="summary-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+
+            <div class="summary-card__content">
+              <span>Perfil activo</span>
+              <strong>Admin</strong>
+              <small>Acceso general</small>
+            </div>
+
+          </article>
+
+
+          <article class="summary-card">
+
+            <div class="summary-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+            </div>
+
+            <div class="summary-card__content">
+              <span>Estado general</span>
+              <strong>Operativo</strong>
+              <small>Sistemas disponibles</small>
+            </div>
+
+          </article>
+
+
+          <article class="summary-card">
+
+            <div class="summary-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 8v4l3 2"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            </div>
+
+            <div class="summary-card__content">
+              <span>Última actividad</span>
+              <strong>Hoy</strong>
+              <small>Portal institucional</small>
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- ===============================================
+             MÓDULOS PRINCIPALES
+        ================================================ -->
+
+        <section
+          class="modules-section"
+          id="modulos"
+          aria-labelledby="modulesTitle"
+        >
+
+          <div class="section-header">
+
+            <div>
+              <span class="section-eyebrow">
+                Accesos principales
+              </span>
+
+              <h2 id="modulesTitle">
+                Módulos del Sistema FALCO®
+              </h2>
+
+              <p>
+                Seleccione el área institucional a la que desea ingresar.
+              </p>
+            </div>
+
+
+            <div class="module-filter" aria-label="Filtrar módulos">
+
+              <button
+                type="button"
+                class="module-filter__button is-active"
+                data-filter="todos"
+              >
+                Todos
+              </button>
+
+              <button
+                type="button"
+                class="module-filter__button"
+                data-filter="profesional"
+              >
+                Profesional
+              </button>
+
+              <button
+                type="button"
+                class="module-filter__button"
+                data-filter="gestion"
+              >
+                Gestión
+              </button>
+
+              <button
+                type="button"
+                class="module-filter__button"
+                data-filter="formacion"
+              >
+                Formación
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="modules-grid">
+
+
+            <!-- CENTRO PROFESIONAL -->
+
+            <article
+              class="module-card"
+              data-category="profesional"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <path d="m17 11 2 2 4-4"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Área profesional
+                </span>
+
+                <h3>Centro Profesional</h3>
+
+                <p>
+                  Gestión de profesionales, expedientes, periciados,
+                  evaluaciones, documentación y seguimiento técnico.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Acceso profesional
+                </span>
+
+                <a
+                  href="../profesional-login.html"
+                  class="module-card__button"
+                  aria-label="Ingresar al Centro Profesional"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- PLATAFORMA DE PERICIADOS -->
+
+            <article
+              class="module-card"
+              data-category="profesional"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+                    <path d="M19 8h4"></path>
+                    <path d="M21 6v4"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Evaluación pericial
+                </span>
+
+                <h3>Plataforma de Periciados</h3>
+
+                <p>
+                  Acceso a fichas, documentación, consentimiento,
+                  constancias e instrumentos psicológicos asignados.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Acceso protegido
+                </span>
+
+                <a
+                  href="../login.html"
+                  class="module-card__button"
+                  aria-label="Ingresar a la Plataforma de Periciados"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- FALCO ADMISIÓN -->
+
+            <article
+              class="module-card"
+              data-category="gestion"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 3h12v18H6z"></path>
+                    <path d="M9 7h6"></path>
+                    <path d="M9 11h6"></path>
+                    <path d="M9 15h4"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Admisión institucional
+                </span>
+
+                <h3>FALCO® Admisión</h3>
+
+                <p>
+                  Recepción, registro y organización de postulaciones,
+                  perfiles profesionales y documentación inicial.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Admisión digital
+                </span>
+
+                <a
+                  href="../FALCO-ADMISION/index.html"
+                  class="module-card__button"
+                  aria-label="Ingresar a FALCO Admisión"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- FALCO COMUNIDAD -->
+
+            <article
+              class="module-card"
+              data-category="gestion"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 21h18"></path>
+                    <path d="M5 21V8l7-5 7 5v13"></path>
+                    <path d="M9 21v-6h6v6"></path>
+                    <path d="M9 10h.01"></path>
+                    <path d="M15 10h.01"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Gestión institucional
+                </span>
+
+                <h3>FALCO® Comunidad</h3>
+
+                <p>
+                  Administración de instituciones, solicitudes, reuniones,
+                  programas, proyectos, agenda y documentación.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Administración
+                </span>
+
+                <a
+                  href="../comunidad-admin/dashboard/dashboard.html"
+                  class="module-card__button"
+                  aria-label="Ingresar a FALCO Comunidad"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMPUS -->
+
+            <article
+              class="module-card"
+              data-category="formacion"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m3 8 9-5 9 5-9 5-9-5Z"></path>
+                    <path d="M7 10.5V16c0 1.7 2.2 3 5 3s5-1.3 5-3v-5.5"></path>
+                    <path d="M21 8v6"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Formación académica
+                </span>
+
+                <h3>Campus de Formación</h3>
+
+                <p>
+                  Acceso central a cursos, recorridos académicos,
+                  materiales, progreso y futuras propuestas formativas.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Portal de cursos
+                </span>
+
+                <a
+                  href="../portal-cursos.html"
+                  class="module-card__button"
+                  aria-label="Ingresar al Campus de Formación"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- ESCUELA PARA PADRES -->
+
+            <article
+              class="module-card"
+              data-category="formacion"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="9" cy="8" r="3"></circle>
+                    <circle cx="17" cy="9" r="2"></circle>
+                    <path d="M3 21v-2a6 6 0 0 1 12 0v2"></path>
+                    <path d="M15 15a5 5 0 0 1 6 5v1"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Programa formativo
+                </span>
+
+                <h3>Escuela para Padres</h3>
+
+                <p>
+                  Programa de orientación familiar compuesto por ocho
+                  encuentros, actividades y recursos complementarios.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Acceso de participantes
+                </span>
+
+                <a
+                  href="../escuela-login.html"
+                  class="module-card__button"
+                  aria-label="Ingresar a Escuela para Padres"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- BIBLIOTECA -->
+
+            <article
+              class="module-card"
+              data-category="formacion"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Recursos técnicos
+                </span>
+
+                <h3>Biblioteca FALCO®</h3>
+
+                <p>
+                  Biblioteca de materiales técnicos, recursos académicos,
+                  publicaciones, guías, libros y documentos institucionales.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Acceso autorizado
+                </span>
+
+                <a
+                  href="../biblioteca-login.html"
+                  class="module-card__button"
+                  aria-label="Ingresar a Biblioteca FALCO"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- EVALUACIONES -->
+
+            <article
+              class="module-card"
+              data-category="profesional"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 3h6l1 3h4v15H4V6h4l1-3Z"></path>
+                    <path d="m8 14 2.5 2.5L16 11"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--active">
+                  Disponible
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Instrumentos psicológicos
+                </span>
+
+                <h3>Evaluaciones</h3>
+
+                <p>
+                  Administración, consulta y gestión de instrumentos,
+                  evaluaciones almacenadas y documentación asociada.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  Centro operativo
+                </span>
+
+                <a
+                  href="../dashboard.html"
+                  class="module-card__button"
+                  aria-label="Ingresar al Centro de Evaluaciones"
+                >
+                  Ingresar
+
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14"></path>
+                    <path d="m13 6 6 6-6 6"></path>
+                  </svg>
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CONFIGURACIÓN -->
+
+            <article
+              class="module-card"
+              data-category="gestion"
+              id="configuracion"
+            >
+
+              <div class="module-card__top">
+
+                <div class="module-card__icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"></path>
+                  </svg>
+                </div>
+
+                <span class="module-status module-status--planned">
+                  Próxima integración
+                </span>
+
+              </div>
+
+              <div class="module-card__body">
+
+                <span class="module-card__category">
+                  Administración general
+                </span>
+
+                <h3>Configuración</h3>
+
+                <p>
+                  Gestión futura de usuarios, permisos, roles, seguridad,
+                  apariencia, parámetros generales e integraciones.
+                </p>
+
+              </div>
+
+              <div class="module-card__footer">
+
+                <span class="module-card__access">
+                  En preparación
+                </span>
+
+                <button
+                  type="button"
+                  class="module-card__button module-card__button--disabled"
+                  disabled
+                >
+                  Próximamente
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             GESTIÓN ADMINISTRATIVA
+        ================================================ -->
+
+        <section
+          class="management-section"
+          id="gestion"
+          aria-labelledby="managementTitle"
+        >
+
+          <div class="section-header">
+
+            <div>
+              <span class="section-eyebrow">
+                Administración central
+              </span>
+
+              <h2 id="managementTitle">
+                Accesos de gestión
+              </h2>
+
+              <p>
+                Herramientas administrativas específicas de los módulos.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="quick-access-grid">
+
+            <a
+              href="../escuela-admin/login/login.html"
+              class="quick-access-card"
+            >
+              <span class="quick-access-card__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="9" cy="8" r="3"></circle>
+                  <path d="M3 21v-2a6 6 0 0 1 12 0v2"></path>
+                  <path d="M17 11v6"></path>
+                  <path d="M14 14h6"></path>
+                </svg>
+              </span>
+
+              <span class="quick-access-card__content">
+                <strong>Administración Escuela</strong>
+                <small>Participantes, encuentros y certificados</small>
+              </span>
+
+              <span class="quick-access-card__arrow">
+                →
+              </span>
+            </a>
+
+
+            <a
+  href="../campus-admin/dashboard/dashboard.html"
+  class="quick-access-card"
+>
+              <span class="quick-access-card__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m3 8 9-5 9 5-9 5-9-5Z"></path>
+                  <path d="M7 10.5V16c0 1.7 2.2 3 5 3s5-1.3 5-3v-5.5"></path>
+                </svg>
+              </span>
+
+              <span class="quick-access-card__content">
+                <strong>Administración Campus</strong>
+                <small>Cursos y configuración académica</small>
+              </span>
+
+              <span class="quick-access-card__arrow">
+                →
+              </span>
+            </a>
+
+
+            <a
+              href="../FALCO-CMS-V2/cms-dashboard.html"
+              class="quick-access-card"
+            >
+              <span class="quick-access-card__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h16v16H4z"></path>
+                  <path d="M8 8h8"></path>
+                  <path d="M8 12h8"></path>
+                  <path d="M8 16h5"></path>
+                </svg>
+              </span>
+
+              <span class="quick-access-card__content">
+                <strong>Centro de Contenidos</strong>
+                <small>CMS, publicaciones y biblioteca</small>
+              </span>
+
+              <span class="quick-access-card__arrow">
+                →
+              </span>
+            </a>
+
+
+            <a
+              href="../admin-admisiones.html"
+              class="quick-access-card"
+            >
+              <span class="quick-access-card__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h12v18H6z"></path>
+                  <path d="M9 7h6"></path>
+                  <path d="M9 11h6"></path>
+                  <path d="M9 15h4"></path>
+                </svg>
+              </span>
+
+              <span class="quick-access-card__content">
+                <strong>Gestión de Admisiones</strong>
+                <small>Solicitudes y registros recibidos</small>
+              </span>
+
+              <span class="quick-access-card__arrow">
+                →
+              </span>
+            </a>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             FORMACIÓN
+        ================================================ -->
+
+        <section
+          class="institutional-note"
+          id="formacion"
+          aria-labelledby="institutionalNoteTitle"
+        >
+
+          <div class="institutional-note__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+
+          <div class="institutional-note__content">
+
+            <span class="section-eyebrow">
+              Arquitectura protegida
+            </span>
+
+            <h2 id="institutionalNoteTitle">
+              Integración segura y progresiva
+            </h2>
+
+            <p>
+              El Portal Institucional funciona como una nueva capa de acceso.
+              Los módulos existentes conservan su estructura y funcionamiento
+              independiente. La autenticación central, los roles y Firebase se
+              incorporarán en una etapa posterior.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             ACTIVIDAD RECIENTE
+        ================================================ -->
+
+        <section
+          class="activity-section"
+          id="actividad"
+          aria-labelledby="activityTitle"
+        >
+
+          <div class="section-header">
+
+            <div>
+              <span class="section-eyebrow">
+                Seguimiento
+              </span>
+
+              <h2 id="activityTitle">
+                Estado de integración
+              </h2>
+
+              <p>
+                Progreso inicial de construcción del Portal Institucional.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="activity-panel">
+
+            <div class="activity-item">
+
+              <span class="activity-item__marker is-complete"></span>
+
+              <div class="activity-item__content">
+                <strong>Estructura general analizada</strong>
+                <p>
+                  Identificación de módulos, accesos y áreas administrativas.
+                </p>
+              </div>
+
+              <span class="activity-item__status">
+                Completado
+              </span>
+
+            </div>
+
+
+            <div class="activity-item">
+
+              <span class="activity-item__marker is-current"></span>
+
+              <div class="activity-item__content">
+                <strong>Portal Institucional</strong>
+                <p>
+                  Desarrollo de la interfaz central y los accesos visuales.
+                </p>
+              </div>
+
+              <span class="activity-item__status">
+                En desarrollo
+              </span>
+
+            </div>
+
+
+            <div class="activity-item">
+
+              <span class="activity-item__marker"></span>
+
+              <div class="activity-item__content">
+                <strong>Autenticación y roles</strong>
+                <p>
+                  Integración futura mediante Firebase Authentication y Firestore.
+                </p>
+              </div>
+
+              <span class="activity-item__status">
+                Pendiente
+              </span>
+
+            </div>
+
+
+            <div class="activity-item">
+
+              <span class="activity-item__marker"></span>
+
+              <div class="activity-item__content">
+                <strong>Migración de FALCO® Comunidad</strong>
+                <p>
+                  Migración futura de almacenamiento local hacia Firestore.
+                </p>
+              </div>
+
+              <span class="activity-item__status">
+                Pendiente
+              </span>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+
+      <!-- =================================================
+           FOOTER
+      ================================================== -->
+
+      <footer class="portal-footer">
+
+        <div>
+          <strong>Sistema FALCO®</strong>
+
+          <span>
+            Formación, evaluación y desarrollo profesional
+          </span>
+        </div>
+
+        <p>
+          © <span id="currentYear">2026</span>
+          Estudio Pericial Psicológico – Lic. Isabela Falco
+        </p>
+
+      </footer>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       OVERLAY PARA MENÚ MÓVIL
+  ====================================================== -->
+
+  <button
+    type="button"
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+    aria-label="Cerrar menú lateral"
+    hidden
+  ></button>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="./js/portal-config.js"></script>
+  <script src="./js/portal-ui.js"></script>
+
+</body>
+</html>
