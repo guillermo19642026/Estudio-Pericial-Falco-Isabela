@@ -74,6 +74,13 @@ onAuthStateChanged(auth, async (user) => {
 
   const rol = normalizarRol(data.rol);
 
+  const seccionesSoloAdmin =
+  document.querySelectorAll("[data-admin-only]");
+
+seccionesSoloAdmin.forEach((seccion) => {
+  seccion.hidden = rol !== "admin";
+});
+
   guardarUsuario(user.uid, rol, user.email);
 
   nombreUsuario.textContent = nombre;

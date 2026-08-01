@@ -57,66 +57,52 @@ export const ACCESOS_RAPIDOS = {
     ]
   ],
 
+
   profesional: [
-    [
-      "🏠 Sitio principal",
-      "../../index.html"
-    ],
-    [
-      "🧠 Centro profesional",
-      "../../area-profesional-psicologos.html"
-    ],
-    [
-      "📚 Biblioteca",
-      "../../biblioteca-falco.html"
-    ],
-    [
-      "🎓 Campus",
-      "../../portal-cursos.html"
-    ],
-    [
-      "💬 Soporte",
-      WHATSAPP_SOPORTE
-    ]
+  [
+    "👥 Gestión de periciados",
+    "../../dashboard-profesional.html"
   ],
+  [
+    "🧠 Centro profesional",
+    "../../area-profesional-psicologos.html"
+  ],
+  [
+    "📚 Biblioteca",
+    "../../biblioteca-falco.html"
+  ],
+  [
+    "🎓 Campus",
+    "../../portal-cursos.html"
+  ],
+  [
+    "💬 Soporte",
+    WHATSAPP_SOPORTE
+  ]
+],
 
-  perito: [
-    [
-      "🏠 Sitio principal",
-      "../../index.html"
-    ],
-    [
-      "⚖️ Gestión pericial",
-      "../../dashboard-perito.html"
-    ],
-    [
-      "🧠 Centro profesional",
-      "../../area-profesional-psicologos.html"
-    ],
-    [
-      "📚 Biblioteca",
-      "../../biblioteca-falco.html"
-    ],
-    [
-      "💬 Soporte",
-      WHATSAPP_SOPORTE
-    ]
+perito: [
+  [
+    "⚖️ Gestión pericial",
+    "../../dashboard-perito.html"
   ],
-
-  periciado: [
-    [
-      "🧪 Mi evaluación",
-      "../../dashboard-periciado.html"
-    ],
-    [
-      "📁 Mi documentación",
-      "../../dashboard-periciado.html"
-    ],
-    [
-      "💬 Soporte",
-      WHATSAPP_SOPORTE
-    ]
+  [
+    "🧠 Centro profesional",
+    "../../area-profesional-psicologos.html"
   ],
+  [
+    "📚 Biblioteca",
+    "../../biblioteca-falco.html"
+  ],
+  [
+    "🎓 Campus",
+    "../../portal-cursos.html"
+  ],
+  [
+    "💬 Soporte",
+    WHATSAPP_SOPORTE
+  ]
+],
 
   alumno: [
     [

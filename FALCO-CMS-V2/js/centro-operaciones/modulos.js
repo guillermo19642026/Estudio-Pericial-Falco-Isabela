@@ -399,135 +399,156 @@ export const MODULOS = {
      PROFESIONAL
   ===================================================== */
 
-  profesional: [
-    {
-      seccion: "Área profesional",
-      items: [
-        {
-          titulo: "Centro Profesional",
-          descripcion:
-            "Acceder a recursos técnicos, informes, escritos y herramientas profesionales.",
-          url: "../../area-profesional-psicologos.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Biblioteca Profesional",
-          descripcion:
-            "Acceder a recursos, modelos y materiales profesionales habilitados.",
-          url: "../../biblioteca-falco.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Método FALCO®",
-          descripcion:
-            "Consultar la metodología aplicada al trabajo psicológico pericial.",
-          url: "../../metodo-falco.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Campus de Formación",
-          descripcion:
-            "Acceder a cursos y propuestas de formación profesional habilitadas.",
-          url: "../../portal-cursos.html",
-          estado: "disponible"
-        }
-      ]
-    },
+profesional: [
+  {
+    seccion: "Área profesional",
+    items: [
+      {
+        titulo: "Centro Profesional",
+        descripcion:
+          "Acceder a recursos técnicos, informes, escritos y herramientas profesionales.",
+        url: "../../area-profesional-psicologos.html",
+        estado: "disponible"
+      },
+      {
+        titulo: "Biblioteca Profesional",
+        descripcion:
+          "Acceder a recursos, modelos y materiales profesionales habilitados.",
+        url: "../../biblioteca-falco.html",
+        estado: "disponible"
+      },
+      {
+        titulo: "Método FALCO®",
+        descripcion:
+          "Consultar la metodología aplicada al trabajo psicológico pericial.",
+        url: "../../metodo-falco.html",
+        estado: "disponible"
+      },
+      {
+        titulo: "Campus de Formación",
+        descripcion:
+          "Acceder a cursos y propuestas de formación profesional habilitadas.",
+        url: "../../portal-cursos.html",
+        estado: "disponible"
+      }
+    ]
+  },
 
+
+
+ {
+  seccion: "Periciados y evaluaciones",
+  items: [
     {
-      seccion: "Sitio institucional",
-      items: [
-        {
-          titulo: "Sitio Institucional",
-          descripcion:
-            "Volver al sitio principal del Sistema FALCO®.",
-          url: "../../index.html",
-          estado: "disponible"
-        }
-      ]
+      titulo: "Gestión de Periciados",
+      descripcion:
+        "Consultar periciados asignados, evaluaciones psicológicas, expedientes, fichas y documentación asociada.",
+      url: "../../dashboard-profesional.html",
+      estado: "disponible"
     }
-  ],
+  ]
+},
+
+  {
+    seccion: "Sitio institucional",
+    items: [
+      {
+        titulo: "Sitio Institucional",
+        descripcion:
+          "Volver al sitio principal del Sistema FALCO®.",
+        url: "../../index.html",
+        estado: "disponible"
+      }
+    ]
+  }
+],
 
 
   /* =====================================================
      PERITO
   ===================================================== */
 
-  perito: [
-    {
-      seccion: "Área pericial",
-      items: [
-        {
-          titulo: "Gestión Pericial",
-          descripcion:
-            "Acceder a evaluaciones, casos, periciados e instrumentos técnicos.",
-          url: "../../dashboard-perito.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Centro Profesional",
-          descripcion:
-            "Acceder a informes, escritos, recursos y herramientas técnicas.",
-          url: "../../area-profesional-psicologos.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Biblioteca Profesional",
-          descripcion:
-            "Consultar materiales, modelos y documentos profesionales.",
-          url: "../../biblioteca-falco.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Método FALCO®",
-          descripcion:
-            "Consultar la metodología aplicada a la evaluación psicológica pericial.",
-          url: "../../metodo-falco.html",
-          estado: "disponible"
-        }
-      ]
-    },
+perito: [
+  {
+    seccion: "Área pericial",
+    items: [
+      {
+        titulo: "Gestión Pericial",
+        descripcion:
+          "Acceder a casos, periciados asignados, evaluaciones, instrumentos técnicos y documentación asociada.",
+        url: "../../dashboard-perito.html",
+        estado: "disponible"
+      },
+      {
+        titulo: "Centro Profesional",
+        descripcion:
+          "Acceder a informes, escritos, recursos y herramientas técnicas.",
+        url: "../../area-profesional-psicologos.html",
+        estado: "disponible"
+      },
+      {
+        titulo: "Biblioteca Profesional",
+        descripcion:
+          "Consultar materiales, modelos y documentos profesionales.",
+        url: "../../biblioteca-falco.html",
+        estado: "disponible"
+      },
+      {
+        titulo: "Método FALCO®",
+        descripcion:
+          "Consultar la metodología aplicada a la evaluación psicológica pericial.",
+        url: "../../metodo-falco.html",
+        estado: "disponible"
+      }
+    ]
+  },
 
-    {
-      seccion: "Sitio institucional",
-      items: [
-        {
-          titulo: "Sitio Institucional",
-          descripcion:
-            "Volver al sitio principal del Sistema FALCO®.",
-          url: "../../index.html",
-          estado: "disponible"
-        }
-      ]
-    }
-  ],
+  {
+    seccion: "Formación",
+    items: [
+      {
+        titulo: "Campus de Formación",
+        descripcion:
+          "Acceder a cursos y propuestas de formación profesional habilitadas.",
+        url: "../../portal-cursos.html",
+        estado: "disponible"
+      }
+    ]
+  },
+
+  {
+    seccion: "Sitio institucional",
+    items: [
+      {
+        titulo: "Sitio Institucional",
+        descripcion:
+          "Volver al sitio principal del Sistema FALCO®.",
+        url: "../../index.html",
+        estado: "disponible"
+      }
+    ]
+  }
+],
 
 
   /* =====================================================
      PERICIADO
   ===================================================== */
 
-  periciado: [
-    {
-      seccion: "Mi evaluación",
-      items: [
-        {
-          titulo: "Plataforma de Evaluación",
-          descripcion:
-            "Completar instrumentos, consentimiento, constancias y ficha personal.",
-          url: "../../dashboard-periciado.html",
-          estado: "disponible"
-        },
-        {
-          titulo: "Mi Documentación",
-          descripcion:
-            "Adjuntar DNI y documentación complementaria solicitada.",
-          url: "../../dashboard-periciado.html",
-          estado: "disponible"
-        }
-      ]
-    }
-  ],
+ periciado: [
+  {
+    seccion: "Mi evaluación",
+    items: [
+      {
+        titulo: "Plataforma de Evaluación",
+        descripcion:
+          "Completar instrumentos, consentimiento, constancias, documentación y ficha personal.",
+        url: "../../dashboard-periciado.html",
+        estado: "disponible"
+      }
+    ]
+  }
+],
 
 
   /* =====================================================

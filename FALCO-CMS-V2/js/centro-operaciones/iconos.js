@@ -19,15 +19,20 @@ export const ICONOS = {
 
   /* Área pericial y profesional */
 
-  "Centro Profesional": "🧠",
-  "Gestión Pericial": "⚖️",
-  "Centro de Evaluaciones": "🧪",
-  "Plataforma de Periciados": "👤",
-  "Resultados de Evaluaciones": "📈",
-  "Documentación de Periciados": "🗂️",
-  "Mesa de Entrada": "📥",
-  "Document Engine FALCO®": "📄",
-  "Método FALCO®": "📘",
+"Centro Profesional": "🧠",
+"Gestión Pericial": "⚖️",
+
+"Mis Periciados": "👥",
+"Evaluaciones Psicológicas": "🧪",
+"Documentación de Periciados": "🗂️",
+
+"Centro de Evaluaciones": "🧪",
+"Plataforma de Periciados": "👤",
+"Resultados de Evaluaciones": "📈",
+"Mesa de Entrada": "📥",
+"Document Engine FALCO®": "📄",
+"Método FALCO®": "📘",
+"Gestión de Periciados": "👥",
 
   /* Admisión y postulaciones */
 
@@ -80,4 +85,7 @@ export const ICONOS = {
   "Plataforma de Evaluación": "🧪",
   "Documentación": "🗂️",
   "Biblioteca del Curso": "📚"
+
+
+
 };
