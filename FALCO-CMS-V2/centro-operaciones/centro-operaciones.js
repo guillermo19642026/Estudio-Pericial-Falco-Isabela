@@ -16,6 +16,12 @@ import {
 
 
 import {
+  cargarKPIsFirestore
+} from "../js/centro-operaciones/kpis-firestore.js";
+
+
+
+import {
   guardarUsuario,
   cerrarSesionLocal
 } from "../js/core/storage.js";
@@ -81,5 +87,8 @@ onAuthStateChanged(auth, async (user) => {
   if (estadoPerfil) estadoPerfil.textContent = "Activo";
   if (ultimoAcceso) ultimoAcceso.textContent = "Hoy";
 
+
   renderCentroOperaciones(rol);
+
+await cargarKPIsFirestore(rol);
 });

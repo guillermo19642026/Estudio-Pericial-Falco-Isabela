@@ -1,58 +1,71 @@
 /*
 =========================================
 FALCO®
-Centro de Operaciones
+Portal Institucional
 KPIs por rol
+Versión 4.0
+=========================================
+
+Los valores permanecen en modo informativo
+hasta integrar los datos reales de Firestore.
+
+No modifica:
+- Firebase Authentication
+- Firestore
+- roles
+- renderizado
 =========================================
 */
 
 export const KPIS = {
+
   admin: {
-    usuarios: "38",
-    biblioteca: "426",
-    evaluaciones: "12",
-    cursos: "2"
+    usuarios: "—",
+    biblioteca: "—",
+    evaluaciones: "—",
+    cursos: "—"
   },
 
   profesional: {
-    usuarios: "15",
-    biblioteca: "426",
-    evaluaciones: "8",
-    cursos: "6"
+    usuarios: "—",
+    biblioteca: "Disponible",
+    evaluaciones: "—",
+    cursos: "—"
   },
 
   perito: {
-    usuarios: "4",
-    biblioteca: "426",
-    evaluaciones: "3",
-    cursos: "12"
+    usuarios: "—",
+    biblioteca: "Disponible",
+    evaluaciones: "—",
+    cursos: "—"
   },
 
   alumno: {
-    usuarios: "75%",
-    biblioteca: "8",
-    evaluaciones: "6",
-    cursos: "1"
+    usuarios: "Activo",
+    biblioteca: "Disponible",
+    evaluaciones: "—",
+    cursos: "Habilitados"
   },
 
   periciado: {
-    usuarios: "4",
-    biblioteca: "2",
-    evaluaciones: "Pend.",
-    cursos: "-"
+    usuarios: "Activo",
+    biblioteca: "—",
+    evaluaciones: "En curso",
+    cursos: "—"
   },
 
   biblioteca: {
-    usuarios: "--",
-    biblioteca: "426",
-    evaluaciones: "--",
-    cursos: "--"
+    usuarios: "Activo",
+    biblioteca: "Disponible",
+    evaluaciones: "—",
+    cursos: "—"
   },
 
   default: {
-    usuarios: "--",
-    biblioteca: "--",
-    evaluaciones: "--",
-    cursos: "--"
+    usuarios: "—",
+    biblioteca: "—",
+    evaluaciones: "—",
+    cursos: "—"
   }
+
 };

@@ -1,32 +1,33 @@
 /*
 =========================================
 FALCO®
-Centro de Operaciones
+Portal Institucional
 Mensajes de Bienvenida
+Versión 4.0
 =========================================
 */
 
 export const BIENVENIDAS = {
 
-    admin:
-        "Panel central de administración del Ecosistema FALCO®. Desde aquí podrá supervisar usuarios, módulos, recursos, evaluaciones y toda la plataforma.",
+  admin:
+    "Bienvenida al Portal Institucional del Sistema FALCO®. Desde este espacio podrá administrar usuarios, módulos, evaluaciones, programas, instituciones, contenidos y recursos de toda la plataforma.",
 
-    profesional:
-        "Bienvenido al Área Profesional. Desde este espacio podrá acceder a la biblioteca, recursos técnicos, informes, escritos y herramientas profesionales.",
+  profesional:
+    "Bienvenido al Portal Institucional. Desde aquí podrá acceder al Centro Profesional, la biblioteca, los recursos técnicos, la formación y las herramientas habilitadas para su perfil.",
 
-    perito:
-        "Bienvenido al Área Pericial. Desde aquí podrá gestionar evaluaciones, informes, instrumentos y recursos específicos para la actividad pericial.",
+  perito:
+    "Bienvenido al Portal Institucional. Desde este espacio podrá gestionar evaluaciones psicológicas, periciados, informes, instrumentos técnicos y recursos específicos para la actividad pericial.",
 
-    periciado:
-        "Bienvenido a la Plataforma de Evaluación. Desde este espacio podrá completar los tests psicológicos, la documentación requerida y realizar el seguimiento de su evaluación.",
+  periciado:
+    "Bienvenido a su espacio personal dentro del Sistema FALCO®. Desde aquí podrá completar los instrumentos de evaluación, adjuntar la documentación requerida y realizar el seguimiento de su proceso.",
 
-    alumno:
-        "Bienvenido a la Escuela FALCO®. Continúe con sus cursos, materiales, actividades y recursos de formación.",
+  alumno:
+    "Bienvenido al Campus de Formación FALCO®. Desde este espacio podrá acceder a sus cursos, materiales, certificados y recursos académicos habilitados.",
 
-    biblioteca:
-        "Bienvenido a la Biblioteca FALCO®. Acceda a los recursos, escritos, modelos y documentación disponible para su perfil.",
+  biblioteca:
+    "Bienvenido a la Biblioteca FALCO®. Desde aquí podrá consultar los recursos, escritos, modelos, manuales y documentación disponible según su perfil.",
 
-    default:
-        "Bienvenido al Centro de Operaciones FALCO®."
+  default:
+    "Bienvenido al Portal Institucional del Sistema FALCO®."
 
 };

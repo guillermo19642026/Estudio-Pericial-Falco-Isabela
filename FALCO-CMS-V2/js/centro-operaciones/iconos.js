@@ -1,57 +1,83 @@
 /*
 =========================================
 FALCO®
-Centro de Operaciones
-Iconos oficiales
+Portal Institucional
+Íconos de módulos
+Versión 4.0
 =========================================
 */
 
 export const ICONOS = {
 
-    "Motor de Contenidos FALCO®": "📂",
+  /* Administración general */
 
-    "Editor de Recursos": "✍️",
+  "Motor de Contenidos FALCO®": "📂",
+  "Editor de Recursos": "✍️",
+  "Usuarios y Permisos": "👥",
+  "Configuración del Sistema": "⚙️",
+  "Estadísticas Generales": "📊",
 
-    "Usuarios y Permisos": "👥",
+  /* Área pericial y profesional */
 
-    "Estadísticas": "📊",
+  "Centro Profesional": "🧠",
+  "Gestión Pericial": "⚖️",
+  "Centro de Evaluaciones": "🧪",
+  "Plataforma de Periciados": "👤",
+  "Resultados de Evaluaciones": "📈",
+  "Documentación de Periciados": "🗂️",
+  "Mesa de Entrada": "📥",
+  "Document Engine FALCO®": "📄",
+  "Método FALCO®": "📘",
 
-    "Configuración": "⚙️",
+  /* Admisión y postulaciones */
 
-    "Notificaciones": "🔔",
+  "FALCO® Admisión": "📝",
+  "Gestión de Admisiones": "📋",
+  "Detalle de Admisiones": "🔎",
+  "Postulaciones Profesionales": "🎓",
 
-    "Auditoría": "📋",
+  /* Comunidad e instituciones */
 
-    "Backups": "☁️",
+  "FALCO® Comunidad": "🏛️",
+  "Administración Comunidad": "🏢",
+  "Instituciones": "🏫",
+  "Solicitudes Institucionales": "📨",
+  "Reuniones": "🤝",
+  "Proyectos": "🧩",
+  "Programas": "📚",
+  "Agenda Comunidad": "📅",
 
-    "Centro Profesional": "🧠",
+  /* Formación y Campus */
 
-    "Gestión Pericial": "⚖️",
+  "Campus de Formación": "🎓",
+  "Administración Campus": "🖥️",
+  "Escuela para Padres": "👨‍👩‍👧",
+  "Administración Escuela": "🛠️",
+  "Participantes Escuela": "👥",
+  "Alta de Participantes": "➕",
+  "Certificados": "📜",
+  "Programa Premium": "⭐",
 
-    "Informes y Modelos": "📄",
+  /* Biblioteca y contenidos */
 
-    "Escritos Judiciales": "📝",
+  "Biblioteca FALCO®": "📚",
+  "Biblioteca Profesional": "📚",
+  "Administración Biblioteca": "🗃️",
+  "Contenidos": "📝",
+  "Publicaciones": "📰",
+  "Categorías": "🗂️",
+  "Etiquetas": "🏷️",
 
-    "Biblioteca Profesional": "📚",
+  /* Sitio institucional */
 
-    "Método FALCO®": "📘",
+  "Página Principal": "🏠",
+  "Sitio Institucional": "🏠",
+  "Ecosistema FALCO®": "🌐",
+  "Presentación del Sistema": "📊",
 
-    "Plataforma de Evaluación": "🧪",
+  /* Compatibilidad con nombres anteriores */
 
-    "Consentimientos": "📑",
-
-    "Documentación": "📁",
-
-    "Resultados": "📈",
-
-    "Certificados": "📜",
-
-    "Escuela para Padres": "🎓",
-
-    "Programa Premium": "⭐",
-
-    "Biblioteca del Curso": "📚",
-
-    "Sitio Institucional": "🏠"
-
+  "Plataforma de Evaluación": "🧪",
+  "Documentación": "🗂️",
+  "Biblioteca del Curso": "📚"
 };

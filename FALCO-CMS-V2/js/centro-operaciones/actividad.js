@@ -1,135 +1,136 @@
 /*
 =========================================
 FALCO®
-Centro de Operaciones
+Portal Institucional
 Actividad y Notificaciones
+Versión 4.0
 =========================================
 */
 
 export const ACTIVIDAD = {
 
-    admin: {
+  admin: {
 
-        actividad: [
+    actividad: [
 
-            "Login unificado por roles activo.",
-            "Centro de Operaciones iniciado.",
-            "Administrador con acceso total al Ecosistema."
+      "Portal Institucional iniciado correctamente.",
+      "Autenticación unificada por roles activa.",
+      "Todos los módulos administrativos disponibles."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "Revisar recursos pendientes de clasificación.",
-            "Verificar nuevos usuarios registrados."
+      "Revise las solicitudes de admisión pendientes.",
+      "Verifique nuevas instituciones y programas registrados."
 
-        ]
+    ]
 
-    },
+  },
 
-    profesional: {
+  profesional: {
 
-        actividad: [
+    actividad: [
 
-            "Área Profesional disponible.",
-            "Biblioteca Profesional habilitada.",
-            "Recursos técnicos actualizados."
+      "Centro Profesional disponible.",
+      "Biblioteca Profesional habilitada.",
+      "Herramientas técnicas actualizadas."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "No existen notificaciones profesionales nuevas."
+      "No existen novedades profesionales pendientes."
 
-        ]
+    ]
 
-    },
+  },
 
-    perito: {
+  perito: {
 
-        actividad: [
+    actividad: [
 
-            "Panel Pericial disponible.",
-            "Instrumentos técnicos habilitados.",
-            "Biblioteca Profesional activa."
+      "Área Pericial disponible.",
+      "Instrumentos psicológicos habilitados.",
+      "Recursos técnicos actualizados."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "Existen evaluaciones pendientes de revisión."
+      "Existen evaluaciones pendientes de revisión."
 
-        ]
+    ]
 
-    },
+  },
 
-    periciado: {
+  periciado: {
 
-        actividad: [
+    actividad: [
 
-            "Evaluación Psicológica disponible.",
-            "Consentimiento informado habilitado.",
-            "Carga de documentación disponible."
+      "Proceso de evaluación habilitado.",
+      "Documentación disponible para completar.",
+      "Instrumentos psicológicos listos para responder."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "Complete todos los pasos antes de finalizar la evaluación."
+      "Complete todos los pasos antes de finalizar su evaluación."
 
-        ]
+    ]
 
-    },
+  },
 
-    alumno: {
+  alumno: {
 
-        actividad: [
+    actividad: [
 
-            "Curso habilitado.",
-            "Material complementario disponible.",
-            "Biblioteca del curso actualizada."
+      "Campus de Formación disponible.",
+      "Curso habilitado correctamente.",
+      "Material complementario actualizado."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "Continúe con el próximo encuentro disponible."
+      "Continúe con el siguiente encuentro disponible."
 
-        ]
+    ]
 
-    },
+  },
 
-    biblioteca: {
+  biblioteca: {
 
-        actividad: [
+    actividad: [
 
-            "Biblioteca FALCO® habilitada.",
-            "Recursos Premium disponibles."
+      "Biblioteca FALCO® disponible.",
+      "Recursos profesionales actualizados."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "No existen novedades para este perfil."
+      "No existen novedades para este perfil."
 
-        ]
+    ]
 
-    },
+  },
 
-    default: {
+  default: {
 
-        actividad: [
+    actividad: [
 
-            "Centro de Operaciones disponible."
+      "Portal Institucional disponible."
 
-        ],
+    ],
 
-        notificaciones: [
+    notificaciones: [
 
-            "No hay notificaciones."
+      "No existen notificaciones."
 
-        ]
+    ]
 
-    }
+  }
 
 };
