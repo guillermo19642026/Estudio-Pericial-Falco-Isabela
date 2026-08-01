@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Configuración general de FALCO® Comunidad."
+  >
+
+  <title>
+    Configuración | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS COMPARTIDOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS DE CONFIGURACIÓN
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./configuracion.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <falco-comunidad-sidebar
+    data-active="configuracion"
+    data-base="../"
+  ></falco-comunidad-sidebar>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="comunidad-main configuracion-main">
+
+    <div class="configuracion-contenido">
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="configuracion-header">
+
+        <div>
+
+          <p class="configuracion-header__eyebrow">
+            FALCO® Comunidad
+          </p>
+
+          <h1 class="configuracion-header__titulo">
+            Configuración
+          </h1>
+
+          <p class="configuracion-header__descripcion">
+            Datos institucionales, preferencias generales
+            y administración local del módulo Comunidad.
+          </p>
+
+        </div>
+
+
+        <div class="configuracion-header__acciones">
+
+          <button
+            type="button"
+            id="botonRestablecerConfiguracion"
+            class="configuracion-boton configuracion-boton--secundario"
+          >
+            Restablecer
+          </button>
+
+
+          <button
+            type="submit"
+            form="formularioConfiguracion"
+            id="botonGuardarConfiguracion"
+            class="configuracion-boton configuracion-boton--principal"
+          >
+            Guardar configuración
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           ESTADO GENERAL
+      ================================================== -->
+
+      <section
+        class="configuracion-indicadores"
+        aria-label="Estado de configuración"
+      >
+
+        <article class="configuracion-indicador">
+
+          <span
+            class="configuracion-indicador__icono"
+            aria-hidden="true"
+          >
+            ◈
+          </span>
+
+          <div>
+
+            <span class="configuracion-indicador__etiqueta">
+              Módulo
+            </span>
+
+            <strong>
+              FALCO® Comunidad
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="configuracion-indicador">
+
+          <span
+            class="configuracion-indicador__icono"
+            aria-hidden="true"
+          >
+            1.0
+          </span>
+
+          <div>
+
+            <span class="configuracion-indicador__etiqueta">
+              Versión
+            </span>
+
+            <strong id="configuracionVersion">
+              1.0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="configuracion-indicador">
+
+          <span
+            class="configuracion-indicador__icono"
+            aria-hidden="true"
+          >
+            □
+          </span>
+
+          <div>
+
+            <span class="configuracion-indicador__etiqueta">
+              Almacenamiento
+            </span>
+
+            <strong>
+              Local
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="configuracion-indicador">
+
+          <span
+            class="configuracion-indicador__icono"
+            aria-hidden="true"
+          >
+            ✓
+          </span>
+
+          <div>
+
+            <span class="configuracion-indicador__etiqueta">
+              Estado
+            </span>
+
+            <strong>
+              Operativo
+            </strong>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           FORMULARIO
+      ================================================== -->
+
+      <form
+        id="formularioConfiguracion"
+        class="configuracion-grid"
+        novalidate
+      >
+
+
+        <!-- ===============================================
+             COLUMNA PRINCIPAL
+        ================================================ -->
+
+        <div class="configuracion-columna-principal">
+
+
+          <!-- =============================================
+               DATOS INSTITUCIONALES
+          ============================================== -->
+
+          <section class="configuracion-panel">
+
+            <div class="configuracion-panel__cabecera">
+
+              <div>
+
+                <p class="configuracion-panel__eyebrow">
+                  Identidad
+                </p>
+
+                <h2 class="configuracion-panel__titulo">
+                  Datos institucionales
+                </h2>
+
+                <p class="configuracion-panel__descripcion">
+                  Información general que identifica al módulo
+                  FALCO® Comunidad.
+                </p>
+
+              </div>
+
+
+              <span class="configuracion-panel__numero">
+                01
+              </span>
+
+            </div>
+
+
+            <div class="configuracion-formulario__grid">
+
+
+              <div class="configuracion-campo configuracion-campo--completo">
+
+                <label for="configuracionNombreInstitucional">
+                  Nombre institucional
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  id="configuracionNombreInstitucional"
+                  name="nombreInstitucional"
+                  maxlength="150"
+                  value="FALCO® Comunidad"
+                  required
+                >
+
+                <span
+                  class="configuracion-campo__error"
+                  data-error="nombreInstitucional"
+                ></span>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionResponsable">
+                  Responsable
+                </label>
+
+                <input
+                  type="text"
+                  id="configuracionResponsable"
+                  name="responsable"
+                  maxlength="120"
+                  value="Lic. Isabela Falco"
+                  placeholder="Nombre del responsable"
+                >
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionCorreo">
+                  Correo electrónico
+                </label>
+
+                <input
+                  type="email"
+                  id="configuracionCorreo"
+                  name="correo"
+                  maxlength="180"
+                  placeholder="correo@ejemplo.com"
+                >
+
+                <span
+                  class="configuracion-campo__error"
+                  data-error="correo"
+                ></span>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionTelefono">
+                  Teléfono
+                </label>
+
+                <input
+                  type="tel"
+                  id="configuracionTelefono"
+                  name="telefono"
+                  maxlength="60"
+                  placeholder="Número de contacto"
+                >
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionWhatsapp">
+                  WhatsApp
+                </label>
+
+                <input
+                  type="tel"
+                  id="configuracionWhatsapp"
+                  name="whatsapp"
+                  maxlength="60"
+                  placeholder="Número con código de país"
+                >
+
+              </div>
+
+
+              <div class="configuracion-campo configuracion-campo--completo">
+
+                <label for="configuracionSitioWeb">
+                  Sitio web
+                </label>
+
+                <input
+                  type="url"
+                  id="configuracionSitioWeb"
+                  name="sitioWeb"
+                  maxlength="300"
+                  placeholder="https://..."
+                >
+
+                <span
+                  class="configuracion-campo__error"
+                  data-error="sitioWeb"
+                ></span>
+
+              </div>
+
+
+              <div class="configuracion-campo configuracion-campo--completo">
+
+                <label for="configuracionDescripcion">
+                  Descripción institucional
+                </label>
+
+                <textarea
+                  id="configuracionDescripcion"
+                  name="descripcion"
+                  rows="4"
+                  maxlength="700"
+                  placeholder="Descripción breve del espacio institucional."
+                >Programas institucionales personalizados para municipios, organizaciones y comunidades.</textarea>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               PREFERENCIAS
+          ============================================== -->
+
+          <section class="configuracion-panel">
+
+            <div class="configuracion-panel__cabecera">
+
+              <div>
+
+                <p class="configuracion-panel__eyebrow">
+                  Funcionamiento
+                </p>
+
+                <h2 class="configuracion-panel__titulo">
+                  Preferencias generales
+                </h2>
+
+                <p class="configuracion-panel__descripcion">
+                  Valores utilizados como referencia dentro
+                  del Centro Administrativo.
+                </p>
+
+              </div>
+
+
+              <span class="configuracion-panel__numero">
+                02
+              </span>
+
+            </div>
+
+
+            <div class="configuracion-formulario__grid">
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionZonaHoraria">
+                  Zona horaria
+                </label>
+
+                <select
+                  id="configuracionZonaHoraria"
+                  name="zonaHoraria"
+                >
+
+                  <option
+                    value="America/Argentina/Buenos_Aires"
+                    selected
+                  >
+                    Buenos Aires
+                  </option>
+
+                  <option value="America/Montevideo">
+                    Montevideo
+                  </option>
+
+                  <option value="America/Santiago">
+                    Santiago
+                  </option>
+
+                  <option value="America/Lima">
+                    Lima
+                  </option>
+
+                  <option value="America/Bogota">
+                    Bogotá
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionFormatoFecha">
+                  Formato de fecha
+                </label>
+
+                <select
+                  id="configuracionFormatoFecha"
+                  name="formatoFecha"
+                >
+
+                  <option
+                    value="DD/MM/YYYY"
+                    selected
+                  >
+                    DD/MM/AAAA
+                  </option>
+
+                  <option value="YYYY-MM-DD">
+                    AAAA-MM-DD
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionRegistrosPagina">
+                  Registros por página
+                </label>
+
+                <select
+                  id="configuracionRegistrosPagina"
+                  name="registrosPagina"
+                >
+
+                  <option value="10">
+                    10
+                  </option>
+
+                  <option
+                    value="20"
+                    selected
+                  >
+                    20
+                  </option>
+
+                  <option value="30">
+                    30
+                  </option>
+
+                  <option value="50">
+                    50
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionResponsablePredeterminado">
+                  Responsable predeterminado
+                </label>
+
+                <input
+                  type="text"
+                  id="configuracionResponsablePredeterminado"
+                  name="responsablePredeterminado"
+                  maxlength="120"
+                  value="Lic. Isabela Falco"
+                >
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               ESTADOS PREDETERMINADOS
+          ============================================== -->
+
+          <section class="configuracion-panel">
+
+            <div class="configuracion-panel__cabecera">
+
+              <div>
+
+                <p class="configuracion-panel__eyebrow">
+                  Nuevos registros
+                </p>
+
+                <h2 class="configuracion-panel__titulo">
+                  Estados predeterminados
+                </h2>
+
+                <p class="configuracion-panel__descripcion">
+                  Estado inicial sugerido al crear registros
+                  dentro de Comunidad.
+                </p>
+
+              </div>
+
+
+              <span class="configuracion-panel__numero">
+                03
+              </span>
+
+            </div>
+
+
+            <div class="configuracion-formulario__grid">
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionEstadoSolicitud">
+                  Solicitudes
+                </label>
+
+                <select
+                  id="configuracionEstadoSolicitud"
+                  name="estadoSolicitud"
+                >
+
+                  <option
+                    value="nueva"
+                    selected
+                  >
+                    Nueva
+                  </option>
+
+                  <option value="revision">
+                    En revisión
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionEstadoInstitucion">
+                  Instituciones
+                </label>
+
+                <select
+                  id="configuracionEstadoInstitucion"
+                  name="estadoInstitucion"
+                >
+
+                  <option
+                    value="activa"
+                    selected
+                  >
+                    Activa
+                  </option>
+
+                  <option value="pendiente">
+                    Pendiente
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionEstadoPrograma">
+                  Programas
+                </label>
+
+                <select
+                  id="configuracionEstadoPrograma"
+                  name="estadoPrograma"
+                >
+
+                  <option
+                    value="preparacion"
+                    selected
+                  >
+                    En preparación
+                  </option>
+
+                  <option value="ejecucion">
+                    En ejecución
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionEstadoProyecto">
+                  Proyectos
+                </label>
+
+                <select
+                  id="configuracionEstadoProyecto"
+                  name="estadoProyecto"
+                >
+
+                  <option
+                    value="preparacion"
+                    selected
+                  >
+                    En preparación
+                  </option>
+
+                  <option value="ejecucion">
+                    En ejecución
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionEstadoEvento">
+                  Eventos
+                </label>
+
+                <select
+                  id="configuracionEstadoEvento"
+                  name="estadoEvento"
+                >
+
+                  <option
+                    value="pendiente"
+                    selected
+                  >
+                    Pendiente
+                  </option>
+
+                  <option value="confirmado">
+                    Confirmado
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="configuracion-campo">
+
+                <label for="configuracionEstadoDocumento">
+                  Documentos
+                </label>
+
+                <select
+                  id="configuracionEstadoDocumento"
+                  name="estadoDocumento"
+                >
+
+                  <option
+                    value="borrador"
+                    selected
+                  >
+                    Borrador
+                  </option>
+
+                  <option value="vigente">
+                    Vigente
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- ===============================================
+             COLUMNA LATERAL
+        ================================================ -->
+
+        <aside class="configuracion-lateral">
+
+
+          <!-- =============================================
+               ESTADO TÉCNICO
+          ============================================== -->
+
+          <section class="configuracion-panel configuracion-panel--lateral">
+
+            <div class="configuracion-panel__cabecera">
+
+              <div>
+
+                <p class="configuracion-panel__eyebrow">
+                  Estado técnico
+                </p>
+
+                <h2 class="configuracion-panel__titulo">
+                  Sistema
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <dl class="configuracion-estado-tecnico">
+
+              <div>
+
+                <dt>
+                  Almacenamiento
+                </dt>
+
+                <dd>
+                  localStorage
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Firebase
+                </dt>
+
+                <dd class="configuracion-estado-tecnico__pendiente">
+                  Pendiente
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Entorno
+                </dt>
+
+                <dd>
+                  Desarrollo
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Versión
+                </dt>
+
+                <dd>
+                  Comunidad 1.0
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Último guardado
+                </dt>
+
+                <dd id="configuracionUltimoGuardado">
+                  Sin cambios registrados
+                </dd>
+
+              </div>
+
+            </dl>
+
+          </section>
+
+
+          <!-- =============================================
+               RESPALDO
+          ============================================== -->
+
+          <section class="configuracion-panel configuracion-panel--lateral">
+
+            <div class="configuracion-panel__cabecera">
+
+              <div>
+
+                <p class="configuracion-panel__eyebrow">
+                  Administración local
+                </p>
+
+                <h2 class="configuracion-panel__titulo">
+                  Respaldo de datos
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="configuracion-acciones-laterales">
+
+              <button
+                type="button"
+                id="botonExportarDatos"
+                class="configuracion-accion"
+              >
+
+                <span aria-hidden="true">
+                  ↓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Exportar respaldo
+                  </strong>
+
+                  <small>
+                    Descargar los datos locales en un archivo JSON.
+                  </small>
+
+                </div>
+
+              </button>
+
+
+              <button
+                type="button"
+                id="botonImportarDatos"
+                class="configuracion-accion"
+              >
+
+                <span aria-hidden="true">
+                  ↑
+                </span>
+
+                <div>
+
+                  <strong>
+                    Importar respaldo
+                  </strong>
+
+                  <small>
+                    Restaurar información desde un archivo JSON.
+                  </small>
+
+                </div>
+
+              </button>
+
+
+              <input
+                type="file"
+                id="archivoImportarDatos"
+                accept=".json,application/json"
+                hidden
+              >
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               INFORMACIÓN
+          ============================================== -->
+
+          <section class="configuracion-panel configuracion-panel--lateral">
+
+            <div class="configuracion-informacion">
+
+              <span
+                class="configuracion-informacion__icono"
+                aria-hidden="true"
+              >
+                ◈
+              </span>
+
+              <p class="configuracion-panel__eyebrow">
+                Configuración local
+              </p>
+
+              <h2>
+                Datos de este navegador
+              </h2>
+
+              <p>
+                En esta etapa, la configuración y los registros
+                se guardan localmente. La futura conexión con
+                Firebase permitirá compartirlos entre dispositivos.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               ZONA DE RIESGO
+          ============================================== -->
+
+          <section class="configuracion-panel configuracion-panel--lateral configuracion-panel--peligro">
+
+            <div class="configuracion-panel__cabecera">
+
+              <div>
+
+                <p class="configuracion-panel__eyebrow">
+                  Administración
+                </p>
+
+                <h2 class="configuracion-panel__titulo">
+                  Zona de riesgo
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="configuracion-zona-riesgo">
+
+              <p>
+                Esta acción elimina solamente la configuración
+                personalizada. No borra solicitudes, instituciones,
+                programas, proyectos, eventos ni documentos.
+              </p>
+
+              <button
+                type="button"
+                id="botonEliminarConfiguracion"
+                class="configuracion-boton configuracion-boton--peligro"
+              >
+                Eliminar configuración
+              </button>
+
+            </div>
+
+          </section>
+
+        </aside>
+
+      </form>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL DE CONFIRMACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalConfirmacionConfiguracion"
+    class="configuracion-modal"
+    hidden
+  >
+
+    <button
+      type="button"
+      class="configuracion-modal__fondo"
+      data-cerrar-modal
+      aria-label="Cerrar ventana"
+    ></button>
+
+
+    <section
+      class="configuracion-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalConfiguracionTitulo"
+    >
+
+      <header class="configuracion-modal__cabecera">
+
+        <div>
+
+          <p class="configuracion-panel__eyebrow">
+            Confirmación
+          </p>
+
+          <h2 id="modalConfiguracionTitulo">
+            Confirmar acción
+          </h2>
+
+          <p id="modalConfiguracionMensaje">
+            Esta acción requiere confirmación.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="configuracion-modal__cerrar"
+          data-cerrar-modal
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <footer class="configuracion-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarConfirmacionConfiguracion"
+          class="configuracion-boton configuracion-boton--secundario"
+        >
+          Cancelar
+        </button>
+
+
+        <button
+          type="button"
+          id="botonAceptarConfirmacionConfiguracion"
+          class="configuracion-boton configuracion-boton--peligro"
+        >
+          Confirmar
+        </button>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="configuracionNotificacion"
+    class="configuracion-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="configuracionNotificacionIcono"
+      class="configuracion-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+
+    <div class="configuracion-notificacion__contenido">
+
+      <strong id="configuracionNotificacionTitulo">
+        Configuración guardada
+      </strong>
+
+      <span id="configuracionNotificacionMensaje">
+        Los cambios fueron almacenados correctamente.
+      </span>
+
+    </div>
+
+
+    <button
+      type="button"
+      id="configuracionNotificacionCerrar"
+      class="configuracion-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./configuracion.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

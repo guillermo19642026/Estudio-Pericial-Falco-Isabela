@@ -1988,3 +1988,460 @@ ol {
   }
 
 }
+
+
+/* =========================================================
+   DISTRIBUCIÓN GENERAL CON SIDEBAR
+========================================================= */
+
+falco-comunidad-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: block;
+
+  width: var(--falco-admin-sidebar-ancho);
+  height: 100vh;
+}
+
+.comunidad-main {
+  width: calc(
+    100% - var(--falco-admin-sidebar-ancho)
+  );
+
+  min-height: 100vh;
+
+  margin-top: 0;
+  margin-left: var(--falco-admin-sidebar-ancho);
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  falco-comunidad-sidebar {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .comunidad-main {
+    width: 100%;
+
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+}
+
+
+
+
+/* =========================================================
+   FALCO® COMUNIDAD
+   NORMALIZACIÓN VISUAL GENERAL
+   CABECERAS PRINCIPALES
+========================================================= */
+
+/* ---------------------------------------------------------
+   CONTENEDORES DE CABECERA
+--------------------------------------------------------- */
+
+.dashboard-header,
+.solicitudes-header,
+.instituciones-header,
+.reuniones-header,
+.proyectos-header,
+.programas-header,
+.agenda-header,
+.documentos-header,
+.configuracion-header {
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    space-between;
+
+  gap:
+    28px;
+
+  min-height:
+    190px;
+
+  margin-bottom:
+    28px;
+
+  padding:
+    28px;
+
+  border:
+    1px solid rgba(201, 169, 110, 0.18);
+
+  border-radius:
+    24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 31, 51, 0.98),
+      rgba(10, 24, 41, 0.96)
+    );
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.24);
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTENIDO INTERNO
+--------------------------------------------------------- */
+
+.dashboard-header__contenido,
+.solicitudes-header__contenido,
+.instituciones-header__contenido,
+.reuniones-header__contenido,
+.proyectos-header__contenido,
+.programas-header__contenido,
+.agenda-header__contenido {
+
+  width:
+    100%;
+
+  display:
+    flex;
+
+  align-items:
+    flex-end;
+
+  justify-content:
+    space-between;
+
+  gap:
+    28px;
+
+}
+
+
+/* ---------------------------------------------------------
+   BLOQUE DE IDENTIDAD
+--------------------------------------------------------- */
+
+.dashboard-header__identidad,
+.solicitudes-header__identidad,
+.instituciones-header__identidad,
+.reuniones-header__identidad,
+.proyectos-header__identidad,
+.programas-header__identidad,
+.agenda-header__identidad {
+
+  max-width:
+    820px;
+
+}
+
+
+/* ---------------------------------------------------------
+   EYEBROW
+--------------------------------------------------------- */
+
+.dashboard-header__eyebrow,
+.solicitudes-header__eyebrow,
+.instituciones-header__eyebrow,
+.reuniones-header__eyebrow,
+.proyectos-header__eyebrow,
+.programas-header__eyebrow,
+.agenda-header__eyebrow,
+.documentos-header__eyebrow,
+.configuracion-header__eyebrow {
+
+  margin:
+    0 0 8px;
+
+  color:
+    #c9a96e;
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+  font-size:
+    0.68rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.2;
+
+  letter-spacing:
+    0.14em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+/* ---------------------------------------------------------
+   TÍTULOS
+--------------------------------------------------------- */
+
+.dashboard-header__titulo,
+.solicitudes-header__titulo,
+.instituciones-header__titulo,
+.reuniones-header__titulo,
+.proyectos-header__titulo,
+.programas-header__titulo,
+.agenda-header__titulo,
+.documentos-header__titulo,
+.configuracion-header__titulo {
+
+  margin:
+    0 0 10px;
+
+  color:
+    #f2f5f8;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:
+    2rem;
+
+  font-weight:
+    600;
+
+  line-height:
+    1.1;
+
+  letter-spacing:
+    -0.015em;
+
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPCIONES
+--------------------------------------------------------- */
+
+.dashboard-header__descripcion,
+.solicitudes-header__descripcion,
+.instituciones-header__descripcion,
+.reuniones-header__descripcion,
+.proyectos-header__descripcion,
+.programas-header__descripcion,
+.agenda-header__descripcion,
+.documentos-header__descripcion,
+.configuracion-header__descripcion {
+
+  max-width:
+    760px;
+
+  margin:
+    0;
+
+  color:
+    #b7c2ce;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size:
+    0.88rem;
+
+  line-height:
+    1.7;
+
+}
+
+
+/* ---------------------------------------------------------
+   BLOQUES DE ACCIONES
+--------------------------------------------------------- */
+
+.dashboard-header__acciones,
+.solicitudes-header__acciones,
+.instituciones-header__acciones,
+.reuniones-header__acciones,
+.proyectos-header__acciones,
+.programas-header__acciones,
+.agenda-header__acciones,
+.documentos-header__acciones,
+.configuracion-header__acciones {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-end;
+
+  gap:
+    10px;
+
+  flex-wrap:
+    wrap;
+
+}
+
+
+/* =========================================================
+   NORMALIZACIÓN DE BOTONES PRINCIPALES
+========================================================= */
+
+.dashboard-boton,
+.solicitudes-boton,
+.instituciones-boton,
+.reuniones-boton,
+.proyectos-boton,
+.programas-boton,
+.agenda-boton,
+.documentos-boton,
+.configuracion-boton,
+.boton {
+
+  min-height:
+    44px;
+
+  padding:
+    10px 16px;
+
+  border-radius:
+    12px;
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+  font-size:
+    0.74rem;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.2;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .dashboard-header,
+  .solicitudes-header,
+  .instituciones-header,
+  .reuniones-header,
+  .proyectos-header,
+  .programas-header,
+  .agenda-header,
+  .documentos-header,
+  .configuracion-header {
+
+    min-height:
+      auto;
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+  }
+
+
+  .dashboard-header__contenido,
+  .solicitudes-header__contenido,
+  .instituciones-header__contenido,
+  .reuniones-header__contenido,
+  .proyectos-header__contenido,
+  .programas-header__contenido,
+  .agenda-header__contenido {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+  }
+
+
+  .dashboard-header__acciones,
+  .solicitudes-header__acciones,
+  .instituciones-header__acciones,
+  .reuniones-header__acciones,
+  .proyectos-header__acciones,
+  .programas-header__acciones,
+  .agenda-header__acciones,
+  .documentos-header__acciones,
+  .configuracion-header__acciones {
+
+    width:
+      100%;
+
+    justify-content:
+      flex-start;
+
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .dashboard-header,
+  .solicitudes-header,
+  .instituciones-header,
+  .reuniones-header,
+  .proyectos-header,
+  .programas-header,
+  .agenda-header,
+  .documentos-header,
+  .configuracion-header {
+
+    padding:
+      20px;
+
+    border-radius:
+      18px;
+
+  }
+
+
+  .dashboard-header__titulo,
+  .solicitudes-header__titulo,
+  .instituciones-header__titulo,
+  .reuniones-header__titulo,
+  .proyectos-header__titulo,
+  .programas-header__titulo,
+  .agenda-header__titulo,
+  .documentos-header__titulo,
+  .configuracion-header__titulo {
+
+    font-size:
+      1.7rem;
+
+  }
+
+}

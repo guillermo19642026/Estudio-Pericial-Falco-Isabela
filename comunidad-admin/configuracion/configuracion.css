@@ -1,0 +1,1826 @@
+/* =========================================================
+   FALCO® COMUNIDAD
+   CONFIGURACIÓN
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --cfg-fondo:#07111f;
+
+    --cfg-panel:rgba(16,31,51,.97);
+
+    --cfg-panel-secundario:rgba(10,24,41,.97);
+
+    --cfg-borde:rgba(201,169,110,.18);
+
+    --cfg-borde-suave:rgba(255,255,255,.08);
+
+    --cfg-texto:#f3f6fa;
+
+    --cfg-texto-secundario:#b8c4cf;
+
+    --cfg-texto-suave:#8b97a5;
+
+    --cfg-dorado:#c9a96e;
+
+    --cfg-dorado-claro:#e2c790;
+
+    --cfg-verde:#60c89b;
+
+    --cfg-rojo:#d86f6f;
+
+    --cfg-radio:24px;
+
+    --cfg-sombra:
+        0 24px 60px rgba(0,0,0,.24);
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.configuracion-main{
+
+    min-height:100vh;
+
+    padding:32px clamp(22px,4vw,54px) 60px;
+
+}
+
+
+.configuracion-contenido{
+
+    width:min(100%,1500px);
+
+    margin:0 auto;
+
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.configuracion-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:28px;
+
+    margin-bottom:28px;
+
+    padding:30px;
+
+    border:1px solid var(--cfg-borde);
+
+    border-radius:var(--cfg-radio);
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(16,31,51,.98),
+
+            rgba(10,24,41,.98)
+
+        );
+
+    box-shadow:var(--cfg-sombra);
+
+}
+
+
+.configuracion-header__eyebrow{
+
+    margin:0 0 8px;
+
+    color:var(--cfg-dorado);
+
+    font-size:.66rem;
+
+    font-weight:700;
+
+    letter-spacing:.14em;
+
+    text-transform:uppercase;
+
+}
+
+
+.configuracion-header__titulo{
+
+    margin:0 0 10px;
+
+    color:var(--cfg-texto);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    font-weight:600;
+
+}
+
+
+.configuracion-header__descripcion{
+
+    max-width:760px;
+
+    margin:0;
+
+    color:var(--cfg-texto-secundario);
+
+    line-height:1.7;
+
+    font-size:.85rem;
+
+}
+
+
+.configuracion-header__acciones{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.configuracion-boton{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    min-height:44px;
+
+    padding:0 18px;
+
+    border-radius:12px;
+
+    border:1px solid transparent;
+
+    cursor:pointer;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:.74rem;
+
+    font-weight:700;
+
+    transition:.2s;
+
+}
+
+
+.configuracion-boton:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+.configuracion-boton--principal{
+
+    color:#07111f;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            var(--cfg-dorado-claro),
+
+            var(--cfg-dorado)
+
+        );
+
+}
+
+
+.configuracion-boton--secundario{
+
+    color:var(--cfg-texto);
+
+    border-color:var(--cfg-borde-suave);
+
+    background:rgba(255,255,255,.03);
+
+}
+
+
+.configuracion-boton--secundario:hover{
+
+    border-color:var(--cfg-borde);
+
+}
+
+
+.configuracion-boton--peligro{
+
+    color:#fff;
+
+    background:rgba(216,111,111,.18);
+
+    border-color:rgba(216,111,111,.28);
+
+}
+
+
+.configuracion-boton--peligro:hover{
+
+    background:rgba(216,111,111,.25);
+
+}
+
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.configuracion-indicadores{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(4,minmax(0,1fr));
+
+    gap:16px;
+
+    margin-bottom:28px;
+
+}
+
+
+.configuracion-indicador{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    min-height:105px;
+
+    padding:20px;
+
+    border:1px solid var(--cfg-borde-suave);
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(16,31,51,.96),
+
+            rgba(10,24,41,.96)
+
+        );
+
+}
+
+
+.configuracion-indicador__icono{
+
+    display:grid;
+
+    place-items:center;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    border:1px solid var(--cfg-borde);
+
+    color:var(--cfg-dorado);
+
+    background:rgba(201,169,110,.08);
+
+    font-weight:700;
+
+}
+
+
+.configuracion-indicador__etiqueta{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:var(--cfg-texto-suave);
+
+    font-size:.63rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+
+
+.configuracion-indicador strong{
+
+    color:var(--cfg-texto);
+
+    font-size:.9rem;
+
+}
+
+/* =========================================================
+   GRID PRINCIPAL
+========================================================= */
+
+.configuracion-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,2fr)
+        380px;
+
+    gap:24px;
+
+    align-items:start;
+
+}
+
+
+.configuracion-columna-principal{
+
+    display:grid;
+
+    gap:24px;
+
+}
+
+
+.configuracion-lateral{
+
+    display:grid;
+
+    gap:24px;
+
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.configuracion-panel{
+
+    overflow:hidden;
+
+    border:1px solid var(--cfg-borde-suave);
+
+    border-radius:var(--cfg-radio);
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(16,31,51,.96),
+
+            rgba(10,24,41,.96)
+
+        );
+
+    box-shadow:var(--cfg-sombra);
+
+}
+
+
+.configuracion-panel--lateral{
+
+    position:relative;
+
+}
+
+
+.configuracion-panel--peligro{
+
+    border-color:
+
+        rgba(216,111,111,.25);
+
+}
+
+
+/* =========================================================
+   CABECERA DEL PANEL
+========================================================= */
+
+.configuracion-panel__cabecera{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:24px;
+
+    border-bottom:
+
+        1px solid
+
+        var(--cfg-borde-suave);
+
+}
+
+
+.configuracion-panel__eyebrow{
+
+    margin:0 0 5px;
+
+    color:var(--cfg-dorado);
+
+    font-size:.63rem;
+
+    font-weight:700;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+
+}
+
+
+.configuracion-panel__titulo{
+
+    margin:0;
+
+    color:var(--cfg-texto);
+
+    font-family:
+
+        "Playfair Display",
+
+        serif;
+
+    font-size:1.45rem;
+
+    font-weight:600;
+
+}
+
+
+.configuracion-panel__descripcion{
+
+    max-width:720px;
+
+    margin:8px 0 0;
+
+    color:var(--cfg-texto-secundario);
+
+    font-size:.78rem;
+
+    line-height:1.6;
+
+}
+
+
+.configuracion-panel__numero{
+
+    display:grid;
+
+    place-items:center;
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:14px;
+
+    border:1px solid var(--cfg-borde);
+
+    background:
+
+        rgba(201,169,110,.08);
+
+    color:var(--cfg-dorado);
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   GRID DEL FORMULARIO
+========================================================= */
+
+.configuracion-formulario__grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(2,minmax(0,1fr));
+
+    gap:20px;
+
+    padding:24px;
+
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.configuracion-campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+.configuracion-campo--completo{
+
+    grid-column:1/-1;
+
+}
+
+
+.configuracion-campo label{
+
+    color:var(--cfg-texto-secundario);
+
+    font-size:.70rem;
+
+    font-weight:700;
+
+}
+
+
+.configuracion-campo label span{
+
+    color:var(--cfg-dorado);
+
+}
+
+
+.configuracion-campo input,
+.configuracion-campo select,
+.configuracion-campo textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:
+
+        1px solid
+
+        var(--cfg-borde-suave);
+
+    border-radius:14px;
+
+    background:
+
+        rgba(7,18,31,.72);
+
+    color:var(--cfg-texto);
+
+    font-family:"Inter",sans-serif;
+
+    font-size:.82rem;
+
+    outline:none;
+
+    transition:
+
+        border-color .2s,
+
+        background .2s,
+
+        box-shadow .2s;
+
+}
+
+
+.configuracion-campo textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+
+.configuracion-campo input::placeholder,
+.configuracion-campo textarea::placeholder{
+
+    color:var(--cfg-texto-suave);
+
+}
+
+
+.configuracion-campo select option{
+
+    background:#0d1d31;
+
+    color:var(--cfg-texto);
+
+}
+
+
+.configuracion-campo input:focus,
+.configuracion-campo textarea:focus,
+.configuracion-campo select:focus{
+
+    border-color:
+
+        var(--cfg-dorado);
+
+    background:
+
+        rgba(10,23,39,.95);
+
+    box-shadow:
+
+        0 0 0 3px
+
+        rgba(201,169,110,.08);
+
+}
+
+
+.configuracion-campo__error{
+
+    min-height:18px;
+
+    color:var(--cfg-rojo);
+
+    font-size:.65rem;
+
+}
+
+/* =========================================================
+   ESTADO TÉCNICO
+========================================================= */
+
+.configuracion-estado-tecnico{
+
+    display:grid;
+
+    gap:14px;
+
+    padding:24px;
+
+    margin:0;
+
+}
+
+
+.configuracion-estado-tecnico div{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding-bottom:12px;
+
+    border-bottom:
+
+        1px solid
+
+        var(--cfg-borde-suave);
+
+}
+
+
+.configuracion-estado-tecnico div:last-child{
+
+    border-bottom:none;
+
+    padding-bottom:0;
+
+}
+
+
+.configuracion-estado-tecnico dt{
+
+    color:var(--cfg-texto-suave);
+
+    font-size:.68rem;
+
+    font-weight:700;
+
+}
+
+
+.configuracion-estado-tecnico dd{
+
+    margin:0;
+
+    color:var(--cfg-texto);
+
+    font-size:.70rem;
+
+    font-weight:600;
+
+    text-align:right;
+
+}
+
+
+.configuracion-estado-tecnico__pendiente{
+
+    color:var(--cfg-dorado);
+
+}
+
+
+/* =========================================================
+   ACCIONES LATERALES
+========================================================= */
+
+.configuracion-acciones-laterales{
+
+    display:grid;
+
+    gap:14px;
+
+    padding:24px;
+
+}
+
+
+.configuracion-accion{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    width:100%;
+
+    padding:18px;
+
+    border:
+
+        1px solid
+
+        var(--cfg-borde-suave);
+
+    border-radius:16px;
+
+    background:
+
+        rgba(255,255,255,.03);
+
+    color:inherit;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+
+        .2s;
+
+}
+
+
+.configuracion-accion:hover{
+
+    transform:
+
+        translateY(-2px);
+
+    border-color:
+
+        var(--cfg-borde);
+
+    background:
+
+        rgba(201,169,110,.05);
+
+}
+
+
+.configuracion-accion span{
+
+    display:grid;
+
+    place-items:center;
+
+    width:38px;
+
+    height:38px;
+
+    flex:0 0 38px;
+
+    border-radius:12px;
+
+    border:
+
+        1px solid
+
+        var(--cfg-borde);
+
+    color:
+
+        var(--cfg-dorado);
+
+    background:
+
+        rgba(201,169,110,.08);
+
+    font-weight:700;
+
+}
+
+
+.configuracion-accion strong{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:var(--cfg-texto);
+
+    font-size:.76rem;
+
+}
+
+
+.configuracion-accion small{
+
+    display:block;
+
+    color:var(--cfg-texto-secundario);
+
+    font-size:.67rem;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================================================
+   TARJETA INFORMATIVA
+========================================================= */
+
+.configuracion-informacion{
+
+    padding:28px;
+
+    text-align:center;
+
+}
+
+
+.configuracion-informacion__icono{
+
+    display:grid;
+
+    place-items:center;
+
+    width:62px;
+
+    height:62px;
+
+    margin:0 auto 18px;
+
+    border-radius:18px;
+
+    border:
+
+        1px solid
+
+        var(--cfg-borde);
+
+    background:
+
+        rgba(201,169,110,.08);
+
+    color:
+
+        var(--cfg-dorado);
+
+    font-size:1.2rem;
+
+}
+
+
+.configuracion-informacion h2{
+
+    margin:8px 0 12px;
+
+    color:var(--cfg-texto);
+
+    font-family:
+
+        "Playfair Display",
+
+        serif;
+
+    font-size:1.45rem;
+
+    font-weight:600;
+
+}
+
+
+.configuracion-informacion p:last-child{
+
+    margin:0;
+
+    color:var(--cfg-texto-secundario);
+
+    line-height:1.7;
+
+    font-size:.78rem;
+
+}
+
+
+/* =========================================================
+   ZONA DE RIESGO
+========================================================= */
+
+.configuracion-zona-riesgo{
+
+    padding:24px;
+
+}
+
+
+.configuracion-zona-riesgo p{
+
+    margin:0 0 20px;
+
+    color:var(--cfg-texto-secundario);
+
+    line-height:1.65;
+
+    font-size:.76rem;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.configuracion-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9500;
+
+}
+
+
+.configuracion-modal__fondo{
+
+    position:absolute;
+
+    inset:0;
+
+    border:0;
+
+    background:
+
+        rgba(5,12,20,.78);
+
+    backdrop-filter:
+
+        blur(4px);
+
+    cursor:pointer;
+
+}
+
+
+.configuracion-modal__dialogo{
+
+    position:relative;
+
+    width:min(520px,calc(100% - 28px));
+
+    margin:90px auto;
+
+    border:
+
+        1px solid
+
+        var(--cfg-borde);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(16,31,51,.98),
+
+            rgba(10,24,41,.98)
+
+        );
+
+    box-shadow:
+
+        var(--cfg-sombra);
+
+    animation:
+
+        configuracionModalEntrada
+
+        .22s
+
+        ease;
+
+}
+
+
+@keyframes configuracionModalEntrada{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+            translateY(16px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+.configuracion-modal__cabecera{
+
+    padding:24px;
+
+    border-bottom:
+
+        1px solid
+
+        var(--cfg-borde-suave);
+
+}
+
+
+.configuracion-modal__cabecera h2{
+
+    margin:0;
+
+    color:var(--cfg-texto);
+
+    font-family:
+
+        "Playfair Display",
+
+        serif;
+
+    font-size:1.45rem;
+
+}
+
+
+.configuracion-modal__cabecera p:last-child{
+
+    margin:8px 0 0;
+
+    color:var(--cfg-texto-secundario);
+
+    line-height:1.6;
+
+    font-size:.75rem;
+
+}
+
+
+.configuracion-modal__cerrar{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:38px;
+
+    height:38px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:none;
+
+    color:var(--cfg-texto-suave);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.configuracion-modal__cerrar:hover{
+
+    background:
+
+        rgba(255,255,255,.05);
+
+    color:var(--cfg-texto);
+
+}
+
+
+.configuracion-modal__acciones{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding:22px 24px;
+
+}
+
+/* =========================================================
+   NOTIFICACIÓN
+========================================================= */
+
+.configuracion-notificacion{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    z-index:9800;
+
+    display:grid;
+
+    grid-template-columns:
+        42px
+        minmax(0,1fr)
+        30px;
+
+    gap:12px;
+
+    align-items:center;
+
+    width:min(390px,calc(100% - 36px));
+
+    padding:15px;
+
+    border:
+        1px solid
+        rgba(96,200,155,.28);
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,31,51,.98),
+            rgba(10,24,41,.98)
+        );
+
+    box-shadow:
+        0 24px 60px rgba(0,0,0,.42);
+
+}
+
+
+.configuracion-notificacion__icono{
+
+    display:grid;
+
+    place-items:center;
+
+    width:42px;
+
+    height:42px;
+
+    border:
+        1px solid
+        rgba(96,200,155,.25);
+
+    border-radius:12px;
+
+    color:var(--cfg-verde);
+
+    background:
+        rgba(96,200,155,.08);
+
+}
+
+
+.configuracion-notificacion__contenido{
+
+    min-width:0;
+
+}
+
+
+.configuracion-notificacion__contenido strong{
+
+    display:block;
+
+    margin-bottom:3px;
+
+    color:var(--cfg-texto);
+
+    font-size:.74rem;
+
+}
+
+
+.configuracion-notificacion__contenido span{
+
+    color:var(--cfg-texto-secundario);
+
+    font-size:.66rem;
+
+    line-height:1.45;
+
+}
+
+
+.configuracion-notificacion__cerrar{
+
+    display:grid;
+
+    place-items:center;
+
+    width:30px;
+
+    height:30px;
+
+    border:0;
+
+    border-radius:9px;
+
+    color:var(--cfg-texto-suave);
+
+    background:transparent;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.configuracion-notificacion__cerrar:hover{
+
+    color:var(--cfg-texto);
+
+    background:
+        rgba(255,255,255,.05);
+
+}
+
+
+/* =========================================================
+   VALIDACIONES
+========================================================= */
+
+.configuracion-campo input[aria-invalid="true"],
+.configuracion-campo select[aria-invalid="true"],
+.configuracion-campo textarea[aria-invalid="true"]{
+
+    border-color:
+        rgba(216,111,111,.55);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(216,111,111,.08);
+
+}
+
+
+.configuracion-campo--valido input,
+.configuracion-campo--valido select,
+.configuracion-campo--valido textarea{
+
+    border-color:
+        rgba(96,200,155,.34);
+
+}
+
+
+/* =========================================================
+   BODY BLOQUEADO
+========================================================= */
+
+body.configuracion-modal-abierto{
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================================
+   FOCO Y ACCESIBILIDAD
+========================================================= */
+
+.configuracion-boton:focus-visible,
+.configuracion-accion:focus-visible,
+.configuracion-modal__cerrar:focus-visible,
+.configuracion-campo input:focus-visible,
+.configuracion-campo select:focus-visible,
+.configuracion-campo textarea:focus-visible,
+.configuracion-notificacion__cerrar:focus-visible{
+
+    outline:
+        2px solid
+        var(--cfg-dorado);
+
+    outline-offset:3px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:1180px){
+
+    .configuracion-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .configuracion-lateral{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+
+    .configuracion-lateral
+    .configuracion-panel:last-child{
+
+        grid-column:1/-1;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width:900px){
+
+    .configuracion-header{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .configuracion-header__acciones{
+
+        width:100%;
+
+    }
+
+
+    .configuracion-header__acciones
+    .configuracion-boton{
+
+        flex:1;
+
+    }
+
+
+    .configuracion-indicadores{
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+    }
+
+
+    .configuracion-formulario__grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .configuracion-campo--completo{
+
+        grid-column:auto;
+
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width:640px){
+
+    .configuracion-main{
+
+        padding:
+            18px
+            12px
+            36px;
+
+    }
+
+
+    .configuracion-header{
+
+        padding:22px;
+
+    }
+
+
+    .configuracion-header__titulo{
+
+        font-size:1.9rem;
+
+    }
+
+
+    .configuracion-header__acciones{
+
+        flex-direction:column;
+
+    }
+
+
+    .configuracion-header__acciones
+    .configuracion-boton{
+
+        width:100%;
+
+    }
+
+
+    .configuracion-indicadores{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .configuracion-panel__cabecera{
+
+        padding:19px;
+
+    }
+
+
+    .configuracion-formulario__grid{
+
+        padding:19px;
+
+    }
+
+
+    .configuracion-lateral{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .configuracion-lateral
+    .configuracion-panel:last-child{
+
+        grid-column:auto;
+
+    }
+
+
+    .configuracion-modal__dialogo{
+
+        width:
+            calc(100% - 16px);
+
+        margin:
+            12px auto;
+
+    }
+
+
+    .configuracion-modal__acciones{
+
+        flex-direction:column;
+
+        padding:18px;
+
+    }
+
+
+    .configuracion-modal__acciones
+    .configuracion-boton{
+
+        width:100%;
+
+    }
+
+
+    .configuracion-notificacion{
+
+        left:10px;
+
+        right:10px;
+
+        bottom:10px;
+
+        width:auto;
+
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+========================================================= */
+
+@media (max-width:380px){
+
+    .configuracion-header__titulo{
+
+        font-size:1.55rem;
+
+    }
+
+
+    .configuracion-panel__titulo{
+
+        font-size:1.2rem;
+
+    }
+
+
+    .configuracion-estado-tecnico div{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:5px;
+
+    }
+
+
+    .configuracion-estado-tecnico dd{
+
+        text-align:left;
+
+    }
+
+}
+
+/* =========================================================
+   ELEMENTOS OCULTOS
+========================================================= */
+
+[hidden] {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   ALTO CONTRASTE
+========================================================= */
+
+@media (prefers-contrast:more){
+
+    .configuracion-header,
+    .configuracion-panel,
+    .configuracion-indicador,
+    .configuracion-modal__dialogo,
+    .configuracion-notificacion{
+
+        border-width:2px;
+
+    }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print{
+
+    body{
+
+        background:#fff;
+
+        color:#000;
+
+    }
+
+
+    falco-comunidad-sidebar,
+    .configuracion-header__acciones,
+    .configuracion-acciones-laterales,
+    .configuracion-zona-riesgo,
+    .configuracion-modal,
+    .configuracion-notificacion{
+
+        display:none !important;
+
+    }
+
+
+    .configuracion-main{
+
+        width:100%;
+
+        margin:0;
+
+        padding:0;
+
+    }
+
+
+    .configuracion-header,
+    .configuracion-panel,
+    .configuracion-indicador{
+
+        color:#000;
+
+        background:#fff;
+
+        border-color:#ccc;
+
+        box-shadow:none;
+
+    }
+
+
+    .configuracion-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#08111d;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:999px;
+
+    background:
+        rgba(201,169,110,.35);
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:
+        rgba(201,169,110,.55);
+
+}
+
+
+/* =========================================================
+   SELECCIÓN
+========================================================= */
+
+::selection{
+
+    color:#fff;
+
+    background:
+        rgba(201,169,110,.28);
+
+}
+
+
+/* =========================================================
+   FIN DEL ARCHIVO
+========================================================= */

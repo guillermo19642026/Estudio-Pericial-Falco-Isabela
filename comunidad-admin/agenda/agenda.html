@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Agenda institucional de FALCO® Comunidad."
+  >
+
+  <title>
+    Agenda | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS COMPARTIDOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS DE AGENDA
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./agenda.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <falco-comunidad-sidebar
+    data-active="agenda"
+    data-base="../"
+  ></falco-comunidad-sidebar>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main
+    id="contenidoPrincipal"
+    class="comunidad-main agenda-main"
+  >
+
+    <div class="agenda-contenido">
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="agenda-header">
+
+        <div class="agenda-header__contenido">
+
+          <div class="agenda-header__identidad">
+
+            <p class="agenda-header__eyebrow">
+              FALCO® Comunidad
+            </p>
+
+            <h1 class="agenda-header__titulo">
+              Agenda institucional
+            </h1>
+
+            <p class="agenda-header__descripcion">
+              Organización centralizada de reuniones,
+              actividades, eventos y compromisos institucionales.
+            </p>
+
+          </div>
+
+
+          <div class="agenda-header__acciones">
+
+            <button
+              type="button"
+              id="botonActualizarAgenda"
+              class="agenda-boton agenda-boton--secundario"
+            >
+
+              <span aria-hidden="true">
+                ↻
+              </span>
+
+              Actualizar
+
+            </button>
+
+
+            <a
+              href="./nuevo-evento.html"
+              class="agenda-boton agenda-boton--principal"
+            >
+
+              <span aria-hidden="true">
+                +
+              </span>
+
+              Nuevo evento
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           INDICADORES
+      ================================================== -->
+
+      <section
+        class="agenda-indicadores"
+        aria-label="Indicadores de agenda"
+      >
+
+        <article class="agenda-indicador">
+
+          <span
+            class="agenda-indicador__icono"
+            aria-hidden="true"
+          >
+            ◉
+          </span>
+
+          <div>
+
+            <span class="agenda-indicador__etiqueta">
+              Eventos de hoy
+            </span>
+
+            <strong id="indicadorEventosHoy">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="agenda-indicador">
+
+          <span
+            class="agenda-indicador__icono"
+            aria-hidden="true"
+          >
+            ◈
+          </span>
+
+          <div>
+
+            <span class="agenda-indicador__etiqueta">
+              Próximos 7 días
+            </span>
+
+            <strong id="indicadorProximosEventos">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="agenda-indicador">
+
+          <span
+            class="agenda-indicador__icono"
+            aria-hidden="true"
+          >
+            ◌
+          </span>
+
+          <div>
+
+            <span class="agenda-indicador__etiqueta">
+              Pendientes
+            </span>
+
+            <strong id="indicadorEventosPendientes">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="agenda-indicador">
+
+          <span
+            class="agenda-indicador__icono"
+            aria-hidden="true"
+          >
+            ✓
+          </span>
+
+          <div>
+
+            <span class="agenda-indicador__etiqueta">
+              Finalizados
+            </span>
+
+            <strong id="indicadorEventosFinalizados">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           ÁREA PRINCIPAL
+      ================================================== -->
+
+      <section class="agenda-grid-principal">
+
+
+        <!-- ===============================================
+             AGENDA GENERAL
+        ================================================ -->
+
+        <div class="agenda-panel">
+
+          <div class="agenda-panel__cabecera">
+
+            <div>
+
+              <p class="agenda-panel__eyebrow">
+                Organización temporal
+              </p>
+
+              <h2 class="agenda-panel__titulo">
+                Agenda
+              </h2>
+
+              <p class="agenda-panel__descripcion">
+                Consultá los próximos compromisos y organizá
+                las actividades institucionales.
+              </p>
+
+            </div>
+
+
+            <span class="agenda-panel__contador">
+
+              <strong id="contadorEventosVisibles">
+                0
+              </strong>
+
+              eventos
+
+            </span>
+
+          </div>
+
+
+          <!-- =============================================
+               FILTROS
+          ============================================== -->
+
+          <div class="agenda-filtros">
+
+
+            <div class="agenda-campo agenda-campo--busqueda">
+
+              <label for="buscadorAgenda">
+                Buscar evento
+              </label>
+
+              <div class="agenda-campo__buscador">
+
+                <span aria-hidden="true">
+                  ⌕
+                </span>
+
+                <input
+                  type="search"
+                  id="buscadorAgenda"
+                  placeholder="Título, responsable o institución"
+                  autocomplete="off"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="agenda-campo">
+
+              <label for="filtroTipoAgenda">
+                Tipo
+              </label>
+
+              <select id="filtroTipoAgenda">
+
+                <option value="todos">
+                  Todos los tipos
+                </option>
+
+                <option value="reunion">
+                  Reunión
+                </option>
+
+                <option value="actividad">
+                  Actividad
+                </option>
+
+                <option value="capacitacion">
+                  Capacitación
+                </option>
+
+                <option value="programa">
+                  Programa
+                </option>
+
+                <option value="proyecto">
+                  Proyecto
+                </option>
+
+                <option value="recordatorio">
+                  Recordatorio
+                </option>
+
+                <option value="otro">
+                  Otro
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="agenda-campo">
+
+              <label for="filtroEstadoAgenda">
+                Estado
+              </label>
+
+              <select id="filtroEstadoAgenda">
+
+                <option value="todos">
+                  Todos los estados
+                </option>
+
+                <option value="pendiente">
+                  Pendiente
+                </option>
+
+                <option value="confirmado">
+                  Confirmado
+                </option>
+
+                <option value="finalizado">
+                  Finalizado
+                </option>
+
+                <option value="cancelado">
+                  Cancelado
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="agenda-campo">
+
+              <label for="filtroPeriodoAgenda">
+                Período
+              </label>
+
+              <select id="filtroPeriodoAgenda">
+
+                <option value="todos">
+                  Todos
+                </option>
+
+                <option value="hoy">
+                  Hoy
+                </option>
+
+                <option value="semana">
+                  Próximos 7 días
+                </option>
+
+                <option value="mes">
+                  Este mes
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="agenda-filtros__acciones">
+
+              <button
+                type="button"
+                id="botonLimpiarAgenda"
+                class="agenda-boton agenda-boton--secundario"
+              >
+                Limpiar filtros
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- =============================================
+               LOADER
+          ============================================== -->
+
+          <div
+            id="agendaLoader"
+            class="agenda-loader"
+            aria-live="polite"
+          >
+
+            <span class="agenda-loader__spinner"></span>
+
+            <p>
+              Cargando agenda institucional...
+            </p>
+
+          </div>
+
+
+          <!-- =============================================
+               LISTADO
+          ============================================== -->
+
+          <div
+            id="agendaListado"
+            class="agenda-listado"
+            hidden
+          ></div>
+
+
+          <!-- =============================================
+               ESTADO VACÍO
+          ============================================== -->
+
+          <div
+            id="agendaVacia"
+            class="agenda-vacio"
+            hidden
+          >
+
+            <span
+              class="agenda-vacio__icono"
+              aria-hidden="true"
+            >
+              ◇
+            </span>
+
+            <p class="agenda-vacio__eyebrow">
+              Agenda institucional
+            </p>
+
+            <h3 class="agenda-vacio__titulo">
+              Todavía no hay eventos registrados
+            </h3>
+
+            <p class="agenda-vacio__descripcion">
+              Agregá el primer evento para comenzar a organizar
+              reuniones, actividades y compromisos institucionales.
+            </p>
+
+            <a
+              href="./nuevo-evento.html"
+              class="agenda-boton agenda-boton--principal"
+            >
+              + Crear primer evento
+            </a>
+
+          </div>
+
+
+          <!-- =============================================
+               SIN RESULTADOS
+          ============================================== -->
+
+          <div
+            id="agendaSinResultados"
+            class="agenda-vacio"
+            hidden
+          >
+
+            <span
+              class="agenda-vacio__icono"
+              aria-hidden="true"
+            >
+              ⌕
+            </span>
+
+            <p class="agenda-vacio__eyebrow">
+              Búsqueda
+            </p>
+
+            <h3 class="agenda-vacio__titulo">
+              No encontramos eventos
+            </h3>
+
+            <p class="agenda-vacio__descripcion">
+              Probá modificando los filtros o la búsqueda.
+            </p>
+
+            <button
+              type="button"
+              id="botonRestablecerAgenda"
+              class="agenda-boton agenda-boton--secundario"
+            >
+              Restablecer búsqueda
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             COLUMNA LATERAL
+        ================================================ -->
+
+        <aside class="agenda-lateral">
+
+
+          <!-- =============================================
+               PRÓXIMOS EVENTOS
+          ============================================== -->
+
+          <section class="agenda-panel agenda-panel--lateral">
+
+            <div class="agenda-panel__cabecera">
+
+              <div>
+
+                <p class="agenda-panel__eyebrow">
+                  Próximos compromisos
+                </p>
+
+                <h2 class="agenda-panel__titulo">
+                  Próximos eventos
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="agendaProximos"
+              class="agenda-proximos"
+            >
+
+              <p class="agenda-proximos__vacio">
+                No hay próximos eventos registrados.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               ACCESOS RÁPIDOS
+          ============================================== -->
+
+          <section class="agenda-panel agenda-panel--lateral">
+
+            <div class="agenda-panel__cabecera">
+
+              <div>
+
+                <p class="agenda-panel__eyebrow">
+                  Accesos rápidos
+                </p>
+
+                <h2 class="agenda-panel__titulo">
+                  Crear registro
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="agenda-accesos">
+
+              <a
+                href="./nuevo-evento.html"
+                class="agenda-acceso"
+              >
+
+                <span aria-hidden="true">
+                  +
+                </span>
+
+                <div>
+
+                  <strong>
+                    Nuevo evento
+                  </strong>
+
+                  <small>
+                    Registrar un compromiso general.
+                  </small>
+
+                </div>
+
+              </a>
+
+
+              <a
+                href="../reuniones/nueva-reunion.html"
+                class="agenda-acceso"
+              >
+
+                <span aria-hidden="true">
+                  01
+                </span>
+
+                <div>
+
+                  <strong>
+                    Nueva reunión
+                  </strong>
+
+                  <small>
+                    Programar una reunión institucional.
+                  </small>
+
+                </div>
+
+              </a>
+
+
+              <a
+                href="../programas/programas.html"
+                class="agenda-acceso"
+              >
+
+                <span aria-hidden="true">
+                  02
+                </span>
+
+                <div>
+
+                  <strong>
+                    Ver programas
+                  </strong>
+
+                  <small>
+                    Consultar actividades de programas.
+                  </small>
+
+                </div>
+
+              </a>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               REFERENCIA
+          ============================================== -->
+
+          <section class="agenda-panel agenda-panel--lateral">
+
+            <div class="agenda-referencia">
+
+              <span
+                class="agenda-referencia__icono"
+                aria-hidden="true"
+              >
+                ◈
+              </span>
+
+              <p class="agenda-referencia__eyebrow">
+                Agenda unificada
+              </p>
+
+              <h2>
+                Un centro operativo
+              </h2>
+
+              <p>
+                Esta agenda reunirá eventos generales,
+                reuniones, actividades de programas y,
+                más adelante, compromisos vinculados a proyectos.
+              </p>
+
+            </div>
+
+          </section>
+
+        </aside>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="agendaNotificacion"
+    class="agenda-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="agendaNotificacionIcono"
+      class="agenda-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+    <div class="agenda-notificacion__contenido">
+
+      <strong id="agendaNotificacionTitulo">
+        Agenda actualizada
+      </strong>
+
+      <span id="agendaNotificacionMensaje">
+        La información fue actualizada correctamente.
+      </span>
+
+    </div>
+
+    <button
+      type="button"
+      id="agendaNotificacionCerrar"
+      class="agenda-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./agenda.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

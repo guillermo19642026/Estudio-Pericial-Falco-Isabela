@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Administración integral de programas institucionales en FALCO® Comunidad."
+  >
+
+  <title>
+    Programa | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./programa.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR GENERAL
+  ====================================================== -->
+
+  <div
+    data-comunidad-sidebar
+    data-active="programas"
+    data-base="../"
+  ></div>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="programa-main">
+
+
+    <!-- ===================================================
+         LOADER GENERAL
+    ==================================================== -->
+
+    <section
+      id="programaLoader"
+      class="programa-loader"
+      aria-live="polite"
+    >
+
+      <div
+        class="programa-loader__spinner"
+        aria-hidden="true"
+      ></div>
+
+      <p class="programa-loader__texto">
+        Cargando programa…
+      </p>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROGRAMA NO ENCONTRADO
+    ==================================================== -->
+
+    <section
+      id="programaNoEncontrado"
+      class="programa-no-encontrado"
+      hidden
+    >
+
+      <div
+        class="programa-no-encontrado__icono"
+        aria-hidden="true"
+      >
+        !
+      </div>
+
+      <p class="programa-no-encontrado__eyebrow">
+        Registro no disponible
+      </p>
+
+      <h1 class="programa-no-encontrado__titulo">
+        No encontramos el programa
+      </h1>
+
+      <p class="programa-no-encontrado__descripcion">
+        El registro solicitado no existe, fue eliminado o no contiene
+        un identificador válido.
+      </p>
+
+      <a
+        href="./programas.html"
+        class="programa-boton programa-boton--principal"
+      >
+        Volver al listado
+      </a>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTENIDO DEL PROGRAMA
+    ==================================================== -->
+
+    <div
+      id="programaContenido"
+      class="programa-contenido"
+      hidden
+    >
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="programa-header">
+
+        <div class="programa-header__superior">
+
+          <a
+            href="./programas.html"
+            class="programa-header__volver"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+
+            Volver a programas
+          </a>
+
+
+          <div class="programa-header__acciones">
+
+            <button
+              type="button"
+              id="botonEditarPrograma"
+              class="programa-boton programa-boton--secundario"
+            >
+              Editar información
+            </button>
+
+            <button
+              type="button"
+              id="botonCambiarEstado"
+              class="programa-boton programa-boton--principal"
+            >
+              Cambiar estado
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="programa-header__contenido">
+
+          <div class="programa-header__identidad">
+
+            <div class="programa-header__clasificacion">
+
+              <span
+                id="programaTipo"
+                class="programa-header__tipo"
+              >
+                Programa
+              </span>
+
+              <span
+                id="programaEstado"
+                class="programa-estado programa-estado--preparacion"
+              >
+                En preparación
+              </span>
+
+            </div>
+
+
+            <h1
+              id="programaNombre"
+              class="programa-header__titulo"
+            >
+              Programa institucional
+            </h1>
+
+
+            <p
+              id="programaDescripcion"
+              class="programa-header__descripcion"
+            >
+              Descripción general del programa.
+            </p>
+
+
+            <div class="programa-header__referencia">
+
+              <span>
+                Referencia
+              </span>
+
+              <strong id="programaReferencia">
+                —
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="programa-header__resumen">
+
+            <article class="programa-header__resumen-item">
+
+              <span class="programa-header__resumen-etiqueta">
+                Responsable
+              </span>
+
+              <strong id="programaResponsable">
+                —
+              </strong>
+
+            </article>
+
+
+            <article class="programa-header__resumen-item">
+
+              <span class="programa-header__resumen-etiqueta">
+                Institución
+              </span>
+
+              <strong id="programaInstitucion">
+                —
+              </strong>
+
+            </article>
+
+
+            <article class="programa-header__resumen-item">
+
+              <span class="programa-header__resumen-etiqueta">
+                Modalidad
+              </span>
+
+              <strong id="programaModalidad">
+                —
+              </strong>
+
+            </article>
+
+
+            <article class="programa-header__resumen-item">
+
+              <span class="programa-header__resumen-etiqueta">
+                Alcance
+              </span>
+
+              <strong id="programaAlcance">
+                —
+              </strong>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           INDICADORES
+      ================================================== -->
+
+      <section
+        class="programa-indicadores"
+        aria-label="Resumen del programa"
+      >
+
+        <article class="programa-indicador">
+
+          <span
+            class="programa-indicador__icono"
+            aria-hidden="true"
+          >
+            ◇
+          </span>
+
+          <div>
+
+            <span class="programa-indicador__etiqueta">
+              Actividades
+            </span>
+
+            <strong id="indicadorActividades">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="programa-indicador">
+
+          <span
+            class="programa-indicador__icono"
+            aria-hidden="true"
+          >
+            ◎
+          </span>
+
+          <div>
+
+            <span class="programa-indicador__etiqueta">
+              Participantes
+            </span>
+
+            <strong id="indicadorParticipantes">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="programa-indicador">
+
+          <span
+            class="programa-indicador__icono"
+            aria-hidden="true"
+          >
+            ▣
+          </span>
+
+          <div>
+
+            <span class="programa-indicador__etiqueta">
+              Instituciones
+            </span>
+
+            <strong id="indicadorInstituciones">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="programa-indicador">
+
+          <span
+            class="programa-indicador__icono"
+            aria-hidden="true"
+          >
+            □
+          </span>
+
+          <div>
+
+            <span class="programa-indicador__etiqueta">
+              Documentos
+            </span>
+
+            <strong id="indicadorDocumentos">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           NAVEGACIÓN INTERNA
+      ================================================== -->
+
+      <nav
+        class="programa-navegacion"
+        aria-label="Secciones del programa"
+      >
+
+        <button
+          type="button"
+          class="programa-navegacion__boton programa-navegacion__boton--activo"
+          data-programa-tab="resumen"
+          aria-selected="true"
+        >
+          Resumen
+        </button>
+
+        <button
+          type="button"
+          class="programa-navegacion__boton"
+          data-programa-tab="actividades"
+          aria-selected="false"
+        >
+          Actividades
+        </button>
+
+        <button
+          type="button"
+          class="programa-navegacion__boton"
+          data-programa-tab="participantes"
+          aria-selected="false"
+        >
+          Participantes
+        </button>
+
+        <button
+          type="button"
+          class="programa-navegacion__boton"
+          data-programa-tab="instituciones"
+          aria-selected="false"
+        >
+          Instituciones
+        </button>
+
+        <button
+          type="button"
+          class="programa-navegacion__boton"
+          data-programa-tab="documentos"
+          aria-selected="false"
+        >
+          Documentos
+        </button>
+
+        <button
+          type="button"
+          class="programa-navegacion__boton"
+          data-programa-tab="agenda"
+          aria-selected="false"
+        >
+          Agenda
+        </button>
+
+        <button
+          type="button"
+          class="programa-navegacion__boton"
+          data-programa-tab="seguimiento"
+          aria-selected="false"
+        >
+          Seguimiento
+        </button>
+
+      </nav>
+
+
+      <!-- =================================================
+           SECCIÓN: RESUMEN
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="resumen"
+      >
+
+
+        <!-- INFORMACIÓN GENERAL -->
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Información general
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Identidad e implementación
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Datos principales registrados para el desarrollo
+                institucional del programa.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonEditarResumen"
+              class="programa-boton programa-boton--secundario"
+            >
+              Editar datos
+            </button>
+
+          </div>
+
+
+          <dl class="programa-datos">
+
+            <div class="programa-dato">
+
+              <dt>
+                Tipo de programa
+              </dt>
+
+              <dd id="resumenTipo">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Estado actual
+              </dt>
+
+              <dd id="resumenEstado">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Responsable
+              </dt>
+
+              <dd id="resumenResponsable">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Institución vinculada
+              </dt>
+
+              <dd id="resumenInstitucion">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Modalidad
+              </dt>
+
+              <dd id="resumenModalidad">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Alcance
+              </dt>
+
+              <dd id="resumenAlcance">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Fecha de inicio
+              </dt>
+
+              <dd id="resumenFechaInicio">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato">
+
+              <dt>
+                Finalización estimada
+              </dt>
+
+              <dd id="resumenFechaFinalizacion">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato programa-dato--completo">
+
+              <dt>
+                Descripción general
+              </dt>
+
+              <dd id="resumenDescripcion">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato programa-dato--completo">
+
+              <dt>
+                Objetivo general
+              </dt>
+
+              <dd id="resumenObjetivoGeneral">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato programa-dato--completo">
+
+              <dt>
+                Población destinataria
+              </dt>
+
+              <dd id="resumenDestinatarios">
+                —
+              </dd>
+
+            </div>
+
+
+            <div class="programa-dato programa-dato--completo">
+
+              <dt>
+                Observaciones administrativas
+              </dt>
+
+              <dd id="resumenObservaciones">
+                —
+              </dd>
+
+            </div>
+
+          </dl>
+
+        </article>
+
+
+        <!-- AVANCE OPERATIVO -->
+
+        <div class="programa-resumen-grid">
+
+          <article class="programa-panel programa-panel--compacto">
+
+            <div class="programa-panel__cabecera">
+
+              <div>
+
+                <p class="programa-panel__eyebrow">
+                  Avance operativo
+                </p>
+
+                <h2 class="programa-panel__titulo">
+                  Desarrollo del programa
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="programa-avance">
+
+              <div class="programa-avance__cabecera">
+
+                <span>
+                  Nivel de organización
+                </span>
+
+                <strong id="programaPorcentajeAvance">
+                  0%
+                </strong>
+
+              </div>
+
+              <div
+                class="programa-avance__barra"
+                aria-hidden="true"
+              >
+
+                <span
+                  id="programaBarraAvance"
+                  class="programa-avance__valor"
+                ></span>
+
+              </div>
+
+              <p
+                id="programaMensajeAvance"
+                class="programa-avance__mensaje"
+              >
+                Completá los módulos del programa para avanzar
+                en su organización.
+              </p>
+
+            </div>
+
+
+            <div class="programa-checklist">
+
+              <div
+                class="programa-checklist__item"
+                data-checklist="identidad"
+              >
+
+                <span
+                  class="programa-checklist__marca"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Identidad institucional
+                  </strong>
+
+                  <span>
+                    Datos principales del programa
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="programa-checklist__item"
+                data-checklist="actividades"
+              >
+
+                <span
+                  class="programa-checklist__marca"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Actividades
+                  </strong>
+
+                  <span>
+                    Planificación de acciones
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="programa-checklist__item"
+                data-checklist="participantes"
+              >
+
+                <span
+                  class="programa-checklist__marca"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Participantes
+                  </strong>
+
+                  <span>
+                    Personas vinculadas
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="programa-checklist__item"
+                data-checklist="instituciones"
+              >
+
+                <span
+                  class="programa-checklist__marca"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Instituciones
+                  </strong>
+
+                  <span>
+                    Articulaciones registradas
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ACTIVIDAD RECIENTE -->
+
+          <article class="programa-panel programa-panel--compacto">
+
+            <div class="programa-panel__cabecera">
+
+              <div>
+
+                <p class="programa-panel__eyebrow">
+                  Historial
+                </p>
+
+                <h2 class="programa-panel__titulo">
+                  Actividad reciente
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="programaActividadReciente"
+              class="programa-historial"
+            >
+
+              <div class="programa-historial__item">
+
+                <span
+                  class="programa-historial__marca"
+                  aria-hidden="true"
+                ></span>
+
+                <div>
+
+                  <strong>
+                    Programa registrado
+                  </strong>
+
+                  <span id="programaFechaCreacion">
+                    —
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           SECCIÓN: ACTIVIDADES
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="actividades"
+        hidden
+      >
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Planificación
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Actividades del programa
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Organizá talleres, encuentros, intervenciones,
+                reuniones y acciones institucionales.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonNuevaActividad"
+              class="programa-boton programa-boton--principal"
+            >
+              Nueva actividad
+            </button>
+
+          </div>
+
+
+          <div
+            id="actividadesListado"
+            class="programa-listado"
+          ></div>
+
+
+          <div
+            id="actividadesVacio"
+            class="programa-vacio"
+          >
+
+            <span
+              class="programa-vacio__icono"
+              aria-hidden="true"
+            >
+              ◇
+            </span>
+
+            <p class="programa-vacio__eyebrow">
+              Sin actividades
+            </p>
+
+            <h3 class="programa-vacio__titulo">
+              Todavía no hay actividades registradas
+            </h3>
+
+            <p class="programa-vacio__descripcion">
+              Incorporá la primera actividad para comenzar
+              la planificación operativa del programa.
+            </p>
+
+            <button
+              type="button"
+              class="programa-boton programa-boton--principal"
+              data-crear-modulo="actividad"
+            >
+              Registrar primera actividad
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           SECCIÓN: PARTICIPANTES
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="participantes"
+        hidden
+      >
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Vinculación
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Participantes
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Administrá las personas incorporadas al programa
+                y su relación con las actividades.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonNuevoParticipante"
+              class="programa-boton programa-boton--principal"
+            >
+              Agregar participante
+            </button>
+
+          </div>
+
+
+          <div
+            id="participantesListado"
+            class="programa-listado"
+          ></div>
+
+
+          <div
+            id="participantesVacio"
+            class="programa-vacio"
+          >
+
+            <span
+              class="programa-vacio__icono"
+              aria-hidden="true"
+            >
+              ◎
+            </span>
+
+            <p class="programa-vacio__eyebrow">
+              Sin participantes
+            </p>
+
+            <h3 class="programa-vacio__titulo">
+              No hay personas vinculadas
+            </h3>
+
+            <p class="programa-vacio__descripcion">
+              Agregá participantes para registrar su incorporación,
+              asistencia y seguimiento.
+            </p>
+
+            <button
+              type="button"
+              class="programa-boton programa-boton--principal"
+              data-crear-modulo="participante"
+            >
+              Agregar primer participante
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           SECCIÓN: INSTITUCIONES
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="instituciones"
+        hidden
+      >
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Articulación institucional
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Instituciones vinculadas
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Registrá organizaciones, equipos y espacios
+                que participan del programa.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonNuevaInstitucion"
+              class="programa-boton programa-boton--principal"
+            >
+              Vincular institución
+            </button>
+
+          </div>
+
+
+          <div
+            id="institucionesListado"
+            class="programa-listado"
+          ></div>
+
+
+          <div
+            id="institucionesVacio"
+            class="programa-vacio"
+          >
+
+            <span
+              class="programa-vacio__icono"
+              aria-hidden="true"
+            >
+              ▣
+            </span>
+
+            <p class="programa-vacio__eyebrow">
+              Sin instituciones
+            </p>
+
+            <h3 class="programa-vacio__titulo">
+              No hay articulaciones registradas
+            </h3>
+
+            <p class="programa-vacio__descripcion">
+              Vinculá instituciones para consolidar la red
+              de implementación y cooperación.
+            </p>
+
+            <button
+              type="button"
+              class="programa-boton programa-boton--principal"
+              data-crear-modulo="institucion"
+            >
+              Vincular primera institución
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           SECCIÓN: DOCUMENTOS
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="documentos"
+        hidden
+      >
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Archivo institucional
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Documentación
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Conservá materiales, actas, informes, convenios
+                y documentos vinculados al programa.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonNuevoDocumento"
+              class="programa-boton programa-boton--principal"
+            >
+              Agregar documento
+            </button>
+
+          </div>
+
+
+          <div
+            id="documentosListado"
+            class="programa-listado"
+          ></div>
+
+
+          <div
+            id="documentosVacio"
+            class="programa-vacio"
+          >
+
+            <span
+              class="programa-vacio__icono"
+              aria-hidden="true"
+            >
+              □
+            </span>
+
+            <p class="programa-vacio__eyebrow">
+              Sin documentos
+            </p>
+
+            <h3 class="programa-vacio__titulo">
+              El archivo todavía está vacío
+            </h3>
+
+            <p class="programa-vacio__descripcion">
+              Agregá documentos para centralizar la información
+              institucional del programa.
+            </p>
+
+            <button
+              type="button"
+              class="programa-boton programa-boton--principal"
+              data-crear-modulo="documento"
+            >
+              Agregar primer documento
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           SECCIÓN: AGENDA
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="agenda"
+        hidden
+      >
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Organización temporal
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Agenda del programa
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Registrá reuniones, encuentros, fechas clave,
+                vencimientos y acciones programadas.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonNuevoEvento"
+              class="programa-boton programa-boton--principal"
+            >
+              Nuevo evento
+            </button>
+
+          </div>
+
+
+          <div
+            id="agendaListado"
+            class="programa-listado"
+          ></div>
+
+
+          <div
+            id="agendaVacio"
+            class="programa-vacio"
+          >
+
+            <span
+              class="programa-vacio__icono"
+              aria-hidden="true"
+            >
+              ◫
+            </span>
+
+            <p class="programa-vacio__eyebrow">
+              Sin eventos
+            </p>
+
+            <h3 class="programa-vacio__titulo">
+              La agenda no tiene fechas registradas
+            </h3>
+
+            <p class="programa-vacio__descripcion">
+              Incorporá eventos para organizar las próximas
+              acciones del programa.
+            </p>
+
+            <button
+              type="button"
+              class="programa-boton programa-boton--principal"
+              data-crear-modulo="evento"
+            >
+              Registrar primer evento
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           SECCIÓN: SEGUIMIENTO
+      ================================================== -->
+
+      <section
+        class="programa-tab"
+        data-programa-panel="seguimiento"
+        hidden
+      >
+
+        <article class="programa-panel">
+
+          <div class="programa-panel__cabecera">
+
+            <div>
+
+              <p class="programa-panel__eyebrow">
+                Registro técnico
+              </p>
+
+              <h2 class="programa-panel__titulo">
+                Seguimiento institucional
+              </h2>
+
+              <p class="programa-panel__descripcion">
+                Documentá avances, dificultades, decisiones
+                y observaciones del proceso de implementación.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              id="botonNuevoSeguimiento"
+              class="programa-boton programa-boton--principal"
+            >
+              Nueva anotación
+            </button>
+
+          </div>
+
+
+          <div
+            id="seguimientoListado"
+            class="programa-listado"
+          ></div>
+
+
+          <div
+            id="seguimientoVacio"
+            class="programa-vacio"
+          >
+
+            <span
+              class="programa-vacio__icono"
+              aria-hidden="true"
+            >
+              ◈
+            </span>
+
+            <p class="programa-vacio__eyebrow">
+              Sin seguimiento
+            </p>
+
+            <h3 class="programa-vacio__titulo">
+              Todavía no hay anotaciones
+            </h3>
+
+            <p class="programa-vacio__descripcion">
+              Registrá la primera actualización para conservar
+              el historial técnico y administrativo.
+            </p>
+
+            <button
+              type="button"
+              class="programa-boton programa-boton--principal"
+              data-crear-modulo="seguimiento"
+            >
+              Crear primera anotación
+            </button>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           ZONA ADMINISTRATIVA
+      ================================================== -->
+
+      <section class="programa-administracion">
+
+        <div class="programa-administracion__contenido">
+
+          <p class="programa-administracion__eyebrow">
+            Administración del registro
+          </p>
+
+          <h2 class="programa-administracion__titulo">
+            Acciones generales
+          </h2>
+
+          <p class="programa-administracion__descripcion">
+            Las acciones realizadas sobre el programa modificarán
+            su disponibilidad dentro del registro institucional.
+          </p>
+
+        </div>
+
+
+        <div class="programa-administracion__acciones">
+
+          <button
+            type="button"
+            id="botonArchivarPrograma"
+            class="programa-boton programa-boton--secundario"
+          >
+            Archivar programa
+          </button>
+
+          <button
+            type="button"
+            id="botonEliminarPrograma"
+            class="programa-boton programa-boton--peligro"
+          >
+            Eliminar programa
+          </button>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL: EDITAR PROGRAMA
+  ====================================================== -->
+
+  <div
+    id="modalEditarPrograma"
+    class="programa-modal"
+    hidden
+  >
+
+    <div
+      class="programa-modal__fondo"
+      data-cerrar-modal="editar"
+    ></div>
+
+    <div
+      class="programa-modal__dialogo programa-modal__dialogo--grande"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalEditarProgramaTitulo"
+    >
+
+      <button
+        type="button"
+        class="programa-modal__cerrar"
+        data-cerrar-modal="editar"
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
+
+
+      <div class="programa-modal__cabecera">
+
+        <p class="programa-modal__eyebrow">
+          Edición institucional
+        </p>
+
+        <h2
+          id="modalEditarProgramaTitulo"
+          class="programa-modal__titulo"
+        >
+          Editar información del programa
+        </h2>
+
+        <p class="programa-modal__descripcion">
+          Actualizá los datos principales del registro.
+        </p>
+
+      </div>
+
+
+      <form
+        id="formularioEditarPrograma"
+        class="programa-formulario"
+        novalidate
+      >
+
+        <div class="programa-formulario__grid">
+
+
+          <div class="programa-campo programa-campo--completo">
+
+            <label
+              for="editarNombrePrograma"
+              class="programa-campo__label"
+            >
+              Nombre del programa
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <input
+              type="text"
+              id="editarNombrePrograma"
+              name="nombre"
+              class="programa-campo__control"
+              maxlength="120"
+              required
+            >
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="nombre"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarTipoPrograma"
+              class="programa-campo__label"
+            >
+              Tipo
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <select
+              id="editarTipoPrograma"
+              name="tipo"
+              class="programa-campo__control"
+              required
+            >
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="formacion">
+                Formación
+              </option>
+
+              <option value="acompanamiento">
+                Acompañamiento
+              </option>
+
+              <option value="prevencion">
+                Prevención
+              </option>
+
+              <option value="intervencion">
+                Intervención
+              </option>
+
+              <option value="comunitario">
+                Comunitario
+              </option>
+
+              <option value="institucional">
+                Institucional
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+
+            </select>
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="tipo"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarResponsablePrograma"
+              class="programa-campo__label"
+            >
+              Responsable
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <input
+              type="text"
+              id="editarResponsablePrograma"
+              name="responsable"
+              class="programa-campo__control"
+              maxlength="120"
+              required
+            >
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="responsable"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarInstitucionPrograma"
+              class="programa-campo__label"
+            >
+              Institución principal
+            </label>
+
+            <input
+              type="text"
+              id="editarInstitucionPrograma"
+              name="institucion"
+              class="programa-campo__control"
+              maxlength="150"
+            >
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="institucion"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarModalidadPrograma"
+              class="programa-campo__label"
+            >
+              Modalidad
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <select
+              id="editarModalidadPrograma"
+              name="modalidad"
+              class="programa-campo__control"
+              required
+            >
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="Presencial">
+                Presencial
+              </option>
+
+              <option value="Virtual">
+                Virtual
+              </option>
+
+              <option value="Híbrida">
+                Híbrida
+              </option>
+
+              <option value="Territorial">
+                Territorial
+              </option>
+
+              <option value="A definir">
+                A definir
+              </option>
+
+            </select>
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="modalidad"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarAlcancePrograma"
+              class="programa-campo__label"
+            >
+              Alcance
+            </label>
+
+            <select
+              id="editarAlcancePrograma"
+              name="alcance"
+              class="programa-campo__control"
+            >
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="Local">
+                Local
+              </option>
+
+              <option value="Municipal">
+                Municipal
+              </option>
+
+              <option value="Provincial">
+                Provincial
+              </option>
+
+              <option value="Nacional">
+                Nacional
+              </option>
+
+              <option value="Institucional">
+                Institucional
+              </option>
+
+              <option value="Comunitario">
+                Comunitario
+              </option>
+
+              <option value="A definir">
+                A definir
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarFechaInicioPrograma"
+              class="programa-campo__label"
+            >
+              Fecha de inicio
+            </label>
+
+            <input
+              type="date"
+              id="editarFechaInicioPrograma"
+              name="fechaInicio"
+              class="programa-campo__control"
+            >
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="fechaInicio"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo">
+
+            <label
+              for="editarFechaFinalizacionPrograma"
+              class="programa-campo__label"
+            >
+              Finalización estimada
+            </label>
+
+            <input
+              type="date"
+              id="editarFechaFinalizacionPrograma"
+              name="fechaFinalizacion"
+              class="programa-campo__control"
+            >
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="fechaFinalizacion"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo programa-campo--completo">
+
+            <label
+              for="editarDescripcionPrograma"
+              class="programa-campo__label"
+            >
+              Descripción general
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <textarea
+              id="editarDescripcionPrograma"
+              name="descripcion"
+              class="programa-campo__control programa-campo__control--textarea"
+              rows="4"
+              maxlength="800"
+              required
+            ></textarea>
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="descripcion"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo programa-campo--completo">
+
+            <label
+              for="editarObjetivoGeneralPrograma"
+              class="programa-campo__label"
+            >
+              Objetivo general
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <textarea
+              id="editarObjetivoGeneralPrograma"
+              name="objetivoGeneral"
+              class="programa-campo__control programa-campo__control--textarea"
+              rows="4"
+              maxlength="600"
+              required
+            ></textarea>
+
+            <span
+              class="programa-campo__error"
+              data-editar-error="objetivoGeneral"
+              aria-live="polite"
+            ></span>
+
+          </div>
+
+
+          <div class="programa-campo programa-campo--completo">
+
+            <label
+              for="editarDestinatariosPrograma"
+              class="programa-campo__label"
+            >
+              Población destinataria
+            </label>
+
+            <textarea
+              id="editarDestinatariosPrograma"
+              name="destinatarios"
+              class="programa-campo__control programa-campo__control--textarea"
+              rows="3"
+              maxlength="500"
+            ></textarea>
+
+          </div>
+
+
+          <div class="programa-campo programa-campo--completo">
+
+            <label
+              for="editarObservacionesPrograma"
+              class="programa-campo__label"
+            >
+              Observaciones administrativas
+            </label>
+
+            <textarea
+              id="editarObservacionesPrograma"
+              name="observaciones"
+              class="programa-campo__control programa-campo__control--textarea"
+              rows="4"
+              maxlength="800"
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <div class="programa-modal__acciones">
+
+          <button
+            type="button"
+            class="programa-boton programa-boton--secundario"
+            data-cerrar-modal="editar"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="submit"
+            id="botonGuardarEdicion"
+            class="programa-boton programa-boton--principal"
+          >
+            Guardar cambios
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL: CAMBIAR ESTADO
+  ====================================================== -->
+
+  <div
+    id="modalCambiarEstado"
+    class="programa-modal"
+    hidden
+  >
+
+    <div
+      class="programa-modal__fondo"
+      data-cerrar-modal="estado"
+    ></div>
+
+    <div
+      class="programa-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalCambiarEstadoTitulo"
+    >
+
+      <button
+        type="button"
+        class="programa-modal__cerrar"
+        data-cerrar-modal="estado"
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
+
+
+      <p class="programa-modal__eyebrow">
+        Estado del programa
+      </p>
+
+      <h2
+        id="modalCambiarEstadoTitulo"
+        class="programa-modal__titulo"
+      >
+        Cambiar estado
+      </h2>
+
+      <p class="programa-modal__descripcion">
+        Seleccioná la situación actual del programa.
+      </p>
+
+
+      <form
+        id="formularioCambiarEstado"
+        class="programa-formulario"
+      >
+
+        <div class="programa-estados">
+
+          <label class="programa-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="preparacion"
+            >
+
+            <span class="programa-estado-opcion__marca"></span>
+
+            <span class="programa-estado-opcion__contenido">
+
+              <strong>
+                En preparación
+              </strong>
+
+              <span>
+                Organización y planificación inicial.
+              </span>
+
+            </span>
+
+          </label>
+
+
+          <label class="programa-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="ejecucion"
+            >
+
+            <span class="programa-estado-opcion__marca"></span>
+
+            <span class="programa-estado-opcion__contenido">
+
+              <strong>
+                En ejecución
+              </strong>
+
+              <span>
+                El programa se encuentra activo.
+              </span>
+
+            </span>
+
+          </label>
+
+
+          <label class="programa-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="pausado"
+            >
+
+            <span class="programa-estado-opcion__marca"></span>
+
+            <span class="programa-estado-opcion__contenido">
+
+              <strong>
+                Pausado
+              </strong>
+
+              <span>
+                Las acciones están temporalmente suspendidas.
+              </span>
+
+            </span>
+
+          </label>
+
+
+          <label class="programa-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="finalizado"
+            >
+
+            <span class="programa-estado-opcion__marca"></span>
+
+            <span class="programa-estado-opcion__contenido">
+
+              <strong>
+                Finalizado
+              </strong>
+
+              <span>
+                El programa completó su implementación.
+              </span>
+
+            </span>
+
+          </label>
+
+
+          <label class="programa-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="archivado"
+            >
+
+            <span class="programa-estado-opcion__marca"></span>
+
+            <span class="programa-estado-opcion__contenido">
+
+              <strong>
+                Archivado
+              </strong>
+
+              <span>
+                El registro se conserva sin actividad.
+              </span>
+
+            </span>
+
+          </label>
+
+        </div>
+
+
+        <div class="programa-modal__acciones">
+
+          <button
+            type="button"
+            class="programa-boton programa-boton--secundario"
+            data-cerrar-modal="estado"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="submit"
+            class="programa-boton programa-boton--principal"
+          >
+            Actualizar estado
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL: NUEVO ELEMENTO
+  ====================================================== -->
+
+  <div
+    id="modalNuevoElemento"
+    class="programa-modal"
+    hidden
+  >
+
+    <div
+      class="programa-modal__fondo"
+      data-cerrar-modal="elemento"
+    ></div>
+
+    <div
+      class="programa-modal__dialogo programa-modal__dialogo--grande"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalNuevoElementoTitulo"
+    >
+
+      <button
+        type="button"
+        class="programa-modal__cerrar"
+        data-cerrar-modal="elemento"
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
+
+
+      <div class="programa-modal__cabecera">
+
+        <p
+          id="modalNuevoElementoEyebrow"
+          class="programa-modal__eyebrow"
+        >
+          Nuevo registro
+        </p>
+
+        <h2
+          id="modalNuevoElementoTitulo"
+          class="programa-modal__titulo"
+        >
+          Agregar elemento
+        </h2>
+
+        <p
+          id="modalNuevoElementoDescripcion"
+          class="programa-modal__descripcion"
+        >
+          Completá la información solicitada.
+        </p>
+
+      </div>
+
+
+      <form
+        id="formularioNuevoElemento"
+        class="programa-formulario"
+        novalidate
+      >
+
+        <input
+          type="hidden"
+          id="nuevoElementoTipo"
+          name="tipoElemento"
+        >
+
+
+        <div
+          id="nuevoElementoCampos"
+          class="programa-formulario__grid"
+        ></div>
+
+
+        <div class="programa-modal__acciones">
+
+          <button
+            type="button"
+            class="programa-boton programa-boton--secundario"
+            data-cerrar-modal="elemento"
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="submit"
+            id="botonGuardarNuevoElemento"
+            class="programa-boton programa-boton--principal"
+          >
+            Guardar
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL: CONFIRMACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalConfirmacionPrograma"
+    class="programa-modal"
+    hidden
+  >
+
+    <div
+      class="programa-modal__fondo"
+      data-cerrar-modal="confirmacion"
+    ></div>
+
+    <div
+      class="programa-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalConfirmacionTitulo"
+    >
+
+      <button
+        type="button"
+        class="programa-modal__cerrar"
+        data-cerrar-modal="confirmacion"
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
+
+
+      <div
+        class="programa-modal__icono programa-modal__icono--advertencia"
+        aria-hidden="true"
+      >
+        !
+      </div>
+
+      <p class="programa-modal__eyebrow">
+        Confirmación requerida
+      </p>
+
+      <h2
+        id="modalConfirmacionTitulo"
+        class="programa-modal__titulo"
+      >
+        Confirmar acción
+      </h2>
+
+      <p
+        id="modalConfirmacionMensaje"
+        class="programa-modal__descripcion"
+      >
+        Esta acción modificará el registro.
+      </p>
+
+
+      <div class="programa-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarConfirmacion"
+          class="programa-boton programa-boton--secundario"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          id="botonAceptarConfirmacion"
+          class="programa-boton programa-boton--peligro"
+        >
+          Confirmar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="programaNotificacion"
+    class="programa-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="programaNotificacionIcono"
+      class="programa-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+    <div class="programa-notificacion__contenido">
+
+      <strong id="programaNotificacionTitulo">
+        Cambios guardados
+      </strong>
+
+      <span id="programaNotificacionMensaje">
+        La información fue actualizada correctamente.
+      </span>
+
+    </div>
+
+    <button
+      type="button"
+      id="programaNotificacionCerrar"
+      class="programa-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       COMPONENTE SIDEBAR
+  ====================================================== -->
+
+  <script src="../shared/components/falco-comunidad-sidebar.js"></script>
+
+
+  <!-- =====================================================
+       LÓGICA
+  ====================================================== -->
+
+  <script src="./programa.js"></script>
+
+
+</body>
+
+</html>

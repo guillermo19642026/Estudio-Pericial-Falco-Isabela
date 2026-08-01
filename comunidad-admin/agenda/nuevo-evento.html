@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Registro de eventos en la Agenda Institucional de FALCO® Comunidad."
+  >
+
+  <title>
+    Nuevo evento | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS COMPARTIDOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS DE LA PÁGINA
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./nuevo-evento.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <falco-comunidad-sidebar
+    data-active="agenda"
+    data-base="../"
+  ></falco-comunidad-sidebar>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="comunidad-main nuevo-evento-main">
+
+    <div class="nuevo-evento-contenido">
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="nuevo-evento-header">
+
+        <div>
+
+          <a
+            href="./agenda.html"
+            class="nuevo-evento-header__volver"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+
+            Volver a Agenda
+          </a>
+
+
+          <p class="nuevo-evento-header__eyebrow">
+            FALCO® Comunidad
+          </p>
+
+
+          <h1 class="nuevo-evento-header__titulo">
+            Nuevo evento
+          </h1>
+
+
+          <p class="nuevo-evento-header__descripcion">
+            Registrá una reunión, actividad, capacitación,
+            recordatorio o compromiso institucional.
+          </p>
+
+        </div>
+
+
+        <span class="nuevo-evento-header__estado">
+          Nuevo registro
+        </span>
+
+      </header>
+
+
+      <!-- =================================================
+           MENSAJE DE BORRADOR
+      ================================================== -->
+
+      <div
+        id="nuevoEventoBorradorAviso"
+        class="nuevo-evento-aviso"
+        hidden
+      >
+
+        <span
+          class="nuevo-evento-aviso__icono"
+          aria-hidden="true"
+        >
+          ◌
+        </span>
+
+        <div>
+
+          <strong>
+            Borrador recuperado
+          </strong>
+
+          <p>
+            Se restauró la información que habías guardado
+            anteriormente en este navegador.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="botonDescartarBorrador"
+          class="nuevo-evento-aviso__cerrar"
+        >
+          Descartar
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           ESTRUCTURA PRINCIPAL
+      ================================================== -->
+
+      <section class="nuevo-evento-grid">
+
+
+        <!-- ===============================================
+             FORMULARIO
+        ================================================ -->
+
+        <form
+          id="formularioNuevoEvento"
+          class="nuevo-evento-formulario"
+          novalidate
+        >
+
+
+          <!-- =============================================
+               INFORMACIÓN PRINCIPAL
+          ============================================== -->
+
+          <section class="nuevo-evento-panel">
+
+            <div class="nuevo-evento-panel__cabecera">
+
+              <div>
+
+                <p class="nuevo-evento-panel__eyebrow">
+                  Identidad
+                </p>
+
+                <h2 class="nuevo-evento-panel__titulo">
+                  Información principal
+                </h2>
+
+                <p class="nuevo-evento-panel__descripcion">
+                  Definí el nombre, tipo y propósito general
+                  del evento.
+                </p>
+
+              </div>
+
+
+              <span class="nuevo-evento-panel__numero">
+                01
+              </span>
+
+            </div>
+
+
+            <div class="nuevo-evento-formulario__grid">
+
+
+              <div class="nuevo-evento-campo nuevo-evento-campo--completo">
+
+                <label for="eventoTitulo">
+                  Título del evento
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  id="eventoTitulo"
+                  name="titulo"
+                  placeholder="Ej.: Reunión de coordinación institucional"
+                  maxlength="120"
+                  required
+                >
+
+                <span
+                  class="nuevo-evento-campo__error"
+                  data-error="titulo"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoTipo">
+                  Tipo
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <select
+                  id="eventoTipo"
+                  name="tipo"
+                  required
+                >
+
+                  <option value="">
+                    Seleccionar
+                  </option>
+
+                  <option value="reunion">
+                    Reunión
+                  </option>
+
+                  <option value="actividad">
+                    Actividad
+                  </option>
+
+                  <option value="capacitacion">
+                    Capacitación
+                  </option>
+
+                  <option value="programa">
+                    Programa
+                  </option>
+
+                  <option value="proyecto">
+                    Proyecto
+                  </option>
+
+                  <option value="recordatorio">
+                    Recordatorio
+                  </option>
+
+                  <option value="otro">
+                    Otro
+                  </option>
+
+                </select>
+
+                <span
+                  class="nuevo-evento-campo__error"
+                  data-error="tipo"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoEstado">
+                  Estado
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <select
+                  id="eventoEstado"
+                  name="estado"
+                  required
+                >
+
+                  <option value="pendiente">
+                    Pendiente
+                  </option>
+
+                  <option value="confirmado">
+                    Confirmado
+                  </option>
+
+                  <option value="finalizado">
+                    Finalizado
+                  </option>
+
+                  <option value="cancelado">
+                    Cancelado
+                  </option>
+
+                </select>
+
+                <span
+                  class="nuevo-evento-campo__error"
+                  data-error="estado"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo nuevo-evento-campo--completo">
+
+                <label for="eventoDescripcion">
+                  Descripción
+                </label>
+
+                <textarea
+                  id="eventoDescripcion"
+                  name="descripcion"
+                  rows="4"
+                  maxlength="800"
+                  placeholder="Describí el objetivo, los temas o la finalidad del evento."
+                ></textarea>
+
+                <span class="nuevo-evento-campo__ayuda">
+                  Máximo 800 caracteres.
+                </span>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               FECHA Y ORGANIZACIÓN
+          ============================================== -->
+
+          <section class="nuevo-evento-panel">
+
+            <div class="nuevo-evento-panel__cabecera">
+
+              <div>
+
+                <p class="nuevo-evento-panel__eyebrow">
+                  Organización temporal
+                </p>
+
+                <h2 class="nuevo-evento-panel__titulo">
+                  Fecha y horario
+                </h2>
+
+                <p class="nuevo-evento-panel__descripcion">
+                  Indicá cuándo se realizará y cuál será
+                  su duración estimada.
+                </p>
+
+              </div>
+
+
+              <span class="nuevo-evento-panel__numero">
+                02
+              </span>
+
+            </div>
+
+
+            <div class="nuevo-evento-formulario__grid">
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoFecha">
+                  Fecha
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <input
+                  type="date"
+                  id="eventoFecha"
+                  name="fecha"
+                  required
+                >
+
+                <span
+                  class="nuevo-evento-campo__error"
+                  data-error="fecha"
+                  aria-live="polite"
+                ></span>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoHora">
+                  Hora
+                </label>
+
+                <input
+                  type="time"
+                  id="eventoHora"
+                  name="hora"
+                >
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoDuracion">
+                  Duración
+                </label>
+
+                <input
+                  type="text"
+                  id="eventoDuracion"
+                  name="duracion"
+                  placeholder="Ej.: 1 hora"
+                  maxlength="60"
+                >
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoModalidad">
+                  Modalidad
+                </label>
+
+                <select
+                  id="eventoModalidad"
+                  name="modalidad"
+                >
+
+                  <option value="">
+                    Seleccionar
+                  </option>
+
+                  <option value="Presencial">
+                    Presencial
+                  </option>
+
+                  <option value="Virtual">
+                    Virtual
+                  </option>
+
+                  <option value="Híbrida">
+                    Híbrida
+                  </option>
+
+                  <option value="Territorial">
+                    Territorial
+                  </option>
+
+                  <option value="A definir">
+                    A definir
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo nuevo-evento-campo--completo">
+
+                <label for="eventoLugar">
+                  Lugar o enlace
+                </label>
+
+                <input
+                  type="text"
+                  id="eventoLugar"
+                  name="lugar"
+                  placeholder="Dirección, sede o enlace de videollamada"
+                  maxlength="220"
+                >
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               VINCULACIÓN
+          ============================================== -->
+
+          <section class="nuevo-evento-panel">
+
+            <div class="nuevo-evento-panel__cabecera">
+
+              <div>
+
+                <p class="nuevo-evento-panel__eyebrow">
+                  Vinculación
+                </p>
+
+                <h2 class="nuevo-evento-panel__titulo">
+                  Responsables y referencias
+                </h2>
+
+                <p class="nuevo-evento-panel__descripcion">
+                  Relacioná el evento con personas,
+                  instituciones, programas o proyectos.
+                </p>
+
+              </div>
+
+
+              <span class="nuevo-evento-panel__numero">
+                03
+              </span>
+
+            </div>
+
+
+            <div class="nuevo-evento-formulario__grid">
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoResponsable">
+                  Responsable
+                </label>
+
+                <input
+                  type="text"
+                  id="eventoResponsable"
+                  name="responsable"
+                  placeholder="Nombre del responsable"
+                  maxlength="120"
+                >
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoInstitucion">
+                  Institución
+                </label>
+
+                <input
+                  type="text"
+                  id="eventoInstitucion"
+                  name="institucion"
+                  placeholder="Institución vinculada"
+                  maxlength="150"
+                >
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoPrograma">
+                  Programa
+                </label>
+
+                <select
+                  id="eventoPrograma"
+                  name="programaId"
+                >
+
+                  <option value="">
+                    Sin programa asociado
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo">
+
+                <label for="eventoProyecto">
+                  Proyecto
+                </label>
+
+                <select
+                  id="eventoProyecto"
+                  name="proyectoId"
+                >
+
+                  <option value="">
+                    Sin proyecto asociado
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="nuevo-evento-campo nuevo-evento-campo--completo">
+
+                <label for="eventoObservaciones">
+                  Observaciones internas
+                </label>
+
+                <textarea
+                  id="eventoObservaciones"
+                  name="observaciones"
+                  rows="4"
+                  maxlength="1000"
+                  placeholder="Agregá notas administrativas o información de seguimiento."
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               ACCIONES
+          ============================================== -->
+
+          <div class="nuevo-evento-acciones">
+
+            <a
+              href="./agenda.html"
+              class="nuevo-evento-boton nuevo-evento-boton--secundario"
+            >
+              Cancelar
+            </a>
+
+
+            <button
+              type="button"
+              id="botonGuardarBorradorEvento"
+              class="nuevo-evento-boton nuevo-evento-boton--secundario"
+            >
+              Guardar borrador
+            </button>
+
+
+            <button
+              type="submit"
+              id="botonRegistrarEvento"
+              class="nuevo-evento-boton nuevo-evento-boton--principal"
+            >
+              Registrar evento
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <!-- ===============================================
+             COLUMNA LATERAL
+        ================================================ -->
+
+        <aside class="nuevo-evento-lateral">
+
+
+          <!-- =============================================
+               RESUMEN
+          ============================================== -->
+
+          <section class="nuevo-evento-panel nuevo-evento-panel--lateral">
+
+            <div class="nuevo-evento-panel__cabecera">
+
+              <div>
+
+                <p class="nuevo-evento-panel__eyebrow">
+                  Vista previa
+                </p>
+
+                <h2 class="nuevo-evento-panel__titulo">
+                  Resumen del evento
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="nuevo-evento-resumen">
+
+              <p class="nuevo-evento-resumen__tipo">
+                <span id="resumenEventoTipo">
+                  Evento sin definir
+                </span>
+              </p>
+
+
+              <h3 id="resumenEventoTitulo">
+                Nuevo evento
+              </h3>
+
+
+              <p
+                id="resumenEventoDescripcion"
+                class="nuevo-evento-resumen__descripcion"
+              >
+                La descripción aparecerá aquí.
+              </p>
+
+
+              <dl class="nuevo-evento-resumen__datos">
+
+                <div>
+
+                  <dt>
+                    Fecha
+                  </dt>
+
+                  <dd id="resumenEventoFecha">
+                    Sin fecha
+                  </dd>
+
+                </div>
+
+
+                <div>
+
+                  <dt>
+                    Hora
+                  </dt>
+
+                  <dd id="resumenEventoHora">
+                    Sin horario
+                  </dd>
+
+                </div>
+
+
+                <div>
+
+                  <dt>
+                    Modalidad
+                  </dt>
+
+                  <dd id="resumenEventoModalidad">
+                    Sin definir
+                  </dd>
+
+                </div>
+
+
+                <div>
+
+                  <dt>
+                    Responsable
+                  </dt>
+
+                  <dd id="resumenEventoResponsable">
+                    Sin responsable
+                  </dd>
+
+                </div>
+
+              </dl>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               INFORMACIÓN
+          ============================================== -->
+
+          <section class="nuevo-evento-panel nuevo-evento-panel--lateral">
+
+            <div class="nuevo-evento-ayuda">
+
+              <span
+                class="nuevo-evento-ayuda__icono"
+                aria-hidden="true"
+              >
+                ◈
+              </span>
+
+
+              <p class="nuevo-evento-panel__eyebrow">
+                Agenda unificada
+              </p>
+
+
+              <h2>
+                Registro institucional
+              </h2>
+
+
+              <p>
+                El evento aparecerá en la Agenda general
+                y podrá vincularse con programas, proyectos
+                e instituciones.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               ESTADO DEL FORMULARIO
+          ============================================== -->
+
+          <section class="nuevo-evento-panel nuevo-evento-panel--lateral">
+
+            <div class="nuevo-evento-estado">
+
+              <span
+                id="nuevoEventoEstadoIcono"
+                class="nuevo-evento-estado__icono"
+                aria-hidden="true"
+              >
+                ◌
+              </span>
+
+
+              <div>
+
+                <strong id="nuevoEventoEstadoTitulo">
+                  Formulario en preparación
+                </strong>
+
+                <p id="nuevoEventoEstadoMensaje">
+                  Completá los campos obligatorios para registrar el evento.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </aside>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="nuevoEventoNotificacion"
+    class="nuevo-evento-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="nuevoEventoNotificacionIcono"
+      class="nuevo-evento-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+
+    <div class="nuevo-evento-notificacion__contenido">
+
+      <strong id="nuevoEventoNotificacionTitulo">
+        Evento guardado
+      </strong>
+
+      <span id="nuevoEventoNotificacionMensaje">
+        La información fue almacenada correctamente.
+      </span>
+
+    </div>
+
+
+    <button
+      type="button"
+      id="nuevoEventoNotificacionCerrar"
+      class="nuevo-evento-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./nuevo-evento.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Registro y edición de proyectos institucionales de FALCO® Comunidad."
+  >
+
+  <title>
+    Nuevo proyecto | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./nuevo-proyecto.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <div
+    data-comunidad-sidebar
+    data-active="proyectos"
+    data-base="../"
+  ></div>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="proyecto-form-page">
+
+
+    <!-- ===================================================
+         CABECERA
+    ==================================================== -->
+
+    <header class="proyecto-form-header">
+
+      <div class="proyecto-form-header__contenido">
+
+        <div class="proyecto-form-header__superior">
+
+          <a
+            href="./proyectos.html"
+            class="proyecto-form-header__volver"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+
+            Volver a proyectos
+          </a>
+
+
+          <span class="proyecto-form-header__marca">
+            FALCO® Comunidad
+          </span>
+
+        </div>
+
+
+        <div class="proyecto-form-header__principal">
+
+          <div class="proyecto-form-header__texto">
+
+            <p class="proyecto-form-header__eyebrow">
+              Gestión institucional
+            </p>
+
+            <h1 id="tituloPaginaProyecto">
+              Nuevo proyecto
+            </h1>
+
+            <p class="proyecto-form-header__descripcion">
+              Registrá la información general, los objetivos y la
+              organización inicial del proyecto institucional.
+            </p>
+
+          </div>
+
+
+          <div class="proyecto-form-header__estado">
+
+            <span class="proyecto-form-header__estado-indicador"></span>
+
+            <div>
+
+              <span>
+                Estado del formulario
+              </span>
+
+              <strong id="estadoFormularioProyecto">
+                Sin guardar
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         ÁREA DE TRABAJO
+    ==================================================== -->
+
+    <div class="proyecto-form-layout">
+
+
+      <!-- =================================================
+           FORMULARIO
+      ================================================== -->
+
+      <section class="proyecto-form-panel">
+
+        <form
+          id="formularioProyecto"
+          class="proyecto-form"
+          novalidate
+        >
+
+
+          <!-- =============================================
+               IDENTIFICACIÓN
+          ============================================== -->
+
+          <section
+            class="proyecto-form-seccion"
+            aria-labelledby="tituloIdentificacionProyecto"
+          >
+
+            <div class="proyecto-form-seccion__cabecera">
+
+              <span class="proyecto-form-seccion__numero">
+                01
+              </span>
+
+              <div>
+
+                <p class="proyecto-form-seccion__eyebrow">
+                  Información principal
+                </p>
+
+                <h2 id="tituloIdentificacionProyecto">
+                  Identificación del proyecto
+                </h2>
+
+                <p>
+                  Definí el nombre, el área de intervención y su estado
+                  administrativo inicial.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="proyecto-form-grid">
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="nombreProyecto">
+                  Nombre del proyecto
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  id="nombreProyecto"
+                  name="nombre"
+                  maxlength="120"
+                  autocomplete="off"
+                  placeholder="Ej.: Programa de acompañamiento familiar"
+                  required
+                >
+
+                <small>
+                  Utilizá un nombre claro y reconocible.
+                </small>
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorNombreProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="areaProyecto">
+                  Área principal
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <select
+                  id="areaProyecto"
+                  name="area"
+                  required
+                >
+
+                  <option value="">
+                    Seleccionar área
+                  </option>
+
+                  <option value="comunidad">
+                    Comunidad
+                  </option>
+
+                  <option value="formacion">
+                    Formación
+                  </option>
+
+                  <option value="familia">
+                    Familia
+                  </option>
+
+                  <option value="adolescencia">
+                    Adolescencia
+                  </option>
+
+                  <option value="prevencion">
+                    Prevención
+                  </option>
+
+                  <option value="institucional">
+                    Institucional
+                  </option>
+
+                  <option value="otra">
+                    Otra área
+                  </option>
+
+                </select>
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorAreaProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="estadoProyecto">
+                  Estado inicial
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <select
+                  id="estadoProyecto"
+                  name="estado"
+                  required
+                >
+
+                  <option value="planificado">
+                    Planificado
+                  </option>
+
+                  <option value="en_ejecucion">
+                    En ejecución
+                  </option>
+
+                  <option value="pausado">
+                    Pausado
+                  </option>
+
+                  <option value="finalizado">
+                    Finalizado
+                  </option>
+
+                </select>
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorEstadoProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="tipoProyecto">
+                  Tipo de proyecto
+                </label>
+
+                <select
+                  id="tipoProyecto"
+                  name="tipo"
+                >
+
+                  <option value="">
+                    Seleccionar tipo
+                  </option>
+
+                  <option value="programa">
+                    Programa
+                  </option>
+
+                  <option value="curso">
+                    Curso
+                  </option>
+
+                  <option value="taller">
+                    Taller
+                  </option>
+
+                  <option value="ciclo">
+                    Ciclo de encuentros
+                  </option>
+
+                  <option value="campana">
+                    Campaña
+                  </option>
+
+                  <option value="intervencion">
+                    Intervención institucional
+                  </option>
+
+                  <option value="investigacion">
+                    Investigación
+                  </option>
+
+                  <option value="otro">
+                    Otro
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="alcanceProyecto">
+                  Alcance
+                </label>
+
+                <select
+                  id="alcanceProyecto"
+                  name="alcance"
+                >
+
+                  <option value="">
+                    Seleccionar alcance
+                  </option>
+
+                  <option value="interno">
+                    Interno
+                  </option>
+
+                  <option value="local">
+                    Local
+                  </option>
+
+                  <option value="regional">
+                    Regional
+                  </option>
+
+                  <option value="provincial">
+                    Provincial
+                  </option>
+
+                  <option value="nacional">
+                    Nacional
+                  </option>
+
+                  <option value="virtual">
+                    Virtual
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               DESCRIPCIÓN Y OBJETIVOS
+          ============================================== -->
+
+          <section
+            class="proyecto-form-seccion"
+            aria-labelledby="tituloDescripcionProyecto"
+          >
+
+            <div class="proyecto-form-seccion__cabecera">
+
+              <span class="proyecto-form-seccion__numero">
+                02
+              </span>
+
+              <div>
+
+                <p class="proyecto-form-seccion__eyebrow">
+                  Fundamentación
+                </p>
+
+                <h2 id="tituloDescripcionProyecto">
+                  Descripción y objetivos
+                </h2>
+
+                <p>
+                  Indicá qué propone el proyecto, a quién está dirigido y
+                  qué resultados busca alcanzar.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="proyecto-form-grid">
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="descripcionProyecto">
+                  Descripción general
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <textarea
+                  id="descripcionProyecto"
+                  name="descripcion"
+                  rows="6"
+                  maxlength="1200"
+                  placeholder="Describí brevemente el proyecto, su contexto y la propuesta de trabajo."
+                  required
+                ></textarea>
+
+                <div class="proyecto-campo__pie">
+
+                  <small>
+                    Incluí la información esencial del proyecto.
+                  </small>
+
+                  <span id="contadorDescripcionProyecto">
+                    0 / 1200
+                  </span>
+
+                </div>
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorDescripcionProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="objetivoGeneralProyecto">
+                  Objetivo general
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <textarea
+                  id="objetivoGeneralProyecto"
+                  name="objetivo"
+                  rows="4"
+                  maxlength="700"
+                  placeholder="Expresá el propósito principal que se busca alcanzar."
+                  required
+                ></textarea>
+
+                <div class="proyecto-campo__pie">
+
+                  <small>
+                    Redactalo de forma concreta y verificable.
+                  </small>
+
+                  <span id="contadorObjetivoProyecto">
+                    0 / 700
+                  </span>
+
+                </div>
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorObjetivoProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="objetivosEspecificosProyecto">
+                  Objetivos específicos
+                </label>
+
+                <textarea
+                  id="objetivosEspecificosProyecto"
+                  name="objetivosEspecificos"
+                  rows="5"
+                  maxlength="1200"
+                  placeholder="Escribí un objetivo por línea."
+                ></textarea>
+
+                <div class="proyecto-campo__pie">
+
+                  <small>
+                    Luego podrán mostrarse como una lista dentro de la ficha.
+                  </small>
+
+                  <span id="contadorObjetivosEspecificos">
+                    0 / 1200
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="poblacionProyecto">
+                  Población destinataria
+                </label>
+
+                <textarea
+                  id="poblacionProyecto"
+                  name="poblacionDestinataria"
+                  rows="3"
+                  maxlength="500"
+                  placeholder="Ej.: adolescentes, familias, equipos educativos e instituciones."
+                ></textarea>
+
+                <div class="proyecto-campo__pie">
+
+                  <small>
+                    Señalá los principales destinatarios.
+                  </small>
+
+                  <span id="contadorPoblacionProyecto">
+                    0 / 500
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               ORGANIZACIÓN
+          ============================================== -->
+
+          <section
+            class="proyecto-form-seccion"
+            aria-labelledby="tituloOrganizacionProyecto"
+          >
+
+            <div class="proyecto-form-seccion__cabecera">
+
+              <span class="proyecto-form-seccion__numero">
+                03
+              </span>
+
+              <div>
+
+                <p class="proyecto-form-seccion__eyebrow">
+                  Gestión
+                </p>
+
+                <h2 id="tituloOrganizacionProyecto">
+                  Organización y responsables
+                </h2>
+
+                <p>
+                  Registrá quién coordina el proyecto y qué institución
+                  participa en su desarrollo.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="proyecto-form-grid">
+
+
+              <div class="proyecto-campo">
+
+                <label for="responsableProyecto">
+                  Responsable principal
+                  <span aria-hidden="true">
+                    *
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  id="responsableProyecto"
+                  name="responsable"
+                  maxlength="120"
+                  autocomplete="off"
+                  value="Lic. Isabela Falco"
+                  placeholder="Nombre del responsable"
+                  required
+                >
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorResponsableProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="equipoProyecto">
+                  Equipo o área responsable
+                </label>
+
+                <input
+                  type="text"
+                  id="equipoProyecto"
+                  name="equipo"
+                  maxlength="140"
+                  autocomplete="off"
+                  placeholder="Ej.: Equipo FALCO® Comunidad"
+                >
+
+              </div>
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="institucionProyecto">
+                  Institución vinculada
+                </label>
+
+                <select
+                  id="institucionProyecto"
+                  name="institucionId"
+                >
+
+                  <option value="">
+                    Sin institución vinculada
+                  </option>
+
+                </select>
+
+                <small>
+                  Las instituciones registradas se cargarán automáticamente.
+                </small>
+
+              </div>
+
+
+              <div
+                id="institucionManualContenedor"
+                class="proyecto-campo proyecto-campo--completo"
+                hidden
+              >
+
+                <label for="institucionManualProyecto">
+                  Nombre de la institución
+                </label>
+
+                <input
+                  type="text"
+                  id="institucionManualProyecto"
+                  name="institucionManual"
+                  maxlength="160"
+                  autocomplete="off"
+                  placeholder="Ingresá el nombre de la institución"
+                >
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="correoContactoProyecto">
+                  Correo de contacto
+                </label>
+
+                <input
+                  type="email"
+                  id="correoContactoProyecto"
+                  name="correoContacto"
+                  maxlength="160"
+                  autocomplete="email"
+                  placeholder="correo@institucion.com"
+                >
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorCorreoProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="telefonoContactoProyecto">
+                  Teléfono de contacto
+                </label>
+
+                <input
+                  type="tel"
+                  id="telefonoContactoProyecto"
+                  name="telefonoContacto"
+                  maxlength="40"
+                  autocomplete="tel"
+                  placeholder="+54 9 11..."
+                >
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               FECHAS Y MODALIDAD
+          ============================================== -->
+
+          <section
+            class="proyecto-form-seccion"
+            aria-labelledby="tituloPlanificacionProyecto"
+          >
+
+            <div class="proyecto-form-seccion__cabecera">
+
+              <span class="proyecto-form-seccion__numero">
+                04
+              </span>
+
+              <div>
+
+                <p class="proyecto-form-seccion__eyebrow">
+                  Planificación
+                </p>
+
+                <h2 id="tituloPlanificacionProyecto">
+                  Fechas y modalidad
+                </h2>
+
+                <p>
+                  Definí el período estimado, la modalidad de trabajo y la
+                  ubicación principal.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="proyecto-form-grid">
+
+
+              <div class="proyecto-campo">
+
+                <label for="fechaInicioProyecto">
+                  Fecha de inicio
+                </label>
+
+                <input
+                  type="date"
+                  id="fechaInicioProyecto"
+                  name="fechaInicio"
+                >
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="fechaFinalizacionProyecto">
+                  Fecha estimada de finalización
+                </label>
+
+                <input
+                  type="date"
+                  id="fechaFinalizacionProyecto"
+                  name="fechaFinalizacion"
+                >
+
+                <p
+                  class="proyecto-campo__error"
+                  id="errorFechaFinalizacionProyecto"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="modalidadProyecto">
+                  Modalidad
+                </label>
+
+                <select
+                  id="modalidadProyecto"
+                  name="modalidad"
+                >
+
+                  <option value="">
+                    Seleccionar modalidad
+                  </option>
+
+                  <option value="presencial">
+                    Presencial
+                  </option>
+
+                  <option value="virtual">
+                    Virtual
+                  </option>
+
+                  <option value="mixta">
+                    Mixta
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="proyecto-campo">
+
+                <label for="localidadProyecto">
+                  Localidad o zona
+                </label>
+
+                <input
+                  type="text"
+                  id="localidadProyecto"
+                  name="localidad"
+                  maxlength="120"
+                  autocomplete="off"
+                  placeholder="Ej.: Buenos Aires y alrededores"
+                >
+
+              </div>
+
+
+              <div class="proyecto-campo proyecto-campo--completo">
+
+                <label for="ubicacionProyecto">
+                  Sede, espacio o enlace principal
+                </label>
+
+                <input
+                  type="text"
+                  id="ubicacionProyecto"
+                  name="ubicacion"
+                  maxlength="300"
+                  autocomplete="off"
+                  placeholder="Dirección, plataforma virtual o enlace de acceso"
+                >
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               CONFIGURACIÓN ADMINISTRATIVA
+          ============================================== -->
+
+          <section
+            class="proyecto-form-seccion"
+            aria-labelledby="tituloConfiguracionProyecto"
+          >
+
+            <div class="proyecto-form-seccion__cabecera">
+
+              <span class="proyecto-form-seccion__numero">
+                05
+              </span>
+
+              <div>
+
+                <p class="proyecto-form-seccion__eyebrow">
+                  Configuración
+                </p>
+
+                <h2 id="tituloConfiguracionProyecto">
+                  Opciones administrativas
+                </h2>
+
+                <p>
+                  Definí cómo se mostrará y gestionará el proyecto dentro
+                  del Centro de Comunidad.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="proyecto-opciones">
+
+
+              <label class="proyecto-opcion">
+
+                <input
+                  type="checkbox"
+                  id="proyectoDestacado"
+                  name="destacado"
+                >
+
+                <span class="proyecto-opcion__control"></span>
+
+                <span class="proyecto-opcion__contenido">
+
+                  <strong>
+                    Destacar proyecto
+                  </strong>
+
+                  <small>
+                    Se mostrará primero dentro del listado administrativo.
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="proyecto-opcion">
+
+                <input
+                  type="checkbox"
+                  id="proyectoAceptaParticipantes"
+                  name="aceptaParticipantes"
+                >
+
+                <span class="proyecto-opcion__control"></span>
+
+                <span class="proyecto-opcion__contenido">
+
+                  <strong>
+                    Habilitar participantes
+                  </strong>
+
+                  <small>
+                    Permitirá vincular personas al proyecto en una etapa posterior.
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="proyecto-opcion">
+
+                <input
+                  type="checkbox"
+                  id="proyectoAceptaInstituciones"
+                  name="aceptaInstituciones"
+                  checked
+                >
+
+                <span class="proyecto-opcion__control"></span>
+
+                <span class="proyecto-opcion__contenido">
+
+                  <strong>
+                    Habilitar instituciones
+                  </strong>
+
+                  <small>
+                    Permitirá relacionar el proyecto con una o más instituciones.
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="proyecto-opcion">
+
+                <input
+                  type="checkbox"
+                  id="proyectoRequiereSeguimiento"
+                  name="requiereSeguimiento"
+                  checked
+                >
+
+                <span class="proyecto-opcion__control"></span>
+
+                <span class="proyecto-opcion__contenido">
+
+                  <strong>
+                    Requiere seguimiento
+                  </strong>
+
+                  <small>
+                    Se incluirá en los indicadores de seguimiento institucional.
+                  </small>
+
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <div class="proyecto-campo proyecto-campo--completo">
+
+              <label for="observacionesProyecto">
+                Observaciones internas
+              </label>
+
+              <textarea
+                id="observacionesProyecto"
+                name="observaciones"
+                rows="5"
+                maxlength="1000"
+                placeholder="Información administrativa, decisiones pendientes o notas para el equipo."
+              ></textarea>
+
+              <div class="proyecto-campo__pie">
+
+                <small>
+                  Estas observaciones no se mostrarán públicamente.
+                </small>
+
+                <span id="contadorObservacionesProyecto">
+                  0 / 1000
+                </span>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               MENSAJE GENERAL
+          ============================================== -->
+
+          <div
+            id="mensajeFormularioProyecto"
+            class="proyecto-form-mensaje"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></div>
+
+
+          <!-- =============================================
+               ACCIONES
+          ============================================== -->
+
+          <footer class="proyecto-form-acciones">
+
+            <div class="proyecto-form-acciones__secundarias">
+
+              <button
+                type="button"
+                id="botonGuardarBorradorProyecto"
+                class="proyecto-boton proyecto-boton--secundario"
+              >
+                Guardar borrador
+              </button>
+
+
+              <button
+                type="button"
+                id="botonReiniciarProyecto"
+                class="proyecto-boton proyecto-boton--texto"
+              >
+                Reiniciar formulario
+              </button>
+
+            </div>
+
+
+            <div class="proyecto-form-acciones__principales">
+
+              <a
+                href="./proyectos.html"
+                class="proyecto-boton proyecto-boton--cancelar"
+              >
+                Cancelar
+              </a>
+
+
+              <button
+                type="submit"
+                id="botonRegistrarProyecto"
+                class="proyecto-boton proyecto-boton--principal"
+              >
+                <span id="textoBotonRegistrarProyecto">
+                  Registrar proyecto
+                </span>
+
+                <span
+                  id="spinnerRegistrarProyecto"
+                  class="proyecto-boton__spinner"
+                  aria-hidden="true"
+                  hidden
+                ></span>
+              </button>
+
+            </div>
+
+          </footer>
+
+        </form>
+
+      </section>
+
+
+      <!-- =================================================
+           PANEL LATERAL
+      ================================================== -->
+
+      <aside class="proyecto-form-aside">
+
+
+        <section class="proyecto-aside-card proyecto-aside-card--destacada">
+
+          <p class="proyecto-aside-card__eyebrow">
+            Proyecto institucional
+          </p>
+
+          <h2>
+            Registro centralizado
+          </h2>
+
+          <p>
+            Cada proyecto quedará incorporado al Centro de Comunidad y
+            podrá vincularse con instituciones, reuniones y participantes.
+          </p>
+
+        </section>
+
+
+        <section class="proyecto-aside-card">
+
+          <h3>
+            Información obligatoria
+          </h3>
+
+          <ul class="proyecto-aside-lista">
+
+            <li>
+              Nombre del proyecto
+            </li>
+
+            <li>
+              Área principal
+            </li>
+
+            <li>
+              Estado inicial
+            </li>
+
+            <li>
+              Descripción general
+            </li>
+
+            <li>
+              Objetivo general
+            </li>
+
+            <li>
+              Responsable principal
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <section class="proyecto-aside-card">
+
+          <h3>
+            Próximas integraciones
+          </h3>
+
+          <div class="proyecto-aside-integraciones">
+
+            <div>
+
+              <span aria-hidden="true">
+                01
+              </span>
+
+              <p>
+                Instituciones vinculadas
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span aria-hidden="true">
+                02
+              </span>
+
+              <p>
+                Reuniones y actividades
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span aria-hidden="true">
+                03
+              </span>
+
+              <p>
+                Participantes y seguimiento
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section
+          id="resumenProyectoAside"
+          class="proyecto-aside-card proyecto-aside-card--resumen"
+        >
+
+          <div class="proyecto-aside-card__cabecera">
+
+            <h3>
+              Vista preliminar
+            </h3>
+
+            <span id="estadoResumenProyecto">
+              Borrador
+            </span>
+
+          </div>
+
+
+          <div class="proyecto-resumen">
+
+            <div class="proyecto-resumen__inicial">
+
+              <span id="inicialProyectoResumen">
+                NP
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <strong id="nombreProyectoResumen">
+                Nuevo proyecto
+              </strong>
+
+              <p id="areaProyectoResumen">
+                Área sin definir
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <dl class="proyecto-resumen__datos">
+
+            <div>
+
+              <dt>
+                Responsable
+              </dt>
+
+              <dd id="responsableProyectoResumen">
+                Lic. Isabela Falco
+              </dd>
+
+            </div>
+
+
+            <div>
+
+              <dt>
+                Modalidad
+              </dt>
+
+              <dd id="modalidadProyectoResumen">
+                Sin definir
+              </dd>
+
+            </div>
+
+
+            <div>
+
+              <dt>
+                Inicio
+              </dt>
+
+              <dd id="fechaProyectoResumen">
+                Sin definir
+              </dd>
+
+            </div>
+
+          </dl>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL DE CONFIRMACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalReiniciarProyecto"
+    class="proyecto-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModalReiniciarProyecto"
+    hidden
+  >
+
+    <div
+      class="proyecto-modal__fondo"
+      data-cerrar-modal
+    ></div>
+
+
+    <div class="proyecto-modal__contenido">
+
+      <span class="proyecto-modal__icono" aria-hidden="true">
+        !
+      </span>
+
+      <p class="proyecto-modal__eyebrow">
+        Confirmar acción
+      </p>
+
+      <h2 id="tituloModalReiniciarProyecto">
+        ¿Reiniciar el formulario?
+      </h2>
+
+      <p>
+        Se eliminarán los datos ingresados y también el borrador guardado
+        en este dispositivo.
+      </p>
+
+
+      <div class="proyecto-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarReinicioProyecto"
+          class="proyecto-boton proyecto-boton--cancelar"
+        >
+          Conservar datos
+        </button>
+
+
+        <button
+          type="button"
+          id="botonConfirmarReinicioProyecto"
+          class="proyecto-boton proyecto-boton--peligro"
+        >
+          Reiniciar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./nuevo-proyecto.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

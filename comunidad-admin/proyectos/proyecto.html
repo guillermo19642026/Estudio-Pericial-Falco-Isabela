@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Administración y seguimiento de proyectos de FALCO® Comunidad."
+  >
+
+  <title>
+    Proyecto | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./proyecto.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <div
+    data-comunidad-sidebar
+    data-active="proyectos"
+    data-base="../"
+  ></div>
+
+
+  <!-- =====================================================
+       CARGA INICIAL
+  ====================================================== -->
+
+  <div
+    id="proyectoLoader"
+    class="proyecto-loader"
+    aria-live="polite"
+  >
+
+    <div class="proyecto-loader__contenido">
+
+      <span
+        class="proyecto-loader__spinner"
+        aria-hidden="true"
+      ></span>
+
+      <p>
+        Cargando proyecto...
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       PROYECTO NO ENCONTRADO
+  ====================================================== -->
+
+  <main
+    id="proyectoNoEncontrado"
+    class="proyecto-error-page"
+    hidden
+  >
+
+    <section class="proyecto-error-card">
+
+      <span
+        class="proyecto-error-card__codigo"
+        aria-hidden="true"
+      >
+        !
+      </span>
+
+      <p class="proyecto-error-card__eyebrow">
+        FALCO® Comunidad
+      </p>
+
+      <h1>
+        Proyecto no encontrado
+      </h1>
+
+      <p>
+        No fue posible localizar el proyecto solicitado dentro del
+        registro de Comunidad.
+      </p>
+
+      <a
+        href="./proyectos.html"
+        class="proyecto-boton proyecto-boton--principal"
+      >
+        Volver a proyectos
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main
+    id="proyectoPagina"
+    class="proyecto-page"
+    hidden
+  >
+
+
+    <!-- ===================================================
+         CABECERA
+    ==================================================== -->
+
+    <header class="proyecto-header">
+
+      <div class="proyecto-header__contenido">
+
+
+        <div class="proyecto-header__superior">
+
+          <a
+            href="./proyectos.html"
+            class="proyecto-header__volver"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+
+            Volver a proyectos
+          </a>
+
+
+          <span class="proyecto-header__marca">
+            FALCO® Comunidad
+          </span>
+
+        </div>
+
+
+        <div class="proyecto-header__principal">
+
+
+          <div class="proyecto-header__identidad">
+
+            <div
+              id="proyectoInicial"
+              class="proyecto-header__inicial"
+              aria-hidden="true"
+            >
+              PR
+            </div>
+
+
+            <div class="proyecto-header__texto">
+
+              <div class="proyecto-header__meta">
+
+                <span
+                  id="proyectoArea"
+                  class="proyecto-header__area"
+                >
+                  Área
+                </span>
+
+                <span
+                  id="proyectoEstado"
+                  class="proyecto-estado proyecto-estado--planificado"
+                >
+                  Planificado
+                </span>
+
+              </div>
+
+
+              <h1 id="proyectoNombre">
+                Proyecto
+              </h1>
+
+
+              <p id="proyectoDescripcionCorta">
+                Información general del proyecto institucional.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-header__acciones">
+
+            <button
+              type="button"
+              id="botonCambiarEstadoProyecto"
+              class="proyecto-boton proyecto-boton--secundario"
+            >
+              Cambiar estado
+            </button>
+
+
+            <a
+              id="botonEditarProyecto"
+              href="./nuevo-proyecto.html"
+              class="proyecto-boton proyecto-boton--principal"
+            >
+              Editar proyecto
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="proyecto-header__datos">
+
+          <div>
+
+            <span>
+              Responsable
+            </span>
+
+            <strong id="proyectoResponsable">
+              Sin definir
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Modalidad
+            </span>
+
+            <strong id="proyectoModalidad">
+              Sin definir
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Inicio
+            </span>
+
+            <strong id="proyectoFechaInicio">
+              Sin definir
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Finalización
+            </span>
+
+            <strong id="proyectoFechaFinalizacion">
+              Sin definir
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Última actualización
+            </span>
+
+            <strong id="proyectoFechaActualizacion">
+              Sin datos
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         ÁREA DE TRABAJO
+    ==================================================== -->
+
+    <div class="proyecto-layout">
+
+
+      <!-- =================================================
+           CONTENIDO CENTRAL
+      ================================================== -->
+
+      <div class="proyecto-contenido">
+
+
+        <!-- ===============================================
+             INDICADORES
+        ================================================ -->
+
+        <section
+          class="proyecto-indicadores"
+          aria-label="Indicadores del proyecto"
+        >
+
+
+          <article class="proyecto-indicador">
+
+            <div class="proyecto-indicador__cabecera">
+
+              <span class="proyecto-indicador__icono">
+                IN
+              </span>
+
+              <span>
+                Instituciones
+              </span>
+
+            </div>
+
+            <strong id="contadorInstitucionesProyecto">
+              0
+            </strong>
+
+            <p>
+              Instituciones relacionadas
+            </p>
+
+          </article>
+
+
+          <article class="proyecto-indicador">
+
+            <div class="proyecto-indicador__cabecera">
+
+              <span class="proyecto-indicador__icono">
+                PA
+              </span>
+
+              <span>
+                Participantes
+              </span>
+
+            </div>
+
+            <strong id="contadorParticipantesProyecto">
+              0
+            </strong>
+
+            <p>
+              Personas incorporadas
+            </p>
+
+          </article>
+
+
+          <article class="proyecto-indicador">
+
+            <div class="proyecto-indicador__cabecera">
+
+              <span class="proyecto-indicador__icono">
+                RE
+              </span>
+
+              <span>
+                Reuniones
+              </span>
+
+            </div>
+
+            <strong id="contadorReunionesProyecto">
+              0
+            </strong>
+
+            <p>
+              Encuentros registrados
+            </p>
+
+          </article>
+
+
+          <article class="proyecto-indicador">
+
+            <div class="proyecto-indicador__cabecera">
+
+              <span class="proyecto-indicador__icono">
+                AV
+              </span>
+
+              <span>
+                Avance
+              </span>
+
+            </div>
+
+            <strong id="porcentajeAvanceProyecto">
+              0%
+            </strong>
+
+            <p id="textoAvanceProyecto">
+              Proyecto planificado
+            </p>
+
+          </article>
+
+        </section>
+
+
+        <!-- ===============================================
+             DESCRIPCIÓN
+        ================================================ -->
+
+        <section class="proyecto-card">
+
+          <div class="proyecto-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-card__eyebrow">
+                Información general
+              </p>
+
+              <h2>
+                Descripción del proyecto
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-card__contenido">
+
+            <p
+              id="proyectoDescripcion"
+              class="proyecto-texto-principal"
+            >
+              Sin descripción registrada.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             OBJETIVOS
+        ================================================ -->
+
+        <section class="proyecto-card">
+
+          <div class="proyecto-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-card__eyebrow">
+                Propósito institucional
+              </p>
+
+              <h2>
+                Objetivos
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-card__contenido">
+
+
+            <div class="proyecto-objetivo-general">
+
+              <span>
+                Objetivo general
+              </span>
+
+              <p id="proyectoObjetivoGeneral">
+                Sin objetivo general registrado.
+              </p>
+
+            </div>
+
+
+            <div
+              id="objetivosEspecificosBloque"
+              class="proyecto-objetivos-especificos"
+              hidden
+            >
+
+              <h3>
+                Objetivos específicos
+              </h3>
+
+              <ul id="proyectoObjetivosEspecificos"></ul>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             DESTINATARIOS
+        ================================================ -->
+
+        <section class="proyecto-card">
+
+          <div class="proyecto-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-card__eyebrow">
+                Alcance
+              </p>
+
+              <h2>
+                Población destinataria
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-card__contenido">
+
+            <p
+              id="proyectoPoblacion"
+              class="proyecto-texto-principal"
+            >
+              Sin población destinataria definida.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             GESTIÓN VINCULADA
+        ================================================ -->
+
+        <section class="proyecto-card">
+
+          <div class="proyecto-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-card__eyebrow">
+                Gestión operativa
+              </p>
+
+              <h2>
+                Áreas vinculadas
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-modulos">
+
+
+            <article class="proyecto-modulo">
+
+              <div class="proyecto-modulo__superior">
+
+                <span class="proyecto-modulo__numero">
+                  01
+                </span>
+
+                <span
+                  id="estadoModuloInstituciones"
+                  class="proyecto-modulo__estado"
+                >
+                  Disponible
+                </span>
+
+              </div>
+
+
+              <h3>
+                Instituciones
+              </h3>
+
+              <p>
+                Consultá y administrá las instituciones vinculadas al
+                proyecto.
+              </p>
+
+              <button
+                type="button"
+                id="botonAdministrarInstituciones"
+                class="proyecto-modulo__enlace"
+              >
+                Administrar instituciones
+                <span aria-hidden="true">
+                  →
+                </span>
+              </button>
+
+            </article>
+
+
+            <article class="proyecto-modulo">
+
+              <div class="proyecto-modulo__superior">
+
+                <span class="proyecto-modulo__numero">
+                  02
+                </span>
+
+                <span
+                  id="estadoModuloParticipantes"
+                  class="proyecto-modulo__estado"
+                >
+                  Disponible
+                </span>
+
+              </div>
+
+
+              <h3>
+                Participantes
+              </h3>
+
+              <p>
+                Incorporá participantes y consultá su relación con el
+                proyecto.
+              </p>
+
+              <button
+                type="button"
+                id="botonAdministrarParticipantes"
+                class="proyecto-modulo__enlace"
+              >
+                Administrar participantes
+                <span aria-hidden="true">
+                  →
+                </span>
+              </button>
+
+            </article>
+
+
+            <article class="proyecto-modulo">
+
+              <div class="proyecto-modulo__superior">
+
+                <span class="proyecto-modulo__numero">
+                  03
+                </span>
+
+                <span
+                  id="estadoModuloReuniones"
+                  class="proyecto-modulo__estado"
+                >
+                  Disponible
+                </span>
+
+              </div>
+
+
+              <h3>
+                Reuniones
+              </h3>
+
+              <p>
+                Registrá encuentros, actividades, acuerdos y próximas
+                acciones.
+              </p>
+
+              <button
+                type="button"
+                id="botonAdministrarReuniones"
+                class="proyecto-modulo__enlace"
+              >
+                Administrar reuniones
+                <span aria-hidden="true">
+                  →
+                </span>
+              </button>
+
+            </article>
+
+
+            <article class="proyecto-modulo">
+
+              <div class="proyecto-modulo__superior">
+
+                <span class="proyecto-modulo__numero">
+                  04
+                </span>
+
+                <span
+                  id="estadoModuloSeguimiento"
+                  class="proyecto-modulo__estado"
+                >
+                  Disponible
+                </span>
+
+              </div>
+
+
+              <h3>
+                Seguimiento
+              </h3>
+
+              <p>
+                Registrá avances, decisiones y evolución general del
+                proyecto.
+              </p>
+
+              <button
+                type="button"
+                id="botonAdministrarSeguimiento"
+                class="proyecto-modulo__enlace"
+              >
+                Ver seguimiento
+                <span aria-hidden="true">
+                  →
+                </span>
+              </button>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             OBSERVACIONES INTERNAS
+        ================================================ -->
+
+        <section
+          id="observacionesProyectoBloque"
+          class="proyecto-card"
+          hidden
+        >
+
+          <div class="proyecto-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-card__eyebrow">
+                Uso administrativo
+              </p>
+
+              <h2>
+                Observaciones internas
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-card__contenido">
+
+            <p
+              id="proyectoObservaciones"
+              class="proyecto-texto-principal"
+            ></p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             ACTIVIDAD
+        ================================================ -->
+
+        <section class="proyecto-card">
+
+          <div class="proyecto-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-card__eyebrow">
+                Registro institucional
+              </p>
+
+              <h2>
+                Actividad reciente
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="proyectoActividad"
+            class="proyecto-actividad"
+          >
+
+            <article class="proyecto-actividad__item">
+
+              <span
+                class="proyecto-actividad__indicador"
+                aria-hidden="true"
+              ></span>
+
+              <div>
+
+                <strong>
+                  Proyecto registrado
+                </strong>
+
+                <p id="actividadFechaCreacion">
+                  Sin datos
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+      <!-- =================================================
+           PANEL LATERAL
+      ================================================== -->
+
+      <aside class="proyecto-aside">
+
+
+        <!-- ===============================================
+             DATOS ADMINISTRATIVOS
+        ================================================ -->
+
+        <section class="proyecto-aside-card">
+
+          <div class="proyecto-aside-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-aside-card__eyebrow">
+                Ficha técnica
+              </p>
+
+              <h2>
+                Datos administrativos
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <dl class="proyecto-datos">
+
+
+            <div>
+
+              <dt>
+                Tipo
+              </dt>
+
+              <dd id="proyectoTipo">
+                Sin definir
+              </dd>
+
+            </div>
+
+
+            <div>
+
+              <dt>
+                Alcance
+              </dt>
+
+              <dd id="proyectoAlcance">
+                Sin definir
+              </dd>
+
+            </div>
+
+
+            <div>
+
+              <dt>
+                Equipo responsable
+              </dt>
+
+              <dd id="proyectoEquipo">
+                Sin definir
+              </dd>
+
+            </div>
+
+
+            <div>
+
+              <dt>
+                Localidad
+              </dt>
+
+              <dd id="proyectoLocalidad">
+                Sin definir
+              </dd>
+
+            </div>
+
+
+            <div>
+
+              <dt>
+                Sede o acceso
+              </dt>
+
+              <dd id="proyectoUbicacion">
+                Sin definir
+              </dd>
+
+            </div>
+
+          </dl>
+
+        </section>
+
+
+        <!-- ===============================================
+             INSTITUCIÓN
+        ================================================ -->
+
+        <section class="proyecto-aside-card">
+
+          <div class="proyecto-aside-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-aside-card__eyebrow">
+                Vinculación
+              </p>
+
+              <h2>
+                Institución principal
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-institucion">
+
+            <div
+              id="institucionProyectoInicial"
+              class="proyecto-institucion__inicial"
+              aria-hidden="true"
+            >
+              IN
+            </div>
+
+
+            <div>
+
+              <strong id="proyectoInstitucionNombre">
+                Sin institución vinculada
+              </strong>
+
+              <p id="proyectoInstitucionEstado">
+                Vinculación pendiente
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CONTACTO
+        ================================================ -->
+
+        <section
+          id="contactoProyectoBloque"
+          class="proyecto-aside-card"
+        >
+
+          <div class="proyecto-aside-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-aside-card__eyebrow">
+                Comunicación
+              </p>
+
+              <h2>
+                Datos de contacto
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-contacto">
+
+
+            <div>
+
+              <span>
+                Correo
+              </span>
+
+              <a
+                id="proyectoCorreo"
+                href="#"
+              >
+                Sin registrar
+              </a>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                Teléfono
+              </span>
+
+              <a
+                id="proyectoTelefono"
+                href="#"
+              >
+                Sin registrar
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CONFIGURACIÓN
+        ================================================ -->
+
+        <section class="proyecto-aside-card">
+
+          <div class="proyecto-aside-card__cabecera">
+
+            <div>
+
+              <p class="proyecto-aside-card__eyebrow">
+                Configuración
+              </p>
+
+              <h2>
+                Opciones habilitadas
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="proyecto-configuracion">
+
+
+            <div>
+
+              <span
+                id="estadoDestacadoProyecto"
+                class="proyecto-configuracion__indicador"
+              ></span>
+
+              <p>
+                Proyecto destacado
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span
+                id="estadoParticipantesProyecto"
+                class="proyecto-configuracion__indicador"
+              ></span>
+
+              <p>
+                Gestión de participantes
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span
+                id="estadoInstitucionesProyecto"
+                class="proyecto-configuracion__indicador"
+              ></span>
+
+              <p>
+                Vinculación institucional
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span
+                id="estadoSeguimientoProyecto"
+                class="proyecto-configuracion__indicador"
+              ></span>
+
+              <p>
+                Seguimiento administrativo
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             ACCIONES
+        ================================================ -->
+
+        <section class="proyecto-aside-card proyecto-aside-card--acciones">
+
+          <button
+            type="button"
+            id="botonDuplicarProyecto"
+            class="proyecto-accion"
+          >
+            <span aria-hidden="true">
+              +
+            </span>
+
+            Duplicar proyecto
+          </button>
+
+
+          <button
+            type="button"
+            id="botonArchivarProyecto"
+            class="proyecto-accion"
+          >
+            <span aria-hidden="true">
+              ↓
+            </span>
+
+            Archivar proyecto
+          </button>
+
+
+          <button
+            type="button"
+            id="botonEliminarProyecto"
+            class="proyecto-accion proyecto-accion--peligro"
+          >
+            <span aria-hidden="true">
+              ×
+            </span>
+
+            Eliminar proyecto
+          </button>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL CAMBIAR ESTADO
+  ====================================================== -->
+
+  <div
+    id="modalEstadoProyecto"
+    class="proyecto-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModalEstadoProyecto"
+    hidden
+  >
+
+    <div
+      class="proyecto-modal__fondo"
+      data-cerrar-modal-estado
+    ></div>
+
+
+    <div class="proyecto-modal__contenido">
+
+      <p class="proyecto-modal__eyebrow">
+        Estado administrativo
+      </p>
+
+      <h2 id="tituloModalEstadoProyecto">
+        Cambiar estado del proyecto
+      </h2>
+
+      <p>
+        Seleccioná el estado actual del proyecto.
+      </p>
+
+
+      <div class="proyecto-modal__campo">
+
+        <label for="selectorEstadoProyecto">
+          Nuevo estado
+        </label>
+
+        <select id="selectorEstadoProyecto">
+
+          <option value="planificado">
+            Planificado
+          </option>
+
+          <option value="en_ejecucion">
+            En ejecución
+          </option>
+
+          <option value="pausado">
+            Pausado
+          </option>
+
+          <option value="finalizado">
+            Finalizado
+          </option>
+
+          <option value="archivado">
+            Archivado
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="proyecto-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarEstadoProyecto"
+          class="proyecto-boton proyecto-boton--cancelar"
+        >
+          Cancelar
+        </button>
+
+
+        <button
+          type="button"
+          id="botonGuardarEstadoProyecto"
+          class="proyecto-boton proyecto-boton--principal"
+        >
+          Guardar estado
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL ELIMINAR
+  ====================================================== -->
+
+  <div
+    id="modalEliminarProyecto"
+    class="proyecto-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloModalEliminarProyecto"
+    hidden
+  >
+
+    <div
+      class="proyecto-modal__fondo"
+      data-cerrar-modal-eliminar
+    ></div>
+
+
+    <div class="proyecto-modal__contenido">
+
+      <span
+        class="proyecto-modal__icono proyecto-modal__icono--peligro"
+        aria-hidden="true"
+      >
+        !
+      </span>
+
+      <p class="proyecto-modal__eyebrow">
+        Acción irreversible
+      </p>
+
+      <h2 id="tituloModalEliminarProyecto">
+        ¿Eliminar este proyecto?
+      </h2>
+
+      <p>
+        El proyecto será eliminado del registro local. Esta acción no
+        puede deshacerse.
+      </p>
+
+
+      <div class="proyecto-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarEliminarProyecto"
+          class="proyecto-boton proyecto-boton--cancelar"
+        >
+          Conservar proyecto
+        </button>
+
+
+        <button
+          type="button"
+          id="botonConfirmarEliminarProyecto"
+          class="proyecto-boton proyecto-boton--peligro"
+        >
+          Eliminar definitivamente
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="notificacionProyecto"
+    class="proyecto-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  ></div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./proyecto.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

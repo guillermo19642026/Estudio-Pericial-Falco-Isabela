@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gestión de documentos institucionales de FALCO® Comunidad."
+  >
+
+  <title>
+    Documentos | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS COMPARTIDOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS DE DOCUMENTOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./documentos.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <falco-comunidad-sidebar
+    data-active="documentos"
+    data-base="../"
+  ></falco-comunidad-sidebar>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="comunidad-main documentos-main">
+
+    <div class="documentos-contenido">
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="documentos-header">
+
+        <div>
+
+          <p class="documentos-header__eyebrow">
+            FALCO® Comunidad
+          </p>
+
+          <h1 class="documentos-header__titulo">
+            Documentos institucionales
+          </h1>
+
+          <p class="documentos-header__descripcion">
+            Registro y organización de actas, convenios,
+            propuestas, informes y documentación administrativa.
+          </p>
+
+        </div>
+
+
+        <div class="documentos-header__acciones">
+
+          <button
+            type="button"
+            id="botonActualizarDocumentos"
+            class="documentos-boton documentos-boton--secundario"
+          >
+            <span aria-hidden="true">
+              ↻
+            </span>
+
+            Actualizar
+          </button>
+
+
+          <button
+            type="button"
+            id="botonNuevoDocumento"
+            class="documentos-boton documentos-boton--principal"
+          >
+            <span aria-hidden="true">
+              +
+            </span>
+
+            Nuevo documento
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           INDICADORES
+      ================================================== -->
+
+      <section
+        class="documentos-indicadores"
+        aria-label="Indicadores de documentos"
+      >
+
+        <article class="documentos-indicador">
+
+          <span
+            class="documentos-indicador__icono"
+            aria-hidden="true"
+          >
+            ◈
+          </span>
+
+          <div>
+
+            <span class="documentos-indicador__etiqueta">
+              Total
+            </span>
+
+            <strong id="indicadorDocumentosTotal">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="documentos-indicador">
+
+          <span
+            class="documentos-indicador__icono"
+            aria-hidden="true"
+          >
+            ✓
+          </span>
+
+          <div>
+
+            <span class="documentos-indicador__etiqueta">
+              Vigentes
+            </span>
+
+            <strong id="indicadorDocumentosVigentes">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="documentos-indicador">
+
+          <span
+            class="documentos-indicador__icono"
+            aria-hidden="true"
+          >
+            ◌
+          </span>
+
+          <div>
+
+            <span class="documentos-indicador__etiqueta">
+              Pendientes
+            </span>
+
+            <strong id="indicadorDocumentosPendientes">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="documentos-indicador">
+
+          <span
+            class="documentos-indicador__icono"
+            aria-hidden="true"
+          >
+            □
+          </span>
+
+          <div>
+
+            <span class="documentos-indicador__etiqueta">
+              Archivados
+            </span>
+
+            <strong id="indicadorDocumentosArchivados">
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           PANEL PRINCIPAL
+      ================================================== -->
+
+      <section class="documentos-panel">
+
+        <div class="documentos-panel__cabecera">
+
+          <div>
+
+            <p class="documentos-panel__eyebrow">
+              Archivo institucional
+            </p>
+
+            <h2 class="documentos-panel__titulo">
+              Documentos registrados
+            </h2>
+
+            <p class="documentos-panel__descripcion">
+              Buscá, filtrá y administrá la documentación
+              vinculada con instituciones, programas y proyectos.
+            </p>
+
+          </div>
+
+
+          <span class="documentos-panel__contador">
+
+            <strong id="contadorDocumentosVisibles">
+              0
+            </strong>
+
+            documentos
+
+          </span>
+
+        </div>
+
+
+        <!-- ===============================================
+             FILTROS
+        ================================================ -->
+
+        <div class="documentos-filtros">
+
+
+          <div class="documentos-campo documentos-campo--busqueda">
+
+            <label for="buscadorDocumentos">
+              Buscar documento
+            </label>
+
+            <div class="documentos-campo__buscador">
+
+              <span aria-hidden="true">
+                ⌕
+              </span>
+
+              <input
+                type="search"
+                id="buscadorDocumentos"
+                placeholder="Título, institución o responsable"
+                autocomplete="off"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="documentos-campo">
+
+            <label for="filtroTipoDocumento">
+              Tipo
+            </label>
+
+            <select id="filtroTipoDocumento">
+
+              <option value="todos">
+                Todos los tipos
+              </option>
+
+              <option value="acta">
+                Acta
+              </option>
+
+              <option value="convenio">
+                Convenio
+              </option>
+
+              <option value="propuesta">
+                Propuesta
+              </option>
+
+              <option value="informe">
+                Informe
+              </option>
+
+              <option value="presupuesto">
+                Presupuesto
+              </option>
+
+              <option value="presentacion">
+                Presentación
+              </option>
+
+              <option value="constancia">
+                Constancia
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="documentos-campo">
+
+            <label for="filtroEstadoDocumento">
+              Estado
+            </label>
+
+            <select id="filtroEstadoDocumento">
+
+              <option value="todos">
+                Todos los estados
+              </option>
+
+              <option value="borrador">
+                Borrador
+              </option>
+
+              <option value="vigente">
+                Vigente
+              </option>
+
+              <option value="pendiente">
+                Pendiente
+              </option>
+
+              <option value="aprobado">
+                Aprobado
+              </option>
+
+              <option value="archivado">
+                Archivado
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="documentos-filtros__acciones">
+
+            <button
+              type="button"
+              id="botonLimpiarFiltrosDocumentos"
+              class="documentos-boton documentos-boton--secundario"
+            >
+              Limpiar filtros
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             LOADER
+        ================================================ -->
+
+        <div
+          id="documentosLoader"
+          class="documentos-loader"
+          aria-live="polite"
+        >
+
+          <span class="documentos-loader__spinner"></span>
+
+          <p>
+            Cargando documentos...
+          </p>
+
+        </div>
+
+
+        <!-- ===============================================
+             LISTADO
+        ================================================ -->
+
+        <div
+          id="documentosListado"
+          class="documentos-listado"
+          hidden
+        ></div>
+
+
+        <!-- ===============================================
+             ESTADO VACÍO
+        ================================================ -->
+
+        <div
+          id="documentosVacio"
+          class="documentos-vacio"
+          hidden
+        >
+
+          <span
+            class="documentos-vacio__icono"
+            aria-hidden="true"
+          >
+            □
+          </span>
+
+          <p class="documentos-vacio__eyebrow">
+            Archivo institucional
+          </p>
+
+          <h3 class="documentos-vacio__titulo">
+            Todavía no hay documentos registrados
+          </h3>
+
+          <p class="documentos-vacio__descripcion">
+            Creá el primer registro para comenzar a organizar
+            la documentación de FALCO® Comunidad.
+          </p>
+
+          <button
+            type="button"
+            id="botonCrearPrimerDocumento"
+            class="documentos-boton documentos-boton--principal"
+          >
+            + Crear primer documento
+          </button>
+
+        </div>
+
+
+        <!-- ===============================================
+             SIN RESULTADOS
+        ================================================ -->
+
+        <div
+          id="documentosSinResultados"
+          class="documentos-vacio"
+          hidden
+        >
+
+          <span
+            class="documentos-vacio__icono"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
+
+          <p class="documentos-vacio__eyebrow">
+            Búsqueda
+          </p>
+
+          <h3 class="documentos-vacio__titulo">
+            No encontramos documentos
+          </h3>
+
+          <p class="documentos-vacio__descripcion">
+            Probá modificando los filtros o el texto de búsqueda.
+          </p>
+
+          <button
+            type="button"
+            id="botonRestablecerDocumentos"
+            class="documentos-boton documentos-boton--secundario"
+          >
+            Restablecer búsqueda
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL NUEVO / EDITAR DOCUMENTO
+  ====================================================== -->
+
+  <div
+    id="modalDocumento"
+    class="documentos-modal"
+    hidden
+  >
+
+    <button
+      type="button"
+      class="documentos-modal__fondo"
+      data-cerrar-modal
+      aria-label="Cerrar ventana"
+    ></button>
+
+
+    <section
+      class="documentos-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalDocumentoTitulo"
+    >
+
+      <header class="documentos-modal__cabecera">
+
+        <div>
+
+          <p class="documentos-panel__eyebrow">
+            Archivo institucional
+          </p>
+
+          <h2 id="modalDocumentoTitulo">
+            Nuevo documento
+          </h2>
+
+          <p id="modalDocumentoDescripcion">
+            Completá la información básica del documento.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="documentos-modal__cerrar"
+          data-cerrar-modal
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <form
+        id="formularioDocumento"
+        class="documentos-formulario"
+        novalidate
+      >
+
+        <input
+          type="hidden"
+          id="documentoId"
+          name="id"
+        >
+
+
+        <div class="documentos-formulario__grid">
+
+
+          <div class="documentos-campo-formulario documentos-campo-formulario--completo">
+
+            <label for="documentoTitulo">
+              Título
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <input
+              type="text"
+              id="documentoTitulo"
+              name="titulo"
+              maxlength="140"
+              placeholder="Ej.: Acta de reunión institucional"
+              required
+            >
+
+            <span
+              class="documentos-campo-formulario__error"
+              data-error="titulo"
+            ></span>
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoTipo">
+              Tipo
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <select
+              id="documentoTipo"
+              name="tipo"
+              required
+            >
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="acta">
+                Acta
+              </option>
+
+              <option value="convenio">
+                Convenio
+              </option>
+
+              <option value="propuesta">
+                Propuesta
+              </option>
+
+              <option value="informe">
+                Informe
+              </option>
+
+              <option value="presupuesto">
+                Presupuesto
+              </option>
+
+              <option value="presentacion">
+                Presentación
+              </option>
+
+              <option value="constancia">
+                Constancia
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+
+            </select>
+
+            <span
+              class="documentos-campo-formulario__error"
+              data-error="tipo"
+            ></span>
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoEstado">
+              Estado
+            </label>
+
+            <select
+              id="documentoEstado"
+              name="estado"
+            >
+
+              <option value="borrador">
+                Borrador
+              </option>
+
+              <option value="vigente">
+                Vigente
+              </option>
+
+              <option value="pendiente">
+                Pendiente
+              </option>
+
+              <option value="aprobado">
+                Aprobado
+              </option>
+
+              <option value="archivado">
+                Archivado
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoFecha">
+              Fecha
+            </label>
+
+            <input
+              type="date"
+              id="documentoFecha"
+              name="fecha"
+            >
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoResponsable">
+              Responsable
+            </label>
+
+            <input
+              type="text"
+              id="documentoResponsable"
+              name="responsable"
+              maxlength="120"
+              placeholder="Nombre del responsable"
+            >
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoInstitucion">
+              Institución
+            </label>
+
+            <input
+              type="text"
+              id="documentoInstitucion"
+              name="institucion"
+              maxlength="150"
+              placeholder="Institución vinculada"
+            >
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoPrograma">
+              Programa
+            </label>
+
+            <select
+              id="documentoPrograma"
+              name="programaId"
+            >
+
+              <option value="">
+                Sin programa asociado
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="documentos-campo-formulario">
+
+            <label for="documentoProyecto">
+              Proyecto
+            </label>
+
+            <select
+              id="documentoProyecto"
+              name="proyectoId"
+            >
+
+              <option value="">
+                Sin proyecto asociado
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="documentos-campo-formulario documentos-campo-formulario--completo">
+
+            <label for="documentoEnlace">
+              Enlace al archivo
+            </label>
+
+            <input
+              type="url"
+              id="documentoEnlace"
+              name="enlace"
+              maxlength="500"
+              placeholder="https://..."
+            >
+
+            <span class="documentos-campo-formulario__ayuda">
+              Puede ser un enlace a Drive, Dropbox, Cloudinary u otra ubicación.
+            </span>
+
+          </div>
+
+
+          <div class="documentos-campo-formulario documentos-campo-formulario--completo">
+
+            <label for="documentoDescripcion">
+              Descripción
+            </label>
+
+            <textarea
+              id="documentoDescripcion"
+              name="descripcion"
+              rows="4"
+              maxlength="800"
+              placeholder="Agregá una breve descripción del documento."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <footer class="documentos-modal__acciones">
+
+          <button
+            type="button"
+            class="documentos-boton documentos-boton--secundario"
+            data-cerrar-modal
+          >
+            Cancelar
+          </button>
+
+
+          <button
+            type="submit"
+            class="documentos-boton documentos-boton--principal"
+          >
+            Guardar documento
+          </button>
+
+        </footer>
+
+      </form>
+
+    </section>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="documentosNotificacion"
+    class="documentos-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="documentosNotificacionIcono"
+      class="documentos-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+    <div class="documentos-notificacion__contenido">
+
+      <strong id="documentosNotificacionTitulo">
+        Documento guardado
+      </strong>
+
+      <span id="documentosNotificacionMensaje">
+        La información fue actualizada correctamente.
+      </span>
+
+    </div>
+
+    <button
+      type="button"
+      id="documentosNotificacionCerrar"
+      class="documentos-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./documentos.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

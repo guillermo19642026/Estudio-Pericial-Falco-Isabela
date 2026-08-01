@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Registro de nuevos programas institucionales en FALCO® Comunidad."
+  >
+
+  <title>
+    Nuevo programa | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./nuevo-programa.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <div
+    data-comunidad-sidebar
+    data-active="programas"
+    data-base="../"
+  ></div>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="nuevo-programa-main">
+
+
+    <!-- ===================================================
+         CABECERA
+    ==================================================== -->
+
+    <header class="nuevo-programa-header">
+
+      <div class="nuevo-programa-header__contenido">
+
+        <div class="nuevo-programa-header__identidad">
+
+          <a
+            href="./programas.html"
+            class="nuevo-programa-header__volver"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+
+            Volver a programas
+          </a>
+
+          <p class="nuevo-programa-header__eyebrow">
+            FALCO® Comunidad
+          </p>
+
+          <h1 class="nuevo-programa-header__titulo">
+            Nuevo programa
+          </h1>
+
+          <p class="nuevo-programa-header__descripcion">
+            Registrá la identidad, planificación y estructura
+            inicial del nuevo programa institucional.
+          </p>
+
+        </div>
+
+
+        <div class="nuevo-programa-header__estado">
+
+          <span
+            class="nuevo-programa-header__estado-icono"
+            aria-hidden="true"
+          >
+            ◌
+          </span>
+
+          <div>
+
+            <span class="nuevo-programa-header__estado-etiqueta">
+              Estado del formulario
+            </span>
+
+            <strong id="estadoFormulario">
+              Sin guardar
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         CONTENEDOR GENERAL
+    ==================================================== -->
+
+    <div class="nuevo-programa-contenedor">
+
+
+      <!-- =================================================
+           PROGRESO
+      ================================================== -->
+
+      <section
+        class="nuevo-programa-progreso"
+        aria-label="Progreso del registro"
+      >
+
+        <div class="nuevo-programa-progreso__cabecera">
+
+          <div>
+
+            <p class="nuevo-programa-progreso__eyebrow">
+              Registro institucional
+            </p>
+
+            <h2 class="nuevo-programa-progreso__titulo">
+              Información del programa
+            </h2>
+
+          </div>
+
+          <div class="nuevo-programa-progreso__valor">
+
+            <span id="porcentajeFormulario">
+              0%
+            </span>
+
+            <span>
+              completado
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="nuevo-programa-progreso__barra"
+          aria-hidden="true"
+        >
+
+          <span
+            id="barraProgresoFormulario"
+            class="nuevo-programa-progreso__avance"
+          ></span>
+
+        </div>
+
+
+        <div class="nuevo-programa-progreso__pasos">
+
+          <div
+            class="nuevo-programa-paso nuevo-programa-paso--activo"
+            data-paso-indicador="1"
+          >
+
+            <span class="nuevo-programa-paso__numero">
+              01
+            </span>
+
+            <div>
+
+              <strong>
+                Identidad
+              </strong>
+
+              <span>
+                Información principal
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="nuevo-programa-paso"
+            data-paso-indicador="2"
+          >
+
+            <span class="nuevo-programa-paso__numero">
+              02
+            </span>
+
+            <div>
+
+              <strong>
+                Implementación
+              </strong>
+
+              <span>
+                Organización y alcance
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="nuevo-programa-paso"
+            data-paso-indicador="3"
+          >
+
+            <span class="nuevo-programa-paso__numero">
+              03
+            </span>
+
+            <div>
+
+              <strong>
+                Revisión
+              </strong>
+
+              <span>
+                Confirmación del registro
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           FORMULARIO
+      ================================================== -->
+
+      <form
+        id="formularioNuevoPrograma"
+        class="nuevo-programa-formulario"
+        novalidate
+      >
+
+
+        <!-- ===============================================
+             PASO 1 — IDENTIDAD
+        ================================================ -->
+
+        <section
+          class="nuevo-programa-seccion"
+          data-paso="1"
+          aria-labelledby="tituloPasoIdentidad"
+        >
+
+          <div class="nuevo-programa-seccion__cabecera">
+
+            <div class="nuevo-programa-seccion__numero">
+              01
+            </div>
+
+            <div>
+
+              <p class="nuevo-programa-seccion__eyebrow">
+                Identidad del programa
+              </p>
+
+              <h2
+                id="tituloPasoIdentidad"
+                class="nuevo-programa-seccion__titulo"
+              >
+                Información principal
+              </h2>
+
+              <p class="nuevo-programa-seccion__descripcion">
+                Definí la denominación, el tipo y la descripción
+                general de la propuesta.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="nuevo-programa-grid">
+
+
+            <!-- NOMBRE -->
+
+            <div class="nuevo-programa-campo nuevo-programa-campo--completo">
+
+              <label
+                for="nombrePrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Nombre del programa
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <input
+                type="text"
+                id="nombrePrograma"
+                name="nombre"
+                class="nuevo-programa-campo__control"
+                placeholder="Ej.: Programa de acompañamiento familiar"
+                maxlength="120"
+                autocomplete="off"
+                required
+              >
+
+              <small class="nuevo-programa-campo__ayuda">
+                Utilizá una denominación clara, precisa e institucional.
+              </small>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="nombre"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- TIPO -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="tipoPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Tipo de programa
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <select
+                id="tipoPrograma"
+                name="tipo"
+                class="nuevo-programa-campo__control"
+                required
+              >
+
+                <option value="">
+                  Seleccionar tipo
+                </option>
+
+                <option value="formacion">
+                  Formación
+                </option>
+
+                <option value="acompanamiento">
+                  Acompañamiento
+                </option>
+
+                <option value="prevencion">
+                  Prevención
+                </option>
+
+                <option value="intervencion">
+                  Intervención
+                </option>
+
+                <option value="comunitario">
+                  Comunitario
+                </option>
+
+                <option value="institucional">
+                  Institucional
+                </option>
+
+                <option value="otro">
+                  Otro
+                </option>
+
+              </select>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="tipo"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- ESTADO -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="estadoPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Estado inicial
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <select
+                id="estadoPrograma"
+                name="estado"
+                class="nuevo-programa-campo__control"
+                required
+              >
+
+                <option value="preparacion">
+                  En preparación
+                </option>
+
+                <option value="ejecucion">
+                  En ejecución
+                </option>
+
+                <option value="pausado">
+                  Pausado
+                </option>
+
+              </select>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="estado"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- DESCRIPCIÓN -->
+
+            <div class="nuevo-programa-campo nuevo-programa-campo--completo">
+
+              <label
+                for="descripcionPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Descripción general
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <textarea
+                id="descripcionPrograma"
+                name="descripcion"
+                class="nuevo-programa-campo__control nuevo-programa-campo__control--textarea"
+                placeholder="Describí brevemente el propósito y la propuesta general del programa."
+                rows="5"
+                maxlength="800"
+                required
+              ></textarea>
+
+              <div class="nuevo-programa-campo__pie">
+
+                <small class="nuevo-programa-campo__ayuda">
+                  Esta descripción se mostrará en la ficha y el listado general.
+                </small>
+
+                <span
+                  id="contadorDescripcion"
+                  class="nuevo-programa-campo__contador"
+                >
+                  0 / 800
+                </span>
+
+              </div>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="descripcion"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="nuevo-programa-seccion__acciones">
+
+            <a
+              href="./programas.html"
+              class="nuevo-programa-boton nuevo-programa-boton--secundario"
+            >
+              Cancelar
+            </a>
+
+            <button
+              type="button"
+              class="nuevo-programa-boton nuevo-programa-boton--principal"
+              data-siguiente-paso="2"
+            >
+              Continuar
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             PASO 2 — IMPLEMENTACIÓN
+        ================================================ -->
+
+        <section
+          class="nuevo-programa-seccion"
+          data-paso="2"
+          aria-labelledby="tituloPasoImplementacion"
+          hidden
+        >
+
+          <div class="nuevo-programa-seccion__cabecera">
+
+            <div class="nuevo-programa-seccion__numero">
+              02
+            </div>
+
+            <div>
+
+              <p class="nuevo-programa-seccion__eyebrow">
+                Implementación
+              </p>
+
+              <h2
+                id="tituloPasoImplementacion"
+                class="nuevo-programa-seccion__titulo"
+              >
+                Organización y alcance
+              </h2>
+
+              <p class="nuevo-programa-seccion__descripcion">
+                Completá la información administrativa y operativa
+                inicial del programa.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="nuevo-programa-grid">
+
+
+            <!-- RESPONSABLE -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="responsablePrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Responsable o coordinador
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <input
+                type="text"
+                id="responsablePrograma"
+                name="responsable"
+                class="nuevo-programa-campo__control"
+                placeholder="Nombre y apellido"
+                maxlength="120"
+                autocomplete="off"
+                required
+              >
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="responsable"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- INSTITUCIÓN -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="institucionPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Institución vinculada
+              </label>
+
+              <input
+                type="text"
+                id="institucionPrograma"
+                name="institucion"
+                class="nuevo-programa-campo__control"
+                placeholder="Nombre de la institución"
+                maxlength="150"
+                autocomplete="off"
+              >
+
+              <small class="nuevo-programa-campo__ayuda">
+                Podrá vincularse formalmente más adelante.
+              </small>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="institucion"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- MODALIDAD -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="modalidadPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Modalidad
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <select
+                id="modalidadPrograma"
+                name="modalidad"
+                class="nuevo-programa-campo__control"
+                required
+              >
+
+                <option value="">
+                  Seleccionar modalidad
+                </option>
+
+                <option value="Presencial">
+                  Presencial
+                </option>
+
+                <option value="Virtual">
+                  Virtual
+                </option>
+
+                <option value="Híbrida">
+                  Híbrida
+                </option>
+
+                <option value="Territorial">
+                  Territorial
+                </option>
+
+                <option value="A definir">
+                  A definir
+                </option>
+
+              </select>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="modalidad"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- ALCANCE -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="alcancePrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Alcance
+              </label>
+
+              <select
+                id="alcancePrograma"
+                name="alcance"
+                class="nuevo-programa-campo__control"
+              >
+
+                <option value="">
+                  Seleccionar alcance
+                </option>
+
+                <option value="Local">
+                  Local
+                </option>
+
+                <option value="Municipal">
+                  Municipal
+                </option>
+
+                <option value="Provincial">
+                  Provincial
+                </option>
+
+                <option value="Nacional">
+                  Nacional
+                </option>
+
+                <option value="Institucional">
+                  Institucional
+                </option>
+
+                <option value="Comunitario">
+                  Comunitario
+                </option>
+
+                <option value="A definir">
+                  A definir
+                </option>
+
+              </select>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="alcance"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- FECHA DE INICIO -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="fechaInicioPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Fecha de inicio
+              </label>
+
+              <input
+                type="date"
+                id="fechaInicioPrograma"
+                name="fechaInicio"
+                class="nuevo-programa-campo__control"
+              >
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="fechaInicio"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- FECHA DE FINALIZACIÓN -->
+
+            <div class="nuevo-programa-campo">
+
+              <label
+                for="fechaFinalizacionPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Fecha estimada de finalización
+              </label>
+
+              <input
+                type="date"
+                id="fechaFinalizacionPrograma"
+                name="fechaFinalizacion"
+                class="nuevo-programa-campo__control"
+              >
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="fechaFinalizacion"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- OBJETIVO GENERAL -->
+
+            <div class="nuevo-programa-campo nuevo-programa-campo--completo">
+
+              <label
+                for="objetivoGeneralPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Objetivo general
+                <span aria-hidden="true">
+                  *
+                </span>
+              </label>
+
+              <textarea
+                id="objetivoGeneralPrograma"
+                name="objetivoGeneral"
+                class="nuevo-programa-campo__control nuevo-programa-campo__control--textarea"
+                placeholder="Indicá el objetivo principal que orientará el desarrollo del programa."
+                rows="4"
+                maxlength="600"
+                required
+              ></textarea>
+
+              <div class="nuevo-programa-campo__pie">
+
+                <small class="nuevo-programa-campo__ayuda">
+                  Debe expresar claramente el resultado general esperado.
+                </small>
+
+                <span
+                  id="contadorObjetivoGeneral"
+                  class="nuevo-programa-campo__contador"
+                >
+                  0 / 600
+                </span>
+
+              </div>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="objetivoGeneral"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- DESTINATARIOS -->
+
+            <div class="nuevo-programa-campo nuevo-programa-campo--completo">
+
+              <label
+                for="destinatariosPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Población destinataria
+              </label>
+
+              <textarea
+                id="destinatariosPrograma"
+                name="destinatarios"
+                class="nuevo-programa-campo__control nuevo-programa-campo__control--textarea"
+                placeholder="Describí las personas, familias, grupos o instituciones destinatarias."
+                rows="3"
+                maxlength="500"
+              ></textarea>
+
+              <div class="nuevo-programa-campo__pie">
+
+                <small class="nuevo-programa-campo__ayuda">
+                  Podrá ampliarse desde la ficha del programa.
+                </small>
+
+                <span
+                  id="contadorDestinatarios"
+                  class="nuevo-programa-campo__contador"
+                >
+                  0 / 500
+                </span>
+
+              </div>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="destinatarios"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+            <!-- OBSERVACIONES -->
+
+            <div class="nuevo-programa-campo nuevo-programa-campo--completo">
+
+              <label
+                for="observacionesPrograma"
+                class="nuevo-programa-campo__label"
+              >
+                Observaciones iniciales
+              </label>
+
+              <textarea
+                id="observacionesPrograma"
+                name="observaciones"
+                class="nuevo-programa-campo__control nuevo-programa-campo__control--textarea"
+                placeholder="Agregá información administrativa, antecedentes o consideraciones relevantes."
+                rows="4"
+                maxlength="800"
+              ></textarea>
+
+              <div class="nuevo-programa-campo__pie">
+
+                <small class="nuevo-programa-campo__ayuda">
+                  Este campo es de uso administrativo interno.
+                </small>
+
+                <span
+                  id="contadorObservaciones"
+                  class="nuevo-programa-campo__contador"
+                >
+                  0 / 800
+                </span>
+
+              </div>
+
+              <span
+                class="nuevo-programa-campo__error"
+                data-error="observaciones"
+                aria-live="polite"
+              ></span>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="nuevo-programa-seccion__acciones">
+
+            <button
+              type="button"
+              class="nuevo-programa-boton nuevo-programa-boton--secundario"
+              data-anterior-paso="1"
+            >
+              <span aria-hidden="true">
+                ←
+              </span>
+
+              Volver
+            </button>
+
+            <button
+              type="button"
+              class="nuevo-programa-boton nuevo-programa-boton--principal"
+              data-siguiente-paso="3"
+            >
+              Revisar información
+
+              <span aria-hidden="true">
+                →
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             PASO 3 — REVISIÓN
+        ================================================ -->
+
+        <section
+          class="nuevo-programa-seccion"
+          data-paso="3"
+          aria-labelledby="tituloPasoRevision"
+          hidden
+        >
+
+          <div class="nuevo-programa-seccion__cabecera">
+
+            <div class="nuevo-programa-seccion__numero">
+              03
+            </div>
+
+            <div>
+
+              <p class="nuevo-programa-seccion__eyebrow">
+                Revisión final
+              </p>
+
+              <h2
+                id="tituloPasoRevision"
+                class="nuevo-programa-seccion__titulo"
+              >
+                Confirmación del registro
+              </h2>
+
+              <p class="nuevo-programa-seccion__descripcion">
+                Verificá los datos antes de registrar el programa.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="nuevo-programa-revision">
+
+
+            <!-- IDENTIDAD -->
+
+            <article class="nuevo-programa-revision__grupo">
+
+              <div class="nuevo-programa-revision__cabecera">
+
+                <div>
+
+                  <p class="nuevo-programa-revision__eyebrow">
+                    Identidad
+                  </p>
+
+                  <h3>
+                    Información principal
+                  </h3>
+
+                </div>
+
+                <button
+                  type="button"
+                  class="nuevo-programa-revision__editar"
+                  data-editar-paso="1"
+                >
+                  Editar
+                </button>
+
+              </div>
+
+
+              <dl class="nuevo-programa-revision__datos">
+
+                <div class="nuevo-programa-revision__dato nuevo-programa-revision__dato--completo">
+
+                  <dt>
+                    Nombre
+                  </dt>
+
+                  <dd id="revisionNombre">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Tipo
+                  </dt>
+
+                  <dd id="revisionTipo">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Estado inicial
+                  </dt>
+
+                  <dd id="revisionEstado">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato nuevo-programa-revision__dato--completo">
+
+                  <dt>
+                    Descripción
+                  </dt>
+
+                  <dd id="revisionDescripcion">
+                    —
+                  </dd>
+
+                </div>
+
+              </dl>
+
+            </article>
+
+
+            <!-- IMPLEMENTACIÓN -->
+
+            <article class="nuevo-programa-revision__grupo">
+
+              <div class="nuevo-programa-revision__cabecera">
+
+                <div>
+
+                  <p class="nuevo-programa-revision__eyebrow">
+                    Implementación
+                  </p>
+
+                  <h3>
+                    Organización y alcance
+                  </h3>
+
+                </div>
+
+                <button
+                  type="button"
+                  class="nuevo-programa-revision__editar"
+                  data-editar-paso="2"
+                >
+                  Editar
+                </button>
+
+              </div>
+
+
+              <dl class="nuevo-programa-revision__datos">
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Responsable
+                  </dt>
+
+                  <dd id="revisionResponsable">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Institución
+                  </dt>
+
+                  <dd id="revisionInstitucion">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Modalidad
+                  </dt>
+
+                  <dd id="revisionModalidad">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Alcance
+                  </dt>
+
+                  <dd id="revisionAlcance">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Fecha de inicio
+                  </dt>
+
+                  <dd id="revisionFechaInicio">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato">
+
+                  <dt>
+                    Finalización estimada
+                  </dt>
+
+                  <dd id="revisionFechaFinalizacion">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato nuevo-programa-revision__dato--completo">
+
+                  <dt>
+                    Objetivo general
+                  </dt>
+
+                  <dd id="revisionObjetivoGeneral">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato nuevo-programa-revision__dato--completo">
+
+                  <dt>
+                    Población destinataria
+                  </dt>
+
+                  <dd id="revisionDestinatarios">
+                    —
+                  </dd>
+
+                </div>
+
+
+                <div class="nuevo-programa-revision__dato nuevo-programa-revision__dato--completo">
+
+                  <dt>
+                    Observaciones
+                  </dt>
+
+                  <dd id="revisionObservaciones">
+                    —
+                  </dd>
+
+                </div>
+
+              </dl>
+
+            </article>
+
+
+            <!-- AVISO -->
+
+            <aside class="nuevo-programa-revision__aviso">
+
+              <span
+                class="nuevo-programa-revision__aviso-icono"
+                aria-hidden="true"
+              >
+                i
+              </span>
+
+              <div>
+
+                <strong>
+                  Registro inicial
+                </strong>
+
+                <p>
+                  Después de registrar el programa podrás completar
+                  actividades, instituciones vinculadas, participantes,
+                  documentos, agenda y seguimiento desde su ficha individual.
+                </p>
+
+              </div>
+
+            </aside>
+
+
+          </div>
+
+
+          <div class="nuevo-programa-seccion__acciones">
+
+            <button
+              type="button"
+              class="nuevo-programa-boton nuevo-programa-boton--secundario"
+              data-anterior-paso="2"
+            >
+              <span aria-hidden="true">
+                ←
+              </span>
+
+              Volver
+            </button>
+
+            <button
+              type="submit"
+              id="botonRegistrarPrograma"
+              class="nuevo-programa-boton nuevo-programa-boton--principal"
+            >
+              <span
+                id="botonRegistrarProgramaIcono"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <span id="botonRegistrarProgramaTexto">
+                Registrar programa
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+      </form>
+
+
+      <!-- =================================================
+           ACCIONES DE BORRADOR
+      ================================================== -->
+
+      <section class="nuevo-programa-borrador">
+
+        <div class="nuevo-programa-borrador__contenido">
+
+          <span
+            class="nuevo-programa-borrador__icono"
+            aria-hidden="true"
+          >
+            ◇
+          </span>
+
+          <div>
+
+            <p class="nuevo-programa-borrador__eyebrow">
+              Borrador local
+            </p>
+
+            <h2 class="nuevo-programa-borrador__titulo">
+              Conservá la información antes de registrar
+            </h2>
+
+            <p class="nuevo-programa-borrador__descripcion">
+              Podés guardar temporalmente los datos en este dispositivo
+              y continuar el registro más adelante.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="nuevo-programa-borrador__acciones">
+
+          <button
+            type="button"
+            id="botonEliminarBorrador"
+            class="nuevo-programa-boton nuevo-programa-boton--secundario"
+          >
+            Eliminar borrador
+          </button>
+
+          <button
+            type="button"
+            id="botonGuardarBorrador"
+            class="nuevo-programa-boton nuevo-programa-boton--borrador"
+          >
+            Guardar borrador
+          </button>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL DE REGISTRO CORRECTO
+  ====================================================== -->
+
+  <div
+    id="modalProgramaRegistrado"
+    class="nuevo-programa-modal"
+    hidden
+  >
+
+    <div class="nuevo-programa-modal__fondo"></div>
+
+    <div
+      class="nuevo-programa-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalProgramaRegistradoTitulo"
+    >
+
+      <div
+        class="nuevo-programa-modal__icono"
+        aria-hidden="true"
+      >
+        ✓
+      </div>
+
+      <p class="nuevo-programa-modal__eyebrow">
+        Registro completado
+      </p>
+
+      <h2
+        id="modalProgramaRegistradoTitulo"
+        class="nuevo-programa-modal__titulo"
+      >
+        Programa registrado correctamente
+      </h2>
+
+      <p class="nuevo-programa-modal__descripcion">
+        La información fue incorporada al registro institucional
+        de FALCO® Comunidad.
+      </p>
+
+
+      <div class="nuevo-programa-modal__referencia">
+
+        <span>
+          Referencia
+        </span>
+
+        <strong id="referenciaProgramaRegistrado">
+          —
+        </strong>
+
+      </div>
+
+
+      <div class="nuevo-programa-modal__acciones">
+
+        <a
+          href="./programas.html"
+          class="nuevo-programa-boton nuevo-programa-boton--secundario"
+        >
+          Volver al listado
+        </a>
+
+        <button
+          type="button"
+          id="botonAdministrarProgramaRegistrado"
+          class="nuevo-programa-boton nuevo-programa-boton--principal"
+        >
+          Administrar programa
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL DE CONFIRMACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalConfirmacionPrograma"
+    class="nuevo-programa-modal"
+    hidden
+  >
+
+    <div
+      class="nuevo-programa-modal__fondo"
+      data-cerrar-confirmacion
+    ></div>
+
+    <div
+      class="nuevo-programa-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalConfirmacionTitulo"
+    >
+
+      <button
+        type="button"
+        class="nuevo-programa-modal__cerrar"
+        data-cerrar-confirmacion
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
+
+      <div
+        class="nuevo-programa-modal__icono nuevo-programa-modal__icono--advertencia"
+        aria-hidden="true"
+      >
+        !
+      </div>
+
+      <p class="nuevo-programa-modal__eyebrow">
+        Confirmación requerida
+      </p>
+
+      <h2
+        id="modalConfirmacionTitulo"
+        class="nuevo-programa-modal__titulo"
+      >
+        Eliminar borrador
+      </h2>
+
+      <p
+        id="modalConfirmacionMensaje"
+        class="nuevo-programa-modal__descripcion"
+      >
+        Se eliminarán los datos guardados temporalmente.
+      </p>
+
+
+      <div class="nuevo-programa-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarConfirmacion"
+          class="nuevo-programa-boton nuevo-programa-boton--secundario"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          id="botonAceptarConfirmacion"
+          class="nuevo-programa-boton nuevo-programa-boton--peligro"
+        >
+          Eliminar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="nuevoProgramaNotificacion"
+    class="nuevo-programa-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="nuevoProgramaNotificacionIcono"
+      class="nuevo-programa-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+    <div class="nuevo-programa-notificacion__contenido">
+
+      <strong id="nuevoProgramaNotificacionTitulo">
+        Información guardada
+      </strong>
+
+      <span id="nuevoProgramaNotificacionMensaje">
+        Los cambios fueron procesados correctamente.
+      </span>
+
+    </div>
+
+    <button
+      type="button"
+      id="nuevoProgramaNotificacionCerrar"
+      class="nuevo-programa-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       COMPONENTE SIDEBAR
+  ====================================================== -->
+
+  <script src="../shared/components/falco-comunidad-sidebar.js"></script>
+
+
+  <!-- =====================================================
+       LÓGICA
+  ====================================================== -->
+
+  <script src="./nuevo-programa.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2155 @@
+/* =========================================================
+   FALCO® COMUNIDAD
+   NUEVO EVENTO
+   nuevo-evento.css
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+  --nuevo-fondo:
+    #07111f;
+
+  --nuevo-superficie:
+    rgba(16, 31, 51, 0.96);
+
+  --nuevo-superficie-secundaria:
+    rgba(11, 24, 40, 0.96);
+
+  --nuevo-borde:
+    rgba(201, 169, 110, 0.18);
+
+  --nuevo-borde-suave:
+    rgba(255,255,255,0.07);
+
+  --nuevo-texto:
+    #f2f5f8;
+
+  --nuevo-texto-secundario:
+    #b8c3cf;
+
+  --nuevo-texto-suave:
+    #8693a2;
+
+  --nuevo-dorado:
+    #c9a96e;
+
+  --nuevo-dorado-claro:
+    #e0c38d;
+
+  --nuevo-verde:
+    #61c79a;
+
+  --nuevo-rojo:
+    #e47a7a;
+
+  --nuevo-radio-xl:
+    24px;
+
+  --nuevo-radio:
+    16px;
+
+  --nuevo-radio-sm:
+    12px;
+
+  --nuevo-sombra:
+    0 22px 60px rgba(0,0,0,.24);
+
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.nuevo-evento-main{
+
+  min-height:100vh;
+
+  padding:
+    34px
+    clamp(22px,4vw,54px)
+    60px;
+
+}
+
+
+.nuevo-evento-contenido{
+
+  width:min(100%,1500px);
+
+  margin:0 auto;
+
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.nuevo-evento-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  gap:30px;
+
+  margin-bottom:26px;
+
+  padding:30px;
+
+  border:1px solid var(--nuevo-borde);
+
+  border-radius:var(--nuevo-radio-xl);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16,31,51,.98),
+      rgba(10,24,41,.96)
+    );
+
+  box-shadow:var(--nuevo-sombra);
+
+}
+
+
+.nuevo-evento-header__volver{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:14px;
+
+  color:var(--nuevo-dorado-claro);
+
+  text-decoration:none;
+
+  font-size:.75rem;
+
+  font-weight:700;
+
+}
+
+
+.nuevo-evento-header__volver:hover{
+
+  text-decoration:underline;
+
+}
+
+
+.nuevo-evento-header__eyebrow{
+
+  margin:0 0 8px;
+
+  color:var(--nuevo-dorado);
+
+  font-size:.68rem;
+
+  font-weight:700;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+}
+
+
+.nuevo-evento-header__titulo{
+
+  margin:0 0 10px;
+
+  color:var(--nuevo-texto);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size:2rem;
+
+  font-weight:600;
+
+}
+
+
+.nuevo-evento-header__descripcion{
+
+  margin:0;
+
+  max-width:720px;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.92rem;
+
+  line-height:1.7;
+
+}
+
+
+.nuevo-evento-header__estado{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-height:46px;
+
+  padding:0 18px;
+
+  border-radius:999px;
+
+  border:1px solid var(--nuevo-borde);
+
+  background:
+    rgba(201,169,110,.08);
+
+  color:var(--nuevo-dorado-claro);
+
+  font-size:.72rem;
+
+  font-weight:700;
+
+}
+
+
+/* =========================================================
+   AVISO BORRADOR
+========================================================= */
+
+.nuevo-evento-aviso{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+  margin-bottom:24px;
+
+  padding:18px 22px;
+
+  border:1px solid rgba(97,199,154,.25);
+
+  border-radius:18px;
+
+  background:
+    rgba(97,199,154,.08);
+
+}
+
+
+.nuevo-evento-aviso__icono{
+
+  display:grid;
+
+  place-items:center;
+
+  width:46px;
+
+  height:46px;
+
+  flex:0 0 46px;
+
+  border-radius:14px;
+
+  border:1px solid rgba(97,199,154,.25);
+
+  color:var(--nuevo-verde);
+
+}
+
+
+.nuevo-evento-aviso strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--nuevo-texto);
+
+}
+
+
+.nuevo-evento-aviso p{
+
+  margin:0;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.78rem;
+
+}
+
+
+.nuevo-evento-aviso__cerrar{
+
+  margin-left:auto;
+
+  padding:10px 14px;
+
+  border:1px solid rgba(97,199,154,.25);
+
+  border-radius:12px;
+
+  background:transparent;
+
+  color:var(--nuevo-verde);
+
+  cursor:pointer;
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.nuevo-evento-grid{
+
+  display:grid;
+
+  grid-template-columns:
+
+    minmax(0,1.55fr)
+
+    minmax(330px,.65fr);
+
+  gap:24px;
+
+  align-items:start;
+
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.nuevo-evento-panel{
+
+  margin-bottom:22px;
+
+  border:1px solid var(--nuevo-borde-suave);
+
+  border-radius:22px;
+
+  overflow:hidden;
+
+  background:
+
+    linear-gradient(
+
+      145deg,
+
+      rgba(16,31,51,.96),
+
+      rgba(10,24,41,.96)
+
+    );
+
+  box-shadow:var(--nuevo-sombra);
+
+}
+
+
+.nuevo-evento-panel__cabecera{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:24px;
+
+  border-bottom:1px solid var(--nuevo-borde-suave);
+
+}
+
+
+.nuevo-evento-panel__eyebrow{
+
+  margin:0 0 5px;
+
+  color:var(--nuevo-dorado);
+
+  font-size:.65rem;
+
+  font-weight:700;
+
+  letter-spacing:.13em;
+
+  text-transform:uppercase;
+
+}
+
+
+.nuevo-evento-panel__titulo{
+
+  margin:0;
+
+  color:var(--nuevo-texto);
+
+  font-family:
+
+    "Playfair Display",
+
+    serif;
+
+  font-size:1.45rem;
+
+}
+
+
+.nuevo-evento-panel__descripcion{
+
+  margin:8px 0 0;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.8rem;
+
+  line-height:1.6;
+
+}
+
+
+.nuevo-evento-panel__numero{
+
+  display:grid;
+
+  place-items:center;
+
+  width:54px;
+
+  height:54px;
+
+  flex:0 0 54px;
+
+  border-radius:16px;
+
+  border:1px solid var(--nuevo-borde);
+
+  background:
+
+    rgba(201,169,110,.08);
+
+  color:var(--nuevo-dorado-claro);
+
+  font-weight:700;
+
+}
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.nuevo-evento-formulario{
+
+  display:flex;
+
+  flex-direction:column;
+
+}
+
+
+.nuevo-evento-formulario__grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:22px;
+
+  padding:26px;
+
+}
+
+
+.nuevo-evento-campo{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+}
+
+
+.nuevo-evento-campo--completo{
+
+  grid-column:1/-1;
+
+}
+
+
+.nuevo-evento-campo label{
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.72rem;
+
+  font-weight:700;
+
+}
+
+
+.nuevo-evento-campo label span{
+
+  color:var(--nuevo-dorado);
+
+}
+
+
+.nuevo-evento-campo input,
+.nuevo-evento-campo select,
+.nuevo-evento-campo textarea{
+
+  width:100%;
+
+  padding:13px 15px;
+
+  border:1px solid var(--nuevo-borde-suave);
+
+  border-radius:14px;
+
+  background:
+
+    rgba(6,17,29,.65);
+
+  color:var(--nuevo-texto);
+
+  font-family:"Inter",sans-serif;
+
+  font-size:.84rem;
+
+  outline:none;
+
+  transition:
+
+    border-color .20s,
+
+    background .20s,
+
+    box-shadow .20s;
+
+}
+
+
+.nuevo-evento-campo textarea{
+
+  resize:vertical;
+
+  min-height:120px;
+
+}
+
+
+.nuevo-evento-campo input:focus,
+.nuevo-evento-campo select:focus,
+.nuevo-evento-campo textarea:focus{
+
+  border-color:
+
+    var(--nuevo-dorado);
+
+  background:
+
+    rgba(9,22,37,.92);
+
+  box-shadow:
+
+    0 0 0 3px
+
+    rgba(201,169,110,.08);
+
+}
+
+
+.nuevo-evento-campo input::placeholder,
+.nuevo-evento-campo textarea::placeholder{
+
+  color:var(--nuevo-texto-suave);
+
+}
+
+
+.nuevo-evento-campo select option{
+
+  color:var(--nuevo-texto);
+
+  background:#0d1d31;
+
+}
+
+
+.nuevo-evento-campo__ayuda{
+
+  color:var(--nuevo-texto-suave);
+
+  font-size:.68rem;
+
+}
+
+
+.nuevo-evento-campo__error{
+
+  min-height:18px;
+
+  color:var(--nuevo-rojo);
+
+  font-size:.68rem;
+
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.nuevo-evento-acciones{
+
+  display:flex;
+
+  justify-content:flex-end;
+
+  gap:12px;
+
+  margin-top:8px;
+
+}
+
+
+.nuevo-evento-boton{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-height:46px;
+
+  padding:0 22px;
+
+  border-radius:14px;
+
+  border:1px solid transparent;
+
+  text-decoration:none;
+
+  cursor:pointer;
+
+  font-family:
+
+    "Montserrat",
+
+    sans-serif;
+
+  font-size:.74rem;
+
+  font-weight:700;
+
+  transition:
+
+    .20s;
+
+}
+
+
+.nuevo-evento-boton:hover{
+
+  transform:
+
+    translateY(-2px);
+
+}
+
+
+.nuevo-evento-boton--principal{
+
+  background:
+
+    linear-gradient(
+
+      135deg,
+
+      var(--nuevo-dorado-claro),
+
+      var(--nuevo-dorado)
+
+    );
+
+  color:#07111f;
+
+}
+
+
+.nuevo-evento-boton--principal:hover{
+
+  filter:brightness(1.06);
+
+}
+
+
+.nuevo-evento-boton--secundario{
+
+  background:
+
+    rgba(255,255,255,.03);
+
+  color:var(--nuevo-texto-secundario);
+
+  border-color:
+
+    var(--nuevo-borde-suave);
+
+}
+
+
+.nuevo-evento-boton--secundario:hover{
+
+  border-color:
+
+    var(--nuevo-borde);
+
+  color:
+
+    var(--nuevo-dorado-claro);
+
+  background:
+
+    rgba(201,169,110,.07);
+
+}
+
+/* =========================================================
+   COLUMNA LATERAL
+========================================================= */
+
+.nuevo-evento-lateral{
+
+  min-width:0;
+
+}
+
+
+.nuevo-evento-panel--lateral{
+
+  margin-bottom:18px;
+
+}
+
+
+/* =========================================================
+   RESUMEN DEL EVENTO
+========================================================= */
+
+.nuevo-evento-resumen{
+
+  padding:24px;
+
+}
+
+
+.nuevo-evento-resumen__tipo{
+
+  margin:0 0 8px;
+
+  color:var(--nuevo-dorado);
+
+  font-family:"Montserrat",sans-serif;
+
+  font-size:.66rem;
+
+  font-weight:700;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+}
+
+
+.nuevo-evento-resumen h3{
+
+  margin:0 0 10px;
+
+  color:var(--nuevo-texto);
+
+  font-family:"Playfair Display",serif;
+
+  font-size:1.55rem;
+
+  line-height:1.2;
+
+}
+
+
+.nuevo-evento-resumen__descripcion{
+
+  margin:0 0 20px;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.78rem;
+
+  line-height:1.65;
+
+}
+
+
+.nuevo-evento-resumen__datos{
+
+  display:grid;
+
+  gap:0;
+
+  margin:0;
+
+}
+
+
+.nuevo-evento-resumen__datos div{
+
+  display:grid;
+
+  grid-template-columns:
+    100px
+    minmax(0,1fr);
+
+  gap:14px;
+
+  padding:13px 0;
+
+  border-bottom:
+    1px solid var(--nuevo-borde-suave);
+
+}
+
+
+.nuevo-evento-resumen__datos div:last-child{
+
+  border-bottom:0;
+
+}
+
+
+.nuevo-evento-resumen__datos dt{
+
+  color:var(--nuevo-texto-suave);
+
+  font-size:.66rem;
+
+  font-weight:700;
+
+}
+
+
+.nuevo-evento-resumen__datos dd{
+
+  margin:0;
+
+  color:var(--nuevo-texto);
+
+  font-size:.72rem;
+
+  text-align:right;
+
+  overflow-wrap:anywhere;
+
+}
+
+
+/* =========================================================
+   AYUDA
+========================================================= */
+
+.nuevo-evento-ayuda{
+
+  padding:25px;
+
+  text-align:center;
+
+}
+
+
+.nuevo-evento-ayuda__icono{
+
+  display:grid;
+
+  place-items:center;
+
+  width:52px;
+
+  height:52px;
+
+  margin:0 auto 15px;
+
+  border:1px solid var(--nuevo-borde);
+
+  border-radius:16px;
+
+  color:var(--nuevo-dorado-claro);
+
+  background:
+    rgba(201,169,110,.07);
+
+}
+
+
+.nuevo-evento-ayuda h2{
+
+  margin:0 0 10px;
+
+  color:var(--nuevo-texto);
+
+  font-family:"Playfair Display",serif;
+
+  font-size:1.35rem;
+
+}
+
+
+.nuevo-evento-ayuda p:last-child{
+
+  margin:0;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.74rem;
+
+  line-height:1.65;
+
+}
+
+
+/* =========================================================
+   ESTADO DEL FORMULARIO
+========================================================= */
+
+.nuevo-evento-estado{
+
+  display:grid;
+
+  grid-template-columns:
+    46px
+    minmax(0,1fr);
+
+  gap:14px;
+
+  align-items:center;
+
+  padding:22px;
+
+}
+
+
+.nuevo-evento-estado__icono{
+
+  display:grid;
+
+  place-items:center;
+
+  width:46px;
+
+  height:46px;
+
+  border:1px solid var(--nuevo-borde);
+
+  border-radius:14px;
+
+  color:var(--nuevo-dorado-claro);
+
+  background:
+    rgba(201,169,110,.07);
+
+}
+
+
+.nuevo-evento-estado strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--nuevo-texto);
+
+  font-size:.75rem;
+
+}
+
+
+.nuevo-evento-estado p{
+
+  margin:0;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.68rem;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================================================
+   ESTADOS VISUALES DEL FORMULARIO
+========================================================= */
+
+.nuevo-evento-estado--completo
+.nuevo-evento-estado__icono{
+
+  color:var(--nuevo-verde);
+
+  border-color:
+    rgba(97,199,154,.28);
+
+  background:
+    rgba(97,199,154,.08);
+
+}
+
+
+.nuevo-evento-estado--error
+.nuevo-evento-estado__icono{
+
+  color:var(--nuevo-rojo);
+
+  border-color:
+    rgba(228,122,122,.28);
+
+  background:
+    rgba(228,122,122,.08);
+
+}
+
+
+/* =========================================================
+   CAMPOS CON ERROR
+========================================================= */
+
+.nuevo-evento-campo--error input,
+.nuevo-evento-campo--error select,
+.nuevo-evento-campo--error textarea,
+.nuevo-evento-campo input[aria-invalid="true"],
+.nuevo-evento-campo select[aria-invalid="true"],
+.nuevo-evento-campo textarea[aria-invalid="true"]{
+
+  border-color:
+    rgba(228,122,122,.55);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(228,122,122,.08);
+
+}
+
+
+.nuevo-evento-campo--valido input,
+.nuevo-evento-campo--valido select,
+.nuevo-evento-campo--valido textarea{
+
+  border-color:
+    rgba(97,199,154,.34);
+
+}
+
+
+/* =========================================================
+   BOTÓN CARGANDO
+========================================================= */
+
+.nuevo-evento-boton--cargando{
+
+  pointer-events:none;
+
+  opacity:.76;
+
+}
+
+
+.nuevo-evento-boton--cargando::before{
+
+  content:"";
+
+  width:15px;
+
+  height:15px;
+
+  margin-right:8px;
+
+  border:2px solid rgba(7,17,31,.28);
+
+  border-top-color:#07111f;
+
+  border-radius:50%;
+
+  animation:
+    nuevoEventoBotonCarga
+    .7s
+    linear
+    infinite;
+
+}
+
+
+@keyframes nuevoEventoBotonCarga{
+
+  to{
+
+    transform:rotate(360deg);
+
+  }
+
+}
+
+/* =========================================================
+   COLUMNA LATERAL
+========================================================= */
+
+.nuevo-evento-lateral{
+
+  min-width:0;
+
+}
+
+
+.nuevo-evento-panel--lateral{
+
+  margin-bottom:18px;
+
+}
+
+
+/* =========================================================
+   RESUMEN DEL EVENTO
+========================================================= */
+
+.nuevo-evento-resumen{
+
+  padding:24px;
+
+}
+
+
+.nuevo-evento-resumen__tipo{
+
+  margin:0 0 8px;
+
+  color:var(--nuevo-dorado);
+
+  font-family:"Montserrat",sans-serif;
+
+  font-size:.66rem;
+
+  font-weight:700;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+}
+
+
+.nuevo-evento-resumen h3{
+
+  margin:0 0 10px;
+
+  color:var(--nuevo-texto);
+
+  font-family:"Playfair Display",serif;
+
+  font-size:1.55rem;
+
+  line-height:1.2;
+
+}
+
+
+.nuevo-evento-resumen__descripcion{
+
+  margin:0 0 20px;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.78rem;
+
+  line-height:1.65;
+
+}
+
+
+.nuevo-evento-resumen__datos{
+
+  display:grid;
+
+  gap:0;
+
+  margin:0;
+
+}
+
+
+.nuevo-evento-resumen__datos div{
+
+  display:grid;
+
+  grid-template-columns:
+    100px
+    minmax(0,1fr);
+
+  gap:14px;
+
+  padding:13px 0;
+
+  border-bottom:
+    1px solid var(--nuevo-borde-suave);
+
+}
+
+
+.nuevo-evento-resumen__datos div:last-child{
+
+  border-bottom:0;
+
+}
+
+
+.nuevo-evento-resumen__datos dt{
+
+  color:var(--nuevo-texto-suave);
+
+  font-size:.66rem;
+
+  font-weight:700;
+
+}
+
+
+.nuevo-evento-resumen__datos dd{
+
+  margin:0;
+
+  color:var(--nuevo-texto);
+
+  font-size:.72rem;
+
+  text-align:right;
+
+  overflow-wrap:anywhere;
+
+}
+
+
+/* =========================================================
+   AYUDA
+========================================================= */
+
+.nuevo-evento-ayuda{
+
+  padding:25px;
+
+  text-align:center;
+
+}
+
+
+.nuevo-evento-ayuda__icono{
+
+  display:grid;
+
+  place-items:center;
+
+  width:52px;
+
+  height:52px;
+
+  margin:0 auto 15px;
+
+  border:1px solid var(--nuevo-borde);
+
+  border-radius:16px;
+
+  color:var(--nuevo-dorado-claro);
+
+  background:
+    rgba(201,169,110,.07);
+
+}
+
+
+.nuevo-evento-ayuda h2{
+
+  margin:0 0 10px;
+
+  color:var(--nuevo-texto);
+
+  font-family:"Playfair Display",serif;
+
+  font-size:1.35rem;
+
+}
+
+
+.nuevo-evento-ayuda p:last-child{
+
+  margin:0;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.74rem;
+
+  line-height:1.65;
+
+}
+
+
+/* =========================================================
+   ESTADO DEL FORMULARIO
+========================================================= */
+
+.nuevo-evento-estado{
+
+  display:grid;
+
+  grid-template-columns:
+    46px
+    minmax(0,1fr);
+
+  gap:14px;
+
+  align-items:center;
+
+  padding:22px;
+
+}
+
+
+.nuevo-evento-estado__icono{
+
+  display:grid;
+
+  place-items:center;
+
+  width:46px;
+
+  height:46px;
+
+  border:1px solid var(--nuevo-borde);
+
+  border-radius:14px;
+
+  color:var(--nuevo-dorado-claro);
+
+  background:
+    rgba(201,169,110,.07);
+
+}
+
+
+.nuevo-evento-estado strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--nuevo-texto);
+
+  font-size:.75rem;
+
+}
+
+
+.nuevo-evento-estado p{
+
+  margin:0;
+
+  color:var(--nuevo-texto-secundario);
+
+  font-size:.68rem;
+
+  line-height:1.5;
+
+}
+
+
+/* =========================================================
+   ESTADOS VISUALES DEL FORMULARIO
+========================================================= */
+
+.nuevo-evento-estado--completo
+.nuevo-evento-estado__icono{
+
+  color:var(--nuevo-verde);
+
+  border-color:
+    rgba(97,199,154,.28);
+
+  background:
+    rgba(97,199,154,.08);
+
+}
+
+
+.nuevo-evento-estado--error
+.nuevo-evento-estado__icono{
+
+  color:var(--nuevo-rojo);
+
+  border-color:
+    rgba(228,122,122,.28);
+
+  background:
+    rgba(228,122,122,.08);
+
+}
+
+
+/* =========================================================
+   CAMPOS CON ERROR
+========================================================= */
+
+.nuevo-evento-campo--error input,
+.nuevo-evento-campo--error select,
+.nuevo-evento-campo--error textarea,
+.nuevo-evento-campo input[aria-invalid="true"],
+.nuevo-evento-campo select[aria-invalid="true"],
+.nuevo-evento-campo textarea[aria-invalid="true"]{
+
+  border-color:
+    rgba(228,122,122,.55);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(228,122,122,.08);
+
+}
+
+
+.nuevo-evento-campo--valido input,
+.nuevo-evento-campo--valido select,
+.nuevo-evento-campo--valido textarea{
+
+  border-color:
+    rgba(97,199,154,.34);
+
+}
+
+
+/* =========================================================
+   BOTÓN CARGANDO
+========================================================= */
+
+.nuevo-evento-boton--cargando{
+
+  pointer-events:none;
+
+  opacity:.76;
+
+}
+
+
+.nuevo-evento-boton--cargando::before{
+
+  content:"";
+
+  width:15px;
+
+  height:15px;
+
+  margin-right:8px;
+
+  border:2px solid rgba(7,17,31,.28);
+
+  border-top-color:#07111f;
+
+  border-radius:50%;
+
+  animation:
+    nuevoEventoBotonCarga
+    .7s
+    linear
+    infinite;
+
+}
+
+
+@keyframes nuevoEventoBotonCarga{
+
+  to{
+
+    transform:rotate(360deg);
+
+  }
+
+}
+
+/* =========================================================
+   NOTIFICACIÓN
+========================================================= */
+
+.nuevo-evento-notificacion{
+
+  position:fixed;
+
+  right:26px;
+
+  bottom:26px;
+
+  z-index:9999;
+
+  display:grid;
+
+  grid-template-columns:
+    42px
+    minmax(0,1fr)
+    32px;
+
+  gap:12px;
+
+  align-items:center;
+
+  width:min(
+    390px,
+    calc(100% - 40px)
+  );
+
+  padding:15px;
+
+  border:
+    1px solid
+    rgba(97,199,154,.25);
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,30,49,.98),
+      rgba(8,18,32,.98)
+    );
+
+  box-shadow:
+    0 22px 60px
+    rgba(0,0,0,.38);
+
+  animation:
+    nuevoEventoNotificacionEntrada
+    .22s
+    ease;
+
+}
+
+
+@keyframes nuevoEventoNotificacionEntrada{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(12px)
+      translateX(8px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      translateX(0);
+
+  }
+
+}
+
+
+.nuevo-evento-notificacion__icono{
+
+  display:grid;
+
+  place-items:center;
+
+  width:42px;
+
+  height:42px;
+
+  border:
+    1px solid
+    rgba(97,199,154,.22);
+
+  border-radius:13px;
+
+  color:var(--nuevo-verde);
+
+  background:
+    rgba(97,199,154,.08);
+
+  font-weight:700;
+
+}
+
+
+.nuevo-evento-notificacion__contenido{
+
+  min-width:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:3px;
+
+}
+
+
+.nuevo-evento-notificacion__contenido strong{
+
+  color:var(--nuevo-texto);
+
+  font-size:.74rem;
+
+}
+
+
+.nuevo-evento-notificacion__contenido span{
+
+  color:
+    var(--nuevo-texto-secundario);
+
+  font-size:.66rem;
+
+  line-height:1.45;
+
+}
+
+
+.nuevo-evento-notificacion__cerrar{
+
+  display:grid;
+
+  place-items:center;
+
+  width:32px;
+
+  height:32px;
+
+  border:0;
+
+  border-radius:9px;
+
+  color:
+    var(--nuevo-texto-suave);
+
+  background:transparent;
+
+  cursor:pointer;
+
+  transition:
+    color .2s ease,
+    background .2s ease;
+
+}
+
+
+.nuevo-evento-notificacion__cerrar:hover{
+
+  color:
+    var(--nuevo-texto);
+
+  background:
+    rgba(255,255,255,.05);
+
+}
+
+
+/* =========================================================
+   BLOQUEO DEL BODY
+========================================================= */
+
+body.nuevo-evento-bloqueado{
+
+  overflow:hidden;
+
+}
+
+
+/* =========================================================
+   FOCO Y ACCESIBILIDAD
+========================================================= */
+
+.nuevo-evento-header__volver:focus-visible,
+.nuevo-evento-aviso__cerrar:focus-visible,
+.nuevo-evento-boton:focus-visible,
+.nuevo-evento-campo input:focus-visible,
+.nuevo-evento-campo select:focus-visible,
+.nuevo-evento-campo textarea:focus-visible,
+.nuevo-evento-notificacion__cerrar:focus-visible{
+
+  outline:
+    2px solid
+    var(--nuevo-dorado);
+
+  outline-offset:
+    3px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:1180px){
+
+  .nuevo-evento-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .nuevo-evento-lateral{
+
+    display:grid;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:18px;
+
+  }
+
+
+  .nuevo-evento-lateral
+  .nuevo-evento-panel:last-child{
+
+    grid-column:1/-1;
+
+  }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUEÑA
+========================================================= */
+
+@media (max-width:760px){
+
+  .nuevo-evento-main{
+
+    padding:
+      20px
+      14px
+      42px;
+
+  }
+
+
+  .nuevo-evento-header{
+
+    align-items:flex-start;
+
+    flex-direction:column;
+
+    padding:22px;
+
+  }
+
+
+  .nuevo-evento-header__estado{
+
+    align-self:flex-start;
+
+  }
+
+
+  .nuevo-evento-formulario__grid{
+
+    grid-template-columns:1fr;
+
+    padding:22px;
+
+  }
+
+
+  .nuevo-evento-campo--completo{
+
+    grid-column:auto;
+
+  }
+
+
+  .nuevo-evento-acciones{
+
+    display:grid;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+  }
+
+
+  .nuevo-evento-acciones
+  .nuevo-evento-boton:last-child{
+
+    grid-column:1/-1;
+
+  }
+
+
+  .nuevo-evento-lateral{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .nuevo-evento-lateral
+  .nuevo-evento-panel:last-child{
+
+    grid-column:auto;
+
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width:520px){
+
+  .nuevo-evento-main{
+
+    padding:
+      16px
+      10px
+      32px;
+
+  }
+
+
+  .nuevo-evento-header{
+
+    padding:18px;
+
+    border-radius:18px;
+
+  }
+
+
+  .nuevo-evento-header__titulo{
+
+    font-size:1.75rem;
+
+  }
+
+
+  .nuevo-evento-header__descripcion{
+
+    font-size:.82rem;
+
+  }
+
+
+  .nuevo-evento-aviso{
+
+    align-items:flex-start;
+
+    flex-direction:column;
+
+    padding:16px;
+
+  }
+
+
+  .nuevo-evento-aviso__cerrar{
+
+    width:100%;
+
+    margin-left:0;
+
+  }
+
+
+  .nuevo-evento-panel{
+
+    border-radius:18px;
+
+  }
+
+
+  .nuevo-evento-panel__cabecera{
+
+    padding:19px;
+
+  }
+
+
+  .nuevo-evento-panel__numero{
+
+    width:46px;
+
+    height:46px;
+
+    flex-basis:46px;
+
+  }
+
+
+  .nuevo-evento-panel__titulo{
+
+    font-size:1.25rem;
+
+  }
+
+
+  .nuevo-evento-formulario__grid{
+
+    padding:18px;
+
+    gap:18px;
+
+  }
+
+
+  .nuevo-evento-acciones{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .nuevo-evento-acciones
+  .nuevo-evento-boton:last-child{
+
+    grid-column:auto;
+
+  }
+
+
+  .nuevo-evento-resumen__datos div{
+
+    grid-template-columns:1fr;
+
+    gap:5px;
+
+  }
+
+
+  .nuevo-evento-resumen__datos dd{
+
+    text-align:left;
+
+  }
+
+
+  .nuevo-evento-notificacion{
+
+    left:12px;
+
+    right:12px;
+
+    bottom:12px;
+
+    width:auto;
+
+    grid-template-columns:
+      38px
+      minmax(0,1fr)
+      30px;
+
+    padding:13px;
+
+  }
+
+
+  .nuevo-evento-notificacion__icono{
+
+    width:38px;
+
+    height:38px;
+
+  }
+
+}
+
+/* =========================================================
+   MÓVILES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width:380px){
+
+  .nuevo-evento-header__titulo{
+
+    font-size:1.45rem;
+
+  }
+
+  .nuevo-evento-panel__titulo{
+
+    font-size:1.1rem;
+
+  }
+
+  .nuevo-evento-boton{
+
+    width:100%;
+
+  }
+
+}
+
+
+/* =========================================================
+   ALTURAS REDUCIDAS
+========================================================= */
+
+@media (max-height:760px){
+
+  .nuevo-evento-main{
+
+    padding-top:18px;
+
+    padding-bottom:24px;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  *{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   ALTO CONTRASTE
+========================================================= */
+
+@media (prefers-contrast:more){
+
+  .nuevo-evento-panel,
+  .nuevo-evento-header,
+  .nuevo-evento-aviso,
+  .nuevo-evento-notificacion{
+
+    border-width:2px;
+
+  }
+
+}
+
+
+/* =========================================================
+   IMPRESIÓN
+========================================================= */
+
+@media print{
+
+  body{
+
+    background:#ffffff;
+
+  }
+
+  .comunidad-admin-sidebar,
+  .nuevo-evento-acciones,
+  .nuevo-evento-notificacion{
+
+    display:none !important;
+
+  }
+
+  .nuevo-evento-main{
+
+    padding:0;
+
+  }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+
+  width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+  background:#08111d;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:rgba(201,169,110,.35);
+
+  border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:rgba(201,169,110,.55);
+
+}
+
+
+/* =========================================================
+   SELECCIÓN
+========================================================= */
+
+::selection{
+
+  background:rgba(201,169,110,.28);
+
+  color:#ffffff;
+
+}
+
+
+/* =========================================================
+   FIN DEL ARCHIVO
+========================================================= */

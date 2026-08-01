@@ -222,22 +222,21 @@ select {
 }
 
 .proyectos-header__titulo {
-  margin: 0;
-  color: var(--proyectos-texto);
-  font-family:
-    "Playfair Display",
-    Georgia,
-    serif;
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin: 0 0 10px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .proyectos-header__descripcion {
   max-width: 760px;
-  margin: 18px 0 0;
-  color: var(--proyectos-texto-secundario);
+  margin: 0;
+
+  color: var(--falco-admin-texto-secundario);
+
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -906,21 +905,48 @@ select {
 }
 
 .proyecto-card__enlace {
-  display: inline-flex;
+
+  display: flex;
   align-items: center;
-  gap: 7px;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: auto;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(211, 179, 108, 0.20);
+  border-radius: 12px;
+
+  background: rgba(211, 179, 108, 0.08);
+
   color: var(--proyectos-dorado-claro);
-  font-size: 0.78rem;
-  font-weight: 700;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
   text-decoration: none;
+
+  cursor: pointer;
+
   transition:
-    gap var(--proyectos-transicion),
-    color var(--proyectos-transicion);
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease,
+    transform .25s ease;
+
 }
 
 .proyecto-card__enlace:hover {
-  gap: 10px;
-  color: var(--proyectos-texto);
+
+  background: rgba(211, 179, 108, 0.16);
+
+  border-color: rgba(211, 179, 108, 0.40);
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
 }
 
 
@@ -1171,5 +1197,62 @@ select {
     align-items: flex-start;
     flex-direction: column;
   }
+
+}
+
+/* =========================================================
+   BOTONES ADMINISTRAR
+========================================================= */
+
+.proyecto-modulo__enlace {
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  margin-top: auto;
+  padding: 12px 16px;
+
+  border: 1px solid rgba(211, 179, 108, 0.22);
+  border-radius: 12px;
+
+  background: rgba(211, 179, 108, 0.08);
+
+  color: var(--falco-gold-soft);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease,
+    color .25s ease;
+
+}
+
+.proyecto-modulo__enlace:hover {
+
+  background: rgba(211, 179, 108, 0.14);
+
+  border-color: rgba(211, 179, 108, 0.40);
+
+  color: #fff;
+
+  transform: translateY(-2px);
+
+}
+
+.proyecto-modulo__enlace:disabled {
+
+  opacity: .45;
+
+  cursor: not-allowed;
+
+  transform: none;
 
 }

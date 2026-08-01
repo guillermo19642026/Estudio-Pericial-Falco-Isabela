@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Administración de eventos de la Agenda Institucional de FALCO® Comunidad."
+  >
+
+  <title>
+    Evento | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS COMPARTIDOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../shared/css/admin-comunidad-framework.css"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS DEL EVENTO
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./evento.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
+
+  <falco-comunidad-sidebar
+    data-active="agenda"
+    data-base="../"
+  ></falco-comunidad-sidebar>
+
+
+  <!-- =====================================================
+       LOADER
+  ====================================================== -->
+
+  <div
+    id="eventoLoader"
+    class="evento-loader"
+    aria-live="polite"
+  >
+
+    <span class="evento-loader__spinner"></span>
+
+    <p>
+      Cargando evento institucional...
+    </p>
+
+  </div>
+
+
+  <!-- =====================================================
+       EVENTO NO ENCONTRADO
+  ====================================================== -->
+
+  <div
+    id="eventoNoEncontrado"
+    class="evento-no-encontrado"
+    hidden
+  >
+
+    <span
+      class="evento-no-encontrado__icono"
+      aria-hidden="true"
+    >
+      !
+    </span>
+
+    <p class="evento-no-encontrado__eyebrow">
+      Agenda institucional
+    </p>
+
+    <h1>
+      Evento no encontrado
+    </h1>
+
+    <p>
+      El registro solicitado no existe o fue eliminado.
+    </p>
+
+    <a
+      href="./agenda.html"
+      class="evento-boton evento-boton--principal"
+    >
+      Volver a Agenda
+    </a>
+
+  </div>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main
+    id="eventoContenido"
+    class="comunidad-main evento-main"
+    hidden
+  >
+
+    <div class="evento-contenido">
+
+
+      <!-- =================================================
+           CABECERA
+      ================================================== -->
+
+      <header class="evento-header">
+
+        <div class="evento-header__principal">
+
+          <a
+            href="./agenda.html"
+            class="evento-header__volver"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+
+            Volver a Agenda
+          </a>
+
+
+          <div class="evento-header__etiquetas">
+
+            <span
+              id="eventoTipo"
+              class="evento-header__tipo"
+            >
+              Evento
+            </span>
+
+            <span
+              id="eventoEstado"
+              class="evento-estado evento-estado--pendiente"
+            >
+              Pendiente
+            </span>
+
+          </div>
+
+
+          <h1
+            id="eventoTitulo"
+            class="evento-header__titulo"
+          >
+            Evento institucional
+          </h1>
+
+
+          <p
+            id="eventoDescripcion"
+            class="evento-header__descripcion"
+          >
+            Sin descripción registrada.
+          </p>
+
+
+          <div class="evento-header__referencia">
+
+            <span>
+              Referencia
+            </span>
+
+            <strong id="eventoReferencia">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="evento-header__acciones">
+
+          <button
+            type="button"
+            id="botonEditarEvento"
+            class="evento-boton evento-boton--principal"
+          >
+            Editar evento
+          </button>
+
+
+          <button
+            type="button"
+            id="botonCambiarEstadoEvento"
+            class="evento-boton evento-boton--secundario"
+          >
+            Cambiar estado
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           INDICADORES
+      ================================================== -->
+
+      <section
+        class="evento-indicadores"
+        aria-label="Resumen del evento"
+      >
+
+        <article class="evento-indicador">
+
+          <span
+            class="evento-indicador__icono"
+            aria-hidden="true"
+          >
+            ◈
+          </span>
+
+          <div>
+
+            <span class="evento-indicador__etiqueta">
+              Fecha
+            </span>
+
+            <strong id="eventoFechaIndicador">
+              Sin fecha
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="evento-indicador">
+
+          <span
+            class="evento-indicador__icono"
+            aria-hidden="true"
+          >
+            ◷
+          </span>
+
+          <div>
+
+            <span class="evento-indicador__etiqueta">
+              Hora
+            </span>
+
+            <strong id="eventoHoraIndicador">
+              Sin horario
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="evento-indicador">
+
+          <span
+            class="evento-indicador__icono"
+            aria-hidden="true"
+          >
+            ◇
+          </span>
+
+          <div>
+
+            <span class="evento-indicador__etiqueta">
+              Modalidad
+            </span>
+
+            <strong id="eventoModalidadIndicador">
+              Sin definir
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="evento-indicador">
+
+          <span
+            class="evento-indicador__icono"
+            aria-hidden="true"
+          >
+            ●
+          </span>
+
+          <div>
+
+            <span class="evento-indicador__etiqueta">
+              Responsable
+            </span>
+
+            <strong id="eventoResponsableIndicador">
+              Sin responsable
+            </strong>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =================================================
+           GRID PRINCIPAL
+      ================================================== -->
+
+      <section class="evento-grid">
+
+
+        <!-- ===============================================
+             INFORMACIÓN
+        ================================================ -->
+
+        <div class="evento-columna-principal">
+
+
+          <section class="evento-panel">
+
+            <div class="evento-panel__cabecera">
+
+              <div>
+
+                <p class="evento-panel__eyebrow">
+                  Información general
+                </p>
+
+                <h2 class="evento-panel__titulo">
+                  Datos del evento
+                </h2>
+
+              </div>
+
+
+              <button
+                type="button"
+                id="botonEditarResumenEvento"
+                class="evento-panel__accion"
+              >
+                Editar información
+              </button>
+
+            </div>
+
+
+            <dl class="evento-datos">
+
+              <div>
+
+                <dt>
+                  Tipo
+                </dt>
+
+                <dd id="eventoDatoTipo">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Estado
+                </dt>
+
+                <dd id="eventoDatoEstado">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Fecha
+                </dt>
+
+                <dd id="eventoDatoFecha">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Hora
+                </dt>
+
+                <dd id="eventoDatoHora">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Duración
+                </dt>
+
+                <dd id="eventoDatoDuracion">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Modalidad
+                </dt>
+
+                <dd id="eventoDatoModalidad">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div class="evento-datos__completo">
+
+                <dt>
+                  Lugar o enlace
+                </dt>
+
+                <dd id="eventoDatoLugar">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div class="evento-datos__completo">
+
+                <dt>
+                  Descripción
+                </dt>
+
+                <dd id="eventoDatoDescripcion">
+                  —
+                </dd>
+
+              </div>
+
+            </dl>
+
+          </section>
+
+
+          <!-- =============================================
+               VINCULACIONES
+          ============================================== -->
+
+          <section class="evento-panel">
+
+            <div class="evento-panel__cabecera">
+
+              <div>
+
+                <p class="evento-panel__eyebrow">
+                  Vinculación institucional
+                </p>
+
+                <h2 class="evento-panel__titulo">
+                  Responsables y referencias
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <dl class="evento-datos">
+
+              <div>
+
+                <dt>
+                  Responsable
+                </dt>
+
+                <dd id="eventoDatoResponsable">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Institución
+                </dt>
+
+                <dd id="eventoDatoInstitucion">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Programa
+                </dt>
+
+                <dd id="eventoDatoPrograma">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Proyecto
+                </dt>
+
+                <dd id="eventoDatoProyecto">
+                  —
+                </dd>
+
+              </div>
+
+            </dl>
+
+          </section>
+
+
+          <!-- =============================================
+               OBSERVACIONES
+          ============================================== -->
+
+          <section class="evento-panel">
+
+            <div class="evento-panel__cabecera">
+
+              <div>
+
+                <p class="evento-panel__eyebrow">
+                  Registro interno
+                </p>
+
+                <h2 class="evento-panel__titulo">
+                  Observaciones
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="evento-texto">
+
+              <p id="eventoDatoObservaciones">
+                Sin observaciones internas.
+              </p>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- ===============================================
+             COLUMNA LATERAL
+        ================================================ -->
+
+        <aside class="evento-lateral">
+
+
+          <!-- =============================================
+               ESTADO
+          ============================================== -->
+
+          <section class="evento-panel evento-panel--lateral">
+
+            <div class="evento-panel__cabecera">
+
+              <div>
+
+                <p class="evento-panel__eyebrow">
+                  Estado operativo
+                </p>
+
+                <h2 class="evento-panel__titulo">
+                  Seguimiento
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="evento-seguimiento">
+
+              <span
+                id="eventoSeguimientoIcono"
+                class="evento-seguimiento__icono"
+                aria-hidden="true"
+              >
+                ◌
+              </span>
+
+
+              <div>
+
+                <strong id="eventoSeguimientoTitulo">
+                  Evento pendiente
+                </strong>
+
+                <p id="eventoSeguimientoMensaje">
+                  El evento todavía no fue confirmado.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =============================================
+               REGISTRO
+          ============================================== -->
+
+          <section class="evento-panel evento-panel--lateral">
+
+            <div class="evento-panel__cabecera">
+
+              <div>
+
+                <p class="evento-panel__eyebrow">
+                  Información administrativa
+                </p>
+
+                <h2 class="evento-panel__titulo">
+                  Registro
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <dl class="evento-registro">
+
+              <div>
+
+                <dt>
+                  Creado
+                </dt>
+
+                <dd id="eventoFechaCreacion">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Última actualización
+                </dt>
+
+                <dd id="eventoFechaActualizacion">
+                  —
+                </dd>
+
+              </div>
+
+
+              <div>
+
+                <dt>
+                  Origen
+                </dt>
+
+                <dd>
+                  Agenda institucional
+                </dd>
+
+              </div>
+
+            </dl>
+
+          </section>
+
+
+          <!-- =============================================
+               ACCIONES
+          ============================================== -->
+
+          <section class="evento-panel evento-panel--lateral">
+
+            <div class="evento-panel__cabecera">
+
+              <div>
+
+                <p class="evento-panel__eyebrow">
+                  Administración
+                </p>
+
+                <h2 class="evento-panel__titulo">
+                  Acciones
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div class="evento-acciones-administrativas">
+
+              <button
+                type="button"
+                id="botonDuplicarEvento"
+                class="evento-accion"
+              >
+                <span aria-hidden="true">
+                  ◇
+                </span>
+
+                <div>
+
+                  <strong>
+                    Duplicar evento
+                  </strong>
+
+                  <small>
+                    Crear una copia para otra fecha.
+                  </small>
+
+                </div>
+
+              </button>
+
+
+              <button
+                type="button"
+                id="botonEliminarEvento"
+                class="evento-accion evento-accion--peligro"
+              >
+                <span aria-hidden="true">
+                  ×
+                </span>
+
+                <div>
+
+                  <strong>
+                    Eliminar evento
+                  </strong>
+
+                  <small>
+                    Borrar definitivamente el registro.
+                  </small>
+
+                </div>
+
+              </button>
+
+            </div>
+
+          </section>
+
+        </aside>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       MODAL EDITAR EVENTO
+  ====================================================== -->
+
+  <div
+    id="modalEditarEvento"
+    class="evento-modal"
+    hidden
+  >
+
+    <button
+      type="button"
+      class="evento-modal__fondo"
+      data-cerrar-modal="editar"
+      aria-label="Cerrar ventana"
+    ></button>
+
+
+    <section
+      class="evento-modal__dialogo evento-modal__dialogo--grande"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalEditarEventoTitulo"
+    >
+
+      <header class="evento-modal__cabecera">
+
+        <div>
+
+          <p class="evento-panel__eyebrow">
+            Agenda institucional
+          </p>
+
+          <h2 id="modalEditarEventoTitulo">
+            Editar evento
+          </h2>
+
+          <p>
+            Actualizá la información general del evento.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="evento-modal__cerrar"
+          data-cerrar-modal="editar"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <form
+        id="formularioEditarEvento"
+        class="evento-formulario"
+        novalidate
+      >
+
+        <div class="evento-formulario__grid">
+
+
+          <div class="evento-campo evento-campo--completo">
+
+            <label for="editarEventoTitulo">
+              Título
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <input
+              type="text"
+              id="editarEventoTitulo"
+              name="titulo"
+              maxlength="120"
+              required
+            >
+
+            <span
+              class="evento-campo__error"
+              data-editar-error="titulo"
+            ></span>
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoTipo">
+              Tipo
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <select
+              id="editarEventoTipo"
+              name="tipo"
+              required
+            >
+
+              <option value="reunion">
+                Reunión
+              </option>
+
+              <option value="actividad">
+                Actividad
+              </option>
+
+              <option value="capacitacion">
+                Capacitación
+              </option>
+
+              <option value="programa">
+                Programa
+              </option>
+
+              <option value="proyecto">
+                Proyecto
+              </option>
+
+              <option value="recordatorio">
+                Recordatorio
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoFecha">
+              Fecha
+              <span aria-hidden="true">
+                *
+              </span>
+            </label>
+
+            <input
+              type="date"
+              id="editarEventoFecha"
+              name="fecha"
+              required
+            >
+
+            <span
+              class="evento-campo__error"
+              data-editar-error="fecha"
+            ></span>
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoHora">
+              Hora
+            </label>
+
+            <input
+              type="time"
+              id="editarEventoHora"
+              name="hora"
+            >
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoDuracion">
+              Duración
+            </label>
+
+            <input
+              type="text"
+              id="editarEventoDuracion"
+              name="duracion"
+              maxlength="60"
+            >
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoModalidad">
+              Modalidad
+            </label>
+
+            <select
+              id="editarEventoModalidad"
+              name="modalidad"
+            >
+
+              <option value="">
+                Sin definir
+              </option>
+
+              <option value="Presencial">
+                Presencial
+              </option>
+
+              <option value="Virtual">
+                Virtual
+              </option>
+
+              <option value="Híbrida">
+                Híbrida
+              </option>
+
+              <option value="Territorial">
+                Territorial
+              </option>
+
+              <option value="A definir">
+                A definir
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="evento-campo evento-campo--completo">
+
+            <label for="editarEventoLugar">
+              Lugar o enlace
+            </label>
+
+            <input
+              type="text"
+              id="editarEventoLugar"
+              name="lugar"
+              maxlength="220"
+            >
+
+          </div>
+
+
+          <div class="evento-campo evento-campo--completo">
+
+            <label for="editarEventoDescripcion">
+              Descripción
+            </label>
+
+            <textarea
+              id="editarEventoDescripcion"
+              name="descripcion"
+              rows="4"
+              maxlength="800"
+            ></textarea>
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoResponsable">
+              Responsable
+            </label>
+
+            <input
+              type="text"
+              id="editarEventoResponsable"
+              name="responsable"
+              maxlength="120"
+            >
+
+          </div>
+
+
+          <div class="evento-campo">
+
+            <label for="editarEventoInstitucion">
+              Institución
+            </label>
+
+            <input
+              type="text"
+              id="editarEventoInstitucion"
+              name="institucion"
+              maxlength="150"
+            >
+
+          </div>
+
+
+          <div class="evento-campo evento-campo--completo">
+
+            <label for="editarEventoObservaciones">
+              Observaciones internas
+            </label>
+
+            <textarea
+              id="editarEventoObservaciones"
+              name="observaciones"
+              rows="4"
+              maxlength="1000"
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <footer class="evento-modal__acciones">
+
+          <button
+            type="button"
+            class="evento-boton evento-boton--secundario"
+            data-cerrar-modal="editar"
+          >
+            Cancelar
+          </button>
+
+
+          <button
+            type="submit"
+            class="evento-boton evento-boton--principal"
+          >
+            Guardar cambios
+          </button>
+
+        </footer>
+
+      </form>
+
+    </section>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL CAMBIAR ESTADO
+  ====================================================== -->
+
+  <div
+    id="modalCambiarEstadoEvento"
+    class="evento-modal"
+    hidden
+  >
+
+    <button
+      type="button"
+      class="evento-modal__fondo"
+      data-cerrar-modal="estado"
+      aria-label="Cerrar ventana"
+    ></button>
+
+
+    <section
+      class="evento-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalEstadoEventoTitulo"
+    >
+
+      <header class="evento-modal__cabecera">
+
+        <div>
+
+          <p class="evento-panel__eyebrow">
+            Estado operativo
+          </p>
+
+          <h2 id="modalEstadoEventoTitulo">
+            Cambiar estado
+          </h2>
+
+          <p>
+            Seleccioná el estado actual del evento.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="evento-modal__cerrar"
+          data-cerrar-modal="estado"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <form id="formularioCambiarEstadoEvento">
+
+        <div class="evento-estados">
+
+
+          <label class="evento-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="pendiente"
+            >
+
+            <span>
+
+              <strong>
+                Pendiente
+              </strong>
+
+              <small>
+                El evento todavía no fue confirmado.
+              </small>
+
+            </span>
+
+          </label>
+
+
+          <label class="evento-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="confirmado"
+            >
+
+            <span>
+
+              <strong>
+                Confirmado
+              </strong>
+
+              <small>
+                El evento está programado y confirmado.
+              </small>
+
+            </span>
+
+          </label>
+
+
+          <label class="evento-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="finalizado"
+            >
+
+            <span>
+
+              <strong>
+                Finalizado
+              </strong>
+
+              <small>
+                El evento ya fue realizado.
+              </small>
+
+            </span>
+
+          </label>
+
+
+          <label class="evento-estado-opcion">
+
+            <input
+              type="radio"
+              name="estado"
+              value="cancelado"
+            >
+
+            <span>
+
+              <strong>
+                Cancelado
+              </strong>
+
+              <small>
+                El evento fue suspendido o cancelado.
+              </small>
+
+            </span>
+
+          </label>
+
+        </div>
+
+
+        <footer class="evento-modal__acciones">
+
+          <button
+            type="button"
+            class="evento-boton evento-boton--secundario"
+            data-cerrar-modal="estado"
+          >
+            Cancelar
+          </button>
+
+
+          <button
+            type="submit"
+            class="evento-boton evento-boton--principal"
+          >
+            Actualizar estado
+          </button>
+
+        </footer>
+
+      </form>
+
+    </section>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL CONFIRMACIÓN
+  ====================================================== -->
+
+  <div
+    id="modalConfirmacionEvento"
+    class="evento-modal"
+    hidden
+  >
+
+    <button
+      type="button"
+      class="evento-modal__fondo"
+      data-cerrar-modal="confirmacion"
+      aria-label="Cerrar ventana"
+    ></button>
+
+
+    <section
+      class="evento-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalConfirmacionEventoTitulo"
+    >
+
+      <header class="evento-modal__cabecera">
+
+        <div>
+
+          <p class="evento-panel__eyebrow">
+            Confirmación
+          </p>
+
+          <h2 id="modalConfirmacionEventoTitulo">
+            Confirmar acción
+          </h2>
+
+          <p id="modalConfirmacionEventoMensaje">
+            Esta acción requiere confirmación.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="evento-modal__cerrar"
+          data-cerrar-modal="confirmacion"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <footer class="evento-modal__acciones">
+
+        <button
+          type="button"
+          id="botonCancelarConfirmacionEvento"
+          class="evento-boton evento-boton--secundario"
+        >
+          Cancelar
+        </button>
+
+
+        <button
+          type="button"
+          id="botonAceptarConfirmacionEvento"
+          class="evento-boton evento-boton--peligro"
+        >
+          Confirmar
+        </button>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+
+  <!-- =====================================================
+       NOTIFICACIÓN
+  ====================================================== -->
+
+  <div
+    id="eventoNotificacion"
+    class="evento-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="eventoNotificacionIcono"
+      class="evento-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+
+    <div class="evento-notificacion__contenido">
+
+      <strong id="eventoNotificacionTitulo">
+        Evento actualizado
+      </strong>
+
+      <span id="eventoNotificacionMensaje">
+        La información fue guardada correctamente.
+      </span>
+
+    </div>
+
+
+    <button
+      type="button"
+      id="eventoNotificacionCerrar"
+      class="evento-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="../shared/components/falco-comunidad-sidebar.js"
+    defer
+  ></script>
+
+  <script
+    src="./evento.js"
+    defer
+  ></script>
+
+</body>
+
+</html>

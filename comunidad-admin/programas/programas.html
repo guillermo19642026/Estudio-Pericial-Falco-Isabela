@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Administración de programas institucionales de FALCO® Comunidad."
+  >
+
+  <title>
+    Programas | FALCO® Comunidad
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+<link
+  rel="stylesheet"
+  href="../shared/css/admin-comunidad-framework.css"
+>
+
+
+  <link
+    rel="stylesheet"
+    href="./programas.css"
+  >
+
+</head>
+
+
+<body>
+
+
+ <!-- SIDEBAR -->
+
+<falco-comunidad-sidebar
+  data-active="programas"
+  data-base="../"
+></falco-comunidad-sidebar>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main class="programas-main">
+
+
+    <!-- ===================================================
+         CABECERA
+    ==================================================== -->
+
+    <header class="programas-header">
+
+      <div class="programas-header__contenido">
+
+        <div class="programas-header__identidad">
+
+          <p class="programas-header__eyebrow">
+            FALCO® Comunidad
+          </p>
+
+          <h1 class="programas-header__titulo">
+            Programas
+          </h1>
+
+          <p class="programas-header__descripcion">
+            Administración integral de programas, propuestas,
+            actividades y recorridos institucionales.
+          </p>
+
+        </div>
+
+
+        <div class="programas-header__acciones">
+
+          <button
+            type="button"
+            id="botonActualizarProgramas"
+            class="programas-boton programas-boton--secundario"
+          >
+            <span aria-hidden="true">
+              ↻
+            </span>
+
+            Actualizar
+          </button>
+
+          <a
+            href="./nuevo-programa.html"
+            class="programas-boton programas-boton--principal"
+          >
+            <span aria-hidden="true">
+              +
+            </span>
+
+            Nuevo programa
+          </a>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         CONTENEDOR GENERAL
+    ==================================================== -->
+
+    <div class="programas-contenedor">
+
+
+      <!-- =================================================
+           RESUMEN GENERAL
+      ================================================== -->
+
+      <section
+        class="programas-resumen"
+        aria-label="Resumen de programas"
+      >
+
+
+        <article class="programas-indicador">
+
+          <div class="programas-indicador__icono" aria-hidden="true">
+            ◈
+          </div>
+
+          <div class="programas-indicador__contenido">
+
+            <span class="programas-indicador__etiqueta">
+              Total de programas
+            </span>
+
+            <strong
+              id="indicadorTotalProgramas"
+              class="programas-indicador__valor"
+            >
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="programas-indicador">
+
+          <div class="programas-indicador__icono" aria-hidden="true">
+            ●
+          </div>
+
+          <div class="programas-indicador__contenido">
+
+            <span class="programas-indicador__etiqueta">
+              En ejecución
+            </span>
+
+            <strong
+              id="indicadorProgramasActivos"
+              class="programas-indicador__valor"
+            >
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="programas-indicador">
+
+          <div class="programas-indicador__icono" aria-hidden="true">
+            ◌
+          </div>
+
+          <div class="programas-indicador__contenido">
+
+            <span class="programas-indicador__etiqueta">
+              En preparación
+            </span>
+
+            <strong
+              id="indicadorProgramasPreparacion"
+              class="programas-indicador__valor"
+            >
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <article class="programas-indicador">
+
+          <div class="programas-indicador__icono" aria-hidden="true">
+            ✓
+          </div>
+
+          <div class="programas-indicador__contenido">
+
+            <span class="programas-indicador__etiqueta">
+              Finalizados
+            </span>
+
+            <strong
+              id="indicadorProgramasFinalizados"
+              class="programas-indicador__valor"
+            >
+              0
+            </strong>
+
+          </div>
+
+        </article>
+
+
+      </section>
+
+
+      <!-- =================================================
+           PANEL DE CONTROL
+      ================================================== -->
+
+      <section
+        class="programas-panel"
+        aria-labelledby="tituloListadoProgramas"
+      >
+
+        <div class="programas-panel__cabecera">
+
+          <div>
+
+            <p class="programas-panel__eyebrow">
+              Gestión institucional
+            </p>
+
+            <h2
+              id="tituloListadoProgramas"
+              class="programas-panel__titulo"
+            >
+              Programas registrados
+            </h2>
+
+            <p class="programas-panel__descripcion">
+              Consultá, filtrá y administrá los programas
+              desarrollados dentro de FALCO® Comunidad.
+            </p>
+
+          </div>
+
+
+          <div class="programas-panel__contador">
+
+            <span id="contadorProgramasVisibles">
+              0
+            </span>
+
+            <span>
+              programas
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             FILTROS
+        ================================================ -->
+
+        <div class="programas-filtros">
+
+
+          <div class="programas-buscador">
+
+            <label
+              for="buscadorProgramas"
+              class="programas-campo__label"
+            >
+              Buscar programa
+            </label>
+
+            <div class="programas-buscador__control">
+
+              <span
+                class="programas-buscador__icono"
+                aria-hidden="true"
+              >
+                ⌕
+              </span>
+
+              <input
+                type="search"
+                id="buscadorProgramas"
+                class="programas-buscador__input"
+                placeholder="Nombre, responsable o institución"
+                autocomplete="off"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="programas-campo">
+
+            <label
+              for="filtroEstadoProgramas"
+              class="programas-campo__label"
+            >
+              Estado
+            </label>
+
+            <select
+              id="filtroEstadoProgramas"
+              class="programas-campo__select"
+            >
+
+              <option value="todos">
+                Todos los estados
+              </option>
+
+              <option value="preparacion">
+                En preparación
+              </option>
+
+              <option value="ejecucion">
+                En ejecución
+              </option>
+
+              <option value="pausado">
+                Pausado
+              </option>
+
+              <option value="finalizado">
+                Finalizado
+              </option>
+
+              <option value="archivado">
+                Archivado
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="programas-campo">
+
+            <label
+              for="filtroTipoProgramas"
+              class="programas-campo__label"
+            >
+              Tipo
+            </label>
+
+            <select
+              id="filtroTipoProgramas"
+              class="programas-campo__select"
+            >
+
+              <option value="todos">
+                Todos los tipos
+              </option>
+
+              <option value="formacion">
+                Formación
+              </option>
+
+              <option value="acompanamiento">
+                Acompañamiento
+              </option>
+
+              <option value="prevencion">
+                Prevención
+              </option>
+
+              <option value="intervencion">
+                Intervención
+              </option>
+
+              <option value="comunitario">
+                Comunitario
+              </option>
+
+              <option value="institucional">
+                Institucional
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="programas-filtros__acciones">
+
+            <button
+              type="button"
+              id="botonLimpiarFiltros"
+              class="programas-boton-limpiar"
+            >
+              Limpiar filtros
+            </button>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- ===============================================
+             ESTADO DE CARGA
+        ================================================ -->
+
+        <div
+          id="programasLoader"
+          class="programas-loader"
+          aria-live="polite"
+        >
+
+          <div
+            class="programas-loader__spinner"
+            aria-hidden="true"
+          ></div>
+
+          <p class="programas-loader__texto">
+            Cargando programas…
+          </p>
+
+        </div>
+
+
+        <!-- ===============================================
+             LISTADO
+        ================================================ -->
+
+        <div
+          id="programasGrid"
+          class="programas-grid"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- ===============================================
+             ESTADO VACÍO GENERAL
+        ================================================ -->
+
+        <div
+          id="programasVacio"
+          class="programas-vacio"
+          hidden
+        >
+
+          <div
+            class="programas-vacio__icono"
+            aria-hidden="true"
+          >
+            ◇
+          </div>
+
+          <p class="programas-vacio__eyebrow">
+            Gestión de programas
+          </p>
+
+          <h3 class="programas-vacio__titulo">
+            Todavía no hay programas registrados
+          </h3>
+
+          <p class="programas-vacio__descripcion">
+            Registrá el primer programa para comenzar a organizar
+            sus objetivos, actividades, participantes, instituciones
+            y documentación asociada.
+          </p>
+
+          <a
+            href="./nuevo-programa.html"
+            class="programas-boton programas-boton--principal"
+          >
+            <span aria-hidden="true">
+              +
+            </span>
+
+            Crear primer programa
+          </a>
+
+        </div>
+
+
+        <!-- ===============================================
+             SIN RESULTADOS
+        ================================================ -->
+
+        <div
+          id="programasSinResultados"
+          class="programas-vacio programas-vacio--resultados"
+          hidden
+        >
+
+          <div
+            class="programas-vacio__icono"
+            aria-hidden="true"
+          >
+            ⌕
+          </div>
+
+          <p class="programas-vacio__eyebrow">
+            Sin coincidencias
+          </p>
+
+          <h3 class="programas-vacio__titulo">
+            No encontramos programas
+          </h3>
+
+          <p class="programas-vacio__descripcion">
+            Probá con otro término de búsqueda o modificá
+            los filtros seleccionados.
+          </p>
+
+          <button
+            type="button"
+            id="botonRestablecerBusqueda"
+            class="programas-boton programas-boton--secundario"
+          >
+            Restablecer búsqueda
+          </button>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- =================================================
+           INFORMACIÓN INSTITUCIONAL
+      ================================================== -->
+
+      <section class="programas-informacion">
+
+        <div class="programas-informacion__contenido">
+
+          <p class="programas-informacion__eyebrow">
+            Organización central
+          </p>
+
+          <h2 class="programas-informacion__titulo">
+            Una estructura para cada propuesta
+          </h2>
+
+          <p class="programas-informacion__descripcion">
+            Cada programa podrá concentrar su información general,
+            objetivos, responsables, instituciones vinculadas,
+            participantes, agenda de actividades y documentación.
+          </p>
+
+        </div>
+
+
+        <div class="programas-informacion__modulos">
+
+          <article class="programas-informacion__item">
+
+            <span
+              class="programas-informacion__numero"
+              aria-hidden="true"
+            >
+              01
+            </span>
+
+            <div>
+
+              <h3>
+                Identidad
+              </h3>
+
+              <p>
+                Denominación, tipo, descripción, estado y período.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="programas-informacion__item">
+
+            <span
+              class="programas-informacion__numero"
+              aria-hidden="true"
+            >
+              02
+            </span>
+
+            <div>
+
+              <h3>
+                Implementación
+              </h3>
+
+              <p>
+                Objetivos, responsables, actividades y alcance.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="programas-informacion__item">
+
+            <span
+              class="programas-informacion__numero"
+              aria-hidden="true"
+            >
+              03
+            </span>
+
+            <div>
+
+              <h3>
+                Seguimiento
+              </h3>
+
+              <p>
+                Participación, documentación, agenda y evolución.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       NOTIFICACIONES
+  ====================================================== -->
+
+  <div
+    id="programasNotificacion"
+    class="programas-notificacion"
+    role="status"
+    aria-live="polite"
+    hidden
+  >
+
+    <span
+      id="programasNotificacionIcono"
+      class="programas-notificacion__icono"
+      aria-hidden="true"
+    >
+      ✓
+    </span>
+
+    <div class="programas-notificacion__contenido">
+
+      <strong id="programasNotificacionTitulo">
+        Operación realizada
+      </strong>
+
+      <span id="programasNotificacionMensaje">
+        Los cambios fueron procesados correctamente.
+      </span>
+
+    </div>
+
+    <button
+      type="button"
+      id="programasNotificacionCerrar"
+      class="programas-notificacion__cerrar"
+      aria-label="Cerrar notificación"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL DE CONFIRMACIÓN
+  ====================================================== -->
+
+  <div
+    id="programasModal"
+    class="programas-modal"
+    hidden
+  >
+
+    <div
+      class="programas-modal__fondo"
+      data-cerrar-modal
+    ></div>
+
+    <div
+      class="programas-modal__dialogo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="programasModalTitulo"
+    >
+
+      <button
+        type="button"
+        class="programas-modal__cerrar"
+        data-cerrar-modal
+        aria-label="Cerrar ventana"
+      >
+        ×
+      </button>
+
+      <p class="programas-modal__eyebrow">
+        Confirmación requerida
+      </p>
+
+      <h2
+        id="programasModalTitulo"
+        class="programas-modal__titulo"
+      >
+        Confirmar acción
+      </h2>
+
+      <p
+        id="programasModalMensaje"
+        class="programas-modal__mensaje"
+      >
+        Esta acción modificará el programa seleccionado.
+      </p>
+
+      <div class="programas-modal__acciones">
+
+        <button
+          type="button"
+          id="programasModalCancelar"
+          class="programas-boton programas-boton--secundario"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          id="programasModalConfirmar"
+          class="programas-boton programas-boton--peligro"
+        >
+          Confirmar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       COMPONENTE SIDEBAR
+  ====================================================== -->
+
+  <script src="../shared/components/falco-comunidad-sidebar.js"></script>
+
+
+  <!-- =====================================================
+       LÓGICA DE LA PÁGINA
+  ====================================================== -->
+
+  <script src="./programas.js"></script>
+
+
+</body>
+
+</html>
