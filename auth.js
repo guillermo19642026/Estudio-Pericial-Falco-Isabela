@@ -145,7 +145,9 @@ if (!user && !esLogin && !esPaginaPublica) {
   const esPericiado = rol === "periciado";
   const esInforme = rol === "informe";
   const esProfesional = rol === "profesional";
-  const tieneAccesoPanel = esAdmin || esPerito;
+const tieneAccesoPanel =
+  esAdmin ||
+  esPerito;
 
   const paginasAdmin = [
     "dashboard.html",
@@ -204,15 +206,31 @@ if (esPerito && pagina.includes("dashboard-periciado.html")) {
     return;
   }
 
-  const botonesAdmin = document.querySelectorAll(".admin-only");
-  botonesAdmin.forEach(boton => {
-    boton.style.display = tieneAccesoPanel ? "flex" : "none";
-  });
+ const botonesAdmin = document.querySelectorAll(".admin-only");
+
+botonesAdmin.forEach(boton => {
+  boton.style.display = tieneAccesoPanel ? "flex" : "none";
+});
+
+
 
   const dashboardMetricas = document.getElementById("dashboardMetricas");
   if (dashboardMetricas) {
     dashboardMetricas.style.display = tieneAccesoPanel ? "grid" : "none";
   }
+
+const panelActividadInstitucional =
+  document.getElementById(
+    "panelActividadInstitucional"
+  );
+
+if (panelActividadInstitucional) {
+  panelActividadInstitucional.style.display =
+    esProfesional
+      ? "none"
+      : "";
+}
+
 
   const estaEnTest =
     pagina.includes("scl90.html") ||

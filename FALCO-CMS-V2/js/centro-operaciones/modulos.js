@@ -443,7 +443,7 @@ profesional: [
       titulo: "Gestión de Periciados",
       descripcion:
         "Consultar periciados asignados, evaluaciones psicológicas, expedientes, fichas y documentación asociada.",
-      url: "../../dashboard-profesional.html",
+      url: "../../dashboard.html",
       estado: "disponible"
     }
   ]

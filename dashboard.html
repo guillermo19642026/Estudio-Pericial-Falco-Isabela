@@ -46,12 +46,21 @@
 
 
 <section class="tests-hero dashboard-hero">
-  <span class="dashboard-kicker">Centro operativo</span>
-  <h1>Panel Institucional</h1>
+
+  <span class="dashboard-kicker">
+    Centro de Evaluaciones
+  </span>
+
+  <h1>
+    Panel Profesional
+  </h1>
+
   <p>
-    Gestión integral de evaluaciones, resultados,
-    postulaciones y presentaciones profesionales.
+    Aplicación de instrumentos psicológicos,
+    documentación pericial, resultados y análisis
+    integrados.
   </p>
+
 </section>
 
 
@@ -162,8 +171,15 @@
 </main>
 
 <section class="dashboard-section-title">
-  <span>Administración</span>
-  <h2>Paneles internos</h2>
+
+  <span>
+    Evaluación Profesional
+  </span>
+
+  <h2>
+    Resultados y análisis
+  </h2>
+
 </section>
 
 
@@ -171,9 +187,9 @@
 
 <main class="tests-main admin-modulos">
 
-  <button
+<button
 id="btnResultados"
-class="tests-card dashboard-module admin-only"
+class="tests-card dashboard-module profesional-only"
 onclick="ir('admin-resultados.html')">
 
 <span>📋 Resultados</span>
@@ -191,7 +207,7 @@ Evaluaciones guardadas y detalles clínicos.
 
 <button
 id="btnAnalisisIntegrado"
-class="tests-card dashboard-module admin-only"
+class="tests-card dashboard-module profesional-only"
 onclick="ir('analisis-integrado.html')">
 
 <span>🧠📊 Análisis Integrado</span>
@@ -446,11 +462,17 @@ onclick="ir('admin-turnos.html')">
 
 
 
-<section class="dashboard-actividad">
+<section
+  id="panelActividadInstitucional"
+  class="dashboard-actividad">
 
-  <div class="dashboard-actividad-header">
+  <div
+    id="actividadInstitucional"
+    class="dashboard-actividad-header">
+
     <span>Actividad institucional</span>
     <h2>Últimos movimientos</h2>
+
   </div>
 
   <div class="actividad-grid">
