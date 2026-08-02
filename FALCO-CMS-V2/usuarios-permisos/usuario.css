@@ -1,0 +1,989 @@
+/* =========================================================
+   SISTEMA FALCO®
+   FICHA INDIVIDUAL DE USUARIO
+   Archivo: usuarios-permisos/usuario.css
+========================================================= */
+
+:root {
+  --uf-navy-950: #06101f;
+  --uf-navy-900: #09172a;
+  --uf-navy-850: #0d1d33;
+  --uf-navy-800: #112640;
+
+  --uf-gold-500: #c9a861;
+  --uf-gold-400: #d8bc7b;
+  --uf-gold-300: #ead39a;
+  --uf-gold-soft: rgba(201, 168, 97, 0.13);
+
+  --uf-text-primary: #f7f9fc;
+  --uf-text-secondary: #bcc7d4;
+  --uf-text-muted: #8391a3;
+
+  --uf-success: #62ca98;
+  --uf-success-soft: rgba(98, 202, 152, 0.12);
+
+  --uf-danger: #df7a7a;
+  --uf-danger-soft: rgba(223, 122, 122, 0.12);
+
+  --uf-warning: #d8b86d;
+  --uf-warning-soft: rgba(216, 184, 109, 0.12);
+
+  --uf-border: rgba(255, 255, 255, 0.08);
+  --uf-border-gold: rgba(201, 168, 97, 0.24);
+
+  --uf-surface-soft: rgba(255, 255, 255, 0.04);
+
+  --uf-shadow-sm: 0 10px 28px rgba(0, 0, 0, 0.18);
+  --uf-shadow-md: 0 20px 48px rgba(0, 0, 0, 0.26);
+
+  --uf-radius-sm: 10px;
+  --uf-radius-md: 16px;
+  --uf-radius-lg: 24px;
+
+  --uf-sidebar-width: 270px;
+  --uf-transition: 220ms ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 105px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(201, 168, 97, 0.08),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 92% 14%,
+      rgba(45, 84, 130, 0.16),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      var(--uf-navy-950) 0%,
+      var(--uf-navy-900) 48%,
+      #071321 100%
+    );
+  color: var(--uf-text-primary);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+select {
+  font-family: "Inter", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--uf-gold-400);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+p,
+dl,
+dd {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   ESTRUCTURA
+========================================================= */
+
+.uf-app {
+  display: grid;
+  grid-template-columns: var(--uf-sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.uf-workspace {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.uf-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding: 22px 18px;
+  border-right: 1px solid var(--uf-border);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 21, 38, 0.99),
+      rgba(5, 14, 27, 0.99)
+    );
+  box-shadow: 18px 0 55px rgba(0, 0, 0, 0.18);
+}
+
+.uf-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 3px 4px 22px;
+  border-bottom: 1px solid var(--uf-border);
+}
+
+.uf-brand__symbol {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--uf-border-gold);
+  border-radius: 15px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(201, 168, 97, 0.18),
+      rgba(201, 168, 97, 0.04)
+    );
+  color: var(--uf-gold-300);
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.uf-brand__text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.uf-brand__text strong {
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uf-brand__text small {
+  margin-top: 4px;
+  color: var(--uf-gold-400);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.uf-sidebar__nav {
+  display: grid;
+  gap: 7px;
+  margin-top: 25px;
+}
+
+.uf-sidebar__link {
+  min-height: 45px;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--uf-text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition:
+    background var(--uf-transition),
+    color var(--uf-transition),
+    transform var(--uf-transition);
+}
+
+.uf-sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--uf-text-primary);
+  transform: translateX(2px);
+}
+
+.uf-sidebar__link.is-active {
+  border-color: var(--uf-border-gold);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(201, 168, 97, 0.14),
+      rgba(201, 168, 97, 0.035)
+    );
+  color: var(--uf-gold-300);
+}
+
+.uf-sidebar__footer {
+  margin-top: auto;
+  padding: 18px 4px 3px;
+  border-top: 1px solid var(--uf-border);
+}
+
+.uf-sidebar__footer span,
+.uf-sidebar__footer small {
+  display: block;
+}
+
+.uf-sidebar__footer span {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.uf-sidebar__footer small {
+  margin-top: 4px;
+  color: var(--uf-text-muted);
+  font-size: 0.62rem;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.uf-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 86px;
+  padding: 16px 4%;
+  border-bottom: 1px solid var(--uf-border);
+  background: rgba(6, 16, 31, 0.84);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(22px);
+}
+
+.uf-topbar__eyebrow,
+.uf-section-eyebrow {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--uf-gold-400);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.uf-topbar h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+}
+
+.uf-admin {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: right;
+}
+
+.uf-admin div {
+  display: flex;
+  flex-direction: column;
+}
+
+.uf-admin strong {
+  font-size: 0.77rem;
+}
+
+.uf-admin span {
+  color: var(--uf-gold-400);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.uf-admin button {
+  min-height: 39px;
+  padding: 8px 13px;
+  border: 1px solid var(--uf-border-gold);
+  border-radius: 10px;
+  background: var(--uf-gold-soft);
+  color: var(--uf-gold-300);
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.uf-main {
+  width: min(100%, 1480px);
+  margin: 0 auto;
+  padding: 30px 4% 60px;
+}
+
+.uf-back-row {
+  margin-bottom: 18px;
+}
+
+.uf-back-link {
+  color: var(--uf-gold-300);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MENSAJES Y CARGA
+========================================================= */
+
+.uf-message {
+  margin-bottom: 18px;
+  padding: 13px 15px;
+  border: 1px solid var(--uf-border);
+  border-radius: 11px;
+  background: var(--uf-surface-soft);
+  color: var(--uf-text-secondary);
+  font-size: 0.75rem;
+}
+
+.uf-message.is-success {
+  border-color: rgba(98, 202, 152, 0.26);
+  background: var(--uf-success-soft);
+  color: #bdebd0;
+}
+
+.uf-message.is-error {
+  border-color: rgba(223, 122, 122, 0.28);
+  background: var(--uf-danger-soft);
+  color: #f4b1b1;
+}
+
+.uf-loading-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 260px;
+  border: 1px solid var(--uf-border);
+  border-radius: var(--uf-radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.7),
+      rgba(8, 21, 38, 0.91)
+    );
+}
+
+.uf-loading-panel p {
+  margin: 0;
+  color: var(--uf-text-secondary);
+  font-size: 0.8rem;
+}
+
+.uf-loading-panel__spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.13);
+  border-top-color: var(--uf-gold-400);
+  border-radius: 50%;
+  animation: ufSpin 0.8s linear infinite;
+}
+
+@keyframes ufSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   CABECERA DEL USUARIO
+========================================================= */
+
+.uf-user-content {
+  display: grid;
+  gap: 22px;
+}
+
+.uf-user-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  padding: 28px 30px;
+  border: 1px solid var(--uf-border-gold);
+  border-radius: var(--uf-radius-lg);
+  background:
+    radial-gradient(
+      circle at right top,
+      rgba(201, 168, 97, 0.14),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.9),
+      rgba(8, 21, 38, 0.96)
+    );
+  box-shadow: var(--uf-shadow-md);
+}
+
+.uf-user-header__identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.uf-user-avatar {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border: 1px solid var(--uf-border-gold);
+  border-radius: 20px;
+  background: var(--uf-gold-soft);
+  color: var(--uf-gold-300);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.uf-user-header h2 {
+  margin-bottom: 5px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+}
+
+.uf-user-header p {
+  margin-bottom: 0;
+  color: var(--uf-text-secondary);
+  font-size: 0.78rem;
+}
+
+.uf-user-header__status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.uf-status,
+.uf-role-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 6px 11px;
+  border: 1px solid var(--uf-border);
+  border-radius: 999px;
+  background: var(--uf-surface-soft);
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.uf-status.is-active {
+  border-color: rgba(98, 202, 152, 0.28);
+  background: var(--uf-success-soft);
+  color: #bdebd0;
+}
+
+.uf-status.is-inactive {
+  border-color: rgba(223, 122, 122, 0.28);
+  background: var(--uf-danger-soft);
+  color: #f4b1b1;
+}
+
+.uf-role-badge {
+  border-color: var(--uf-border-gold);
+  background: var(--uf-gold-soft);
+  color: var(--uf-gold-300);
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.uf-card {
+  padding: 26px;
+  border: 1px solid var(--uf-border);
+  border-radius: var(--uf-radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.72),
+      rgba(8, 21, 38, 0.92)
+    );
+  box-shadow: var(--uf-shadow-sm);
+}
+
+.uf-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.uf-card__header h2 {
+  margin-bottom: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+}
+
+.uf-card__header p {
+  max-width: 500px;
+  margin-bottom: 0;
+  color: var(--uf-text-secondary);
+  font-size: 0.74rem;
+  text-align: right;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.uf-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.uf-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.uf-field label {
+  margin-bottom: 7px;
+  color: var(--uf-text-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.uf-field input,
+.uf-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 13px;
+  border: 1px solid var(--uf-border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--uf-text-primary);
+  outline: none;
+  font-size: 0.76rem;
+}
+
+.uf-field input:focus,
+.uf-field select:focus {
+  border-color: var(--uf-gold-400);
+  box-shadow: 0 0 0 4px rgba(201, 168, 97, 0.09);
+}
+
+.uf-field input[readonly] {
+  color: var(--uf-text-muted);
+  cursor: not-allowed;
+}
+
+.uf-field select option {
+  background: var(--uf-navy-900);
+}
+
+.uf-field small {
+  margin-top: 6px;
+  color: var(--uf-text-muted);
+  font-size: 0.62rem;
+}
+
+
+/* =========================================================
+   TOGGLE
+========================================================= */
+
+.uf-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.uf-toggle-row input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.uf-toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 52px;
+  height: 28px;
+  border: 1px solid var(--uf-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  transition:
+    background var(--uf-transition),
+    border-color var(--uf-transition);
+}
+
+.uf-toggle span {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--uf-text-muted);
+  transition:
+    transform var(--uf-transition),
+    background var(--uf-transition);
+}
+
+.uf-toggle-row input:checked + .uf-toggle {
+  border-color: rgba(98, 202, 152, 0.3);
+  background: var(--uf-success-soft);
+}
+
+.uf-toggle-row input:checked + .uf-toggle span {
+  background: var(--uf-success);
+  transform: translateX(24px);
+}
+
+.uf-toggle-row__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.uf-toggle-row__text strong {
+  font-size: 0.75rem;
+}
+
+.uf-toggle-row__text small {
+  color: var(--uf-text-muted);
+  font-size: 0.64rem;
+}
+
+
+/* =========================================================
+   PERMISOS
+========================================================= */
+
+.uf-permissions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.uf-permission-card {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 92px;
+  padding: 15px;
+  border: 1px solid var(--uf-border);
+  border-radius: var(--uf-radius-md);
+  background: rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  transition:
+    border-color var(--uf-transition),
+    background var(--uf-transition),
+    transform var(--uf-transition);
+}
+
+.uf-permission-card:hover {
+  border-color: var(--uf-border-gold);
+  background: rgba(201, 168, 97, 0.05);
+  transform: translateY(-2px);
+}
+
+.uf-permission-card input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--uf-gold-500);
+}
+
+.uf-permission-card__icon {
+  font-size: 1.25rem;
+}
+
+.uf-permission-card > span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.uf-permission-card strong {
+  font-size: 0.73rem;
+}
+
+.uf-permission-card small {
+  margin-top: 3px;
+  color: var(--uf-text-muted);
+  font-size: 0.61rem;
+}
+
+.uf-permissions-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   INFORMACIÓN TÉCNICA
+========================================================= */
+
+.uf-card--technical {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 29, 51, 0.74),
+      rgba(7, 18, 33, 0.92)
+    );
+}
+
+.uf-technical-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.uf-technical-list div {
+  padding: 14px;
+  border: 1px solid var(--uf-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.uf-technical-list dt {
+  margin-bottom: 4px;
+  color: var(--uf-text-muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.uf-technical-list dd {
+  margin-bottom: 0;
+  color: var(--uf-text-secondary);
+  font-size: 0.72rem;
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   PANEL DE GUARDADO
+========================================================= */
+
+.uf-save-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px;
+  border: 1px solid var(--uf-border-gold);
+  border-radius: var(--uf-radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(201, 168, 97, 0.11),
+      rgba(17, 38, 64, 0.72),
+      rgba(8, 21, 38, 0.94)
+    );
+}
+
+.uf-save-panel h2 {
+  margin-bottom: 7px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.42rem;
+}
+
+.uf-save-panel p {
+  margin-bottom: 0;
+  color: var(--uf-text-secondary);
+  font-size: 0.72rem;
+}
+
+.uf-save-panel__actions {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.uf-primary-button,
+.uf-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.uf-primary-button {
+  border: 1px solid rgba(234, 211, 154, 0.35);
+  background:
+    linear-gradient(
+      135deg,
+      var(--uf-gold-500),
+      #ad8d50
+    );
+  color: var(--uf-navy-950);
+}
+
+.uf-primary-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.uf-secondary-button {
+  border: 1px solid var(--uf-border-gold);
+  background: var(--uf-gold-soft);
+  color: var(--uf-gold-300);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  :root {
+    --uf-sidebar-width: 230px;
+  }
+
+  .uf-form-grid,
+  .uf-permissions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 850px) {
+  .uf-app {
+    grid-template-columns: 1fr;
+  }
+
+  .uf-sidebar {
+    position: relative;
+    height: auto;
+  }
+
+  .uf-sidebar__footer {
+    margin-top: 24px;
+  }
+
+  .uf-topbar,
+  .uf-user-header,
+  .uf-card__header,
+  .uf-save-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .uf-admin {
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .uf-card__header p {
+    max-width: none;
+    text-align: left;
+  }
+
+  .uf-user-header__status {
+    justify-content: flex-start;
+  }
+
+  .uf-technical-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .uf-main {
+    padding: 24px 18px 45px;
+  }
+
+  .uf-topbar {
+    padding: 15px 18px;
+  }
+
+  .uf-user-header,
+  .uf-card,
+  .uf-save-panel {
+    padding: 22px 19px;
+  }
+
+  .uf-user-header__identity {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .uf-save-panel__actions,
+  .uf-permissions-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .uf-primary-button,
+  .uf-secondary-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   VISIBILIDAD CONTROLADA POR JAVASCRIPT
+========================================================= */
+
+[hidden] {
+  display: none !important;
+}

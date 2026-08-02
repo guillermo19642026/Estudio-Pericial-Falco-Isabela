@@ -104,6 +104,23 @@ perito: [
   ]
 ],
 
+
+  periciado: [
+    [
+      "🧪 Mi evaluación",
+      "../../dashboard-periciado.html"
+    ],
+    [
+      "📁 Mi documentación",
+      "../../dashboard-periciado.html"
+    ],
+    [
+      "💬 Soporte",
+      WHATSAPP_SOPORTE
+    ]
+  ],
+
+
   alumno: [
     [
       "🎓 Mis cursos",

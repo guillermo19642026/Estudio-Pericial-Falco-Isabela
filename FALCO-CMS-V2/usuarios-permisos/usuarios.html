@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Usuarios y Permisos | Sistema FALCO®</title>
+
+  <link
+    rel="stylesheet"
+    href="./usuarios.css"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <div class="up-app">
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
+    <aside class="up-sidebar">
+
+      <a
+        href="../centro-operaciones/centro-operaciones.html"
+        class="up-brand"
+      >
+        <span class="up-brand__symbol">
+          F
+        </span>
+
+        <span class="up-brand__text">
+          <strong>Sistema FALCO®</strong>
+          <small>Usuarios y Permisos</small>
+        </span>
+      </a>
+
+
+      <nav class="up-sidebar__nav">
+
+        <a
+          href="../centro-operaciones/centro-operaciones.html"
+          class="up-sidebar__link"
+        >
+          ← Portal Institucional
+        </a>
+
+        <a
+          href="./usuarios.html"
+          class="up-sidebar__link is-active"
+        >
+          Usuarios registrados
+        </a>
+
+        <a
+          href="#indicadores"
+          class="up-sidebar__link"
+        >
+          Indicadores
+        </a>
+
+        <a
+          href="#listado"
+          class="up-sidebar__link"
+        >
+          Listado general
+        </a>
+
+      </nav>
+
+
+      <div class="up-sidebar__footer">
+        <span>Sistema FALCO®</span>
+        <small>Administración de accesos</small>
+      </div>
+
+    </aside>
+
+
+    <!-- ===================================================
+         ÁREA DE TRABAJO
+    ==================================================== -->
+
+    <div class="up-workspace">
+
+      <!-- TOPBAR -->
+
+      <header class="up-topbar">
+
+        <div>
+          <span class="up-topbar__eyebrow">
+            Administración general
+          </span>
+
+          <h1>Usuarios y Permisos</h1>
+        </div>
+
+
+        <div class="up-admin">
+
+          <div>
+            <strong id="adminNombre">
+              Administrador
+            </strong>
+
+            <span id="adminRol">
+              ADMIN
+            </span>
+          </div>
+
+          <button
+            type="button"
+            id="btnCerrarSesion"
+          >
+            Cerrar sesión
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- CONTENIDO -->
+
+      <main class="up-main">
+
+        <!-- BIENVENIDA -->
+
+        <section class="up-welcome">
+
+          <div>
+
+            <span class="up-section-eyebrow">
+              Control central
+            </span>
+
+            <h2>
+              Administración de usuarios, roles y accesos
+            </h2>
+
+            <p>
+              Consulte los usuarios registrados en Firestore, revise
+              sus perfiles y acceda a la futura administración individual
+              de roles y permisos dentro del Sistema FALCO®.
+            </p>
+
+          </div>
+
+          <button
+            type="button"
+            class="up-primary-button"
+            id="btnActualizarUsuarios"
+          >
+            Actualizar listado
+          </button>
+
+        </section>
+
+
+        <!-- INDICADORES -->
+
+        <section
+          class="up-kpis"
+          id="indicadores"
+          aria-label="Indicadores de usuarios"
+        >
+
+          <article class="up-kpi">
+            <span>Usuarios registrados</span>
+            <strong id="totalUsuarios">—</strong>
+          </article>
+
+          <article class="up-kpi">
+            <span>Administradores</span>
+            <strong id="totalAdmins">—</strong>
+          </article>
+
+          <article class="up-kpi">
+            <span>Profesionales</span>
+            <strong id="totalProfesionales">—</strong>
+          </article>
+
+          <article class="up-kpi">
+            <span>Otros perfiles</span>
+            <strong id="totalOtros">—</strong>
+          </article>
+
+        </section>
+
+
+        <!-- FILTROS -->
+
+        <section class="up-filters">
+
+          <div class="up-search">
+
+            <label for="buscarUsuario">
+              Buscar usuario
+            </label>
+
+            <input
+              type="search"
+              id="buscarUsuario"
+              placeholder="Nombre, correo, rol o UID..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <div class="up-filter">
+
+            <label for="filtroRol">
+              Filtrar por rol
+            </label>
+
+            <select id="filtroRol">
+              <option value="">Todos los roles</option>
+              <option value="admin">Administrador</option>
+              <option value="profesional">Profesional</option>
+              <option value="perito">Perito</option>
+              <option value="periciado">Periciado</option>
+              <option value="alumno">Alumno</option>
+              <option value="biblioteca">Biblioteca</option>
+              <option value="informe">Informe</option>
+            </select>
+
+          </div>
+
+        </section>
+
+
+        <!-- MENSAJE DEL SISTEMA -->
+
+        <section
+          class="up-message"
+          id="mensajeSistema"
+          role="status"
+          hidden
+        ></section>
+
+
+        <!-- TABLA -->
+
+        <section
+          class="up-table-section"
+          id="listado"
+        >
+
+          <div class="up-table-header">
+
+            <div>
+              <span class="up-section-eyebrow">
+                Usuarios registrados
+              </span>
+
+              <h2>Listado general</h2>
+            </div>
+
+            <span id="resultadoCantidad">
+              0 usuarios
+            </span>
+
+          </div>
+
+
+          <div class="up-table-wrapper">
+
+            <table class="up-table">
+
+              <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Correo</th>
+                  <th>Rol</th>
+                  <th>Estado</th>
+                  <th>Permisos</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+
+              <tbody id="usuariosTabla">
+
+                <tr>
+                  <td
+                    colspan="6"
+                    class="up-loading"
+                  >
+                    Verificando sesión...
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <script
+    type="module"
+    src="./usuarios.js"
+  ></script>
+
+</body>
+</html>

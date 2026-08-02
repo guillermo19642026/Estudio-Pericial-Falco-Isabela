@@ -95,7 +95,16 @@ seccionesSoloAdmin.forEach((seccion) => {
   if (ultimoAcceso) ultimoAcceso.textContent = "Hoy";
 
 
-  renderCentroOperaciones(rol);
+const permisos =
+  data.permisos &&
+  typeof data.permisos === "object"
+    ? data.permisos
+    : null;
+
+renderCentroOperaciones(
+  rol,
+  permisos
+);
 
 await cargarKPIsFirestore(rol);
 });

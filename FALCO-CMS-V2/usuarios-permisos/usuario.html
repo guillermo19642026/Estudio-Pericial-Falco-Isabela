@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Administrar Usuario | Sistema FALCO®</title>
+
+  <link
+    rel="stylesheet"
+    href="./usuario.css"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <div class="uf-app">
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
+    <aside class="uf-sidebar">
+
+      <a
+        href="../centro-operaciones/centro-operaciones.html"
+        class="uf-brand"
+      >
+        <span class="uf-brand__symbol">
+          F
+        </span>
+
+        <span class="uf-brand__text">
+          <strong>Sistema FALCO®</strong>
+          <small>Usuarios y Permisos</small>
+        </span>
+      </a>
+
+
+      <nav class="uf-sidebar__nav">
+
+        <a
+          href="../centro-operaciones/centro-operaciones.html"
+          class="uf-sidebar__link"
+        >
+          ← Portal Institucional
+        </a>
+
+        <a
+          href="./usuarios.html"
+          class="uf-sidebar__link"
+        >
+          Usuarios registrados
+        </a>
+
+        <a
+          href="#perfil"
+          class="uf-sidebar__link is-active"
+        >
+          Perfil del usuario
+        </a>
+
+        <a
+          href="#permisos"
+          class="uf-sidebar__link"
+        >
+          Permisos
+        </a>
+
+      </nav>
+
+
+      <div class="uf-sidebar__footer">
+        <span>Sistema FALCO®</span>
+        <small>Administración de accesos</small>
+      </div>
+
+    </aside>
+
+
+    <!-- ===================================================
+         ÁREA DE TRABAJO
+    ==================================================== -->
+
+    <div class="uf-workspace">
+
+      <!-- TOPBAR -->
+
+      <header class="uf-topbar">
+
+        <div>
+
+          <span class="uf-topbar__eyebrow">
+            Administración general
+          </span>
+
+          <h1>Administrar usuario</h1>
+
+        </div>
+
+
+        <div class="uf-admin">
+
+          <div>
+            <strong id="adminNombre">
+              Administrador
+            </strong>
+
+            <span id="adminRol">
+              ADMIN
+            </span>
+          </div>
+
+          <button
+            type="button"
+            id="btnCerrarSesion"
+          >
+            Cerrar sesión
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           CONTENIDO
+      ================================================== -->
+
+      <main class="uf-main">
+
+        <!-- VOLVER -->
+
+        <div class="uf-back-row">
+
+          <a
+            href="./usuarios.html"
+            class="uf-back-link"
+          >
+            ← Volver al listado
+          </a>
+
+        </div>
+
+
+        <!-- MENSAJE -->
+
+        <section
+          class="uf-message"
+          id="mensajeSistema"
+          role="status"
+          hidden
+        ></section>
+
+
+        <!-- ESTADO DE CARGA -->
+
+        <section
+          class="uf-loading-panel"
+          id="panelCarga"
+        >
+
+          <span class="uf-loading-panel__spinner"></span>
+
+          <p>
+            Cargando información del usuario...
+          </p>
+
+        </section>
+
+
+        <!-- CONTENIDO DEL USUARIO -->
+
+        <div
+          class="uf-user-content"
+          id="contenidoUsuario"
+          hidden
+        >
+
+          <!-- CABECERA DEL USUARIO -->
+
+          <section
+            class="uf-user-header"
+            id="perfil"
+          >
+
+            <div class="uf-user-header__identity">
+
+              <span
+                class="uf-user-avatar"
+                id="usuarioIniciales"
+              >
+                US
+              </span>
+
+
+              <div>
+
+                <span class="uf-section-eyebrow">
+                  Perfil registrado
+                </span>
+
+                <h2 id="usuarioNombre">
+                  Usuario
+                </h2>
+
+                <p id="usuarioEmail">
+                  correo@ejemplo.com
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="uf-user-header__status">
+
+              <span
+                class="uf-status is-active"
+                id="usuarioEstadoResumen"
+              >
+                Activo
+              </span>
+
+              <span
+                class="uf-role-badge"
+                id="usuarioRolResumen"
+              >
+                Sin rol
+              </span>
+
+            </div>
+
+          </section>
+
+
+          <!-- DATOS DEL USUARIO -->
+
+          <section class="uf-card">
+
+            <div class="uf-card__header">
+
+              <div>
+                <span class="uf-section-eyebrow">
+                  Información principal
+                </span>
+
+                <h2>Datos del usuario</h2>
+              </div>
+
+              <p>
+                Los cambios se guardarán en el documento correspondiente
+                de la colección <strong>usuarios</strong>.
+              </p>
+
+            </div>
+
+
+            <div class="uf-form-grid">
+
+              <div class="uf-field">
+
+                <label for="campoNombre">
+                  Nombre completo
+                </label>
+
+                <input
+                  type="text"
+                  id="campoNombre"
+                  placeholder="Nombre del usuario"
+                >
+
+              </div>
+
+
+              <div class="uf-field">
+
+                <label for="campoEmail">
+                  Correo electrónico
+                </label>
+
+                <input
+                  type="email"
+                  id="campoEmail"
+                  readonly
+                >
+
+                <small>
+                  El correo se muestra como referencia y no se modifica
+                  desde esta pantalla.
+                </small>
+
+              </div>
+
+
+              <div class="uf-field">
+
+                <label for="campoUid">
+                  UID
+                </label>
+
+                <input
+                  type="text"
+                  id="campoUid"
+                  readonly
+                >
+
+              </div>
+
+
+              <div class="uf-field">
+
+                <label for="campoRol">
+                  Rol principal
+                </label>
+
+                <select id="campoRol">
+                  <option value="">Sin rol asignado</option>
+                  <option value="admin">Administrador</option>
+                  <option value="profesional">Profesional</option>
+                  <option value="perito">Perito</option>
+                  <option value="periciado">Periciado</option>
+                  <option value="alumno">Alumno</option>
+                  <option value="biblioteca">Biblioteca</option>
+                  <option value="informe">Informe</option>
+                </select>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- ESTADO DE ACCESO -->
+
+          <section class="uf-card">
+
+            <div class="uf-card__header">
+
+              <div>
+                <span class="uf-section-eyebrow">
+                  Estado de acceso
+                </span>
+
+                <h2>Habilitación del usuario</h2>
+              </div>
+
+              <p>
+                Un usuario inactivo podrá conservar su cuenta, pero no
+                debería acceder a las áreas protegidas cuando integremos
+                esta validación en todo el sistema.
+              </p>
+
+            </div>
+
+
+            <label class="uf-toggle-row">
+
+              <input
+                type="checkbox"
+                id="campoActivo"
+              >
+
+              <span class="uf-toggle">
+                <span></span>
+              </span>
+
+              <span class="uf-toggle-row__text">
+
+                <strong>Usuario activo</strong>
+
+                <small>
+                  Permitir que este usuario mantenga sus accesos habilitados.
+                </small>
+
+              </span>
+
+            </label>
+
+          </section>
+
+
+          <!-- PERMISOS -->
+
+          <section
+            class="uf-card"
+            id="permisos"
+          >
+
+            <div class="uf-card__header">
+
+              <div>
+                <span class="uf-section-eyebrow">
+                  Accesos personalizados
+                </span>
+
+                <h2>Permisos del usuario</h2>
+              </div>
+
+              <p>
+                Los permisos personalizados complementarán el rol principal.
+                En esta etapa se guardan en Firestore, pero todavía no
+                modifican el Portal Institucional.
+              </p>
+
+            </div>
+
+
+            <div class="uf-permissions-grid">
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="centroProfesional"
+                >
+
+                <span class="uf-permission-card__icon">
+                  🧠
+                </span>
+
+                <span>
+                  <strong>Centro Profesional</strong>
+                  <small>Recursos y herramientas profesionales.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="gestionPericiados"
+                >
+
+                <span class="uf-permission-card__icon">
+                  👥
+                </span>
+
+                <span>
+                  <strong>Gestión de Periciados</strong>
+                  <small>Periciados, expedientes y evaluaciones asignadas.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="evaluaciones"
+                >
+
+                <span class="uf-permission-card__icon">
+                  🧪
+                </span>
+
+                <span>
+                  <strong>Evaluaciones</strong>
+                  <small>Instrumentos y resultados psicológicos.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="documentacionPericiados"
+                >
+
+                <span class="uf-permission-card__icon">
+                  🗂️
+                </span>
+
+                <span>
+                  <strong>Documentación</strong>
+                  <small>Fichas, constancias y archivos adjuntos.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="biblioteca"
+                >
+
+                <span class="uf-permission-card__icon">
+                  📚
+                </span>
+
+                <span>
+                  <strong>Biblioteca</strong>
+                  <small>Recursos profesionales habilitados.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="campus"
+                >
+
+                <span class="uf-permission-card__icon">
+                  🎓
+                </span>
+
+                <span>
+                  <strong>Campus</strong>
+                  <small>Cursos y formación profesional.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="escuela"
+                >
+
+                <span class="uf-permission-card__icon">
+                  👨‍👩‍👧
+                </span>
+
+                <span>
+                  <strong>Escuela para Padres</strong>
+                  <small>Encuentros, materiales y certificación.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="admision"
+                >
+
+                <span class="uf-permission-card__icon">
+                  📝
+                </span>
+
+                <span>
+                  <strong>FALCO® Admisión</strong>
+                  <small>Admisiones y postulaciones profesionales.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="comunidad"
+                >
+
+                <span class="uf-permission-card__icon">
+                  🏛️
+                </span>
+
+                <span>
+                  <strong>FALCO® Comunidad</strong>
+                  <small>Instituciones, programas y proyectos.</small>
+                </span>
+
+              </label>
+
+
+              <label class="uf-permission-card">
+
+                <input
+                  type="checkbox"
+                  data-permiso="administracion"
+                >
+
+                <span class="uf-permission-card__icon">
+                  ⚙️
+                </span>
+
+                <span>
+                  <strong>Administración</strong>
+                  <small>Herramientas administrativas del sistema.</small>
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <div class="uf-permissions-actions">
+
+              <button
+                type="button"
+                class="uf-secondary-button"
+                id="btnSeleccionarRol"
+              >
+                Aplicar permisos sugeridos por rol
+              </button>
+
+              <button
+                type="button"
+                class="uf-secondary-button"
+                id="btnLimpiarPermisos"
+              >
+                Limpiar permisos personalizados
+              </button>
+
+            </div>
+
+          </section>
+
+
+          <!-- INFORMACIÓN TÉCNICA -->
+
+          <section class="uf-card uf-card--technical">
+
+            <div class="uf-card__header">
+
+              <div>
+                <span class="uf-section-eyebrow">
+                  Información técnica
+                </span>
+
+                <h2>Registro del documento</h2>
+              </div>
+
+            </div>
+
+
+            <dl class="uf-technical-list">
+
+              <div>
+                <dt>Documento</dt>
+                <dd id="datoDocumento">—</dd>
+              </div>
+
+              <div>
+                <dt>Fecha de creación</dt>
+                <dd id="datoCreacion">No registrada</dd>
+              </div>
+
+              <div>
+                <dt>Última actualización</dt>
+                <dd id="datoActualizacion">No registrada</dd>
+              </div>
+
+              <div>
+                <dt>Acceso de un solo uso</dt>
+                <dd id="datoUsado">No informado</dd>
+              </div>
+
+            </dl>
+
+          </section>
+
+
+          <!-- ACCIONES FINALES -->
+
+          <section class="uf-save-panel">
+
+            <div>
+
+              <span class="uf-section-eyebrow">
+                Guardar configuración
+              </span>
+
+              <h2>Confirmar cambios</h2>
+
+              <p>
+                Se actualizarán el nombre, el rol, el estado y los permisos
+                del documento seleccionado.
+              </p>
+
+            </div>
+
+
+            <div class="uf-save-panel__actions">
+
+              <a
+                href="./usuarios.html"
+                class="uf-secondary-button"
+              >
+                Cancelar
+              </a>
+
+              <button
+                type="button"
+                class="uf-primary-button"
+                id="btnGuardarUsuario"
+              >
+                Guardar cambios
+              </button>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <script
+    type="module"
+    src="./usuario.js"
+  ></script>
+
+</body>
+</html>

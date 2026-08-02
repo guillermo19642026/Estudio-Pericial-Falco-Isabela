@@ -43,13 +43,13 @@ export const MODULOS = {
           url: "../editor.html",
           estado: "disponible"
         },
-        {
-          titulo: "Usuarios y Permisos",
-          descripcion:
-            "Administrar usuarios, perfiles, roles y accesos del Sistema FALCO®.",
-          url: "../usuarios.html",
-          estado: "desarrollo"
-        },
+      {
+  titulo: "Usuarios y Permisos",
+  descripcion:
+    "Administrar usuarios, perfiles, roles, estados y accesos del Sistema FALCO®.",
+  url: "../usuarios-permisos/usuarios.html",
+  estado: "disponible"
+},
         {
           titulo: "Configuración del Sistema",
           descripcion:

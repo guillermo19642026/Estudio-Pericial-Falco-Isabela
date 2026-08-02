@@ -5,11 +5,19 @@ import { ACCESOS_RAPIDOS } from "./accesos.js";
 import { ACTIVIDAD } from "./actividad.js";
 import { BIENVENIDAS } from "./bienvenida.js";
 
-export function renderCentroOperaciones(rol) {
+import {
+  filtrarGruposPorPermisos,
+  filtrarAccesosPorPermisos
+} from "./permisos.js";
+
+export function renderCentroOperaciones(
+  rol,
+  permisos = null
+) {
   renderMensajeBienvenida(rol);
   renderKPIs(rol);
-  renderModulos(rol);
-  renderAccesosRapidos(rol);
+  renderModulos(rol, permisos);
+  renderAccesosRapidos(rol, permisos);
   renderActividadYNotificaciones(rol);
 }
 
@@ -67,13 +75,27 @@ function traducirEstado(estado) {
   return estados[estado] || "Disponible";
 }
 
-function renderModulos(rol) {
-  const contenedor = document.getElementById("modulosUsuario");
-  const buscador = document.getElementById("buscadorModulos");
+function renderModulos(
+  rol,
+  permisos = null
+) {
+  const contenedor =
+    document.getElementById("modulosUsuario");
+
+  const buscador =
+    document.getElementById("buscadorModulos");
 
   if (!contenedor) return;
 
-  const grupos = MODULOS[rol] || [];
+  const gruposBase =
+    MODULOS[rol] || [];
+
+  const grupos =
+    filtrarGruposPorPermisos(
+      gruposBase,
+      rol,
+      permisos
+    );
 
   function pintar(filtro = "") {
     contenedor.innerHTML = "";
@@ -131,26 +153,49 @@ function renderModulos(rol) {
 
 
 
-function renderAccesosRapidos(rol) {
-  const contenedor = document.getElementById("accesosRapidos");
+function renderAccesosRapidos(
+  rol,
+  permisos = null
+) {
+  const contenedor =
+    document.getElementById("accesosRapidos");
+
   if (!contenedor) return;
 
-  const accesos = ACCESOS_RAPIDOS[rol] || [];
+  const accesosBase =
+    ACCESOS_RAPIDOS[rol] || [];
+
+  const accesos =
+    filtrarAccesosPorPermisos(
+      accesosBase,
+      rol,
+      permisos
+    );
 
   contenedor.innerHTML = "";
 
   accesos.forEach(([titulo, url]) => {
-    const link = document.createElement("a");
+    const link =
+      document.createElement("a");
 
     link.href = url;
     link.textContent = titulo;
 
     if (url.includes("wa.me")) {
       link.target = "_blank";
+      link.rel = "noopener noreferrer";
     }
 
     contenedor.appendChild(link);
   });
+
+  if (!accesos.length) {
+    contenedor.innerHTML = `
+      <span class="co-empty-access">
+        No hay accesos rápidos habilitados.
+      </span>
+    `;
+  }
 }
 
 function renderActividadYNotificaciones(rol) {
