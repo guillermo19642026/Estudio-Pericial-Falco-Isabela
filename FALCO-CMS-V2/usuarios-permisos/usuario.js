@@ -30,7 +30,8 @@ import {
 
 import {
   onAuthStateChanged,
-  signOut
+  signOut,
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 
@@ -57,6 +58,9 @@ const RUTA_PORTAL =
 
 const RUTA_USUARIOS =
   "./usuarios.html";
+
+  const URL_ACCESO_INSTITUCIONAL =
+  "https://periciapsicologicafalco.ar/FALCO-CMS-V2/ecosistema-falco.html#acceso";
 
 
 /* =========================================================
@@ -249,6 +253,19 @@ const btnLimpiarPermisos =
 
 const btnGuardarUsuario =
   document.getElementById("btnGuardarUsuario");
+
+const seguridadEmail =
+  document.getElementById("seguridadEmail");
+
+const enlaceAccesoUsuario =
+  document.getElementById("enlaceAccesoUsuario");
+
+const btnRestablecerPassword =
+  document.getElementById("btnRestablecerPassword");
+
+const btnCopiarEnlaceAcceso =
+  document.getElementById("btnCopiarEnlaceAcceso");
+
 
 const camposPermisos =
   document.querySelectorAll("[data-permiso]");
@@ -618,6 +635,16 @@ function cargarUsuarioEnPantalla(usuario) {
 
   campoEmail.value =
     email;
+
+    if (seguridadEmail) {
+  seguridadEmail.textContent =
+    email || "Correo no registrado";
+}
+
+if (enlaceAccesoUsuario) {
+  enlaceAccesoUsuario.textContent =
+    URL_ACCESO_INSTITUCIONAL;
+}
 
   campoUid.value =
     usuario.uid;
@@ -993,6 +1020,198 @@ async function guardarCambios() {
 
 
 /* =========================================================
+   RESTABLECIMIENTO DE CONTRASEÑA
+========================================================= */
+
+async function enviarRestablecimientoPassword() {
+  const email =
+    normalizarTexto(
+      usuarioActual?.email ||
+      campoEmail?.value
+    );
+
+  if (!email) {
+    mostrarMensaje(
+      "Este usuario no tiene un correo electrónico registrado.",
+      "error"
+    );
+
+    return;
+  }
+
+  const confirmado =
+    window.confirm(
+      `Se enviará un correo de restablecimiento a:\n\n${email}\n\n¿Desea continuar?`
+    );
+
+  if (!confirmado) {
+    return;
+  }
+
+  const textoOriginal =
+    btnRestablecerPassword?.textContent ||
+    "Enviar correo de restablecimiento";
+
+  if (btnRestablecerPassword) {
+    btnRestablecerPassword.disabled = true;
+    btnRestablecerPassword.textContent =
+      "Enviando correo...";
+  }
+
+  ocultarMensaje();
+
+  try {
+    auth.languageCode = "es";
+
+    await sendPasswordResetEmail(
+      auth,
+      email
+    );
+
+    mostrarMensaje(
+      `El correo de restablecimiento fue enviado a ${email}.`,
+      "success"
+    );
+
+  } catch (error) {
+    console.error(
+      "FALCO® Usuarios: error al enviar el restablecimiento.",
+      error
+    );
+
+    const mensajes = {
+      "auth/invalid-email":
+        "El correo electrónico no es válido.",
+
+      "auth/user-not-found":
+        "No existe una cuenta de Authentication asociada a este correo.",
+
+      "auth/too-many-requests":
+        "Se realizaron demasiadas solicitudes. Intente nuevamente más tarde.",
+
+      "auth/network-request-failed":
+        "No fue posible conectarse con Firebase. Revise la conexión."
+    };
+
+    mostrarMensaje(
+      mensajes[error?.code] ||
+      error?.message ||
+      "No fue posible enviar el correo de restablecimiento.",
+      "error"
+    );
+
+  } finally {
+    if (btnRestablecerPassword) {
+      btnRestablecerPassword.disabled = false;
+      btnRestablecerPassword.textContent =
+        textoOriginal;
+    }
+  }
+}
+
+
+/* =========================================================
+   COPIAR ENLACE DE ACCESO
+========================================================= */
+
+async function copiarEnlaceAcceso() {
+  const enlace =
+    URL_ACCESO_INSTITUCIONAL;
+
+  const textoOriginal =
+    btnCopiarEnlaceAcceso?.textContent ||
+    "Copiar enlace de acceso";
+
+  if (btnCopiarEnlaceAcceso) {
+    btnCopiarEnlaceAcceso.disabled = true;
+    btnCopiarEnlaceAcceso.textContent =
+      "Copiando...";
+  }
+
+  ocultarMensaje();
+
+  try {
+    if (
+      navigator.clipboard &&
+      window.isSecureContext
+    ) {
+      await navigator.clipboard.writeText(
+        enlace
+      );
+
+    } else {
+      const campoTemporal =
+        document.createElement("textarea");
+
+      campoTemporal.value =
+        enlace;
+
+      campoTemporal.setAttribute(
+        "readonly",
+        ""
+      );
+
+      campoTemporal.style.position =
+        "fixed";
+
+      campoTemporal.style.opacity =
+        "0";
+
+      document.body.appendChild(
+        campoTemporal
+      );
+
+      campoTemporal.select();
+
+      const copiado =
+        document.execCommand("copy");
+
+      campoTemporal.remove();
+
+      if (!copiado) {
+        throw new Error(
+          "No fue posible copiar el enlace."
+        );
+      }
+    }
+
+    mostrarMensaje(
+      "El enlace institucional fue copiado correctamente.",
+      "success"
+    );
+
+    if (btnCopiarEnlaceAcceso) {
+      btnCopiarEnlaceAcceso.textContent =
+        "Enlace copiado";
+    }
+
+    window.setTimeout(() => {
+      if (btnCopiarEnlaceAcceso) {
+        btnCopiarEnlaceAcceso.textContent =
+          textoOriginal;
+      }
+    }, 1800);
+
+  } catch (error) {
+    console.error(
+      "FALCO® Usuarios: error al copiar el enlace.",
+      error
+    );
+
+    mostrarMensaje(
+      "No fue posible copiar el enlace. Puede seleccionarlo manualmente.",
+      "error"
+    );
+
+  } finally {
+    if (btnCopiarEnlaceAcceso) {
+      btnCopiarEnlaceAcceso.disabled = false;
+    }
+  }
+}
+
+
+/* =========================================================
    CIERRE DE SESIÓN
 ========================================================= */
 
@@ -1061,6 +1280,17 @@ campoRol?.addEventListener(
 campoActivo?.addEventListener(
   "change",
   actualizarResumenVisual
+);
+
+btnRestablecerPassword?.addEventListener(
+  "click",
+  enviarRestablecimientoPassword
+);
+
+
+btnCopiarEnlaceAcceso?.addEventListener(
+  "click",
+  copiarEnlaceAcceso
 );
 
 

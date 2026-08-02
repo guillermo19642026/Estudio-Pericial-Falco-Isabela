@@ -82,6 +82,14 @@
           Perfil del usuario
         </a>
 
+<a
+  href="#seguridad"
+  class="uf-sidebar__link"
+>
+  Seguridad
+</a>
+
+
         <a
           href="#permisos"
           class="uf-sidebar__link"
@@ -401,6 +409,164 @@
             </label>
 
           </section>
+
+
+<!-- SEGURIDAD -->
+
+<section
+  class="uf-card"
+  id="seguridad"
+>
+
+  <div class="uf-card__header">
+
+    <div>
+      <span class="uf-section-eyebrow">
+        Seguridad de la cuenta
+      </span>
+
+      <h2>Acceso y recuperación</h2>
+    </div>
+
+    <p>
+      Administre el restablecimiento de contraseña y comparta
+      el enlace de acceso correspondiente al Sistema FALCO®.
+    </p>
+
+  </div>
+
+
+  <div class="uf-security-grid">
+
+    <!-- CORREO REGISTRADO -->
+
+    <article class="uf-security-item">
+
+      <div class="uf-security-item__icon">
+        ✉️
+      </div>
+
+      <div class="uf-security-item__content">
+
+        <span class="uf-security-label">
+          Correo registrado
+        </span>
+
+        <strong id="seguridadEmail">
+          correo@ejemplo.com
+        </strong>
+
+        <small>
+          El enlace de recuperación se enviará a esta dirección.
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <!-- CONTRASEÑA -->
+
+    <article class="uf-security-item">
+
+      <div class="uf-security-item__icon">
+        🔐
+      </div>
+
+      <div class="uf-security-item__content">
+
+        <span class="uf-security-label">
+          Contraseña
+        </span>
+
+        <strong class="uf-security-password">
+          ••••••••••••
+        </strong>
+
+        <small>
+          Las contraseñas no pueden visualizarse ni recuperarse
+          desde el panel administrativo.
+        </small>
+
+      </div>
+
+    </article>
+
+
+    <!-- RESTABLECIMIENTO -->
+
+    <article class="uf-security-action">
+
+      <div>
+
+        <span class="uf-security-label">
+          Recuperación de acceso
+        </span>
+
+        <h3>
+          Restablecer contraseña
+        </h3>
+
+        <p>
+          Firebase enviará un correo seguro para que el usuario
+          establezca una contraseña nueva.
+        </p>
+
+      </div>
+
+      <button
+        type="button"
+        class="uf-secondary-button"
+        id="btnRestablecerPassword"
+      >
+        Enviar correo de restablecimiento
+      </button>
+
+    </article>
+
+
+    <!-- ENLACE DE ACCESO -->
+
+    <article class="uf-security-action">
+
+      <div>
+
+        <span class="uf-security-label">
+          Acceso al sistema
+        </span>
+
+        <h3>
+          Enlace institucional
+        </h3>
+
+        <p>
+          Copie el enlace de acceso para compartirlo por correo
+          electrónico o WhatsApp.
+        </p>
+
+        <code
+          class="uf-security-link"
+          id="enlaceAccesoUsuario"
+        >
+          https://periciapsicologicafalco.ar/FALCO-CMS-V2/ecosistema-falco.html#acceso
+        </code>
+
+      </div>
+
+      <button
+        type="button"
+        class="uf-secondary-button"
+        id="btnCopiarEnlaceAcceso"
+      >
+        Copiar enlace de acceso
+      </button>
+
+    </article>
+
+  </div>
+
+</section>
+
 
 
           <!-- PERMISOS -->
