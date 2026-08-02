@@ -316,12 +316,68 @@
         </form>
 
 
-        <a
-          href="#ayuda"
-          class="eco-forgot"
-        >
-          ¿Necesita ayuda para ingresar?
-        </a>
+        <div class="eco-login-links">
+
+  <button
+    type="button"
+    id="btnMostrarRecuperacion"
+    class="eco-forgot-button"
+  >
+    ¿Olvidó su contraseña?
+  </button>
+
+  <a
+    href="#ayuda"
+    class="eco-forgot"
+  >
+    ¿Necesita ayuda para ingresar?
+  </a>
+
+</div>
+
+
+<section
+  id="panelRecuperacion"
+  class="eco-recovery"
+  hidden
+>
+
+  <h3>
+    Recuperar acceso
+  </h3>
+
+  <p>
+    Ingrese el correo asociado a su cuenta.
+    Recibirá un enlace para crear una nueva contraseña.
+  </p>
+
+  <input
+    type="email"
+    id="recoveryEmail"
+    placeholder="correo@ejemplo.com"
+  >
+
+  <div class="eco-recovery-actions">
+
+    <button
+      type="button"
+      id="btnEnviarRecuperacion"
+      class="eco-btn eco-btn--primary"
+    >
+      Enviar enlace
+    </button>
+
+    <button
+      type="button"
+      id="btnCancelarRecuperacion"
+      class="eco-btn eco-btn--secondary"
+    >
+      Cancelar
+    </button>
+
+  </div>
+
+</section>
 
 
         <div class="eco-login-note">

@@ -2364,3 +2364,114 @@ grid-template-columns:1fr;
     justify-content: flex-start;
   }
 }
+
+
+/* =========================================================
+   RECUPERACIÓN DE CONTRASEÑA
+========================================================= */
+
+.eco-login-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.eco-forgot-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #d4bd82;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.eco-forgot-button:hover {
+  color: #f0d99c;
+}
+
+.eco-recovery {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(201, 168, 97, 0.2);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 34, 57, 0.92),
+      rgba(7, 19, 33, 0.98)
+    );
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+}
+
+.eco-recovery[hidden] {
+  display: none !important;
+}
+
+.eco-recovery h3 {
+  margin: 0 0 8px;
+  color: #f7f9fc;
+  font-family: "Playfair Display", serif;
+  font-size: 1.08rem;
+}
+
+.eco-recovery p {
+  margin: 0 0 14px;
+  color: #95a3b2;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.eco-recovery input {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(5, 16, 29, 0.82);
+  color: #f7f9fc;
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.eco-recovery input::placeholder {
+  color: #687789;
+}
+
+.eco-recovery input:focus {
+  border-color: rgba(201, 168, 97, 0.55);
+  box-shadow: 0 0 0 3px rgba(201, 168, 97, 0.09);
+}
+
+.eco-recovery-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.eco-recovery-actions .eco-btn {
+  flex: 1;
+  min-height: 42px;
+  justify-content: center;
+}
+
+@media (max-width: 520px) {
+  .eco-recovery-actions {
+    flex-direction: column;
+  }
+
+  .eco-recovery-actions .eco-btn {
+    width: 100%;
+  }
+}
