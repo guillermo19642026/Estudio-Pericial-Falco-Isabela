@@ -31124,3 +31124,33 @@ letter-spacing: .03em;
   }
 
 }
+
+/* =========================================================
+   ACCESO ÚNICO AL SISTEMA FALCO®
+========================================================= */
+
+.btn-header-sistema {
+  border-color: rgba(201, 168, 97, 0.55);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(201, 168, 97, 0.2),
+      rgba(201, 168, 97, 0.1)
+    );
+  color: #f1d994;
+}
+
+.btn-header-sistema:hover {
+  border-color: rgba(201, 168, 97, 0.8);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(201, 168, 97, 0.3),
+      rgba(201, 168, 97, 0.16)
+    );
+}
+
+.btn-header-solicitud {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.045);
+}
