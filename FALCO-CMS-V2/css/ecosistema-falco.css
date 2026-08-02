@@ -1161,6 +1161,9 @@ input:focus-visible {
 }
 
 
+
+
+
 /* =========================================================
    AYUDA
 ========================================================= */
@@ -1610,5 +1613,754 @@ input:focus-visible {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================================
+   BENEFICIOS DEL SISTEMA FALCO®
+========================================================= */
+
+.eco-benefits {
+  padding: 88px 5%;
+}
+
+.eco-benefits .eco-section-title {
+  max-width: 820px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.eco-benefits .eco-section-title h2 {
+  margin-bottom: 14px;
+}
+
+.eco-benefits .eco-section-title p {
+  margin-bottom: 0;
+  color: var(--eco-text-secondary, #bcc7d4);
+  line-height: 1.75;
+}
+
+.eco-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.eco-benefit-card {
+  position: relative;
+  min-height: 230px;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.78),
+      rgba(8, 21, 38, 0.94)
+    );
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.eco-benefit-card::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(201, 168, 97, 0.12),
+      transparent 30%
+    );
+  pointer-events: none;
+  content: "";
+}
+
+.eco-benefit-card:hover {
+  border-color: rgba(201, 168, 97, 0.28);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 44, 74, 0.86),
+      rgba(8, 21, 38, 0.96)
+    );
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+  transform: translateY(-4px);
+}
+
+.eco-benefit-card__icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(201, 168, 97, 0.28);
+  border-radius: 14px;
+  background: rgba(201, 168, 97, 0.11);
+  color: #ead39a;
+}
+
+.eco-benefit-card__icon svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.8;
+}
+
+.eco-benefit-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 10px;
+  color: #f7f9fc;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.eco-benefit-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #aebac8;
+  font-size: 0.77rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE — BENEFICIOS
+========================================================= */
+
+@media (max-width: 1180px) {
+  .eco-benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .eco-benefits {
+    padding: 68px 20px;
+  }
+
+  .eco-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eco-benefit-card {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   PREGUNTAS FRECUENTES
+========================================================= */
+
+.eco-faq {
+  padding: 88px 5%;
+}
+
+.eco-faq .eco-section-title {
+  max-width: 820px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.eco-faq-list {
+  display: grid;
+  gap: 14px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.eco-faq-item {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.76),
+      rgba(8, 21, 38, 0.94)
+    );
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.eco-faq-item[open] {
+  border-color: rgba(201, 168, 97, 0.28);
+}
+
+.eco-faq-item summary {
+  position: relative;
+  padding: 20px 58px 20px 22px;
+  color: #f7f9fc;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.eco-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.eco-faq-item summary::after {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  color: #d8bc7b;
+  content: "+";
+  font-size: 1.35rem;
+  font-weight: 400;
+  transform: translateY(-50%);
+}
+
+.eco-faq-item[open] summary::after {
+  content: "–";
+}
+
+.eco-faq-item p {
+  margin: 0;
+  padding: 0 22px 22px;
+  color: #aebac8;
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 700px) {
+  .eco-faq {
+    padding: 68px 20px;
+  }
+
+  .eco-faq-item summary {
+    padding: 18px 52px 18px 18px;
+  }
+
+  .eco-faq-item p {
+    padding: 0 18px 19px;
+  }
+}
+
+
+/* =========================================================
+   VISTA PREVIA DEL SISTEMA
+========================================================= */
+
+.eco-preview {
+  padding: 90px 5%;
+}
+
+.eco-preview .eco-section-title {
+  max-width: 820px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.eco-preview .eco-section-title p {
+  margin-bottom: 0;
+  color: #b9c4d1;
+  line-height: 1.75;
+}
+
+.eco-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.eco-preview-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.8),
+      rgba(8, 21, 38, 0.94)
+    );
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.eco-preview-card:hover {
+  border-color: rgba(201, 168, 97, 0.3);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+  transform: translateY(-5px);
+}
+
+.eco-preview-image {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.eco-preview-image img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 320ms ease;
+}
+
+.eco-preview-card:hover .eco-preview-image img {
+  transform: scale(1.025);
+}
+
+.eco-preview-card h3 {
+  margin: 0;
+  padding: 22px 22px 8px;
+  color: #f7f9fc;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.eco-preview-card p {
+  margin: 0;
+  padding: 0 22px 24px;
+  color: #b9c4d1;
+  font-size: 0.77rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE — VISTA PREVIA
+========================================================= */
+
+@media (max-width: 1000px) {
+  .eco-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .eco-preview {
+    padding: 70px 20px;
+  }
+
+  .eco-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eco-preview-image,
+  .eco-preview-image img {
+    min-height: 190px;
+  }
+}
+
+
+/* =========================================================
+   ROLES
+========================================================= */
+
+.eco-roles{
+    padding:90px 5%;
+}
+
+.eco-roles-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+.eco-role-card{
+
+    padding:28px;
+
+    border-radius:18px;
+
+    background:#13233b;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.25s;
+
+}
+
+.eco-role-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#c9a861;
+
+}
+
+.role-admin{
+
+    border:1px solid rgba(201,168,97,.35);
+
+}
+
+.eco-role-card h3{
+
+    margin-bottom:14px;
+
+    color:#fff;
+
+}
+
+.eco-role-card p{
+
+    color:#b8c2ce;
+
+    line-height:1.8;
+
+    font-size:.82rem;
+
+}
+
+@media(max-width:1000px){
+
+.eco-roles-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:700px){
+
+.eco-roles{
+
+padding:70px 20px;
+
+}
+
+.eco-roles-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+/* =========================================================
+   LLAMADO FINAL
+========================================================= */
+
+.eco-final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin: 30px 5% 80px;
+  padding: 36px;
+  border: 1px solid rgba(201, 168, 97, 0.3);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(201, 168, 97, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(17, 38, 64, 0.92),
+      rgba(8, 21, 38, 0.97)
+    );
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.eco-final-cta__content {
+  max-width: 760px;
+}
+
+.eco-final-cta h2 {
+  margin-bottom: 12px;
+  color: #f7f9fc;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.15;
+}
+
+.eco-final-cta p {
+  margin: 0;
+  color: #b9c4d1;
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.eco-final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .eco-final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .eco-final-cta__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .eco-final-cta {
+    margin: 20px 20px 60px;
+    padding: 26px 20px;
+  }
+
+  .eco-final-cta__actions {
+    flex-direction: column;
+  }
+
+  .eco-final-cta__actions .eco-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   FOOTER INSTITUCIONAL
+========================================================= */
+
+.eco-footer {
+  position: relative;
+  padding: 64px 5% 0;
+  border-top: 1px solid rgba(201, 168, 97, 0.18);
+  background:
+    radial-gradient(
+      circle at 15% 0%,
+      rgba(201, 168, 97, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 18, 33, 0.98),
+      rgba(4, 12, 23, 1)
+    );
+}
+
+.eco-footer__main {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 1.45fr)
+    repeat(3, minmax(170px, 0.75fr));
+  gap: 42px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
+.eco-footer__column {
+  min-width: 0;
+}
+
+.eco-footer__column h3 {
+  margin: 0 0 18px;
+  color: #ead39a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.eco-footer__column nav {
+  display: grid;
+  gap: 11px;
+}
+
+.eco-footer__column nav a {
+  width: fit-content;
+  color: #aebac8;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  transition:
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.eco-footer__column nav a:hover {
+  color: #ead39a;
+  transform: translateX(3px);
+}
+
+
+/* IDENTIDAD */
+
+.eco-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: fit-content;
+  margin-bottom: 18px;
+}
+
+.eco-footer__brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.eco-footer__brand div {
+  display: flex;
+  flex-direction: column;
+}
+
+.eco-footer__brand strong {
+  color: #f7f9fc;
+  font-family: "Playfair Display", serif;
+  font-size: 1.08rem;
+}
+
+.eco-footer__brand span {
+  margin-top: 3px;
+  color: #d8bc7b;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eco-footer__column--brand > p {
+  max-width: 470px;
+  margin: 0;
+  color: #92a0b0;
+  font-size: 0.74rem;
+  line-height: 1.75;
+}
+
+.eco-footer__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 20px;
+  color: #aebac8;
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+.eco-footer__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #62ca98;
+  box-shadow: 0 0 0 5px rgba(98, 202, 152, 0.08);
+}
+
+
+/* SEGURIDAD */
+
+.eco-footer__security {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 13px;
+  border: 1px solid rgba(201, 168, 97, 0.14);
+  border-radius: 12px;
+  background: rgba(201, 168, 97, 0.05);
+  color: #aebac8;
+}
+
+.eco-footer__security svg {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  color: #d8bc7b;
+}
+
+.eco-footer__security span {
+  font-size: 0.64rem;
+  line-height: 1.55;
+}
+
+
+/* FRANJA INFERIOR */
+
+.eco-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.eco-footer__bottom p {
+  margin: 0;
+  color: #7f8c9c;
+  font-size: 0.64rem;
+}
+
+.eco-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  color: #7f8c9c;
+  font-size: 0.62rem;
+}
+
+.eco-footer__legal a {
+  color: #bca56e;
+}
+
+.eco-footer__legal a:hover {
+  color: #ead39a;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .eco-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .eco-footer {
+    padding: 52px 20px 0;
+  }
+
+  .eco-footer__main {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .eco-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .eco-footer__legal {
+    justify-content: flex-start;
   }
 }
