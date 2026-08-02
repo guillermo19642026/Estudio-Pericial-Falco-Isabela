@@ -90,6 +90,10 @@ const filtroRol =
 const filtroEstado =
   document.getElementById("filtroEstado");
 
+const ordenUsuarios =
+  document.getElementById("ordenUsuarios");
+
+
 const mensajeSistema =
   document.getElementById("mensajeSistema");
 
@@ -232,6 +236,43 @@ function formatearFechaFirestore(valor) {
       minute: "2-digit"
     }
   );
+}
+
+
+function obtenerFechaUsuario(usuario) {
+  const valor =
+    usuario.fechaCreacion ||
+    usuario.createdAt ||
+    usuario.fechaRegistro ||
+    null;
+
+  if (!valor) {
+    return 0;
+  }
+
+  if (typeof valor.toMillis === "function") {
+    return valor.toMillis();
+  }
+
+  if (typeof valor.toDate === "function") {
+    return valor.toDate().getTime();
+  }
+
+  if (
+    typeof valor === "object" &&
+    Number.isFinite(valor.seconds)
+  ) {
+    return valor.seconds * 1000;
+  }
+
+  const fecha =
+    valor instanceof Date
+      ? valor
+      : new Date(valor);
+
+  return Number.isNaN(fecha.getTime())
+    ? 0
+    : fecha.getTime();
 }
 
 
@@ -533,6 +574,21 @@ function crearFilaUsuario(usuario) {
   const principal =
     esAdministradorPrincipal(usuario);
 
+    const fechaCreacion =
+  obtenerFechaUsuario(usuario);
+
+const fechaCreacionTexto =
+  fechaCreacion
+    ? new Date(fechaCreacion).toLocaleDateString(
+        "es-AR",
+        {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+        }
+      )
+    : "No registrada";
+
 const fechaArchivado =
   archivado
     ? formatearFechaFirestore(
@@ -604,9 +660,9 @@ const archivadoPor =
             ${escaparHTML(nombre)}
           </strong>
 
-          <small>
-            UID: ${escaparHTML(usuario.uid.slice(0, 12))}…
-          </small>
+         <small>
+  Creado: ${escaparHTML(fechaCreacionTexto)}
+</small>
 
         </span>
 
@@ -694,7 +750,6 @@ const archivadoPor =
 /* =========================================================
    FILTROS
 ========================================================= */
-
 function obtenerUsuariosFiltrados() {
   const texto =
     normalizarTexto(buscarUsuario?.value);
@@ -707,63 +762,113 @@ function obtenerUsuariosFiltrados() {
       filtroEstado?.value || "activos"
     );
 
-  return usuariosCargados.filter((usuario) => {
-    const nombre =
-      normalizarTexto(
-        obtenerNombreUsuario(usuario)
+  const ordenSeleccionado =
+    normalizarTexto(
+      ordenUsuarios?.value || "recientes"
+    );
+
+  const usuariosFiltrados =
+    usuariosCargados.filter((usuario) => {
+      const nombre =
+        normalizarTexto(
+          obtenerNombreUsuario(usuario)
+        );
+
+      const email =
+        normalizarTexto(usuario.email);
+
+      const rol =
+        normalizarRol(usuario.rol);
+
+      const uid =
+        normalizarTexto(usuario.uid);
+
+      const archivado =
+        usuarioEstaArchivado(usuario);
+
+      const activo =
+        usuarioEstaActivo(usuario);
+
+      const coincideTexto =
+        !texto ||
+        nombre.includes(texto) ||
+        email.includes(texto) ||
+        rol.includes(texto) ||
+        uid.includes(texto);
+
+      const coincideRol =
+        !rolSeleccionado ||
+        rol === rolSeleccionado;
+
+      let coincideEstado = true;
+
+      if (estadoSeleccionado === "activos") {
+        coincideEstado =
+          !archivado && activo;
+      }
+
+      if (estadoSeleccionado === "inactivos") {
+        coincideEstado =
+          !archivado && !activo;
+      }
+
+      if (estadoSeleccionado === "archivados") {
+        coincideEstado =
+          archivado;
+      }
+
+      if (estadoSeleccionado === "todos") {
+        coincideEstado = true;
+      }
+
+      return (
+        coincideTexto &&
+        coincideRol &&
+        coincideEstado
       );
+    });
 
-    const email =
-      normalizarTexto(usuario.email);
-
-    const rol =
-      normalizarRol(usuario.rol);
-
-    const uid =
-      normalizarTexto(usuario.uid);
-
-    const archivado =
-      usuarioEstaArchivado(usuario);
-
-    const activo =
-      usuarioEstaActivo(usuario);
-
-    const coincideTexto =
-      !texto ||
-      nombre.includes(texto) ||
-      email.includes(texto) ||
-      rol.includes(texto) ||
-      uid.includes(texto);
-
-    const coincideRol =
-      !rolSeleccionado ||
-      rol === rolSeleccionado;
-
-    let coincideEstado = true;
-
-    if (estadoSeleccionado === "activos") {
-      coincideEstado =
-        !archivado && activo;
+  return usuariosFiltrados.sort((a, b) => {
+    if (ordenSeleccionado === "antiguos") {
+      return (
+        obtenerFechaUsuario(a) -
+        obtenerFechaUsuario(b)
+      );
     }
 
-    if (estadoSeleccionado === "inactivos") {
-      coincideEstado =
-        !archivado && !activo;
+    if (ordenSeleccionado === "nombre-asc") {
+      return obtenerNombreUsuario(a)
+        .localeCompare(
+          obtenerNombreUsuario(b),
+          "es",
+          { sensitivity: "base" }
+        );
     }
 
-    if (estadoSeleccionado === "archivados") {
-      coincideEstado =
-        archivado;
+    if (ordenSeleccionado === "nombre-desc") {
+      return obtenerNombreUsuario(b)
+        .localeCompare(
+          obtenerNombreUsuario(a),
+          "es",
+          { sensitivity: "base" }
+        );
     }
 
-    if (estadoSeleccionado === "todos") {
-      coincideEstado = true;
+    if (ordenSeleccionado === "rol") {
+      return traducirRol(
+        normalizarRol(a.rol)
+      ).localeCompare(
+        traducirRol(
+          normalizarRol(b.rol)
+        ),
+        "es",
+        { sensitivity: "base" }
+      );
     }
 
     return (
-      coincideTexto &&
-      coincideRol &&
-      coincideEstado
+      obtenerFechaUsuario(b) -
+      obtenerFechaUsuario(a)
     );
   });
 }
@@ -1805,6 +1910,12 @@ filtroRol?.addEventListener(
 
 
 filtroEstado?.addEventListener(
+  "change",
+  renderizarUsuarios
+);
+
+
+ordenUsuarios?.addEventListener(
   "change",
   renderizarUsuarios
 );

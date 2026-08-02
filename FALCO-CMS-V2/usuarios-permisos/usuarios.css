@@ -977,28 +977,39 @@ p {
 
 .up-table th:nth-child(2),
 .up-table td:nth-child(2) {
-  width: 20%;
+  width: 19%;
 }
 
 .up-table th:nth-child(3),
 .up-table td:nth-child(3) {
-  width: 11%;
+  width: 13%;
 }
 
 .up-table th:nth-child(4),
 .up-table td:nth-child(4) {
-  width: 21%;
+  width: 20%;
 }
 
 .up-table th:nth-child(5),
 .up-table td:nth-child(5) {
-  width: 9%;
+  width: 11%;
 }
 
 .up-table th:nth-child(6),
 .up-table td:nth-child(6) {
-  width: 19%;
+  width: 17%;
 }
+
+.up-table th:nth-child(5) {
+  white-space: nowrap;
+}
+
+.up-table td:nth-child(3) .up-badge {
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
 
 .up-user-cell {
   min-width: 0;
@@ -1472,4 +1483,111 @@ p {
   .up-form-actions .up-secondary-button {
     width: 100%;
   }
+}
+
+
+/* =========================================================
+   BADGES DE ROLES
+========================================================= */
+
+.up-table td:nth-child(3) {
+  vertical-align: middle;
+}
+
+.up-table td:nth-child(3) .up-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 108px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  text-align: center;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+
+/* ADMINISTRADOR */
+
+.up-badge--admin {
+  border-color: rgba(223, 121, 121, 0.34);
+  background: rgba(223, 121, 121, 0.12);
+  color: #f0a5a5;
+}
+
+
+/* PROFESIONAL */
+
+.up-badge--professional {
+  border-color: rgba(102, 166, 224, 0.34);
+  background: rgba(102, 166, 224, 0.12);
+  color: #9ac8ef;
+}
+
+
+/* PERITO */
+
+.up-badge--perito {
+  border-color: rgba(164, 128, 218, 0.34);
+  background: rgba(164, 128, 218, 0.12);
+  color: #c6a7ec;
+}
+
+
+/* PERICIADO */
+
+.up-badge--periciado {
+  border-color: rgba(91, 190, 147, 0.34);
+  background: rgba(91, 190, 147, 0.12);
+  color: #91dbb9;
+}
+
+
+/* ALUMNO */
+
+.up-badge--alumno {
+  border-color: rgba(219, 183, 94, 0.34);
+  background: rgba(219, 183, 94, 0.12);
+  color: #e4ca83;
+}
+
+
+/* BIBLIOTECA */
+
+.up-badge--biblioteca {
+  border-color: rgba(141, 151, 164, 0.34);
+  background: rgba(141, 151, 164, 0.12);
+  color: #bec7d1;
+}
+
+
+/* INFORME */
+
+.up-badge--informe {
+  border-color: rgba(91, 180, 190, 0.34);
+  background: rgba(91, 180, 190, 0.12);
+  color: #9bd4da;
+}
+
+
+/* SIN ROL */
+
+.up-table td:nth-child(3) .up-badge:not(
+  .up-badge--admin,
+  .up-badge--professional,
+  .up-badge--perito,
+  .up-badge--periciado,
+  .up-badge--alumno,
+  .up-badge--biblioteca,
+  .up-badge--informe
+) {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #8996a5;
 }
