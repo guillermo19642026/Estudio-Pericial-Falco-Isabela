@@ -21,13 +21,22 @@ Funciones:
 
 import {
   auth,
-  db
+  db,
+  firebaseConfig
 } from "../../firebase-config.js";
 
 
 import {
+  initializeApp,
+  deleteApp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+
+
+import {
   onAuthStateChanged,
-  signOut
+  signOut,
+  getAuth,
+  createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 
@@ -36,6 +45,7 @@ import {
   getDocs,
   doc,
   getDoc,
+  setDoc,
   updateDoc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -101,6 +111,54 @@ const totalProfesionales =
 const totalOtros =
   document.getElementById("totalOtros");
 
+  const totalArchivados =
+  document.getElementById("totalArchivados");
+
+  const tabUsuarios =
+  document.getElementById("tabUsuarios");
+
+const tabNuevoUsuario =
+  document.getElementById("tabNuevoUsuario");
+
+const panelUsuarios =
+  document.getElementById("panelUsuarios");
+
+const panelNuevoUsuario =
+  document.getElementById("panelNuevoUsuario");
+
+const btnVolverUsuarios =
+  document.getElementById("btnVolverUsuarios");
+
+const btnCancelarNuevoUsuario =
+  document.getElementById("btnCancelarNuevoUsuario");
+
+const formNuevoUsuario =
+  document.getElementById("formNuevoUsuario");
+
+const nuevoNombre =
+  document.getElementById("nuevoNombre");
+
+const nuevoEmail =
+  document.getElementById("nuevoEmail");
+
+const nuevoRol =
+  document.getElementById("nuevoRol");
+
+const nuevoEstado =
+  document.getElementById("nuevoEstado");
+
+const nuevaPassword =
+  document.getElementById("nuevaPassword");
+
+const btnGenerarPassword =
+  document.getElementById("btnGenerarPassword");
+
+const btnPermisosRol =
+  document.getElementById("btnPermisosRol");
+
+const btnLimpiarPermisos =
+  document.getElementById("btnLimpiarPermisos");
+
 
 /* =========================================================
    ESTADO
@@ -134,6 +192,46 @@ function escaparHTML(valor) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+
+function formatearFechaFirestore(valor) {
+  if (!valor) {
+    return "Fecha no registrada";
+  }
+
+  let fecha = null;
+
+  if (typeof valor.toDate === "function") {
+    fecha = valor.toDate();
+  } else if (valor instanceof Date) {
+    fecha = valor;
+  } else if (typeof valor === "string") {
+    fecha = new Date(valor);
+  } else if (
+    typeof valor === "object" &&
+    Number.isFinite(valor.seconds)
+  ) {
+    fecha = new Date(valor.seconds * 1000);
+  }
+
+  if (
+    !fecha ||
+    Number.isNaN(fecha.getTime())
+  ) {
+    return "Fecha no registrada";
+  }
+
+  return fecha.toLocaleString(
+    "es-AR",
+    {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }
+  );
 }
 
 
@@ -326,6 +424,13 @@ function actualizarIndicadores(usuarios) {
   const cantidadTotal =
     usuariosNoArchivados.length;
 
+
+    const cantidadArchivados =
+  usuarios.filter(
+    (usuario) =>
+      usuarioEstaArchivado(usuario)
+  ).length;
+
   const cantidadAdmins =
     usuariosNoArchivados.filter(
       (usuario) =>
@@ -362,6 +467,11 @@ function actualizarIndicadores(usuarios) {
     totalOtros.textContent =
       cantidadOtros.toLocaleString("es-AR");
   }
+
+  if (totalArchivados) {
+  totalArchivados.textContent =
+    cantidadArchivados.toLocaleString("es-AR");
+}
 }
 
 
@@ -422,6 +532,22 @@ function crearFilaUsuario(usuario) {
 
   const principal =
     esAdministradorPrincipal(usuario);
+
+const fechaArchivado =
+  archivado
+    ? formatearFechaFirestore(
+        usuario.fechaArchivado
+      )
+    : "";
+
+const archivadoPor =
+  archivado
+    ? (
+        usuario.archivadoPor ||
+        "Administrador no registrado"
+      )
+    : "";
+
 
   const botonArchivo = principal
     ? `
@@ -502,11 +628,34 @@ function crearFilaUsuario(usuario) {
       </span>
     </td>
 
-    <td>
-      <span class="up-status ${estado.clase}">
-        ${estado.texto}
-      </span>
-    </td>
+   <td>
+  <div class="up-status-cell">
+
+    <span class="up-status ${estado.clase}">
+      ${estado.texto}
+    </span>
+
+    ${
+      archivado
+        ? `
+          <span class="up-archive-detail">
+            <strong>Archivado:</strong>
+            ${escaparHTML(fechaArchivado)}
+          </span>
+
+          <span
+            class="up-archive-detail"
+            title="${escaparHTML(archivadoPor)}"
+          >
+            <strong>Por:</strong>
+            ${escaparHTML(archivadoPor)}
+          </span>
+        `
+        : ""
+    }
+
+  </div>
+</td>
 
     <td>
       <span class="up-badge">
@@ -742,6 +891,10 @@ async function archivarUsuario(uid) {
       administradorActual?.email ||
       ADMIN_EMAIL;
 
+usuario.fechaArchivado =
+  new Date();
+
+
     actualizarIndicadores(
       usuariosCargados
     );
@@ -828,6 +981,10 @@ async function restaurarUsuario(uid) {
 
     usuario.archivado = false;
     usuario.activo = true;
+
+usuario.fechaArchivado = null;
+usuario.archivadoPor = null;
+
     usuario.restauradoPor =
       administradorActual?.email ||
       ADMIN_EMAIL;
@@ -1081,10 +1238,547 @@ async function cerrarSesion() {
   }
 }
 
+/* =========================================================
+   NAVEGACIÓN POR PESTAÑAS
+========================================================= */
+
+function mostrarPanel(nombrePanel) {
+  const mostrarUsuarios =
+    nombrePanel === "usuarios";
+
+  if (panelUsuarios) {
+    panelUsuarios.hidden =
+      !mostrarUsuarios;
+
+    panelUsuarios.classList.toggle(
+      "is-active",
+      mostrarUsuarios
+    );
+  }
+
+  if (panelNuevoUsuario) {
+    panelNuevoUsuario.hidden =
+      mostrarUsuarios;
+
+    panelNuevoUsuario.classList.toggle(
+      "is-active",
+      !mostrarUsuarios
+    );
+  }
+
+  if (tabUsuarios) {
+    tabUsuarios.classList.toggle(
+      "is-active",
+      mostrarUsuarios
+    );
+
+    tabUsuarios.setAttribute(
+      "aria-selected",
+      String(mostrarUsuarios)
+    );
+  }
+
+  if (tabNuevoUsuario) {
+    tabNuevoUsuario.classList.toggle(
+      "is-active",
+      !mostrarUsuarios
+    );
+
+    tabNuevoUsuario.setAttribute(
+      "aria-selected",
+      String(!mostrarUsuarios)
+    );
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+/* =========================================================
+   CONTRASEÑA TEMPORAL
+========================================================= */
+
+function generarPasswordTemporal() {
+  const mayusculas =
+    "ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+  const minusculas =
+    "abcdefghijkmnopqrstuvwxyz";
+
+  const numeros =
+    "23456789";
+
+  const simbolos =
+    "!@#$%";
+
+  const todos =
+    mayusculas +
+    minusculas +
+    numeros +
+    simbolos;
+
+  let password =
+    mayusculas[
+      Math.floor(
+        Math.random() *
+        mayusculas.length
+      )
+    ] +
+    minusculas[
+      Math.floor(
+        Math.random() *
+        minusculas.length
+      )
+    ] +
+    numeros[
+      Math.floor(
+        Math.random() *
+        numeros.length
+      )
+    ] +
+    simbolos[
+      Math.floor(
+        Math.random() *
+        simbolos.length
+      )
+    ];
+
+  while (password.length < 12) {
+    password +=
+      todos[
+        Math.floor(
+          Math.random() *
+          todos.length
+        )
+      ];
+  }
+
+  password = password
+    .split("")
+    .sort(() => Math.random() - 0.5)
+    .join("");
+
+  if (nuevaPassword) {
+    nuevaPassword.value =
+      password;
+
+    nuevaPassword.focus();
+    nuevaPassword.select();
+  }
+}
+
+
+/* =========================================================
+   PERMISOS SUGERIDOS POR ROL
+========================================================= */
+
+const PERMISOS_POR_ROL = {
+  admin: [
+    "centroProfesional",
+    "gestionPericiados",
+    "evaluaciones",
+    "documentacionPericiados",
+    "biblioteca",
+    "campus",
+    "escuela",
+    "admision",
+    "comunidad",
+    "administracion"
+  ],
+
+  profesional: [
+    "centroProfesional",
+    "gestionPericiados",
+    "evaluaciones",
+    "documentacionPericiados",
+    "biblioteca",
+    "campus"
+  ],
+
+  perito: [
+    "centroProfesional",
+    "gestionPericiados",
+    "evaluaciones",
+    "documentacionPericiados",
+    "biblioteca",
+    "campus"
+  ],
+
+  periciado: [
+    "evaluaciones",
+    "documentacionPericiados"
+  ],
+
+  alumno: [
+    "campus",
+    "escuela",
+    "biblioteca"
+  ],
+
+  biblioteca: [
+    "biblioteca"
+  ],
+
+  informe: [
+    "evaluaciones",
+    "documentacionPericiados"
+  ]
+};
+
+
+function obtenerChecksPermisos() {
+  return [
+    ...document.querySelectorAll(
+      '#formNuevoUsuario input[name="permisos"]'
+    )
+  ];
+}
+
+
+function limpiarPermisosSeleccionados() {
+  obtenerChecksPermisos()
+    .forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+}
+
+
+function aplicarPermisosSugeridos() {
+  const rol =
+    normalizarRol(
+      nuevoRol?.value
+    );
+
+  limpiarPermisosSeleccionados();
+
+  const permisosSugeridos =
+    PERMISOS_POR_ROL[rol] || [];
+
+  obtenerChecksPermisos()
+    .forEach((checkbox) => {
+      checkbox.checked =
+        permisosSugeridos.includes(
+          checkbox.value
+        );
+    });
+}
+
+/* =========================================================
+   DATOS DEL NUEVO USUARIO
+========================================================= */
+
+function obtenerPermisosSeleccionados() {
+  const permisos = {};
+
+  obtenerChecksPermisos().forEach((checkbox) => {
+    permisos[checkbox.value] =
+      checkbox.checked;
+  });
+
+  return permisos;
+}
+
+
+function validarFormularioNuevoUsuario() {
+  const nombre =
+    String(nuevoNombre?.value || "")
+      .trim();
+
+  const email =
+    String(nuevoEmail?.value || "")
+      .trim()
+      .toLowerCase();
+
+  const rol =
+    normalizarRol(nuevoRol?.value);
+
+  const password =
+    String(nuevaPassword?.value || "");
+
+  if (!nombre) {
+    throw new Error(
+      "Ingrese el nombre completo."
+    );
+  }
+
+  if (!email) {
+    throw new Error(
+      "Ingrese el correo electrónico."
+    );
+  }
+
+  if (!nuevoEmail?.checkValidity()) {
+    throw new Error(
+      "Ingrese un correo electrónico válido."
+    );
+  }
+
+  if (!rol) {
+    throw new Error(
+      "Seleccione un rol."
+    );
+  }
+
+  if (password.length < 8) {
+    throw new Error(
+      "La contraseña debe tener al menos 8 caracteres."
+    );
+  }
+
+  return {
+    nombre,
+    email,
+    rol,
+    password,
+
+    activo:
+      nuevoEstado?.value !== "inactivo",
+
+    permisos:
+      obtenerPermisosSeleccionados()
+  };
+}
+
+
+/* =========================================================
+   CREAR USUARIO
+========================================================= */
+
+async function crearNuevoUsuario() {
+  let appSecundaria = null;
+  let authSecundaria = null;
+
+  const btnCrearUsuario =
+    document.getElementById(
+      "btnCrearUsuario"
+    );
+
+  const textoOriginal =
+    btnCrearUsuario?.textContent ||
+    "Crear usuario";
+
+  try {
+    const datos =
+      validarFormularioNuevoUsuario();
+
+    if (btnCrearUsuario) {
+      btnCrearUsuario.disabled = true;
+      btnCrearUsuario.textContent =
+        "Creando usuario...";
+    }
+
+    ocultarMensaje();
+
+    const nombreInstancia =
+      `falco-alta-${Date.now()}`;
+
+    appSecundaria =
+      initializeApp(
+        firebaseConfig,
+        nombreInstancia
+      );
+
+    authSecundaria =
+      getAuth(appSecundaria);
+
+    const credencial =
+      await createUserWithEmailAndPassword(
+        authSecundaria,
+        datos.email,
+        datos.password
+      );
+
+    const usuarioCreado =
+      credencial.user;
+
+    await setDoc(
+      doc(
+        db,
+        "usuarios",
+        usuarioCreado.uid
+      ),
+      {
+        nombreCompleto:
+          datos.nombre,
+
+        email:
+          datos.email,
+
+        rol:
+          datos.rol,
+
+        activo:
+          datos.activo,
+
+        habilitado:
+          datos.activo,
+
+        archivado:
+          false,
+
+        permisos:
+          datos.permisos,
+
+        usado:
+          false,
+
+        creadoPor:
+          administradorActual?.email ||
+          ADMIN_EMAIL,
+
+        fechaCreacion:
+          serverTimestamp(),
+
+        fechaActualizacion:
+          serverTimestamp()
+      }
+    );
+
+    await signOut(authSecundaria);
+
+    formNuevoUsuario?.reset();
+
+    limpiarPermisosSeleccionados();
+
+    await cargarUsuarios();
+
+    mostrarPanel("usuarios");
+
+    mostrarMensaje(
+      `El usuario ${datos.email} fue creado correctamente.`,
+      "success"
+    );
+
+  } catch (error) {
+    console.error(
+      "FALCO® Usuarios: error al crear usuario.",
+      error
+    );
+
+    const mensajes = {
+      "auth/email-already-in-use":
+        "Ya existe un usuario con ese correo electrónico.",
+
+      "auth/invalid-email":
+        "El correo electrónico no es válido.",
+
+      "auth/weak-password":
+        "La contraseña es demasiado débil.",
+
+      "auth/operation-not-allowed":
+        "La creación mediante correo y contraseña no está habilitada."
+    };
+
+    mostrarMensaje(
+      mensajes[error?.code] ||
+      error?.message ||
+      "No fue posible crear el usuario.",
+      "error"
+    );
+
+  } finally {
+    if (
+      authSecundaria?.currentUser
+    ) {
+      try {
+        await signOut(
+          authSecundaria
+        );
+      } catch (error) {
+        console.warn(
+          "No se pudo cerrar la sesión secundaria.",
+          error
+        );
+      }
+    }
+
+    if (appSecundaria) {
+      try {
+        await deleteApp(
+          appSecundaria
+        );
+      } catch (error) {
+        console.warn(
+          "No se pudo eliminar la instancia secundaria.",
+          error
+        );
+      }
+    }
+
+    if (btnCrearUsuario) {
+      btnCrearUsuario.disabled = false;
+      btnCrearUsuario.textContent =
+        textoOriginal;
+    }
+  }
+}
+
+
 
 /* =========================================================
    EVENTOS
 ========================================================= */
+
+tabUsuarios?.addEventListener(
+  "click",
+  () => {
+    mostrarPanel("usuarios");
+  }
+);
+
+
+tabNuevoUsuario?.addEventListener(
+  "click",
+  () => {
+    mostrarPanel("nuevo");
+  }
+);
+
+
+btnVolverUsuarios?.addEventListener(
+  "click",
+  () => {
+    mostrarPanel("usuarios");
+  }
+);
+
+
+btnCancelarNuevoUsuario?.addEventListener(
+  "click",
+  () => {
+    formNuevoUsuario?.reset();
+    limpiarPermisosSeleccionados();
+    mostrarPanel("usuarios");
+  }
+);
+
+
+btnGenerarPassword?.addEventListener(
+  "click",
+  generarPasswordTemporal
+);
+
+
+btnPermisosRol?.addEventListener(
+  "click",
+  aplicarPermisosSugeridos
+);
+
+
+btnLimpiarPermisos?.addEventListener(
+  "click",
+  limpiarPermisosSeleccionados
+);
+
+
+nuevoRol?.addEventListener(
+  "change",
+  aplicarPermisosSugeridos
+);
+
 
 btnCerrarSesion?.addEventListener(
   "click",
@@ -1119,6 +1813,16 @@ filtroEstado?.addEventListener(
 usuariosTabla?.addEventListener(
   "click",
   procesarAccionTabla
+);
+
+
+formNuevoUsuario?.addEventListener(
+  "submit",
+  async (evento) => {
+    evento.preventDefault();
+
+    await crearNuevoUsuario();
+  }
 );
 
 

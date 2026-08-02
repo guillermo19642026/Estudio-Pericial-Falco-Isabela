@@ -176,179 +176,570 @@
           >
             Actualizar listado
           </button>
-
         </section>
 
 
-        <!-- INDICADORES -->
+        <!-- =================================================
+             NAVEGACIÓN DEL CENTRO DE USUARIOS
+        ================================================== -->
 
-        <section
-          class="up-kpis"
-          id="indicadores"
-          aria-label="Indicadores de usuarios"
+        <nav
+          class="up-tabs"
+          aria-label="Secciones de administración de usuarios"
         >
 
-          <article class="up-kpi">
-            <span>Usuarios registrados</span>
-            <strong id="totalUsuarios">—</strong>
-          </article>
+          <button
+            type="button"
+            class="up-tab is-active"
+            id="tabUsuarios"
+            data-tab="usuarios"
+            aria-selected="true"
+          >
+            <span class="up-tab__icon" aria-hidden="true">
+              👥
+            </span>
 
-          <article class="up-kpi">
-            <span>Administradores</span>
-            <strong id="totalAdmins">—</strong>
-          </article>
-
-          <article class="up-kpi">
-            <span>Profesionales</span>
-            <strong id="totalProfesionales">—</strong>
-          </article>
-
-          <article class="up-kpi">
-            <span>Otros perfiles</span>
-            <strong id="totalOtros">—</strong>
-          </article>
-
-        </section>
+            <span>
+              Usuarios
+            </span>
+          </button>
 
 
-        <!-- FILTROS -->
+          <button
+            type="button"
+            class="up-tab"
+            id="tabNuevoUsuario"
+            data-tab="nuevo"
+            aria-selected="false"
+          >
+            <span class="up-tab__icon" aria-hidden="true">
+              ➕
+            </span>
 
-        <section class="up-filters">
+            <span>
+              Nuevo usuario
+            </span>
+          </button>
 
-          <div class="up-search">
 
-            <label for="buscarUsuario">
-              Buscar usuario
+          <button
+            type="button"
+            class="up-tab"
+            id="tabHistorial"
+            data-tab="historial"
+            aria-selected="false"
+            disabled
+            title="Disponible próximamente"
+          >
+            <span class="up-tab__icon" aria-hidden="true">
+              📜
+            </span>
+
+            <span>
+              Historial
+            </span>
+
+            <small>
+              Próximamente
+            </small>
+          </button>
+
+        </nav>
+
+        <!-- MENSAJE DEL SISTEMA -->
+
+<section
+  class="up-message"
+  id="mensajeSistema"
+  role="status"
+  hidden
+></section>
+
+
+
+ <section
+  id="panelUsuarios"
+  class="up-tab-panel is-active"
+  data-panel="usuarios"
+>
+
+  <!-- INDICADORES -->
+
+  <section
+    class="up-kpis"
+    id="indicadores"
+    aria-label="Indicadores de usuarios"
+  >
+
+    <article class="up-kpi">
+      <span>Usuarios registrados</span>
+      <strong id="totalUsuarios">—</strong>
+    </article>
+
+    <article class="up-kpi">
+      <span>Administradores</span>
+      <strong id="totalAdmins">—</strong>
+    </article>
+
+    <article class="up-kpi">
+      <span>Profesionales</span>
+      <strong id="totalProfesionales">—</strong>
+    </article>
+
+    <article class="up-kpi">
+      <span>Otros perfiles</span>
+      <strong id="totalOtros">—</strong>
+    </article>
+
+    <article class="up-kpi up-kpi--archived">
+      <span>Usuarios archivados</span>
+      <strong id="totalArchivados">—</strong>
+    </article>
+
+  </section>
+
+
+  <!-- FILTROS -->
+
+  <section class="up-filters">
+
+    <div class="up-search">
+
+      <label for="buscarUsuario">
+        Buscar usuario
+      </label>
+
+      <input
+        type="search"
+        id="buscarUsuario"
+        placeholder="Nombre, correo, rol o UID..."
+        autocomplete="off"
+      >
+
+    </div>
+
+
+    <div class="up-filter">
+
+      <label for="filtroRol">
+        Filtrar por rol
+      </label>
+
+      <select id="filtroRol">
+        <option value="">Todos los roles</option>
+        <option value="admin">Administrador</option>
+        <option value="profesional">Profesional</option>
+        <option value="perito">Perito</option>
+        <option value="periciado">Periciado</option>
+        <option value="alumno">Alumno</option>
+        <option value="biblioteca">Biblioteca</option>
+        <option value="informe">Informe</option>
+      </select>
+
+    </div>
+
+
+    <div class="up-filter">
+
+      <label for="filtroEstado">
+        Filtrar por estado
+      </label>
+
+      <select id="filtroEstado">
+        <option value="activos">Activos</option>
+        <option value="inactivos">Inactivos</option>
+        <option value="archivados">Archivados</option>
+        <option value="todos">Todos</option>
+      </select>
+
+    </div>
+
+  </section>
+
+
+ 
+
+
+  <!-- TABLA -->
+
+  <section
+    class="up-table-section"
+    id="listado"
+  >
+
+    <div class="up-table-header">
+
+      <div>
+        <span class="up-section-eyebrow">
+          Usuarios registrados
+        </span>
+
+        <h2>Listado general</h2>
+      </div>
+
+      <span id="resultadoCantidad">
+        0 usuarios
+      </span>
+
+    </div>
+
+
+    <div class="up-table-wrapper">
+
+      <table class="up-table">
+
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Permisos</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody id="usuariosTabla">
+
+          <tr>
+            <td
+              colspan="6"
+              class="up-loading"
+            >
+              Verificando sesión...
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</section>
+
+
+<!-- ===================================================
+     PANEL NUEVO USUARIO
+==================================================== -->
+
+<section
+  id="panelNuevoUsuario"
+  class="up-tab-panel"
+  data-panel="nuevo"
+  hidden
+>
+
+  <div class="up-form-card">
+
+    <div class="up-form-header">
+
+      <div>
+        <span class="up-section-eyebrow">
+          Alta de usuario
+        </span>
+
+        <h2>
+          Crear nuevo usuario
+        </h2>
+
+        <p>
+          Complete los datos básicos, seleccione el rol y configure
+          los accesos iniciales del nuevo usuario del Sistema FALCO®.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="up-secondary-button"
+        id="btnVolverUsuarios"
+      >
+        ← Volver al listado
+      </button>
+
+    </div>
+
+
+    <form
+      id="formNuevoUsuario"
+      class="up-user-form"
+      novalidate
+    >
+
+      <fieldset class="up-form-section">
+
+        <legend>
+          Información principal
+        </legend>
+
+        <div class="up-form-grid">
+
+          <div class="up-field up-field--wide">
+
+            <label for="nuevoNombre">
+              Nombre completo
             </label>
 
             <input
-              type="search"
-              id="buscarUsuario"
-              placeholder="Nombre, correo, rol o UID..."
-              autocomplete="off"
+              type="text"
+              id="nuevoNombre"
+              name="nombreCompleto"
+              placeholder="Nombre y apellido"
+              autocomplete="name"
+              required
             >
 
           </div>
 
 
-         <div class="up-filter">
+          <div class="up-field up-field--wide">
 
-  <label for="filtroRol">
-    Filtrar por rol
-  </label>
+            <label for="nuevoEmail">
+              Correo electrónico
+            </label>
 
-  <select id="filtroRol">
-    <option value="">Todos los roles</option>
-    <option value="admin">Administrador</option>
-    <option value="profesional">Profesional</option>
-    <option value="perito">Perito</option>
-    <option value="periciado">Periciado</option>
-    <option value="alumno">Alumno</option>
-    <option value="biblioteca">Biblioteca</option>
-    <option value="informe">Informe</option>
-  </select>
+            <input
+              type="email"
+              id="nuevoEmail"
+              name="email"
+              placeholder="usuario@correo.com"
+              autocomplete="email"
+              required
+            >
 
-</div>
+          </div>
 
 
-<div class="up-filter">
+          <div class="up-field">
 
-  <label for="filtroEstado">
-    Filtrar por estado
-  </label>
+            <label for="nuevoRol">
+              Rol principal
+            </label>
 
-  <select id="filtroEstado">
-    <option value="activos">
-      Activos
-    </option>
+            <select
+              id="nuevoRol"
+              name="rol"
+              required
+            >
+              <option value="">
+                Seleccionar rol
+              </option>
+              <option value="profesional">Profesional</option>
+              <option value="perito">Perito</option>
+              <option value="periciado">Periciado</option>
+              <option value="alumno">Alumno</option>
+              <option value="biblioteca">Biblioteca</option>
+              <option value="informe">Informe</option>
+              <option value="admin">Administrador</option>
+            </select>
 
-    <option value="inactivos">
-      Inactivos
-    </option>
+          </div>
 
-    <option value="archivados">
-      Archivados
-    </option>
 
-    <option value="todos">
-      Todos
-    </option>
-  </select>
+          <div class="up-field">
 
-</div>
+            <label for="nuevoEstado">
+              Estado inicial
+            </label>
+
+            <select
+              id="nuevoEstado"
+              name="estado"
+            >
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+
+          </div>
+
+        </div>
+
+      </fieldset>
+
+
+      <fieldset class="up-form-section">
+
+        <legend>
+          Acceso inicial
+        </legend>
+
+        <div class="up-password-layout">
+
+          <div class="up-field">
+
+            <label for="nuevaPassword">
+              Contraseña temporal
+            </label>
+
+            <input
+              type="text"
+              id="nuevaPassword"
+              name="password"
+              placeholder="Mínimo 8 caracteres"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+
+          </div>
+
+          <button
+            type="button"
+            class="up-secondary-button"
+            id="btnGenerarPassword"
+          >
+            Generar contraseña
+          </button>
+
+        </div>
+
+        <p class="up-field-help">
+          Esta contraseña se utilizará para el primer ingreso.
+        </p>
+
+      </fieldset>
+
+
+      <fieldset class="up-form-section">
+
+        <legend>
+          Permisos iniciales
+        </legend>
+
+        <div class="up-permissions-grid">
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="centroProfesional">
+            <span>
+              <strong>Centro Profesional</strong>
+              <small>Recursos y herramientas profesionales.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="gestionPericiados">
+            <span>
+              <strong>Gestión de Periciados</strong>
+              <small>Periciados, expedientes y evaluaciones.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="evaluaciones">
+            <span>
+              <strong>Evaluaciones</strong>
+              <small>Instrumentos y procesos psicológicos.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="documentacionPericiados">
+            <span>
+              <strong>Documentación</strong>
+              <small>Fichas, constancias y archivos adjuntos.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="biblioteca">
+            <span>
+              <strong>Biblioteca</strong>
+              <small>Recursos y materiales profesionales.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="campus">
+            <span>
+              <strong>Campus</strong>
+              <small>Cursos y recorridos académicos.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="escuela">
+            <span>
+              <strong>Escuela para Padres</strong>
+              <small>Encuentros, materiales y certificación.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="admision">
+            <span>
+              <strong>FALCO® Admisión</strong>
+              <small>Admisiones y postulaciones.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="comunidad">
+            <span>
+              <strong>FALCO® Comunidad</strong>
+              <small>Instituciones, programas y proyectos.</small>
+            </span>
+          </label>
+
+          <label class="up-permission-option">
+            <input type="checkbox" name="permisos" value="administracion">
+            <span>
+              <strong>Administración</strong>
+              <small>Herramientas administrativas del sistema.</small>
+            </span>
+          </label>
+
+        </div>
+
+        <div class="up-permission-actions">
+
+          <button
+            type="button"
+            class="up-secondary-button"
+            id="btnPermisosRol"
+          >
+            Aplicar permisos sugeridos por rol
+          </button>
+
+          <button
+            type="button"
+            class="up-secondary-button"
+            id="btnLimpiarPermisos"
+          >
+            Limpiar selección
+          </button>
+
+        </div>
+
+      </fieldset>
+
+
+      <div class="up-form-actions">
+
+        <button
+          type="button"
+          class="up-secondary-button"
+          id="btnCancelarNuevoUsuario"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          class="up-primary-button"
+          id="btnCrearUsuario"
+        >
+          Crear usuario
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
 
 </section>
-
-    
-
-
-        <!-- MENSAJE DEL SISTEMA -->
-
-        <section
-          class="up-message"
-          id="mensajeSistema"
-          role="status"
-          hidden
-        ></section>
-
-
-        <!-- TABLA -->
-
-        <section
-          class="up-table-section"
-          id="listado"
-        >
-
-          <div class="up-table-header">
-
-            <div>
-              <span class="up-section-eyebrow">
-                Usuarios registrados
-              </span>
-
-              <h2>Listado general</h2>
-            </div>
-
-            <span id="resultadoCantidad">
-              0 usuarios
-            </span>
-
-          </div>
-
-
-          <div class="up-table-wrapper">
-
-            <table class="up-table">
-
-              <thead>
-                <tr>
-                  <th>Usuario</th>
-                  <th>Correo</th>
-                  <th>Rol</th>
-                  <th>Estado</th>
-                  <th>Permisos</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-
-              <tbody id="usuariosTabla">
-
-                <tr>
-                  <td
-                    colspan="6"
-                    class="up-loading"
-                  >
-                    Verificando sesión...
-                  </td>
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
-
-        </section>
 
       </main>
 
