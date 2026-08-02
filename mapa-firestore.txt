@@ -1,0 +1,71 @@
+./admin-adjuntos-periciados.js:14:    const snap = await getDocs(collection(db, "documentos_periciados"));
+./admin-adjuntos-periciados.js:91:  await deleteDoc(doc(db, "documentos_periciados", id));
+./admin-admisiones.js:437:    doc(db, "usuarios", user.uid);
+./admin-admisiones.js:582:          collection(db, COLECCION_ADMISIONES),
+./admin-admisiones.js:598:          collection(db, COLECCION_ADMISIONES)
+./admin-documentos.js:205:    await deleteDoc(doc(db, "documentos_periciados", id));
+./admin-documentos.js:222:  collection(db, "documentos_periciados"),
+./admin-escuela-comentarios.js:29:    const participantesRef = collection(db, "escuela_participantes");
+./admin-turnos.js:107:    await addDoc(collection(db, "turnos"), {
+./admin-turnos.js:200:    await updateDoc(doc(db, "turnos", id), {
+./admin-turnos.js:212:    await updateDoc(doc(db, "turnos", id), {
+./admin-turnos.js:226:    await deleteDoc(doc(db, "turnos", id));
+./admin-turnos.js:243:  collection(db, "turnos"),
+./admision-detalle.js:1705:    doc(db, "usuarios", user.uid);
+./archivo-pericial.js:36:    await addDoc(collection(db, "archivo_pericial"), datos);
+./archivo-pericial.js:189:    await deleteDoc(doc(db, "archivo_pericial", id));
+./archivo-pericial.js:206:  collection(db, "archivo_pericial"),
+./auth-biblioteca.js:30:    const ref = doc(db, "usuarios", user.uid);
+./auth.js:32:    const ref = doc(db, "usuarios", user.uid);
+./auth.js:134:  const ref = doc(db, "usuarios", user.uid);
+./biblioteca-dinamica.js:22:    const snap = await getDocs(collection(db, "contenidos"));
+./centro-recursos-core.js:27:  const refUsuario = doc(db, "usuarios", user.uid);
+./centro-recursos-core.js:55:  const ref = doc(db, "configuracion", "general");
+./cms-editor.js:166:      await updateDoc(doc(db, "contenidos", recursoEditandoId), {
+./cms-editor.js:176:      await addDoc(collection(db, "contenidos"), recurso);
+./dashboard-actividad.js:32:  collection(db, "resultados_tests"),
+./dashboard-actividad.js:52:  collection(db, "postulaciones"),
+./dashboard-actividad.js:72:  collection(db, "mesa_entrada"),
+./dashboard-metricas.js:32:  onSnapshot(collection(db, "resultados_tests"), (snapshot) => {
+./dashboard-metricas.js:36:  onSnapshot(collection(db, "postulaciones"), (snapshot) => {
+./dashboard-metricas.js:51:  onSnapshot(collection(db, "mesa_entrada"), (snapshot) => {
+./documentos-periciados.js:18:  await addDoc(collection(db, "documentos_periciados"), {
+./escuela-admin/encuentros/encuentros.js:51:        collection(db, "escuela_encuentros")
+./escuela-admin/shared/firebase/participantes.js:22:  const snapshot = await getDocs(collection(db, COLLECTION));
+./escuela-admin/shared/firebase/participantes.js:37:  const referencia = doc(db, COLLECTION, id);
+./escuela-admin/shared/firebase/participantes.js:57:    collection(db, COLLECTION),
+./escuela-admin/shared/firebase/participantes.js:141:    doc(db, COLLECTION, id),
+./escuela-admin/shared/firebase/participantes.js:157:    doc(db, COLLECTION, id)
+./estado-informe.js:18:  collection(db, "resultados_tests"),
+./estado-periciado.js:15:  const snapshot = await getDocs(collection(db, "resultados_tests"));
+./FALCO-CMS-V2/centro-operaciones/centro-operaciones.js:50:  const refUsuario = doc(db, "usuarios", user.uid);
+./FALCO-CMS-V2/ecosistema-login.js:32:    const ref = doc(db, "usuarios", user.uid);
+./FALCO-CMS-V2/js/ecosistema-login.js:29:    const refUsuario = doc(db, "usuarios", uid);
+./FALCO-CMS-V2/js/services/contenido.service.js:33:        collection(db, COLECCION_CONTENIDOS),
+./FALCO-CMS-V2/js/services/contenido.service.js:49:    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+./FALCO-CMS-V2/js/services/contenido.service.js:64:    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+./FALCO-CMS-V2/js/services/contenido.service.js:83:        collection(db, COLECCION_CONTENIDOS),
+./FALCO-CMS-V2/js/services/contenido.service.js:102:    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+./FALCO-CMS-V2/js/services/contenido.service.js:120:    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+./FALCO-CMS-V2/js/services/contenido.service.js:136:    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+./FALCO-CMS-V2/js/services/contenido.service.js:154:        collection(db, COLECCION_CONTENIDOS),
+./FALCO-CMS-V2/js/services/contenido.service.js:174:    const referencia = doc(db, COLECCION_CONTENIDOS, id);
+./js/encuesta-certificacion.js:32:  await setDoc(doc(db, "encuestas_finales", usuarioActual.uid), {
+./js/escuela-panel.js:67:  const ref = doc(db, "escuela_participantes", user.uid);
+./js/escuela-panel.js:328:  const ref = doc(db, "escuela_participantes", user.uid);
+./mesa-entrada-firestore.js:27:    await addDoc(collection(db, "mesa_entrada"), datos);
+./motor-contenidos.js:68:      collection(db, "contenidos"),
+./motor-contenidos.js:119:    await updateDoc(doc(db, "contenidos", id), {
+./motor-contenidos.js:140:    await updateDoc(doc(db, "contenidos", id), {
+./postulaciones-firestore.js:32:    await addDoc(collection(db, "postulaciones"), datos);
+./script-admin-resultados.js:25:      collection(db, "resultados_tests"),
+./script-admin-resultados.js:385:      doc(db, "resultados_tests", id)
+./script-analisis-integrado.js:34:    collection(db, "resultados_tests"),
+./script-analisis-integrado.js:76:    collection(db, "resultados_tests")
+./script-panel-mesa-entrada.js:26:      collection(db, "mesa_entrada"),
+./script-panel-mesa-entrada.js:174:    await updateDoc(doc(db, "mesa_entrada", id), {
+./script-panel-mesa-entrada.js:191:    await deleteDoc(doc(db, "mesa_entrada", id));
+./script-postulaciones.js:26:      collection(db, "postulaciones"),
+./script-postulaciones.js:169:    await updateDoc(doc(db, "postulaciones", id), {
+./script-postulaciones.js:186:    await deleteDoc(doc(db, "postulaciones", id));
+./solicitar-turno.js:35:    await addDoc(collection(db, "turnos"), {

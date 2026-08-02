@@ -33,6 +33,18 @@ formLogin.addEventListener("submit", async (e) => {
     const snap = await getDoc(ref);
     const dataUsuario = snap.exists() ? snap.data() : {};
 
+
+
+if (dataUsuario.archivado === true) {
+  alert(
+    "Este usuario se encuentra archivado. Comuníquese con la administración del Sistema FALCO®."
+  );
+
+  await signOut(auth);
+  return;
+}
+
+
     const rol =
       user.email === ADMIN_EMAIL
         ? "admin"

@@ -3,14 +3,16 @@
 FALCO®
 Administración de Usuarios y Permisos
 Listado general de usuarios
-Versión 1.0
+Versión 2.0
 =========================================
 
-Esta pantalla:
-- Verifica sesión.
-- Permite acceso solo al administrador.
+Funciones:
+- Verifica sesión administrativa.
 - Lee la colección usuarios.
-- No modifica documentos.
+- Permite administrar cada usuario.
+- Permite archivar y restaurar usuarios.
+- Protege al administrador principal.
+- No elimina cuentas de Firebase Authentication.
 =========================================
 */
 
@@ -33,7 +35,9 @@ import {
   collection,
   getDocs,
   doc,
-  getDoc
+  getDoc,
+  updateDoc,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 
@@ -73,6 +77,9 @@ const buscarUsuario =
 const filtroRol =
   document.getElementById("filtroRol");
 
+const filtroEstado =
+  document.getElementById("filtroEstado");
+
 const mensajeSistema =
   document.getElementById("mensajeSistema");
 
@@ -100,6 +107,8 @@ const totalOtros =
 ========================================================= */
 
 let usuariosCargados = [];
+
+let administradorActual = null;
 
 
 /* =========================================================
@@ -192,7 +201,16 @@ function claseRol(rol) {
 }
 
 
+function usuarioEstaArchivado(usuario) {
+  return usuario.archivado === true;
+}
+
+
 function usuarioEstaActivo(usuario) {
+  if (usuarioEstaArchivado(usuario)) {
+    return false;
+  }
+
   if (usuario.activo === false) {
     return false;
   }
@@ -202,6 +220,14 @@ function usuarioEstaActivo(usuario) {
   }
 
   return true;
+}
+
+
+function esAdministradorPrincipal(usuario) {
+  return (
+    normalizarTexto(usuario?.email) ===
+    normalizarTexto(ADMIN_EMAIL)
+  );
 }
 
 
@@ -291,17 +317,23 @@ function mostrarEstadoVacio() {
 ========================================================= */
 
 function actualizarIndicadores(usuarios) {
+  const usuariosNoArchivados =
+    usuarios.filter(
+      (usuario) =>
+        !usuarioEstaArchivado(usuario)
+    );
+
   const cantidadTotal =
-    usuarios.length;
+    usuariosNoArchivados.length;
 
   const cantidadAdmins =
-    usuarios.filter(
+    usuariosNoArchivados.filter(
       (usuario) =>
         normalizarRol(usuario.rol) === "admin"
     ).length;
 
   const cantidadProfesionales =
-    usuarios.filter(
+    usuariosNoArchivados.filter(
       (usuario) =>
         normalizarRol(usuario.rol) === "profesional"
     ).length;
@@ -311,17 +343,51 @@ function actualizarIndicadores(usuarios) {
     cantidadAdmins -
     cantidadProfesionales;
 
-  totalUsuarios.textContent =
-    cantidadTotal.toLocaleString("es-AR");
+  if (totalUsuarios) {
+    totalUsuarios.textContent =
+      cantidadTotal.toLocaleString("es-AR");
+  }
 
-  totalAdmins.textContent =
-    cantidadAdmins.toLocaleString("es-AR");
+  if (totalAdmins) {
+    totalAdmins.textContent =
+      cantidadAdmins.toLocaleString("es-AR");
+  }
 
-  totalProfesionales.textContent =
-    cantidadProfesionales.toLocaleString("es-AR");
+  if (totalProfesionales) {
+    totalProfesionales.textContent =
+      cantidadProfesionales.toLocaleString("es-AR");
+  }
 
-  totalOtros.textContent =
-    cantidadOtros.toLocaleString("es-AR");
+  if (totalOtros) {
+    totalOtros.textContent =
+      cantidadOtros.toLocaleString("es-AR");
+  }
+}
+
+
+/* =========================================================
+   ESTADO VISUAL
+========================================================= */
+
+function obtenerEstadoVisual(usuario) {
+  if (usuarioEstaArchivado(usuario)) {
+    return {
+      texto: "Archivado",
+      clase: "is-archived"
+    };
+  }
+
+  if (usuarioEstaActivo(usuario)) {
+    return {
+      texto: "Activo",
+      clase: "is-active"
+    };
+  }
+
+  return {
+    texto: "Inactivo",
+    clase: "is-inactive"
+  };
 }
 
 
@@ -342,14 +408,61 @@ function crearFilaUsuario(usuario) {
   const email =
     usuario.email || "Correo no registrado";
 
-  const activo =
-    usuarioEstaActivo(usuario);
-
   const permisosActivos =
     contarPermisos(usuario);
 
   const uidSeguro =
     encodeURIComponent(usuario.uid);
+
+  const estado =
+    obtenerEstadoVisual(usuario);
+
+  const archivado =
+    usuarioEstaArchivado(usuario);
+
+  const principal =
+    esAdministradorPrincipal(usuario);
+
+  const botonArchivo = principal
+    ? `
+      <button
+        type="button"
+        class="up-action-button up-action-button--disabled"
+        disabled
+        title="El administrador principal no puede archivarse"
+      >
+        Protegido
+      </button>
+    `
+    : archivado
+      ? `
+        <button
+          type="button"
+          class="up-action-button up-action-button--restore"
+          data-action="restaurar"
+          data-uid="${escaparHTML(usuario.uid)}"
+        >
+          Restaurar
+        </button>
+      `
+      : `
+        <button
+          type="button"
+          class="up-action-button up-action-button--archive"
+          data-action="archivar"
+          data-uid="${escaparHTML(usuario.uid)}"
+        >
+          Archivar
+        </button>
+      `;
+
+  fila.dataset.uid =
+    usuario.uid;
+
+  fila.classList.toggle(
+    "is-archived",
+    archivado
+  );
 
   fila.innerHTML = `
     <td>
@@ -390,18 +503,8 @@ function crearFilaUsuario(usuario) {
     </td>
 
     <td>
-      <span
-        class="up-status ${
-          activo
-            ? "is-active"
-            : "is-inactive"
-        }"
-      >
-        ${
-          activo
-            ? "Activo"
-            : "Inactivo"
-        }
+      <span class="up-status ${estado.clase}">
+        ${estado.texto}
       </span>
     </td>
 
@@ -420,12 +523,18 @@ function crearFilaUsuario(usuario) {
     </td>
 
     <td>
-      <a
-        href="./usuario.html?uid=${uidSeguro}"
-        class="up-action-button"
-      >
-        Administrar
-      </a>
+      <div class="up-actions">
+
+        <a
+          href="./usuario.html?uid=${uidSeguro}"
+          class="up-action-button"
+        >
+          Administrar
+        </a>
+
+        ${botonArchivo}
+
+      </div>
     </td>
   `;
 
@@ -444,6 +553,11 @@ function obtenerUsuariosFiltrados() {
   const rolSeleccionado =
     normalizarRol(filtroRol?.value);
 
+  const estadoSeleccionado =
+    normalizarTexto(
+      filtroEstado?.value || "activos"
+    );
+
   return usuariosCargados.filter((usuario) => {
     const nombre =
       normalizarTexto(
@@ -459,6 +573,12 @@ function obtenerUsuariosFiltrados() {
     const uid =
       normalizarTexto(usuario.uid);
 
+    const archivado =
+      usuarioEstaArchivado(usuario);
+
+    const activo =
+      usuarioEstaActivo(usuario);
+
     const coincideTexto =
       !texto ||
       nombre.includes(texto) ||
@@ -470,7 +590,32 @@ function obtenerUsuariosFiltrados() {
       !rolSeleccionado ||
       rol === rolSeleccionado;
 
-    return coincideTexto && coincideRol;
+    let coincideEstado = true;
+
+    if (estadoSeleccionado === "activos") {
+      coincideEstado =
+        !archivado && activo;
+    }
+
+    if (estadoSeleccionado === "inactivos") {
+      coincideEstado =
+        !archivado && !activo;
+    }
+
+    if (estadoSeleccionado === "archivados") {
+      coincideEstado =
+        archivado;
+    }
+
+    if (estadoSeleccionado === "todos") {
+      coincideEstado = true;
+    }
+
+    return (
+      coincideTexto &&
+      coincideRol &&
+      coincideEstado
+    );
   });
 }
 
@@ -504,12 +649,268 @@ function renderizarUsuarios() {
     usuariosTabla.appendChild(fragmento);
   }
 
-  resultadoCantidad.textContent =
-    `${usuariosFiltrados.length} ${
-      usuariosFiltrados.length === 1
-        ? "usuario"
-        : "usuarios"
-    }`;
+  if (resultadoCantidad) {
+    resultadoCantidad.textContent =
+      `${usuariosFiltrados.length} ${
+        usuariosFiltrados.length === 1
+          ? "usuario"
+          : "usuarios"
+      }`;
+  }
+}
+
+
+/* =========================================================
+   BUSCAR USUARIO LOCAL
+========================================================= */
+
+function buscarUsuarioPorUid(uid) {
+  return usuariosCargados.find(
+    (usuario) =>
+      usuario.uid === uid
+  );
+}
+
+
+/* =========================================================
+   ARCHIVAR USUARIO
+========================================================= */
+
+async function archivarUsuario(uid) {
+  const usuario =
+    buscarUsuarioPorUid(uid);
+
+  if (!usuario) {
+    mostrarMensaje(
+      "No se encontró el usuario seleccionado.",
+      "error"
+    );
+
+    return;
+  }
+
+  if (esAdministradorPrincipal(usuario)) {
+    mostrarMensaje(
+      "El administrador principal no puede archivarse.",
+      "error"
+    );
+
+    return;
+  }
+
+  const nombre =
+    obtenerNombreUsuario(usuario);
+
+  const confirmado =
+    window.confirm(
+      `¿Desea archivar a ${nombre}?\n\n` +
+      "El usuario conservará su registro y podrá restaurarse posteriormente."
+    );
+
+  if (!confirmado) {
+    return;
+  }
+
+  ocultarMensaje();
+
+  try {
+    const referenciaUsuario =
+      doc(
+        db,
+        "usuarios",
+        uid
+      );
+
+    await updateDoc(
+      referenciaUsuario,
+      {
+        archivado: true,
+        activo: false,
+        fechaArchivado:
+          serverTimestamp(),
+        archivadoPor:
+          administradorActual?.email ||
+          ADMIN_EMAIL,
+        fechaActualizacion:
+          serverTimestamp()
+      }
+    );
+
+    usuario.archivado = true;
+    usuario.activo = false;
+    usuario.archivadoPor =
+      administradorActual?.email ||
+      ADMIN_EMAIL;
+
+    actualizarIndicadores(
+      usuariosCargados
+    );
+
+    renderizarUsuarios();
+
+    mostrarMensaje(
+      `${nombre} fue archivado correctamente.`,
+      "success"
+    );
+
+  } catch (error) {
+    console.error(
+      "FALCO® Usuarios: error al archivar.",
+      error
+    );
+
+    mostrarMensaje(
+      `No fue posible archivar el usuario: ${
+        error?.code ||
+        error?.message ||
+        "error desconocido"
+      }.`,
+      "error"
+    );
+  }
+}
+
+
+/* =========================================================
+   RESTAURAR USUARIO
+========================================================= */
+
+async function restaurarUsuario(uid) {
+  const usuario =
+    buscarUsuarioPorUid(uid);
+
+  if (!usuario) {
+    mostrarMensaje(
+      "No se encontró el usuario seleccionado.",
+      "error"
+    );
+
+    return;
+  }
+
+  const nombre =
+    obtenerNombreUsuario(usuario);
+
+  const confirmado =
+    window.confirm(
+      `¿Desea restaurar a ${nombre}?\n\n` +
+      "El usuario volverá a aparecer entre los usuarios activos."
+    );
+
+  if (!confirmado) {
+    return;
+  }
+
+  ocultarMensaje();
+
+  try {
+    const referenciaUsuario =
+      doc(
+        db,
+        "usuarios",
+        uid
+      );
+
+    await updateDoc(
+      referenciaUsuario,
+      {
+        archivado: false,
+        activo: true,
+        fechaRestaurado:
+          serverTimestamp(),
+        restauradoPor:
+          administradorActual?.email ||
+          ADMIN_EMAIL,
+        fechaActualizacion:
+          serverTimestamp()
+      }
+    );
+
+    usuario.archivado = false;
+    usuario.activo = true;
+    usuario.restauradoPor =
+      administradorActual?.email ||
+      ADMIN_EMAIL;
+
+    actualizarIndicadores(
+      usuariosCargados
+    );
+
+    renderizarUsuarios();
+
+    mostrarMensaje(
+      `${nombre} fue restaurado correctamente.`,
+      "success"
+    );
+
+  } catch (error) {
+    console.error(
+      "FALCO® Usuarios: error al restaurar.",
+      error
+    );
+
+    mostrarMensaje(
+      `No fue posible restaurar el usuario: ${
+        error?.code ||
+        error?.message ||
+        "error desconocido"
+      }.`,
+      "error"
+    );
+  }
+}
+
+
+/* =========================================================
+   ACCIONES DE TABLA
+========================================================= */
+
+async function procesarAccionTabla(evento) {
+  const boton =
+    evento.target.closest(
+      "[data-action][data-uid]"
+    );
+
+  if (!boton) {
+    return;
+  }
+
+  const accion =
+    boton.dataset.action;
+
+  const uid =
+    boton.dataset.uid;
+
+  if (!accion || !uid) {
+    return;
+  }
+
+  boton.disabled = true;
+
+  const textoOriginal =
+    boton.textContent;
+
+  boton.textContent =
+    accion === "archivar"
+      ? "Archivando..."
+      : "Restaurando...";
+
+  try {
+    if (accion === "archivar") {
+      await archivarUsuario(uid);
+    }
+
+    if (accion === "restaurar") {
+      await restaurarUsuario(uid);
+    }
+
+  } finally {
+    if (document.body.contains(boton)) {
+      boton.disabled = false;
+      boton.textContent =
+        textoOriginal;
+    }
+  }
 }
 
 
@@ -521,8 +922,11 @@ async function cargarUsuarios() {
   ocultarMensaje();
   mostrarCarga();
 
-  btnActualizarUsuarios.disabled = true;
-  btnActualizarUsuarios.textContent = "Actualizando...";
+  if (btnActualizarUsuarios) {
+    btnActualizarUsuarios.disabled = true;
+    btnActualizarUsuarios.textContent =
+      "Actualizando...";
+  }
 
   try {
     const referenciaUsuarios =
@@ -573,27 +977,37 @@ async function cargarUsuarios() {
     usuariosCargados = [];
 
     actualizarIndicadores([]);
-    resultadoCantidad.textContent = "0 usuarios";
 
-    usuariosTabla.innerHTML = `
-      <tr>
-        <td colspan="6" class="up-empty">
-          No fue posible cargar los usuarios.
-        </td>
-      </tr>
-    `;
+    if (resultadoCantidad) {
+      resultadoCantidad.textContent =
+        "0 usuarios";
+    }
+
+    if (usuariosTabla) {
+      usuariosTabla.innerHTML = `
+        <tr>
+          <td colspan="6" class="up-empty">
+            No fue posible cargar los usuarios.
+          </td>
+        </tr>
+      `;
+    }
 
     mostrarMensaje(
       `No fue posible consultar usuarios: ${
-        error?.code || error?.message || "error desconocido"
+        error?.code ||
+        error?.message ||
+        "error desconocido"
       }.`,
       "error"
     );
 
   } finally {
-    btnActualizarUsuarios.disabled = false;
-    btnActualizarUsuarios.textContent =
-      "Actualizar listado";
+    if (btnActualizarUsuarios) {
+      btnActualizarUsuarios.disabled = false;
+      btnActualizarUsuarios.textContent =
+        "Actualizar listado";
+    }
   }
 }
 
@@ -654,13 +1068,16 @@ async function verificarAdministrador(user) {
 async function cerrarSesion() {
   try {
     await signOut(auth);
+
   } catch (error) {
     console.error(
       "FALCO® Usuarios: error al cerrar sesión.",
       error
     );
+
   } finally {
-    window.location.href = RUTA_LOGIN;
+    window.location.href =
+      RUTA_LOGIN;
   }
 }
 
@@ -674,19 +1091,34 @@ btnCerrarSesion?.addEventListener(
   cerrarSesion
 );
 
+
 btnActualizarUsuarios?.addEventListener(
   "click",
   cargarUsuarios
 );
+
 
 buscarUsuario?.addEventListener(
   "input",
   renderizarUsuarios
 );
 
+
 filtroRol?.addEventListener(
   "change",
   renderizarUsuarios
+);
+
+
+filtroEstado?.addEventListener(
+  "change",
+  renderizarUsuarios
+);
+
+
+usuariosTabla?.addEventListener(
+  "click",
+  procesarAccionTabla
 );
 
 
@@ -698,7 +1130,9 @@ onAuthStateChanged(
   auth,
   async (user) => {
     if (!user) {
-      window.location.href = RUTA_LOGIN;
+      window.location.href =
+        RUTA_LOGIN;
+
       return;
     }
 
@@ -717,20 +1151,27 @@ onAuthStateChanged(
         );
 
         window.setTimeout(() => {
-          window.location.href = RUTA_PORTAL;
+          window.location.href =
+            RUTA_PORTAL;
         }, 1200);
 
         return;
       }
 
-      const administrador =
+      administradorActual =
         validacion.datos;
 
-      adminNombre.textContent =
-        obtenerNombreUsuario(administrador);
+      if (adminNombre) {
+        adminNombre.textContent =
+          obtenerNombreUsuario(
+            administradorActual
+          );
+      }
 
-      adminRol.textContent =
-        "ADMIN";
+      if (adminRol) {
+        adminRol.textContent =
+          "ADMIN";
+      }
 
       await cargarUsuarios();
 
@@ -745,13 +1186,15 @@ onAuthStateChanged(
         "error"
       );
 
-      usuariosTabla.innerHTML = `
-        <tr>
-          <td colspan="6" class="up-empty">
-            No fue posible iniciar el módulo.
-          </td>
-        </tr>
-      `;
+      if (usuariosTabla) {
+        usuariosTabla.innerHTML = `
+          <tr>
+            <td colspan="6" class="up-empty">
+              No fue posible iniciar el módulo.
+            </td>
+          </tr>
+        `;
+      }
     }
   }
 );
