@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="FALCO® Campus. Plataforma profesional para especialistas, docentes e instituciones que desean transformar sus cursos en una academia digital propia."
+  >
+
+  <meta
+    name="author"
+    content="Sistema FALCO®"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <title>
+    FALCO® Campus | Tu propia academia profesional
+  </title>
+
+
+  <!-- =====================================================
+       ESTILOS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus-responsive.css"
+  >
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       ICONOS
+  ====================================================== -->
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       FONDO CINEMATOGRÁFICO
+  ====================================================== -->
+
+  <div
+    class="fc-background"
+    aria-hidden="true"
+  >
+
+    <span class="fc-background__glow fc-background__glow--one"></span>
+
+    <span class="fc-background__glow fc-background__glow--two"></span>
+
+    <span class="fc-background__glow fc-background__glow--three"></span>
+
+    <span class="fc-background__grid"></span>
+
+    <span class="fc-background__noise"></span>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header
+    class="fc-header"
+    id="fcHeader"
+  >
+
+    <a
+      href="#inicio"
+      class="fc-brand"
+      aria-label="Ir al inicio de FALCO Campus"
+    >
+
+      <span class="fc-brand__symbol">
+        F
+      </span>
+
+      <span class="fc-brand__text">
+
+        <strong>
+          FALCO® Campus
+        </strong>
+
+        <small>
+          Academias profesionales
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      type="button"
+      class="fc-menu-button"
+      id="fcMenuButton"
+      aria-label="Abrir navegación"
+      aria-expanded="false"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+    <nav
+      class="fc-nav"
+      id="fcNav"
+      aria-label="Navegación principal"
+    >
+
+      <a href="#inicio">
+        Inicio
+      </a>
+
+      <a href="#experiencia">
+        La experiencia
+      </a>
+
+      <a href="#incluye">
+        Qué incluye
+      </a>
+
+      <a href="#funcionamiento">
+        Cómo funciona
+      </a>
+
+      <a href="#profesionales">
+        Para quién es
+      </a>
+
+      <a
+        href="./contacto.html"
+        class="fc-nav__cta"
+      >
+        Solicitar una reunión
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- ===================================================
+         HERO CINEMATOGRÁFICO
+    ==================================================== -->
+
+    <section
+      class="fc-hero"
+      id="inicio"
+    >
+
+      <!-- VIDEO DE FONDO -->
+
+      <div
+        class="fc-hero__media"
+        aria-hidden="true"
+      >
+
+        <video
+          class="fc-hero__video"
+          id="fcHeroVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./img/falco-campus-hero.jpg"
+        >
+
+          <source
+            src="./videos/falco-campus-experience.mp4"
+            type="video/mp4"
+          >
+
+        </video>
+
+        <div class="fc-hero__overlay"></div>
+
+        <div class="fc-hero__vignette"></div>
+
+      </div>
+
+
+      <div class="fc-hero__content">
+
+        <span class="fc-eyebrow">
+          Una nueva experiencia del Sistema FALCO®
+        </span>
+
+
+        <h1>
+
+          Tu conocimiento merece
+
+          <span>
+            una experiencia profesional.
+          </span>
+
+        </h1>
+
+
+        <p class="fc-hero__lead">
+
+          Transformá tu curso, capacitación o programa en una
+          academia digital propia, sin desarrollar tecnología
+          ni administrar una plataforma desde cero.
+
+        </p>
+
+
+        <p class="fc-hero__statement">
+
+          Vos enseñás.
+
+          <strong>
+            Nosotros construimos la experiencia.
+          </strong>
+
+        </p>
+
+
+        <div class="fc-hero__actions">
+
+          <button
+            type="button"
+            class="fc-button fc-button--primary"
+            id="btnAbrirExperience"
+          >
+
+            <i
+              data-lucide="play"
+              aria-hidden="true"
+            ></i>
+
+            Ver FALCO Experience®
+
+          </button>
+
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--secondary"
+          >
+
+            Solicitar una reunión
+
+            <i
+              data-lucide="arrow-up-right"
+              aria-hidden="true"
+            ></i>
+
+          </a>
+
+        </div>
+
+
+        <div
+          class="fc-hero__trust"
+          aria-label="Servicios incluidos"
+        >
+
+          <span>
+            Campus virtual
+          </span>
+
+          <span>
+            Gestión de alumnos
+          </span>
+
+          <span>
+            Certificados
+          </span>
+
+          <span>
+            Soporte técnico
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- VISTA DEL PRODUCTO -->
+
+      <div
+        class="fc-hero__product"
+        aria-hidden="true"
+      >
+
+        <div class="fc-device">
+
+          <div class="fc-device__topbar">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+
+          <div class="fc-device__screen">
+
+            <div class="fc-device__sidebar">
+
+              <strong>
+                Campus
+              </strong>
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+
+            <div class="fc-device__dashboard">
+
+              <div class="fc-device__welcome"></div>
+
+              <div class="fc-device__metrics">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+
+              <div class="fc-device__courses">
+
+                <article></article>
+                <article></article>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <article class="fc-floating-card fc-floating-card--students">
+
+          <i data-lucide="users-round"></i>
+
+          <span>
+            Participantes
+          </span>
+
+          <strong>
+            Gestión centralizada
+          </strong>
+
+        </article>
+
+
+        <article class="fc-floating-card fc-floating-card--progress">
+
+          <i data-lucide="chart-no-axes-column-increasing"></i>
+
+          <span>
+            Progreso
+          </span>
+
+          <strong>
+            Seguimiento en tiempo real
+          </strong>
+
+        </article>
+
+
+        <article class="fc-floating-card fc-floating-card--certificate">
+
+          <i data-lucide="badge-check"></i>
+
+          <span>
+            Certificados
+          </span>
+
+          <strong>
+            Emisión profesional
+          </strong>
+
+        </article>
+
+      </div>
+
+
+      <a
+        href="#experiencia"
+        class="fc-scroll-indicator"
+        aria-label="Continuar hacia la siguiente sección"
+      >
+
+        <span>
+          Descubrir
+        </span>
+
+        <i
+          data-lucide="arrow-down"
+          aria-hidden="true"
+        ></i>
+
+      </a>
+
+    </section>
+
+
+    <!-- ===================================================
+         DECLARACIÓN
+    ==================================================== -->
+
+    <section
+      class="fc-manifest"
+      id="experiencia"
+    >
+
+      <div class="fc-manifest__content">
+
+        <span class="fc-section-eyebrow">
+          Una idea puede convertirse en una academia
+        </span>
+
+
+        <h2>
+
+          Hay profesionales con un enorme conocimiento.
+
+          <span>
+            Pero sin una plataforma que esté a su altura.
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          Crear un curso requiere experiencia, contenido y dedicación.
+          Construir además toda la infraestructura tecnológica puede
+          retrasar o impedir que ese proyecto llegue a sus alumnos.
+
+        </p>
+
+
+        <p class="fc-manifest__highlight">
+
+          FALCO® Campus resuelve la tecnología para que vos
+          puedas concentrarte en enseñar.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DOS PARTES, UNA EXPERIENCIA
+    ==================================================== -->
+
+    <section class="fc-partnership">
+
+      <div class="fc-section-heading">
+
+        <span class="fc-section-eyebrow">
+          Una colaboración profesional
+        </span>
+
+        <h2>
+          Tu conocimiento. Nuestra infraestructura.
+        </h2>
+
+        <p>
+          Cada parte aporta lo que mejor sabe hacer.
+        </p>
+
+      </div>
+
+
+      <div class="fc-partnership__grid">
+
+        <!-- PROFESIONAL -->
+
+        <article class="fc-partnership-card">
+
+          <span class="fc-partnership-card__number">
+            01
+          </span>
+
+          <div class="fc-partnership-card__icon">
+
+            <i
+              data-lucide="lightbulb"
+              aria-hidden="true"
+            ></i>
+
+          </div>
+
+          <span class="fc-section-eyebrow">
+            Vos aportás
+          </span>
+
+          <h3>
+            El conocimiento
+          </h3>
+
+          <ul>
+
+            <li>
+              El contenido del curso.
+            </li>
+
+            <li>
+              Las clases y los videos.
+            </li>
+
+            <li>
+              Los documentos y materiales.
+            </li>
+
+            <li>
+              Las actividades y evaluaciones.
+            </li>
+
+            <li>
+              Tu identidad profesional.
+            </li>
+
+          </ul>
+
+        </article>
+
+
+        <!-- FALCO -->
+
+        <article class="fc-partnership-card fc-partnership-card--featured">
+
+          <span class="fc-partnership-card__number">
+            02
+          </span>
+
+          <div class="fc-partnership-card__icon">
+
+            <i
+              data-lucide="panels-top-left"
+              aria-hidden="true"
+            ></i>
+
+          </div>
+
+          <span class="fc-section-eyebrow">
+            FALCO® aporta
+          </span>
+
+          <h3>
+            La experiencia digital
+          </h3>
+
+          <ul>
+
+            <li>
+              Campus profesional.
+            </li>
+
+            <li>
+              Acceso seguro de alumnos.
+            </li>
+
+            <li>
+              Gestión de participantes.
+            </li>
+
+            <li>
+              Seguimiento del progreso.
+            </li>
+
+            <li>
+              Certificados y soporte técnico.
+            </li>
+
+          </ul>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUÉ INCLUYE
+    ==================================================== -->
+
+    <section
+      class="fc-features"
+      id="incluye"
+    >
+
+      <div class="fc-section-heading">
+
+        <span class="fc-section-eyebrow">
+          Todo lo que necesita una academia profesional
+        </span>
+
+        <h2>
+          Una plataforma preparada para enseñar, administrar y crecer.
+        </h2>
+
+        <p>
+          Una infraestructura integral que acompaña todo el recorrido:
+          desde el ingreso del alumno hasta la certificación.
+        </p>
+
+      </div>
+
+
+      <div class="fc-features__grid">
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="monitor-play"></i>
+
+          <span>
+            01
+          </span>
+
+          <h3>
+            Campus virtual
+          </h3>
+
+          <p>
+            Un entorno profesional para organizar cursos,
+            encuentros, videos y recorridos formativos.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="users"></i>
+
+          <span>
+            02
+          </span>
+
+          <h3>
+            Gestión de alumnos
+          </h3>
+
+          <p>
+            Altas, accesos, estados, seguimiento y administración
+            centralizada de participantes.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="library-big"></i>
+
+          <span>
+            03
+          </span>
+
+          <h3>
+            Biblioteca digital
+          </h3>
+
+          <p>
+            Documentos, presentaciones, guías, actividades
+            y recursos complementarios.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="chart-line"></i>
+
+          <span>
+            04
+          </span>
+
+          <h3>
+            Progreso
+          </h3>
+
+          <p>
+            Seguimiento de encuentros, módulos completados
+            y avance general de cada participante.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="badge-check"></i>
+
+          <span>
+            05
+          </span>
+
+          <h3>
+            Certificados
+          </h3>
+
+          <p>
+            Emisión, organización y registro de constancias
+            y certificaciones académicas.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="layout-dashboard"></i>
+
+          <span>
+            06
+          </span>
+
+          <h3>
+            Panel administrativo
+          </h3>
+
+          <p>
+            Una vista central para organizar cursos,
+            participantes, materiales y configuraciones.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="shield-check"></i>
+
+          <span>
+            07
+          </span>
+
+          <h3>
+            Acceso protegido
+          </h3>
+
+          <p>
+            Usuarios, roles, recuperación de contraseña
+            y accesos diferenciados.
+          </p>
+
+        </article>
+
+
+        <article class="fc-feature-card">
+
+          <i data-lucide="headphones"></i>
+
+          <span>
+            08
+          </span>
+
+          <h3>
+            Soporte técnico
+          </h3>
+
+          <p>
+            Acompañamiento para el funcionamiento,
+            mantenimiento y evolución de la plataforma.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         EXPERIENCE
+    ==================================================== -->
+
+    <section class="fc-experience">
+
+      <div class="fc-experience__content">
+
+        <span class="fc-section-eyebrow">
+          FALCO Experience®
+        </span>
+
+        <h2>
+          Así se siente tener tu propia academia profesional.
+        </h2>
+
+        <p>
+          Una experiencia digital diseñada para transmitir
+          la misma calidad, seriedad y prestigio que tu trabajo.
+        </p>
+
+        <button
+          type="button"
+          class="fc-button fc-button--primary"
+          id="btnAbrirExperienceSecundario"
+        >
+
+          <i data-lucide="play"></i>
+
+          Reproducir experiencia
+
+        </button>
+
+      </div>
+
+
+      <div class="fc-experience__visual">
+
+        <button
+          type="button"
+          class="fc-video-preview"
+          id="fcVideoPreview"
+          aria-label="Reproducir FALCO Experience"
+        >
+
+          <span class="fc-video-preview__image"></span>
+
+          <span class="fc-video-preview__overlay"></span>
+
+          <span class="fc-video-preview__play">
+
+            <i data-lucide="play"></i>
+
+          </span>
+
+          <span class="fc-video-preview__caption">
+
+            <small>
+              FALCO Experience®
+            </small>
+
+            <strong>
+              Tu academia comienza acá
+            </strong>
+
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CÓMO FUNCIONA
+    ==================================================== -->
+
+    <section
+      class="fc-process"
+      id="funcionamiento"
+    >
+
+      <div class="fc-section-heading">
+
+        <span class="fc-section-eyebrow">
+          Un proceso acompañado
+        </span>
+
+        <h2>
+          De tu curso preparado a una academia profesional.
+        </h2>
+
+      </div>
+
+
+      <div class="fc-process__steps">
+
+        <article class="fc-process-step">
+
+          <span>
+            01
+          </span>
+
+          <h3>
+            Nos contás tu proyecto
+          </h3>
+
+          <p>
+            Conocemos el curso, su estructura,
+            sus destinatarios y tus objetivos.
+          </p>
+
+        </article>
+
+
+        <article class="fc-process-step">
+
+          <span>
+            02
+          </span>
+
+          <h3>
+            Analizamos el contenido
+          </h3>
+
+          <p>
+            Revisamos videos, documentos,
+            módulos, actividades y materiales.
+          </p>
+
+        </article>
+
+
+        <article class="fc-process-step">
+
+          <span>
+            03
+          </span>
+
+          <h3>
+            Configuramos tu espacio
+          </h3>
+
+          <p>
+            Organizamos la plataforma y adaptamos
+            la experiencia a tu propuesta.
+          </p>
+
+        </article>
+
+
+        <article class="fc-process-step">
+
+          <span>
+            04
+          </span>
+
+          <h3>
+            Incorporamos a tus alumnos
+          </h3>
+
+          <p>
+            Creamos accesos y preparamos el recorrido
+            académico de cada participante.
+          </p>
+
+        </article>
+
+
+        <article class="fc-process-step">
+
+          <span>
+            05
+          </span>
+
+          <h3>
+            Comenzás a enseñar
+          </h3>
+
+          <p>
+            Tu academia queda operativa y acompañada
+            por la infraestructura FALCO®.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DESTINATARIOS
+    ==================================================== -->
+
+    <section
+      class="fc-audience"
+      id="profesionales"
+    >
+
+      <div class="fc-section-heading">
+
+        <span class="fc-section-eyebrow">
+          Creado para quienes tienen algo valioso que enseñar
+        </span>
+
+        <h2>
+          Profesionales, equipos e instituciones.
+        </h2>
+
+      </div>
+
+
+      <div class="fc-audience__grid">
+
+        <article>
+          <i data-lucide="brain"></i>
+          <span>Psicólogos</span>
+        </article>
+
+        <article>
+          <i data-lucide="scale"></i>
+          <span>Abogados</span>
+        </article>
+
+        <article>
+          <i data-lucide="stethoscope"></i>
+          <span>Profesionales de la salud</span>
+        </article>
+
+        <article>
+          <i data-lucide="graduation-cap"></i>
+          <span>Docentes</span>
+        </article>
+
+        <article>
+          <i data-lucide="briefcase-business"></i>
+          <span>Consultores</span>
+        </article>
+
+        <article>
+          <i data-lucide="building-2"></i>
+          <span>Instituciones</span>
+        </article>
+
+        <article>
+          <i data-lucide="landmark"></i>
+          <span>Municipios</span>
+        </article>
+
+        <article>
+          <i data-lucide="users-round"></i>
+          <span>Equipos profesionales</span>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROPUESTA PERSONALIZADA
+    ==================================================== -->
+
+    <section class="fc-custom">
+
+      <div class="fc-custom__content">
+
+        <span class="fc-section-eyebrow">
+          No ofrecemos una solución genérica
+        </span>
+
+        <h2>
+          Cada academia se configura alrededor de su creador.
+        </h2>
+
+        <p>
+          Analizamos el alcance de tu proyecto, la estructura del
+          curso, la cantidad de participantes y las herramientas
+          necesarias para preparar una propuesta personalizada.
+        </p>
+
+      </div>
+
+
+      <div class="fc-custom__details">
+
+        <span>
+          Identidad profesional
+        </span>
+
+        <span>
+          Cursos propios
+        </span>
+
+        <span>
+          Alumnos propios
+        </span>
+
+        <span>
+          Materiales propios
+        </span>
+
+        <span>
+          Certificación
+        </span>
+
+        <span>
+          Soporte
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA FINAL
+    ==================================================== -->
+
+    <section class="fc-final-cta">
+
+      <div class="fc-final-cta__glow"></div>
+
+
+      <div class="fc-final-cta__content">
+
+        <span class="fc-section-eyebrow">
+          El próximo curso puede llevar tu nombre
+        </span>
+
+        <h2>
+          ¿Estás preparado para crear tu propia academia?
+        </h2>
+
+        <p>
+          Solicitá una reunión y contanos el proyecto
+          que querés convertir en una experiencia profesional.
+        </p>
+
+
+        <div class="fc-final-cta__actions">
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--primary"
+          >
+
+            Solicitar una reunión
+
+            <i data-lucide="arrow-right"></i>
+
+          </a>
+
+          <a
+            href="./como-funciona.html"
+            class="fc-button fc-button--secondary"
+          >
+            Conocer el proceso
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="fc-footer">
+
+    <div class="fc-footer__main">
+
+      <div class="fc-footer__brand">
+
+        <span class="fc-brand__symbol">
+          F
+        </span>
+
+        <div>
+
+          <strong>
+            FALCO® Campus
+          </strong>
+
+          <small>
+            Academias profesionales
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <p>
+        Una plataforma del Sistema FALCO® para profesionales,
+        equipos e instituciones preparados para enseñar.
+      </p>
+
+
+      <nav
+        class="fc-footer__nav"
+        aria-label="Navegación del pie de página"
+      >
+
+        <a href="#inicio">
+          Inicio
+        </a>
+
+        <a href="#incluye">
+          Qué incluye
+        </a>
+
+        <a href="#funcionamiento">
+          Cómo funciona
+        </a>
+
+        <a href="./faq.html">
+          Preguntas frecuentes
+        </a>
+
+        <a href="./contacto.html">
+          Solicitar una reunión
+        </a>
+
+        <a href="../index.html">
+          Sistema FALCO®
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <div class="fc-footer__bottom">
+
+      <span>
+        © 2026 Sistema FALCO®. Todos los derechos reservados.
+      </span>
+
+      <span>
+        Buenos Aires, Argentina
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       MODAL DE VIDEO
+  ====================================================== -->
+
+  <div
+    class="fc-modal"
+    id="fcExperienceModal"
+    hidden
+  >
+
+    <div
+      class="fc-modal__backdrop"
+      data-close-experience
+    ></div>
+
+
+    <div
+      class="fc-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="fcExperienceTitle"
+    >
+
+      <button
+        type="button"
+        class="fc-modal__close"
+        id="btnCerrarExperience"
+        aria-label="Cerrar video"
+      >
+
+        <i data-lucide="x"></i>
+
+      </button>
+
+
+      <div class="fc-modal__header">
+
+        <span class="fc-section-eyebrow">
+          FALCO Experience®
+        </span>
+
+        <h2 id="fcExperienceTitle">
+          Tu academia comienza acá.
+        </h2>
+
+      </div>
+
+
+      <div class="fc-modal__video">
+
+        <video
+          id="fcExperienceVideo"
+          controls
+          playsinline
+          preload="metadata"
+          poster="./img/falco-campus-video-poster.jpg"
+        >
+
+          <source
+            src="./videos/falco-campus-experience.mp4"
+            type="video/mp4"
+          >
+
+          Su navegador no permite reproducir este video.
+
+        </video>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
+  <script
+    src="./js/falco-campus.js"
+    defer
+  ></script>
+
+  <script
+    src="./js/falco-campus-video.js"
+    defer
+  ></script>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+
+</body>
+</html>

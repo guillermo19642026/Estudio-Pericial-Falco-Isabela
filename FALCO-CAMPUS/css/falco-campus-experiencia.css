@@ -1,0 +1,704 @@
+/* =========================================================
+   FALCO® CAMPUS
+   EXPERIENCIA
+========================================================= */
+
+.fce-main{
+    position:relative;
+    z-index:2;
+    padding-top:82px;
+    overflow:hidden;
+}
+
+
+/*==========================================================
+ HERO
+==========================================================*/
+
+.fce-hero{
+    position:relative;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+}
+
+.fce-hero__media{
+    position:absolute;
+    inset:0;
+}
+
+.fce-hero__media video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.fce-hero__overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(2,7,14,.80),
+            rgba(2,8,18,.65),
+            rgba(2,7,14,.92)
+        );
+}
+
+.fce-hero__content{
+
+    position:relative;
+    z-index:2;
+
+    width:min(1100px,90vw);
+
+    text-align:center;
+
+}
+
+.fce-hero h1{
+
+    margin:25px auto;
+
+    max-width:900px;
+
+    color:#fff;
+
+    font-size:clamp(3rem,7vw,6.4rem);
+
+    font-family:"Playfair Display",serif;
+
+    line-height:1.02;
+
+}
+
+.fce-hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#c8d0d8;
+
+    line-height:1.9;
+
+}
+
+.fce-hero__actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-top:45px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/*==========================================================
+ MANIFESTO
+==========================================================*/
+
+.fce-manifest{
+
+    width:min(1000px,88vw);
+
+    margin:140px auto;
+
+    text-align:center;
+
+}
+
+.fce-manifest h2{
+
+    margin:20px auto;
+
+    color:#fff;
+
+    font-size:clamp(2.4rem,5vw,4.6rem);
+
+    font-family:"Playfair Display",serif;
+
+    line-height:1.1;
+
+}
+
+.fce-manifest h2 span{
+
+    color:var(--fc-gold-light);
+
+}
+
+.fce-manifest p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:var(--fc-muted);
+
+    line-height:1.9;
+
+}
+
+
+/*==========================================================
+ JOURNEY
+==========================================================*/
+
+.fce-journey{
+
+    width:min(1320px,90vw);
+
+    margin:0 auto 150px;
+
+}
+
+.fce-journey__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:26px;
+
+    margin-top:70px;
+
+}
+
+.fce-scene{
+
+    position:relative;
+
+    padding:42px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    background:linear-gradient(
+        145deg,
+        rgba(12,29,47,.88),
+        rgba(5,13,24,.98)
+    );
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.fce-scene:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(201,168,97,.35);
+
+}
+
+.fce-scene__number{
+
+    font-size:4rem;
+
+    font-family:"Playfair Display",serif;
+
+    color:rgba(255,255,255,.06);
+
+}
+
+.fce-scene__visual{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:20px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:rgba(201,168,97,.08);
+
+    margin:25px 0;
+
+}
+
+.fce-scene svg{
+
+    width:30px;
+
+    height:30px;
+
+    color:var(--fc-gold-light);
+
+}
+
+.fce-scene h3{
+
+    color:white;
+
+    margin-bottom:15px;
+
+    font-size:1.45rem;
+
+}
+
+.fce-scene p{
+
+    color:var(--fc-muted);
+
+    line-height:1.8;
+
+}
+
+
+/*==========================================================
+ PLATFORM
+==========================================================*/
+
+.fce-platform{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    width:min(1300px,90vw);
+
+    margin:0 auto 170px;
+
+}
+
+.fce-platform h2{
+
+    margin:18px 0;
+
+    font-size:clamp(2.5rem,5vw,4.6rem);
+
+    color:white;
+
+    font-family:"Playfair Display",serif;
+
+}
+
+.fce-platform p{
+
+    color:var(--fc-muted);
+
+    line-height:1.9;
+
+}
+
+.fce-platform__visual{
+
+    position:relative;
+
+}
+
+.fce-screen{
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:#08121d;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:0 40px 80px rgba(0,0,0,.45);
+
+}
+
+.fce-screen__bar{
+
+    height:48px;
+
+    background:#13283f;
+
+}
+
+.fce-screen__body{
+
+    display:grid;
+
+    grid-template-columns:120px 1fr;
+
+}
+
+.fce-screen aside{
+
+    background:#0c1f32;
+
+    min-height:430px;
+
+}
+
+.fce-screen main{
+
+    padding:28px;
+
+}
+
+.fce-screen header{
+
+    height:42px;
+
+    border-radius:10px;
+
+    background:#16344f;
+
+    margin-bottom:30px;
+
+}
+
+.fce-screen section{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+
+}
+
+.fce-screen section article{
+
+    height:110px;
+
+    border-radius:15px;
+
+    background:#10273e;
+
+}
+
+.fce-screen div{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:22px;
+
+}
+
+.fce-screen div article{
+
+    height:160px;
+
+    border-radius:18px;
+
+    background:#122d48;
+
+}
+
+.fce-screen-card{
+
+    position:absolute;
+
+    padding:20px;
+
+    width:190px;
+
+    border-radius:20px;
+
+    background:#0b1724;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.35);
+
+}
+
+.fce-screen-card svg{
+
+    color:var(--fc-gold-light);
+
+    margin-bottom:12px;
+
+}
+
+.fce-screen-card span{
+
+    display:block;
+
+    color:#b8c4d0;
+
+    font-size:.75rem;
+
+}
+
+.fce-screen-card strong{
+
+    display:block;
+
+    color:white;
+
+    margin-top:5px;
+
+}
+
+.fce-screen-card--students{
+
+    top:-30px;
+    right:-35px;
+
+}
+
+.fce-screen-card--library{
+
+    left:-35px;
+    bottom:110px;
+
+}
+
+.fce-screen-card--certificate{
+
+    right:20px;
+    bottom:-35px;
+
+}
+
+
+/*==========================================================
+ VALUE
+==========================================================*/
+
+.fce-value{
+
+    width:min(1250px,90vw);
+
+    margin:0 auto 170px;
+
+}
+
+.fce-value__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+    margin-top:65px;
+
+}
+
+.fce-value article{
+
+    padding:34px;
+
+    border-radius:24px;
+
+    background:#0b1724;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.fce-value svg{
+
+    color:var(--fc-gold-light);
+
+    margin-bottom:22px;
+
+}
+
+.fce-value h3{
+
+    color:white;
+
+    margin-bottom:12px;
+
+}
+
+.fce-value p{
+
+    color:#bcc7d1;
+
+    line-height:1.8;
+
+}
+
+
+/*==========================================================
+ VIDEO
+==========================================================*/
+
+.fce-video-section{
+
+    width:min(1200px,90vw);
+
+    margin:0 auto 170px;
+
+    text-align:center;
+
+}
+
+.fce-video-card{
+
+    position:relative;
+
+    width:100%;
+
+    height:620px;
+
+    margin-top:60px;
+
+    border:none;
+
+    border-radius:34px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#09131d;
+
+}
+
+.fce-video-card__image{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        url("../img/falco-campus-video-poster.jpg")
+        center/cover;
+
+    transform:scale(1);
+
+    transition:1s;
+
+}
+
+.fce-video-card:hover
+.fce-video-card__image{
+
+    transform:scale(1.05);
+
+}
+
+.fce-video-card__overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(4,9,15,.45);
+
+}
+
+.fce-video-card__play{
+
+    position:absolute;
+
+    inset:0;
+
+    display:grid;
+
+    place-items:center;
+
+}
+
+.fce-video-card__play i{
+
+    width:95px;
+
+    height:95px;
+
+    color:white;
+
+}
+
+.fce-video-card__caption{
+
+    position:absolute;
+
+    left:50px;
+
+    bottom:50px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+}
+
+.fce-video-card__caption small{
+
+    color:#caa96d;
+
+}
+
+.fce-video-card__caption strong{
+
+    color:white;
+
+    font-size:2rem;
+
+}
+
+
+/*==========================================================
+ RESPONSIVE
+==========================================================*/
+
+@media(max-width:1100px){
+
+.fce-platform{
+
+grid-template-columns:1fr;
+
+}
+
+.fce-journey__grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.fce-value__grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+@media(max-width:700px){
+
+.fce-journey__grid,
+.fce-value__grid{
+
+grid-template-columns:1fr;
+
+}
+
+.fce-video-card{
+
+height:360px;
+
+}
+
+.fce-screen-card{
+
+display:none;
+
+}
+
+}

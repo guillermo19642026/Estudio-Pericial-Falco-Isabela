@@ -1641,3 +1641,416 @@ p {
     white-space:nowrap;
     font-weight:600;
 }
+
+/* ==========================================================
+   SISTEMA FALCO®
+   USUARIOS Y PERMISOS
+   TARJETAS RESPONSIVE PARA CELULARES
+========================================================== */
+
+@media (max-width: 768px) {
+
+  /* =======================================================
+     ESTRUCTURA GENERAL
+  ======================================================= */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .up-main {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .up-table-section {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .up-table-header {
+    margin-bottom: 14px;
+    padding: 20px 18px;
+    border: 1px solid var(--up-border);
+    border-radius: 18px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(17, 38, 64, 0.78),
+        rgba(8, 21, 38, 0.94)
+      );
+  }
+
+  .up-table-header > span {
+    padding: 6px 10px;
+    border: 1px solid var(--up-border-gold);
+    border-radius: 999px;
+    background: var(--up-gold-soft);
+    color: var(--up-gold-300);
+  }
+
+
+  /* =======================================================
+     FILTROS
+  ======================================================= */
+
+  .up-filters {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .up-search,
+  .up-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .up-search input,
+  .up-filter select {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* =======================================================
+     TABLA CONVERTIDA EN TARJETAS
+  ======================================================= */
+
+  .up-table-wrapper {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .up-table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    table-layout: auto;
+    border-collapse: separate;
+  }
+
+  .up-table thead {
+    display: none;
+  }
+
+  .up-table tbody {
+    display: grid;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .up-table tbody tr {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 97, 0.2);
+    border-radius: 19px;
+    background:
+      radial-gradient(
+        circle at right top,
+        rgba(201, 168, 97, 0.09),
+        transparent 30%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(15, 35, 57, 0.98),
+        rgba(7, 19, 33, 0.99)
+      );
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.28);
+  }
+
+  .up-table tbody tr:hover {
+    background:
+      radial-gradient(
+        circle at right top,
+        rgba(201, 168, 97, 0.11),
+        transparent 30%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(15, 35, 57, 0.98),
+        rgba(7, 19, 33, 0.99)
+      );
+  }
+
+  .up-table tbody tr.is-archived {
+    opacity: 0.88;
+  }
+
+  .up-table tbody td {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 14px;
+    width: 100% !important;
+    min-width: 0;
+    padding: 13px 18px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+    color: var(--up-text-secondary);
+    text-align: left;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .up-table tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  .up-table tbody td::before {
+    display: block;
+    min-width: 0;
+    color: var(--up-gold-400);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.59rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+
+  /* =======================================================
+     CABECERA DE CADA USUARIO
+  ======================================================= */
+
+  .up-table tbody td:nth-child(1) {
+    display: block;
+    padding: 19px 18px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(201, 168, 97, 0.08),
+        transparent
+      );
+  }
+
+  .up-table tbody td:nth-child(1)::before {
+    display: none;
+  }
+
+  .up-user-cell {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .up-user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    font-size: 0.76rem;
+  }
+
+  .up-user-data,
+  .up-user-info {
+    display: grid;
+    min-width: 0;
+    flex: 1;
+    gap: 4px;
+  }
+
+  .up-user-data strong,
+  .up-user-info strong {
+    display: block;
+    max-width: 100%;
+    overflow: visible;
+    color: var(--up-text-primary);
+    font-size: 0.9rem;
+    line-height: 1.35;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .up-user-data small,
+  .up-user-info small {
+    display: block;
+    max-width: 100%;
+    color: var(--up-text-muted);
+    font-size: 0.63rem;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+
+  /* =======================================================
+     ETIQUETAS DE LOS DATOS
+  ======================================================= */
+
+  .up-table tbody td:nth-child(2)::before {
+    content: "Correo";
+  }
+
+  .up-table tbody td:nth-child(3)::before {
+    content: "Rol";
+  }
+
+  .up-table tbody td:nth-child(4)::before {
+    content: "Estado";
+  }
+
+  .up-table tbody td:nth-child(5)::before {
+    content: "Permisos";
+  }
+
+  .up-table tbody td:nth-child(6)::before {
+    content: "Acciones";
+  }
+
+
+  /* =======================================================
+     CORREO
+  ======================================================= */
+
+  .up-table tbody td:nth-child(2),
+  .up-table tbody td:nth-child(2) .up-email {
+    color: #d8e0eb;
+    font-size: 0.72rem;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+
+  /* =======================================================
+     ROL, ESTADO Y PERMISOS
+  ======================================================= */
+
+  .up-table tbody td:nth-child(3) .up-badge {
+    width: fit-content;
+    min-width: 0;
+    max-width: 100%;
+    padding: 7px 11px;
+    font-size: 0.59rem;
+    white-space: normal;
+  }
+
+  .up-table tbody td:nth-child(4) {
+    white-space: normal;
+  }
+
+  .up-status-cell {
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .up-status {
+    width: fit-content;
+  }
+
+  .up-archive-detail {
+    max-width: 100%;
+    font-size: 0.61rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .up-table tbody td:nth-child(5) .up-badge {
+    width: fit-content;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: flex-start;
+    padding: 7px 10px;
+    font-size: 0.59rem;
+    text-align: left;
+    white-space: normal;
+  }
+
+
+  /* =======================================================
+     ACCIONES
+  ======================================================= */
+
+  .up-table tbody td:nth-child(6) {
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 18px;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .up-table tbody td:nth-child(6)::before {
+    display: block;
+    margin-bottom: 11px;
+    content: "Acciones";
+  }
+
+  .up-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    width: 100%;
+  }
+
+  .up-actions .up-action-button {
+    width: 100%;
+    min-height: 42px;
+    justify-content: center;
+    padding: 9px 12px;
+    font-size: 0.68rem;
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     FILAS DE CARGA O SIN RESULTADOS
+  ======================================================= */
+
+  .up-table tbody tr:has(.up-loading),
+  .up-table tbody tr:has(.up-empty) {
+    display: block;
+    padding: 0;
+  }
+
+  .up-table tbody td.up-loading,
+  .up-table tbody td.up-empty {
+    display: block;
+    width: 100% !important;
+    padding: 34px 20px !important;
+    border: 0;
+    text-align: center !important;
+  }
+
+  .up-table tbody td.up-loading::before,
+  .up-table tbody td.up-empty::before {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 390px) {
+
+  .up-main {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .up-table tbody td {
+    grid-template-columns: 78px minmax(0, 1fr);
+    gap: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .up-table tbody td:nth-child(1) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .up-table tbody td::before {
+    font-size: 0.54rem;
+  }
+
+}

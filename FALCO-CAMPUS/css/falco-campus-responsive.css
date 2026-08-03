@@ -1,0 +1,901 @@
+/* =========================================================
+   FALCO® CAMPUS
+   RESPONSIVE
+========================================================= */
+
+
+/* =========================================================
+   NOTEBOOKS Y PANTALLAS MEDIANAS
+========================================================= */
+
+@media (max-width: 1280px) {
+
+  .fc-header {
+    padding-right: 4vw;
+    padding-left: 4vw;
+  }
+
+  .fc-nav > a {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 0.69rem;
+  }
+
+  .fc-hero {
+    grid-template-columns:
+      minmax(0, 0.92fr)
+      minmax(390px, 1.08fr);
+    gap: 30px;
+    padding-right: 4vw;
+    padding-left: 4vw;
+  }
+
+  .fc-hero h1 {
+    font-size: clamp(3rem, 5.5vw, 5.6rem);
+  }
+
+  .fc-hero__product {
+    min-height: 570px;
+  }
+
+  .fc-floating-card {
+    width: 175px;
+  }
+
+  .fc-features__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fc-process__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+  }
+
+  .fc-process-step:nth-child(3)::after,
+  .fc-process-step:last-child::after {
+    display: none;
+  }
+
+  .fc-footer__main {
+    grid-template-columns:
+      minmax(210px, 0.75fr)
+      minmax(250px, 1fr)
+      minmax(360px, 1.4fr);
+  }
+
+}
+
+
+/* =========================================================
+   TABLETS HORIZONTALES
+========================================================= */
+
+@media (max-width: 1080px) {
+
+  .fc-header {
+    min-height: 72px;
+  }
+
+  .fc-menu-button {
+    display: flex;
+  }
+
+  .fc-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 4vw;
+    left: 4vw;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    border: 1px solid var(--fc-line);
+    border-radius: 18px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(10, 27, 45, 0.98),
+        rgba(3, 12, 21, 0.99)
+      );
+    box-shadow:
+      0 28px 60px rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(18px);
+  }
+
+  .fc-nav.is-open {
+    display: flex;
+  }
+
+  .fc-nav > a {
+    width: 100%;
+    padding: 13px 14px;
+    font-size: 0.75rem;
+  }
+
+  .fc-nav__cta {
+    margin-top: 5px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .fc-hero {
+    align-items: start;
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 132px;
+    padding-bottom: 110px;
+  }
+
+  .fc-hero__content {
+    max-width: 850px;
+  }
+
+  .fc-hero__product {
+    width: min(820px, 100%);
+    min-height: 600px;
+    margin: 15px auto 0;
+  }
+
+  .fc-device {
+    width: min(740px, 88%);
+  }
+
+  .fc-floating-card--students {
+    left: 0;
+  }
+
+  .fc-floating-card--progress {
+    right: 0;
+  }
+
+  .fc-floating-card--certificate {
+    right: 12%;
+  }
+
+  .fc-scroll-indicator {
+    display: none;
+  }
+
+  .fc-partnership__grid {
+    gap: 18px;
+  }
+
+  .fc-partnership-card {
+    padding: 32px;
+  }
+
+  .fc-experience {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .fc-experience__content {
+    max-width: 800px;
+  }
+
+  .fc-audience__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fc-custom {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .fc-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fc-footer__nav {
+    grid-column: span 2;
+    justify-content: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 820px) {
+
+  .fc-header {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .fc-nav {
+    right: 22px;
+    left: 22px;
+  }
+
+  .fc-brand__text small {
+    font-size: 0.57rem;
+  }
+
+  .fc-hero,
+  .fc-partnership,
+  .fc-features,
+  .fc-experience,
+  .fc-process,
+  .fc-audience,
+  .fc-final-cta {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .fc-hero {
+    padding-top: 118px;
+  }
+
+  .fc-hero h1 {
+    font-size: clamp(2.8rem, 10vw, 5rem);
+  }
+
+  .fc-hero__lead {
+    font-size: 0.94rem;
+  }
+
+  .fc-hero__product {
+    min-height: 500px;
+  }
+
+  .fc-device {
+    width: 92%;
+    border-radius: 19px;
+    transform:
+      translate(-50%, -50%)
+      rotateY(-3deg)
+      rotateX(2deg);
+  }
+
+  .fc-device__screen {
+    grid-template-columns: 82px 1fr;
+  }
+
+  .fc-device__sidebar {
+    padding: 17px 11px;
+  }
+
+  .fc-device__dashboard {
+    padding: 17px;
+  }
+
+  .fc-floating-card {
+    width: 158px;
+    padding: 13px;
+  }
+
+  .fc-floating-card strong {
+    font-size: 0.67rem;
+  }
+
+  .fc-floating-card--students {
+    top: 6%;
+  }
+
+  .fc-floating-card--progress {
+    top: 53%;
+  }
+
+  .fc-floating-card--certificate {
+    right: 7%;
+    bottom: 0;
+  }
+
+  .fc-manifest {
+    min-height: auto;
+    padding: 110px 24px;
+  }
+
+  .fc-manifest h2 {
+    font-size: clamp(2.4rem, 9vw, 5rem);
+  }
+
+  .fc-partnership__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fc-partnership-card {
+    min-height: auto;
+  }
+
+  .fc-features__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fc-process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fc-process-step:nth-child(2)::after,
+  .fc-process-step:nth-child(4)::after {
+    display: none;
+  }
+
+  .fc-process-step:nth-child(3)::after {
+    display: block;
+  }
+
+  .fc-audience__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fc-custom {
+    width: calc(100% - 48px);
+    margin-top: 70px;
+    margin-bottom: 70px;
+    padding: 38px;
+  }
+
+  .fc-footer__main {
+    grid-template-columns: 1fr;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .fc-footer__nav {
+    grid-column: auto;
+    justify-content: flex-start;
+  }
+
+  .fc-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .fc-modal {
+    padding: 16px;
+  }
+
+  .fc-modal__dialog {
+    max-height: calc(100vh - 32px);
+    border-radius: 20px;
+  }
+
+  .fc-modal__header {
+    padding: 25px 58px 18px 22px;
+  }
+
+  .fc-modal__video {
+    padding-right: 14px;
+    padding-bottom: 14px;
+    padding-left: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   TELÉFONOS GRANDES
+========================================================= */
+
+@media (max-width: 620px) {
+
+  .fc-header {
+    min-height: 66px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .fc-header.is-scrolled {
+    min-height: 62px;
+  }
+
+  .fc-nav {
+    right: 14px;
+    left: 14px;
+  }
+
+  .fc-brand {
+    gap: 9px;
+  }
+
+  .fc-brand__symbol {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    font-size: 1.22rem;
+  }
+
+  .fc-brand__text strong {
+    font-size: 0.78rem;
+  }
+
+  .fc-brand__text small {
+    max-width: 150px;
+    font-size: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .fc-menu-button {
+    width: 39px;
+    height: 39px;
+  }
+
+  .fc-hero,
+  .fc-partnership,
+  .fc-features,
+  .fc-experience,
+  .fc-process,
+  .fc-audience,
+  .fc-final-cta {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .fc-hero {
+    padding-top: 104px;
+    padding-bottom: 75px;
+  }
+
+  .fc-eyebrow,
+  .fc-section-eyebrow {
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+  }
+
+  .fc-eyebrow::before,
+  .fc-section-eyebrow::before {
+    width: 18px;
+  }
+
+  .fc-hero h1 {
+    margin-top: 18px;
+    font-size: clamp(2.5rem, 13vw, 4.2rem);
+    line-height: 1;
+  }
+
+  .fc-hero__lead {
+    font-size: 0.83rem;
+    line-height: 1.75;
+  }
+
+  .fc-hero__statement {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .fc-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 27px;
+  }
+
+  .fc-button {
+    width: 100%;
+  }
+
+  .fc-hero__trust {
+    gap: 6px;
+    margin-top: 26px;
+  }
+
+  .fc-hero__trust span {
+    padding: 7px 9px;
+    font-size: 0.55rem;
+  }
+
+  .fc-hero__product {
+    min-height: 410px;
+    margin-top: 0;
+  }
+
+  .fc-device {
+    width: 100%;
+    border-radius: 15px;
+    transform:
+      translate(-50%, -50%);
+  }
+
+  .fc-device__topbar {
+    height: 32px;
+  }
+
+  .fc-device__screen {
+    grid-template-columns: 58px 1fr;
+    min-height: calc(100% - 32px);
+  }
+
+  .fc-device__sidebar {
+    gap: 9px;
+    padding: 12px 8px;
+  }
+
+  .fc-device__sidebar strong {
+    font-size: 0.45rem;
+  }
+
+  .fc-device__sidebar span {
+    height: 6px;
+  }
+
+  .fc-device__dashboard {
+    padding: 10px;
+  }
+
+  .fc-device__welcome {
+    height: 49px;
+    border-radius: 9px;
+  }
+
+  .fc-device__metrics {
+    gap: 6px;
+    margin-top: 7px;
+  }
+
+  .fc-device__metrics span {
+    height: 44px;
+    border-radius: 8px;
+  }
+
+  .fc-device__courses {
+    gap: 7px;
+    margin-top: 7px;
+  }
+
+  .fc-device__courses article {
+    height: 90px;
+    border-radius: 10px;
+  }
+
+  .fc-floating-card {
+    width: 130px;
+    padding: 10px;
+    border-radius: 11px;
+  }
+
+  .fc-floating-card svg {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 5px;
+  }
+
+  .fc-floating-card span {
+    font-size: 0.48rem;
+  }
+
+  .fc-floating-card strong {
+    font-size: 0.55rem;
+  }
+
+  .fc-floating-card--students {
+    top: 1%;
+    left: -4px;
+  }
+
+  .fc-floating-card--progress {
+    top: 48%;
+    right: -4px;
+  }
+
+  .fc-floating-card--certificate {
+    right: 7%;
+    bottom: -2%;
+  }
+
+  .fc-section-heading {
+    margin-bottom: 36px;
+  }
+
+  .fc-section-heading h2,
+  .fc-manifest h2,
+  .fc-experience h2,
+  .fc-custom h2,
+  .fc-final-cta h2 {
+    font-size: clamp(2rem, 10vw, 3.6rem);
+  }
+
+  .fc-section-heading p {
+    font-size: 0.8rem;
+    line-height: 1.75;
+  }
+
+  .fc-manifest {
+    padding: 88px 18px;
+  }
+
+  .fc-manifest p {
+    font-size: 0.82rem;
+  }
+
+  .fc-manifest__highlight {
+    font-size: 0.9rem !important;
+  }
+
+  .fc-partnership {
+    padding-top: 84px;
+    padding-bottom: 95px;
+  }
+
+  .fc-partnership-card {
+    padding: 27px 23px;
+    border-radius: 22px;
+  }
+
+  .fc-partnership-card__number {
+    top: 18px;
+    right: 20px;
+    font-size: 4.2rem;
+  }
+
+  .fc-partnership-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  .fc-partnership-card h3 {
+    font-size: 2rem;
+  }
+
+  .fc-partnership-card li {
+    font-size: 0.75rem;
+  }
+
+  .fc-features {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .fc-features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fc-feature-card {
+    min-height: 245px;
+  }
+
+  .fc-feature-card h3 {
+    margin-top: 52px;
+  }
+
+  .fc-experience {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .fc-experience__content p {
+    font-size: 0.81rem;
+  }
+
+  .fc-video-preview {
+    border-radius: 18px;
+  }
+
+  .fc-video-preview__play {
+    width: 62px;
+    height: 62px;
+    box-shadow:
+      0 0 0 8px rgba(201, 168, 97, 0.05);
+  }
+
+  .fc-video-preview__caption {
+    right: 18px;
+    bottom: 16px;
+    left: 18px;
+  }
+
+  .fc-video-preview__caption strong {
+    font-size: 1rem;
+  }
+
+  .fc-process {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .fc-process__steps {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+
+  .fc-process-step {
+    min-height: auto;
+    padding: 25px 22px 30px;
+  }
+
+  .fc-process-step::after {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 22px;
+    display: block !important;
+    width: calc(100% - 44px);
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(201, 168, 97, 0.25),
+        transparent
+      );
+  }
+
+  .fc-process-step:last-child::after {
+    display: none !important;
+  }
+
+  .fc-process-step h3 {
+    margin-top: 42px;
+  }
+
+  .fc-audience {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  .fc-audience__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fc-audience__grid article {
+    min-height: 76px;
+  }
+
+  .fc-custom {
+    width: calc(100% - 36px);
+    margin-top: 55px;
+    margin-bottom: 55px;
+    padding: 28px 22px;
+    border-radius: 23px;
+  }
+
+  .fc-custom__content p {
+    font-size: 0.79rem;
+  }
+
+  .fc-custom__details {
+    gap: 7px;
+  }
+
+  .fc-custom__details span {
+    padding: 9px 11px;
+    font-size: 0.59rem;
+  }
+
+  .fc-final-cta {
+    min-height: auto;
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .fc-final-cta p {
+    font-size: 0.82rem;
+  }
+
+  .fc-final-cta__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .fc-footer__main {
+    gap: 25px;
+    padding: 36px 18px 30px;
+  }
+
+  .fc-footer__nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .fc-footer__bottom {
+    padding: 16px 18px;
+  }
+
+  .fc-modal {
+    padding: 8px;
+  }
+
+  .fc-modal__dialog {
+    max-height: calc(100vh - 16px);
+    border-radius: 16px;
+  }
+
+  .fc-modal__close {
+    top: 11px;
+    right: 11px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .fc-modal__header {
+    padding: 22px 50px 15px 16px;
+  }
+
+  .fc-modal__header h2 {
+    font-size: 1.65rem;
+  }
+
+  .fc-modal__video {
+    padding: 0 8px 8px;
+  }
+
+  .fc-modal__video video {
+    border-radius: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   TELÉFONOS PEQUEÑOS
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .fc-brand__text small {
+    display: none;
+  }
+
+  .fc-hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .fc-hero__trust {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fc-hero__trust span {
+    text-align: center;
+  }
+
+  .fc-hero__product {
+    min-height: 350px;
+  }
+
+  .fc-floating-card {
+    width: 112px;
+  }
+
+  .fc-floating-card--certificate {
+    right: 2%;
+  }
+
+  .fc-partnership-card h3 {
+    font-size: 1.75rem;
+  }
+
+  .fc-video-preview__caption strong {
+    font-size: 0.9rem;
+  }
+
+}
+
+
+/* =========================================================
+   ALTURAS REDUCIDAS
+========================================================= */
+
+@media (max-height: 720px) and (min-width: 821px) {
+
+  .fc-hero {
+    min-height: 820px;
+  }
+
+  .fc-scroll-indicator {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   DISPOSITIVOS TÁCTILES
+========================================================= */
+
+@media (hover: none) {
+
+  .fc-feature-card:hover,
+  .fc-audience__grid article:hover,
+  .fc-button:hover {
+    transform: none;
+  }
+
+}

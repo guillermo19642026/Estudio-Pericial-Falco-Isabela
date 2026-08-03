@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Solicite una reunión para implementar su curso o programa de formación en FALCO® Campus."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <title>
+    Solicitar una reunión | FALCO® Campus
+  </title>
+
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus-responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus-contacto.css"
+  >
+
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body>
+
+  <div
+    class="fc-background"
+    aria-hidden="true"
+  >
+
+    <span class="fc-background__glow fc-background__glow--one"></span>
+    <span class="fc-background__glow fc-background__glow--two"></span>
+    <span class="fc-background__glow fc-background__glow--three"></span>
+    <span class="fc-background__grid"></span>
+    <span class="fc-background__noise"></span>
+
+  </div>
+
+
+  <header
+    class="fc-header is-scrolled"
+    id="fcHeader"
+  >
+
+    <a
+      href="./index.html"
+      class="fc-brand"
+      aria-label="Volver a FALCO Campus"
+    >
+
+      <span class="fc-brand__symbol">
+        F
+      </span>
+
+      <span class="fc-brand__text">
+
+        <strong>
+          FALCO® Campus
+        </strong>
+
+        <small>
+          Academias profesionales
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <nav
+      class="fc-nav fc-nav--contacto"
+      aria-label="Navegación"
+    >
+
+      <a href="./index.html">
+        Inicio
+      </a>
+
+      <a href="./como-funciona.html">
+        Cómo funciona
+      </a>
+
+      <a href="./faq.html">
+        Preguntas frecuentes
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main class="fcc-main">
+
+    <!-- ===================================================
+         INTRODUCCIÓN
+    ==================================================== -->
+
+    <section class="fcc-hero">
+
+      <div class="fcc-hero__content">
+
+        <span class="fc-section-eyebrow">
+          Primer encuentro
+        </span>
+
+        <h1>
+          Contanos la academia que querés crear.
+        </h1>
+
+        <p>
+          Completá esta presentación inicial para que podamos conocer
+          tu curso, tus materiales y el tipo de experiencia que deseás
+          ofrecer a tus alumnos.
+        </p>
+
+      </div>
+
+
+      <div class="fcc-hero__summary">
+
+        <article>
+
+          <i data-lucide="messages-square"></i>
+
+          <div>
+            <strong>Reunión inicial</strong>
+            <span>Conocemos tu propuesta.</span>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <i data-lucide="panels-top-left"></i>
+
+          <div>
+            <strong>Configuración personalizada</strong>
+            <span>Diseñamos el espacio académico.</span>
+          </div>
+
+        </article>
+
+
+        <article>
+
+          <i data-lucide="rocket"></i>
+
+          <div>
+            <strong>Puesta en funcionamiento</strong>
+            <span>Tu academia queda preparada para enseñar.</span>
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FORMULARIO
+    ==================================================== -->
+
+    <section class="fcc-form-section">
+
+      <div class="fcc-form-intro">
+
+        <span class="fc-section-eyebrow">
+          Presentación del proyecto
+        </span>
+
+        <h2>
+          Solicitud de reunión
+        </h2>
+
+        <p>
+          Esta información permite realizar una primera evaluación
+          técnica y comercial de tu propuesta.
+        </p>
+
+
+        <div class="fcc-form-note">
+
+          <i data-lucide="shield-check"></i>
+
+          <p>
+            Los datos serán utilizados exclusivamente para analizar
+            la solicitud y coordinar una reunión.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form
+        class="fcc-form"
+        id="formFalcoCampus"
+      >
+
+        <!-- DATOS PROFESIONALES -->
+
+        <fieldset class="fcc-fieldset">
+
+          <legend>
+            01 · Datos profesionales
+          </legend>
+
+
+          <div class="fcc-grid fcc-grid--two">
+
+            <div class="fcc-field">
+
+              <label for="nombre">
+                Nombre y apellido
+              </label>
+
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+            <div class="fcc-field">
+
+              <label for="profesion">
+                Profesión o actividad
+              </label>
+
+              <input
+                type="text"
+                id="profesion"
+                name="profesion"
+                placeholder="Ej.: Psicóloga, abogado, docente..."
+                required
+              >
+
+            </div>
+
+
+            <div class="fcc-field">
+
+              <label for="email">
+                Correo electrónico
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+            <div class="fcc-field">
+
+              <label for="telefono">
+                WhatsApp
+              </label>
+
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                autocomplete="tel"
+                placeholder="+54..."
+                required
+              >
+
+            </div>
+
+
+            <div class="fcc-field fcc-field--full">
+
+              <label for="institucion">
+                Institución, estudio o marca profesional
+              </label>
+
+              <input
+                type="text"
+                id="institucion"
+                name="institucion"
+                placeholder="Opcional"
+              >
+
+            </div>
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- CURSO -->
+
+        <fieldset class="fcc-fieldset">
+
+          <legend>
+            02 · Tu curso o programa
+          </legend>
+
+
+          <div class="fcc-grid fcc-grid--two">
+
+            <div class="fcc-field fcc-field--full">
+
+              <label for="tituloCurso">
+                Nombre del curso o programa
+              </label>
+
+              <input
+                type="text"
+                id="tituloCurso"
+                name="tituloCurso"
+                required
+              >
+
+            </div>
+
+
+            <div class="fcc-field">
+
+              <label for="tipoPropuesta">
+                Tipo de propuesta
+              </label>
+
+              <select
+                id="tipoPropuesta"
+                name="tipoPropuesta"
+                required
+              >
+
+                <option value="">
+                  Seleccionar
+                </option>
+
+                <option value="curso">
+                  Curso
+                </option>
+
+                <option value="programa">
+                  Programa de formación
+                </option>
+
+                <option value="taller">
+                  Taller
+                </option>
+
+                <option value="diplomatura">
+                  Diplomatura
+                </option>
+
+                <option value="capacitacion">
+                  Capacitación institucional
+                </option>
+
+                <option value="otro">
+                  Otra propuesta
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="fcc-field">
+
+              <label for="cantidadModulos">
+                Cantidad aproximada de módulos
+              </label>
+
+              <input
+                type="number"
+                id="cantidadModulos"
+                name="cantidadModulos"
+                min="1"
+                max="100"
+                required
+              >
+
+            </div>
+
+
+            <div class="fcc-field fcc-field--full">
+
+              <label for="descripcionCurso">
+                Descripción breve
+              </label>
+
+              <textarea
+                id="descripcionCurso"
+                name="descripcionCurso"
+                rows="5"
+                placeholder="Contanos qué enseña, a quién está dirigido y cuál es su objetivo."
+                required
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- MATERIALES -->
+
+        <fieldset class="fcc-fieldset">
+
+          <legend>
+            03 · Estado de los materiales
+          </legend>
+
+
+          <div class="fcc-options">
+
+            <label class="fcc-check">
+
+              <input
+                type="checkbox"
+                name="materiales"
+                value="videos"
+              >
+
+              <span>
+                Videos grabados
+              </span>
+
+            </label>
+
+
+            <label class="fcc-check">
+
+              <input
+                type="checkbox"
+                name="materiales"
+                value="presentaciones"
+              >
+
+              <span>
+                Presentaciones
+              </span>
+
+            </label>
+
+
+            <label class="fcc-check">
+
+              <input
+                type="checkbox"
+                name="materiales"
+                value="documentos"
+              >
+
+              <span>
+                Documentos o PDF
+              </span>
+
+            </label>
+
+
+            <label class="fcc-check">
+
+              <input
+                type="checkbox"
+                name="materiales"
+                value="actividades"
+              >
+
+              <span>
+                Actividades o ejercicios
+              </span>
+
+            </label>
+
+
+            <label class="fcc-check">
+
+              <input
+                type="checkbox"
+                name="materiales"
+                value="evaluaciones"
+              >
+
+              <span>
+                Evaluaciones
+              </span>
+
+            </label>
+
+
+            <label class="fcc-check">
+
+              <input
+                type="checkbox"
+                name="materiales"
+                value="certificado"
+              >
+
+              <span>
+                Modelo de certificado
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <div class="fcc-field">
+
+            <label for="estadoContenido">
+              Estado general del curso
+            </label>
+
+            <select
+              id="estadoContenido"
+              name="estadoContenido"
+              required
+            >
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="completo">
+                Está completamente preparado
+              </option>
+
+              <option value="avanzado">
+                Está avanzado, faltan algunos materiales
+              </option>
+
+              <option value="inicial">
+                Está en etapa inicial
+              </option>
+
+            </select>
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- ALCANCE -->
+
+        <fieldset class="fcc-fieldset">
+
+          <legend>
+            04 · Alcance esperado
+          </legend>
+
+
+          <div class="fcc-grid fcc-grid--two">
+
+            <div class="fcc-field">
+
+              <label for="cantidadAlumnos">
+                Cantidad estimada de alumnos
+              </label>
+
+              <select
+                id="cantidadAlumnos"
+                name="cantidadAlumnos"
+                required
+              >
+
+                <option value="">
+                  Seleccionar
+                </option>
+
+                <option value="hasta-25">
+                  Hasta 25
+                </option>
+
+                <option value="26-50">
+                  Entre 26 y 50
+                </option>
+
+                <option value="51-100">
+                  Entre 51 y 100
+                </option>
+
+                <option value="101-250">
+                  Entre 101 y 250
+                </option>
+
+                <option value="mas-250">
+                  Más de 250
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="fcc-field">
+
+              <label for="fechaInicio">
+                Fecha estimada de inicio
+              </label>
+
+              <input
+                type="month"
+                id="fechaInicio"
+                name="fechaInicio"
+              >
+
+            </div>
+
+
+            <div class="fcc-field fcc-field--full">
+
+              <label for="necesidades">
+                ¿Qué necesitás de FALCO® Campus?
+              </label>
+
+              <textarea
+                id="necesidades"
+                name="necesidades"
+                rows="5"
+                placeholder="Ej.: Campus, carga de alumnos, certificados, soporte, identidad visual, seguimiento..."
+                required
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </fieldset>
+
+
+        <!-- MENSAJE -->
+
+        <section
+          class="fcc-message"
+          id="mensajeFormulario"
+          role="status"
+          hidden
+        ></section>
+
+
+        <!-- ACCIONES -->
+
+        <div class="fcc-actions">
+
+          <button
+            type="submit"
+            class="fc-button fc-button--primary"
+            id="btnEnviarSolicitud"
+          >
+
+            Enviar solicitud
+
+            <i data-lucide="send"></i>
+
+          </button>
+
+
+          <a
+            href="./index.html"
+            class="fc-button fc-button--secondary"
+          >
+            Volver a FALCO® Campus
+          </a>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <footer class="fc-footer">
+
+    <div class="fc-footer__bottom">
+
+      <span>
+        © 2026 Sistema FALCO®. Todos los derechos reservados.
+      </span>
+
+      <span>
+        Buenos Aires, Argentina
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script
+    src="./js/falco-campus-contacto.js"
+    defer
+  ></script>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+
+</body>
+</html>

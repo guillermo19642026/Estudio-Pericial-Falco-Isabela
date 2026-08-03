@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Conocé las modalidades de implementación de FALCO® Campus para profesionales, equipos e instituciones."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <title>
+    Propuestas | FALCO® Campus
+  </title>
+
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus-responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/falco-campus-planes.css"
+  >
+
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       FONDO
+  ====================================================== -->
+
+  <div
+    class="fc-background"
+    aria-hidden="true"
+  >
+
+    <span class="fc-background__glow fc-background__glow--one"></span>
+    <span class="fc-background__glow fc-background__glow--two"></span>
+    <span class="fc-background__glow fc-background__glow--three"></span>
+    <span class="fc-background__grid"></span>
+    <span class="fc-background__noise"></span>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header
+    class="fc-header is-scrolled"
+    id="fcHeader"
+  >
+
+    <a
+      href="./index.html"
+      class="fc-brand"
+      aria-label="Volver a FALCO Campus"
+    >
+
+      <span class="fc-brand__symbol">
+        F
+      </span>
+
+      <span class="fc-brand__text">
+
+        <strong>
+          FALCO® Campus
+        </strong>
+
+        <small>
+          Academias profesionales
+        </small>
+
+      </span>
+
+    </a>
+
+
+    <button
+      type="button"
+      class="fc-menu-button"
+      id="fcMenuButton"
+      aria-label="Abrir navegación"
+      aria-expanded="false"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+
+    <nav
+      class="fc-nav"
+      id="fcNav"
+      aria-label="Navegación principal"
+    >
+
+      <a href="./index.html">
+        Inicio
+      </a>
+
+      <a href="./experiencia.html">
+        La experiencia
+      </a>
+
+      <a href="./como-funciona.html">
+        Cómo funciona
+      </a>
+
+      <a
+        href="./planes.html"
+        class="is-active"
+      >
+        Propuestas
+      </a>
+
+      <a href="./faq.html">
+        Preguntas frecuentes
+      </a>
+
+      <a
+        href="./contacto.html"
+        class="fc-nav__cta"
+      >
+        Solicitar una reunión
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main class="fcp-main">
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="fcp-hero">
+
+      <div class="fcp-hero__content">
+
+        <span class="fc-section-eyebrow">
+          Una solución adaptada a cada proyecto
+        </span>
+
+        <h1>
+          Tu academia no necesita un plan genérico.
+        </h1>
+
+        <p>
+          Cada propuesta se configura según la cantidad de cursos,
+          módulos, alumnos, materiales, herramientas y nivel de
+          personalización requerido.
+        </p>
+
+
+        <div class="fcp-hero__actions">
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--primary"
+          >
+            Solicitar una propuesta
+
+            <i data-lucide="arrow-right"></i>
+          </a>
+
+          <a
+            href="#modalidades"
+            class="fc-button fc-button--secondary"
+          >
+            Conocer modalidades
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="fcp-hero__visual"
+        aria-hidden="true"
+      >
+
+        <div class="fcp-core">
+
+          <span class="fc-brand__symbol">
+            F
+          </span>
+
+          <small>
+            FALCO® Campus
+          </small>
+
+          <strong>
+            Configuración personalizada
+          </strong>
+
+        </div>
+
+
+        <article class="fcp-float fcp-float--courses">
+
+          <i data-lucide="library-big"></i>
+
+          <span>
+            Cursos
+          </span>
+
+        </article>
+
+
+        <article class="fcp-float fcp-float--students">
+
+          <i data-lucide="users-round"></i>
+
+          <span>
+            Alumnos
+          </span>
+
+        </article>
+
+
+        <article class="fcp-float fcp-float--identity">
+
+          <i data-lucide="palette"></i>
+
+          <span>
+            Identidad
+          </span>
+
+        </article>
+
+
+        <article class="fcp-float fcp-float--support">
+
+          <i data-lucide="headphones"></i>
+
+          <span>
+            Soporte
+          </span>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PRINCIPIO COMERCIAL
+    ==================================================== -->
+
+    <section class="fcp-principle">
+
+      <span class="fc-section-eyebrow">
+        Una propuesta construida alrededor de tu proyecto
+      </span>
+
+      <h2>
+        No pagás por funciones que no necesitás.
+      </h2>
+
+      <p>
+        Analizamos la dimensión de la academia y definimos una
+        implementación coherente con sus objetivos, destinatarios
+        y modalidad de funcionamiento.
+      </p>
+
+    </section>
+
+
+    <!-- ===================================================
+         MODALIDADES
+    ==================================================== -->
+
+    <section
+      class="fcp-modalities"
+      id="modalidades"
+    >
+
+      <div class="fc-section-heading">
+
+        <span class="fc-section-eyebrow">
+          Modalidades de implementación
+        </span>
+
+        <h2>
+          Una estructura preparada para distintos niveles de crecimiento.
+        </h2>
+
+        <p>
+          Estas modalidades funcionan como referencia inicial. La propuesta
+          definitiva se prepara después de conocer el proyecto.
+        </p>
+
+      </div>
+
+
+      <div class="fcp-modalities__grid">
+
+        <!-- PROFESIONAL -->
+
+        <article class="fcp-plan">
+
+          <div class="fcp-plan__header">
+
+            <span class="fcp-plan__icon">
+              <i data-lucide="user-round"></i>
+            </span>
+
+            <span class="fcp-plan__label">
+              Modalidad inicial
+            </span>
+
+            <h3>
+              Profesional
+            </h3>
+
+            <p>
+              Para especialistas que desean publicar su primer curso
+              o programa dentro de una experiencia profesional.
+            </p>
+
+          </div>
+
+
+          <ul class="fcp-plan__features">
+
+            <li>
+              <i data-lucide="check"></i>
+              Un curso o programa principal.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Organización por módulos.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Acceso de alumnos.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Videos y materiales.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Seguimiento básico.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Certificación.
+            </li>
+
+          </ul>
+
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--secondary"
+          >
+            Presentar mi curso
+          </a>
+
+        </article>
+
+
+        <!-- ACADEMIA -->
+
+        <article class="fcp-plan fcp-plan--featured">
+
+          <span class="fcp-plan__recommended">
+            Propuesta destacada
+          </span>
+
+
+          <div class="fcp-plan__header">
+
+            <span class="fcp-plan__icon">
+              <i data-lucide="graduation-cap"></i>
+            </span>
+
+            <span class="fcp-plan__label">
+              Modalidad avanzada
+            </span>
+
+            <h3>
+              Academia
+            </h3>
+
+            <p>
+              Para profesionales que desean desarrollar una oferta
+              formativa con distintos cursos y mayor capacidad de gestión.
+            </p>
+
+          </div>
+
+
+          <ul class="fcp-plan__features">
+
+            <li>
+              <i data-lucide="check"></i>
+              Varios cursos o recorridos.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Portal académico.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Gestión de participantes.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Biblioteca académica.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Seguimiento de progreso.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Certificados e historial.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Identidad visual personalizada.
+            </li>
+
+          </ul>
+
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--primary"
+          >
+            Crear mi academia
+
+            <i data-lucide="arrow-right"></i>
+          </a>
+
+        </article>
+
+
+        <!-- INSTITUCIONAL -->
+
+        <article class="fcp-plan">
+
+          <div class="fcp-plan__header">
+
+            <span class="fcp-plan__icon">
+              <i data-lucide="building-2"></i>
+            </span>
+
+            <span class="fcp-plan__label">
+              Modalidad institucional
+            </span>
+
+            <h3>
+              Organización
+            </h3>
+
+            <p>
+              Para equipos, estudios, empresas, municipios,
+              asociaciones e instituciones educativas.
+            </p>
+
+          </div>
+
+
+          <ul class="fcp-plan__features">
+
+            <li>
+              <i data-lucide="check"></i>
+              Múltiples cursos y programas.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Gestión ampliada de participantes.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Roles administrativos.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Certificación institucional.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Indicadores y seguimiento.
+            </li>
+
+            <li>
+              <i data-lucide="check"></i>
+              Configuración personalizada.
+            </li>
+
+          </ul>
+
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--secondary"
+          >
+            Solicitar propuesta institucional
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         QUÉ DEFINE LA PROPUESTA
+    ==================================================== -->
+
+    <section class="fcp-factors">
+
+      <div class="fcp-factors__content">
+
+        <span class="fc-section-eyebrow">
+          Evaluación del proyecto
+        </span>
+
+        <h2>
+          ¿Qué aspectos se consideran?
+        </h2>
+
+        <p>
+          La propuesta se calcula sobre necesidades concretas,
+          evitando estructuras cerradas que no representen el
+          funcionamiento real de la academia.
+        </p>
+
+      </div>
+
+
+      <div class="fcp-factors__grid">
+
+        <article>
+
+          <span>
+            01
+          </span>
+
+          <i data-lucide="book-open"></i>
+
+          <h3>
+            Cursos y módulos
+          </h3>
+
+          <p>
+            Cantidad, extensión y organización del contenido.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            02
+          </span>
+
+          <i data-lucide="users-round"></i>
+
+          <h3>
+            Participantes
+          </h3>
+
+          <p>
+            Volumen estimado de alumnos y modalidad de acceso.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            03
+          </span>
+
+          <i data-lucide="files"></i>
+
+          <h3>
+            Materiales
+          </h3>
+
+          <p>
+            Videos, documentos, actividades y evaluaciones.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            04
+          </span>
+
+          <i data-lucide="palette"></i>
+
+          <h3>
+            Personalización
+          </h3>
+
+          <p>
+            Identidad visual, estructura y presentación del espacio.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            05
+          </span>
+
+          <i data-lucide="settings-2"></i>
+
+          <h3>
+            Herramientas
+          </h3>
+
+          <p>
+            Progreso, certificados, biblioteca y administración.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            06
+          </span>
+
+          <i data-lucide="headphones"></i>
+
+          <h3>
+            Acompañamiento
+          </h3>
+
+          <p>
+            Soporte, mantenimiento y evolución de la plataforma.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         INCLUYE
+    ==================================================== -->
+
+    <section class="fcp-included">
+
+      <div>
+
+        <span class="fc-section-eyebrow">
+          Una implementación profesional
+        </span>
+
+        <h2>
+          Todas las propuestas incluyen una base común.
+        </h2>
+
+      </div>
+
+
+      <div class="fcp-included__list">
+
+        <article>
+          <i data-lucide="shield-check"></i>
+          <span>Accesos protegidos.</span>
+        </article>
+
+        <article>
+          <i data-lucide="key-round"></i>
+          <span>Recuperación de contraseña.</span>
+        </article>
+
+        <article>
+          <i data-lucide="monitor-smartphone"></i>
+          <span>Diseño adaptable.</span>
+        </article>
+
+        <article>
+          <i data-lucide="database"></i>
+          <span>Infraestructura tecnológica.</span>
+        </article>
+
+        <article>
+          <i data-lucide="life-buoy"></i>
+          <span>Acompañamiento inicial.</span>
+        </article>
+
+        <article>
+          <i data-lucide="wrench"></i>
+          <span>Mantenimiento técnico.</span>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ACLARACIÓN
+    ==================================================== -->
+
+    <section class="fcp-note">
+
+      <i data-lucide="circle-help"></i>
+
+      <div>
+
+        <h2>
+          ¿Por qué no publicamos un precio único?
+        </h2>
+
+        <p>
+          Porque no requiere el mismo trabajo una propuesta de cuatro módulos
+          para veinte alumnos que una academia institucional con múltiples
+          programas, roles y certificaciones. Primero conocemos el proyecto
+          y después preparamos una propuesta clara.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA
+    ==================================================== -->
+
+    <section class="fc-final-cta">
+
+      <div class="fc-final-cta__glow"></div>
+
+
+      <div class="fc-final-cta__content">
+
+        <span class="fc-section-eyebrow">
+          Propuesta personalizada
+        </span>
+
+        <h2>
+          Contanos qué academia querés crear.
+        </h2>
+
+        <p>
+          Completá la presentación inicial y recibí una propuesta
+          adaptada al alcance real de tu proyecto.
+        </p>
+
+
+        <div class="fc-final-cta__actions">
+
+          <a
+            href="./contacto.html"
+            class="fc-button fc-button--primary"
+          >
+            Solicitar una propuesta
+
+            <i data-lucide="arrow-right"></i>
+          </a>
+
+          <a
+            href="./faq.html"
+            class="fc-button fc-button--secondary"
+          >
+            Ver preguntas frecuentes
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="fc-footer">
+
+    <div class="fc-footer__bottom">
+
+      <span>
+        © 2026 Sistema FALCO®. Todos los derechos reservados.
+      </span>
+
+      <span>
+        Buenos Aires, Argentina
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script
+    src="./js/falco-campus.js"
+    defer
+  ></script>
+
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+
+</body>
+</html>

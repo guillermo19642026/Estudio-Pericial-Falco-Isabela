@@ -1,0 +1,662 @@
+/* =========================================================
+   FALCO® CAMPUS
+   CONTACTO Y SOLICITUD DE REUNIÓN
+========================================================= */
+
+
+/* =========================================================
+   ESTRUCTURA GENERAL
+========================================================= */
+
+.fcc-main {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding-top: 92px;
+}
+
+.fc-nav--contacto {
+  display: flex;
+}
+
+.fcc-hero,
+.fcc-form-section {
+  width: min(1320px, calc(100% - 12vw));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.fcc-hero {
+  display: grid;
+  align-items: center;
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(360px, 0.72fr);
+  gap: 70px;
+  padding-top: 92px;
+  padding-bottom: 78px;
+}
+
+.fcc-hero__content {
+  max-width: 810px;
+}
+
+.fcc-hero h1 {
+  margin: 18px 0 22px;
+  color: var(--fc-text);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 6.6rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.fcc-hero__content > p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--fc-muted);
+  font-size: 0.96rem;
+  line-height: 1.85;
+}
+
+.fcc-hero__summary {
+  display: grid;
+  gap: 13px;
+}
+
+.fcc-hero__summary article {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 92px;
+  padding: 20px;
+  border: 1px solid var(--fc-line);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 34, 54, 0.8),
+      rgba(5, 16, 28, 0.96)
+    );
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.21);
+}
+
+.fcc-hero__summary svg {
+  flex: 0 0 auto;
+  width: 25px;
+  height: 25px;
+  color: var(--fc-gold-light);
+}
+
+.fcc-hero__summary div {
+  display: grid;
+  gap: 4px;
+}
+
+.fcc-hero__summary strong {
+  color: var(--fc-text);
+  font-size: 0.79rem;
+}
+
+.fcc-hero__summary span {
+  color: var(--fc-muted);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SECCIÓN DEL FORMULARIO
+========================================================= */
+
+.fcc-form-section {
+  display: grid;
+  align-items: start;
+  grid-template-columns:
+    minmax(280px, 0.62fr)
+    minmax(0, 1.38fr);
+  gap: 54px;
+  padding: 50px 0 130px;
+}
+
+.fcc-form-intro {
+  position: sticky;
+  top: 110px;
+  padding: 30px;
+  border: 1px solid rgba(201, 168, 97, 0.17);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 43, 58, 0.88),
+      rgba(7, 18, 31, 0.97)
+    );
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.26);
+}
+
+.fcc-form-intro h2 {
+  margin: 15px 0 16px;
+  color: var(--fc-text);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.02;
+}
+
+.fcc-form-intro > p {
+  margin: 0;
+  color: var(--fc-muted);
+  font-size: 0.79rem;
+  line-height: 1.75;
+}
+
+.fcc-form-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 15px;
+  border: 1px solid rgba(113, 198, 155, 0.17);
+  border-radius: 14px;
+  background:
+    rgba(113, 198, 155, 0.055);
+}
+
+.fcc-form-note svg {
+  flex: 0 0 auto;
+  width: 19px;
+  height: 19px;
+  color: var(--fc-success);
+}
+
+.fcc-form-note p {
+  margin: 0;
+  color: #a9cbb9;
+  font-size: 0.66rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.fcc-form {
+  display: grid;
+  gap: 20px;
+}
+
+.fcc-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 28px;
+  border: 1px solid var(--fc-line);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 30, 49, 0.78),
+      rgba(5, 15, 27, 0.96)
+    );
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+.fcc-fieldset legend {
+  padding: 0 10px;
+  color: var(--fc-gold-light);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fcc-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.fcc-grid--two {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+.fcc-field {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.fcc-field--full {
+  grid-column: span 2;
+}
+
+.fcc-field label {
+  color: var(--fc-text-soft);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.fcc-field input,
+.fcc-field select,
+.fcc-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  outline: none;
+  background:
+    rgba(4, 14, 25, 0.8);
+  color: var(--fc-text);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  transition:
+    border-color var(--fc-transition),
+    box-shadow var(--fc-transition),
+    background var(--fc-transition);
+}
+
+.fcc-field input,
+.fcc-field select {
+  min-height: 48px;
+  padding: 12px 14px;
+}
+
+.fcc-field textarea {
+  min-height: 128px;
+  padding: 13px 14px;
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.fcc-field input::placeholder,
+.fcc-field textarea::placeholder {
+  color: #687688;
+}
+
+.fcc-field input:focus,
+.fcc-field select:focus,
+.fcc-field textarea:focus {
+  border-color:
+    rgba(201, 168, 97, 0.52);
+  background:
+    rgba(5, 16, 28, 0.95);
+  box-shadow:
+    0 0 0 3px
+    rgba(201, 168, 97, 0.08);
+}
+
+.fcc-field select {
+  cursor: pointer;
+}
+
+.fcc-field select option {
+  background: #07121f;
+  color: var(--fc-text);
+}
+
+.fcc-field input[type="month"] {
+  color-scheme: dark;
+}
+
+
+/* =========================================================
+   OPCIONES
+========================================================= */
+
+.fcc-options {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.fcc-check {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 13px;
+  border: 1px solid var(--fc-line);
+  border-radius: 13px;
+  background:
+    rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  transition:
+    border-color var(--fc-transition),
+    background var(--fc-transition),
+    transform var(--fc-transition);
+}
+
+.fcc-check:hover {
+  border-color:
+    rgba(201, 168, 97, 0.22);
+  background:
+    rgba(201, 168, 97, 0.05);
+  transform: translateY(-2px);
+}
+
+.fcc-check input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fcc-check span {
+  position: relative;
+  padding-left: 28px;
+  color: var(--fc-text-soft);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.fcc-check span::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid
+    rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+  background:
+    rgba(4, 14, 25, 0.75);
+  color: #07101b;
+  font-size: 0.68rem;
+  font-weight: 800;
+  transform: translateY(-50%);
+  content: "";
+}
+
+.fcc-check input:checked + span {
+  color: var(--fc-gold-light);
+}
+
+.fcc-check input:checked + span::before {
+  border-color:
+    rgba(201, 168, 97, 0.62);
+  background:
+    linear-gradient(
+      135deg,
+      var(--fc-gold-light),
+      var(--fc-gold)
+    );
+  content: "✓";
+}
+
+.fcc-check:has(input:checked) {
+  border-color:
+    rgba(201, 168, 97, 0.28);
+  background:
+    rgba(201, 168, 97, 0.065);
+}
+
+
+/* =========================================================
+   VALIDACIÓN
+========================================================= */
+
+.fcc-field input:invalid:not(:placeholder-shown),
+.fcc-field textarea:invalid:not(:placeholder-shown),
+.fcc-field select:invalid:not(:focus) {
+  border-color:
+    rgba(220, 135, 135, 0.34);
+}
+
+.fcc-field.is-invalid input,
+.fcc-field.is-invalid select,
+.fcc-field.is-invalid textarea {
+  border-color:
+    rgba(220, 135, 135, 0.62);
+  box-shadow:
+    0 0 0 3px
+    rgba(220, 135, 135, 0.08);
+}
+
+.fcc-error-text {
+  color: #e3a0a0;
+  font-size: 0.61rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.fcc-message {
+  padding: 15px 17px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font-size: 0.7rem;
+  line-height: 1.65;
+}
+
+.fcc-message[hidden] {
+  display: none !important;
+}
+
+.fcc-message.is-success {
+  border-color:
+    rgba(113, 198, 155, 0.26);
+  background:
+    rgba(113, 198, 155, 0.07);
+  color: #a9d6bd;
+}
+
+.fcc-message.is-error {
+  border-color:
+    rgba(220, 135, 135, 0.28);
+  background:
+    rgba(220, 135, 135, 0.07);
+  color: #e2aaaa;
+}
+
+.fcc-message.is-info {
+  border-color:
+    rgba(77, 130, 178, 0.28);
+  background:
+    rgba(77, 130, 178, 0.08);
+  color: #a8c8e4;
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.fcc-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.fcc-actions .fc-button {
+  min-width: 210px;
+}
+
+.fcc-actions .fc-button[disabled] {
+  cursor: wait;
+  opacity: 0.64;
+  transform: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1080px) {
+
+  .fcc-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .fcc-hero__summary {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .fcc-hero__summary article {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .fcc-form-section {
+    grid-template-columns: 1fr;
+  }
+
+  .fcc-form-intro {
+    position: static;
+  }
+
+}
+
+
+@media (max-width: 820px) {
+
+  .fcc-main {
+    padding-top: 74px;
+  }
+
+  .fcc-hero,
+  .fcc-form-section {
+    width: calc(100% - 48px);
+  }
+
+  .fcc-hero {
+    padding-top: 70px;
+  }
+
+  .fcc-hero h1 {
+    font-size: clamp(2.8rem, 10vw, 5rem);
+  }
+
+  .fcc-hero__summary {
+    grid-template-columns: 1fr;
+  }
+
+  .fcc-grid--two {
+    grid-template-columns: 1fr;
+  }
+
+  .fcc-field--full {
+    grid-column: auto;
+  }
+
+  .fcc-options {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 620px) {
+
+  .fc-nav--contacto {
+    display: none;
+  }
+
+  .fcc-main {
+    padding-top: 66px;
+  }
+
+  .fcc-hero,
+  .fcc-form-section {
+    width: calc(100% - 36px);
+  }
+
+  .fcc-hero {
+    padding-top: 56px;
+    padding-bottom: 52px;
+  }
+
+  .fcc-hero h1 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .fcc-hero__content > p {
+    font-size: 0.83rem;
+  }
+
+  .fcc-form-section {
+    gap: 28px;
+    padding-top: 25px;
+    padding-bottom: 90px;
+  }
+
+  .fcc-form-intro {
+    padding: 24px 20px;
+    border-radius: 19px;
+  }
+
+  .fcc-fieldset {
+    padding: 23px 18px;
+    border-radius: 18px;
+  }
+
+  .fcc-options {
+    grid-template-columns: 1fr;
+  }
+
+  .fcc-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .fcc-actions .fc-button {
+    width: 100%;
+    min-width: 0;
+  }
+
+}
+
+
+@media (max-width: 390px) {
+
+  .fcc-hero,
+  .fcc-form-section {
+    width: calc(100% - 28px);
+  }
+
+  .fcc-fieldset {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .fcc-fieldset legend {
+    font-size: 0.58rem;
+  }
+
+}
+
+
+/* =========================================================
+   DISPOSITIVOS TÁCTILES
+========================================================= */
+
+@media (hover: none) {
+
+  .fcc-check:hover {
+    transform: none;
+  }
+
+}
