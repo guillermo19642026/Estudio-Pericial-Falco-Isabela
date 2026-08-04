@@ -68,6 +68,12 @@ window.FALCO_PORTAL_CONFIG = {
         "Acceso a cursos, materiales y certificados habilitados."
     },
 
+    gestion_academica: {
+  label: "Gestión Académica",
+  description:
+    "Administración integral del Campus de Formación, Escuela para Padres, participantes, certificados y recursos académicos."
+},
+
     biblioteca: {
       label: "Biblioteca",
       description:
@@ -90,11 +96,11 @@ window.FALCO_PORTAL_CONFIG = {
       name: "Centro Profesional",
       path: "../profesional-login.html",
       enabled: true,
-      roles: [
-        "admin",
-        "profesional",
-        "perito"
-      ]
+     roles: [
+  "admin",
+  "profesional",
+  "perito"
+]
     },
 
     periciados: {
@@ -138,10 +144,11 @@ window.FALCO_PORTAL_CONFIG = {
       path: "../portal-cursos.html",
       enabled: true,
       roles: [
-        "admin",
-        "alumno",
-        "profesional"
-      ]
+  "admin",
+  "gestion_academica",
+  "alumno",
+  "profesional"
+]
     },
 
     escuela: {
@@ -149,10 +156,11 @@ window.FALCO_PORTAL_CONFIG = {
       name: "Escuela para Padres",
       path: "../escuela-login.html",
       enabled: true,
-      roles: [
-        "admin",
-        "alumno"
-      ]
+     roles: [
+  "admin",
+  "gestion_academica",
+  "alumno"
+]
     },
 
     biblioteca: {
@@ -161,12 +169,13 @@ window.FALCO_PORTAL_CONFIG = {
       path: "../biblioteca-login.html",
       enabled: true,
       roles: [
-        "admin",
-        "profesional",
-        "perito",
-        "alumno",
-        "biblioteca"
-      ]
+  "admin",
+  "gestion_academica",
+  "profesional",
+  "perito",
+  "alumno",
+  "biblioteca"
+]
     },
 
     evaluaciones: {

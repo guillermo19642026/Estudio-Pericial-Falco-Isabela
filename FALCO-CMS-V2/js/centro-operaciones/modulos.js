@@ -605,6 +605,95 @@ perito: [
   ],
 
 
+    /* =====================================================
+     GESTIÓN ACADÉMICA
+  ===================================================== */
+
+  gestion_academica: [
+    {
+      seccion: "Centro Académico",
+      items: [
+        {
+          titulo: "Campus de Formación",
+          descripcion:
+            "Acceder al portal general de cursos y recorridos académicos.",
+          url: "../../portal-cursos.html",
+          estado: "nuevo"
+        },
+        {
+          titulo: "Administración Campus",
+          descripcion:
+            "Gestionar cursos, propuestas formativas y configuración académica.",
+          url: "../../campus-admin/dashboard/dashboard.html",
+          estado: "nuevo"
+        },
+        {
+          titulo: "Escuela para Padres",
+          descripcion:
+            "Acceder al programa de orientación familiar y sus ocho encuentros.",
+          url: "../../escuela-panel-v2.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Administración Escuela",
+          descripcion:
+            "Gestionar participantes, encuentros, certificados y configuración.",
+          url: "../../escuela-admin/dashboard/dashboard.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Participantes Escuela",
+          descripcion:
+            "Consultar y administrar los participantes registrados.",
+          url: "../../escuela-admin/participantes/participantes.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Alta de Participantes",
+          descripcion:
+            "Registrar nuevos participantes en Escuela para Padres FALCO®.",
+          url: "../../escuela-admin/alta/alta-participante.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Certificados",
+          descripcion:
+            "Gestionar certificados y constancias académicas.",
+          url: "../../escuela-admin/certificados/certificados.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Programa Premium",
+          descripcion:
+            "Consultar la propuesta formativa premium del Sistema FALCO®.",
+          url: "../../programa-premium.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Biblioteca FALCO®",
+          descripcion:
+            "Acceder a recursos y materiales académicos disponibles.",
+          url: "../../biblioteca-falco.html",
+          estado: "disponible"
+        }
+      ]
+    },
+
+    {
+      seccion: "Sitio institucional",
+      items: [
+        {
+          titulo: "Sitio Institucional",
+          descripcion:
+            "Volver al sitio principal del Sistema FALCO®.",
+          url: "../../index.html",
+          estado: "disponible"
+        }
+      ]
+    }
+  ],
+
+
   /* =====================================================
      BIBLIOTECA
   ===================================================== */

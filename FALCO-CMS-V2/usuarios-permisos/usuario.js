@@ -152,6 +152,19 @@ const PERMISOS_POR_ROL = {
     administracion: false
   },
 
+    gestion_academica: {
+    centroProfesional: false,
+    gestionPericiados: false,
+    evaluaciones: false,
+    documentacionPericiados: false,
+    biblioteca: true,
+    campus: true,
+    escuela: true,
+    admision: false,
+    comunidad: false,
+    administracion: true
+  },
+
   biblioteca: {
     centroProfesional: false,
     gestionPericiados: false,

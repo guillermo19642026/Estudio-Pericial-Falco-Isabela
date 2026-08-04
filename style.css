@@ -31955,3 +31955,7 @@ letter-spacing: .03em;
   }
 
 }
+
+html {
+    scroll-behavior: smooth;
+}

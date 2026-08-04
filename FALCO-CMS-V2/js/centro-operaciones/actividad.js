@@ -100,6 +100,27 @@ export const ACTIVIDAD = {
 
   },
 
+
+    gestion_academica: {
+
+    actividad: [
+
+      "Centro Académico FALCO® disponible.",
+      "Administración del Campus habilitada.",
+      "Gestión de Escuela para Padres disponible.",
+      "Participantes y certificados listos para administrar."
+
+    ],
+
+    notificaciones: [
+
+      "Revise las nuevas inscripciones y participantes registrados.",
+      "Verifique certificados pendientes de emisión."
+
+    ]
+
+  },
+
   biblioteca: {
 
     actividad: [

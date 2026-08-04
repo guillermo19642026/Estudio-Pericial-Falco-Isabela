@@ -140,6 +140,34 @@ perito: [
     ]
   ],
 
+
+    gestion_academica: [
+    [
+      "🎓 Administración Campus",
+      "../../campus-admin/dashboard/dashboard.html"
+    ],
+    [
+      "👨‍👩‍👧 Administración Escuela",
+      "../../escuela-admin/dashboard/dashboard.html"
+    ],
+    [
+      "👥 Participantes",
+      "../../escuela-admin/participantes/participantes.html"
+    ],
+    [
+      "📜 Certificados",
+      "../../escuela-admin/certificados/certificados.html"
+    ],
+    [
+      "📚 Biblioteca",
+      "../../biblioteca-falco.html"
+    ],
+    [
+      "💬 Soporte",
+      WHATSAPP_SOPORTE
+    ]
+  ],
+
   biblioteca: [
     [
       "📚 Biblioteca",

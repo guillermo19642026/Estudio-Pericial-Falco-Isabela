@@ -317,6 +317,7 @@ function traducirRol(rol) {
     perito: "Perito",
     periciado: "Periciado",
     alumno: "Alumno",
+    gestion_academica: "Gestión Académica",
     biblioteca: "Biblioteca",
     informe: "Informe"
   };
@@ -332,6 +333,7 @@ function claseRol(rol) {
     perito: "up-badge--perito",
     periciado: "up-badge--periciado",
     alumno: "up-badge--alumno",
+    gestion_academica: "up-badge--gestion-academica",
     biblioteca: "up-badge--biblioteca",
     informe: "up-badge--informe"
   };
@@ -1522,6 +1524,14 @@ const PERMISOS_POR_ROL = {
     "escuela",
     "biblioteca"
   ],
+
+    gestion_academica: [
+    "biblioteca",
+    "campus",
+    "escuela",
+    "administracion"
+  ],
+
 
   biblioteca: [
     "biblioteca"

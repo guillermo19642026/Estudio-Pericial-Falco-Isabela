@@ -47,6 +47,13 @@ export const KPIS = {
     cursos: "Habilitados"
   },
 
+    gestion_academica: {
+    usuarios: "Participantes",
+    biblioteca: "Disponible",
+    evaluaciones: "—",
+    cursos: "Administración"
+  },
+
   periciado: {
     usuarios: "Activo",
     biblioteca: "—",

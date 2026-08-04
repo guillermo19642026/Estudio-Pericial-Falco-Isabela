@@ -21,12 +21,14 @@ export const BIENVENIDAS = {
   periciado:
     "Bienvenido a su espacio personal dentro del Sistema FALCO®. Desde aquí podrá completar los instrumentos de evaluación, adjuntar la documentación requerida y realizar el seguimiento de su proceso.",
 
-  alumno:
+   alumno:
     "Bienvenido al Campus de Formación FALCO®. Desde este espacio podrá acceder a sus cursos, materiales, certificados y recursos académicos habilitados.",
 
-  biblioteca:
-    "Bienvenido a la Biblioteca FALCO®. Desde aquí podrá consultar los recursos, escritos, modelos, manuales y documentación disponible según su perfil.",
+   gestion_academica:
+    "Bienvenido al Centro Académico FALCO®. Desde este espacio podrá administrar el Campus de Formación, la Escuela para Padres, los participantes, los certificados y los recursos académicos del Sistema FALCO®.",
 
+   biblioteca:
+    "Bienvenido a la Biblioteca FALCO®. Desde aquí podrá consultar los recursos, escritos, modelos, manuales y documentación disponible según su perfil.",
   default:
     "Bienvenido al Portal Institucional del Sistema FALCO®."
 
