@@ -12,7 +12,7 @@ import {
 
 import {
   renderCentroOperaciones
-} from "../js/centro-operaciones/render.js";
+} from "../js/centro-operaciones/render.js?v=20260804-2";
 
 
 import {

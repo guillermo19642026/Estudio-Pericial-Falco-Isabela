@@ -1,14 +1,14 @@
-import { ICONOS } from "./iconos.js";
-import { MODULOS } from "./modulos.js";
-import { KPIS } from "./kpis.js";
-import { ACCESOS_RAPIDOS } from "./accesos.js";
-import { ACTIVIDAD } from "./actividad.js";
-import { BIENVENIDAS } from "./bienvenida.js";
+import { ICONOS } from "./iconos.js?v=20260804-2";
+import { MODULOS } from "./modulos.js?v=20260804-2";
+import { KPIS } from "./kpis.js?v=20260804-2";
+import { ACCESOS_RAPIDOS } from "./accesos.js?v=20260804-2";
+import { ACTIVIDAD } from "./actividad.js?v=20260804-2";
+import { BIENVENIDAS } from "./bienvenida.js?v=20260804-2";
 
 import {
   filtrarGruposPorPermisos,
   filtrarAccesosPorPermisos
-} from "./permisos.js";
+} from "./permisos.js?v=20260804-2";
 
 export function renderCentroOperaciones(
   rol,
