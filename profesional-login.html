@@ -1,167 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9RKEV2LN1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-W9RKEV2LN1');
-</script>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  >
 
-<title>Acceso al Área Profesional | Falco®</title>
+  <title>Acceso al Sistema FALCO®</title>
 
-<link rel="stylesheet" href="styles.css">
-<meta name="robots" content="noindex, nofollow">
+  <meta
+    http-equiv="refresh"
+    content="0; url=FALCO-CMS-V2/ecosistema-falco.html#acceso"
+  >
 
+  <script>
+    window.location.replace(
+      "FALCO-CMS-V2/ecosistema-falco.html#acceso"
+    );
+  </script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(201, 168, 97, 0.14),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          #0a1b2e,
+          #04101c
+        );
+      color: #f4f1e8;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      width: min(520px, 100%);
+      padding: 34px;
+      border: 1px solid rgba(201, 168, 97, 0.28);
+      border-radius: 22px;
+      background: rgba(7, 21, 36, 0.92);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+      text-align: center;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 12px;
+      color: #d8bd7a;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-family: Georgia, serif;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    p {
+      margin: 0 0 24px;
+      color: rgba(244, 241, 232, 0.75);
+      line-height: 1.65;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid rgba(201, 168, 97, 0.45);
+      border-radius: 999px;
+      background: rgba(201, 168, 97, 0.12);
+      color: #f0d99f;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
-<body class="login-premium-body">
+<body>
 
-<div class="login-topbar">
-  <a href="index.html" class="login-back">← Volver al inicio</a>
-</div>
+  <main>
+    <span>Sistema FALCO®</span>
 
-<div class="login-premium-card">
+    <h1>Acceso institucional</h1>
 
-  <div class="login-logo">
-    <img src="img/logo.png" alt="Estudio Pericial Psicológico">
-  </div>
-
-  <h1>Acceso al Área Profesional</h1>
-
-  <p class="login-subtitle">
-    Recursos para psicólogos y peritos psicólogos
-  </p>
-
-  <div class="login-form">
-    <input type="email" id="email" placeholder="Correo electrónico">
-    <input type="password" id="password" placeholder="Contraseña">
-
-    <button class="btn-login-premium" onclick="login()">Ingresar</button>
-
-    <p id="error" class="login-error"></p>
-  </div>
-
-  <hr class="login-separador">
-
-  <div class="solicitud-box">
-    <h2>Solicitar acceso profesional</h2>
-
-    <p class="solicitud-subtitulo">
-      Complete sus datos para solicitar acceso al Área Profesional para Psicólogos y Peritos Psicólogos.
+    <p>
+      Estamos redirigiendo al acceso único del Sistema FALCO®.
     </p>
 
-    <div class="campo-form">
-      <label>Nombre y apellido</label>
-      <input type="text" id="sol_nombre" placeholder="Ej: María González">
-    </div>
-
-    <div class="campo-form">
-      <label>DNI</label>
-      <input type="text" id="sol_dni" inputmode="numeric" placeholder="Ej: 12345678">
-    </div>
-
-    <div class="campo-form">
-      <label>Profesión / matrícula</label>
-      <input type="text" id="sol_profesion" placeholder="Ej: Psicóloga MP 0000">
-    </div>
-
-    <div class="campo-form">
-      <label>Email de contacto</label>
-      <input type="email" id="sol_email" placeholder="Ej: email@ejemplo.com">
-    </div>
-
-    <div class="campo-form">
-      <label>Motivo de solicitud</label>
-      <textarea id="sol_motivo" placeholder="Indique brevemente qué recursos profesionales desea consultar"></textarea>
-    </div>
-
-    <button type="button" class="btn-access-premium" onclick="solicitarAccesoWhatsapp()">
-      Enviar solicitud por WhatsApp
-    </button>
-
-    <p id="sol_error" class="login-error"></p>
-  </div>
-
-  <p class="login-note">
-    Acceso exclusivo para profesionales autorizados.
-  </p>
-
-  <div class="consultar-area-profesional">
-
-  <h3>¿Todavía no conocés el Área Profesional?</h3>
-
-  <p>
-    Accedé a información sobre los recursos disponibles para psicólogos y peritos psicólogos.
-  </p>
-
-  <a href="area-profesional-psicologos.html" class="btn-access-premium">
-    Conocer el Área Profesional
-  </a>
-
-</div>
-
-</div>
-
-<script type="module" src="auth.js"></script>
-
-<script>
-function solicitarAccesoWhatsapp() {
-  const nombre = document.getElementById("sol_nombre");
-  const dni = document.getElementById("sol_dni");
-  const profesion = document.getElementById("sol_profesion");
-  const email = document.getElementById("sol_email");
-  const motivo = document.getElementById("sol_motivo");
-  const error = document.getElementById("sol_error");
-
-  const campos = [nombre, dni, profesion, email, motivo];
-
-  campos.forEach(c => c.classList.remove("campo-error"));
-  error.textContent = "";
-
-  let hayError = false;
-
-  campos.forEach(campo => {
-    if (!campo.value.trim()) {
-      campo.classList.add("campo-error");
-      hayError = true;
-    }
-  });
-
-  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
-
-  if (email.value.trim() && !emailValido) {
-    email.classList.add("campo-error");
-    error.textContent = "Ingresá un email válido.";
-    return;
-  }
-
-  if (hayError) {
-    error.textContent = "Completá todos los campos.";
-    return;
-  }
-
-  const mensaje = `Hola, solicito acceso al Área Profesional para Psicólogos y Peritos Psicólogos.
-
-Nombre: ${nombre.value}
-DNI: ${dni.value}
-Profesión / matrícula: ${profesion.value}
-Email: ${email.value}
-Motivo: ${motivo.value}
-Fecha: ${new Date().toLocaleString()}`;
-
-  const telefono = "5491132049521";
-  const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(mensaje)}`;
-
-  window.location.href = url;
-}
-</script>
+    <a href="FALCO-CMS-V2/ecosistema-falco.html#acceso">
+      Ingresar al sistema
+    </a>
+  </main>
 
 </body>
 </html>
