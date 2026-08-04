@@ -121,6 +121,28 @@ export const ACTIVIDAD = {
 
   },
 
+     secretaria: {
+
+    actividad: [
+
+      "Secretaría Administrativa disponible.",
+      "Participantes y documentación actualizados.",
+      "Campus y Escuela listos para su gestión.",
+      "Agenda y solicitudes institucionales habilitadas."
+
+    ],
+
+    notificaciones: [
+
+      "Revise las nuevas inscripciones pendientes.",
+      "Verifique certificados y documentación por procesar.",
+      "Controle las solicitudes institucionales recibidas."
+
+    ]
+
+  },
+
+
   biblioteca: {
 
     actividad: [

@@ -168,6 +168,30 @@ perito: [
     ]
   ],
 
+     secretaria: [
+    [
+      "👥 Participantes",
+      "../../escuela-admin/participantes/participantes.html"
+    ],
+    [
+      "📥 Mesa de Entrada",
+      "../../mesa-entrada.html"
+    ],
+    [
+      "📜 Certificados",
+      "../../escuela-admin/certificados/certificados.html"
+    ],
+    [
+      "📚 Biblioteca",
+      "../../biblioteca-falco.html"
+    ],
+    [
+      "💬 Soporte",
+      WHATSAPP_SOPORTE
+    ]
+  ],
+
+
   biblioteca: [
     [
       "📚 Biblioteca",

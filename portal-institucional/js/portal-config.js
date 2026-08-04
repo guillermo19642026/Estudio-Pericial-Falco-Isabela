@@ -74,6 +74,12 @@ window.FALCO_PORTAL_CONFIG = {
     "Administración integral del Campus de Formación, Escuela para Padres, participantes, certificados y recursos académicos."
 },
 
+secretaria: {
+  label: "Secretaría Administrativa",
+  description:
+    "Acceso a la gestión operativa de participantes, documentación, admisiones, agenda y trámites administrativos del Sistema FALCO®."
+},
+
     biblioteca: {
       label: "Biblioteca",
       description:

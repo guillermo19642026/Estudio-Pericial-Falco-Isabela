@@ -694,6 +694,135 @@ perito: [
   ],
 
 
+    /* =====================================================
+     SECRETARÍA ADMINISTRATIVA
+  ===================================================== */
+
+  secretaria: [
+    {
+      seccion: "Gestión administrativa",
+      items: [
+        {
+          titulo: "Mesa de Entrada",
+          descripcion:
+            "Recepcionar y organizar documentación, presentaciones y trámites administrativos.",
+          url: "../../panel-mesa-entrada.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Documentación de Periciados",
+          descripcion:
+            "Consultar documentación adjunta, DNI y archivos complementarios registrados.",
+          url: "../../admin-adjuntos-periciados.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Gestión de Admisiones",
+          descripcion:
+            "Consultar solicitudes, perfiles y documentación recibida.",
+          url: "../../admin-admisiones.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Postulaciones Profesionales",
+          descripcion:
+            "Consultar antecedentes y postulaciones profesionales registradas.",
+          url: "../../panel-postulaciones.html",
+          estado: "disponible"
+        }
+      ]
+    },
+
+    {
+      seccion: "Formación y participantes",
+      items: [
+        {
+          titulo: "Administración Campus",
+          descripcion:
+            "Gestionar cursos, propuestas formativas y configuración académica.",
+          url: "../../campus-admin/dashboard/dashboard.html",
+          estado: "nuevo"
+        },
+        {
+          titulo: "Administración Escuela",
+          descripcion:
+            "Gestionar participantes, encuentros, certificados y configuración.",
+          url: "../../escuela-admin/dashboard/dashboard.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Participantes Escuela",
+          descripcion:
+            "Consultar y administrar los participantes registrados.",
+          url: "../../escuela-admin/participantes/participantes.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Alta de Participantes",
+          descripcion:
+            "Registrar nuevos participantes en Escuela para Padres FALCO®.",
+          url: "../../escuela-admin/alta/alta-participante.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Certificados",
+          descripcion:
+            "Gestionar certificados y constancias académicas.",
+          url: "../../escuela-admin/certificados/certificados.html",
+          estado: "disponible"
+        }
+      ]
+    },
+
+    {
+      seccion: "Comunidad y agenda",
+      items: [
+        {
+          titulo: "Solicitudes Institucionales",
+          descripcion:
+            "Consultar y organizar solicitudes recibidas desde FALCO® Comunidad.",
+          url: "../../comunidad-admin/solicitudes/solicitudes.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Instituciones",
+          descripcion:
+            "Consultar y actualizar instituciones vinculadas al Sistema FALCO®.",
+          url: "../../comunidad-admin/instituciones/instituciones.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Agenda Comunidad",
+          descripcion:
+            "Consultar y administrar actividades, eventos y compromisos institucionales.",
+          url: "../../comunidad-admin/agenda/agenda.html",
+          estado: "disponible"
+        }
+      ]
+    },
+
+    {
+      seccion: "Recursos y sitio institucional",
+      items: [
+        {
+          titulo: "Biblioteca FALCO®",
+          descripcion:
+            "Acceder a recursos y materiales institucionales autorizados.",
+          url: "../../biblioteca-falco.html",
+          estado: "disponible"
+        },
+        {
+          titulo: "Sitio Institucional",
+          descripcion:
+            "Volver al sitio principal del Sistema FALCO®.",
+          url: "../../index.html",
+          estado: "disponible"
+        }
+      ]
+    }
+  ],
+
+
   /* =====================================================
      BIBLIOTECA
   ===================================================== */

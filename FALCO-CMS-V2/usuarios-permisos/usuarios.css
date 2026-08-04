@@ -725,6 +725,13 @@ p {
   color: #ead59e;
 }
 
+.up-badge--secretaria {
+  background: rgba(70, 120, 200, 0.18);
+  border: 1px solid rgba(70, 120, 200, 0.45);
+  color: #d8e9ff;
+}
+
+
 .up-badge--biblioteca {
   color: #c1e0f1;
 }
@@ -1588,6 +1595,13 @@ p {
 }
 
 
+.up-badge--secretaria {
+  background: rgba(70, 120, 200, 0.18);
+  border: 1px solid rgba(70, 120, 200, 0.45);
+  color: #d8e9ff;
+}
+
+
 /* BIBLIOTECA */
 
 .up-badge--biblioteca {
@@ -1614,6 +1628,8 @@ p {
   .up-badge--perito,
   .up-badge--periciado,
   .up-badge--alumno,
+  .up-badge--gestion-academica,
+  .up-badge--secretaria,
   .up-badge--biblioteca,
   .up-badge--informe
 ) {

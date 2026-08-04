@@ -54,6 +54,14 @@ export const KPIS = {
     cursos: "Administración"
   },
 
+
+    secretaria: {
+    usuarios: "Participantes",
+    biblioteca: "Disponible",
+    evaluaciones: "—",
+    cursos: "Operativos"
+  },
+
   periciado: {
     usuarios: "Activo",
     biblioteca: "—",

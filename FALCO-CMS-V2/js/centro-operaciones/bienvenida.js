@@ -27,7 +27,10 @@ export const BIENVENIDAS = {
    gestion_academica:
     "Bienvenido al Centro Académico FALCO®. Desde este espacio podrá administrar el Campus de Formación, la Escuela para Padres, los participantes, los certificados y los recursos académicos del Sistema FALCO®.",
 
-   biblioteca:
+     secretaria:
+    "Bienvenido a la Secretaría Administrativa del Sistema FALCO®. Desde este espacio podrá gestionar participantes, documentación, admisiones, agenda, certificados y tareas administrativas autorizadas.",
+   
+    biblioteca:
     "Bienvenido a la Biblioteca FALCO®. Desde aquí podrá consultar los recursos, escritos, modelos, manuales y documentación disponible según su perfil.",
   default:
     "Bienvenido al Portal Institucional del Sistema FALCO®."
