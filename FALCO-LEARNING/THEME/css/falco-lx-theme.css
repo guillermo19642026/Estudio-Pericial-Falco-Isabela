@@ -1707,3 +1707,90 @@ button {
   }
 
 }
+
+
+/* =========================================================
+   AJUSTE ESCENA DE COMPARACIÓN
+   Evita recorte inferior
+========================================================= */
+
+.flx-scene--comparison {
+  padding-top: clamp(22px, 4vh, 55px);
+  padding-bottom: clamp(30px, 5vh, 65px);
+}
+
+.flx-scene--comparison .flx-scene__content {
+  width: min(94%, 1180px);
+}
+
+.flx-scene--comparison .flx-comparison {
+  margin-top: clamp(22px, 4vh, 42px);
+}
+
+.flx-scene--comparison .flx-comparison__column {
+  padding: clamp(20px, 2.5vw, 32px);
+}
+
+.flx-scene--comparison .flx-comparison__list {
+  gap: 9px;
+}
+
+.flx-scene--comparison .flx-comparison__list li {
+  min-height: 44px;
+  padding: 10px 14px;
+  line-height: 1.4;
+}
+
+
+/* PANTALLAS BAJAS */
+
+@media (max-height: 760px) {
+
+  .flx-scene--comparison {
+    padding-top: 18px;
+    padding-bottom: 24px;
+  }
+
+  .flx-scene--comparison .flx-scene__eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .flx-scene--comparison .flx-scene__title {
+    font-size: clamp(2rem, 6vh, 3.8rem);
+  }
+
+  .flx-scene--comparison .flx-comparison {
+    margin-top: 18px;
+  }
+
+  .flx-scene--comparison .flx-comparison__column {
+    padding: 18px 20px;
+  }
+
+}
+
+
+/* CELULARES */
+
+@media (max-width: 700px) {
+
+  .flx-scene--comparison {
+    padding: 20px 16px 34px;
+    align-items: start;
+    overflow-y: auto;
+  }
+
+  .flx-scene--comparison .flx-scene__content {
+    width: 100%;
+  }
+
+  .flx-scene--comparison .flx-comparison {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .flx-scene--comparison .flx-comparison__column {
+    padding: 18px;
+  }
+
+}
