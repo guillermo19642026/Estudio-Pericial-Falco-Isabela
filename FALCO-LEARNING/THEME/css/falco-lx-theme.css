@@ -1,0 +1,1709 @@
+/* =========================================================
+   FALCO® LEARNING EXPERIENCE™
+   TEMA VISUAL OFICIAL
+   Archivo: falco-lx-theme.css
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES GENERALES
+========================================================= */
+
+:root {
+  --flx-bg-deep: #030711;
+  --flx-bg-navy: #071321;
+  --flx-bg-soft: #0b1b2c;
+
+  --flx-gold: #d4af67;
+  --flx-gold-light: #f2d99f;
+  --flx-gold-dark: #8f6d34;
+
+  --flx-blue: #2e7bd8;
+  --flx-blue-soft: #3f92c8;
+  --flx-cyan: #79cceb;
+
+  --flx-white: #f6f8fb;
+  --flx-text: #dce5ee;
+  --flx-muted: #97a7b8;
+
+  --flx-border:
+    rgba(255, 255, 255, 0.08);
+
+  --flx-border-gold:
+    rgba(212, 175, 103, 0.28);
+
+  --flx-glass:
+    rgba(7, 18, 31, 0.76);
+
+  --flx-glass-strong:
+    rgba(4, 10, 18, 0.94);
+
+  --flx-shadow:
+    0 40px 110px rgba(0, 0, 0, 0.58);
+
+  --flx-shadow-soft:
+    0 24px 65px rgba(0, 0, 0, 0.38);
+
+  --flx-radius-sm: 14px;
+  --flx-radius-md: 22px;
+  --flx-radius-lg: 32px;
+
+  --flx-transition:
+    320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  color: var(--flx-text);
+  background: var(--flx-bg-deep);
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  appearance: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.flx-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+/* =========================================================
+   FONDO GENERAL
+========================================================= */
+
+.flx-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 72% 28%,
+      rgba(38, 112, 163, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 18% 68%,
+      rgba(212, 175, 103, 0.1),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #030711 0%,
+      #071321 52%,
+      #02050a 100%
+    );
+}
+
+.flx-background__halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.65;
+  animation:
+    flxAmbientHalo 10s ease-in-out infinite alternate;
+}
+
+.flx-background__halo--one {
+  width: 520px;
+  height: 520px;
+  top: -170px;
+  right: -120px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(47, 139, 194, 0.22),
+      transparent 70%
+    );
+}
+
+.flx-background__halo--two {
+  width: 460px;
+  height: 460px;
+  left: -180px;
+  bottom: -170px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(212, 175, 103, 0.13),
+      transparent 70%
+    );
+  animation-delay: -3s;
+}
+
+.flx-background__halo--three {
+  width: 360px;
+  height: 360px;
+  top: 34%;
+  left: 39%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(36, 107, 156, 0.11),
+      transparent 70%
+    );
+  animation-delay: -6s;
+}
+
+.flx-background__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.11;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black,
+      transparent 80%
+    );
+}
+
+.flx-background__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+.flx-background__vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 38%,
+      rgba(0, 0, 0, 0.68) 100%
+    );
+}
+
+
+/* =========================================================
+   APLICACIÓN
+========================================================= */
+
+.flx-app {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows:
+    auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.flx-header {
+  position: relative;
+  z-index: 40;
+  min-height: 76px;
+  padding: 13px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom:
+    1px solid var(--flx-border);
+  background:
+    rgba(3, 8, 15, 0.88);
+  backdrop-filter: blur(18px);
+}
+
+.flx-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.flx-brand__symbol {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border:
+    1px solid rgba(212, 175, 103, 0.46);
+  border-radius: 13px;
+  color: var(--flx-gold-light);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 48, 70, 0.88),
+      rgba(5, 12, 20, 0.96)
+    );
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size: 1.4rem;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 0 28px rgba(212, 175, 103, 0.08);
+}
+
+.flx-brand__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.flx-brand__text strong {
+  overflow: hidden;
+  color: var(--flx-white);
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flx-brand__text small {
+  max-width: 520px;
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--flx-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flx-header__actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.flx-icon-button,
+.flx-player__button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border:
+    1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  color: #c9d2dc;
+  background:
+    rgba(255, 255, 255, 0.035);
+  transition:
+    transform var(--flx-transition),
+    color var(--flx-transition),
+    border-color var(--flx-transition),
+    background var(--flx-transition);
+}
+
+.flx-icon-button:hover,
+.flx-player__button:hover {
+  color: var(--flx-gold-light);
+  border-color:
+    rgba(212, 175, 103, 0.34);
+  background:
+    rgba(212, 175, 103, 0.07);
+  transform: translateY(-2px);
+}
+
+.flx-icon-button:focus-visible,
+.flx-player__button:focus-visible,
+.flx-player__track:focus-visible,
+.flx-stage:focus-visible {
+  outline:
+    2px solid var(--flx-gold-light);
+  outline-offset: 3px;
+}
+
+.flx-icon-button svg,
+.flx-player__button svg {
+  width: 19px;
+  height: 19px;
+}
+
+
+/* =========================================================
+   ESCENARIO
+========================================================= */
+
+.flx-stage {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  outline: none;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #0a1a2a 0%,
+      #030811 55%,
+      #010205 100%
+    );
+}
+
+.flx-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -8;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.015),
+      transparent 50%
+    );
+}
+
+.flx-stage__background {
+  position: absolute;
+  inset: 0;
+  z-index: -6;
+  overflow: hidden;
+}
+
+.flx-stage__ambient-light {
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 1;
+  top: -28%;
+  right: -15%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(48, 141, 196, 0.23),
+      transparent 70%
+    );
+  filter: blur(35px);
+  animation:
+    flxStageAmbient 8s ease-in-out infinite alternate;
+}
+
+.flx-stage__image {
+  position: absolute;
+  inset: -4%;
+  opacity: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.02);
+  transition:
+    opacity 900ms ease,
+    transform 10s linear;
+}
+
+.flx-stage__image.is-visible {
+  opacity: 1;
+  transform: scale(1.07);
+}
+
+.flx-stage__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 6, 12, 0.82),
+      rgba(2, 6, 12, 0.4),
+      rgba(2, 6, 12, 0.7)
+    );
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.flx-particles {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TRANSICIONES
+========================================================= */
+
+.flx-transition {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.flx-transition.is-active {
+  animation:
+    flxTransitionFlash 850ms ease both;
+}
+
+.flx-transition[data-transition="light"] {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(248, 221, 165, 0.9),
+      rgba(72, 147, 190, 0.35) 35%,
+      transparent 75%
+    );
+}
+
+.flx-transition[data-transition="fade"] {
+  background: #02050a;
+}
+
+.flx-transition[data-transition="particles"] {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(212, 175, 103, 0.35),
+      transparent 62%
+    );
+}
+
+.flx-transition[data-transition="camera"] {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.22),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CONTENEDOR DE ESCENAS
+========================================================= */
+
+.flx-scenes {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.flx-scene {
+  position: absolute;
+  inset: 0;
+  padding:
+    clamp(38px, 6vw, 90px);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.025);
+  transition:
+    opacity 720ms ease,
+    visibility 720ms ease,
+    transform 900ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flx-scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.flx-scene.is-leaving {
+  opacity: 0;
+  transform: scale(0.985);
+}
+
+
+/* =========================================================
+   CONTENIDO GENERAL DE ESCENA
+========================================================= */
+
+.flx-scene__content {
+  position: relative;
+  z-index: 4;
+  width: min(92%, 1180px);
+  margin: auto;
+  text-align: center;
+}
+
+.flx-scene__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 22px;
+  color: var(--flx-gold-light);
+  font-family:
+    "Montserrat",
+    sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.flx-scene__eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--flx-gold)
+    );
+}
+
+.flx-scene__eyebrow::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--flx-gold),
+      transparent
+    );
+}
+
+.flx-scene__title {
+  max-width: 1050px;
+  margin: 0 auto;
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(2.6rem, 6vw, 6.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+  text-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.48);
+}
+
+.flx-scene__subtitle {
+  max-width: 850px;
+  margin: 24px auto 0;
+  color: #c3ced9;
+  font-size:
+    clamp(1rem, 1.6vw, 1.35rem);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.flx-scene__text {
+  max-width: 880px;
+  margin: 25px auto 0;
+  color: #aab8c6;
+  font-size:
+    clamp(1rem, 1.5vw, 1.22rem);
+  line-height: 1.85;
+  text-wrap: balance;
+}
+
+.flx-scene__supporting {
+  max-width: 800px;
+  margin: 18px auto 0;
+  color: var(--flx-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   ESCENA APERTURA
+========================================================= */
+
+.flx-scene--opening .flx-scene__content {
+  max-width: 1050px;
+}
+
+.flx-scene--opening .flx-scene__title {
+  color: var(--flx-gold-light);
+  font-size:
+    clamp(3.2rem, 8vw, 8rem);
+}
+
+.flx-scene--opening .flx-scene__subtitle {
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size:
+    clamp(1.8rem, 4vw, 4.3rem);
+  line-height: 1.08;
+}
+
+
+/* =========================================================
+   ESCENA FRASE
+========================================================= */
+
+.flx-scene--statement .flx-scene__text,
+.flx-scene--quote .flx-scene__quote {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size:
+    clamp(2.4rem, 5.6vw, 6rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  text-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+.flx-scene--statement
+.flx-scene__secondary-text,
+.flx-scene--quote
+.flx-scene__continuation {
+  max-width: 850px;
+  margin: 25px auto 0;
+  color: var(--flx-gold-light);
+  font-size:
+    clamp(1.05rem, 2vw, 1.55rem);
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   LISTA DE CONCEPTOS
+========================================================= */
+
+.flx-concept-list {
+  max-width: 1050px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.flx-concept-item {
+  min-height: 100px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border:
+    1px solid var(--flx-border);
+  border-radius: var(--flx-radius-md);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 31, 49, 0.82),
+      rgba(4, 10, 18, 0.9)
+    );
+  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.045);
+}
+
+.flx-concept-item__icon {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border:
+    1px solid var(--flx-border-gold);
+  border-radius: 16px;
+  color: var(--flx-gold-light);
+  background:
+    rgba(212, 175, 103, 0.07);
+}
+
+.flx-concept-item__icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.flx-concept-item__text {
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size:
+    clamp(1.15rem, 2vw, 1.55rem);
+  text-align: left;
+}
+
+
+/* =========================================================
+   ESCENA CON IMAGEN
+========================================================= */
+
+.flx-scene--image-focus .flx-scene__content {
+  max-width: 680px;
+  margin-left: 6%;
+  text-align: left;
+}
+
+.flx-scene--image-focus .flx-scene__eyebrow {
+  justify-content: flex-start;
+}
+
+.flx-scene--image-focus
+.flx-scene__eyebrow::before {
+  display: none;
+}
+
+.flx-scene--image-focus
+.flx-scene__title,
+.flx-scene--image-focus
+.flx-scene__text {
+  margin-left: 0;
+  text-align: left;
+}
+
+
+/* =========================================================
+   COMPARACIÓN
+========================================================= */
+
+.flx-comparison {
+  max-width: 1180px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.flx-comparison__column {
+  padding:
+    clamp(25px, 3vw, 38px);
+  border:
+    1px solid var(--flx-border);
+  border-radius: var(--flx-radius-md);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 29, 46, 0.84),
+      rgba(4, 10, 18, 0.92)
+    );
+  box-shadow:
+    var(--flx-shadow-soft);
+}
+
+.flx-comparison__column:nth-child(2) {
+  border-color:
+    rgba(212, 175, 103, 0.24);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(67, 52, 27, 0.19),
+      rgba(4, 10, 18, 0.92)
+    );
+}
+
+.flx-comparison__label {
+  margin-bottom: 24px;
+  color: var(--flx-gold-light);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.flx-comparison__list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 13px;
+  list-style: none;
+}
+
+.flx-comparison__list li {
+  min-height: 50px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  border:
+    1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 12px;
+  color: #c3ced8;
+  background:
+    rgba(255, 255, 255, 0.025);
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HERRAMIENTAS
+========================================================= */
+
+.flx-tools {
+  max-width: 1220px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.flx-tool {
+  min-height: 245px;
+  padding:
+    clamp(25px, 3vw, 36px);
+  text-align: left;
+  border:
+    1px solid var(--flx-border);
+  border-radius: var(--flx-radius-md);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 28, 45, 0.84),
+      rgba(4, 10, 18, 0.94)
+    );
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.flx-tool__number {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--flx-gold-light);
+  font-family:
+    "Montserrat",
+    sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.flx-tool__title {
+  margin: 0 0 15px;
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size:
+    clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.2;
+}
+
+.flx-tool__text {
+  margin: 0;
+  color: #9eacbb;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SÍNTESIS
+========================================================= */
+
+.flx-summary {
+  max-width: 1000px;
+  margin: 45px auto 0;
+  display: grid;
+  gap: 13px;
+}
+
+.flx-summary__point {
+  min-height: 62px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  gap: 14px;
+  border:
+    1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 14px;
+  color: #cbd5df;
+  background:
+    rgba(255, 255, 255, 0.028);
+  text-align: left;
+}
+
+.flx-summary__point::before {
+  content: "✓";
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border:
+    1px solid var(--flx-border-gold);
+  border-radius: 50%;
+  color: var(--flx-gold-light);
+  font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.flx-scene--closing .flx-scene__content {
+  max-width: 950px;
+}
+
+.flx-next-module {
+  max-width: 520px;
+  margin: 38px auto 0;
+  padding: 20px 24px;
+  border:
+    1px solid var(--flx-border-gold);
+  border-radius: 18px;
+  background:
+    rgba(212, 175, 103, 0.06);
+}
+
+.flx-next-module small {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--flx-gold-light);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.flx-next-module strong {
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size: 1.35rem;
+}
+
+
+/* =========================================================
+   ANIMACIONES DE CONTENIDO
+========================================================= */
+
+.flx-animate {
+  opacity: 0;
+}
+
+.flx-animate.is-visible {
+  opacity: 1;
+}
+
+.flx-animation--fade-up {
+  transform: translateY(26px);
+  transition:
+    opacity 720ms ease,
+    transform 850ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flx-animation--fade-up.is-visible {
+  transform: translateY(0);
+}
+
+.flx-animation--slide-left {
+  transform: translateX(-38px);
+  transition:
+    opacity 760ms ease,
+    transform 880ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flx-animation--slide-left.is-visible {
+  transform: translateX(0);
+}
+
+.flx-animation--slide-right {
+  transform: translateX(38px);
+  transition:
+    opacity 760ms ease,
+    transform 880ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flx-animation--slide-right.is-visible {
+  transform: translateX(0);
+}
+
+.flx-animation--scale-in {
+  transform: scale(0.92);
+  transition:
+    opacity 720ms ease,
+    transform 850ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flx-animation--scale-in.is-visible {
+  transform: scale(1);
+}
+
+.flx-word {
+  display: inline-block;
+  margin-right: 0.22em;
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(18px);
+  transition:
+    opacity 620ms ease,
+    filter 720ms ease,
+    transform 760ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flx-word.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   CARGA
+========================================================= */
+
+.flx-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--flx-muted);
+  background:
+    rgba(2, 6, 12, 0.96);
+  transition:
+    opacity 500ms ease,
+    visibility 500ms ease;
+}
+
+.flx-loading.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.flx-loading__symbol {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border:
+    1px solid var(--flx-border-gold);
+  border-radius: 22px;
+  color: var(--flx-gold-light);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size: 2.4rem;
+  box-shadow:
+    0 0 50px rgba(212, 175, 103, 0.12);
+  animation:
+    flxLoadingPulse 2s ease-in-out infinite;
+}
+
+.flx-loading__line {
+  width: 170px;
+  height: 2px;
+  margin: 30px 0 18px;
+  overflow: hidden;
+  border-radius: 999px;
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+.flx-loading__line::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--flx-gold-light),
+      transparent
+    );
+  animation:
+    flxLoadingLine 1.5s ease-in-out infinite;
+}
+
+.flx-loading p {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.flx-error {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--flx-text);
+  background:
+    rgba(2, 6, 12, 0.97);
+  text-align: center;
+}
+
+.flx-error svg {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 20px;
+  color: #e2b071;
+}
+
+.flx-error h2 {
+  margin: 0;
+  color: var(--flx-white);
+  font-family:
+    "Playfair Display",
+    serif;
+  font-size: 2rem;
+}
+
+.flx-error p {
+  max-width: 620px;
+  margin: 15px 0 0;
+  color: var(--flx-muted);
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.flx-module-indicator {
+  position: absolute;
+  z-index: 20;
+  left: 24px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: #8492a1;
+  font-family:
+    "Montserrat",
+    sans-serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  transform: translateY(-50%);
+}
+
+.flx-module-indicator__line {
+  width: 1px;
+  height: 44px;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--flx-gold),
+      rgba(212, 175, 103, 0.06)
+    );
+}
+
+.flx-scene-indicator {
+  position: absolute;
+  z-index: 20;
+  right: 24px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #82909f;
+  font-family:
+    "Montserrat",
+    sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   REPRODUCTOR
+========================================================= */
+
+.flx-player {
+  position: relative;
+  z-index: 40;
+  min-height: 76px;
+  padding: 13px 20px;
+  display: grid;
+  grid-template-columns:
+    auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 13px;
+  border-top:
+    1px solid var(--flx-border);
+  background:
+    rgba(3, 8, 15, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+.flx-player__timeline {
+  min-width: 0;
+}
+
+.flx-player__track {
+  position: relative;
+  height: 6px;
+  cursor: pointer;
+  border-radius: 999px;
+  background:
+    rgba(255, 255, 255, 0.085);
+}
+
+.flx-player__progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      90deg,
+      var(--flx-gold-dark),
+      var(--flx-gold-light)
+    );
+  box-shadow:
+    0 0 18px rgba(212, 175, 103, 0.28);
+}
+
+.flx-player__thumb {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  left: 0;
+  border:
+    2px solid #050a11;
+  border-radius: 50%;
+  background: var(--flx-gold-light);
+  box-shadow:
+    0 0 18px rgba(212, 175, 103, 0.4);
+  transform:
+    translate(-50%, -50%);
+}
+
+.flx-player__time {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  color: #81909f;
+  font-family:
+    "Montserrat",
+    sans-serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================================================
+   VARIANTES DE FONDO
+========================================================= */
+
+.flx-stage[data-background-variant="deep-blue"] {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(27, 89, 133, 0.24),
+      transparent 40%
+    ),
+    #020711;
+}
+
+.flx-stage[data-background-variant="soft-gold"] {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(212, 175, 103, 0.17),
+      transparent 42%
+    ),
+    #040811;
+}
+
+.flx-stage[data-background-variant="institutional"] {
+  background:
+    linear-gradient(
+      135deg,
+      #071523,
+      #03070d 72%
+    );
+}
+
+.flx-stage[data-background-variant="navy"] {
+  background:
+    radial-gradient(
+      circle at 70% 35%,
+      rgba(35, 101, 147, 0.18),
+      transparent 38%
+    ),
+    #04101c;
+}
+
+.flx-stage[data-background-variant="gold-focus"] {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(212, 175, 103, 0.17),
+      transparent 40%
+    ),
+    #040811;
+}
+
+.flx-stage[data-background-variant="closing"] {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(40, 126, 177, 0.2),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 50% 65%,
+      rgba(212, 175, 103, 0.11),
+      transparent 38%
+    ),
+    #02050a;
+}
+
+
+/* =========================================================
+   ANIMACIONES GENERALES
+========================================================= */
+
+@keyframes flxAmbientHalo {
+  from {
+    transform:
+      translate3d(-3%, -2%, 0)
+      scale(0.94);
+  }
+
+  to {
+    transform:
+      translate3d(4%, 3%, 0)
+      scale(1.07);
+  }
+}
+
+@keyframes flxStageAmbient {
+  from {
+    transform:
+      translate3d(-2%, -2%, 0)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translate3d(4%, 3%, 0)
+      scale(1.06);
+  }
+}
+
+@keyframes flxTransitionFlash {
+  0% {
+    opacity: 0;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flxLoadingPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 35px rgba(212, 175, 103, 0.09);
+  }
+
+  50% {
+    transform: scale(1.045);
+    box-shadow:
+      0 0 65px rgba(212, 175, 103, 0.2);
+  }
+}
+
+@keyframes flxLoadingLine {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(220%);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px) {
+
+  .flx-concept-list,
+  .flx-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .flx-tools {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .flx-scene--image-focus
+  .flx-scene__content {
+    max-width: 760px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .flx-scene--image-focus
+  .flx-scene__eyebrow {
+    justify-content: center;
+  }
+
+  .flx-scene--image-focus
+  .flx-scene__eyebrow::before {
+    display: block;
+  }
+
+  .flx-scene--image-focus
+  .flx-scene__title,
+  .flx-scene--image-focus
+  .flx-scene__text {
+    margin-left: auto;
+    text-align: center;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .flx-header {
+    min-height: 66px;
+    padding: 10px 12px;
+  }
+
+  .flx-brand__symbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .flx-brand__text strong {
+    font-size: 0.8rem;
+  }
+
+  .flx-brand__text small {
+    max-width: 180px;
+  }
+
+  .flx-icon-button,
+  .flx-player__button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .flx-header__actions {
+    gap: 5px;
+  }
+
+  .flx-scene {
+    padding:
+      30px 20px 55px;
+  }
+
+  .flx-scene__title {
+    font-size:
+      clamp(2.3rem, 13vw, 4.5rem);
+  }
+
+  .flx-scene--statement
+  .flx-scene__text,
+  .flx-scene--quote
+  .flx-scene__quote {
+    font-size:
+      clamp(2rem, 10vw, 3.7rem);
+  }
+
+  .flx-concept-list,
+  .flx-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .flx-concept-list,
+  .flx-comparison,
+  .flx-tools,
+  .flx-summary {
+    margin-top: 30px;
+  }
+
+  .flx-tool {
+    min-height: auto;
+  }
+
+  .flx-module-indicator {
+    display: none;
+  }
+
+  .flx-scene-indicator {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .flx-player {
+    min-height: 68px;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+}
+
+
+@media (max-height: 690px) {
+
+  .flx-header {
+    min-height: 60px;
+  }
+
+  .flx-player {
+    min-height: 62px;
+  }
+
+  .flx-scene {
+    padding:
+      20px 35px 45px;
+  }
+
+  .flx-scene__title {
+    font-size:
+      clamp(2.3rem, 7vh, 4.8rem);
+  }
+
+  .flx-concept-list,
+  .flx-comparison,
+  .flx-tools,
+  .flx-summary {
+    margin-top: 26px;
+  }
+
+  .flx-concept-item {
+    min-height: 74px;
+  }
+
+  .flx-tool {
+    min-height: 190px;
+  }
+
+}
+
+
+/* =========================================================
+   MOVIMIENTO REDUCIDO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .flx-background__halo,
+  .flx-stage__ambient-light,
+  .flx-loading__symbol,
+  .flx-loading__line::after {
+    animation: none !important;
+  }
+
+  .flx-scene,
+  .flx-animate,
+  .flx-word,
+  .flx-stage__image {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+
+}

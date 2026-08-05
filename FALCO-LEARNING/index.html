@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="FALCO® Learning Experience™. Motor audiovisual del Sistema FALCO® para experiencias de formación."
+  >
+
+  <meta
+    name="author"
+    content="Sistema FALCO®"
+  >
+
+  <meta
+    name="theme-color"
+    content="#050914"
+  >
+
+  <title>
+    FALCO® Learning Experience™
+  </title>
+
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =====================================================
+       TEMA VISUAL FALCO®
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./THEME/css/falco-lx-theme.css"
+  >
+
+
+  <!-- =====================================================
+       ICONOS
+  ====================================================== -->
+
+  <script
+    src="https://unpkg.com/lucide@latest"
+  ></script>
+
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       FONDO INSTITUCIONAL
+  ====================================================== -->
+
+  <div
+    class="flx-background"
+    aria-hidden="true"
+  >
+
+    <span class="flx-background__halo flx-background__halo--one"></span>
+
+    <span class="flx-background__halo flx-background__halo--two"></span>
+
+    <span class="flx-background__halo flx-background__halo--three"></span>
+
+    <span class="flx-background__grid"></span>
+
+    <span class="flx-background__noise"></span>
+
+    <span class="flx-background__vignette"></span>
+
+  </div>
+
+
+  <!-- =====================================================
+       APLICACIÓN
+  ====================================================== -->
+
+  <main
+    class="flx-app"
+    id="falcoLXApp"
+  >
+
+    <!-- ===================================================
+         CABECERA
+    ==================================================== -->
+
+    <header class="flx-header">
+
+      <div class="flx-brand">
+
+        <span
+          class="flx-brand__symbol"
+          aria-hidden="true"
+        >
+          F
+        </span>
+
+
+        <div class="flx-brand__text">
+
+          <strong>
+            FALCO® Learning Experience™
+          </strong>
+
+          <small id="flxCourseName">
+            Cargando experiencia...
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="flx-header__actions">
+
+        <button
+          type="button"
+          class="flx-icon-button"
+          id="flxRestartButton"
+          aria-label="Reiniciar experiencia"
+        >
+          <i
+            data-lucide="rotate-ccw"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+
+        <button
+          type="button"
+          class="flx-icon-button"
+          id="flxSoundButton"
+          aria-label="Activar sonido"
+          aria-pressed="false"
+        >
+          <i
+            data-lucide="volume-x"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+
+        <button
+          type="button"
+          class="flx-icon-button"
+          id="flxFullscreenButton"
+          aria-label="Ver en pantalla completa"
+        >
+          <i
+            data-lucide="maximize"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         ESCENARIO AUDIOVISUAL
+    ==================================================== -->
+
+    <section
+      class="flx-stage"
+      id="flxStage"
+      tabindex="0"
+      aria-label="Experiencia audiovisual"
+    >
+
+      <!-- FONDO DINÁMICO -->
+
+      <div
+        class="flx-stage__background"
+        id="flxStageBackground"
+        aria-hidden="true"
+      >
+
+        <span class="flx-stage__ambient-light"></span>
+
+        <span class="flx-stage__image"></span>
+
+        <span class="flx-stage__overlay"></span>
+
+      </div>
+
+
+      <!-- PARTÍCULAS -->
+
+      <canvas
+        class="flx-particles"
+        id="flxParticles"
+        aria-hidden="true"
+      ></canvas>
+
+
+      <!-- CAPA DE TRANSICIÓN -->
+
+      <div
+        class="flx-transition"
+        id="flxTransition"
+        aria-hidden="true"
+      ></div>
+
+
+      <!-- =================================================
+           CONTENEDOR DE ESCENAS
+      ================================================== -->
+
+      <div
+        class="flx-scenes"
+        id="flxScenes"
+      >
+
+        <!--
+          El motor genera aquí todas las escenas
+          definidas en el archivo del módulo.
+        -->
+
+      </div>
+
+
+      <!-- =================================================
+           ESTADO DE CARGA
+      ================================================== -->
+
+      <div
+        class="flx-loading"
+        id="flxLoading"
+        role="status"
+        aria-live="polite"
+      >
+
+        <span class="flx-loading__symbol">
+          F
+        </span>
+
+        <span class="flx-loading__line"></span>
+
+        <p>
+          Preparando la experiencia...
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           MENSAJE DE ERROR
+      ================================================== -->
+
+      <div
+        class="flx-error"
+        id="flxError"
+        role="alert"
+        hidden
+      >
+
+        <i
+          data-lucide="triangle-alert"
+          aria-hidden="true"
+        ></i>
+
+        <h2>
+          No fue posible cargar la experiencia.
+        </h2>
+
+        <p id="flxErrorMessage">
+          Verificá los archivos del curso y del módulo.
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           INFORMACIÓN DEL MÓDULO
+      ================================================== -->
+
+      <div
+        class="flx-module-indicator"
+        id="flxModuleIndicator"
+        aria-hidden="true"
+      >
+
+        <span id="flxModuleNumber">
+          01
+        </span>
+
+        <span class="flx-module-indicator__line"></span>
+
+        <span id="flxModuleTotal">
+          08
+        </span>
+
+      </div>
+
+
+      <!-- =================================================
+           INFORMACIÓN DE ESCENA
+      ================================================== -->
+
+      <div
+        class="flx-scene-indicator"
+        id="flxSceneIndicator"
+        aria-hidden="true"
+      >
+
+        <span id="flxCurrentScene">
+          01
+        </span>
+
+        <span>/</span>
+
+        <span id="flxTotalScenes">
+          01
+        </span>
+
+      </div>
+
+
+      <!-- =================================================
+           ANUNCIADOR ACCESIBLE
+      ================================================== -->
+
+      <div
+        class="flx-sr-only"
+        id="flxLiveRegion"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+
+    </section>
+
+
+    <!-- ===================================================
+         REPRODUCTOR
+    ==================================================== -->
+
+    <footer class="flx-player">
+
+      <button
+        type="button"
+        class="flx-player__button"
+        id="flxPlayPauseButton"
+        aria-label="Reproducir experiencia"
+      >
+        <i
+          data-lucide="play"
+          aria-hidden="true"
+        ></i>
+      </button>
+
+
+      <div class="flx-player__timeline">
+
+        <div
+          class="flx-player__track"
+          id="flxTimelineTrack"
+          role="slider"
+          tabindex="0"
+          aria-label="Línea de tiempo"
+          aria-valuemin="0"
+          aria-valuemax="0"
+          aria-valuenow="0"
+        >
+
+          <span
+            class="flx-player__progress"
+            id="flxTimelineProgress"
+          ></span>
+
+          <span
+            class="flx-player__thumb"
+            id="flxTimelineThumb"
+          ></span>
+
+        </div>
+
+
+        <div class="flx-player__time">
+
+          <span id="flxCurrentTime">
+            00:00
+          </span>
+
+          <span id="flxTotalTime">
+            00:00
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="flx-player__button"
+        id="flxPreviousSceneButton"
+        aria-label="Escena anterior"
+      >
+        <i
+          data-lucide="skip-back"
+          aria-hidden="true"
+        ></i>
+      </button>
+
+
+      <button
+        type="button"
+        class="flx-player__button"
+        id="flxNextSceneButton"
+        aria-label="Escena siguiente"
+      >
+        <i
+          data-lucide="skip-forward"
+          aria-hidden="true"
+        ></i>
+      </button>
+
+    </footer>
+
+  </main>
+
+
+  <!-- =====================================================
+       AUDIO
+  ====================================================== -->
+
+  <audio
+    id="flxMusic"
+    preload="metadata"
+  ></audio>
+
+  <audio
+    id="flxNarration"
+    preload="metadata"
+  ></audio>
+
+  <audio
+    id="flxSoundEffect"
+    preload="metadata"
+  ></audio>
+
+
+<!-- =====================================================
+     CONFIGURACIÓN DEL MOTOR
+====================================================== -->
+
+<script src="./CORE/config/falco-lx-config.js"></script>
+
+<!-- =====================================================
+     CONTENIDO ACTIVO
+====================================================== -->
+
+<script src="./CONTENT/cursos/escuela-padres/curso.js"></script>
+
+<script src="./CONTENT/cursos/escuela-padres/data/modulo-01.js"></script>
+
+<!-- =====================================================
+     NÚCLEO DEL MOTOR
+====================================================== -->
+
+<script src="./CORE/js/falco-lx-utils.js"></script>
+<script src="./CORE/js/falco-lx-audio.js"></script>
+<script src="./CORE/js/falco-lx-timeline.js"></script>
+<script src="./CORE/js/falco-lx-animation.js"></script>
+<script src="./CORE/js/falco-lx-renderer.js"></script>
+<script src="./CORE/js/falco-lx-player.js"></script>
+<script src="./CORE/js/falco-lx-engine.js"></script>
+
+
+</body>
+</html>
