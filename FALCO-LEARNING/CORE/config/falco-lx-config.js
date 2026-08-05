@@ -26,7 +26,7 @@ window.FALCO_LX_CONFIG = Object.freeze({
   ======================================================= */
 
   playback: {
-    autoplay: true,
+    autoplay: false,
     startMuted: true,
     loop: false,
     playbackRate: 1,

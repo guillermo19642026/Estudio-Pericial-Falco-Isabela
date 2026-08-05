@@ -28,7 +28,7 @@ window.FALCO_LX_MODULE = Object.freeze({
   eyebrow:
     "Escuela para Padres FALCO®",
 
-  duration: 180,
+  duration: 225,
 
   language: "es-AR",
 
@@ -39,21 +39,36 @@ window.FALCO_LX_MODULE = Object.freeze({
      ARCHIVOS DEL MÓDULO
   ======================================================= */
 
-  media: {
+ media: {
 
-   narration:
-  "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-01.mp3",
+  narrations: [
 
-music:
-  "./THEME/audio/music/falco-learning-base.mp3",
+    {
+      id: "parte-01",
+      source:
+        "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-01-parte-01.mp3",
+      start: 0
+    },
 
-imageDirectory:
-  "./CONTENT/cursos/escuela-padres/imagenes/modulo-01/",
+    {
+      id: "parte-02",
+      source:
+        "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-01-parte-02.mp3",
+      start: 173.8
+    }
 
-poster:
-  "./CONTENT/cursos/escuela-padres/imagenes/modulo-01/portada.jpg"
+  ],
 
-  },
+  music:
+    "./THEME/audio/music/falco-learning-base.mp3",
+
+  imageDirectory:
+    "./CONTENT/cursos/escuela-padres/imagenes/modulo-01/",
+
+  poster:
+    "./CONTENT/cursos/escuela-padres/imagenes/modulo-01/portada.jpg"
+
+},
 
 
   /* =======================================================
@@ -509,7 +524,7 @@ poster:
 
       start: 168,
 
-      end: 180,
+      end: 225,
 
       transitionIn: "light",
 

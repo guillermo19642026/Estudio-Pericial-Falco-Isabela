@@ -866,40 +866,31 @@ window.FALCO_LX_ENGINE = (() => {
      SONIDO
   ======================================================= */
 
-  function toggleSound() {
+function toggleSound() {
+
+    const enabled =
+        audio.toggle();
 
     state.soundEnabled =
-      audio.toggle();
-
+        enabled;
 
     player.update({
-
-      soundEnabled:
-        state.soundEnabled
-
+        soundEnabled: enabled
     });
 
-
-    if (
-      state.soundEnabled &&
-      state.playing
-    ) {
-
-      audio.play();
-
+    if (enabled && state.playing) {
+        audio.play();
     }
 
-
     announce(
-      state.soundEnabled
-        ? "Sonido activado."
-        : "Sonido desactivado."
+        enabled
+            ? "Sonido activado."
+            : "Sonido desactivado."
     );
 
+    return enabled;
 
-    return state.soundEnabled;
-
-  }
+}
 
 
   /* =======================================================

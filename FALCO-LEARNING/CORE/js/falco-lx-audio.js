@@ -1,6 +1,7 @@
 /* =========================================================
    FALCO® LEARNING EXPERIENCE™
-   MOTOR DE AUDIO
+   MOTOR DE AUDIO v2.0
+   Música + múltiples narraciones
    Archivo: falco-lx-audio.js
 ========================================================= */
 
@@ -21,17 +22,23 @@ window.FALCO_LX_AUDIO = (() => {
 
 
   /* =======================================================
-     ELEMENTOS
+     ELEMENTOS FIJOS
   ======================================================= */
 
   const music =
-    document.getElementById("flxMusic");
+    document.getElementById(
+      "flxMusic"
+    );
 
-  const narration =
-    document.getElementById("flxNarration");
+  const originalNarration =
+    document.getElementById(
+      "flxNarration"
+    );
 
   const soundEffect =
-    document.getElementById("flxSoundEffect");
+    document.getElementById(
+      "flxSoundEffect"
+    );
 
 
   /* =======================================================
@@ -49,25 +56,32 @@ window.FALCO_LX_AUDIO = (() => {
     duration: 0,
 
     musicVolume:
-      config?.audio?.musicVolume ?? 0.18,
+      config?.audio?.musicVolume ??
+      0.18,
 
     voiceVolume:
-      config?.audio?.voiceVolume ?? 1,
+      config?.audio?.voiceVolume ??
+      1,
 
     effectsVolume:
-      config?.audio?.effectsVolume ?? 0.35,
+      config?.audio?.effectsVolume ??
+      0.35,
 
     fadeInDuration:
-      config?.audio?.fadeInDuration ?? 3000,
+      config?.audio?.fadeInDuration ??
+      3000,
 
     fadeOutDuration:
-      config?.audio?.fadeOutDuration ?? 4000,
+      config?.audio?.fadeOutDuration ??
+      4000,
 
     syncTolerance:
-      config?.audio?.syncTolerance ?? 0.35,
+      config?.audio?.syncTolerance ??
+      0.35,
 
-    voiceStartDelay:
-      config?.audio?.voiceStartDelay ?? 0
+    narrationTracks: [],
+
+    activeNarrationIndex: -1
 
   };
 
@@ -76,34 +90,30 @@ window.FALCO_LX_AUDIO = (() => {
      UTILIDADES INTERNAS
   ======================================================= */
 
-  function hasTrack(track) {
+  function pauseTrack(track) {
 
-    return Boolean(
+    if (
       track &&
-      track.src
-    );
+      !track.paused
+    ) {
+      track.pause();
+    }
 
   }
 
 
-  function canPlayAtTime(
-    track,
-    time
-  ) {
+  function resetTrack(track) {
 
     if (!track) {
-      return false;
+      return;
     }
 
-    if (
-      Number.isFinite(track.duration) &&
-      track.duration > 0 &&
-      time >= track.duration
-    ) {
-      return false;
-    }
+    track.pause();
 
-    return true;
+    setSafeTime(
+      track,
+      0
+    );
 
   }
 
@@ -124,7 +134,9 @@ window.FALCO_LX_AUDIO = (() => {
       );
 
     if (
-      Number.isFinite(track.duration) &&
+      Number.isFinite(
+        track.duration
+      ) &&
       track.duration > 0
     ) {
 
@@ -156,50 +168,21 @@ window.FALCO_LX_AUDIO = (() => {
   }
 
 
-  function pauseTrack(track) {
-
-    if (
-      track &&
-      !track.paused
-    ) {
-      track.pause();
-    }
-
-  }
-
-
-  function resetTrack(track) {
-
-    if (!track) {
-      return;
-    }
-
-    track.pause();
-
-    setSafeTime(
-      track,
-      0
-    );
-
-  }
-
-
   function playTrack(
     track,
-    time
+    localTime
   ) {
 
     if (
       !track ||
-      !state.enabled ||
-      !canPlayAtTime(track, time)
+      !state.enabled
     ) {
       return;
     }
 
     setSafeTime(
       track,
-      time
+      localTime
     );
 
     track
@@ -216,8 +199,239 @@ window.FALCO_LX_AUDIO = (() => {
   }
 
 
+  function clearNarrationTracks() {
+
+    state.narrationTracks.forEach(
+      (item) => {
+
+        item.element.pause();
+
+        item.element.removeAttribute(
+          "src"
+        );
+
+        item.element.load();
+
+      }
+    );
+
+    state.narrationTracks = [];
+
+    state.activeNarrationIndex = -1;
+
+  }
+
+
   /* =======================================================
-     VOLUMEN MUSICAL DINÁMICO
+     CREAR PISTAS DE NARRACIÓN
+  ======================================================= */
+
+  function createNarrationTrack(
+    narrationData,
+    index
+  ) {
+
+    const element =
+      index === 0 &&
+      originalNarration
+        ? originalNarration
+        : new Audio();
+
+    element.preload = "metadata";
+
+    element.src =
+      utils.normalizePath(
+        narrationData.source || ""
+      );
+
+    element.volume =
+      utils.clamp(
+        state.voiceVolume,
+        0,
+        1
+      );
+
+    element.muted =
+      !state.enabled;
+
+    element.dataset.flxNarrationId =
+      narrationData.id ||
+      `narracion-${index + 1}`;
+
+    element.addEventListener(
+      "error",
+      () => {
+
+        utils?.debugLog(
+          `No se pudo cargar la narración ${
+            narrationData.id ||
+            index + 1
+          }.`
+        );
+
+      }
+    );
+
+    return {
+
+      id:
+        narrationData.id ||
+        `narracion-${index + 1}`,
+
+      source:
+        narrationData.source || "",
+
+      start:
+        Math.max(
+          0,
+          utils.safeNumber(
+            narrationData.start,
+            0
+          )
+        ),
+
+      element
+
+    };
+
+  }
+
+
+  function loadNarrations(
+    moduleMedia
+  ) {
+
+    clearNarrationTracks();
+
+    let narrations = [];
+
+    if (
+      Array.isArray(
+        moduleMedia.narrations
+      )
+    ) {
+
+      narrations =
+        moduleMedia.narrations;
+
+    } else if (
+      utils.hasText(
+        moduleMedia.narration
+      )
+    ) {
+
+      narrations = [
+        {
+          id: "parte-01",
+          source:
+            moduleMedia.narration,
+          start: 0
+        }
+      ];
+
+    }
+
+    state.narrationTracks =
+      narrations
+        .filter(
+          (item) =>
+            utils.hasText(
+              item?.source
+            )
+        )
+        .map(
+          createNarrationTrack
+        )
+        .sort(
+          (a, b) =>
+            a.start - b.start
+        );
+
+  }
+
+
+  /* =======================================================
+     IDENTIFICAR NARRACIÓN ACTIVA
+  ======================================================= */
+
+  function getActiveNarrationIndex(
+    globalTime
+  ) {
+
+    if (
+      !state.narrationTracks.length
+    ) {
+      return -1;
+    }
+
+    let activeIndex = -1;
+
+    state.narrationTracks.forEach(
+      (track, index) => {
+
+        const nextTrack =
+          state.narrationTracks[
+            index + 1
+          ];
+
+        const endBoundary =
+          nextTrack
+            ? nextTrack.start
+            : Infinity;
+
+        if (
+          globalTime >= track.start &&
+          globalTime < endBoundary
+        ) {
+          activeIndex = index;
+        }
+
+      }
+    );
+
+    return activeIndex;
+
+  }
+
+
+  function getNarrationLocalTime(
+    track,
+    globalTime
+  ) {
+
+    if (!track) {
+      return 0;
+    }
+
+    return Math.max(
+      0,
+      globalTime - track.start
+    );
+
+  }
+
+
+  function pauseInactiveNarrations(
+    activeIndex
+  ) {
+
+    state.narrationTracks.forEach(
+      (track, index) => {
+
+        if (index !== activeIndex) {
+          pauseTrack(
+            track.element
+          );
+        }
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     VOLUMEN DE MÚSICA
   ======================================================= */
 
   function getMusicVolume(
@@ -289,6 +503,7 @@ window.FALCO_LX_AUDIO = (() => {
   function applyVolumes() {
 
     if (music) {
+
       music.volume =
         utils.clamp(
           getMusicVolume(
@@ -298,57 +513,63 @@ window.FALCO_LX_AUDIO = (() => {
           0,
           1
         );
+
+      music.muted =
+        !state.enabled;
+
     }
 
-    if (narration) {
-      narration.volume =
-        utils.clamp(
-          state.voiceVolume,
-          0,
-          1
-        );
-    }
+
+    state.narrationTracks.forEach(
+      (track) => {
+
+        track.element.volume =
+          utils.clamp(
+            state.voiceVolume,
+            0,
+            1
+          );
+
+        track.element.muted =
+          !state.enabled;
+
+      }
+    );
+
 
     if (soundEffect) {
+
       soundEffect.volume =
         utils.clamp(
           state.effectsVolume,
           0,
           1
         );
+
+      soundEffect.muted =
+        !state.enabled;
+
     }
 
   }
 
 
   /* =======================================================
-     SINCRONIZACIÓN
+     SINCRONIZACIÓN DE MÚSICA
   ======================================================= */
 
-  function syncTrack(
-    track,
-    targetTime,
+  function syncMusic(
     force = false
   ) {
 
-    if (!track) {
-      return;
-    }
-
-    if (
-      !canPlayAtTime(
-        track,
-        targetTime
-      )
-    ) {
-      pauseTrack(track);
+    if (!music?.src) {
       return;
     }
 
     const difference =
       Math.abs(
-        track.currentTime -
-        targetTime
+        music.currentTime -
+        state.currentTime
       );
 
     if (
@@ -358,9 +579,86 @@ window.FALCO_LX_AUDIO = (() => {
     ) {
 
       setSafeTime(
-        track,
-        targetTime
+        music,
+        state.currentTime
       );
+
+    }
+
+  }
+
+
+  /* =======================================================
+     SINCRONIZACIÓN DE NARRACIONES
+  ======================================================= */
+
+  function syncNarrations(
+    force = false
+  ) {
+
+    const activeIndex =
+      getActiveNarrationIndex(
+        state.currentTime
+      );
+
+    pauseInactiveNarrations(
+      activeIndex
+    );
+
+    state.activeNarrationIndex =
+      activeIndex;
+
+    if (activeIndex < 0) {
+      return;
+    }
+
+    const activeTrack =
+      state.narrationTracks[
+        activeIndex
+      ];
+
+    const localTime =
+      getNarrationLocalTime(
+        activeTrack,
+        state.currentTime
+      );
+
+    const difference =
+      Math.abs(
+        activeTrack.element.currentTime -
+        localTime
+      );
+
+    if (
+      force ||
+      difference >
+        state.syncTolerance
+    ) {
+
+      setSafeTime(
+        activeTrack.element,
+        localTime
+      );
+
+    }
+
+
+    if (
+      state.playing &&
+      state.enabled &&
+      activeTrack.element.paused
+    ) {
+
+      activeTrack.element
+        .play()
+        .catch((error) => {
+
+          utils?.debugLog(
+            "La narración espera interacción del usuario.",
+            error
+          );
+
+        });
 
     }
 
@@ -385,39 +683,9 @@ window.FALCO_LX_AUDIO = (() => {
         Number(totalDuration) || 0
       );
 
+    syncMusic(force);
 
-    const narrationTime =
-      Math.max(
-        0,
-        state.currentTime -
-        state.voiceStartDelay
-      );
-
-
-    syncTrack(
-      music,
-      state.currentTime,
-      force
-    );
-
-
-    if (
-      state.currentTime <
-      state.voiceStartDelay
-    ) {
-
-      pauseTrack(narration);
-
-    } else {
-
-      syncTrack(
-        narration,
-        narrationTime,
-        force
-      );
-
-    }
-
+    syncNarrations(force);
 
     applyVolumes();
 
@@ -449,27 +717,22 @@ window.FALCO_LX_AUDIO = (() => {
           ""
         );
 
-      music.preload = "metadata";
+      music.preload =
+        "metadata";
 
     }
 
 
-    if (narration) {
-
-      narration.src =
-        utils.normalizePath(
-          moduleMedia.narration ||
-          ""
-        );
-
-      narration.preload = "metadata";
-
-    }
+    loadNarrations(
+      moduleMedia
+    );
 
 
     if (soundEffect) {
 
-      soundEffect.src = "";
+      soundEffect.removeAttribute(
+        "src"
+      );
 
       soundEffect.preload =
         "metadata";
@@ -490,18 +753,6 @@ window.FALCO_LX_AUDIO = (() => {
 
     state.enabled = true;
 
-    if (music) {
-      music.muted = false;
-    }
-
-    if (narration) {
-      narration.muted = false;
-    }
-
-    if (soundEffect) {
-      soundEffect.muted = false;
-    }
-
     applyVolumes();
 
     if (state.playing) {
@@ -516,8 +767,18 @@ window.FALCO_LX_AUDIO = (() => {
     state.enabled = false;
 
     pauseTrack(music);
-    pauseTrack(narration);
+
+    state.narrationTracks.forEach(
+      (track) => {
+        pauseTrack(
+          track.element
+        );
+      }
+    );
+
     pauseTrack(soundEffect);
+
+    applyVolumes();
 
   }
 
@@ -549,23 +810,42 @@ window.FALCO_LX_AUDIO = (() => {
 
     applyVolumes();
 
-    playTrack(
-      music,
-      state.currentTime
-    );
 
-
-    if (
-      state.currentTime >=
-      state.voiceStartDelay
-    ) {
+    if (music?.src) {
 
       playTrack(
-        narration,
-        Math.max(
-          0,
-          state.currentTime -
-          state.voiceStartDelay
+        music,
+        state.currentTime
+      );
+
+    }
+
+
+    const activeIndex =
+      getActiveNarrationIndex(
+        state.currentTime
+      );
+
+    pauseInactiveNarrations(
+      activeIndex
+    );
+
+    state.activeNarrationIndex =
+      activeIndex;
+
+
+    if (activeIndex >= 0) {
+
+      const activeTrack =
+        state.narrationTracks[
+          activeIndex
+        ];
+
+      playTrack(
+        activeTrack.element,
+        getNarrationLocalTime(
+          activeTrack,
+          state.currentTime
         )
       );
 
@@ -579,7 +859,15 @@ window.FALCO_LX_AUDIO = (() => {
     state.playing = false;
 
     pauseTrack(music);
-    pauseTrack(narration);
+
+    state.narrationTracks.forEach(
+      (track) => {
+        pauseTrack(
+          track.element
+        );
+      }
+    );
+
     pauseTrack(soundEffect);
 
   }
@@ -591,8 +879,18 @@ window.FALCO_LX_AUDIO = (() => {
 
     state.currentTime = 0;
 
+    state.activeNarrationIndex = -1;
+
     resetTrack(music);
-    resetTrack(narration);
+
+    state.narrationTracks.forEach(
+      (track) => {
+        resetTrack(
+          track.element
+        );
+      }
+    );
+
     resetTrack(soundEffect);
 
     applyVolumes();
@@ -622,7 +920,7 @@ window.FALCO_LX_AUDIO = (() => {
 
 
   /* =======================================================
-     EFECTOS DE SONIDO
+     EFECTOS
   ======================================================= */
 
   function playEffect(
@@ -641,13 +939,16 @@ window.FALCO_LX_AUDIO = (() => {
     soundEffect.pause();
 
     soundEffect.src =
-      utils.normalizePath(source);
+      utils.normalizePath(
+        source
+      );
 
     soundEffect.currentTime = 0;
 
     soundEffect.volume =
       utils.clamp(
-        volume ?? state.effectsVolume,
+        volume ??
+        state.effectsVolume,
         0,
         1
       );
@@ -667,45 +968,7 @@ window.FALCO_LX_AUDIO = (() => {
 
 
   /* =======================================================
-     ERRORES
-  ======================================================= */
-
-  function registerTrackEvents() {
-
-    [
-      {
-        track: music,
-        label: "música"
-      },
-      {
-        track: narration,
-        label: "narración"
-      },
-      {
-        track: soundEffect,
-        label: "efecto"
-      }
-    ].forEach((item) => {
-
-      item.track
-        ?.addEventListener(
-          "error",
-          () => {
-
-            utils?.debugLog(
-              `No se pudo cargar la pista de ${item.label}.`
-            );
-
-          }
-        );
-
-    });
-
-  }
-
-
-  /* =======================================================
-     CONFIGURACIÓN DEL MÓDULO
+     CONFIGURACIÓN POR MÓDULO
   ======================================================= */
 
   function configureFromModule(
@@ -719,35 +982,48 @@ window.FALCO_LX_AUDIO = (() => {
     state.musicVolume =
       utils.safeNumber(
         audiovisual.musicVolume,
-        config?.audio?.musicVolume ?? 0.18
+        config?.audio
+          ?.musicVolume ?? 0.18
       );
 
 
     state.voiceVolume =
       utils.safeNumber(
         audiovisual.voiceVolume,
-        config?.audio?.voiceVolume ?? 1
+        config?.audio
+          ?.voiceVolume ?? 1
+      );
+
+
+    state.effectsVolume =
+      utils.safeNumber(
+        audiovisual.effectsVolume,
+        config?.audio
+          ?.effectsVolume ?? 0.35
       );
 
 
     state.fadeInDuration =
       utils.safeNumber(
         audiovisual.fadeInDuration,
-        config?.audio?.fadeInDuration ?? 3000
+        config?.audio
+          ?.fadeInDuration ?? 3000
       );
 
 
     state.fadeOutDuration =
       utils.safeNumber(
         audiovisual.fadeOutDuration,
-        config?.audio?.fadeOutDuration ?? 4000
+        config?.audio
+          ?.fadeOutDuration ?? 4000
       );
 
 
-    state.voiceStartDelay =
+    state.syncTolerance =
       utils.safeNumber(
-        audiovisual.voiceStartDelay,
-        config?.audio?.voiceStartDelay ?? 0
+        audiovisual.syncTolerance,
+        config?.audio
+          ?.syncTolerance ?? 0.35
       );
 
 
@@ -757,7 +1033,7 @@ window.FALCO_LX_AUDIO = (() => {
 
 
   /* =======================================================
-     CONSULTAS DE ESTADO
+     CONSULTAS
   ======================================================= */
 
   function isEnabled() {
@@ -773,17 +1049,41 @@ window.FALCO_LX_AUDIO = (() => {
   function getState() {
 
     return {
-      ...state
+
+      enabled:
+        state.enabled,
+
+      playing:
+        state.playing,
+
+      currentTime:
+        state.currentTime,
+
+      duration:
+        state.duration,
+
+      musicVolume:
+        state.musicVolume,
+
+      voiceVolume:
+        state.voiceVolume,
+
+      narrationCount:
+        state.narrationTracks.length,
+
+      activeNarrationIndex:
+        state.activeNarrationIndex,
+
+      activeNarrationId:
+        state.activeNarrationIndex >= 0
+          ? state.narrationTracks[
+              state.activeNarrationIndex
+            ]?.id || null
+          : null
+
     };
 
   }
-
-
-  /* =======================================================
-     INICIALIZACIÓN
-  ======================================================= */
-
-  registerTrackEvents();
 
 
   /* =======================================================

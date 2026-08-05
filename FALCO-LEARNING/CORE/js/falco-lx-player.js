@@ -166,26 +166,47 @@ window.FALCO_LX_PLAYER = (() => {
      ICONOS
   ======================================================= */
 
-  function replaceButtonIcon(
-    button,
+ function replaceButtonIcon(
+  button,
+  iconName
+) {
+
+  if (
+    !button ||
+    !iconName
+  ) {
+    return;
+  }
+
+  /*
+   * No reconstruir el icono cuando ya es el correcto.
+   * El reproductor actualiza su estado continuamente
+   * y reemplazar el SVG durante un clic cancela el evento.
+   */
+
+  if (
+    button.dataset.flxIcon ===
     iconName
   ) {
-
-    if (!button) {
-      return;
-    }
-
-    button.innerHTML = "";
-
-    button.appendChild(
-      utils.createIcon(
-        iconName
-      )
-    );
-
-    utils.refreshIcons();
-
+    return;
   }
+
+  button.dataset.flxIcon =
+    iconName;
+
+  button.innerHTML = "";
+
+  button.appendChild(
+    utils.createIcon(
+      iconName
+    )
+  );
+
+  utils.refreshIcons();
+
+}
+
+  
 
 
   function updatePlayPauseIcon() {
