@@ -13,7 +13,7 @@
 
 const FCEV_CONFIG = Object.freeze({
 
-  totalDuration: 150,
+  totalDuration: 154.4,
 
   particleCountDesktop: 145,
 
@@ -239,7 +239,7 @@ const FCEV_CONFIG = Object.freeze({
       id: "fcevScene13",
       number: 13,
       start: 130,
-      end: 150,
+     end: 154.4,
       textSteps: [
         {
           selector: '[data-text-step="1"]',
@@ -270,8 +270,17 @@ const fcExperienceStage =
 const fcExperienceParticles =
   document.getElementById("fcExperienceParticles");
 
-const fcExperienceAudio =
-  document.getElementById("fcExperienceAudio");
+const fcExperienceMusic =
+  document.getElementById("fcExperienceMusic");
+
+const fcExperienceVoice =
+  document.getElementById("fcExperienceVoice");
+
+const fcExperienceAudioTracks =
+  [
+    fcExperienceMusic,
+    fcExperienceVoice
+  ].filter(Boolean);
 
 const fcExperienceVideo =
   document.getElementById("fcExperienceVideo");
@@ -944,7 +953,6 @@ function cicloExperiencia(timestamp) {
 
 }
 
-
 function reproducirExperiencia() {
 
   if (!isModalOpen) {
@@ -964,17 +972,21 @@ function reproducirExperiencia() {
 
   actualizarIconoPlayPause();
 
-  if (
-    isSoundEnabled &&
-    fcExperienceAudio
-  ) {
+  if (isSoundEnabled) {
 
-    fcExperienceAudio.currentTime =
-      experienceTime;
+    if (fcExperienceMusic) {
+      fcExperienceMusic.currentTime =
+        experienceTime;
 
-    fcExperienceAudio.play().catch(() => {
-      desactivarSonido();
-    });
+      fcExperienceMusic.play().catch(() => {});
+    }
+
+    if (fcExperienceVoice) {
+      fcExperienceVoice.currentTime =
+        experienceTime;
+
+      fcExperienceVoice.play().catch(() => {});
+    }
 
   }
 
@@ -986,6 +998,9 @@ function reproducirExperiencia() {
   }
 
 }
+
+
+
 
 
 function pausarExperiencia() {
@@ -1003,10 +1018,17 @@ function pausarExperiencia() {
   }
 
   if (
-    fcExperienceAudio &&
-    !fcExperienceAudio.paused
+    fcExperienceMusic &&
+    !fcExperienceMusic.paused
   ) {
-    fcExperienceAudio.pause();
+    fcExperienceMusic.pause();
+  }
+
+  if (
+    fcExperienceVoice &&
+    !fcExperienceVoice.paused
+  ) {
+    fcExperienceVoice.pause();
   }
 
   actualizarIconoPlayPause();
@@ -1039,9 +1061,14 @@ function reiniciarExperiencia() {
 
   reiniciarProgresoAcademico();
 
-  if (fcExperienceAudio) {
-    fcExperienceAudio.pause();
-    fcExperienceAudio.currentTime = 0;
+  if (fcExperienceMusic) {
+    fcExperienceMusic.pause();
+    fcExperienceMusic.currentTime = 0;
+  }
+
+  if (fcExperienceVoice) {
+    fcExperienceVoice.pause();
+    fcExperienceVoice.currentTime = 0;
   }
 
   activarEscena(
@@ -1069,40 +1096,227 @@ function irATiempo(nuevoTiempo) {
 
   actualizarExperienciaVisual();
 
-  if (
-    isSoundEnabled &&
-    fcExperienceAudio
-  ) {
-    fcExperienceAudio.currentTime =
-      experienceTime;
+  if (fcExperienceMusic) {
+    fcExperienceMusic.currentTime =
+      Math.min(
+        experienceTime,
+        Math.max(
+          0,
+          (fcExperienceMusic.duration || experienceTime) - 0.05
+        )
+      );
+  }
+
+  if (fcExperienceVoice) {
+    fcExperienceVoice.currentTime =
+      Math.min(
+        experienceTime,
+        Math.max(
+          0,
+          (fcExperienceVoice.duration || experienceTime) - 0.05
+        )
+      );
   }
 
 }
 
 
 /* =========================================================
-   AUDIO
+   AUDIO — MÚSICA + NARRACIÓN
 ========================================================= */
+
+function obtenerVolumenMusica() {
+
+  /*
+   * Entrada suave:
+   * la música sube de 0 a su volumen normal
+   * durante los primeros 3 segundos.
+   */
+
+  if (experienceTime < 3) {
+    return limitar(
+      (experienceTime / 3) * 0.18,
+      0,
+      0.18
+    );
+  }
+
+
+  /*
+   * Variaciones muy sutiles por tramo.
+   * La voz permanece siempre al 100 %.
+   */
+
+  let volumenObjetivo = 0.18;
+
+  if (experienceTime >= 26 && experienceTime < 56) {
+    volumenObjetivo = 0.20;
+  }
+
+  if (experienceTime >= 56 && experienceTime < 95) {
+    volumenObjetivo = 0.16;
+  }
+
+  if (experienceTime >= 95 && experienceTime < 130) {
+    volumenObjetivo = 0.19;
+  }
+
+  if (experienceTime >= 130) {
+    volumenObjetivo = 0.21;
+  }
+
+
+  /*
+   * Salida suave durante los últimos 5 segundos
+   * de la experiencia.
+   */
+
+  const inicioFadeOut =
+    FCEV_CONFIG.totalDuration - 5;
+
+  if (experienceTime >= inicioFadeOut) {
+
+    const proporcionRestante =
+      limitar(
+        (
+          FCEV_CONFIG.totalDuration -
+          experienceTime
+        ) / 5,
+        0,
+        1
+      );
+
+    return volumenObjetivo *
+      proporcionRestante;
+
+  }
+
+  return volumenObjetivo;
+
+}
+
+
+function establecerTiempoDeAudio(
+  pista,
+  tiempo
+) {
+
+  if (!pista) {
+    return;
+  }
+
+  let tiempoSeguro =
+    Math.max(0, tiempo);
+
+  if (
+    Number.isFinite(pista.duration) &&
+    pista.duration > 0
+  ) {
+
+    tiempoSeguro =
+      Math.min(
+        tiempoSeguro,
+        Math.max(
+          0,
+          pista.duration - 0.05
+        )
+      );
+
+  }
+
+  try {
+
+    pista.currentTime =
+      tiempoSeguro;
+
+  } catch (error) {
+
+    console.info(
+      "FALCO® Campus: la pista de audio todavía se está cargando."
+    );
+
+  }
+
+}
+
+
+function sincronizarPista(
+  pista
+) {
+
+  if (!pista) {
+    return;
+  }
+
+  if (
+    Number.isFinite(pista.duration) &&
+    experienceTime >= pista.duration
+  ) {
+
+    pista.pause();
+
+    return;
+
+  }
+
+  const diferencia =
+    Math.abs(
+      pista.currentTime -
+      experienceTime
+    );
+
+  if (diferencia > 0.35) {
+
+    establecerTiempoDeAudio(
+      pista,
+      experienceTime
+    );
+
+  }
+
+}
+
 
 function sincronizarAudioConExperiencia() {
 
   if (
     !isSoundEnabled ||
-    !fcExperienceAudio ||
     !isPlaying
   ) {
     return;
   }
 
-  const diferencia =
-    Math.abs(
-      fcExperienceAudio.currentTime -
-      experienceTime
-    );
+  sincronizarPista(
+    fcExperienceMusic
+  );
 
-  if (diferencia > 0.35) {
-    fcExperienceAudio.currentTime =
-      experienceTime;
+  sincronizarPista(
+    fcExperienceVoice
+  );
+
+
+  /*
+   * Actualiza suavemente el volumen musical
+   * según el momento de la experiencia.
+   */
+
+  if (fcExperienceMusic) {
+
+    const volumenObjetivo =
+      obtenerVolumenMusica();
+
+    const diferencia =
+      volumenObjetivo -
+      fcExperienceMusic.volume;
+
+    fcExperienceMusic.volume =
+      limitar(
+        fcExperienceMusic.volume +
+        diferencia * 0.035,
+        0,
+        1
+      );
+
   }
 
 }
@@ -1110,34 +1324,106 @@ function sincronizarAudioConExperiencia() {
 
 function activarSonido() {
 
-  if (!fcExperienceAudio) {
+  if (
+    !fcExperienceMusic &&
+    !fcExperienceVoice
+  ) {
+
+    console.warn(
+      "FALCO® Campus: no se encontraron las pistas de audio."
+    );
+
     return;
+
   }
 
   isSoundEnabled = true;
 
-  fcExperienceAudio.muted = false;
 
-  fcExperienceAudio.volume = 0.82;
+  if (fcExperienceMusic) {
 
-  fcExperienceAudio.currentTime =
-    experienceTime;
+    fcExperienceMusic.muted = false;
 
-  if (isPlaying) {
+    fcExperienceMusic.volume =
+  obtenerVolumenMusica();
 
-    fcExperienceAudio
-      .play()
-      .catch(() => {
-
-        isSoundEnabled = false;
-
-        actualizarIconoSonido();
-
-      });
+    establecerTiempoDeAudio(
+      fcExperienceMusic,
+      experienceTime
+    );
 
   }
 
+
+  if (fcExperienceVoice) {
+
+    fcExperienceVoice.muted = false;
+
+    fcExperienceVoice.volume = 1;
+
+    establecerTiempoDeAudio(
+      fcExperienceVoice,
+      experienceTime
+    );
+
+  }
+
+
   actualizarIconoSonido();
+
+
+  if (isPlaying) {
+
+    if (
+      fcExperienceMusic &&
+      (
+        !Number.isFinite(
+          fcExperienceMusic.duration
+        ) ||
+        experienceTime <
+          fcExperienceMusic.duration
+      )
+    ) {
+
+      fcExperienceMusic
+        .play()
+        .catch((error) => {
+
+          console.info(
+            "FALCO® Campus: la música espera una interacción del usuario.",
+            error
+          );
+
+        });
+
+    }
+
+
+    if (
+      fcExperienceVoice &&
+      (
+        !Number.isFinite(
+          fcExperienceVoice.duration
+        ) ||
+        experienceTime <
+          fcExperienceVoice.duration
+      )
+    ) {
+
+      fcExperienceVoice
+        .play()
+        .catch((error) => {
+
+          console.info(
+            "FALCO® Campus: la narración espera una interacción del usuario.",
+            error
+          );
+
+        });
+
+    }
+
+  }
 
 }
 
@@ -1146,9 +1432,16 @@ function desactivarSonido() {
 
   isSoundEnabled = false;
 
-  if (fcExperienceAudio) {
-    fcExperienceAudio.pause();
+
+  if (fcExperienceMusic) {
+    fcExperienceMusic.pause();
   }
+
+
+  if (fcExperienceVoice) {
+    fcExperienceVoice.pause();
+  }
+
 
   actualizarIconoSonido();
 
@@ -1158,13 +1451,16 @@ function desactivarSonido() {
 function alternarSonido() {
 
   if (isSoundEnabled) {
+
     desactivarSonido();
+
   } else {
+
     activarSonido();
+
   }
 
 }
-
 
 /* =========================================================
    PARTÍCULAS
@@ -1571,10 +1867,15 @@ function cerrarExperience() {
 
   activeSceneNumber = 0;
 
-  if (fcExperienceAudio) {
-    fcExperienceAudio.pause();
-    fcExperienceAudio.currentTime = 0;
-  }
+ if (fcExperienceMusic) {
+  fcExperienceMusic.pause();
+  fcExperienceMusic.currentTime = 0;
+}
+
+if (fcExperienceVoice) {
+  fcExperienceVoice.pause();
+  fcExperienceVoice.currentTime = 0;
+}
 
   if (fcExperienceVideo) {
     fcExperienceVideo.pause();
@@ -1948,31 +2249,7 @@ function controlarVisibilidadDocumento() {
 }
 
 
-/* =========================================================
-   EVENTOS DE AUDIO
-========================================================= */
 
-function controlarErrorDeAudio() {
-
-  console.info(
-    "FALCO® Campus: el archivo de audio todavía no está disponible. La experiencia continuará sin sonido."
-  );
-
-  desactivarSonido();
-
-}
-
-
-function controlarFinDeAudio() {
-
-  if (
-    experienceTime <
-    FCEV_CONFIG.totalDuration - 1
-  ) {
-    desactivarSonido();
-  }
-
-}
 
 
 /* =========================================================
@@ -2124,18 +2401,48 @@ function registrarEventos() {
   );
 
 
-  fcExperienceAudio
-    ?.addEventListener(
-      "error",
-      controlarErrorDeAudio
-    );
+ fcExperienceMusic
+  ?.addEventListener(
+    "error",
+    () => {
+      console.warn(
+        "FALCO® Campus: no se pudo cargar la música."
+      );
+    }
+  );
 
 
-  fcExperienceAudio
-    ?.addEventListener(
-      "ended",
-      controlarFinDeAudio
-    );
+fcExperienceVoice
+  ?.addEventListener(
+    "error",
+    () => {
+      console.warn(
+        "FALCO® Campus: no se pudo cargar la narración."
+      );
+    }
+  );
+
+
+fcExperienceMusic
+  ?.addEventListener(
+    "ended",
+    () => {
+      console.info(
+        "FALCO® Campus: finalizó la música."
+      );
+    }
+  );
+
+
+fcExperienceVoice
+  ?.addEventListener(
+    "ended",
+    () => {
+      console.info(
+        "FALCO® Campus: finalizó la narración."
+      );
+    }
+  );
 
 }
 

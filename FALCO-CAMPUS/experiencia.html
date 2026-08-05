@@ -11,7 +11,12 @@
 
   <meta
     name="description"
-    content="Descubrí la experiencia FALCO® Campus: una academia profesional con campus, biblioteca, alumnos, progreso y certificación."
+    content="Descubrí FALCO Experience®: una experiencia cinematográfica que presenta FALCO® Campus como una plataforma profesional para crear, administrar y desarrollar academias digitales."
+  >
+
+  <meta
+    name="author"
+    content="Sistema FALCO®"
   >
 
   <meta
@@ -19,10 +24,19 @@
     content="index, follow"
   >
 
+  <meta
+    name="theme-color"
+    content="#050810"
+  >
+
   <title>
-    La experiencia | FALCO® Campus
+    FALCO Experience® | FALCO® Campus
   </title>
 
+
+  <!-- =====================================================
+       ESTILOS GENERALES DEL CAMPUS
+  ====================================================== -->
 
   <link
     rel="stylesheet"
@@ -39,6 +53,10 @@
     href="./css/falco-campus-experiencia.css"
   >
 
+
+  <!-- =====================================================
+       TIPOGRAFÍAS
+  ====================================================== -->
 
   <link
     rel="preconnect"
@@ -57,6 +75,10 @@
   >
 
 
+  <!-- =====================================================
+       ICONOS
+  ====================================================== -->
+
   <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
@@ -64,19 +86,31 @@
 
 <body>
 
+  <!-- =====================================================
+       FONDO GENERAL
+  ====================================================== -->
+
   <div
     class="fc-background"
     aria-hidden="true"
   >
 
     <span class="fc-background__glow fc-background__glow--one"></span>
+
     <span class="fc-background__glow fc-background__glow--two"></span>
+
     <span class="fc-background__glow fc-background__glow--three"></span>
+
     <span class="fc-background__grid"></span>
+
     <span class="fc-background__noise"></span>
 
   </div>
 
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
   <header
     class="fc-header is-scrolled"
@@ -168,22 +202,22 @@
 
     <section class="fce-hero">
 
-      <div class="fce-hero__media">
+      <div
+        class="fce-hero__media"
+        aria-hidden="true"
+      >
 
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          poster="./img/falco-campus-video-poster.jpg"
-        >
+        <div class="fce-hero__cinematic-background">
 
-          <source
-            src="./videos/falco-campus-experience.mp4"
-            type="video/mp4"
-          >
+          <span class="fce-hero__halo fce-hero__halo--one"></span>
 
-        </video>
+          <span class="fce-hero__halo fce-hero__halo--two"></span>
+
+          <span class="fce-hero__particles"></span>
+
+          <span class="fce-hero__grid"></span>
+
+        </div>
 
         <div class="fce-hero__overlay"></div>
 
@@ -201,21 +235,29 @@
         </h1>
 
         <p>
-          Una experiencia digital diseñada para que cada alumno
-          perciba la misma calidad, seriedad y prestigio que define
-          tu trabajo profesional.
+          Una experiencia cinematográfica que muestra cómo tu
+          conocimiento puede transformarse en una academia digital
+          organizada, institucional y preparada para crecer.
         </p>
+
 
         <div class="fce-hero__actions">
 
           <button
             type="button"
             class="fc-button fc-button--primary"
-            id="btnExperienciaPrincipal"
+            id="btnAbrirExperience"
           >
-            <i data-lucide="play"></i>
+
+            <i
+              data-lucide="play"
+              aria-hidden="true"
+            ></i>
+
             Reproducir experiencia
+
           </button>
+
 
           <a
             href="./contacto.html"
@@ -225,6 +267,115 @@
           </a>
 
         </div>
+
+      </div>
+
+
+      <!-- PRODUCTO VISUAL -->
+
+      <div
+        class="fce-hero__product"
+        aria-hidden="true"
+      >
+
+        <div class="fce-hero-device">
+
+          <div class="fce-hero-device__topbar">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+
+          <div class="fce-hero-device__screen">
+
+            <aside class="fce-hero-device__sidebar">
+
+              <strong>
+                F
+              </strong>
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </aside>
+
+
+            <div class="fce-hero-device__dashboard">
+
+              <div class="fce-hero-device__welcome"></div>
+
+
+              <div class="fce-hero-device__metrics">
+
+                <article></article>
+                <article></article>
+                <article></article>
+
+              </div>
+
+
+              <div class="fce-hero-device__courses">
+
+                <article></article>
+                <article></article>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <article class="fce-hero-card fce-hero-card--students">
+
+          <i data-lucide="users-round"></i>
+
+          <span>
+            Participantes
+          </span>
+
+          <strong>
+            Gestión centralizada
+          </strong>
+
+        </article>
+
+
+        <article class="fce-hero-card fce-hero-card--progress">
+
+          <i data-lucide="chart-line"></i>
+
+          <span>
+            Progreso
+          </span>
+
+          <strong>
+            Seguimiento continuo
+          </strong>
+
+        </article>
+
+
+        <article class="fce-hero-card fce-hero-card--certificate">
+
+          <i data-lucide="badge-check"></i>
+
+          <span>
+            Certificados
+          </span>
+
+          <strong>
+            Emisión profesional
+          </strong>
+
+        </article>
 
       </div>
 
@@ -242,10 +393,13 @@
       </span>
 
       <h2>
+
         El alumno no debería sentir que entra a una página.
+
         <span>
           Debería sentir que entra a tu academia.
         </span>
+
       </h2>
 
       <p>
@@ -258,7 +412,7 @@
 
 
     <!-- ===================================================
-         RECORRIDO VISUAL
+         RECORRIDO DEL PARTICIPANTE
     ==================================================== -->
 
     <section class="fce-journey">
@@ -266,7 +420,7 @@
       <div class="fc-section-heading">
 
         <span class="fc-section-eyebrow">
-          El recorrido del alumno
+          El recorrido del participante
         </span>
 
         <h2>
@@ -285,9 +439,7 @@
           </span>
 
           <div class="fce-scene__visual">
-
             <i data-lucide="log-in"></i>
-
           </div>
 
           <h3>
@@ -295,8 +447,8 @@
           </h3>
 
           <p>
-            Cada alumno ingresa con un usuario autorizado
-            y accede únicamente a su recorrido académico.
+            Cada participante ingresa mediante un acceso autorizado
+            y encuentra únicamente su recorrido académico.
           </p>
 
         </article>
@@ -309,9 +461,7 @@
           </span>
 
           <div class="fce-scene__visual">
-
             <i data-lucide="layout-dashboard"></i>
-
           </div>
 
           <h3>
@@ -319,8 +469,8 @@
           </h3>
 
           <p>
-            El alumno encuentra cursos, módulos,
-            materiales y accesos organizados.
+            Cursos, módulos, materiales y accesos organizados
+            dentro de un mismo entorno profesional.
           </p>
 
         </article>
@@ -333,9 +483,7 @@
           </span>
 
           <div class="fce-scene__visual">
-
             <i data-lucide="monitor-play"></i>
-
           </div>
 
           <h3>
@@ -343,8 +491,8 @@
           </h3>
 
           <p>
-            Videos, presentaciones, documentos,
-            actividades y recursos complementarios.
+            Videos, presentaciones, documentos, actividades
+            y recursos complementarios.
           </p>
 
         </article>
@@ -357,9 +505,7 @@
           </span>
 
           <div class="fce-scene__visual">
-
             <i data-lucide="chart-line"></i>
-
           </div>
 
           <h3>
@@ -367,8 +513,8 @@
           </h3>
 
           <p>
-            Seguimiento de módulos, encuentros,
-            actividades y avance general.
+            Seguimiento de módulos, encuentros, actividades
+            y avance general de cada participante.
           </p>
 
         </article>
@@ -381,18 +527,16 @@
           </span>
 
           <div class="fce-scene__visual">
-
             <i data-lucide="library-big"></i>
-
           </div>
 
           <h3>
-            Biblioteca
+            Biblioteca digital
           </h3>
 
           <p>
-            Un espacio organizado para materiales,
-            documentos y recursos de consulta.
+            Un espacio organizado para materiales, documentos,
+            guías y recursos de consulta.
           </p>
 
         </article>
@@ -405,9 +549,7 @@
           </span>
 
           <div class="fce-scene__visual">
-
             <i data-lucide="badge-check"></i>
-
           </div>
 
           <h3>
@@ -427,7 +569,7 @@
 
 
     <!-- ===================================================
-         PANTALLAS
+         PLATAFORMA
     ==================================================== -->
 
     <section class="fce-platform">
@@ -443,8 +585,9 @@
         </h2>
 
         <p>
-          Cursos, alumnos, materiales, progreso, biblioteca
-          y certificados forman parte de un único entorno.
+          Cursos, participantes, materiales, progreso,
+          biblioteca y certificados forman parte
+          de un único entorno.
         </p>
 
       </div>
@@ -454,28 +597,58 @@
 
         <div class="fce-screen fce-screen--main">
 
-          <div class="fce-screen__bar"></div>
+          <div class="fce-screen__bar">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
 
           <div class="fce-screen__body">
 
-            <aside></aside>
+            <aside>
 
-            <main>
+              <strong>
+                F
+              </strong>
 
-              <header></header>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
 
-              <section>
+            </aside>
+
+
+            <div class="fce-screen__dashboard">
+
+              <header>
+
+                <span></span>
+                <span></span>
+
+              </header>
+
+
+              <section class="fce-screen__metrics">
+
                 <article></article>
                 <article></article>
                 <article></article>
+
               </section>
 
-              <div>
+
+              <div class="fce-screen__content">
+
                 <article></article>
                 <article></article>
+
               </div>
 
-            </main>
+            </div>
 
           </div>
 
@@ -532,7 +705,7 @@
 
 
     <!-- ===================================================
-         VALOR
+         VALOR PERCIBIDO
     ==================================================== -->
 
     <section class="fce-value">
@@ -540,7 +713,7 @@
       <div class="fc-section-heading">
 
         <span class="fc-section-eyebrow">
-          Lo que percibe el alumno
+          Lo que percibe el participante
         </span>
 
         <h2>
@@ -553,35 +726,66 @@
       <div class="fce-value__grid">
 
         <article>
+
           <i data-lucide="sparkles"></i>
-          <h3>Prestigio</h3>
+
+          <h3>
+            Prestigio
+          </h3>
+
           <p>
-            Una experiencia visual coherente con una propuesta profesional.
+            Una experiencia visual coherente con una propuesta
+            profesional.
           </p>
+
         </article>
 
+
         <article>
+
           <i data-lucide="route"></i>
-          <h3>Claridad</h3>
+
+          <h3>
+            Claridad
+          </h3>
+
           <p>
-            Un recorrido organizado, comprensible y fácil de seguir.
+            Un recorrido organizado, comprensible
+            y fácil de seguir.
           </p>
+
         </article>
 
+
         <article>
+
           <i data-lucide="shield-check"></i>
-          <h3>Confianza</h3>
+
+          <h3>
+            Confianza
+          </h3>
+
           <p>
-            Accesos protegidos, acompañamiento y estructura institucional.
+            Accesos protegidos, acompañamiento
+            y estructura institucional.
           </p>
+
         </article>
 
+
         <article>
+
           <i data-lucide="heart-handshake"></i>
-          <h3>Acompañamiento</h3>
+
+          <h3>
+            Acompañamiento
+          </h3>
+
           <p>
-            Un entorno que sostiene la experiencia de principio a fin.
+            Un entorno que sostiene la experiencia
+            de principio a fin.
           </p>
+
         </article>
 
       </div>
@@ -590,7 +794,7 @@
 
 
     <!-- ===================================================
-         VIDEO CENTRAL
+         REPRODUCTOR PRINCIPAL
     ==================================================== -->
 
     <section class="fce-video-section">
@@ -605,13 +809,20 @@
           Tu academia comienza acá.
         </h2>
 
+        <p>
+          Recorré la experiencia completa y descubrí cómo
+          el conocimiento puede convertirse en una academia
+          profesional.
+        </p>
+
       </div>
 
 
       <button
         type="button"
         class="fce-video-card"
-        id="btnExperienciaSecundario"
+        id="btnAbrirExperienceSecundario"
+        aria-label="Reproducir FALCO Experience"
       >
 
         <span class="fce-video-card__image"></span>
@@ -619,7 +830,9 @@
         <span class="fce-video-card__overlay"></span>
 
         <span class="fce-video-card__play">
+
           <i data-lucide="play"></i>
+
         </span>
 
         <span class="fce-video-card__caption">
@@ -647,6 +860,7 @@
 
       <div class="fc-final-cta__glow"></div>
 
+
       <div class="fc-final-cta__content">
 
         <span class="fc-section-eyebrow">
@@ -662,15 +876,20 @@
           tu curso en una academia profesional.
         </p>
 
+
         <div class="fc-final-cta__actions">
 
           <a
             href="./contacto.html"
             class="fc-button fc-button--primary"
           >
+
             Solicitar una reunión
+
             <i data-lucide="arrow-right"></i>
+
           </a>
+
 
           <a
             href="./como-funciona.html"
@@ -687,6 +906,10 @@
 
   </main>
 
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
 
   <footer class="fc-footer">
 
@@ -706,78 +929,1300 @@
 
 
   <!-- =====================================================
-       MODAL DE VIDEO
+       FALCO EXPERIENCE®
+       REPRODUCTOR CINEMATOGRÁFICO
   ====================================================== -->
 
   <div
-    class="fc-modal"
+    class="fcev-modal"
     id="fcExperienceModal"
     hidden
   >
 
     <div
-      class="fc-modal__backdrop"
+      class="fcev-modal__backdrop"
       data-close-experience
     ></div>
 
 
     <div
-      class="fc-modal__dialog"
+      class="fcev-modal__dialog"
       role="dialog"
       aria-modal="true"
       aria-labelledby="fcExperienceTitle"
     >
 
-      <button
-        type="button"
-        class="fc-modal__close"
-        id="btnCerrarExperience"
-        aria-label="Cerrar video"
-      >
+      <!-- CONTROLES SUPERIORES -->
 
-        <i data-lucide="x"></i>
+      <div class="fcev-controls">
 
-      </button>
+        <div class="fcev-controls__brand">
+
+          <span class="fcev-controls__symbol">
+            F
+          </span>
+
+          <div>
+
+            <strong id="fcExperienceTitle">
+              FALCO Experience®
+            </strong>
+
+            <small>
+              Campus Edition
+            </small>
+
+          </div>
+
+        </div>
 
 
-      <div class="fc-modal__header">
+        <div class="fcev-controls__actions">
 
-        <span class="fc-section-eyebrow">
-          FALCO Experience®
-        </span>
-
-        <h2 id="fcExperienceTitle">
-          Tu academia comienza acá.
-        </h2>
-
-      </div>
-
-
-      <div class="fc-modal__video">
-
-        <video
-          id="fcExperienceVideo"
-          controls
-          playsinline
-          preload="metadata"
-          poster="./img/falco-campus-video-poster.jpg"
-        >
-
-          <source
-            src="./videos/falco-campus-experience.mp4"
-            type="video/mp4"
+          <button
+            type="button"
+            class="fcev-control-button"
+            id="btnReiniciarExperience"
+            aria-label="Reiniciar experiencia"
           >
 
-          Su navegador no permite reproducir este video.
+            <i data-lucide="rotate-ccw"></i>
 
-        </video>
+          </button>
+
+
+          <button
+            type="button"
+            class="fcev-control-button"
+            id="btnSonidoExperience"
+            aria-label="Activar o desactivar sonido"
+            aria-pressed="false"
+          >
+
+            <i
+              data-lucide="volume-x"
+              id="iconoSonidoExperience"
+            ></i>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="fcev-control-button fcev-control-button--close"
+            id="btnCerrarExperience"
+            aria-label="Cerrar experiencia"
+          >
+
+            <i data-lucide="x"></i>
+
+          </button>
+
+        </div>
 
       </div>
+
+
+      <!-- ESCENARIO -->
+
+      <div
+        class="fcev-stage"
+        id="fcExperienceStage"
+        tabindex="0"
+      >
+
+        <!-- FONDO -->
+
+        <div
+          class="fcev-background"
+          aria-hidden="true"
+        >
+
+          <span class="fcev-background__halo fcev-background__halo--one"></span>
+
+          <span class="fcev-background__halo fcev-background__halo--two"></span>
+
+          <span class="fcev-background__halo fcev-background__halo--three"></span>
+
+          <span class="fcev-background__grid"></span>
+
+          <span class="fcev-background__noise"></span>
+
+          <span class="fcev-background__vignette"></span>
+
+        </div>
+
+
+        <!-- PARTÍCULAS -->
+
+        <canvas
+          class="fcev-particles"
+          id="fcExperienceParticles"
+          aria-hidden="true"
+        ></canvas>
+
+
+        <!-- ===============================================
+             CLIP 01 — EL NACIMIENTO DE UNA IDEA
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--intro"
+          id="fcevScene01"
+          data-scene="1"
+          aria-hidden="false"
+        >
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Todo conocimiento...
+            </p>
+
+          </div>
+
+
+          <div
+            class="fcev-central-light"
+            aria-hidden="true"
+          ></div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 02 — EL CONOCIMIENTO TOMA FORMA
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--knowledge"
+          id="fcevScene02"
+          data-scene="2"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-knowledge-space">
+
+            <article class="fcev-knowledge-item fcev-knowledge-item--document">
+
+              <i data-lucide="file-text"></i>
+
+              <span>
+                Documento
+              </span>
+
+            </article>
+
+
+            <article class="fcev-knowledge-item fcev-knowledge-item--video">
+
+              <i data-lucide="monitor-play"></i>
+
+              <span>
+                Video
+              </span>
+
+            </article>
+
+
+            <article class="fcev-knowledge-item fcev-knowledge-item--presentation">
+
+              <i data-lucide="presentation"></i>
+
+              <span>
+                Presentación
+              </span>
+
+            </article>
+
+
+            <article class="fcev-knowledge-item fcev-knowledge-item--assessment">
+
+              <i data-lucide="clipboard-check"></i>
+
+              <span>
+                Evaluación
+              </span>
+
+            </article>
+
+
+            <article class="fcev-knowledge-item fcev-knowledge-item--library">
+
+              <i data-lucide="library-big"></i>
+
+              <span>
+                Biblioteca
+              </span>
+
+            </article>
+
+
+            <article class="fcev-knowledge-item fcev-knowledge-item--certificate">
+
+              <i data-lucide="badge-check"></i>
+
+              <span>
+                Certificado
+              </span>
+
+            </article>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              ...comienza con una idea.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 03 — EL CONOCIMIENTO SE ORGANIZA
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--connections"
+          id="fcevScene03"
+          data-scene="3"
+          aria-hidden="true"
+        >
+
+          <svg
+            class="fcev-connections"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+
+            <path d="M240 220 C520 250 620 390 800 450"></path>
+
+            <path d="M230 680 C510 640 610 520 800 450"></path>
+
+            <path d="M650 130 C710 250 760 350 800 450"></path>
+
+            <path d="M1360 220 C1080 250 990 390 800 450"></path>
+
+            <path d="M1370 680 C1090 640 990 520 800 450"></path>
+
+            <path d="M950 130 C900 250 850 350 800 450"></path>
+
+          </svg>
+
+
+          <div class="fcev-connection-core"></div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Con horas de estudio.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Experiencia.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="3"
+            >
+              Trabajo.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 04 — EL NACIMIENTO DEL CAMPUS
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--device"
+          id="fcevScene04"
+          data-scene="4"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-device">
+
+            <div class="fcev-device__lid">
+
+              <div class="fcev-device__screen-glow"></div>
+
+            </div>
+
+            <div class="fcev-device__base"></div>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Todo ese conocimiento...
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              puede convertirse...
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 05 — EL CAMPUS COBRA VIDA
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--ecosystem"
+          id="fcevScene05"
+          data-scene="5"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-ecosystem">
+
+            <article class="fcev-module fcev-module--dashboard">
+
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>
+                Panel principal
+              </span>
+
+            </article>
+
+
+            <article class="fcev-module fcev-module--students">
+
+              <i data-lucide="users-round"></i>
+
+              <span>
+                Participantes
+              </span>
+
+            </article>
+
+
+            <article class="fcev-module fcev-module--courses">
+
+              <i data-lucide="monitor-play"></i>
+
+              <span>
+                Cursos
+              </span>
+
+            </article>
+
+
+            <article class="fcev-module fcev-module--library">
+
+              <i data-lucide="library-big"></i>
+
+              <span>
+                Biblioteca
+              </span>
+
+            </article>
+
+
+            <article class="fcev-module fcev-module--progress">
+
+              <i data-lucide="chart-line"></i>
+
+              <span>
+                Progreso
+              </span>
+
+            </article>
+
+
+            <article class="fcev-module fcev-module--certificates">
+
+              <i data-lucide="badge-check"></i>
+
+              <span>
+                Certificados
+              </span>
+
+            </article>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              ...en una experiencia.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Una experiencia diseñada para enseñar.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 06 — PANEL PRINCIPAL
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--dashboard"
+          id="fcevScene06"
+          data-scene="6"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-dashboard">
+
+            <aside class="fcev-dashboard__sidebar">
+
+              <strong>
+                F
+              </strong>
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </aside>
+
+
+            <div class="fcev-dashboard__main">
+
+              <header class="fcev-dashboard__welcome">
+
+                <span></span>
+                <span></span>
+
+              </header>
+
+
+              <div class="fcev-dashboard__metrics">
+
+                <article>
+                  <i data-lucide="users-round"></i>
+                </article>
+
+                <article>
+                  <i data-lucide="book-open"></i>
+                </article>
+
+                <article>
+                  <i data-lucide="chart-line"></i>
+                </article>
+
+                <article>
+                  <i data-lucide="badge-check"></i>
+                </article>
+
+              </div>
+
+
+              <div class="fcev-dashboard__content">
+
+                <article></article>
+                <article></article>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Todo comienza en un único lugar.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Organizar. Enseñar. Acompañar.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 07 — CURSOS Y CONTENIDOS
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--course"
+          id="fcevScene07"
+          data-scene="7"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-course">
+
+            <aside class="fcev-course__modules">
+
+              <span class="is-active"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </aside>
+
+
+            <div class="fcev-course__lesson">
+
+              <div class="fcev-course__video">
+
+                <i data-lucide="play"></i>
+
+              </div>
+
+              <div class="fcev-course__description">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+            </div>
+
+
+            <aside class="fcev-course__resources">
+
+              <article>
+                <i data-lucide="file-text"></i>
+              </article>
+
+              <article>
+                <i data-lucide="presentation"></i>
+              </article>
+
+              <article>
+                <i data-lucide="clipboard-check"></i>
+              </article>
+
+              <article>
+                <i data-lucide="library-big"></i>
+              </article>
+
+            </aside>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Cada curso.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Cada módulo.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="3"
+            >
+              Cada recurso.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="4"
+            >
+              Una única experiencia.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 08 — RECORRIDO DEL PARTICIPANTE
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--progress"
+          id="fcevScene08"
+          data-scene="8"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-progress-panel">
+
+            <div class="fcev-progress-panel__percentage">
+
+              <strong id="fcevProgressNumber">
+                0%
+              </strong>
+
+              <span>
+                Progreso general
+              </span>
+
+            </div>
+
+
+            <div class="fcev-progress-panel__bar">
+
+              <span id="fcevProgressBar"></span>
+
+            </div>
+
+
+            <div class="fcev-progress-panel__modules">
+
+              <article data-progress-module="1">
+
+                <i data-lucide="check"></i>
+
+                <span></span>
+
+              </article>
+
+              <article data-progress-module="2">
+
+                <i data-lucide="check"></i>
+
+                <span></span>
+
+              </article>
+
+              <article data-progress-module="3">
+
+                <i data-lucide="check"></i>
+
+                <span></span>
+
+              </article>
+
+              <article data-progress-module="4">
+
+                <i data-lucide="check"></i>
+
+                <span></span>
+
+              </article>
+
+              <article data-progress-module="5">
+
+                <i data-lucide="check"></i>
+
+                <span></span>
+
+              </article>
+
+            </div>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Aprender también es recorrer un camino.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Y cada paso merece estar acompañado.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 09 — CERTIFICACIÓN
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--certificate"
+          id="fcevScene09"
+          data-scene="9"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-certificate">
+
+            <span class="fcev-certificate__corner fcev-certificate__corner--one"></span>
+
+            <span class="fcev-certificate__corner fcev-certificate__corner--two"></span>
+
+            <span class="fcev-certificate__corner fcev-certificate__corner--three"></span>
+
+            <span class="fcev-certificate__corner fcev-certificate__corner--four"></span>
+
+
+            <span class="fcev-certificate__eyebrow">
+              Sistema FALCO®
+            </span>
+
+            <strong>
+              Certificado
+            </strong>
+
+            <span class="fcev-certificate__line"></span>
+
+            <span class="fcev-certificate__name"></span>
+
+            <span class="fcev-certificate__course"></span>
+
+
+            <div class="fcev-certificate__footer">
+
+              <span class="fcev-certificate__signature"></span>
+
+              <span class="fcev-certificate__seal">
+
+                <i data-lucide="badge-check"></i>
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Cada paso deja una huella.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Cada logro merece ser reconocido.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 10 — UNA ACADEMIA QUE CRECE
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--growth"
+          id="fcevScene10"
+          data-scene="10"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-academies">
+
+            <article class="fcev-academy fcev-academy--psychology">
+
+              <i data-lucide="brain"></i>
+
+            </article>
+
+            <article class="fcev-academy fcev-academy--law">
+
+              <i data-lucide="scale"></i>
+
+            </article>
+
+            <article class="fcev-academy fcev-academy--health">
+
+              <i data-lucide="stethoscope"></i>
+
+            </article>
+
+            <article class="fcev-academy fcev-academy--education">
+
+              <i data-lucide="graduation-cap"></i>
+
+            </article>
+
+            <article class="fcev-academy fcev-academy--institutions">
+
+              <i data-lucide="building-2"></i>
+
+            </article>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Una academia puede transformar una idea.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Muchas academias pueden transformar una comunidad.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 11 — EL PROFESIONAL
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--professional"
+          id="fcevScene11"
+          data-scene="11"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-professional-system">
+
+            <article class="fcev-professional-system__main">
+
+              <span class="fcev-professional-system__brand">
+                Tu academia
+              </span>
+
+              <div class="fcev-professional-system__pulse"></div>
+
+            </article>
+
+
+            <article class="fcev-professional-system__event fcev-professional-system__event--student">
+
+              <i data-lucide="user-plus"></i>
+
+              <span>
+                Nuevo participante
+              </span>
+
+            </article>
+
+
+            <article class="fcev-professional-system__event fcev-professional-system__event--course">
+
+              <i data-lucide="monitor-play"></i>
+
+              <span>
+                Curso activo
+              </span>
+
+            </article>
+
+
+            <article class="fcev-professional-system__event fcev-professional-system__event--resource">
+
+              <i data-lucide="file-plus-2"></i>
+
+              <span>
+                Nuevo recurso
+              </span>
+
+            </article>
+
+
+            <article class="fcev-professional-system__event fcev-professional-system__event--certificate">
+
+              <i data-lucide="badge-check"></i>
+
+              <span>
+                Certificado emitido
+              </span>
+
+            </article>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Enseñar es compartir.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              También es construir un espacio donde otros puedan crecer.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 12 — ECOSISTEMA FALCO
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--falco-system"
+          id="fcevScene12"
+          data-scene="12"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-falco-network">
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--one"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--two"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--three"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--four"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--five"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--six"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--seven"></span>
+
+            <span class="fcev-falco-network__node fcev-falco-network__node--eight"></span>
+
+
+            <svg
+              viewBox="0 0 1200 700"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+
+              <path d="M140 190 C350 210 430 300 600 350"></path>
+
+              <path d="M170 520 C350 480 450 400 600 350"></path>
+
+              <path d="M430 100 C500 210 540 280 600 350"></path>
+
+              <path d="M1060 190 C850 210 770 300 600 350"></path>
+
+              <path d="M1030 520 C850 480 750 400 600 350"></path>
+
+              <path d="M770 100 C700 210 660 280 600 350"></path>
+
+              <path d="M600 620 C600 520 600 430 600 350"></path>
+
+            </svg>
+
+
+            <div class="fcev-falco-network__core">
+              F
+            </div>
+
+          </div>
+
+
+          <div class="fcev-scene__copy">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Cuando el conocimiento encuentra la infraestructura adecuada...
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              deja de ser información.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="3"
+            >
+              Se convierte en una experiencia.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             CLIP 13 — CIERRE
+        ================================================ -->
+
+        <section
+          class="fcev-scene fcev-scene--closing"
+          id="fcevScene13"
+          data-scene="13"
+          aria-hidden="true"
+        >
+
+          <div class="fcev-closing-brand">
+
+            <span class="fcev-closing-brand__symbol">
+              F
+            </span>
+
+            <span class="fcev-closing-brand__eyebrow">
+              Sistema FALCO®
+            </span>
+
+            <h2>
+              FALCO® Campus
+            </h2>
+
+            <p>
+              Donde el conocimiento se transforma
+              en una experiencia profesional.
+            </p>
+
+            <div class="fcev-closing-brand__statement">
+
+              <span>
+                Creá tu academia.
+              </span>
+
+              <span>
+                Compartí tu experiencia.
+              </span>
+
+              <span>
+                Dejá tu legado.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="fcev-scene__copy fcev-scene__copy--closing">
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="1"
+            >
+              Tu conocimiento ya tiene valor.
+            </p>
+
+            <p
+              class="fcev-scene__sentence"
+              data-text-step="2"
+            >
+              Ahora también puede tener una experiencia a su altura.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- INDICADOR DE ESCENA -->
+
+        <div
+          class="fcev-scene-indicator"
+          aria-hidden="true"
+        >
+
+          <span id="fcevCurrentScene">
+            01
+          </span>
+
+          <span class="fcev-scene-indicator__line"></span>
+
+          <span>
+            13
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- BARRA INFERIOR -->
+
+      <div class="fcev-player">
+
+        <button
+          type="button"
+          class="fcev-player__button"
+          id="btnPlayPauseExperience"
+          aria-label="Pausar experiencia"
+        >
+
+          <i
+            data-lucide="pause"
+            id="iconoPlayPauseExperience"
+          ></i>
+
+        </button>
+
+
+        <div class="fcev-player__timeline">
+
+          <div
+            class="fcev-player__track"
+            id="fcevTimelineTrack"
+          >
+
+            <span
+              class="fcev-player__progress"
+              id="fcevTimelineProgress"
+            ></span>
+
+          </div>
+
+
+          <div class="fcev-player__time">
+
+            <span id="fcevCurrentTime">
+              00:00
+            </span>
+
+            <span id="fcevTotalTime">
+              02:30
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="fcev-player__button"
+          id="btnPantallaCompletaExperience"
+          aria-label="Ver en pantalla completa"
+        >
+
+          <i data-lucide="maximize"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- =========================================================
+     AUDIO FALCO EXPERIENCE®
+========================================================= -->
+
+<!-- =========================================================
+     AUDIO FALCO EXPERIENCE®
+========================================================= -->
+
+<audio
+  id="fcExperienceMusic"
+  preload="auto"
+>
+  <source
+    src="./audio/ambient-downtempo-the-mountain.mp3"
+    type="audio/mpeg"
+  >
+</audio>
+
+<audio
+  id="fcExperienceVoice"
+  preload="auto"
+>
+  <source
+    src="./audio/falco-campus-narracion.mp3"
+    type="audio/mpeg"
+  >
+</audio>
+
+
+      <!-- VIDEO FINAL OPCIONAL
+           Se conserva como respaldo cuando exista el MP4 definitivo. -->
+
+      <video
+        id="fcExperienceVideo"
+        class="fcev-final-video"
+        playsinline
+        preload="metadata"
+        poster="./img/falco-campus-video-poster.jpg"
+        hidden
+      >
+
+        <source
+          src="./videos/falco-campus-experience.mp4"
+          type="video/mp4"
+        >
+
+      </video>
 
     </div>
 
   </div>
 
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
 
   <script
     src="./js/falco-campus.js"
@@ -785,32 +2230,15 @@
   ></script>
 
   <script
-    src="./js/falco-campus-video.js"
-    defer
-  ></script>
+  src="./js/falco-campus-video-v2.js"
+  defer
+></script>
 
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       if (window.lucide) {
         window.lucide.createIcons();
-      }
-
-      const principal =
-        document.getElementById("btnExperienciaPrincipal");
-
-      const secundario =
-        document.getElementById("btnExperienciaSecundario");
-
-      const apertura =
-        document.getElementById("btnAbrirExperience");
-
-      if (principal && apertura) {
-        principal.addEventListener("click", () => apertura.click());
-      }
-
-      if (secundario && apertura) {
-        secundario.addEventListener("click", () => apertura.click());
       }
     });
   </script>
