@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Ficha integral de causa judicial del Sistema FALCO®."
+  >
+
+  <title>Ficha de la causa | Gestión de Causas FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/gestion-causas.css"
+  >
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <aside class="gc-sidebar" id="gcSidebar">
+
+      <div class="gc-sidebar__header">
+
+        <a href="../index.html" class="gc-brand">
+          <span class="gc-brand__eyebrow">Sistema FALCO®</span>
+          <strong class="gc-brand__title">Gestión Pericial</strong>
+        </a>
+
+        <button
+          type="button"
+          class="gc-sidebar__close"
+          id="gcSidebarClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <nav class="gc-nav" aria-label="Navegación principal">
+
+        <a href="../index.html" class="gc-nav__link">
+          <span class="gc-nav__icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Causas</p>
+
+          <a href="./causas.html" class="gc-nav__link is-active">
+            <span class="gc-nav__icon">⚖</span>
+            <span>Todas las causas</span>
+          </a>
+
+          <a href="./causas.html?departamento=moron" class="gc-nav__link">
+            <span class="gc-nav__icon">M</span>
+            <span>Morón</span>
+          </a>
+
+          <a href="./causas.html?departamento=la-matanza" class="gc-nav__link">
+            <span class="gc-nav__icon">LM</span>
+            <span>La Matanza</span>
+          </a>
+
+          <a href="./nueva-causa.html" class="gc-nav__link">
+            <span class="gc-nav__icon">＋</span>
+            <span>Nueva causa</span>
+          </a>
+
+        </div>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Seguimiento</p>
+
+          <a href="../agenda/agenda.html" class="gc-nav__link">
+            <span class="gc-nav__icon">□</span>
+            <span>Agenda y vencimientos</span>
+          </a>
+
+          <a href="./causas.html?vista=pericias" class="gc-nav__link">
+            <span class="gc-nav__icon">P</span>
+            <span>Pericias</span>
+          </a>
+
+          <a href="./causas.html?vista=impugnaciones" class="gc-nav__link">
+            <span class="gc-nav__icon">!</span>
+            <span>Impugnaciones</span>
+          </a>
+
+          <a href="../honorarios/honorarios.html" class="gc-nav__link">
+            <span class="gc-nav__icon">$</span>
+            <span>Honorarios</span>
+          </a>
+
+          <a href="../documentos/documentos.html" class="gc-nav__link">
+            <span class="gc-nav__icon">D</span>
+            <span>Documentos</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+      <div class="gc-sidebar__footer">
+
+        <div class="gc-user-card">
+
+          <div class="gc-user-card__avatar">
+            IF
+          </div>
+
+          <div>
+            <strong>Lic. Isabela Falco</strong>
+            <span>Administración</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <div class="gc-main">
+
+      <header class="gc-topbar">
+
+        <div class="gc-topbar__left">
+
+          <button
+            type="button"
+            class="gc-menu-button"
+            id="gcMenuButton"
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+
+          <div>
+            <span class="gc-topbar__eyebrow">
+              Ficha integral
+            </span>
+
+            <h1>Ficha de la causa</h1>
+          </div>
+
+        </div>
+
+        <div class="gc-topbar__actions">
+
+          <a
+            href="./causas.html"
+            class="gc-button gc-button--ghost"
+          >
+            Volver
+          </a>
+
+          <button
+            type="button"
+            class="gc-button gc-button--secondary"
+            id="gcEditCaseButton"
+          >
+            Editar
+          </button>
+
+          <button
+            type="button"
+            class="gc-button gc-button--primary"
+            id="gcSaveCaseButton"
+          >
+            Guardar cambios
+          </button>
+
+        </div>
+
+      </header>
+
+      <main class="gc-content">
+
+        <section class="gc-case-hero">
+
+          <div class="gc-case-hero__main">
+
+            <div class="gc-case-hero__badges">
+              <span
+                class="gc-badge gc-badge--moron"
+                id="gcCaseDepartmentBadge"
+              >
+                Morón
+              </span>
+
+              <span
+                class="gc-status gc-status--warning"
+                id="gcCaseStatusBadge"
+              >
+                En explicaciones
+              </span>
+            </div>
+
+            <h2 id="gcCaseTitle">
+              FERREYRA CRISTIAN MIGUEL c/ SWISS MEDICAL ART S.A.
+            </h2>
+
+            <div class="gc-case-hero__meta">
+
+              <span>
+                <strong>Expediente:</strong>
+                <span id="gcCaseFileNumber">MO-45838-2023</span>
+              </span>
+
+              <span>
+                <strong>Código interno:</strong>
+                <span id="gcCaseInternalCode">FALCO-MO-2023-001</span>
+              </span>
+
+              <span>
+                <strong>Fuero:</strong>
+                <span id="gcCaseCourtType">Laboral</span>
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="gc-case-hero__summary">
+
+            <div>
+              <span>Próximo paso</span>
+              <strong id="gcCaseNextStep">
+                Preparar contestación
+              </strong>
+            </div>
+
+            <div>
+              <span>Próximo vencimiento</span>
+              <strong id="gcCaseNextDeadline">
+                Sin fecha cargada
+              </strong>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="gc-case-tabs" aria-label="Secciones de la causa">
+
+          <button
+            type="button"
+            class="gc-case-tab is-active"
+            data-tab="informacion"
+          >
+            Información
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="partes"
+          >
+            Partes
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="abogados"
+          >
+            Abogados
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="pericia"
+          >
+            Pericia
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="periciados"
+          >
+            Periciados
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="actuaciones"
+          >
+            Actuaciones
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="documentos"
+          >
+            Documentos
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="honorarios"
+          >
+            Honorarios
+          </button>
+
+          <button
+            type="button"
+            class="gc-case-tab"
+            data-tab="observaciones"
+          >
+            Observaciones
+          </button>
+
+        </section>
+
+        <section
+          class="gc-case-panel is-active"
+          data-panel="informacion"
+        >
+
+          <div class="gc-section-heading">
+            <div>
+              <span class="gc-panel__eyebrow">
+                Datos principales
+              </span>
+
+              <h3>Información general</h3>
+            </div>
+          </div>
+
+          <div class="gc-detail-grid">
+
+            <article class="gc-detail-card">
+              <span>Departamento judicial</span>
+              <strong id="gcDetailDepartment">Morón</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Fuero</span>
+              <strong id="gcDetailCourtType">Laboral</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Organismo</span>
+              <strong id="gcDetailCourt">
+                Tribunal de Trabajo
+              </strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Juzgado / Tribunal</span>
+              <strong id="gcDetailCourtNumber">
+                Sin cargar
+              </strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Secretaría</span>
+              <strong id="gcDetailSecretary">
+                Sin cargar
+              </strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Tipo de proceso</span>
+              <strong id="gcDetailProcessType">
+                Acción de revisión CMJ
+              </strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Fecha de designación</span>
+              <strong id="gcDetailDesignationDate">
+                Sin cargar
+              </strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Fecha de aceptación</span>
+              <strong id="gcDetailAcceptanceDate">
+                Sin cargar
+              </strong>
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="partes"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+
+            <div>
+              <span class="gc-panel__eyebrow">
+                Sujetos procesales
+              </span>
+
+              <h3>Partes de la causa</h3>
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+            >
+              Agregar codemandada
+            </button>
+
+          </div>
+
+          <div class="gc-party-grid">
+
+            <article class="gc-party-card">
+
+              <div class="gc-party-card__header">
+                <span class="gc-party-card__type">
+                  Parte actora
+                </span>
+              </div>
+
+              <h4 id="gcActorName">
+                Cristian Miguel Ferreyra
+              </h4>
+
+              <dl class="gc-data-list">
+                <div>
+                  <dt>DNI / CUIT</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Teléfono</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Correo electrónico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Domicilio</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+              </dl>
+
+            </article>
+
+            <article class="gc-party-card">
+
+              <div class="gc-party-card__header">
+                <span class="gc-party-card__type">
+                  Parte demandada
+                </span>
+              </div>
+
+              <h4 id="gcDefendantName">
+                SWISS MEDICAL ART S.A.
+              </h4>
+
+              <dl class="gc-data-list">
+                <div>
+                  <dt>CUIT</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Tipo</dt>
+                  <dd>ART</dd>
+                </div>
+
+                <div>
+                  <dt>Teléfono</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Correo electrónico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+              </dl>
+
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="abogados"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+
+            <div>
+              <span class="gc-panel__eyebrow">
+                Representación letrada
+              </span>
+
+              <h3>Abogados y compañías representadas</h3>
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+            >
+              Agregar abogado
+            </button>
+
+          </div>
+
+          <div class="gc-lawyer-cards" id="gcLawyerCards">
+
+            <article class="gc-lawyer-card">
+
+              <div class="gc-lawyer-card__header">
+                <span class="gc-badge gc-badge--moron">
+                  Parte actora
+                </span>
+              </div>
+
+              <h4>Abogado/a de la parte actora</h4>
+
+              <dl class="gc-data-list">
+                <div>
+                  <dt>Matrícula</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Teléfono</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Correo electrónico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Domicilio electrónico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Estudio jurídico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Compañía representada</dt>
+                  <dd>No corresponde</dd>
+                </div>
+              </dl>
+
+            </article>
+
+            <article class="gc-lawyer-card">
+
+              <div class="gc-lawyer-card__header">
+                <span class="gc-badge gc-badge--matanza">
+                  Parte demandada
+                </span>
+              </div>
+
+              <h4>Abogado/a de la parte demandada</h4>
+
+              <dl class="gc-data-list">
+                <div>
+                  <dt>Matrícula</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Teléfono</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Correo electrónico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Domicilio electrónico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Estudio jurídico</dt>
+                  <dd>Sin cargar</dd>
+                </div>
+
+                <div>
+                  <dt>Compañía representada</dt>
+                  <dd>SWISS MEDICAL ART S.A.</dd>
+                </div>
+              </dl>
+
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="pericia"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+            <div>
+              <span class="gc-panel__eyebrow">
+                Seguimiento técnico
+              </span>
+
+              <h3>Estado de la labor pericial</h3>
+            </div>
+          </div>
+
+          <div class="gc-stage-list">
+
+            <article class="gc-stage is-complete">
+              <span class="gc-stage__marker">✓</span>
+              <div>
+                <strong>Designación</strong>
+                <span>Registrada</span>
+              </div>
+            </article>
+
+            <article class="gc-stage is-complete">
+              <span class="gc-stage__marker">✓</span>
+              <div>
+                <strong>Aceptación del cargo</strong>
+                <span>Presentada</span>
+              </div>
+            </article>
+
+            <article class="gc-stage">
+              <span class="gc-stage__marker">3</span>
+              <div>
+                <strong>Anticipo de gastos</strong>
+                <span>Sin información</span>
+              </div>
+            </article>
+
+            <article class="gc-stage">
+              <span class="gc-stage__marker">4</span>
+              <div>
+                <strong>Entrevista</strong>
+                <span>Sin información</span>
+              </div>
+            </article>
+
+            <article class="gc-stage is-complete">
+              <span class="gc-stage__marker">✓</span>
+              <div>
+                <strong>Pericia presentada</strong>
+                <span>Dictamen incorporado</span>
+              </div>
+            </article>
+
+            <article class="gc-stage is-current">
+              <span class="gc-stage__marker">!</span>
+              <div>
+                <strong>Pedido de explicaciones</strong>
+                <span>En preparación</span>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="periciados"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+
+            <div>
+              <span class="gc-panel__eyebrow">
+                Evaluación psicológica
+              </span>
+
+              <h3>Personas periciadas</h3>
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+            >
+              Vincular periciado
+            </button>
+
+          </div>
+
+          <div class="gc-empty-state gc-empty-state--compact">
+
+            <div class="gc-empty-state__icon">P</div>
+
+            <h3>Sin periciados vinculados</h3>
+
+            <p>
+              Vincule una persona de la Plataforma de Periciados o cree un nuevo registro.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="actuaciones"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+
+            <div>
+              <span class="gc-panel__eyebrow">
+                Línea de tiempo
+              </span>
+
+              <h3>Actuaciones y movimientos</h3>
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+            >
+              Nueva actuación
+            </button>
+
+          </div>
+
+          <div class="gc-timeline">
+
+            <article class="gc-timeline-item">
+
+              <div class="gc-timeline-item__date">
+                <strong>30</strong>
+                <span>JUN 2026</span>
+              </div>
+
+              <div class="gc-timeline-item__content">
+                <span class="gc-status gc-status--warning">
+                  Traslado
+                </span>
+
+                <h4>Traslado de impugnación a la pericia psicológica</h4>
+
+                <p>
+                  Se confiere traslado al experto conforme al artículo 16 de la Ley 15.057.
+                </p>
+              </div>
+
+            </article>
+
+            <article class="gc-timeline-item">
+
+              <div class="gc-timeline-item__date">
+                <strong>15</strong>
+                <span>MAY 2026</span>
+              </div>
+
+              <div class="gc-timeline-item__content">
+                <span class="gc-status gc-status--active">
+                  Presentación
+                </span>
+
+                <h4>Dictamen pericial presentado</h4>
+
+                <p>
+                  Se incorporó el informe psicológico al expediente.
+                </p>
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="documentos"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+
+            <div>
+              <span class="gc-panel__eyebrow">
+                Archivo digital
+              </span>
+
+              <h3>Documentación asociada</h3>
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+            >
+              Subir documento
+            </button>
+
+          </div>
+
+          <div class="gc-document-grid">
+
+            <article class="gc-document-card">
+              <span class="gc-document-card__icon">PDF</span>
+              <div>
+                <strong>Dictamen pericial</strong>
+                <span>Pericia psicológica</span>
+              </div>
+            </article>
+
+            <article class="gc-document-card">
+              <span class="gc-document-card__icon">ODT</span>
+              <div>
+                <strong>Contestación de traslado</strong>
+                <span>En elaboración</span>
+              </div>
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="honorarios"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+
+            <div>
+              <span class="gc-panel__eyebrow">
+                Seguimiento económico
+              </span>
+
+              <h3>Honorarios y cobros</h3>
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+            >
+              Registrar movimiento
+            </button>
+
+          </div>
+
+          <div class="gc-detail-grid">
+
+            <article class="gc-detail-card">
+              <span>Anticipo solicitado</span>
+              <strong>Sin cargar</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Anticipo depositado</span>
+              <strong>Sin cargar</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Honorarios regulados</span>
+              <strong>Sin regular</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Estado de cobro</span>
+              <strong>Pendiente</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Aportes</span>
+              <strong>Sin cargar</strong>
+            </article>
+
+            <article class="gc-detail-card">
+              <span>Saldo pendiente</span>
+              <strong>Sin calcular</strong>
+            </article>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-case-panel"
+          data-panel="observaciones"
+          hidden
+        >
+
+          <div class="gc-section-heading">
+            <div>
+              <span class="gc-panel__eyebrow">
+                Uso interno
+              </span>
+
+              <h3>Observaciones privadas</h3>
+            </div>
+          </div>
+
+          <div class="gc-notes-box">
+
+            <textarea
+              id="gcPrivateNotes"
+              rows="10"
+              placeholder="Agregar observaciones internas sobre la causa..."
+            ></textarea>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer class="gc-footer">
+        <span>
+          Sistema FALCO® · Gestión integral de causas judiciales
+        </span>
+
+        <span id="gcCurrentYear"></span>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div class="gc-overlay" id="gcOverlay"></div>
+
+<div
+  class="gc-modal"
+  id="gcActionModal"
+  aria-hidden="true"
+>
+  <div
+    class="gc-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gcActionModalTitle"
+  >
+
+    <div class="gc-modal__header">
+
+      <div>
+        <span class="gc-panel__eyebrow">
+          Seguimiento judicial
+        </span>
+
+        <h2 id="gcActionModalTitle">
+          Nueva actuación
+        </h2>
+      </div>
+
+      <button
+        type="button"
+        class="gc-modal__close"
+        id="gcCloseActionModal"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="gcActionForm">
+
+      <div class="gc-form-grid">
+
+        <div class="gc-field">
+          <label for="gcActionDate">
+            Fecha *
+          </label>
+
+          <input
+            type="date"
+            id="gcActionDate"
+            name="fecha"
+            required
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcActionType">
+            Tipo de actuación *
+          </label>
+
+          <select
+            id="gcActionType"
+            name="tipo"
+            required
+          >
+            <option value="">Seleccionar</option>
+            <option value="Designación">Designación</option>
+            <option value="Aceptación del cargo">Aceptación del cargo</option>
+            <option value="Anticipo de gastos">Anticipo de gastos</option>
+            <option value="Entrevista">Entrevista</option>
+            <option value="Presentación">Presentación</option>
+            <option value="Pericia">Pericia</option>
+            <option value="Traslado">Traslado</option>
+            <option value="Explicaciones">Explicaciones</option>
+            <option value="Impugnación">Impugnación</option>
+            <option value="Providencia">Providencia</option>
+            <option value="Regulación">Regulación de honorarios</option>
+            <option value="Cobro">Cobro</option>
+            <option value="Notificación">Notificación</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="gc-field gc-field--full">
+          <label for="gcActionTitle">
+            Título *
+          </label>
+
+          <input
+            type="text"
+            id="gcActionTitle"
+            name="titulo"
+            placeholder="Ej.: Se confiere traslado de impugnación"
+            required
+          >
+        </div>
+
+        <div class="gc-field gc-field--full">
+          <label for="gcActionDescription">
+            Descripción
+          </label>
+
+          <textarea
+            id="gcActionDescription"
+            name="descripcion"
+            rows="5"
+            placeholder="Detalle de la actuación o movimiento judicial"
+          ></textarea>
+        </div>
+
+        <div class="gc-field">
+          <label for="gcActionDeadline">
+            Fecha de vencimiento
+          </label>
+
+          <input
+            type="date"
+            id="gcActionDeadline"
+            name="vencimiento"
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcActionStatus">
+            Estado
+          </label>
+
+          <select
+            id="gcActionStatus"
+            name="estado"
+          >
+            <option value="pendiente">Pendiente</option>
+            <option value="en-preparacion">En preparación</option>
+            <option value="presentada">Presentada</option>
+            <option value="cumplida">Cumplida</option>
+            <option value="vencida">Vencida</option>
+            <option value="no-corresponde">No corresponde</option>
+          </select>
+        </div>
+
+        <div class="gc-field">
+          <label for="gcActionParty">
+            Parte que presenta
+          </label>
+
+          <select
+            id="gcActionParty"
+            name="parte"
+          >
+            <option value="">Sin especificar</option>
+            <option value="perito">Perito</option>
+            <option value="actora">Parte actora</option>
+            <option value="demandada">Parte demandada</option>
+            <option value="codemandada">Codemandada</option>
+            <option value="juzgado">Juzgado / Tribunal</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="gc-field">
+          <label for="gcActionDeadlineDays">
+            Plazo informado
+          </label>
+
+          <input
+            type="text"
+            id="gcActionDeadlineDays"
+            name="plazo"
+            placeholder="Ej.: 5 días"
+          >
+        </div>
+
+        <div class="gc-field gc-field--full">
+          <label for="gcActionNotes">
+            Observaciones internas
+          </label>
+
+          <textarea
+            id="gcActionNotes"
+            name="observaciones"
+            rows="3"
+            placeholder="Notas privadas sobre esta actuación"
+          ></textarea>
+        </div>
+
+      </div>
+
+      <div class="gc-modal__actions">
+
+        <button
+          type="button"
+          class="gc-button gc-button--ghost"
+          id="gcCancelActionButton"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          class="gc-button gc-button--primary"
+        >
+          Guardar actuación
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<div
+  class="gc-toast"
+  id="gcToast"
+  role="status"
+  aria-live="polite"
+></div>
+
+
+  <script src="../js/gestion-causas-config.js"></script>
+  <script src="../js/gestion-causas-data.js"></script>
+  <script src="../js/gestion-causas-ui.js"></script>
+  <script src="../js/gestion-causas.js"></script>
+  <script src="../js/gestion-causas-ficha.js"></script>
+
+</body>
+</html>

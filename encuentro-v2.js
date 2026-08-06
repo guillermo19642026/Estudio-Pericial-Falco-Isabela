@@ -238,7 +238,34 @@ const contenedorVideo =
     "encuentroVideoContenedor"
   );
 
-if (
+/* =======================================================
+   CONTENIDO AUDIOVISUAL DEL ENCUENTRO
+======================================================= */
+
+/* =======================================================
+   CONTENIDO AUDIOVISUAL DEL ENCUENTRO
+======================================================= */
+
+if (encuentroId === 1) {
+
+  contenedorVideo.innerHTML = `
+
+    <iframe
+      src="./FALCO-LEARNING/index.html?curso=escuela-padres&modulo=${encuentroId}"
+      title="Experiencia audiovisual - ${encuentro.titulo}"
+      class="encuentro-falco-lx-frame"
+      allow="
+        autoplay;
+        fullscreen;
+        picture-in-picture
+      "
+      
+      loading="eager">
+    </iframe>
+
+  `;
+
+} else if (
   encuentro.video &&
   encuentro.videoUrl
 ) {

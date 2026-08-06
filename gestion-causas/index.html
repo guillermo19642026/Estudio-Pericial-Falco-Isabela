@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gestión integral de causas judiciales del Sistema FALCO®."
+  >
+
+  <title>Gestión de Causas FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/gestion-causas.css"
+  >
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <aside class="gc-sidebar" id="gcSidebar">
+
+      <div class="gc-sidebar__header">
+
+        <a href="../index.html" class="gc-brand">
+          <span class="gc-brand__eyebrow">Sistema FALCO®</span>
+          <strong class="gc-brand__title">Gestión Pericial</strong>
+        </a>
+
+        <button
+          type="button"
+          class="gc-sidebar__close"
+          id="gcSidebarClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <nav class="gc-nav" aria-label="Navegación principal">
+
+        <a href="./index.html" class="gc-nav__link is-active">
+          <span class="gc-nav__icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Causas</p>
+
+          <a href="./causas/causas.html" class="gc-nav__link">
+            <span class="gc-nav__icon">⚖</span>
+            <span>Todas las causas</span>
+          </a>
+
+          <a href="./causas/causas.html?departamento=moron" class="gc-nav__link">
+            <span class="gc-nav__icon">M</span>
+            <span>Morón</span>
+          </a>
+
+          <a href="./causas/causas.html?departamento=la-matanza" class="gc-nav__link">
+            <span class="gc-nav__icon">LM</span>
+            <span>La Matanza</span>
+          </a>
+
+          <a href="./causas/nueva-causa.html" class="gc-nav__link">
+            <span class="gc-nav__icon">＋</span>
+            <span>Nueva causa</span>
+          </a>
+
+        </div>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Seguimiento</p>
+
+          <a href="./agenda/agenda.html" class="gc-nav__link">
+            <span class="gc-nav__icon">□</span>
+            <span>Agenda y vencimientos</span>
+          </a>
+
+          <a href="./causas/causas.html?vista=pericias" class="gc-nav__link">
+            <span class="gc-nav__icon">P</span>
+            <span>Pericias</span>
+          </a>
+
+          <a href="./causas/causas.html?vista=impugnaciones" class="gc-nav__link">
+            <span class="gc-nav__icon">!</span>
+            <span>Impugnaciones</span>
+          </a>
+
+          <a href="./honorarios/honorarios.html" class="gc-nav__link">
+            <span class="gc-nav__icon">$</span>
+            <span>Honorarios</span>
+          </a>
+
+          <a href="./documentos/documentos.html" class="gc-nav__link">
+            <span class="gc-nav__icon">D</span>
+            <span>Documentos</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+      <div class="gc-sidebar__footer">
+
+        <div class="gc-user-card">
+
+          <div class="gc-user-card__avatar">
+            IF
+          </div>
+
+          <div>
+            <strong>Lic. Isabela Falco</strong>
+            <span>Administración</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <div class="gc-main">
+
+      <header class="gc-topbar">
+
+        <div class="gc-topbar__left">
+
+          <button
+            type="button"
+            class="gc-menu-button"
+            id="gcMenuButton"
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+
+          <div>
+            <span class="gc-topbar__eyebrow">
+              Centro de Operaciones
+            </span>
+
+            <h1>Gestión de Causas FALCO®</h1>
+          </div>
+
+        </div>
+
+        <div class="gc-topbar__actions">
+
+          <a
+            href="./causas/nueva-causa.html"
+            class="gc-button gc-button--primary"
+          >
+            <span>＋</span>
+            Nueva causa
+          </a>
+
+        </div>
+
+      </header>
+
+      <main class="gc-content">
+
+        <section class="gc-hero">
+
+          <div class="gc-hero__content">
+
+            <span class="gc-kicker">
+              Gestión judicial y pericial centralizada
+            </span>
+
+            <h2>
+              Seguimiento integral de causas,
+              pericias, vencimientos y honorarios.
+            </h2>
+
+            <p>
+              Administre expedientes de Morón y La Matanza desde un único
+              espacio, con acceso rápido a actuaciones, entrevistas,
+              documentos, impugnaciones y estados de cobro.
+            </p>
+
+          </div>
+
+          <div class="gc-hero__actions">
+
+            <a
+              href="./causas/causas.html"
+              class="gc-button gc-button--secondary"
+            >
+              Ver todas las causas
+            </a>
+
+            <a
+              href="./agenda/agenda.html"
+              class="gc-button gc-button--ghost"
+            >
+              Revisar vencimientos
+            </a>
+
+          </div>
+
+        </section>
+
+        <section class="gc-stats" aria-label="Indicadores generales">
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">Total de causas</span>
+            <strong class="gc-stat-card__value" id="gcTotalCausas">147</strong>
+            <span class="gc-stat-card__meta">Registro general</span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">Causas activas</span>
+            <strong class="gc-stat-card__value" id="gcCausasActivas">116</strong>
+            <span class="gc-stat-card__meta">En seguimiento</span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">Morón</span>
+            <strong class="gc-stat-card__value" id="gcCausasMoron">—</strong>
+            <span class="gc-stat-card__meta">Pendiente de clasificación</span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">La Matanza</span>
+            <strong class="gc-stat-card__value" id="gcCausasMatanza">—</strong>
+            <span class="gc-stat-card__meta">Pendiente de clasificación</span>
+          </article>
+
+          <article class="gc-stat-card gc-stat-card--warning">
+            <span class="gc-stat-card__label">Vencimientos próximos</span>
+            <strong class="gc-stat-card__value" id="gcVencimientos">3</strong>
+            <span class="gc-stat-card__meta">Próximos 7 días</span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">Honorarios pendientes</span>
+            <strong class="gc-stat-card__value" id="gcHonorariosPendientes">8</strong>
+            <span class="gc-stat-card__meta">Regulación o cobro</span>
+          </article>
+
+        </section>
+
+        <section class="gc-dashboard-grid">
+
+          <article class="gc-panel gc-panel--wide">
+
+            <div class="gc-panel__header">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Seguimiento reciente
+                </span>
+
+                <h3>Últimas causas actualizadas</h3>
+              </div>
+
+              <a href="./causas/causas.html" class="gc-text-link">
+                Ver todas
+              </a>
+
+            </div>
+
+            <div class="gc-table-wrap">
+
+              <table class="gc-table">
+
+                <thead>
+                  <tr>
+                    <th>Carátula</th>
+                    <th>Departamento</th>
+                    <th>Estado</th>
+                    <th>Próximo paso</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="gcRecentCases">
+
+                  <tr>
+                    <td>
+                      <div class="gc-case-name">
+                        <strong>RIOS CAROLINA VIVIANA c/ IARAI S.A.</strong>
+                        <span>LM-20675-2022</span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="gc-badge gc-badge--matanza">
+                        La Matanza
+                      </span>
+                    </td>
+
+                    <td>
+                      <span class="gc-status gc-status--warning">
+                        Impugnación
+                      </span>
+                    </td>
+
+                    <td>Contestar traslado</td>
+
+                    <td>
+                      <a href="./causas/ficha-causa.html" class="gc-row-link">
+                        Abrir
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="gc-case-name">
+                        <strong>FERREYRA CRISTIAN MIGUEL c/ SWISS MEDICAL ART S.A.</strong>
+                        <span>MO-45838-2023</span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="gc-badge gc-badge--moron">
+                        Morón
+                      </span>
+                    </td>
+
+                    <td>
+                      <span class="gc-status gc-status--warning">
+                        Traslado
+                      </span>
+                    </td>
+
+                    <td>Preparar contestación</td>
+
+                    <td>
+                      <a href="./causas/ficha-causa.html" class="gc-row-link">
+                        Abrir
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="gc-case-name">
+                        <strong>ARCE CACERES, CRISTIAN RAUL Y OTRO c/ NUÑEZ</strong>
+                        <span>MO-34464-2014</span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <span class="gc-badge gc-badge--moron">
+                        Morón
+                      </span>
+                    </td>
+
+                    <td>
+                      <span class="gc-status gc-status--active">
+                        Explicaciones
+                      </span>
+                    </td>
+
+                    <td>Responder observaciones</td>
+
+                    <td>
+                      <a href="./causas/ficha-causa.html" class="gc-row-link">
+                        Abrir
+                      </a>
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </article>
+
+          <article class="gc-panel">
+
+            <div class="gc-panel__header">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Acciones frecuentes
+                </span>
+
+                <h3>Accesos rápidos</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-quick-actions">
+
+              <a href="./causas/nueva-causa.html" class="gc-quick-action">
+                <span class="gc-quick-action__icon">＋</span>
+                <span>
+                  <strong>Nueva causa</strong>
+                  <small>Registrar un expediente</small>
+                </span>
+              </a>
+
+              <a href="./causas/causas.html?vista=entrevistas" class="gc-quick-action">
+                <span class="gc-quick-action__icon">E</span>
+                <span>
+                  <strong>Entrevistas</strong>
+                  <small>Consultar próximas fechas</small>
+                </span>
+              </a>
+
+              <a href="./causas/causas.html?vista=impugnaciones" class="gc-quick-action">
+                <span class="gc-quick-action__icon">!</span>
+                <span>
+                  <strong>Impugnaciones</strong>
+                  <small>Revisar traslados pendientes</small>
+                </span>
+              </a>
+
+              <a href="./honorarios/honorarios.html" class="gc-quick-action">
+                <span class="gc-quick-action__icon">$</span>
+                <span>
+                  <strong>Honorarios</strong>
+                  <small>Controlar regulación y cobro</small>
+                </span>
+              </a>
+
+            </div>
+
+          </article>
+
+          <article class="gc-panel">
+
+            <div class="gc-panel__header">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Agenda
+                </span>
+
+                <h3>Próximos vencimientos</h3>
+              </div>
+
+              <a href="./agenda/agenda.html" class="gc-text-link">
+                Ver agenda
+              </a>
+
+            </div>
+
+            <div class="gc-deadlines" id="gcDeadlines">
+
+              <article class="gc-deadline gc-deadline--urgent">
+                <div class="gc-deadline__date">
+                  <strong>06</strong>
+                  <span>AGO</span>
+                </div>
+
+                <div class="gc-deadline__content">
+                  <strong>Contestar traslado</strong>
+                  <span>RIOS c/ IARAI S.A.</span>
+                  <small>Vence hoy</small>
+                </div>
+              </article>
+
+              <article class="gc-deadline">
+                <div class="gc-deadline__date">
+                  <strong>10</strong>
+                  <span>AGO</span>
+                </div>
+
+                <div class="gc-deadline__content">
+                  <strong>Presentar explicación</strong>
+                  <span>ARCE CACERES c/ NUÑEZ</span>
+                  <small>Dentro de 4 días</small>
+                </div>
+              </article>
+
+              <article class="gc-deadline">
+                <div class="gc-deadline__date">
+                  <strong>13</strong>
+                  <span>AGO</span>
+                </div>
+
+                <div class="gc-deadline__content">
+                  <strong>Entrevista psicológica</strong>
+                  <span>Causa laboral</span>
+                  <small>Modalidad virtual</small>
+                </div>
+              </article>
+
+            </div>
+
+          </article>
+
+          <article class="gc-panel">
+
+            <div class="gc-panel__header">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Distribución
+                </span>
+
+                <h3>Causas por departamento</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-jurisdiction-cards">
+
+              <a
+                href="./causas/causas.html?departamento=moron"
+                class="gc-jurisdiction-card"
+              >
+                <span class="gc-jurisdiction-card__code">MO</span>
+
+                <div>
+                  <strong>Morón</strong>
+                  <span>Ver expedientes</span>
+                </div>
+              </a>
+
+              <a
+                href="./causas/causas.html?departamento=la-matanza"
+                class="gc-jurisdiction-card"
+              >
+                <span class="gc-jurisdiction-card__code">LM</span>
+
+                <div>
+                  <strong>La Matanza</strong>
+                  <span>Ver expedientes</span>
+                </div>
+              </a>
+
+            </div>
+
+          </article>
+
+        </section>
+
+      </main>
+
+      <footer class="gc-footer">
+        <span>
+          Sistema FALCO® · Gestión integral de causas judiciales
+        </span>
+
+        <span id="gcCurrentYear"></span>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div class="gc-overlay" id="gcOverlay"></div>
+
+  <script src="./js/gestion-causas-config.js"></script>
+  <script src="./js/gestion-causas-data.js"></script>
+  <script src="./js/gestion-causas-ui.js"></script>
+  <script src="./js/gestion-causas.js"></script>
+
+</body>
+</html>

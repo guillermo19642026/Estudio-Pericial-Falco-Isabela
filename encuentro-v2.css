@@ -1244,3 +1244,383 @@ iframe {
 .encuentro-finalizacion p {
   color: rgba(255, 255, 255, 0.72);
 }
+
+
+/* =========================================================
+   FALCO-LX INTEGRADO
+========================================================= */
+
+.encuentro-video-contenedor {
+  overflow: hidden;
+}
+
+.encuentro-falco-lx-frame {
+  width: 100%;
+  min-height: 680px;
+  border: 0;
+  display: block;
+  background: #030711;
+}
+
+@media (max-width: 900px) {
+
+  .encuentro-falco-lx-frame {
+    min-height: 580px;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .encuentro-falco-lx-frame {
+    min-height: 520px;
+  }
+
+}
+
+
+/* =========================================================
+   FALCO-LX INTEGRADO — RESPONSIVE DEFINITIVO
+========================================================= */
+
+.encuentro-video-contenedor:has(.encuentro-falco-lx-frame) {
+  width: 100%;
+  max-width: 100%;
+  height: min(760px, 82svh);
+  min-height: 620px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  background: #030711;
+}
+
+.encuentro-falco-lx-frame {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  border: 0;
+  background: #030711;
+}
+
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+
+  .encuentro-video-contenedor:has(.encuentro-falco-lx-frame) {
+    height: min(680px, 78svh);
+    min-height: 540px;
+  }
+
+}
+
+
+/* CELULARES */
+
+@media (max-width: 680px) {
+
+  .encuentro-video-card {
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .encuentro-video-contenedor:has(.encuentro-falco-lx-frame) {
+    width: 100%;
+    height: 72svh;
+    min-height: 460px;
+    max-height: 620px;
+    overflow: hidden;
+  }
+
+  .encuentro-falco-lx-frame {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+}
+
+
+/* CELULARES PEQUEÑOS */
+
+@media (max-width: 420px) {
+
+  .encuentro-video-contenedor:has(.encuentro-falco-lx-frame) {
+    height: 70svh;
+    min-height: 440px;
+    max-height: 560px;
+  }
+
+}
+
+
+/* =========================================================
+   REDISEÑO OSCURO INSTITUCIONAL
+   Escuela para Padres FALCO®
+========================================================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(42, 104, 153, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 68%,
+      rgba(212, 175, 55, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #030711 0%,
+      #071321 52%,
+      #02050a 100%
+    );
+  color: #dce5ee;
+}
+
+
+/* CABECERA */
+
+.encuentro-header {
+  background: rgba(3, 8, 15, 0.94);
+  border-bottom:
+    1px solid rgba(212, 175, 55, 0.16);
+  backdrop-filter: blur(18px);
+}
+
+.encuentro-marca-textos strong {
+  color: #ffffff;
+}
+
+.encuentro-marca-textos small {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.encuentro-volver {
+  color: var(--falco-dorado-suave);
+}
+
+
+/* NAVEGACIÓN */
+
+.encuentro-navegacion {
+  border:
+    1px solid rgba(212, 175, 55, 0.16);
+  background:
+    rgba(5, 13, 23, 0.92);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+.encuentro-navegacion a {
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.encuentro-navegacion a:hover {
+  color: var(--falco-dorado-suave);
+  background:
+    rgba(212, 175, 55, 0.1);
+}
+
+
+/* ENCABEZADOS DE SECCIÓN */
+
+.encuentro-seccion-numero {
+  border:
+    1px solid rgba(212, 175, 55, 0.3);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(19, 39, 70, 0.96),
+      rgba(5, 13, 23, 0.98)
+    );
+  color: var(--falco-dorado-suave);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.encuentro-seccion h2 {
+  color: #ffffff;
+}
+
+
+/* OBJETIVOS */
+
+.encuentro-objetivos-card {
+  border:
+    1px solid rgba(212, 175, 55, 0.18);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 28, 45, 0.94),
+      rgba(4, 10, 18, 0.96)
+    );
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.encuentro-objetivos-intro {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.encuentro-objetivos-card li {
+  color: #dce5ee;
+}
+
+.encuentro-objetivos-card li::before {
+  border:
+    1px solid rgba(212, 175, 55, 0.32);
+  background:
+    rgba(212, 175, 55, 0.08);
+  color: var(--falco-dorado-suave);
+}
+
+
+/* ACTIVIDAD */
+
+.encuentro-actividad-card {
+  border:
+    1px solid rgba(212, 175, 55, 0.2);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12, 27, 51, 0.98),
+      rgba(19, 39, 70, 0.94)
+    );
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.26);
+}
+
+.encuentro-actividad-card h3 {
+  color: #ffffff;
+}
+
+.encuentro-actividad-card p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* CONSULTA */
+
+.encuentro-consulta-card {
+  border:
+    1px solid rgba(212, 175, 55, 0.22);
+  background:
+    linear-gradient(
+      135deg,
+      #081426,
+      #132746
+    );
+}
+
+
+/* PIE */
+
+.encuentro-footer {
+  border-top:
+    1px solid rgba(212, 175, 55, 0.14);
+  background:
+    rgba(3, 8, 15, 0.96);
+}
+
+.encuentro-footer-contenido {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.encuentro-footer p {
+  color: var(--falco-dorado-suave);
+}
+
+
+/* MODAL */
+
+.encuentro-modal-contenido {
+  border:
+    1px solid rgba(212, 175, 55, 0.18);
+  background:
+    linear-gradient(
+      145deg,
+      #0b1c2d,
+      #050d17
+    );
+}
+
+.encuentro-modal h2 {
+  color: #ffffff;
+}
+
+.encuentro-modal p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.encuentro-modal-cerrar {
+  background:
+    rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+
+/* ERROR */
+
+.encuentro-error {
+  background:
+    linear-gradient(
+      145deg,
+      #030711,
+      #071321
+    );
+}
+
+.encuentro-error-contenido {
+  border:
+    1px solid rgba(212, 175, 55, 0.18);
+  background:
+    linear-gradient(
+      145deg,
+      #0b1c2d,
+      #050d17
+    );
+}
+
+.encuentro-error h2 {
+  color: #ffffff;
+}
+
+.encuentro-error p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+
+/* LOADER */
+
+.encuentro-loader {
+  background:
+    linear-gradient(
+      145deg,
+      #030711,
+      #071321
+    );
+  color: var(--falco-dorado-suave);
+}
+
+
+/* BOTONES SECUNDARIOS GENERALES */
+
+.encuentro-btn-secundario {
+  border-color:
+    rgba(212, 175, 55, 0.24);
+  background:
+    rgba(255, 255, 255, 0.045);
+  color: #ffffff;
+}
+
+.encuentro-btn-secundario:hover {
+  border-color:
+    rgba(212, 175, 55, 0.55);
+  background:
+    rgba(212, 175, 55, 0.1);
+  color: var(--falco-dorado-suave);
+}

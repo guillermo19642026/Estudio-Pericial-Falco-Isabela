@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Registro de nueva causa judicial en el Sistema FALCO®."
+  >
+
+  <title>Nueva causa | Gestión de Causas FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/gestion-causas.css"
+  >
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <aside class="gc-sidebar" id="gcSidebar">
+
+      <div class="gc-sidebar__header">
+
+        <a href="../index.html" class="gc-brand">
+          <span class="gc-brand__eyebrow">Sistema FALCO®</span>
+          <strong class="gc-brand__title">Gestión Pericial</strong>
+        </a>
+
+        <button
+          type="button"
+          class="gc-sidebar__close"
+          id="gcSidebarClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <nav class="gc-nav" aria-label="Navegación principal">
+
+        <a href="../index.html" class="gc-nav__link">
+          <span class="gc-nav__icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Causas</p>
+
+          <a href="./causas.html" class="gc-nav__link">
+            <span class="gc-nav__icon">⚖</span>
+            <span>Todas las causas</span>
+          </a>
+
+          <a href="./causas.html?departamento=moron" class="gc-nav__link">
+            <span class="gc-nav__icon">M</span>
+            <span>Morón</span>
+          </a>
+
+          <a href="./causas.html?departamento=la-matanza" class="gc-nav__link">
+            <span class="gc-nav__icon">LM</span>
+            <span>La Matanza</span>
+          </a>
+
+          <a href="./nueva-causa.html" class="gc-nav__link is-active">
+            <span class="gc-nav__icon">＋</span>
+            <span>Nueva causa</span>
+          </a>
+
+        </div>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Seguimiento</p>
+
+          <a href="../agenda/agenda.html" class="gc-nav__link">
+            <span class="gc-nav__icon">□</span>
+            <span>Agenda y vencimientos</span>
+          </a>
+
+          <a href="./causas.html?vista=pericias" class="gc-nav__link">
+            <span class="gc-nav__icon">P</span>
+            <span>Pericias</span>
+          </a>
+
+          <a href="./causas.html?vista=impugnaciones" class="gc-nav__link">
+            <span class="gc-nav__icon">!</span>
+            <span>Impugnaciones</span>
+          </a>
+
+          <a href="../honorarios/honorarios.html" class="gc-nav__link">
+            <span class="gc-nav__icon">$</span>
+            <span>Honorarios</span>
+          </a>
+
+          <a href="../documentos/documentos.html" class="gc-nav__link">
+            <span class="gc-nav__icon">D</span>
+            <span>Documentos</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+      <div class="gc-sidebar__footer">
+
+        <div class="gc-user-card">
+
+          <div class="gc-user-card__avatar">
+            IF
+          </div>
+
+          <div>
+            <strong>Lic. Isabela Falco</strong>
+            <span>Administración</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <div class="gc-main">
+
+      <header class="gc-topbar">
+
+        <div class="gc-topbar__left">
+
+          <button
+            type="button"
+            class="gc-menu-button"
+            id="gcMenuButton"
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+
+          <div>
+            <span class="gc-topbar__eyebrow">
+              Registro de expediente
+            </span>
+
+            <h1>Nueva causa</h1>
+          </div>
+
+        </div>
+
+        <div class="gc-topbar__actions">
+
+          <a
+            href="./causas.html"
+            class="gc-button gc-button--ghost"
+          >
+            Cancelar
+          </a>
+
+          <button
+            type="submit"
+            form="gcNewCaseForm"
+            class="gc-button gc-button--primary"
+          >
+            Registrar causa
+          </button>
+
+        </div>
+
+      </header>
+
+      <main class="gc-content">
+
+        <section class="gc-page-header">
+
+          <div>
+            <span class="gc-kicker">
+              Gestión de Causas FALCO®
+            </span>
+
+            <h2>Registrar una nueva causa judicial</h2>
+
+            <p>
+              Complete los datos del expediente, las partes,
+              los abogados intervinientes y el estado inicial
+              de la labor pericial.
+            </p>
+          </div>
+
+        </section>
+
+        <form
+          id="gcNewCaseForm"
+          class="gc-form"
+          novalidate
+        >
+
+          <section class="gc-form-section">
+
+            <div class="gc-section-heading">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Identificación
+                </span>
+
+                <h3>Datos generales de la causa</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-form-grid">
+
+              <div class="gc-field">
+                <label for="gcDepartment">
+                  Departamento judicial *
+                </label>
+
+                <select id="gcDepartment" name="departamento" required>
+                  <option value="">Seleccionar</option>
+                  <option value="moron">Morón</option>
+                  <option value="la-matanza">La Matanza</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcCourtType">
+                  Fuero *
+                </label>
+
+                <select id="gcCourtType" name="fuero" required>
+                  <option value="">Seleccionar</option>
+                  <option value="Civil">Civil</option>
+                  <option value="Laboral">Laboral</option>
+                  <option value="Familia">Familia</option>
+                  <option value="Penal">Penal</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcFileNumber">
+                  Número de expediente
+                </label>
+
+                <input
+                  type="text"
+                  id="gcFileNumber"
+                  name="expediente"
+                  placeholder="Ej.: MO-45838-2023"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcInternalCode">
+                  Código interno
+                </label>
+
+                <input
+                  type="text"
+                  id="gcInternalCode"
+                  name="codigoInterno"
+                  placeholder="Se generará automáticamente"
+                  readonly
+                >
+              </div>
+
+              <div class="gc-field gc-field--full">
+                <label for="gcCaseTitle">
+                  Carátula completa *
+                </label>
+
+                <input
+                  type="text"
+                  id="gcCaseTitle"
+                  name="caratula"
+                  placeholder="Actor c/ Demandado s/ Tipo de proceso"
+                  required
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcCourtBody">
+                  Organismo
+                </label>
+
+                <input
+                  type="text"
+                  id="gcCourtBody"
+                  name="organismo"
+                  placeholder="Juzgado o Tribunal"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcCourtNumber">
+                  Número de juzgado o tribunal
+                </label>
+
+                <input
+                  type="text"
+                  id="gcCourtNumber"
+                  name="juzgado"
+                  placeholder="Ej.: Tribunal de Trabajo N.º 2"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcSecretary">
+                  Secretaría
+                </label>
+
+                <input
+                  type="text"
+                  id="gcSecretary"
+                  name="secretaria"
+                  placeholder="Secretaría interviniente"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcProcessType">
+                  Tipo de proceso
+                </label>
+
+                <input
+                  type="text"
+                  id="gcProcessType"
+                  name="tipoProceso"
+                  placeholder="Ej.: Daños y perjuicios"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcCaseStatus">
+                  Estado inicial
+                </label>
+
+                <select id="gcCaseStatus" name="estadoGeneral">
+                  <option value="Designada">Designada</option>
+                  <option value="Cargo pendiente">Cargo pendiente</option>
+                  <option value="Cargo aceptado">Cargo aceptado</option>
+                  <option value="Anticipo pendiente">Anticipo pendiente</option>
+                  <option value="Entrevista pendiente">Entrevista pendiente</option>
+                  <option value="En evaluación">En evaluación</option>
+                  <option value="Pericia en elaboración">Pericia en elaboración</option>
+                  <option value="Pericia presentada">Pericia presentada</option>
+                  <option value="En explicaciones">En explicaciones</option>
+                  <option value="En impugnación">En impugnación</option>
+                  <option value="Honorarios pendientes">Honorarios pendientes</option>
+                  <option value="Pendiente de cobro">Pendiente de cobro</option>
+                  <option value="Finalizada">Finalizada</option>
+                  <option value="Archivada">Archivada</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcDesignationDate">
+                  Fecha de designación
+                </label>
+
+                <input
+                  type="date"
+                  id="gcDesignationDate"
+                  name="fechaDesignacion"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcAcceptanceDate">
+                  Fecha de aceptación
+                </label>
+
+                <input
+                  type="date"
+                  id="gcAcceptanceDate"
+                  name="fechaAceptacion"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcNextDeadline">
+                  Próximo vencimiento
+                </label>
+
+                <input
+                  type="date"
+                  id="gcNextDeadline"
+                  name="proximoVencimiento"
+                >
+              </div>
+
+              <div class="gc-field gc-field--full">
+                <label for="gcNextStep">
+                  Próximo paso
+                </label>
+
+                <input
+                  type="text"
+                  id="gcNextStep"
+                  name="proximoPaso"
+                  placeholder="Ej.: Presentar aceptación del cargo"
+                >
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="gc-form-section">
+
+            <div class="gc-section-heading">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Sujetos procesales
+                </span>
+
+                <h3>Parte actora</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-form-grid">
+
+              <div class="gc-field gc-field--wide">
+                <label for="gcActorName">
+                  Nombre completo o razón social *
+                </label>
+
+                <input
+                  type="text"
+                  id="gcActorName"
+                  name="actorNombre"
+                  required
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcActorDocument">
+                  DNI / CUIT
+                </label>
+
+                <input
+                  type="text"
+                  id="gcActorDocument"
+                  name="actorDocumento"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcActorPhone">
+                  Teléfono
+                </label>
+
+                <input
+                  type="tel"
+                  id="gcActorPhone"
+                  name="actorTelefono"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcActorEmail">
+                  Correo electrónico
+                </label>
+
+                <input
+                  type="email"
+                  id="gcActorEmail"
+                  name="actorEmail"
+                >
+              </div>
+
+              <div class="gc-field gc-field--full">
+                <label for="gcActorAddress">
+                  Domicilio
+                </label>
+
+                <input
+                  type="text"
+                  id="gcActorAddress"
+                  name="actorDomicilio"
+                >
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="gc-form-section">
+
+            <div class="gc-section-heading">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Sujetos procesales
+                </span>
+
+                <h3>Parte demandada principal</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-form-grid">
+
+              <div class="gc-field gc-field--wide">
+                <label for="gcDefendantName">
+                  Nombre completo o razón social *
+                </label>
+
+                <input
+                  type="text"
+                  id="gcDefendantName"
+                  name="demandadoNombre"
+                  required
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcDefendantType">
+                  Tipo
+                </label>
+
+                <select id="gcDefendantType" name="demandadoTipo">
+                  <option value="persona">Persona</option>
+                  <option value="empresa">Empresa</option>
+                  <option value="aseguradora">Aseguradora</option>
+                  <option value="art">ART</option>
+                  <option value="empleador">Empleador</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcDefendantTaxId">
+                  DNI / CUIT
+                </label>
+
+                <input
+                  type="text"
+                  id="gcDefendantTaxId"
+                  name="demandadoDocumento"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcDefendantPhone">
+                  Teléfono
+                </label>
+
+                <input
+                  type="tel"
+                  id="gcDefendantPhone"
+                  name="demandadoTelefono"
+                >
+              </div>
+
+              <div class="gc-field">
+                <label for="gcDefendantEmail">
+                  Correo electrónico
+                </label>
+
+                <input
+                  type="email"
+                  id="gcDefendantEmail"
+                  name="demandadoEmail"
+                >
+              </div>
+
+              <div class="gc-field gc-field--full">
+                <label for="gcDefendantAddress">
+                  Domicilio
+                </label>
+
+                <input
+                  type="text"
+                  id="gcDefendantAddress"
+                  name="demandadoDomicilio"
+                >
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="gc-form-section">
+
+            <div class="gc-section-heading">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Representación letrada
+                </span>
+
+                <h3>Abogados intervinientes</h3>
+              </div>
+
+              <button
+                type="button"
+                class="gc-button gc-button--secondary"
+                id="gcAddLawyerButton"
+              >
+                Agregar abogado
+              </button>
+
+            </div>
+
+            <div
+              class="gc-dynamic-list"
+              id="gcLawyersContainer"
+            ></div>
+
+          </section>
+
+          <section class="gc-form-section">
+
+            <div class="gc-section-heading">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Demandadas adicionales
+                </span>
+
+                <h3>Codemandadas y compañías</h3>
+              </div>
+
+              <button
+                type="button"
+                class="gc-button gc-button--secondary"
+                id="gcAddCodefendantButton"
+              >
+                Agregar codemandada
+              </button>
+
+            </div>
+
+            <div
+              class="gc-dynamic-list"
+              id="gcCodefendantsContainer"
+            ></div>
+
+            <div
+              class="gc-empty-state gc-empty-state--compact"
+              id="gcCodefendantsEmpty"
+            >
+
+              <div class="gc-empty-state__icon">＋</div>
+
+              <h3>Sin codemandadas cargadas</h3>
+
+              <p>
+                Agregue una aseguradora, ART, empresa, empleador
+                u otra parte demandada adicional.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section class="gc-form-section">
+
+            <div class="gc-section-heading">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Seguimiento inicial
+                </span>
+
+                <h3>Labor pericial y observaciones</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-form-grid">
+
+              <div class="gc-field">
+                <label for="gcExpenseAdvanceStatus">
+                  Anticipo de gastos
+                </label>
+
+                <select
+                  id="gcExpenseAdvanceStatus"
+                  name="estadoAnticipo"
+                >
+                  <option value="sin-solicitar">Sin solicitar</option>
+                  <option value="solicitado">Solicitado</option>
+                  <option value="depositado">Depositado</option>
+                  <option value="no-corresponde">No corresponde</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcInterviewStatus">
+                  Estado de entrevista
+                </label>
+
+                <select
+                  id="gcInterviewStatus"
+                  name="estadoEntrevista"
+                >
+                  <option value="sin-fecha">Sin fecha</option>
+                  <option value="pendiente">Pendiente</option>
+                  <option value="realizada">Realizada</option>
+                  <option value="inasistencia">Inasistencia</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcExpertReportStatus">
+                  Estado del dictamen
+                </label>
+
+                <select
+                  id="gcExpertReportStatus"
+                  name="estadoPericia"
+                >
+                  <option value="pendiente">Pendiente</option>
+                  <option value="en-elaboracion">En elaboración</option>
+                  <option value="presentada">Presentada</option>
+                  <option value="impugnada">Impugnada</option>
+                  <option value="finalizada">Finalizada</option>
+                </select>
+              </div>
+
+              <div class="gc-field">
+                <label for="gcFeesStatus">
+                  Estado de honorarios
+                </label>
+
+                <select
+                  id="gcFeesStatus"
+                  name="estadoHonorarios"
+                >
+                  <option value="sin-regular">Sin regular</option>
+                  <option value="regulados">Regulados</option>
+                  <option value="apelados">Apelados</option>
+                  <option value="pendiente-cobro">Pendiente de cobro</option>
+                  <option value="cobrados">Cobrados</option>
+                </select>
+              </div>
+
+              <div class="gc-field gc-field--full">
+                <label for="gcPrivateNotes">
+                  Observaciones privadas
+                </label>
+
+                <textarea
+                  id="gcPrivateNotes"
+                  name="observaciones"
+                  rows="7"
+                  placeholder="Agregar información interna sobre la causa..."
+                ></textarea>
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="gc-form-actions">
+
+            <div>
+              <span class="gc-form-actions__note">
+                Los campos marcados con * son obligatorios.
+              </span>
+            </div>
+
+            <div class="gc-form-actions__buttons">
+
+              <button
+                type="button"
+                class="gc-button gc-button--ghost"
+                id="gcSaveDraftButton"
+              >
+                Guardar borrador
+              </button>
+
+              <a
+                href="./causas.html"
+                class="gc-button gc-button--secondary"
+              >
+                Cancelar
+              </a>
+
+              <button
+                type="submit"
+                class="gc-button gc-button--primary"
+              >
+                Registrar causa
+              </button>
+
+            </div>
+
+          </section>
+
+        </form>
+
+      </main>
+
+      <footer class="gc-footer">
+        <span>
+          Sistema FALCO® · Gestión integral de causas judiciales
+        </span>
+
+        <span id="gcCurrentYear"></span>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div class="gc-overlay" id="gcOverlay"></div>
+
+  <div
+    class="gc-toast"
+    id="gcToast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="../js/gestion-causas-config.js"></script>
+  <script src="../js/gestion-causas-data.js"></script>
+  <script src="../js/gestion-causas-ui.js"></script>
+  <script src="../js/gestion-causas.js"></script>
+  <script src="../js/gestion-causas-nueva.js"></script>
+
+</body>
+</html>
