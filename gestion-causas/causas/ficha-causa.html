@@ -1181,6 +1181,242 @@
 </div>
 
 <div
+  class="gc-modal"
+  id="gcFeeModal"
+  aria-hidden="true"
+>
+  <div
+    class="gc-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gcFeeModalTitle"
+  >
+
+    <div class="gc-modal__header">
+
+      <div>
+        <span class="gc-panel__eyebrow">
+          Seguimiento económico
+        </span>
+
+        <h2 id="gcFeeModalTitle">
+          Registrar movimiento
+        </h2>
+      </div>
+
+      <button
+        type="button"
+        class="gc-modal__close"
+        id="gcCloseFeeModal"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="gcFeeForm">
+
+      <div class="gc-form-grid">
+
+        <div class="gc-field">
+          <label for="gcFeeDate">
+            Fecha *
+          </label>
+
+          <input
+            type="date"
+            id="gcFeeDate"
+            name="fecha"
+            required
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeeType">
+            Tipo de movimiento *
+          </label>
+
+          <select
+            id="gcFeeType"
+            name="tipo"
+            required
+          >
+            <option value="">Seleccionar</option>
+            <option value="anticipo-solicitado">Anticipo solicitado</option>
+            <option value="anticipo-depositado">Anticipo depositado</option>
+            <option value="regulacion">Regulación</option>
+            <option value="pago-parcial">Pago parcial</option>
+            <option value="pago-total">Pago total</option>
+            <option value="aporte">Aporte</option>
+            <option value="factura">Factura</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeeAmount">
+            Monto *
+          </label>
+
+          <input
+            type="number"
+            id="gcFeeAmount"
+            name="monto"
+            min="0"
+            step="0.01"
+            placeholder="0"
+            required
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeeStatus">
+            Estado
+          </label>
+
+          <select
+            id="gcFeeStatus"
+            name="estado"
+          >
+            <option value="pendiente">Pendiente</option>
+            <option value="regulado">Regulado</option>
+            <option value="apelado">Apelado</option>
+            <option value="firme">Firme</option>
+            <option value="cobrado">Cobrado</option>
+            <option value="pagado">Pagado</option>
+          </select>
+        </div>
+
+        <div class="gc-field gc-field--wide">
+          <label for="gcFeeResponsibleParty">
+            Parte obligada al pago
+          </label>
+
+          <input
+            type="text"
+            id="gcFeeResponsibleParty"
+            name="parteObligada"
+            placeholder="Ej.: parte demandada, aseguradora o ART"
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeePercentage">
+            Porcentaje
+          </label>
+
+          <input
+            type="number"
+            id="gcFeePercentage"
+            name="porcentaje"
+            min="0"
+            max="100"
+            step="0.01"
+            placeholder="0"
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeePaymentMethod">
+            Forma de pago
+          </label>
+
+          <select
+            id="gcFeePaymentMethod"
+            name="formaPago"
+          >
+            <option value="">Sin especificar</option>
+            <option value="transferencia">Transferencia</option>
+            <option value="deposito-judicial">Depósito judicial</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="mercado-pago">Mercado Pago</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeeInvoiceNumber">
+            Factura / comprobante
+          </label>
+
+          <input
+            type="text"
+            id="gcFeeInvoiceNumber"
+            name="comprobante"
+            placeholder="Número de factura o comprobante"
+          >
+        </div>
+
+        <div class="gc-field">
+          <label for="gcFeeContribution">
+            Aportes
+          </label>
+
+          <input
+            type="number"
+            id="gcFeeContribution"
+            name="aportes"
+            min="0"
+            step="0.01"
+            placeholder="0"
+          >
+        </div>
+
+        <div class="gc-field gc-field--full">
+          <label for="gcFeeDescription">
+            Descripción
+          </label>
+
+          <textarea
+            id="gcFeeDescription"
+            name="descripcion"
+            rows="4"
+            placeholder="Detalle del movimiento económico"
+          ></textarea>
+        </div>
+
+        <div class="gc-field gc-field--full">
+          <label for="gcFeeNotes">
+            Observaciones privadas
+          </label>
+
+          <textarea
+            id="gcFeeNotes"
+            name="observaciones"
+            rows="3"
+            placeholder="Notas internas"
+          ></textarea>
+        </div>
+
+      </div>
+
+      <div class="gc-modal__actions">
+
+        <button
+          type="button"
+          class="gc-button gc-button--ghost"
+          id="gcCancelFeeButton"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          class="gc-button gc-button--primary"
+        >
+          Guardar movimiento
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<div
   class="gc-toast"
   id="gcToast"
   role="status"

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Importador masivo de causas y documentos del Sistema FALCO®."
+  >
+
+  <title>Importador masivo | Gestión de Causas FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/gestion-causas.css"
+  >
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <aside
+      class="gc-sidebar"
+      id="gcSidebar"
+    >
+
+      <div class="gc-sidebar__header">
+
+        <a
+          href="../index.html"
+          class="gc-brand"
+        >
+          <span class="gc-brand__eyebrow">
+            Sistema FALCO®
+          </span>
+
+          <strong class="gc-brand__title">
+            Gestión Pericial
+          </strong>
+        </a>
+
+        <button
+          type="button"
+          class="gc-sidebar__close"
+          id="gcSidebarClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <nav
+        class="gc-nav"
+        aria-label="Navegación principal"
+      >
+
+        <a
+          href="../index.html"
+          class="gc-nav__link"
+        >
+          <span class="gc-nav__icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">
+            Causas
+          </p>
+
+          <a
+            href="../causas/causas.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">⚖</span>
+            <span>Todas las causas</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?departamento=moron"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">M</span>
+            <span>Morón</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?departamento=la-matanza"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">LM</span>
+            <span>La Matanza</span>
+          </a>
+
+          <a
+            href="../causas/nueva-causa.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">＋</span>
+            <span>Nueva causa</span>
+          </a>
+
+          <a
+            href="./importador.html"
+            class="gc-nav__link is-active"
+          >
+            <span class="gc-nav__icon">⇧</span>
+            <span>Importación masiva</span>
+          </a>
+
+        </div>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">
+            Seguimiento
+          </p>
+
+          <a
+            href="../agenda/agenda.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">□</span>
+            <span>Agenda y vencimientos</span>
+          </a>
+
+          <a
+            href="../honorarios/honorarios.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">$</span>
+            <span>Honorarios</span>
+          </a>
+
+          <a
+            href="../documentos/documentos.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">D</span>
+            <span>Documentos</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+      <div class="gc-sidebar__footer">
+
+        <div class="gc-user-card">
+
+          <div class="gc-user-card__avatar">
+            IF
+          </div>
+
+          <div>
+            <strong>Lic. Isabela Falco</strong>
+            <span>Administración</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <div class="gc-main">
+
+      <header class="gc-topbar">
+
+        <div class="gc-topbar__left">
+
+          <button
+            type="button"
+            class="gc-menu-button"
+            id="gcMenuButton"
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+
+          <div>
+            <span class="gc-topbar__eyebrow">
+              Archivo pericial
+            </span>
+
+            <h1>
+              Importación masiva
+            </h1>
+          </div>
+
+        </div>
+
+        <div class="gc-topbar__actions">
+
+          <a
+            href="../causas/causas.html"
+            class="gc-button gc-button--ghost"
+          >
+            Ver causas
+          </a>
+
+        </div>
+
+      </header>
+
+      <main class="gc-content">
+
+        <section class="gc-page-header">
+
+          <div>
+
+            <span class="gc-kicker">
+              Importador Inteligente FALCO®
+            </span>
+
+            <h2>
+              Carga masiva de causas y documentos
+            </h2>
+
+            <p>
+              Seleccione una carpeta comprimida para analizar
+              automáticamente las causas, documentos, subcarpetas
+              y posibles periciados antes de confirmar la importación.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section class="gc-import-guide">
+
+          <article class="gc-import-step is-active">
+
+            <span class="gc-import-step__number">
+              1
+            </span>
+
+            <div>
+              <strong>Seleccionar archivo</strong>
+              <span>ZIP de Morón o La Matanza</span>
+            </div>
+
+          </article>
+
+          <article class="gc-import-step">
+
+            <span class="gc-import-step__number">
+              2
+            </span>
+
+            <div>
+              <strong>Analizar contenido</strong>
+              <span>Detectar causas y documentos</span>
+            </div>
+
+          </article>
+
+          <article class="gc-import-step">
+
+            <span class="gc-import-step__number">
+              3
+            </span>
+
+            <div>
+              <strong>Revisar resultados</strong>
+              <span>Corregir datos dudosos</span>
+            </div>
+
+          </article>
+
+          <article class="gc-import-step">
+
+            <span class="gc-import-step__number">
+              4
+            </span>
+
+            <div>
+              <strong>Confirmar importación</strong>
+              <span>Guardar las causas seleccionadas</span>
+            </div>
+
+          </article>
+
+        </section>
+
+        <section
+          class="gc-import-upload"
+          id="gcImportUploadSection"
+        >
+
+          <div
+            class="gc-import-dropzone"
+            id="gcImportDropzone"
+          >
+
+            <input
+              type="file"
+              id="gcImportFile"
+              accept=".zip,application/zip"
+              hidden
+            >
+
+            <div class="gc-import-dropzone__icon">
+              ⇧
+            </div>
+
+            <span class="gc-panel__eyebrow">
+              Archivo comprimido
+            </span>
+
+            <h3>
+              Seleccione el ZIP de causas
+            </h3>
+
+            <p>
+              Puede elegir el archivo o arrastrarlo hasta esta área.
+              El sistema solo analizará su contenido; no guardará nada
+              hasta que confirme la importación.
+            </p>
+
+            <button
+              type="button"
+              class="gc-button gc-button--primary"
+              id="gcSelectImportFile"
+            >
+              Seleccionar archivo ZIP
+            </button>
+
+            <small>
+              Formato admitido: ZIP
+            </small>
+
+          </div>
+
+          <div
+            class="gc-import-selected-file"
+            id="gcImportSelectedFile"
+            hidden
+          >
+
+            <div class="gc-import-selected-file__icon">
+              ZIP
+            </div>
+
+            <div class="gc-import-selected-file__info">
+
+              <span class="gc-panel__eyebrow">
+                Archivo seleccionado
+              </span>
+
+              <strong id="gcImportFileName">
+                —
+              </strong>
+
+              <span id="gcImportFileSize">
+                —
+              </span>
+
+            </div>
+
+            <div class="gc-import-selected-file__actions">
+
+              <button
+                type="button"
+                class="gc-button gc-button--ghost"
+                id="gcChangeImportFile"
+              >
+                Cambiar
+              </button>
+
+              <button
+                type="button"
+                class="gc-button gc-button--primary"
+                id="gcAnalyzeImportFile"
+              >
+                Analizar archivo
+              </button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <section
+          class="gc-import-progress"
+          id="gcImportProgressSection"
+          hidden
+        >
+
+          <div class="gc-panel__header">
+
+            <div>
+
+              <span class="gc-panel__eyebrow">
+                Procesamiento
+              </span>
+
+              <h3>
+                Analizando la carpeta comprimida
+              </h3>
+
+            </div>
+
+            <strong id="gcImportProgressPercent">
+              0%
+            </strong>
+
+          </div>
+
+          <div class="gc-import-progress__bar">
+
+            <span
+              id="gcImportProgressBar"
+              style="width: 0%"
+            ></span>
+
+          </div>
+
+          <p id="gcImportProgressText">
+            Preparando el análisis…
+          </p>
+
+        </section>
+
+        <section
+          class="gc-import-results"
+          id="gcImportResultsSection"
+          hidden
+        >
+
+          <div class="gc-panel__header">
+
+            <div>
+
+              <span class="gc-panel__eyebrow">
+                Resultado del análisis
+              </span>
+
+              <h3>
+                Causas detectadas
+              </h3>
+
+            </div>
+
+            <div class="gc-import-results__actions">
+
+              <button
+                type="button"
+                class="gc-button gc-button--ghost"
+                id="gcSelectAllImportCases"
+              >
+                Seleccionar todas
+              </button>
+
+              <button
+                type="button"
+                class="gc-button gc-button--ghost"
+                id="gcClearImportSelection"
+              >
+                Quitar selección
+              </button>
+
+            </div>
+
+          </div>
+
+          <section class="gc-agenda-stats">
+
+            <article class="gc-stat-card">
+
+              <span class="gc-stat-card__label">
+                Causas detectadas
+              </span>
+
+              <strong
+                class="gc-stat-card__value"
+                id="gcImportCasesCount"
+              >
+                0
+              </strong>
+
+              <span class="gc-stat-card__meta">
+                Carpetas principales
+              </span>
+
+            </article>
+
+            <article class="gc-stat-card">
+
+              <span class="gc-stat-card__label">
+                Documentos
+              </span>
+
+              <strong
+                class="gc-stat-card__value"
+                id="gcImportDocumentsCount"
+              >
+                0
+              </strong>
+
+              <span class="gc-stat-card__meta">
+                Archivos encontrados
+              </span>
+
+            </article>
+
+            <article class="gc-stat-card">
+
+              <span class="gc-stat-card__label">
+                Periciados posibles
+              </span>
+
+              <strong
+                class="gc-stat-card__value"
+                id="gcImportPericiadosCount"
+              >
+                0
+              </strong>
+
+              <span class="gc-stat-card__meta">
+                Subcarpetas detectadas
+              </span>
+
+            </article>
+
+            <article class="gc-stat-card gc-stat-card--warning">
+
+              <span class="gc-stat-card__label">
+                Requieren revisión
+              </span>
+
+              <strong
+                class="gc-stat-card__value"
+                id="gcImportReviewCount"
+              >
+                0
+              </strong>
+
+              <span class="gc-stat-card__meta">
+                Datos no reconocidos
+              </span>
+
+            </article>
+
+          </section>
+
+          <section class="gc-filter-panel">
+
+            <div class="gc-filter-grid gc-filter-grid--agenda">
+
+              <div class="gc-field gc-field--wide">
+
+                <label for="gcImportSearch">
+                  Buscar causa
+                </label>
+
+                <input
+                  type="search"
+                  id="gcImportSearch"
+                  placeholder="Nombre de carpeta, expediente o documento"
+                  autocomplete="off"
+                >
+
+              </div>
+
+              <div class="gc-field">
+
+                <label for="gcImportDepartment">
+                  Departamento
+                </label>
+
+                <select id="gcImportDepartment">
+                  <option value="">Detectar automáticamente</option>
+                  <option value="moron">Morón</option>
+                  <option value="la-matanza">La Matanza</option>
+                </select>
+
+              </div>
+
+              <div class="gc-field">
+
+                <label for="gcImportReviewFilter">
+                  Revisión
+                </label>
+
+                <select id="gcImportReviewFilter">
+                  <option value="">Todas</option>
+                  <option value="ready">Listas para importar</option>
+                  <option value="review">Requieren revisión</option>
+                  <option value="duplicate">Posibles duplicadas</option>
+                </select>
+
+              </div>
+
+              <div class="gc-field">
+
+                <label for="gcImportDocumentFilter">
+                  Documentos
+                </label>
+
+                <select id="gcImportDocumentFilter">
+                  <option value="">Todas</option>
+                  <option value="with-documents">Con documentos</option>
+                  <option value="without-documents">Sin documentos</option>
+                  <option value="with-periciados">Con subcarpetas</option>
+                </select>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <div class="gc-list-summary">
+
+            <div>
+              <span>Causas visibles</span>
+              <strong id="gcImportVisibleCount">0</strong>
+            </div>
+
+            <div>
+              <span>Seleccionadas</span>
+              <strong id="gcImportSelectedCount">0</strong>
+            </div>
+
+          </div>
+
+          <div
+            class="gc-import-case-list"
+            id="gcImportCaseList"
+          ></div>
+
+          <div
+            class="gc-empty-state"
+            id="gcImportEmptyState"
+            hidden
+          >
+
+            <div class="gc-empty-state__icon">
+              ⇧
+            </div>
+
+            <h3>
+              No se encontraron causas
+            </h3>
+
+            <p>
+              Revise el archivo seleccionado o modifique los filtros.
+            </p>
+
+          </div>
+
+          <div class="gc-import-confirmation">
+
+            <div>
+
+              <span class="gc-panel__eyebrow">
+                Importación
+              </span>
+
+              <strong>
+                Las causas seleccionadas se guardarán
+                en la base local del módulo.
+              </strong>
+
+              <p>
+                Los archivos físicos todavía no se subirán.
+                Se registrarán sus nombres, rutas, categorías
+                y relaciones para la revisión inicial.
+              </p>
+
+            </div>
+
+            <button
+              type="button"
+              class="gc-button gc-button--primary"
+              id="gcConfirmMassImport"
+              disabled
+            >
+              Confirmar importación
+            </button>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer class="gc-footer">
+
+        <span>
+          Sistema FALCO® · Importador masivo de causas
+        </span>
+
+        <span id="gcCurrentYear"></span>
+
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div
+    class="gc-overlay"
+    id="gcOverlay"
+  ></div>
+
+  <div
+    class="gc-toast"
+    id="gcToast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"
+  ></script>
+
+  <script src="../js/gestion-causas-config.js"></script>
+  <script src="../js/gestion-causas-data.js"></script>
+  <script src="../js/gestion-causas-ui.js"></script>
+  <script src="../js/gestion-causas.js"></script>
+<script src="../js/gestion-causas-importador-reglas.js"></script>
+<script src="../js/gestion-causas-importador-lector.js"></script>
+<script src="../js/gestion-causas-importador-extractor.js"></script>
+<script src="../js/gestion-causas-parser-juridico.js"></script>
+<script src="../js/gestion-causas-importador.js"></script>
+
+</body>
+</html>

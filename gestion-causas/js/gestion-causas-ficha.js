@@ -557,127 +557,264 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   };
 
-  const renderExpertReport = () => {
-    const panel = document.querySelector(
-      '[data-panel="pericia"]'
-    );
 
-    if (!panel) {
-      return;
-    }
 
-    const seguimiento = causa.seguimiento || {};
+ const renderExpertReport = () => {
+  const panel = document.querySelector(
+    '[data-panel="pericia"]'
+  );
 
-    const stages = [
-      {
-        title: "Designación",
-        value:
-          causa.fechaDesignacion
-            ? formatDate(causa.fechaDesignacion)
-            : "Registrada",
-        complete: true
-      },
-      {
-        title: "Aceptación del cargo",
-        value: formatDate(
-          causa.fechaAceptacion
-        ),
-        complete: Boolean(
-          causa.fechaAceptacion
-        )
-      },
-      {
-        title: "Anticipo de gastos",
-        value:
-          seguimiento.estadoAnticipo ||
-          "Sin información",
-        complete:
-          seguimiento.estadoAnticipo ===
-          "depositado"
-      },
-      {
-        title: "Entrevista",
-        value:
-          seguimiento.estadoEntrevista ||
-          "Sin información",
-        complete:
-          seguimiento.estadoEntrevista ===
-          "realizada"
-      },
-      {
-        title: "Dictamen pericial",
-        value:
-          seguimiento.estadoPericia ||
-          "Pendiente",
-        complete: [
-          "presentada",
-          "impugnada",
-          "finalizada"
-        ].includes(
-          seguimiento.estadoPericia
-        )
-      },
-      {
-        title: "Estado actual",
-        value:
-          causa.estadoGeneral ||
-          "Sin estado",
-        current: true
-      }
-    ];
+  if (!panel) {
+    return;
+  }
 
-    panel.innerHTML = `
-      <div class="gc-section-heading">
+  const seguimiento =
+    causa.seguimiento || {};
 
-        <div>
-          <span class="gc-panel__eyebrow">
-            Seguimiento técnico
-          </span>
+  const estadoDesignacion =
+    seguimiento.estadoDesignacion ||
+    (causa.fechaDesignacion
+      ? "registrada"
+      : "sin-cargar");
 
-          <h3>Estado de la labor pericial</h3>
-        </div>
+  const estadoAceptacion =
+    seguimiento.estadoAceptacion ||
+    (causa.fechaAceptacion
+      ? "registrada"
+      : "sin-cargar");
 
-      </div>
+  const estadoAnticipo =
+    seguimiento.estadoAnticipo ||
+    "sin-solicitar";
 
-      <div class="gc-stage-list">
+  const estadoEntrevista =
+    seguimiento.estadoEntrevista ||
+    "sin-informacion";
 
-        ${stages
-          .map(
-            (stage, index) => `
-              <article
-                class="gc-stage
-                ${stage.complete ? "is-complete" : ""}
-                ${stage.current ? "is-current" : ""}"
-              >
+  const estadoPericia =
+    seguimiento.estadoPericia ||
+    "pendiente";
 
-                <span class="gc-stage__marker">
-                  ${
-                    stage.complete
-                      ? "✓"
-                      : stage.current
-                        ? "!"
-                        : index + 1
-                  }
-                </span>
+  const estadoImpugnacion =
+    seguimiento.estadoImpugnacion ||
+    "ninguna";
 
-                <div>
-                  <strong>
-                    ${escapeHtml(stage.title)}
-                  </strong>
+  const estadoContestacion =
+    seguimiento.estadoContestacion ||
+    "ninguna";
 
-                  <span>
-                    ${escapeHtml(stage.value)}
-                  </span>
-                </div>
+  const estadoHonorarios =
+    seguimiento.estadoHonorarios ||
+    "sin-regular";
 
-              </article>
-            `
-          )
-          .join("")}
+  const estadoCobro =
+    seguimiento.estadoCobro ||
+    "pendiente";
 
-      </div>
-    `;
+  const formatStageValue = (
+    value = "",
+    fallback = "Sin información"
+  ) => {
+    const labels = {
+      registrada: "Registrada",
+      registrado: "Registrado",
+      "sin-cargar": "Sin cargar",
+      solicitado: "Solicitado",
+      depositado: "Depositado",
+      "sin-solicitar": "Sin solicitar",
+      realizada: "Realizada",
+      "sin-informacion": "Sin información",
+      presentada: "Presentada",
+      pendiente: "Pendiente",
+      recibida: "Recibida",
+      ninguna: "Ninguna",
+      regulado: "Regulado",
+      cobrado: "Cobrado",
+      "sin-regular": "Sin regular"
+    };
+
+    return labels[value] || value || fallback;
   };
+
+  const stages = [
+    {
+      title: "Designación",
+      value:
+        causa.fechaDesignacion
+          ? formatDate(causa.fechaDesignacion)
+          : formatStageValue(
+              estadoDesignacion,
+              "Sin cargar"
+            ),
+      complete:
+        estadoDesignacion === "registrada" ||
+        Boolean(causa.fechaDesignacion)
+    },
+
+    {
+      title: "Aceptación del cargo",
+      value:
+        causa.fechaAceptacion
+          ? formatDate(causa.fechaAceptacion)
+          : formatStageValue(
+              estadoAceptacion,
+              "Sin cargar"
+            ),
+      complete:
+        estadoAceptacion === "registrada" ||
+        Boolean(causa.fechaAceptacion)
+    },
+
+    {
+      title: "Anticipo de gastos",
+      value:
+        formatStageValue(
+          estadoAnticipo,
+          "Sin solicitar"
+        ),
+      complete: [
+        "registrado",
+        "solicitado",
+        "depositado"
+      ].includes(estadoAnticipo)
+    },
+
+    {
+      title: "Entrevista",
+      value:
+        formatStageValue(
+          estadoEntrevista,
+          "Sin información"
+        ),
+      complete: [
+        "registrada",
+        "realizada"
+      ].includes(estadoEntrevista)
+    },
+
+    {
+      title: "Dictamen pericial",
+      value:
+        formatStageValue(
+          estadoPericia,
+          "Pendiente"
+        ),
+      complete: [
+        "presentada",
+        "impugnada",
+        "finalizada"
+      ].includes(estadoPericia)
+    },
+
+    {
+      title: "Impugnación",
+      value:
+        formatStageValue(
+          estadoImpugnacion,
+          "Ninguna"
+        ),
+      complete:
+        estadoImpugnacion === "recibida"
+    },
+
+    {
+      title: "Contestación",
+      value:
+        formatStageValue(
+          estadoContestacion,
+          "Ninguna"
+        ),
+      complete:
+        estadoContestacion === "presentada"
+    },
+
+    {
+      title: "Honorarios",
+      value:
+        formatStageValue(
+          estadoHonorarios,
+          "Sin regular"
+        ),
+      complete: [
+        "regulado",
+        "registrado",
+        "cobrado"
+      ].includes(estadoHonorarios)
+    },
+
+    {
+      title: "Cobro",
+      value:
+        formatStageValue(
+          estadoCobro,
+          "Pendiente"
+        ),
+      complete:
+        estadoCobro === "cobrado"
+    },
+
+    {
+      title: "Estado actual",
+      value:
+        causa.estadoGeneral ||
+        "Sin estado",
+      current: true
+    }
+  ];
+
+  panel.innerHTML = `
+    <div class="gc-section-heading">
+
+      <div>
+        <span class="gc-panel__eyebrow">
+          Seguimiento técnico
+        </span>
+
+        <h3>Estado de la labor pericial</h3>
+      </div>
+
+    </div>
+
+    <div class="gc-stage-list">
+
+      ${stages
+        .map(
+          (stage, index) => `
+            <article
+              class="gc-stage
+              ${stage.complete ? "is-complete" : ""}
+              ${stage.current ? "is-current" : ""}"
+            >
+
+              <span class="gc-stage__marker">
+                ${
+                  stage.complete
+                    ? "✓"
+                    : stage.current
+                      ? "!"
+                      : index + 1
+                }
+              </span>
+
+              <div>
+                <strong>
+                  ${escapeHtml(stage.title)}
+                </strong>
+
+                <span>
+                  ${escapeHtml(stage.value)}
+                </span>
+              </div>
+
+            </article>
+          `
+        )
+        .join("")}
+
+    </div>
+  `;
+};
+    
 
   const renderTimeline = () => {
     const panel = document.querySelector(
@@ -948,123 +1085,337 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
-  const renderFees = () => {
-    const panel = document.querySelector(
-      '[data-panel="honorarios"]'
-    );
 
-    if (!panel) {
-      return;
-    }
 
-    const seguimiento = causa.seguimiento || {};
-    const honorarios = Array.isArray(
-      causa.honorarios
+const renderFees = () => {
+  const panel = document.querySelector(
+    '[data-panel="honorarios"]'
+  );
+
+  if (!panel) {
+    return;
+  }
+
+  const seguimiento = causa.seguimiento || {};
+
+  const honorarios = Array.isArray(
+    causa.honorarios
+  )
+    ? [...causa.honorarios]
+    : [];
+
+  honorarios.sort((a, b) =>
+    String(b.fecha || "").localeCompare(
+      String(a.fecha || "")
     )
-      ? causa.honorarios
-      : [];
+  );
 
-    const total = honorarios.reduce(
+  const total = honorarios
+    .filter((item) =>
+      [
+        "regulacion",
+        "anticipo-solicitado",
+        "anticipo-depositado"
+      ].includes(item.tipo)
+    )
+    .reduce(
       (sum, item) =>
         sum + Number(item.monto || 0),
       0
     );
 
-    const paid = honorarios
-      .filter(
-        (item) =>
-          item.estado === "cobrado" ||
-          item.estado === "pagado"
-      )
-      .reduce(
-        (sum, item) =>
-          sum + Number(item.monto || 0),
-        0
-      );
+  const paid = honorarios
+    .filter(
+      (item) =>
+        item.tipo === "pago-parcial" ||
+        item.tipo === "pago-total" ||
+        item.estado === "cobrado" ||
+        item.estado === "pagado"
+    )
+    .reduce(
+      (sum, item) =>
+        sum + Number(item.monto || 0),
+      0
+    );
 
-    const pending = Math.max(total - paid, 0);
+  const pending = Math.max(total - paid, 0);
 
-    const formatCurrency = (amount) =>
-      new Intl.NumberFormat("es-AR", {
-        style: "currency",
-        currency: "ARS",
-        maximumFractionDigits: 0
-      }).format(amount);
+  const formatCurrency = (amount) =>
+    new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      maximumFractionDigits: 0
+    }).format(Number(amount || 0));
 
-    panel.innerHTML = `
-      <div class="gc-section-heading">
+  const getFeeTypeLabel = (type = "") => {
+    const labels = {
+      "anticipo-solicitado": "Anticipo solicitado",
+      "anticipo-depositado": "Anticipo depositado",
+      regulacion: "Regulación",
+      "pago-parcial": "Pago parcial",
+      "pago-total": "Pago total",
+      aporte: "Aporte",
+      factura: "Factura",
+      otro: "Otro"
+    };
 
-        <div>
-          <span class="gc-panel__eyebrow">
-            Seguimiento económico
-          </span>
+    return labels[type] || type || "Sin tipo";
+  };
 
-          <h3>Honorarios y cobros</h3>
+  const getFeeStatusLabel = (status = "") => {
+    const labels = {
+      pendiente: "Pendiente",
+      regulado: "Regulado",
+      apelado: "Apelado",
+      firme: "Firme",
+      cobrado: "Cobrado",
+      pagado: "Pagado"
+    };
+
+    return labels[status] || status || "Sin estado";
+  };
+
+  const getFeeStatusClass = (status = "") => {
+    if (
+      status === "pendiente" ||
+      status === "apelado"
+    ) {
+      return "gc-status--warning";
+    }
+
+    if (
+      status === "cobrado" ||
+      status === "pagado" ||
+      status === "firme"
+    ) {
+      return "gc-status--active";
+    }
+
+    return "gc-status--neutral";
+  };
+
+  const movementsHtml = honorarios.length
+    ? honorarios
+        .map(
+          (item) => `
+            <article class="gc-fee-movement">
+
+              <div class="gc-fee-movement__main">
+
+                <div class="gc-fee-movement__top">
+
+                  <div class="gc-fee-movement__badges">
+
+                    <span class="gc-badge gc-badge--moron">
+                      ${escapeHtml(
+                        getFeeTypeLabel(item.tipo)
+                      )}
+                    </span>
+
+                    <span
+                      class="gc-status ${getFeeStatusClass(
+                        item.estado
+                      )}"
+                    >
+                      ${escapeHtml(
+                        getFeeStatusLabel(item.estado)
+                      )}
+                    </span>
+
+                  </div>
+
+                  <strong class="gc-fee-movement__amount">
+                    ${formatCurrency(item.monto)}
+                  </strong>
+
+                </div>
+
+                <div class="gc-fee-movement__meta">
+
+                  <span>
+                    <strong>Fecha:</strong>
+                    ${formatDate(item.fecha)}
+                  </span>
+
+                  <span>
+                    <strong>Parte obligada:</strong>
+                    ${getValue(
+                      item.parteObligada,
+                      "Sin especificar"
+                    )}
+                  </span>
+
+                  ${
+                    item.formaPago
+                      ? `
+                        <span>
+                          <strong>Forma de pago:</strong>
+                          ${escapeHtml(item.formaPago)}
+                        </span>
+                      `
+                      : ""
+                  }
+
+                  ${
+                    item.comprobante
+                      ? `
+                        <span>
+                          <strong>Comprobante:</strong>
+                          ${escapeHtml(item.comprobante)}
+                        </span>
+                      `
+                      : ""
+                  }
+
+                </div>
+
+                ${
+                  item.descripcion
+                    ? `
+                      <p class="gc-fee-movement__description">
+                        ${escapeHtml(item.descripcion)}
+                      </p>
+                    `
+                    : ""
+                }
+
+              </div>
+
+              <div class="gc-fee-movement__actions">
+
+                <button
+                  type="button"
+                  class="gc-timeline-action"
+                  data-action="edit-fee"
+                  data-fee-id="${escapeHtml(item.id)}"
+                >
+                  Editar
+                </button>
+
+                <button
+                  type="button"
+                  class="gc-timeline-action gc-timeline-action--danger"
+                  data-action="delete-fee"
+                  data-fee-id="${escapeHtml(item.id)}"
+                >
+                  Eliminar
+                </button>
+
+              </div>
+
+            </article>
+          `
+        )
+        .join("")
+    : `
+      <div class="gc-empty-state gc-empty-state--compact">
+
+        <div class="gc-empty-state__icon">
+          $
         </div>
 
-        <button
-          type="button"
-          class="gc-button gc-button--secondary"
-          id="gcAddFeeMovementButton"
-        >
-          Registrar movimiento
-        </button>
+        <h3>Sin movimientos registrados</h3>
 
-      </div>
-
-      <div class="gc-detail-grid">
-
-        <article class="gc-detail-card">
-          <span>Estado de honorarios</span>
-          <strong>
-            ${getValue(
-              seguimiento.estadoHonorarios,
-              "Sin regular"
-            )}
-          </strong>
-        </article>
-
-        <article class="gc-detail-card">
-          <span>Anticipo de gastos</span>
-          <strong>
-            ${getValue(
-              seguimiento.estadoAnticipo,
-              "Sin solicitar"
-            )}
-          </strong>
-        </article>
-
-        <article class="gc-detail-card">
-          <span>Total registrado</span>
-          <strong>
-            ${formatCurrency(total)}
-          </strong>
-        </article>
-
-        <article class="gc-detail-card">
-          <span>Total cobrado</span>
-          <strong>
-            ${formatCurrency(paid)}
-          </strong>
-        </article>
-
-        <article class="gc-detail-card">
-          <span>Saldo pendiente</span>
-          <strong>
-            ${formatCurrency(pending)}
-          </strong>
-        </article>
-
-        <article class="gc-detail-card">
-          <span>Movimientos registrados</span>
-          <strong>
-            ${honorarios.length}
-          </strong>
-        </article>
+        <p>
+          Todavía no se cargaron anticipos,
+          regulaciones o pagos en esta causa.
+        </p>
 
       </div>
     `;
-  };
+
+  panel.innerHTML = `
+    <div class="gc-section-heading">
+
+      <div>
+        <span class="gc-panel__eyebrow">
+          Seguimiento económico
+        </span>
+
+        <h3>Honorarios y cobros</h3>
+      </div>
+
+      <button
+        type="button"
+        class="gc-button gc-button--secondary"
+        id="gcAddFeeMovementButton"
+      >
+        Registrar movimiento
+      </button>
+
+    </div>
+
+    <div class="gc-detail-grid">
+
+      <article class="gc-detail-card">
+        <span>Estado de honorarios</span>
+        <strong>
+          ${getValue(
+            seguimiento.estadoHonorarios,
+            "Sin regular"
+          )}
+        </strong>
+      </article>
+
+      <article class="gc-detail-card">
+        <span>Anticipo de gastos</span>
+        <strong>
+          ${getValue(
+            seguimiento.estadoAnticipo,
+            "Sin solicitar"
+          )}
+        </strong>
+      </article>
+
+      <article class="gc-detail-card">
+        <span>Total registrado</span>
+        <strong>
+          ${formatCurrency(total)}
+        </strong>
+      </article>
+
+      <article class="gc-detail-card">
+        <span>Total cobrado</span>
+        <strong>
+          ${formatCurrency(paid)}
+        </strong>
+      </article>
+
+      <article class="gc-detail-card">
+        <span>Saldo pendiente</span>
+        <strong>
+          ${formatCurrency(pending)}
+        </strong>
+      </article>
+
+      <article class="gc-detail-card">
+        <span>Movimientos registrados</span>
+        <strong>
+          ${honorarios.length}
+        </strong>
+      </article>
+
+    </div>
+
+    <div class="gc-fee-movements">
+
+      <div class="gc-section-heading gc-section-heading--compact">
+
+        <div>
+          <span class="gc-panel__eyebrow">
+            Detalle económico
+          </span>
+
+          <h3>Movimientos registrados</h3>
+        </div>
+
+      </div>
+
+      ${movementsHtml}
+
+    </div>
+  `;
+};
 
   const renderNotes = () => {
     const notes =
@@ -1277,22 +1628,110 @@ let editingActionId = null;
   }, 50);
 };
   const closeModal = () => {
+    editingActionId = null;
+
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("gc-modal-open");
   };
 
-  document.addEventListener("click", (event) => {
-    const addButton = event.target.closest(
-      "#gcAddActionButton"
+ document.addEventListener("click", (event) => {
+  const addButton = event.target.closest(
+    "#gcAddActionButton"
+  );
+
+  const editButton = event.target.closest(
+    '[data-action="edit-action"]'
+  );
+
+  const deleteButton = event.target.closest(
+    '[data-action="delete-action"]'
+  );
+
+  if (addButton) {
+    openModal();
+    return;
+  }
+
+  if (editButton) {
+    const actionId = editButton.dataset.actionId;
+
+    const action = causa.actuaciones?.find(
+      (item) => item.id === actionId
     );
 
-    if (!addButton) {
+    if (!action) {
+      showToast(
+        "No se encontró la actuación.",
+        "error"
+      );
+
       return;
     }
 
-    openModal();
-  });
+    openModal(action);
+    return;
+  }
+
+  if (deleteButton) {
+    const actionId = deleteButton.dataset.actionId;
+
+    const action = causa.actuaciones?.find(
+      (item) => item.id === actionId
+    );
+
+    if (!action) {
+      showToast(
+        "No se encontró la actuación.",
+        "error"
+      );
+
+      return;
+    }
+
+    const confirmed = window.confirm(
+      `¿Eliminar la actuación "${action.titulo}"?`
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    const updatedCase = {
+      ...causa,
+
+      actuaciones: causa.actuaciones.filter(
+        (item) => item.id !== actionId
+      ),
+
+      fechaActualizacion:
+        new Date().toISOString()
+    };
+
+    const saved =
+      window.GestionCausasData?.updateCase?.(
+        updatedCase
+      );
+
+    if (!saved) {
+      showToast(
+        "No se pudo eliminar la actuación.",
+        "error"
+      );
+
+      return;
+    }
+
+    Object.assign(causa, updatedCase);
+
+    renderTimeline();
+    activateTab("actuaciones");
+
+    showToast(
+      "La actuación fue eliminada correctamente."
+    );
+  }
+});
 
   closeButton?.addEventListener(
     "click",
@@ -1364,19 +1803,37 @@ let editingActionId = null;
       fechaCreacion: new Date().toISOString()
     };
 
-    const updatedCase = {
-      ...causa,
+   const actuacionesActuales =
+  Array.isArray(causa.actuaciones)
+    ? [...causa.actuaciones]
+    : [];
 
-      actuaciones: [
-        ...(Array.isArray(causa.actuaciones)
-          ? causa.actuaciones
-          : []),
-        nuevaActuacion
-      ],
+const actuacionesActualizadas = editingActionId
+  ? actuacionesActuales.map((item) =>
+      item.id === editingActionId
+        ? {
+            ...item,
+            ...nuevaActuacion,
+            id: editingActionId,
+            fechaCreacion:
+              item.fechaCreacion ||
+              nuevaActuacion.fechaCreacion,
+            fechaActualizacion:
+              new Date().toISOString()
+          }
+        : item
+    )
+  : [
+      ...actuacionesActuales,
+      nuevaActuacion
+    ];
 
-      fechaActualizacion:
-        new Date().toISOString()
-    };
+const updatedCase = {
+  ...causa,
+  actuaciones: actuacionesActualizadas,
+  fechaActualizacion:
+    new Date().toISOString()
+};
 
     if (nuevaActuacion.vencimiento) {
       updatedCase.proximoVencimiento =
@@ -1412,11 +1869,365 @@ let editingActionId = null;
     renderTimeline();
     activateTab("actuaciones");
 
-    showToast(
-      "La actuación fue registrada correctamente."
-    );
+   showToast(
+  editingActionId
+    ? "La actuación fue actualizada correctamente."
+    : "La actuación fue registrada correctamente."
+);
   });
 };
+
+
+const initializeFeeModal = () => {
+  const modal =
+    document.getElementById("gcFeeModal");
+
+  const form =
+    document.getElementById("gcFeeForm");
+
+  const closeButton =
+    document.getElementById("gcCloseFeeModal");
+
+  const cancelButton =
+    document.getElementById("gcCancelFeeButton");
+
+    let editingFeeId = null;
+
+  if (!modal || !form) {
+    return;
+  }
+
+
+
+
+ const openModal = (movement = null) => {
+  form.reset();
+
+  editingFeeId = movement?.id || null;
+
+  const title =
+    document.getElementById("gcFeeModalTitle");
+
+  const dateInput =
+    document.getElementById("gcFeeDate");
+
+  if (title) {
+    title.textContent = movement
+      ? "Editar movimiento"
+      : "Registrar movimiento";
+  }
+
+  if (movement) {
+    form.elements.fecha.value =
+      movement.fecha || "";
+
+    form.elements.tipo.value =
+      movement.tipo || "";
+
+    form.elements.monto.value =
+      movement.monto || "";
+
+    form.elements.estado.value =
+      movement.estado || "pendiente";
+
+    form.elements.parteObligada.value =
+      movement.parteObligada || "";
+
+    form.elements.porcentaje.value =
+      movement.porcentaje || "";
+
+    form.elements.formaPago.value =
+      movement.formaPago || "";
+
+    form.elements.comprobante.value =
+      movement.comprobante || "";
+
+    form.elements.aportes.value =
+      movement.aportes || "";
+
+    form.elements.descripcion.value =
+      movement.descripcion || "";
+
+    form.elements.observaciones.value =
+      movement.observaciones || "";
+  } else if (dateInput) {
+    dateInput.value =
+      new Date().toISOString().slice(0, 10);
+  }
+
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("gc-modal-open");
+
+  window.setTimeout(() => {
+    dateInput?.focus();
+  }, 50);
+};
+
+  const closeModal = () => {
+    editingFeeId = null;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("gc-modal-open");
+  };
+
+
+
+
+
+document.addEventListener("click", (event) => {
+
+  const addButton = event.target.closest(
+    "#gcAddFeeMovementButton"
+  );
+
+  const editButton = event.target.closest(
+    '[data-action="edit-fee"]'
+  );
+
+  const deleteButton = event.target.closest(
+    '[data-action="delete-fee"]'
+  );
+
+  if (addButton) {
+    openModal();
+    return;
+  }
+
+  if (editButton) {
+
+    const feeId =
+      editButton.dataset.feeId;
+
+    const movement =
+      causa.honorarios?.find(
+        item => item.id === feeId
+      );
+
+    if (!movement) {
+      showToast(
+        "No se encontró el movimiento.",
+        "error"
+      );
+      return;
+    }
+
+    openModal(movement);
+    return;
+  }
+
+  if (deleteButton) {
+
+    const feeId =
+      deleteButton.dataset.feeId;
+
+    const confirmed = window.confirm(
+      "¿Eliminar este movimiento?"
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    const updatedCase = {
+      ...causa,
+
+      honorarios:
+        causa.honorarios.filter(
+          item => item.id !== feeId
+        ),
+
+      fechaActualizacion:
+        new Date().toISOString()
+    };
+
+    const saved =
+      window.GestionCausasData?.updateCase?.(
+        updatedCase
+      );
+
+    if (!saved) {
+
+      showToast(
+        "No se pudo eliminar.",
+        "error"
+      );
+
+      return;
+    }
+
+    Object.assign(causa, updatedCase);
+
+    renderFees();
+    activateTab("honorarios");
+
+    showToast(
+      "Movimiento eliminado."
+    );
+  }
+
+});
+
+  closeButton?.addEventListener(
+    "click",
+    closeModal
+  );
+
+  cancelButton?.addEventListener(
+    "click",
+    closeModal
+  );
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      modal.classList.contains("is-open")
+    ) {
+      closeModal();
+    }
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    const movimiento = {
+      id:
+        window.crypto?.randomUUID?.() ||
+        `honorario-${Date.now()}`,
+
+      fecha: String(
+        formData.get("fecha") || ""
+      ),
+
+      tipo: String(
+        formData.get("tipo") || ""
+      ),
+
+      monto: Number(
+        formData.get("monto") || 0
+      ),
+
+      estado: String(
+        formData.get("estado") || "pendiente"
+      ),
+
+      parteObligada: String(
+        formData.get("parteObligada") || ""
+      ).trim(),
+
+      porcentaje: Number(
+        formData.get("porcentaje") || 0
+      ),
+
+      formaPago: String(
+        formData.get("formaPago") || ""
+      ),
+
+      comprobante: String(
+        formData.get("comprobante") || ""
+      ).trim(),
+
+      aportes: Number(
+        formData.get("aportes") || 0
+      ),
+
+      descripcion: String(
+        formData.get("descripcion") || ""
+      ).trim(),
+
+      observaciones: String(
+        formData.get("observaciones") || ""
+      ).trim(),
+
+      fechaCreacion:
+        new Date().toISOString()
+    };
+
+
+
+    const movimientosActuales =
+  Array.isArray(causa.honorarios)
+    ? [...causa.honorarios]
+    : [];
+
+const estabaEditando = Boolean(editingFeeId);
+
+const movimientosActualizados = estabaEditando
+  ? movimientosActuales.map((item) =>
+      item.id === editingFeeId
+        ? {
+            ...item,
+            ...movimiento,
+            id: editingFeeId,
+            fechaCreacion:
+              item.fechaCreacion ||
+              movimiento.fechaCreacion,
+            fechaActualizacion:
+              new Date().toISOString()
+          }
+        : item
+    )
+  : [
+      ...movimientosActuales,
+      movimiento
+    ];
+
+const updatedCase = {
+  ...causa,
+
+  honorarios: movimientosActualizados,
+
+  seguimiento: {
+    ...(causa.seguimiento || {}),
+    estadoHonorarios: movimiento.estado
+  },
+
+  fechaActualizacion:
+    new Date().toISOString()
+};
+
+    const saved =
+      window.GestionCausasData?.updateCase?.(
+        updatedCase
+      );
+
+    if (!saved) {
+      showToast(
+        "No se pudo guardar el movimiento.",
+        "error"
+      );
+
+      return;
+    }
+
+    Object.assign(causa, updatedCase);
+
+    closeModal();
+    renderFees();
+    activateTab("honorarios");
+
+   showToast(
+  estabaEditando
+    ? "El movimiento fue actualizado correctamente."
+    : "El movimiento fue registrado correctamente."
+);
+  });
+};
+
+
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -1441,6 +2252,7 @@ renderFees();
 renderNotes();
 
 initializeActionModal();
+initializeFeeModal();
 
 activateTab("informacion");
 

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Agenda y control de vencimientos de Gestión de Causas FALCO®."
+  >
+
+  <title>Agenda y vencimientos | Gestión de Causas FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/gestion-causas.css"
+  >
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <aside class="gc-sidebar" id="gcSidebar">
+
+      <div class="gc-sidebar__header">
+
+        <a href="../index.html" class="gc-brand">
+          <span class="gc-brand__eyebrow">Sistema FALCO®</span>
+          <strong class="gc-brand__title">Gestión Pericial</strong>
+        </a>
+
+        <button
+          type="button"
+          class="gc-sidebar__close"
+          id="gcSidebarClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <nav class="gc-nav" aria-label="Navegación principal">
+
+        <a href="../index.html" class="gc-nav__link">
+          <span class="gc-nav__icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Causas</p>
+
+          <a href="../causas/causas.html" class="gc-nav__link">
+            <span class="gc-nav__icon">⚖</span>
+            <span>Todas las causas</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?departamento=moron"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">M</span>
+            <span>Morón</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?departamento=la-matanza"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">LM</span>
+            <span>La Matanza</span>
+          </a>
+
+          <a
+            href="../causas/nueva-causa.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">＋</span>
+            <span>Nueva causa</span>
+          </a>
+
+        </div>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Seguimiento</p>
+
+          <a href="./agenda.html" class="gc-nav__link is-active">
+            <span class="gc-nav__icon">□</span>
+            <span>Agenda y vencimientos</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?vista=pericias"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">P</span>
+            <span>Pericias</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?vista=impugnaciones"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">!</span>
+            <span>Impugnaciones</span>
+          </a>
+
+          <a
+            href="../honorarios/honorarios.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">$</span>
+            <span>Honorarios</span>
+          </a>
+
+          <a
+            href="../documentos/documentos.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">D</span>
+            <span>Documentos</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+      <div class="gc-sidebar__footer">
+
+        <div class="gc-user-card">
+
+          <div class="gc-user-card__avatar">
+            IF
+          </div>
+
+          <div>
+            <strong>Lic. Isabela Falco</strong>
+            <span>Administración</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <div class="gc-main">
+
+      <header class="gc-topbar">
+
+        <div class="gc-topbar__left">
+
+          <button
+            type="button"
+            class="gc-menu-button"
+            id="gcMenuButton"
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+
+          <div>
+            <span class="gc-topbar__eyebrow">
+              Seguimiento judicial
+            </span>
+
+            <h1>Agenda y vencimientos</h1>
+          </div>
+
+        </div>
+
+        <div class="gc-topbar__actions">
+
+          <a
+            href="../causas/nueva-causa.html"
+            class="gc-button gc-button--primary"
+          >
+            Nueva causa
+          </a>
+
+        </div>
+
+      </header>
+
+      <main class="gc-content">
+
+        <section class="gc-page-header">
+
+          <div>
+            <span class="gc-kicker">
+              Control centralizado
+            </span>
+
+            <h2>
+              Próximos vencimientos y tareas pendientes
+            </h2>
+
+            <p>
+              La agenda reúne automáticamente las actuaciones
+              que tienen fecha de vencimiento en todas las causas
+              de Morón y La Matanza.
+            </p>
+          </div>
+
+          <div class="gc-page-header__actions">
+
+            <button
+              type="button"
+              class="gc-button gc-button--ghost"
+              id="gcAgendaTodayButton"
+            >
+              Ver desde hoy
+            </button>
+
+            <button
+              type="button"
+              class="gc-button gc-button--secondary"
+              id="gcAgendaClearFilters"
+            >
+              Limpiar filtros
+            </button>
+
+          </div>
+
+        </section>
+
+        <section class="gc-agenda-stats">
+
+          <article class="gc-stat-card gc-stat-card--warning">
+            <span class="gc-stat-card__label">
+              Vencidos
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcAgendaOverdueCount"
+            >
+              0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Requieren revisión
+            </span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">
+              Vencen hoy
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcAgendaTodayCount"
+            >
+              0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Prioridad inmediata
+            </span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">
+              Próximos 7 días
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcAgendaWeekCount"
+            >
+              0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Seguimiento semanal
+            </span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">
+              Total pendientes
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcAgendaPendingCount"
+            >
+              0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Actuaciones abiertas
+            </span>
+          </article>
+
+        </section>
+
+        <section class="gc-filter-panel">
+
+          <div class="gc-filter-grid gc-filter-grid--agenda">
+
+            <div class="gc-field gc-field--wide">
+              <label for="gcAgendaSearch">
+                Buscar
+              </label>
+
+              <input
+                type="search"
+                id="gcAgendaSearch"
+                placeholder="Carátula, expediente, actuación o parte"
+                autocomplete="off"
+              >
+            </div>
+
+            <div class="gc-field">
+              <label for="gcAgendaDepartment">
+                Departamento judicial
+              </label>
+
+              <select id="gcAgendaDepartment">
+                <option value="">Todos</option>
+                <option value="moron">Morón</option>
+                <option value="la-matanza">La Matanza</option>
+              </select>
+            </div>
+
+            <div class="gc-field">
+              <label for="gcAgendaStatus">
+                Estado
+              </label>
+
+              <select id="gcAgendaStatus">
+                <option value="">Todos</option>
+                <option value="pendiente">Pendiente</option>
+                <option value="en-preparacion">En preparación</option>
+                <option value="presentada">Presentada</option>
+                <option value="cumplida">Cumplida</option>
+                <option value="vencida">Vencida</option>
+              </select>
+            </div>
+
+            <div class="gc-field">
+              <label for="gcAgendaPeriod">
+                Período
+              </label>
+
+              <select id="gcAgendaPeriod">
+                <option value="">Todos</option>
+                <option value="overdue">Vencidos</option>
+                <option value="today">Hoy</option>
+                <option value="week">Próximos 7 días</option>
+                <option value="month">Próximos 30 días</option>
+                <option value="future">Futuros</option>
+              </select>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="gc-list-summary">
+
+          <div>
+            <span>Vencimientos encontrados</span>
+
+            <strong id="gcAgendaResultsCount">
+              0
+            </strong>
+          </div>
+
+          <div class="gc-list-summary__legend">
+
+            <span>
+              <i class="gc-agenda-legend gc-agenda-legend--overdue"></i>
+              Vencido
+            </span>
+
+            <span>
+              <i class="gc-agenda-legend gc-agenda-legend--today"></i>
+              Hoy
+            </span>
+
+            <span>
+              <i class="gc-agenda-legend gc-agenda-legend--upcoming"></i>
+              Próximo
+            </span>
+
+          </div>
+
+        </section>
+
+        <section class="gc-agenda-layout">
+
+          <article class="gc-panel gc-panel--wide">
+
+            <div class="gc-panel__header">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Cronología
+                </span>
+
+                <h3>Agenda general</h3>
+              </div>
+
+            </div>
+
+            <div
+              class="gc-agenda-list"
+              id="gcAgendaList"
+            ></div>
+
+            <div
+              class="gc-empty-state"
+              id="gcAgendaEmptyState"
+              hidden
+            >
+
+              <div class="gc-empty-state__icon">
+                □
+              </div>
+
+              <h3>No hay vencimientos para mostrar</h3>
+
+              <p>
+                Las actuaciones con fecha de vencimiento
+                aparecerán automáticamente en esta agenda.
+              </p>
+
+              <a
+                href="../causas/causas.html"
+                class="gc-button gc-button--primary"
+              >
+                Ver causas
+              </a>
+
+            </div>
+
+          </article>
+
+          <aside class="gc-panel">
+
+            <div class="gc-panel__header">
+
+              <div>
+                <span class="gc-panel__eyebrow">
+                  Referencia
+                </span>
+
+                <h3>Prioridades</h3>
+              </div>
+
+            </div>
+
+            <div class="gc-agenda-priority-list">
+
+              <article class="gc-agenda-priority gc-agenda-priority--danger">
+                <strong>Vencido</strong>
+                <span>
+                  La fecha ya pasó y la actuación continúa pendiente.
+                </span>
+              </article>
+
+              <article class="gc-agenda-priority gc-agenda-priority--today">
+                <strong>Vence hoy</strong>
+                <span>
+                  Requiere atención durante la jornada actual.
+                </span>
+              </article>
+
+              <article class="gc-agenda-priority gc-agenda-priority--warning">
+                <strong>Próximo</strong>
+                <span>
+                  Vence dentro de los próximos siete días.
+                </span>
+              </article>
+
+              <article class="gc-agenda-priority">
+                <strong>Programado</strong>
+                <span>
+                  Tiene vencimiento posterior a los próximos siete días.
+                </span>
+              </article>
+
+            </div>
+
+          </aside>
+
+        </section>
+
+      </main>
+
+      <footer class="gc-footer">
+
+        <span>
+          Sistema FALCO® · Gestión integral de causas judiciales
+        </span>
+
+        <span id="gcCurrentYear"></span>
+
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div class="gc-overlay" id="gcOverlay"></div>
+
+  <script src="../js/gestion-causas-config.js"></script>
+  <script src="../js/gestion-causas-data.js"></script>
+  <script src="../js/gestion-causas-ui.js"></script>
+  <script src="../js/gestion-causas.js"></script>
+  <script src="../js/gestion-causas-agenda.js"></script>
+
+</body>
+</html>

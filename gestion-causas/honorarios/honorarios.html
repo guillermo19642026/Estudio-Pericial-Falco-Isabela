@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gestión de honorarios, anticipos y cobros del Sistema FALCO®."
+  >
+
+  <title>Honorarios | Gestión de Causas FALCO®</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../css/gestion-causas.css"
+  >
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <aside class="gc-sidebar" id="gcSidebar">
+
+      <div class="gc-sidebar__header">
+
+        <a href="../index.html" class="gc-brand">
+          <span class="gc-brand__eyebrow">Sistema FALCO®</span>
+          <strong class="gc-brand__title">Gestión Pericial</strong>
+        </a>
+
+        <button
+          type="button"
+          class="gc-sidebar__close"
+          id="gcSidebarClose"
+          aria-label="Cerrar menú"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <nav class="gc-nav" aria-label="Navegación principal">
+
+        <a href="../index.html" class="gc-nav__link">
+          <span class="gc-nav__icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Causas</p>
+
+          <a href="../causas/causas.html" class="gc-nav__link">
+            <span class="gc-nav__icon">⚖</span>
+            <span>Todas las causas</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?departamento=moron"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">M</span>
+            <span>Morón</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?departamento=la-matanza"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">LM</span>
+            <span>La Matanza</span>
+          </a>
+
+          <a
+            href="../causas/nueva-causa.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">＋</span>
+            <span>Nueva causa</span>
+          </a>
+
+        </div>
+
+        <div class="gc-nav__group">
+
+          <p class="gc-nav__label">Seguimiento</p>
+
+          <a
+            href="../agenda/agenda.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">□</span>
+            <span>Agenda y vencimientos</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?vista=pericias"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">P</span>
+            <span>Pericias</span>
+          </a>
+
+          <a
+            href="../causas/causas.html?vista=impugnaciones"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">!</span>
+            <span>Impugnaciones</span>
+          </a>
+
+          <a
+            href="./honorarios.html"
+            class="gc-nav__link is-active"
+          >
+            <span class="gc-nav__icon">$</span>
+            <span>Honorarios</span>
+          </a>
+
+          <a
+            href="../documentos/documentos.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">D</span>
+            <span>Documentos</span>
+          </a>
+
+        </div>
+
+      </nav>
+
+      <div class="gc-sidebar__footer">
+
+        <div class="gc-user-card">
+
+          <div class="gc-user-card__avatar">
+            IF
+          </div>
+
+          <div>
+            <strong>Lic. Isabela Falco</strong>
+            <span>Administración</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <div class="gc-main">
+
+      <header class="gc-topbar">
+
+        <div class="gc-topbar__left">
+
+          <button
+            type="button"
+            class="gc-menu-button"
+            id="gcMenuButton"
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+
+          <div>
+            <span class="gc-topbar__eyebrow">
+              Seguimiento económico
+            </span>
+
+            <h1>Honorarios</h1>
+          </div>
+
+        </div>
+
+      </header>
+
+      <main class="gc-content">
+
+        <section class="gc-page-header">
+
+          <div>
+            <span class="gc-kicker">
+              Control económico centralizado
+            </span>
+
+            <h2>
+              Anticipos, regulaciones, cobros y saldos
+            </h2>
+
+            <p>
+              Consulte el estado económico de todas las causas,
+              identifique honorarios pendientes y controle pagos,
+              aportes y saldos.
+            </p>
+          </div>
+
+          <div class="gc-page-header__actions">
+
+            <button
+              type="button"
+              class="gc-button gc-button--ghost"
+              id="gcFeesClearFilters"
+            >
+              Limpiar filtros
+            </button>
+
+          </div>
+
+        </section>
+
+        <section class="gc-agenda-stats">
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">
+              Total regulado
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcFeesTotalRegulated"
+            >
+              $ 0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Honorarios registrados
+            </span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">
+              Total cobrado
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcFeesTotalCollected"
+            >
+              $ 0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Pagos acreditados
+            </span>
+          </article>
+
+          <article class="gc-stat-card gc-stat-card--warning">
+            <span class="gc-stat-card__label">
+              Saldo pendiente
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcFeesPendingBalance"
+            >
+              $ 0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Pendiente de cobro
+            </span>
+          </article>
+
+          <article class="gc-stat-card">
+            <span class="gc-stat-card__label">
+              Causas con movimientos
+            </span>
+
+            <strong
+              class="gc-stat-card__value"
+              id="gcFeesCasesCount"
+            >
+              0
+            </strong>
+
+            <span class="gc-stat-card__meta">
+              Expedientes con registro económico
+            </span>
+          </article>
+
+        </section>
+
+        <section class="gc-filter-panel">
+
+          <div class="gc-filter-grid gc-filter-grid--agenda">
+
+            <div class="gc-field gc-field--wide">
+
+              <label for="gcFeesSearch">
+                Buscar
+              </label>
+
+              <input
+                type="search"
+                id="gcFeesSearch"
+                placeholder="Carátula, expediente, tipo de movimiento o parte obligada"
+                autocomplete="off"
+              >
+
+            </div>
+
+            <div class="gc-field">
+
+              <label for="gcFeesDepartment">
+                Departamento judicial
+              </label>
+
+              <select id="gcFeesDepartment">
+                <option value="">Todos</option>
+                <option value="moron">Morón</option>
+                <option value="la-matanza">La Matanza</option>
+              </select>
+
+            </div>
+
+            <div class="gc-field">
+
+              <label for="gcFeesType">
+                Tipo de movimiento
+              </label>
+
+              <select id="gcFeesType">
+                <option value="">Todos</option>
+                <option value="anticipo-solicitado">Anticipo solicitado</option>
+                <option value="anticipo-depositado">Anticipo depositado</option>
+                <option value="regulacion">Regulación</option>
+                <option value="pago-parcial">Pago parcial</option>
+                <option value="pago-total">Pago total</option>
+                <option value="aporte">Aporte</option>
+                <option value="factura">Factura</option>
+                <option value="otro">Otro</option>
+              </select>
+
+            </div>
+
+            <div class="gc-field">
+
+              <label for="gcFeesStatus">
+                Estado
+              </label>
+
+              <select id="gcFeesStatus">
+                <option value="">Todos</option>
+                <option value="pendiente">Pendiente</option>
+                <option value="regulado">Regulado</option>
+                <option value="apelado">Apelado</option>
+                <option value="firme">Firme</option>
+                <option value="cobrado">Cobrado</option>
+                <option value="pagado">Pagado</option>
+              </select>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="gc-list-summary">
+
+          <div>
+            <span>Movimientos encontrados</span>
+            <strong id="gcFeesResultsCount">0</strong>
+          </div>
+
+        </section>
+
+        <section class="gc-panel">
+
+          <div class="gc-table-wrap">
+
+            <table class="gc-table gc-table--cases">
+
+              <thead>
+                <tr>
+                  <th>Causa</th>
+                  <th>Departamento</th>
+                  <th>Tipo</th>
+                  <th>Fecha</th>
+                  <th>Monto</th>
+                  <th>Estado</th>
+                  <th>Parte obligada</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody id="gcFeesTableBody"></tbody>
+
+            </table>
+
+          </div>
+
+          <div
+            class="gc-empty-state"
+            id="gcFeesEmptyState"
+            hidden
+          >
+
+            <div class="gc-empty-state__icon">
+              $
+            </div>
+
+            <h3>Sin movimientos de honorarios</h3>
+
+            <p>
+              Los anticipos, regulaciones y pagos registrados
+              en cada causa aparecerán automáticamente aquí.
+            </p>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer class="gc-footer">
+
+        <span>
+          Sistema FALCO® · Gestión integral de causas judiciales
+        </span>
+
+        <span id="gcCurrentYear"></span>
+
+      </footer>
+
+    </div>
+
+  </div>
+
+  <div class="gc-overlay" id="gcOverlay"></div>
+
+  <script src="../js/gestion-causas-config.js"></script>
+  <script src="../js/gestion-causas-data.js"></script>
+  <script src="../js/gestion-causas-ui.js"></script>
+  <script src="../js/gestion-causas.js"></script>
+  <script src="../js/gestion-causas-honorarios.js"></script>
+
+</body>
+</html>
