@@ -154,15 +154,21 @@ function crearFormulario() {
 
     cont.appendChild(row);
 
-    document.querySelectorAll(`input[name="item_${n}"]`).forEach(input => {
-      input.addEventListener("change", calcular);
-    });
+    document
+      .querySelectorAll(`input[name="item_${n}"]`)
+      .forEach(input => {
+        input.addEventListener("change", calcular);
+      });
   });
 }
 
 function valorItem(n) {
-  const seleccionado = document.querySelector(`input[name="item_${n}"]:checked`);
-  return seleccionado ? Number(seleccionado.value) : null;
+  const seleccionado =
+    document.querySelector(`input[name="item_${n}"]:checked`);
+
+  return seleccionado
+    ? Number(seleccionado.value)
+    : null;
 }
 
 function nivelBDI(puntaje) {
@@ -198,15 +204,22 @@ function calcular() {
     `Respuestas cargadas: ${cargadas}/${NUM_ITEMS}`;
 
   document.getElementById("estadoFaltantes").textContent =
-    faltan === 0 ? "Carga completa" : `Faltan ${faltan}`;
+    faltan === 0
+      ? "Carga completa"
+      : `Faltan ${faltan}`;
 
   document.getElementById("estadoCarga").className =
-    faltan === 0 ? "pill ok" : "pill warn";
+    faltan === 0
+      ? "pill ok"
+      : "pill warn";
 
   document.getElementById("estadoFaltantes").className =
-    faltan === 0 ? "pill ok" : "pill bad";
+    faltan === 0
+      ? "pill ok"
+      : "pill bad";
 
-  document.getElementById("puntajeTotal").textContent = total;
+  document.getElementById("puntajeTotal").textContent =
+    total;
 
   document.getElementById("nivel").innerHTML =
     `<span class="${claseNivel(total)}">${nivel}</span>`;
@@ -217,171 +230,469 @@ function calcular() {
   generarInterpretacion(total, nivel);
   guardarAutomatico();
 
+
+  // =========================================================
+  // GUARDADO DEL RESULTADO COMPLETO EN FIRESTORE
+  // =========================================================
+
+  if (faltan === 0) {
+
+    if (!sessionStorage.getItem("resultado_guardado_bdi")) {
+
+      if (typeof window.guardarResultadoTest === "function") {
+
+        (async () => {
+
+          try {
+
+            const dniArchivo =
+              typeof subirDniTestCloudinary === "function"
+                ? await subirDniTestCloudinary()
+                : null;
+
+            const guardado =
+              await window.guardarResultadoTest({
+
+                test: "bdi",
+
+                nombreTest:
+                  "BDI - Inventario de Depresión de Beck",
+
+                nombre:
+                  document.getElementById("nombre")?.value || "",
+
+                dni:
+                  document.getElementById("dni")?.value || "",
+
+                dniArchivo:
+                  dniArchivo,
+
+                estadoCivil:
+                  document.getElementById("estadoCivil")?.value || "",
+
+                direccion:
+                  document.getElementById("direccion")?.value || "",
+
+                edad:
+                  document.getElementById("edad")?.value || "",
+
+                sexo:
+                  document.getElementById("sexo")?.value || "",
+
+                fecha:
+                  document.getElementById("fecha")?.value || "",
+
+                observaciones:
+                  document.getElementById("observaciones")?.value || "",
+
+                puntajeTotal:
+                  total,
+
+                nivel:
+                  nivel,
+
+                respuestas:
+                  preguntas.map((opcionesItem, index) => {
+
+                    const valor =
+                      valorItem(index + 1);
+
+                    return {
+                      item: index + 1,
+
+                      pregunta:
+                        `Ítem ${index + 1}`,
+
+                      respuesta:
+                        valor,
+
+                      descripcion:
+                        valor !== null
+                          ? opcionesItem[valor]
+                          : ""
+                    };
+
+                  })
+
+              });
+
+            if (!guardado) return;
+
+            sessionStorage.setItem(
+              "resultado_guardado_bdi",
+              "true"
+            );
+
+          } catch (error) {
+
+            console.error(
+              "Error al guardar resultado BDI:",
+              error
+            );
+
+          }
+
+        })();
+
+      } else {
+
+        console.error(
+          "BDI: guardarResultadoTest no está disponible."
+        );
+
+      }
+
+    }
+
+
+    if (!sessionStorage.getItem("pdf_generado_bdi")) {
+
+      sessionStorage.setItem(
+        "pdf_generado_bdi",
+        "true"
+      );
+
+      setTimeout(() => {
+        generarInformePDF();
+      }, 500);
+
+    }
+
+  }
 }
 
 function generarInterpretacion(total, nivel) {
-  const contenedor = document.getElementById("interpretacionClinica");
+  const contenedor =
+    document.getElementById("interpretacionClinica");
+
   if (!contenedor) return;
 
   let texto = "";
 
   if (total <= 13) {
-    texto = "El puntaje obtenido se ubica en un rango orientativo mínimo de sintomatología depresiva.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo mínimo de sintomatología depresiva.";
+
   } else if (total <= 19) {
-    texto = "El puntaje obtenido se ubica en un rango orientativo leve de sintomatología depresiva.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo leve de sintomatología depresiva.";
+
   } else if (total <= 28) {
-    texto = "El puntaje obtenido se ubica en un rango orientativo moderado de sintomatología depresiva.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo moderado de sintomatología depresiva.";
+
   } else {
-    texto = "El puntaje obtenido se ubica en un rango orientativo severo de sintomatología depresiva.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo severo de sintomatología depresiva.";
+
   }
 
   const item9 = valorItem(9);
 
   contenedor.innerHTML = `
     <p>
-      El puntaje total obtenido es <strong>${total}</strong>, correspondiente a un nivel
-      orientativo de depresión <strong>${nivel}</strong>.
+      El puntaje total obtenido es
+      <strong>${total}</strong>,
+      correspondiente a un nivel orientativo
+      de depresión <strong>${nivel}</strong>.
     </p>
 
     <p>${texto}</p>
 
     ${total >= 20 ? `
       <div class="alerta-clinica">
-        Atención: el puntaje se ubica en un rango que requiere profundizar la evaluación clínica.
+        Atención: el puntaje se ubica en un rango
+        que requiere profundizar la evaluación clínica.
       </div>
     ` : ""}
 
     ${item9 !== null && item9 > 0 ? `
       <div class="alerta-clinica">
-        Atención clínica: el ítem 9 presenta respuesta positiva relacionada con ideas de muerte o autoagresión.
-        Se recomienda evaluación de riesgo inmediata por un profesional habilitado.
+        Atención clínica: el ítem 9 presenta respuesta
+        positiva relacionada con ideas de muerte o
+        autoagresión. Se recomienda evaluación de riesgo
+        inmediata por un profesional habilitado.
       </div>
     ` : ""}
 
     <div class="recomendacion-clinica">
-      Esta interpretación es orientativa. No reemplaza entrevista clínica, juicio profesional,
+      Esta interpretación es orientativa.
+      No reemplaza entrevista clínica, juicio profesional,
       baremos oficiales ni evaluación de riesgo.
     </div>
   `;
 }
 
 function guardarAutomatico() {
+
   const datos = {
-    nombre: document.getElementById("nombre").value,
-    edad: document.getElementById("edad").value,
-    sexo: document.getElementById("sexo").value,
-    dni: document.getElementById("dni")?.value || "",
-estadoCivil: document.getElementById("estadoCivil")?.value || "",
-direccion: document.getElementById("direccion")?.value || "",
-fecha: document.getElementById("fecha")?.value || "",
-    observaciones: document.getElementById("observaciones").value,
+
+    nombre:
+      document.getElementById("nombre")?.value || "",
+
+    edad:
+      document.getElementById("edad")?.value || "",
+
+    sexo:
+      document.getElementById("sexo")?.value || "",
+
+    dni:
+      document.getElementById("dni")?.value || "",
+
+    estadoCivil:
+      document.getElementById("estadoCivil")?.value || "",
+
+    direccion:
+      document.getElementById("direccion")?.value || "",
+
+    fecha:
+      document.getElementById("fecha")?.value || "",
+
+    observaciones:
+      document.getElementById("observaciones")?.value || "",
+
     respuestas: {}
+
   };
 
   for (let i = 1; i <= NUM_ITEMS; i++) {
-    const seleccionado = document.querySelector(`input[name="item_${i}"]:checked`);
-    datos.respuestas[i] = seleccionado ? seleccionado.value : "";
+
+    const seleccionado =
+      document.querySelector(
+        `input[name="item_${i}"]:checked`
+      );
+
+    datos.respuestas[i] =
+      seleccionado
+        ? seleccionado.value
+        : "";
+
   }
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(datos));
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(datos)
+  );
 }
 
 function cargarAutomatico() {
-  const datos = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+  const datos =
+    JSON.parse(
+      localStorage.getItem(STORAGE_KEY)
+    );
+
   if (!datos) return;
 
-  document.getElementById("nombre").value = datos.nombre || "";
-  document.getElementById("edad").value = datos.edad || "";
-  document.getElementById("sexo").value = datos.sexo || "";
-  document.getElementById("fecha").value = datos.fecha || "";
-  document.getElementById("observaciones").value = datos.observaciones || "";
+  document.getElementById("nombre").value =
+    datos.nombre || "";
+
+  document.getElementById("edad").value =
+    datos.edad || "";
+
+  document.getElementById("sexo").value =
+    datos.sexo || "";
+
+  document.getElementById("fecha").value =
+    datos.fecha || "";
+
+  document.getElementById("observaciones").value =
+    datos.observaciones || "";
 
   for (let i = 1; i <= NUM_ITEMS; i++) {
-    const valor = datos.respuestas?.[i];
 
-    if (valor !== undefined && valor !== "") {
-      const input = document.querySelector(`input[name="item_${i}"][value="${valor}"]`);
-      if (input) input.checked = true;
+    const valor =
+      datos.respuestas?.[i];
+
+    if (
+      valor !== undefined &&
+      valor !== ""
+    ) {
+
+      const input =
+        document.querySelector(
+          `input[name="item_${i}"][value="${valor}"]`
+        );
+
+      if (input) {
+        input.checked = true;
+      }
+
     }
   }
 }
 
 function limpiarFormulario() {
-  if (!confirm("¿Limpiar todas las respuestas y datos guardados?")) return;
+
+  if (
+    !confirm(
+      "¿Limpiar todas las respuestas y datos guardados?"
+    )
+  ) {
+    return;
+  }
 
   localStorage.removeItem(STORAGE_KEY);
-  sessionStorage.removeItem("pdf_generado_bdi");
-  sessionStorage.removeItem("resultado_guardado_bdi");
+
+  sessionStorage.removeItem(
+    "pdf_generado_bdi"
+  );
+
+  sessionStorage.removeItem(
+    "resultado_guardado_bdi"
+  );
+
   location.reload();
 }
 
 function exportarCSV() {
-  let csv = "Item,Respuesta\n";
+
+  let csv =
+    "Item,Respuesta\n";
 
   for (let i = 1; i <= NUM_ITEMS; i++) {
-    const valor = valorItem(i);
-    csv += `${i},${valor !== null ? valor : ""}\n`;
+
+    const valor =
+      valorItem(i);
+
+    csv +=
+      `${i},${valor !== null ? valor : ""}\n`;
+
   }
 
-  csv += `\nNombre,${document.getElementById("nombre").value}\n`;
-  csv += `Edad,${document.getElementById("edad").value}\n`;
-  csv += `Sexo,${document.getElementById("sexo").value}\n`;
-  csv += `Fecha,${document.getElementById("fecha").value}\n`;
-  csv += `Puntaje total,${document.getElementById("puntajeTotal").textContent}\n`;
-  csv += `Nivel,${document.getElementById("nivel").textContent}\n`;
+  csv +=
+    `\nNombre,${document.getElementById("nombre")?.value || ""}\n`;
 
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
+  csv +=
+    `Edad,${document.getElementById("edad")?.value || ""}\n`;
 
-  const enlace = document.createElement("a");
+  csv +=
+    `Sexo,${document.getElementById("sexo")?.value || ""}\n`;
+
+  csv +=
+    `Fecha,${document.getElementById("fecha")?.value || ""}\n`;
+
+  csv +=
+    `Puntaje total,${document.getElementById("puntajeTotal")?.textContent || ""}\n`;
+
+  csv +=
+    `Nivel,${document.getElementById("nivel")?.textContent || ""}\n`;
+
+  const blob =
+    new Blob(
+      [csv],
+      {
+        type: "text/csv;charset=utf-8;"
+      }
+    );
+
+  const url =
+    URL.createObjectURL(blob);
+
+  const enlace =
+    document.createElement("a");
+
   enlace.href = url;
-  enlace.download = "beck_depresion.csv";
+
+  enlace.download =
+    "beck_depresion.csv";
+
   enlace.click();
 
   URL.revokeObjectURL(url);
 }
 
-
-
-
 function generarInformePDF() {
-  generarPDFClinico({
-    test: "Inventario de Depresión de Beck (BDI)",
 
-    nombre: document.getElementById("nombre").value,
-    edad: document.getElementById("edad").value,
-    sexo: document.getElementById("sexo").value,
-    fecha: document.getElementById("fecha").value,
-    observaciones: document.getElementById("observaciones").value,
+  generarPDFClinico({
+
+    test:
+      "Inventario de Depresión de Beck (BDI)",
+
+    nombre:
+      document.getElementById("nombre")?.value || "",
+
+    edad:
+      document.getElementById("edad")?.value || "",
+
+    sexo:
+      document.getElementById("sexo")?.value || "",
+
+    fecha:
+      document.getElementById("fecha")?.value || "",
+
+    observaciones:
+      document.getElementById("observaciones")?.value || "",
 
     resultadosHTML: `
-      <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
-      <p><strong>Nivel orientativo:</strong> ${document.getElementById("nivel").textContent}</p>
+      <p>
+        <strong>Puntaje total:</strong>
+        ${document.getElementById("puntajeTotal")?.textContent || ""}
+      </p>
+
+      <p>
+        <strong>Nivel orientativo:</strong>
+        ${document.getElementById("nivel")?.textContent || ""}
+      </p>
     `,
 
-    interpretacionHTML: document.getElementById("interpretacionClinica").innerHTML
+    interpretacionHTML:
+      document.getElementById("interpretacionClinica")?.innerHTML || ""
+
   });
 }
 
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
+    crearFormulario();
 
+    const fecha =
+      document.getElementById("fecha");
 
-window.addEventListener("DOMContentLoaded", () => {
-  crearFormulario();
-
-  const fecha = document.getElementById("fecha");
-  if (fecha && !fecha.value) {
-    fecha.valueAsDate = new Date();
-  }
-
-  // cargarAutomatico();
-  calcular();
-
-  ["nombre", "edad", "sexo", "fecha", "observaciones"].forEach(id => {
-    const campo = document.getElementById(id);
-    if (campo) {
-      campo.addEventListener("input", guardarAutomatico);
-      campo.addEventListener("change", guardarAutomatico);
+    if (
+      fecha &&
+      !fecha.value
+    ) {
+      fecha.valueAsDate =
+        new Date();
     }
-  });
-});
+
+    // cargarAutomatico();
+
+    calcular();
+
+    [
+      "nombre",
+      "edad",
+      "sexo",
+      "fecha",
+      "observaciones"
+    ].forEach(id => {
+
+      const campo =
+        document.getElementById(id);
+
+      if (campo) {
+
+        campo.addEventListener(
+          "input",
+          guardarAutomatico
+        );
+
+        campo.addEventListener(
+          "change",
+          guardarAutomatico
+        );
+
+      }
+
+    });
+
+  }
+);

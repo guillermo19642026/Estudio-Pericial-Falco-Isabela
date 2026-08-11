@@ -25,264 +25,753 @@ const preguntas = [
 ];
 
 const claveCorreccion = {
-  1: "F", 2: "V", 3: "F", 4: "V", 5: "F",
-  6: "F", 7: "V", 8: "F", 9: "V", 10: "F",
-  11: "V", 12: "V", 13: "F", 14: "V", 15: "F",
-  16: "V", 17: "V", 18: "V", 19: "F", 20: "V"
+  1: "F",
+  2: "V",
+  3: "F",
+  4: "V",
+  5: "F",
+  6: "F",
+  7: "V",
+  8: "F",
+  9: "V",
+  10: "F",
+  11: "V",
+  12: "V",
+  13: "F",
+  14: "V",
+  15: "F",
+  16: "V",
+  17: "V",
+  18: "V",
+  19: "F",
+  20: "V"
 };
 
 function crearFormulario() {
-  const contenedor = document.getElementById("items");
+
+  const contenedor =
+    document.getElementById("items");
+
   contenedor.innerHTML = "";
 
-  preguntas.forEach((texto, idx) => {
-    const n = idx + 1;
+  preguntas.forEach(
+    (texto, idx) => {
 
-    const row = document.createElement("div");
-    row.className = "item-row";
+      const n =
+        idx + 1;
 
-    row.innerHTML = `
-      <div class="item-number">#${n}</div>
-      <div class="item-text">${texto}</div>
-      <select id="item_${n}">
-        <option value="">Sin cargar</option>
-        <option value="V">Verdadero</option>
-        <option value="F">Falso</option>
-      </select>
-    `;
+      const row =
+        document.createElement("div");
 
-    contenedor.appendChild(row);
-    document.getElementById(`item_${n}`).addEventListener("change", calcular);
-  });
+      row.className =
+        "item-row";
+
+      row.innerHTML = `
+        <div class="item-number">
+          #${n}
+        </div>
+
+        <div class="item-text">
+          ${texto}
+        </div>
+
+        <select id="item_${n}">
+          <option value="">
+            Sin cargar
+          </option>
+
+          <option value="V">
+            Verdadero
+          </option>
+
+          <option value="F">
+            Falso
+          </option>
+        </select>
+      `;
+
+      contenedor.appendChild(row);
+
+      document
+        .getElementById(`item_${n}`)
+        .addEventListener(
+          "change",
+          calcular
+        );
+
+    }
+  );
 }
 
 function valorItem(n) {
-  const campo = document.getElementById(`item_${n}`);
-  return campo ? campo.value : "";
+
+  const campo =
+    document.getElementById(
+      `item_${n}`
+    );
+
+  return campo
+    ? campo.value
+    : "";
 }
 
 function nivelDesesperanza(puntaje) {
-  if (puntaje <= 3) return "Mínimo";
-  if (puntaje <= 8) return "Leve";
-  if (puntaje <= 14) return "Moderado";
+
+  if (puntaje <= 3)
+    return "Mínimo";
+
+  if (puntaje <= 8)
+    return "Leve";
+
+  if (puntaje <= 14)
+    return "Moderado";
+
   return "Severo";
 }
 
 function claseNivel(puntaje) {
-  if (puntaje <= 3) return "gravedad-baja";
-  if (puntaje <= 8) return "gravedad-media";
+
+  if (puntaje <= 3)
+    return "gravedad-baja";
+
+  if (puntaje <= 8)
+    return "gravedad-media";
+
   return "gravedad-alta";
 }
 
 function calcular() {
+
   let cargadas = 0;
   let puntaje = 0;
 
-  for (let i = 1; i <= NUM_ITEMS; i++) {
-    const valor = valorItem(i);
+  for (
+    let i = 1;
+    i <= NUM_ITEMS;
+    i++
+  ) {
+
+    const valor =
+      valorItem(i);
 
     if (valor !== "") {
+
       cargadas++;
 
-      if (valor === claveCorreccion[i]) {
+      if (
+        valor ===
+        claveCorreccion[i]
+      ) {
         puntaje++;
       }
+
     }
   }
 
-  const faltan = NUM_ITEMS - cargadas;
-  const nivel = nivelDesesperanza(puntaje);
+  const faltan =
+    NUM_ITEMS - cargadas;
 
-  document.getElementById("estadoCarga").textContent =
-    `Respuestas cargadas: ${cargadas}/${NUM_ITEMS}`;
+  const nivel =
+    nivelDesesperanza(
+      puntaje
+    );
 
-  document.getElementById("estadoFaltantes").textContent =
-    faltan === 0 ? "Carga completa" : `Faltan ${faltan}`;
+  document
+    .getElementById("estadoCarga")
+    .textContent =
+      `Respuestas cargadas: ${cargadas}/${NUM_ITEMS}`;
 
-  document.getElementById("estadoCarga").className =
-    faltan === 0 ? "pill ok" : "pill warn";
+  document
+    .getElementById("estadoFaltantes")
+    .textContent =
+      faltan === 0
+        ? "Carga completa"
+        : `Faltan ${faltan}`;
 
-  document.getElementById("estadoFaltantes").className =
-    faltan === 0 ? "pill ok" : "pill bad";
+  document
+    .getElementById("estadoCarga")
+    .className =
+      faltan === 0
+        ? "pill ok"
+        : "pill warn";
 
-  document.getElementById("puntajeTotal").textContent = puntaje;
+  document
+    .getElementById("estadoFaltantes")
+    .className =
+      faltan === 0
+        ? "pill ok"
+        : "pill bad";
 
-  document.getElementById("nivel").innerHTML =
-    `<span class="${claseNivel(puntaje)}">${nivel}</span>`;
+  document
+    .getElementById("puntajeTotal")
+    .textContent =
+      puntaje;
 
-  document.getElementById("cargadasTabla").textContent =
-    `${cargadas}/${NUM_ITEMS}`;
+  document
+    .getElementById("nivel")
+    .innerHTML =
+      `<span class="${claseNivel(puntaje)}">${nivel}</span>`;
 
+  document
+    .getElementById("cargadasTabla")
+    .textContent =
+      `${cargadas}/${NUM_ITEMS}`;
 
-  
+  generarInterpretacion(
+    puntaje,
+    nivel
+  );
 
-  generarInterpretacion(puntaje, nivel);
   guardarAutomatico();
 
+
+  // =========================================================
+  // GUARDADO DEL RESULTADO COMPLETO EN FIRESTORE
+  // =========================================================
+
+  if (faltan === 0) {
+
+    if (
+      !sessionStorage.getItem(
+        "resultado_guardado_desesperanza"
+      )
+    ) {
+
+      if (
+        typeof window.guardarResultadoTest ===
+        "function"
+      ) {
+
+        (async () => {
+
+          try {
+
+            const dniArchivo =
+              typeof subirDniTestCloudinary ===
+              "function"
+                ? await subirDniTestCloudinary()
+                : null;
+
+            const guardado =
+              await window.guardarResultadoTest({
+
+                test:
+                  "desesperanza",
+
+                nombreTest:
+                  "Escala de Desesperanza de Beck",
+
+                nombre:
+                  document.getElementById("nombre")?.value || "",
+
+                dni:
+                  document.getElementById("dni")?.value || "",
+
+                dniArchivo:
+                  dniArchivo,
+
+                estadoCivil:
+                  document.getElementById("estadoCivil")?.value || "",
+
+                direccion:
+                  document.getElementById("direccion")?.value || "",
+
+                edad:
+                  document.getElementById("edad")?.value || "",
+
+                sexo:
+                  document.getElementById("sexo")?.value || "",
+
+                fecha:
+                  document.getElementById("fecha")?.value || "",
+
+                observaciones:
+                  document.getElementById("observaciones")?.value || "",
+
+                puntajeTotal:
+                  puntaje,
+
+                nivel:
+                  nivel,
+
+                respuestas:
+                  preguntas.map(
+                    (texto, index) => {
+
+                      const valor =
+                        valorItem(
+                          index + 1
+                        );
+
+                      return {
+
+                        item:
+                          index + 1,
+
+                        pregunta:
+                          texto,
+
+                        respuesta:
+                          valor,
+
+                        descripcion:
+                          valor === "V"
+                            ? "Verdadero"
+                            : valor === "F"
+                              ? "Falso"
+                              : ""
+
+                      };
+
+                    }
+                  )
+
+              });
+
+            if (!guardado)
+              return;
+
+            sessionStorage.setItem(
+              "resultado_guardado_desesperanza",
+              "true"
+            );
+
+          } catch (error) {
+
+            console.error(
+              "Error al guardar resultado de Desesperanza:",
+              error
+            );
+
+          }
+
+        })();
+
+      } else {
+
+        console.error(
+          "Desesperanza: guardarResultadoTest no está disponible."
+        );
+
+      }
+
+    }
+
+
+    if (
+      !sessionStorage.getItem(
+        "pdf_generado_desesperanza"
+      )
+    ) {
+
+      sessionStorage.setItem(
+        "pdf_generado_desesperanza",
+        "true"
+      );
+
+      setTimeout(
+        () => {
+          generarInformePDF();
+        },
+        500
+      );
+
+    }
+
+  }
 }
 
+function generarInterpretacion(
+  puntaje,
+  nivel
+) {
 
-function generarInterpretacion(puntaje, nivel) {
-  const contenedor = document.getElementById("interpretacionClinica");
-  if (!contenedor) return;
+  const contenedor =
+    document.getElementById(
+      "interpretacionClinica"
+    );
+
+  if (!contenedor)
+    return;
 
   let texto = "";
 
   if (puntaje <= 3) {
-    texto = "El puntaje obtenido se ubica en un rango orientativo mínimo de desesperanza.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo mínimo de desesperanza.";
+
   } else if (puntaje <= 8) {
-    texto = "El puntaje obtenido se ubica en un rango orientativo leve de desesperanza.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo leve de desesperanza.";
+
   } else if (puntaje <= 14) {
-    texto = "El puntaje obtenido se ubica en un rango orientativo moderado de desesperanza.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo moderado de desesperanza.";
+
   } else {
-    texto = "El puntaje obtenido se ubica en un rango orientativo severo de desesperanza.";
+
+    texto =
+      "El puntaje obtenido se ubica en un rango orientativo severo de desesperanza.";
+
   }
 
   contenedor.innerHTML = `
-    <p><strong>Puntaje total:</strong> ${puntaje} | <strong>Nivel:</strong> ${nivel}</p>
-    <p>${texto}</p>
-    ${puntaje >= 9 ? `<div class="alerta-clinica">Requiere evaluación clínica.</div>` : ""}
+    <p>
+      <strong>Puntaje total:</strong>
+      ${puntaje}
+      |
+      <strong>Nivel:</strong>
+      ${nivel}
+    </p>
+
+    <p>
+      ${texto}
+    </p>
+
+    ${puntaje >= 9 ? `
+      <div class="alerta-clinica">
+        Requiere evaluación clínica.
+      </div>
+    ` : ""}
   `;
 }
 
 function guardarAutomatico() {
+
   const datos = {
-    nombre: document.getElementById("nombre").value,
-    edad: document.getElementById("edad").value,
-    sexo: document.getElementById("sexo").value,
-    dni: document.getElementById("dni")?.value || "",
-estadoCivil: document.getElementById("estadoCivil")?.value || "",
-direccion: document.getElementById("direccion")?.value || "",
-fecha: document.getElementById("fecha")?.value || "",
-    observaciones: document.getElementById("observaciones").value,
+
+    nombre:
+      document.getElementById("nombre")?.value || "",
+
+    edad:
+      document.getElementById("edad")?.value || "",
+
+    sexo:
+      document.getElementById("sexo")?.value || "",
+
+    dni:
+      document.getElementById("dni")?.value || "",
+
+    estadoCivil:
+      document.getElementById("estadoCivil")?.value || "",
+
+    direccion:
+      document.getElementById("direccion")?.value || "",
+
+    fecha:
+      document.getElementById("fecha")?.value || "",
+
+    observaciones:
+      document.getElementById("observaciones")?.value || "",
+
     respuestas: {}
+
   };
 
-  for (let i = 1; i <= NUM_ITEMS; i++) {
-    datos.respuestas[i] = valorItem(i);
+  for (
+    let i = 1;
+    i <= NUM_ITEMS;
+    i++
+  ) {
+
+    datos.respuestas[i] =
+      valorItem(i);
+
   }
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(datos));
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(datos)
+  );
 }
 
 function cargarAutomatico() {
-  const datos = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (!datos) return;
 
-  document.getElementById("nombre").value = datos.nombre || "";
-  document.getElementById("edad").value = datos.edad || "";
-  document.getElementById("sexo").value = datos.sexo || "";
-  document.getElementById("fecha").value = datos.fecha || "";
-  document.getElementById("observaciones").value = datos.observaciones || "";
+  const datos =
+    JSON.parse(
+      localStorage.getItem(
+        STORAGE_KEY
+      )
+    );
 
-  for (let i = 1; i <= NUM_ITEMS; i++) {
-    const campo = document.getElementById(`item_${i}`);
-    if (campo) campo.value = datos.respuestas?.[i] || "";
+  if (!datos)
+    return;
+
+  document.getElementById("nombre").value =
+    datos.nombre || "";
+
+  document.getElementById("edad").value =
+    datos.edad || "";
+
+  document.getElementById("sexo").value =
+    datos.sexo || "";
+
+  document.getElementById("fecha").value =
+    datos.fecha || "";
+
+  document.getElementById("observaciones").value =
+    datos.observaciones || "";
+
+  for (
+    let i = 1;
+    i <= NUM_ITEMS;
+    i++
+  ) {
+
+    const campo =
+      document.getElementById(
+        `item_${i}`
+      );
+
+    if (campo) {
+
+      campo.value =
+        datos.respuestas?.[i] || "";
+
+    }
+
   }
 }
 
 function limpiarFormulario() {
-  if (!confirm("¿Limpiar todo?")) return;
 
-  localStorage.removeItem(STORAGE_KEY);
-  sessionStorage.removeItem("pdf_generado_desesperanza");
-  sessionStorage.removeItem("resultado_guardado_desesperanza");
-  location.reload();
-}
-
-
-
-
-
-function generarInformePDF() {
-
-// alert("La función generarInformePDF se ejecutó");
-
-  const informe = document.getElementById("informeClinico");
-
-  if (!informe) {
-    alert("No existe el contenedor informeClinico.");
+  if (
+    !confirm(
+      "¿Limpiar todo?"
+    )
+  ) {
     return;
   }
 
-  informe.style.display = "block";
-  informe.classList.remove("print-only");
+  localStorage.removeItem(
+    STORAGE_KEY
+  );
+
+  sessionStorage.removeItem(
+    "pdf_generado_desesperanza"
+  );
+
+  sessionStorage.removeItem(
+    "resultado_guardado_desesperanza"
+  );
+
+  location.reload();
+}
+
+function generarInformePDF() {
+
+  const informe =
+    document.getElementById(
+      "informeClinico"
+    );
+
+  if (!informe) {
+
+    alert(
+      "No existe el contenedor informeClinico."
+    );
+
+    return;
+
+  }
+
+  informe.style.display =
+    "block";
+
+  informe.classList.remove(
+    "print-only"
+  );
 
   informe.innerHTML = `
     <h2>Informe generado</h2>
-    <p><strong>Test:</strong> Escala de Desesperanza de Beck</p>
-    <p><strong>Nombre:</strong> ${document.getElementById("nombre").value || "—"}</p>
-    <p><strong>Edad:</strong> ${document.getElementById("edad").value || "—"}</p>
-    <p><strong>Sexo:</strong> ${document.getElementById("sexo").value || "—"}</p>
-    <p><strong>Fecha:</strong> ${document.getElementById("fecha").value || "—"}</p>
-    <p><strong>Puntaje total:</strong> ${document.getElementById("puntajeTotal").textContent}</p>
-    <p><strong>Nivel:</strong> ${document.getElementById("nivel").textContent}</p>
 
-    <h3>Interpretación orientativa</h3>
-    ${document.getElementById("interpretacionClinica").innerHTML || "<p>—</p>"}
+    <p>
+      <strong>Test:</strong>
+      Escala de Desesperanza de Beck
+    </p>
+
+    <p>
+      <strong>Nombre:</strong>
+      ${document.getElementById("nombre")?.value || "—"}
+    </p>
+
+    <p>
+      <strong>Edad:</strong>
+      ${document.getElementById("edad")?.value || "—"}
+    </p>
+
+    <p>
+      <strong>Sexo:</strong>
+      ${document.getElementById("sexo")?.value || "—"}
+    </p>
+
+    <p>
+      <strong>Fecha:</strong>
+      ${document.getElementById("fecha")?.value || "—"}
+    </p>
+
+    <p>
+      <strong>Puntaje total:</strong>
+      ${document.getElementById("puntajeTotal")?.textContent || "—"}
+    </p>
+
+    <p>
+      <strong>Nivel:</strong>
+      ${document.getElementById("nivel")?.textContent || "—"}
+    </p>
+
+    <h3>
+      Interpretación orientativa
+    </h3>
+
+    ${
+      document.getElementById(
+        "interpretacionClinica"
+      )?.innerHTML ||
+      "<p>—</p>"
+    }
 
     <br>
-    <button onclick="window.print()">Imprimir / guardar PDF</button>
+
+    <button onclick="window.print()">
+      Imprimir / guardar PDF
+    </button>
   `;
 
-  informe.scrollIntoView({ behavior: "smooth" });
+  informe.scrollIntoView({
+    behavior: "smooth"
+  });
 }
-
-
-
 
 function exportarCSV() {
-  let csv = "Item,Pregunta,Respuesta\n";
 
-  for (let i = 1; i <= NUM_ITEMS; i++) {
-    csv += `${i},"${preguntas[i - 1]}","${valorItem(i)}"\n`;
+  let csv =
+    "Item,Pregunta,Respuesta\n";
+
+  for (
+    let i = 1;
+    i <= NUM_ITEMS;
+    i++
+  ) {
+
+    csv +=
+      `${i},"${preguntas[i - 1]}","${valorItem(i)}"\n`;
+
   }
 
-  csv += `\nNombre,${document.getElementById("nombre")?.value || ""}\n`;
-  csv += `DNI,${document.getElementById("dni")?.value || ""}\n`;
-  csv += `Edad,${document.getElementById("edad")?.value || ""}\n`;
-  csv += `Sexo,${document.getElementById("sexo")?.value || ""}\n`;
-  csv += `Estado civil,${document.getElementById("estadoCivil")?.value || ""}\n`;
-  csv += `Domicilio,${document.getElementById("direccion")?.value || ""}\n`;
-  csv += `Fecha,${document.getElementById("fecha")?.value || ""}\n`;
-  csv += `Puntaje total,${document.getElementById("puntajeTotal")?.textContent || ""}\n`;
-  csv += `Nivel,${document.getElementById("nivel")?.textContent || ""}\n`;
+  csv +=
+    `\nNombre,${document.getElementById("nombre")?.value || ""}\n`;
 
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
+  csv +=
+    `DNI,${document.getElementById("dni")?.value || ""}\n`;
 
-  const enlace = document.createElement("a");
-  enlace.href = url;
-  enlace.download = "beck_desesperanza.csv";
+  csv +=
+    `Edad,${document.getElementById("edad")?.value || ""}\n`;
+
+  csv +=
+    `Sexo,${document.getElementById("sexo")?.value || ""}\n`;
+
+  csv +=
+    `Estado civil,${document.getElementById("estadoCivil")?.value || ""}\n`;
+
+  csv +=
+    `Domicilio,${document.getElementById("direccion")?.value || ""}\n`;
+
+  csv +=
+    `Fecha,${document.getElementById("fecha")?.value || ""}\n`;
+
+  csv +=
+    `Puntaje total,${document.getElementById("puntajeTotal")?.textContent || ""}\n`;
+
+  csv +=
+    `Nivel,${document.getElementById("nivel")?.textContent || ""}\n`;
+
+  const blob =
+    new Blob(
+      [csv],
+      {
+        type:
+          "text/csv;charset=utf-8;"
+      }
+    );
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+  const enlace =
+    document.createElement(
+      "a"
+    );
+
+  enlace.href =
+    url;
+
+  enlace.download =
+    "beck_desesperanza.csv";
+
   enlace.click();
 
-  URL.revokeObjectURL(url);
+  URL.revokeObjectURL(
+    url
+  );
 }
 
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
+    crearFormulario();
 
+    const fecha =
+      document.getElementById(
+        "fecha"
+      );
 
+    if (
+      fecha &&
+      !fecha.value
+    ) {
 
+      fecha.valueAsDate =
+        new Date();
 
-window.addEventListener("DOMContentLoaded", () => {
-  crearFormulario();
-
-  const fecha = document.getElementById("fecha");
-  if (fecha && !fecha.value) {
-    fecha.valueAsDate = new Date();
-  }
-
-  // cargarAutomatico();
-  calcular();
-
-  ["nombre", "edad", "sexo", "fecha", "observaciones"].forEach(id => {
-    const campo = document.getElementById(id);
-    if (campo) {
-      campo.addEventListener("input", guardarAutomatico);
-      campo.addEventListener("change", guardarAutomatico);
     }
-  });
-});
 
+    // cargarAutomatico();
 
+    calcular();
 
+    [
+      "nombre",
+      "edad",
+      "sexo",
+      "fecha",
+      "observaciones"
+    ].forEach(id => {
+
+      const campo =
+        document.getElementById(id);
+
+      if (campo) {
+
+        campo.addEventListener(
+          "input",
+          guardarAutomatico
+        );
+
+        campo.addEventListener(
+          "change",
+          guardarAutomatico
+        );
+
+      }
+
+    });
+
+  }
+);
