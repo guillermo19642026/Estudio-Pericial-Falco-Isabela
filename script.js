@@ -840,3 +840,75 @@ if (document.readyState === "loading") {
   iniciarFalcoFaq();
 
 }
+
+
+/* =========================================================
+   CONSULTAS INTERNACIONALES · REVEAL PREMIUM
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const seccionInternacional = document.querySelector(
+    ".falco-internacional-home"
+  );
+
+  if (!seccionInternacional) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  const header = seccionInternacional.querySelector(
+    ".falco-internacional-encabezado"
+  );
+
+  const cards = seccionInternacional.querySelectorAll(
+    ".falco-internacional-card"
+  );
+
+  const nota = seccionInternacional.querySelector(
+    ".falco-internacional-nota"
+  );
+
+  const elementos = [
+    header,
+    ...cards,
+    nota
+  ].filter(Boolean);
+
+  if (reduceMotion) {
+    elementos.forEach((elemento) => {
+      elemento.classList.add("is-visible");
+    });
+
+    return;
+  }
+
+  const observerInternacional = new IntersectionObserver(
+    (entries, observer) => {
+
+      entries.forEach((entry) => {
+
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+
+      });
+
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -40px 0px"
+    }
+  );
+
+  elementos.forEach((elemento) => {
+    observerInternacional.observe(elemento);
+  });
+
+});
