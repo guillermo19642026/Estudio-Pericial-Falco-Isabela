@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -13,7 +15,9 @@
     content="Importador masivo de causas y documentos del Sistema FALCO®."
   >
 
-  <title>Importador masivo | Gestión de Causas FALCO®</title>
+  <title>
+    Importador masivo | Gestión de Causas FALCO®
+  </title>
 
   <link
     rel="preconnect"
@@ -35,6 +39,7 @@
     rel="stylesheet"
     href="../css/gestion-causas.css"
   >
+
 </head>
 
 <body>
@@ -52,6 +57,7 @@
           href="../index.html"
           class="gc-brand"
         >
+
           <span class="gc-brand__eyebrow">
             Sistema FALCO®
           </span>
@@ -59,6 +65,7 @@
           <strong class="gc-brand__title">
             Gestión Pericial
           </strong>
+
         </a>
 
         <button
@@ -71,6 +78,7 @@
         </button>
 
       </div>
+
 
       <nav
         class="gc-nav"
@@ -85,11 +93,13 @@
           <span>Dashboard</span>
         </a>
 
+
         <div class="gc-nav__group">
 
           <p class="gc-nav__label">
             Causas
           </p>
+
 
           <a
             href="../causas/causas.html"
@@ -99,6 +109,7 @@
             <span>Todas las causas</span>
           </a>
 
+
           <a
             href="../causas/causas.html?departamento=moron"
             class="gc-nav__link"
@@ -106,6 +117,7 @@
             <span class="gc-nav__icon">M</span>
             <span>Morón</span>
           </a>
+
 
           <a
             href="../causas/causas.html?departamento=la-matanza"
@@ -115,6 +127,16 @@
             <span>La Matanza</span>
           </a>
 
+
+          <a
+            href="../causas/cobradas.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">$</span>
+            <span>Causas cobradas</span>
+          </a>
+
+
           <a
             href="../causas/nueva-causa.html"
             class="gc-nav__link"
@@ -122,6 +144,7 @@
             <span class="gc-nav__icon">＋</span>
             <span>Nueva causa</span>
           </a>
+
 
           <a
             href="./importador.html"
@@ -133,11 +156,13 @@
 
         </div>
 
+
         <div class="gc-nav__group">
 
           <p class="gc-nav__label">
             Seguimiento
           </p>
+
 
           <a
             href="../agenda/agenda.html"
@@ -147,6 +172,25 @@
             <span>Agenda y vencimientos</span>
           </a>
 
+
+          <a
+            href="../causas/pericias.html"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">P</span>
+            <span>Pericias</span>
+          </a>
+
+
+          <a
+            href="../causas/causas.html?vista=impugnaciones"
+            class="gc-nav__link"
+          >
+            <span class="gc-nav__icon">!</span>
+            <span>Impugnaciones</span>
+          </a>
+
+
           <a
             href="../honorarios/honorarios.html"
             class="gc-nav__link"
@@ -154,6 +198,7 @@
             <span class="gc-nav__icon">$</span>
             <span>Honorarios</span>
           </a>
+
 
           <a
             href="../documentos/documentos.html"
@@ -167,6 +212,7 @@
 
       </nav>
 
+
       <div class="gc-sidebar__footer">
 
         <div class="gc-user-card">
@@ -176,8 +222,15 @@
           </div>
 
           <div>
-            <strong>Lic. Isabela Falco</strong>
-            <span>Administración</span>
+
+            <strong>
+              Lic. Isabela Falco
+            </strong>
+
+            <span>
+              Administración
+            </span>
+
           </div>
 
         </div>
@@ -185,6 +238,7 @@
       </div>
 
     </aside>
+
 
     <div class="gc-main">
 
@@ -202,6 +256,7 @@
           </button>
 
           <div>
+
             <span class="gc-topbar__eyebrow">
               Archivo pericial
             </span>
@@ -209,9 +264,11 @@
             <h1>
               Importación masiva
             </h1>
+
           </div>
 
         </div>
+
 
         <div class="gc-topbar__actions">
 
@@ -225,6 +282,7 @@
         </div>
 
       </header>
+
 
       <main class="gc-content">
 
@@ -250,6 +308,7 @@
 
         </section>
 
+
         <section class="gc-import-guide">
 
           <article class="gc-import-step is-active">
@@ -259,11 +318,17 @@
             </span>
 
             <div>
-              <strong>Seleccionar archivo</strong>
-              <span>ZIP de Morón o La Matanza</span>
+              <strong>
+                Seleccionar archivo
+              </strong>
+
+              <span>
+                ZIP de Morón o La Matanza
+              </span>
             </div>
 
           </article>
+
 
           <article class="gc-import-step">
 
@@ -272,11 +337,17 @@
             </span>
 
             <div>
-              <strong>Analizar contenido</strong>
-              <span>Detectar causas y documentos</span>
+              <strong>
+                Analizar contenido
+              </strong>
+
+              <span>
+                Detectar causas y documentos
+              </span>
             </div>
 
           </article>
+
 
           <article class="gc-import-step">
 
@@ -285,11 +356,17 @@
             </span>
 
             <div>
-              <strong>Revisar resultados</strong>
-              <span>Corregir datos dudosos</span>
+              <strong>
+                Revisar resultados
+              </strong>
+
+              <span>
+                Corregir datos dudosos
+              </span>
             </div>
 
           </article>
+
 
           <article class="gc-import-step">
 
@@ -298,13 +375,45 @@
             </span>
 
             <div>
-              <strong>Confirmar importación</strong>
-              <span>Guardar las causas seleccionadas</span>
+              <strong>
+                Confirmar importación
+              </strong>
+
+              <span>
+                Guardar los registros seleccionados
+              </span>
             </div>
 
           </article>
 
         </section>
+
+
+<div class="gc-field">
+
+  <label for="gcImportDestination">
+    Destino de importación
+  </label>
+
+  <select id="gcImportDestination">
+
+    <option value="causas">
+      Causas
+    </option>
+
+    <option value="pericias">
+      Pericias
+    </option>
+
+    <option value="cobradas">
+      Causas cobradas
+    </option>
+
+  </select>
+
+</div>
+
+
 
         <section
           class="gc-import-upload"
@@ -332,7 +441,7 @@
             </span>
 
             <h3>
-              Seleccione el ZIP de causas
+              Seleccione el ZIP
             </h3>
 
             <p>
@@ -354,6 +463,7 @@
             </small>
 
           </div>
+
 
           <div
             class="gc-import-selected-file"
@@ -381,6 +491,7 @@
 
             </div>
 
+
             <div class="gc-import-selected-file__actions">
 
               <button
@@ -404,6 +515,7 @@
           </div>
 
         </section>
+
 
         <section
           class="gc-import-progress"
@@ -431,6 +543,7 @@
 
           </div>
 
+
           <div class="gc-import-progress__bar">
 
             <span
@@ -445,6 +558,7 @@
           </p>
 
         </section>
+
 
         <section
           class="gc-import-results"
@@ -461,10 +575,11 @@
               </span>
 
               <h3>
-                Causas detectadas
+                Registros detectados
               </h3>
 
             </div>
+
 
             <div class="gc-import-results__actions">
 
@@ -488,6 +603,7 @@
 
           </div>
 
+
           <section class="gc-agenda-stats">
 
             <article class="gc-stat-card">
@@ -509,6 +625,7 @@
 
             </article>
 
+
             <article class="gc-stat-card">
 
               <span class="gc-stat-card__label">
@@ -528,6 +645,7 @@
 
             </article>
 
+
             <article class="gc-stat-card">
 
               <span class="gc-stat-card__label">
@@ -546,6 +664,7 @@
               </span>
 
             </article>
+
 
             <article class="gc-stat-card gc-stat-card--warning">
 
@@ -568,9 +687,17 @@
 
           </section>
 
+
           <section class="gc-filter-panel">
 
             <div class="gc-filter-grid gc-filter-grid--agenda">
+
+
+
+
+
+             
+
 
               <div class="gc-field gc-field--wide">
 
@@ -587,6 +714,7 @@
 
               </div>
 
+
               <div class="gc-field">
 
                 <label for="gcImportDepartment">
@@ -594,12 +722,23 @@
                 </label>
 
                 <select id="gcImportDepartment">
-                  <option value="">Detectar automáticamente</option>
-                  <option value="moron">Morón</option>
-                  <option value="la-matanza">La Matanza</option>
+
+                  <option value="">
+                    Detectar automáticamente
+                  </option>
+
+                  <option value="moron">
+                    Morón
+                  </option>
+
+                  <option value="la-matanza">
+                    La Matanza
+                  </option>
+
                 </select>
 
               </div>
+
 
               <div class="gc-field">
 
@@ -608,13 +747,27 @@
                 </label>
 
                 <select id="gcImportReviewFilter">
-                  <option value="">Todas</option>
-                  <option value="ready">Listas para importar</option>
-                  <option value="review">Requieren revisión</option>
-                  <option value="duplicate">Posibles duplicadas</option>
+
+                  <option value="">
+                    Todas
+                  </option>
+
+                  <option value="ready">
+                    Listas para importar
+                  </option>
+
+                  <option value="review">
+                    Requieren revisión
+                  </option>
+
+                  <option value="duplicate">
+                    Posibles duplicadas
+                  </option>
+
                 </select>
 
               </div>
+
 
               <div class="gc-field">
 
@@ -623,10 +776,23 @@
                 </label>
 
                 <select id="gcImportDocumentFilter">
-                  <option value="">Todas</option>
-                  <option value="with-documents">Con documentos</option>
-                  <option value="without-documents">Sin documentos</option>
-                  <option value="with-periciados">Con subcarpetas</option>
+
+                  <option value="">
+                    Todas
+                  </option>
+
+                  <option value="with-documents">
+                    Con documentos
+                  </option>
+
+                  <option value="without-documents">
+                    Sin documentos
+                  </option>
+
+                  <option value="with-periciados">
+                    Con subcarpetas
+                  </option>
+
                 </select>
 
               </div>
@@ -635,24 +801,42 @@
 
           </section>
 
+
           <div class="gc-list-summary">
 
             <div>
-              <span>Causas visibles</span>
-              <strong id="gcImportVisibleCount">0</strong>
+
+              <span>
+                Causas visibles
+              </span>
+
+              <strong id="gcImportVisibleCount">
+                0
+              </strong>
+
             </div>
 
+
             <div>
-              <span>Seleccionadas</span>
-              <strong id="gcImportSelectedCount">0</strong>
+
+              <span>
+                Seleccionadas
+              </span>
+
+              <strong id="gcImportSelectedCount">
+                0
+              </strong>
+
             </div>
 
           </div>
+
 
           <div
             class="gc-import-case-list"
             id="gcImportCaseList"
           ></div>
+
 
           <div
             class="gc-empty-state"
@@ -674,6 +858,7 @@
 
           </div>
 
+
           <div class="gc-import-confirmation">
 
             <div>
@@ -682,9 +867,9 @@
                 Importación
               </span>
 
-              <strong>
+              <strong id="gcImportDestinationMessage">
                 Las causas seleccionadas se guardarán
-                en la base local del módulo.
+                en Gestión de Causas.
               </strong>
 
               <p>
@@ -694,6 +879,7 @@
               </p>
 
             </div>
+
 
             <button
               type="button"
@@ -710,6 +896,7 @@
 
       </main>
 
+
       <footer class="gc-footer">
 
         <span>
@@ -724,10 +911,12 @@
 
   </div>
 
+
   <div
     class="gc-overlay"
     id="gcOverlay"
   ></div>
+
 
   <div
     class="gc-toast"
@@ -736,19 +925,31 @@
     aria-live="polite"
   ></div>
 
+
   <script
     src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"
   ></script>
+
 
   <script src="../js/gestion-causas-config.js"></script>
   <script src="../js/gestion-causas-data.js"></script>
   <script src="../js/gestion-causas-ui.js"></script>
   <script src="../js/gestion-causas.js"></script>
-<script src="../js/gestion-causas-importador-reglas.js"></script>
-<script src="../js/gestion-causas-importador-lector.js"></script>
-<script src="../js/gestion-causas-importador-extractor.js"></script>
-<script src="../js/gestion-causas-parser-juridico.js"></script>
-<script src="../js/gestion-causas-importador.js"></script>
+
+  <script src="../js/gestion-causas-importador-reglas.js"></script>
+  <script src="../js/gestion-causas-importador-lector.js"></script>
+  <script src="../js/gestion-causas-importador-extractor.js"></script>
+  <script src="../js/gestion-causas-parser-juridico.js"></script>
+
+  <script
+    type="module"
+    src="../js/gestion-causas-firestore.js"
+  ></script>
+
+  <script src="../js/gestion-causas-importador.js"></script>
+
+  <script src="../js/gestion-causas-nav.js"></script>
 
 </body>
+
 </html>

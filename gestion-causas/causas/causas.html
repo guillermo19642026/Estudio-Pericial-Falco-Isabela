@@ -13,6 +13,7 @@
     content="Listado y seguimiento de causas judiciales del Sistema FALCO®."
   >
 
+
   <title>Causas | Gestión de Causas FALCO®</title>
 
   <link
@@ -35,6 +36,8 @@
     rel="stylesheet"
     href="../css/gestion-causas.css"
   >
+
+
 </head>
 
 <body>
@@ -87,6 +90,15 @@
             <span>La Matanza</span>
           </a>
 
+<a
+  href="./cobradas.html"
+  class="gc-nav__link"
+>
+  <span class="gc-nav__icon">$</span>
+  <span>Causas cobradas</span>
+</a>
+
+
           <a href="./nueva-causa.html" class="gc-nav__link">
             <span class="gc-nav__icon">＋</span>
             <span>Nueva causa</span>
@@ -103,10 +115,10 @@
             <span>Agenda y vencimientos</span>
           </a>
 
-          <a href="./causas.html?vista=pericias" class="gc-nav__link">
-            <span class="gc-nav__icon">P</span>
-            <span>Pericias</span>
-          </a>
+          <a href="./pericias.html" class="gc-nav__link">
+  <span class="gc-nav__icon">P</span>
+  <span>Pericias</span>
+</a>
 
           <a href="./causas.html?vista=impugnaciones" class="gc-nav__link">
             <span class="gc-nav__icon">!</span>
@@ -393,6 +405,14 @@
   <script src="../js/gestion-causas-ui.js"></script>
   <script src="../js/gestion-causas.js"></script>
   <script src="../js/gestion-causas-listado.js"></script>
+
+  <script
+  type="module"
+  src="../js/gestion-causas-firestore.js">
+</script>
+
+<script src="../js/gestion-causas-nav.js"></script>
+
 
 </body>
 </html>

@@ -79,6 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const documentFilter =
     document.getElementById("gcImportDocumentFilter");
 
+  const destinationFilter =
+    document.getElementById("gcImportDestination");
+
+  const destinationMessage =
+    document.getElementById("gcImportDestinationMessage");
+
   const selectAllButton =
     document.getElementById("gcSelectAllImportCases");
 
@@ -250,70 +256,647 @@ document.addEventListener("DOMContentLoaded", () => {
     return allSame ? first : "";
   };
 
-  const buildCaseMap = (
-    entries,
-    rootFolderName
-  ) => {
-    const caseMap = new Map();
 
-    entries.forEach((entry) => {
-      if (entry.dir) {
-        return;
-      }
+
+
+const buildCaseMap = (
+  entries,
+  rootFolderName
+) => {
+  const caseMap = new Map();
+
+ const importSourceText =
+  rules.normalizeText(
+    [
+      destinationFilter?.value || "",
+      selectedZipFile?.name || "",
+      rootFolderName || ""
+    ].join(" ")
+  );
+
+const importDestination =
+  importSourceText.includes("pericia") ||
+  importSourceText.includes("conteste")
+    ? "pericias"
+    : importSourceText.includes("cobrada")
+      ? "cobradas"
+      : destinationFilter?.value ||
+        "causas";
+
+
+  /* =====================================================
+     MODO ESPECIAL: PERICIAS Y CONTESTES
+  ===================================================== */
+if (
+  importDestination ===
+  "pericias"
+) {
+
+  const getProfessionalRecordName = (
+    fileName = ""
+  ) => {
+    let name =
+      rules.cleanImportedName(
+        fileName
+      );
+
+    name = name.replace(
+      /\.[a-z0-9]{2,6}$/i,
+      ""
+    );
+
+    name = name.replace(
+      /\([^)]*\)/g,
+      " "
+    );
+
+    name = name.replace(
+      /\bJCC\b.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bTT\b.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bJUZGADO\s+(?:CIVIL|LABORAL|DEL\s+TRABAJO).*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bTRIBUNAL\s+(?:DEL|DE)\s+TRABAJO.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bPERICIA(?:\s+PSICOLOGICA)?\b.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bCONTESTE\b.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bCONTESTACION\b.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bIMPUGNACION\b.*$/i,
+      " "
+    );
+
+    name = name.replace(
+      /\bEXPLICACIONES\b.*$/i,
+      " "
+    );
+
+    name = name
+      .replace(
+        /[_\-–—]+/g,
+        " "
+      )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+    return (
+      name ||
+      "Registro sin identificar"
+    );
+  };
+
+
+  entries.forEach((entry) => {
+    if (entry.dir) {
+      return;
+    }
+
+    if (
+      rules.isHiddenPath(
+        entry.name
+      ) ||
+      rules.isTemporaryFile(
+        entry.name
+      )
+    ) {
+      return;
+    }
+
+    const segments =
+      getPathSegments(
+        entry.name
+      );
+
+    const rootOffset =
+      rootFolderName &&
+      segments[0] === rootFolderName
+        ? 1
+        : 0;
+
+    const logicalSegments =
+      segments.slice(
+        rootOffset
+      );
+
+   if (
+  logicalSegments.length < 1
+) {
+  return;
+}
+
+    /*
+     * Primer nivel:
+     * CIVIL / TRABAJO
+     */
+    const areaFolder = "";
+
+    const normalizedArea =
+      rules.normalizeText(
+        areaFolder
+      );
+
+    const fuero =
+      normalizedArea.includes("civil")
+        ? "Civil"
+        : normalizedArea.includes("trabajo")
+          ? "Laboral"
+          : "";
+
+    /*
+     * Segundo nivel opcional:
+     * SI / NO
+     */
+    let damageFolder = "";
+
+    if (
+      logicalSegments.length >= 3
+    ) {
+      const possibleDamage =
+        rules.cleanImportedName(
+          logicalSegments[1] || ""
+        );
+
+      const normalizedDamage =
+        rules.normalizeText(
+          possibleDamage
+        );
 
       if (
-        rules.isHiddenPath(entry.name) ||
-        rules.isTemporaryFile(entry.name)
+        normalizedDamage === "si" ||
+        normalizedDamage === "no"
       ) {
-        return;
+        damageFolder =
+          possibleDamage;
       }
+    }
 
-      const segments =
-        getPathSegments(entry.name);
+    const normalizedDamageFolder =
+      rules.normalizeText(
+        damageFolder
+      );
 
-      if (!segments.length) {
-        return;
-      }
+    const danioPsiquico =
+      normalizedDamageFolder === "si"
+        ? "con-danio"
+        : normalizedDamageFolder === "no"
+          ? "sin-danio"
+          : "sin-determinar";
 
-      const rootOffset =
-        rootFolderName &&
-        segments[0] === rootFolderName
-          ? 1
-          : 0;
+    /*
+     * El último elemento siempre
+     * es el archivo.
+     */
+    const fileName =
+      rules.cleanImportedName(
+        logicalSegments[
+          logicalSegments.length - 1
+        ]
+      );
 
-      const caseFolderName =
-        rules.cleanImportedName(
-          segments[rootOffset]
-        );
+    if (!fileName) {
+      return;
+    }
 
-      if (!caseFolderName) {
-        return;
-      }
+    const professionalName =
+      getProfessionalRecordName(
+        fileName
+      );
 
-      const caseFolderExtension =
-        rules.getFileExtension(
-          caseFolderName
-        );
+const normalizedFileName =
+  rules.normalizeText(
+    fileName
+  );
 
-      if (caseFolderExtension) {
-        return;
-      }
+const departamentoDetectado =
+  normalizedFileName.includes(
+    "matanza"
+  )
+    ? "la-matanza"
+    : normalizedFileName.includes(
+        "moron"
+      )
+      ? "moron"
+      : "";
 
-      const fileName =
-        rules.cleanImportedName(
-          segments[segments.length - 1]
-        );
 
-      const relativeSegments =
-        segments.slice(rootOffset + 1);
+    if (!professionalName) {
+      return;
+    }
 
-      const subfolderSegments =
-        relativeSegments.slice(0, -1);
+    /*
+     * Agrupamos Pericia + Conteste
+     * de una misma persona.
+     */
+    const caseMapKey =
+      `${normalizedArea}::${rules.normalizeText(
+        professionalName
+      )}`;
 
-      if (!caseMap.has(caseFolderName)) {
-        caseMap.set(caseFolderName, {
+    if (
+      !caseMap.has(
+        caseMapKey
+      )
+    ) {
+      caseMap.set(
+        caseMapKey,
+        {
           id:
-            window.crypto?.randomUUID?.() ||
+            window.crypto
+              ?.randomUUID?.() ||
+            `pericia-${Date.now()}-${Math.random()
+              .toString(36)
+              .slice(2, 9)}`,
+
+          folderName:
+            professionalName,
+
+          rootFolderName:
+            [
+              rootFolderName,
+              areaFolder,
+              damageFolder
+            ]
+              .filter(Boolean)
+              .join(" "),
+
+          selected:
+            true,
+
+          documents:
+            [],
+
+          subfolders:
+            new Map(),
+
+          possiblePericiados:
+            [],
+
+          requiresReview:
+            false,
+
+          possibleDuplicate:
+            false,
+
+          esTerminada:
+            false,
+
+          situacion:
+            "activa",
+
+          carpetaContenedora:
+            areaFolder,
+
+          fueroDetectado:
+  fuero,
+
+departamentoDetectado:
+  departamentoDetectado,
+
+danioPsiquicoDetectado:
+  danioPsiquico
+        }
+      );
+    }
+
+    const caseRecord =
+      caseMap.get(
+        caseMapKey
+      );
+
+    /*
+     * Si primero estaba sin determinar
+     * y luego encontramos SI o NO,
+     * guardamos el dato detectado.
+     */
+    if (
+      caseRecord
+        .danioPsiquicoDetectado ===
+        "sin-determinar" &&
+      danioPsiquico !==
+        "sin-determinar"
+    ) {
+      caseRecord
+        .danioPsiquicoDetectado =
+        danioPsiquico;
+    }
+
+    /*
+     * Si aparece la misma persona
+     * tanto en SI como en NO,
+     * la marcamos para revisión.
+     */
+    if (
+      caseRecord
+        .danioPsiquicoDetectado !==
+        "sin-determinar" &&
+      danioPsiquico !==
+        "sin-determinar" &&
+      caseRecord
+        .danioPsiquicoDetectado !==
+        danioPsiquico
+    ) {
+      caseRecord.requiresReview =
+        true;
+    }
+
+    const documentRecord =
+      rules.createDocumentRecord({
+        fileName,
+
+        fullPath:
+          entry.name,
+
+        size:
+          entry._data
+            ?.uncompressedSize ||
+          entry._data?.length ||
+          0,
+
+        compressedSize:
+          entry._data
+            ?.compressedSize ||
+          0,
+
+        modifiedAt:
+          entry.date ||
+          null
+      });
+
+    documentRecord.zipEntry =
+      entry;
+
+    documentRecord.subcarpeta =
+      [
+        areaFolder,
+        damageFolder
+      ]
+        .filter(Boolean)
+        .join("/");
+
+    documentRecord.danioPsiquico =
+      danioPsiquico;
+
+    documentRecord.esCausaTerminada =
+      false;
+
+    caseRecord.documents.push(
+      documentRecord
+    );
+  });
+
+
+  console.log(
+    "Gestión de Pericias FALCO® agrupación documental",
+    {
+      registros:
+        caseMap.size,
+
+      archivos:
+        entries.filter(
+          (entry) =>
+            !entry.dir
+        ).length,
+
+      conDanio:
+        Array.from(
+          caseMap.values()
+        ).filter(
+          (item) =>
+            item.danioPsiquicoDetectado ===
+            "con-danio"
+        ).length,
+
+      sinDanio:
+        Array.from(
+          caseMap.values()
+        ).filter(
+          (item) =>
+            item.danioPsiquicoDetectado ===
+            "sin-danio"
+        ).length,
+
+      sinDeterminar:
+        Array.from(
+          caseMap.values()
+        ).filter(
+          (item) =>
+            item.danioPsiquicoDetectado ===
+            "sin-determinar"
+        ).length
+    }
+  );
+
+  return caseMap;
+}
+
+
+  /* =====================================================
+     MODO NORMAL: CAUSAS
+     Morón / La Matanza
+  ===================================================== */
+
+  const isFinishedFolder = (
+    value = ""
+  ) => {
+    const normalized =
+      rules.normalizeText(
+        value
+      );
+
+    return (
+      normalized.includes(
+        "terminad"
+      ) ||
+      normalized.includes(
+        "finalizad"
+      ) ||
+      normalized.includes(
+        "cerrad"
+      )
+    );
+  };
+
+
+  entries.forEach((entry) => {
+    if (entry.dir) {
+      return;
+    }
+
+    if (
+      rules.isHiddenPath(
+        entry.name
+      ) ||
+      rules.isTemporaryFile(
+        entry.name
+      )
+    ) {
+      return;
+    }
+
+
+    const segments =
+      getPathSegments(
+        entry.name
+      );
+
+    if (!segments.length) {
+      return;
+    }
+
+
+    const rootOffset =
+      rootFolderName &&
+      segments[0] ===
+        rootFolderName
+        ? 1
+        : 0;
+
+
+    const finishedFolderIndex =
+      segments.findIndex(
+        (
+          segment,
+          index
+        ) =>
+          index >=
+            rootOffset &&
+          isFinishedFolder(
+            segment
+          )
+      );
+
+
+    const isInsideFinishedFolder =
+      finishedFolderIndex !== -1;
+
+
+    const firstLogicalSegment =
+      isInsideFinishedFolder
+        ? segments[
+            finishedFolderIndex
+          ]
+        : segments[
+            rootOffset
+          ] || "";
+
+
+    const caseFolderIndex =
+      isInsideFinishedFolder
+        ? finishedFolderIndex + 1
+        : rootOffset;
+
+
+    const rawCaseFolderName =
+      segments[
+        caseFolderIndex
+      ] || "";
+
+
+    const caseFolderName =
+      rules.cleanImportedName(
+        rawCaseFolderName
+      );
+
+
+    if (!caseFolderName) {
+      return;
+    }
+
+
+    const caseFolderExtension =
+      rules.getFileExtension(
+        caseFolderName
+      );
+
+
+    if (caseFolderExtension) {
+      return;
+    }
+
+
+    if (
+      isInsideFinishedFolder &&
+      segments.length <=
+        caseFolderIndex + 1
+    ) {
+      return;
+    }
+
+
+    const fileName =
+      rules.cleanImportedName(
+        segments[
+          segments.length - 1
+        ]
+      );
+
+
+    if (!fileName) {
+      return;
+    }
+
+
+    const relativeSegments =
+      segments.slice(
+        caseFolderIndex + 1
+      );
+
+
+    const subfolderSegments =
+      relativeSegments.slice(
+        0,
+        -1
+      );
+
+
+    const caseMapKey =
+      `${
+        isInsideFinishedFolder
+          ? "terminada"
+          : "activa"
+      }::${rules.normalizeText(
+        caseFolderName
+      )}`;
+
+
+    if (
+      !caseMap.has(
+        caseMapKey
+      )
+    ) {
+      caseMap.set(
+        caseMapKey,
+        {
+          id:
+            window.crypto
+              ?.randomUUID?.() ||
             `import-case-${Date.now()}-${Math.random()
               .toString(36)
               .slice(2, 9)}`,
@@ -322,94 +905,143 @@ document.addEventListener("DOMContentLoaded", () => {
             caseFolderName,
 
           rootFolderName,
-          selected: true,
-          documents: [],
-          subfolders: new Map(),
-          possiblePericiados: [],
-          requiresReview: false,
-          possibleDuplicate: false
-        });
-      }
 
-      const caseRecord =
-        caseMap.get(caseFolderName);
+          selected:
+            true,
 
-      const documentRecord =
-        rules.createDocumentRecord({
-          fileName,
-          fullPath: entry.name,
+          documents:
+            [],
 
-          size:
-            entry._data?.uncompressedSize ||
-            entry._data?.length ||
-            0,
+          subfolders:
+            new Map(),
 
-          compressedSize:
-            entry._data?.compressedSize ||
-            0,
+          possiblePericiados:
+            [],
 
-          modifiedAt:
-            entry.date || null
-        });
+          requiresReview:
+            false,
 
-      /*
-       * Referencia temporal al archivo interno.
-       * Permite que el lector abra el ODT o DOCX
-       * mientras analiza el ZIP.
-       *
-       * Esta propiedad se elimina antes de guardar
-       * definitivamente la causa.
-       */
-      documentRecord.zipEntry = entry;
+          possibleDuplicate:
+            false,
 
-      documentRecord.subcarpeta =
-        subfolderSegments.join("/");
+          esTerminada:
+            isInsideFinishedFolder,
 
-      caseRecord.documents.push(
-        documentRecord
-      );
+          situacion:
+            isInsideFinishedFolder
+              ? "finalizada"
+              : "activa",
 
-      subfolderSegments.forEach(
-        (folderName, index) => {
-          const folderPath =
-            subfolderSegments
-              .slice(0, index + 1)
-              .join("/");
-
-          if (
-            !caseRecord.subfolders.has(
-              folderPath
-            )
-          ) {
-            caseRecord.subfolders.set(
-              folderPath,
-              {
-                name:
-                  rules.cleanImportedName(
-                    folderName
-                  ),
-
-                path:
-                  folderPath,
-
-                depth:
-                  index + 2,
-
-                type:
-                  rules.classifyFolder(
-                    folderName
-                  )
-              }
-            );
-          }
+          carpetaContenedora:
+            isInsideFinishedFolder
+              ? firstLogicalSegment
+              : ""
         }
       );
-    });
+    }
 
-    return caseMap;
-  };
 
-    const buildImportedCase = async (
+    const caseRecord =
+      caseMap.get(
+        caseMapKey
+      );
+
+
+    const documentRecord =
+      rules.createDocumentRecord({
+        fileName,
+
+        fullPath:
+          entry.name,
+
+        size:
+          entry._data
+            ?.uncompressedSize ||
+          entry._data?.length ||
+          0,
+
+        compressedSize:
+          entry._data
+            ?.compressedSize ||
+          0,
+
+        modifiedAt:
+          entry.date ||
+          null
+      });
+
+
+    documentRecord.zipEntry =
+      entry;
+
+
+    documentRecord.subcarpeta =
+      subfolderSegments.join(
+        "/"
+      );
+
+
+    documentRecord.esCausaTerminada =
+      isInsideFinishedFolder;
+
+
+    caseRecord.documents.push(
+      documentRecord
+    );
+
+
+    subfolderSegments.forEach(
+      (
+        folderName,
+        index
+      ) => {
+        const folderPath =
+          subfolderSegments
+            .slice(
+              0,
+              index + 1
+            )
+            .join("/");
+
+
+        if (
+          caseRecord.subfolders.has(
+            folderPath
+          )
+        ) {
+          return;
+        }
+
+
+        caseRecord.subfolders.set(
+          folderPath,
+          {
+            name:
+              folderName,
+
+            path:
+              folderPath,
+
+            depth:
+              index + 2,
+
+            type:
+              rules.classifyFolder(
+                folderName
+              )
+          }
+        );
+      }
+    );
+  });
+
+
+  return caseMap;
+};
+
+
+
+  const buildImportedCase = async (
     rawCase,
     index,
     existingCases
@@ -433,10 +1065,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedDepartment =
       departmentFilter?.value || "";
 
-    const department =
-      selectedDepartment ||
-      detectedDepartment.value ||
-      "moron";
+   const department =
+  selectedDepartment ||
+  rawCase.departamentoDetectado ||
+  detectedDepartment.value ||
+  "moron";
 
     const departmentName =
       department === "la-matanza"
@@ -535,7 +1168,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "explicaciones",
             "honorarios",
             "carta-pago"
-          ].includes(document.categoria)
+          ].includes(
+            document.categoria
+          )
       );
 
     const requiresReview =
@@ -556,8 +1191,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const extractor =
       window.GestionCausasImportadorExtractor;
 
-      const parser =
-  window.GestionCausasParserJuridico;
+    const parser =
+      window.GestionCausasParserJuridico;
 
     const relevantDocuments =
       reader?.selectRelevantDocuments?.(
@@ -574,536 +1209,586 @@ document.addEventListener("DOMContentLoaded", () => {
     const actionKeys = new Set();
     const feeKeys = new Set();
 
-  const pushLawyer = (lawyer) => {
-  if (!lawyer) {
-    return;
-  }
-
-  const hasUsefulData =
-    lawyer.nombreCompleto ||
-    lawyer.email ||
-    lawyer.telefono ||
-    lawyer.matricula ||
-    lawyer.domicilioElectronico ||
-    lawyer.companiaRepresentada;
-
-  if (!hasUsefulData) {
-    return;
-  }
-
-  const normalizedEmail =
-    rules.normalizeText(
-      lawyer.email || ""
-    );
-
-  const normalizedElectronicAddress =
-    rules.normalizeText(
-      lawyer.domicilioElectronico || ""
-    );
-
-  const normalizedRegistration =
-    rules.normalizeText(
-      lawyer.matricula || ""
-    );
-
-  const normalizedName =
-    rules.normalizeText(
-      lawyer.nombreCompleto || ""
-    );
-
-  const existingLawyer =
-    extractedLawyers.find(
-      (item) => {
-        const sameEmail =
-          normalizedEmail &&
-          rules.normalizeText(
-            item.email || ""
-          ) === normalizedEmail;
-
-        const sameElectronicAddress =
-          normalizedElectronicAddress &&
-          rules.normalizeText(
-            item.domicilioElectronico || ""
-          ) ===
-            normalizedElectronicAddress;
-
-        const sameRegistration =
-          normalizedRegistration &&
-          rules.normalizeText(
-            item.matricula || ""
-          ) === normalizedRegistration;
-
-        const sameNameAndSide =
-          normalizedName &&
-          item.parte === lawyer.parte &&
-          rules.normalizeText(
-            item.nombreCompleto || ""
-          ) === normalizedName;
-
-        return (
-          sameEmail ||
-          sameElectronicAddress ||
-          sameRegistration ||
-          sameNameAndSide
-        );
+    const pushLawyer = (lawyer) => {
+      if (!lawyer) {
+        return;
       }
-    );
 
-  if (existingLawyer) {
-    existingLawyer.nombreCompleto =
-      existingLawyer.nombreCompleto ||
-      lawyer.nombreCompleto ||
-      "";
+      const hasUsefulData =
+        lawyer.nombreCompleto ||
+        lawyer.email ||
+        lawyer.telefono ||
+        lawyer.matricula ||
+        lawyer.domicilioElectronico ||
+        lawyer.companiaRepresentada;
 
-    existingLawyer.matricula =
-      existingLawyer.matricula ||
-      lawyer.matricula ||
-      "";
+      if (!hasUsefulData) {
+        return;
+      }
 
-    existingLawyer.colegio =
-      existingLawyer.colegio ||
-      lawyer.colegio ||
-      "";
+      const normalizedEmail =
+        rules.normalizeText(
+          lawyer.email || ""
+        );
 
-    existingLawyer.telefono =
-      existingLawyer.telefono ||
-      lawyer.telefono ||
-      "";
+      const normalizedElectronicAddress =
+        rules.normalizeText(
+          lawyer.domicilioElectronico || ""
+        );
 
-    existingLawyer.whatsapp =
-      existingLawyer.whatsapp ||
-      lawyer.whatsapp ||
-      "";
+      const normalizedRegistration =
+        rules.normalizeText(
+          lawyer.matricula || ""
+        );
 
-    existingLawyer.email =
-      existingLawyer.email ||
-      lawyer.email ||
-      "";
+      const normalizedName =
+        rules.normalizeText(
+          lawyer.nombreCompleto || ""
+        );
 
-    existingLawyer.domicilioElectronico =
-      existingLawyer.domicilioElectronico ||
-      lawyer.domicilioElectronico ||
-      "";
+      const existingLawyer =
+        extractedLawyers.find(
+          (item) => {
+            const sameEmail =
+              normalizedEmail &&
+              rules.normalizeText(
+                item.email || ""
+              ) === normalizedEmail;
 
-    existingLawyer.estudioJuridico =
-      existingLawyer.estudioJuridico ||
-      lawyer.estudioJuridico ||
-      "";
+            const sameElectronicAddress =
+              normalizedElectronicAddress &&
+              rules.normalizeText(
+                item.domicilioElectronico || ""
+              ) ===
+                normalizedElectronicAddress;
 
-    existingLawyer.companiaRepresentada =
-      existingLawyer.companiaRepresentada ||
-      lawyer.companiaRepresentada ||
-      "";
+            const sameRegistration =
+              normalizedRegistration &&
+              rules.normalizeText(
+                item.matricula || ""
+              ) ===
+                normalizedRegistration;
 
-    existingLawyer.observaciones =
-      existingLawyer.observaciones ||
-      lawyer.observaciones ||
-      "";
+            const sameNameAndSide =
+              normalizedName &&
+              item.parte === lawyer.parte &&
+              rules.normalizeText(
+                item.nombreCompleto || ""
+              ) === normalizedName;
 
-    return;
-  }
+            return (
+              sameEmail ||
+              sameElectronicAddress ||
+              sameRegistration ||
+              sameNameAndSide
+            );
+          }
+        );
 
-  extractedLawyers.push({
-    id:
-      window.crypto?.randomUUID?.() ||
-      `abogado-${Date.now()}-${Math.random()
-        .toString(36)
-        .slice(2, 8)}`,
+      if (existingLawyer) {
+        existingLawyer.nombreCompleto =
+          existingLawyer.nombreCompleto ||
+          lawyer.nombreCompleto ||
+          "";
 
-    parte:
-      lawyer.parte || "",
+        existingLawyer.matricula =
+          existingLawyer.matricula ||
+          lawyer.matricula ||
+          "";
 
-    nombreCompleto:
-      lawyer.nombreCompleto || "",
+        existingLawyer.colegio =
+          existingLawyer.colegio ||
+          lawyer.colegio ||
+          "";
 
-    matricula:
-      lawyer.matricula || "",
+        existingLawyer.telefono =
+          existingLawyer.telefono ||
+          lawyer.telefono ||
+          "";
 
-    colegio:
-      lawyer.colegio || "",
+        existingLawyer.whatsapp =
+          existingLawyer.whatsapp ||
+          lawyer.whatsapp ||
+          "";
 
-    telefono:
-      lawyer.telefono || "",
+        existingLawyer.email =
+          existingLawyer.email ||
+          lawyer.email ||
+          "";
 
-    whatsapp:
-      lawyer.whatsapp || "",
+        existingLawyer.domicilioElectronico =
+          existingLawyer.domicilioElectronico ||
+          lawyer.domicilioElectronico ||
+          "";
 
-    email:
-      lawyer.email || "",
+        existingLawyer.estudioJuridico =
+          existingLawyer.estudioJuridico ||
+          lawyer.estudioJuridico ||
+          "";
 
-    domicilioElectronico:
-      lawyer.domicilioElectronico || "",
+        existingLawyer.companiaRepresentada =
+          existingLawyer.companiaRepresentada ||
+          lawyer.companiaRepresentada ||
+          "";
 
-    estudioJuridico:
-      lawyer.estudioJuridico || "",
+        existingLawyer.observaciones =
+          existingLawyer.observaciones ||
+          lawyer.observaciones ||
+          "";
 
-    companiaRepresentada:
-      lawyer.companiaRepresentada || "",
+        return;
+      }
 
-    observaciones:
-      lawyer.observaciones || ""
-  });
-};
+      extractedLawyers.push({
+        id:
+          window.crypto?.randomUUID?.() ||
+          `abogado-${Date.now()}-${Math.random()
+            .toString(36)
+            .slice(2, 8)}`,
 
-    const pushAction = (action) => {
+        parte:
+          lawyer.parte || "",
+
+        nombreCompleto:
+          lawyer.nombreCompleto || "",
+
+        matricula:
+          lawyer.matricula || "",
+
+        colegio:
+          lawyer.colegio || "",
+
+        telefono:
+          lawyer.telefono || "",
+
+        whatsapp:
+          lawyer.whatsapp || "",
+
+        email:
+          lawyer.email || "",
+
+        domicilioElectronico:
+          lawyer.domicilioElectronico || "",
+
+        estudioJuridico:
+          lawyer.estudioJuridico || "",
+
+        companiaRepresentada:
+          lawyer.companiaRepresentada || "",
+
+        observaciones:
+          lawyer.observaciones || ""
+      });
+    };
+
+        const pushAction = (action) => {
       if (!action) {
         return;
       }
 
-      const key =
-        rules.normalizeText(
-          [
-            action.tipo,
-            action.titulo,
-            action.fecha,
-            action.documentoId
-          ]
-            .filter(Boolean)
-            .join("|")
-        );
+      const hasUsefulData =
+        action.fecha ||
+        action.tipo ||
+        action.descripcion;
 
-      if (!key || actionKeys.has(key)) {
+      if (!hasUsefulData) {
+        return;
+      }
+
+      const key =
+        [
+          action.fecha || "",
+          action.tipo || "",
+          action.descripcion || ""
+        ]
+          .map((value) =>
+            rules.normalizeText(value)
+          )
+          .join("::");
+
+      if (
+        actionKeys.has(key)
+      ) {
         return;
       }
 
       actionKeys.add(key);
-      extractedActions.push(action);
+
+      extractedActions.push({
+        id:
+          window.crypto?.randomUUID?.() ||
+          `actuacion-${Date.now()}-${Math.random()
+            .toString(36)
+            .slice(2, 8)}`,
+
+        fecha:
+          action.fecha || "",
+
+        tipo:
+          action.tipo || "",
+
+        descripcion:
+          action.descripcion || "",
+
+        origen:
+          action.origen || "importacion"
+      });
     };
+
 
     const pushFee = (fee) => {
       if (!fee) {
         return;
       }
 
-      const key =
-        rules.normalizeText(
-          [
-            fee.tipo,
-            fee.fecha,
-            fee.monto,
-            fee.descripcion
-          ]
-            .filter(Boolean)
-            .join("|")
-        );
+      const hasUsefulData =
+        fee.monto ||
+        fee.porcentaje ||
+        fee.estado ||
+        fee.fecha ||
+        fee.descripcion;
 
-      if (!key || feeKeys.has(key)) {
+      if (!hasUsefulData) {
+        return;
+      }
+
+      const key =
+        [
+          fee.fecha || "",
+          fee.monto || "",
+          fee.porcentaje || "",
+          fee.estado || "",
+          fee.descripcion || ""
+        ]
+          .map((value) =>
+            rules.normalizeText(value)
+          )
+          .join("::");
+
+      if (
+        feeKeys.has(key)
+      ) {
         return;
       }
 
       feeKeys.add(key);
-      extractedFees.push(fee);
+
+      extractedFees.push({
+        id:
+          window.crypto?.randomUUID?.() ||
+          `honorario-${Date.now()}-${Math.random()
+            .toString(36)
+            .slice(2, 8)}`,
+
+        fecha:
+          fee.fecha || "",
+
+        monto:
+          fee.monto || "",
+
+        porcentaje:
+          fee.porcentaje || "",
+
+        estado:
+          fee.estado || "",
+
+        descripcion:
+          fee.descripcion || "",
+
+        origen:
+          fee.origen || "importacion"
+      });
     };
 
-    for (const document of relevantDocuments) {
-      if (!document.zipEntry) {
-        continue;
-      }
-
-      const readResult =
-        await reader?.readDocument?.({
-          zipEntry:
-            document.zipEntry,
-
-          fileName:
-            document.nombre
-        });
-
-      if (
-        !readResult?.success ||
-        !readResult.text
-      ) {
-        document.lecturaAutomatica =
-          false;
-
-        document.errorLectura =
-          readResult?.error || "";
-
-        continue;
-      }
-
-      const extractedText =
-        String(readResult.text)
-          .replace(/\u0000/g, "")
-          .trim();
-
-      document.textoExtraido =
-        extractedText.slice(0, 25000);
-
-      document.lecturaAutomatica =
-        true;
-
-      document.formatoLectura =
-        readResult.format || "";
-
-     if (
-  [
-    "caratula",
-    "demanda",
-    "contestacion-demanda"
-  ].includes(document.categoria)
-) {
-
-  const parsedDocument =
-    parser?.parseDocument?.({
-      text: extractedText,
-      category: document.categoria
-    });
-
-  const caseData =
-    parsedDocument?.causa || {};
-
-  Object.entries(
-    caseData
-  ).forEach(([key, value]) => {
 
     if (
-      value &&
-      !extractedCaseData[key]
+      reader &&
+      extractor &&
+      relevantDocuments.length
     ) {
-
-      extractedCaseData[key] =
-        value;
-
-    }
-
-  });
-
-  document.parserJuridico = {
-    procesado: true,
-    fecha:
-      parsedDocument?.fecha || "",
-    categoria:
-      document.categoria
-  };
-
-if (
-  document.categoria === "aceptacion-cargo" &&
-  parsedDocument?.fecha &&
-  !extractedCaseData.fechaAceptacion
-) {
-  extractedCaseData.fechaAceptacion =
-    parsedDocument.fecha;
-}
-
-if (
-  (
-    document.categoria === "designacion" ||
-    document.categoria === "apertura-prueba"
-  ) &&
-  parsedDocument?.fecha &&
-  !extractedCaseData.fechaDesignacion
-) {
-  extractedCaseData.fechaDesignacion =
-    parsedDocument.fecha;
-}
-
-
-}
-
-      const normalizedFileName =
-        rules.normalizeText(
-          document.nombre
-        );
-
-if (
-  [
-    "demanda",
-    "contestacion-demanda"
-  ].includes(document.categoria)
-) {
-
-  const side =
-    document.categoria === "demanda"
-      ? "actora"
-      : "demandada";
-
-  const parsedLawyer =
-    parser?.parseDocument?.({
-      text: extractedText,
-      category: document.categoria,
-      side
-    })?.abogado;
-
-  if (
-    parsedLawyer &&
-    (
-      parsedLawyer.nombreCompleto ||
-      parsedLawyer.email ||
-      parsedLawyer.domicilioElectronico ||
-      parsedLawyer.matricula ||
-      parsedLawyer.companiaRepresentada
-    )
-  ) {
-    pushLawyer(parsedLawyer);
-  }
-
-}
-
-
-    const looksLikeActorLawyer =
-  document.categoria ===
-    "abogado-actora" ||
-  normalizedFileName.includes(
-    "abogado parte actora"
-  ) ||
-  normalizedFileName.includes(
-    "abogada parte actora"
-  ) ||
-  normalizedFileName.includes(
-    "letrado parte actora"
-  );
-
-const looksLikeDefendantLawyer =
-  document.categoria ===
-    "abogado-demandada" ||
-  normalizedFileName.includes(
-    "abogado parte demandada"
-  ) ||
-  normalizedFileName.includes(
-    "abogada parte demandada"
-  ) ||
-  normalizedFileName.includes(
-    "letrado parte demandada"
-  );
-
-      if (looksLikeActorLawyer) {
-        pushLawyer(
-          extractor?.extractLawyer?.(
-            extractedText,
-            "actora"
-          )
-        );
-      }
-
-      if (looksLikeDefendantLawyer) {
-        pushLawyer(
-          extractor?.extractLawyer?.(
-            extractedText,
-            "demandada"
-          )
-        );
-      }
-
-     if (
-  [
-    "designacion",
-    "aceptacion-cargo",
-    "apertura-prueba",
-    "fecha-entrevista",
-    "prorroga",
-    "impugnacion",
-    "contestacion-impugnacion",
-    "explicaciones",
-    "traslado",
-    "providencia",
-    "audiencia",
-    "sentencia"
-  ].includes(document.categoria)
-) {
-        pushAction(
-          extractor?.extractAction?.(
-            extractedText,
-            document
-          )
-        );
-      }
-
-      if (
-        [
-          "anticipo-gastos",
-          "carta-pago",
-          "honorarios"
-        ].includes(
-          document.categoria
-        )
+      for (
+        const document
+        of relevantDocuments
       ) {
-        pushFee(
-          extractor?.extractFeeMovement?.(
-            extractedText,
-            document
-          )
-        );
+        try {
+          const documentText =
+            await reader.readDocument(
+              document
+            );
+
+          if (!documentText) {
+            continue;
+          }
+
+          const extraction =
+            extractor.extractDocumentData(
+              documentText,
+              {
+                document,
+                folderName:
+                  rawCase.folderName,
+                department
+              }
+            ) || {};
+
+          if (
+            extraction.expediente &&
+            !extractedCaseData.expediente
+          ) {
+            extractedCaseData.expediente =
+              extraction.expediente;
+          }
+
+          if (
+            extraction.caratula &&
+            !extractedCaseData.caratula
+          ) {
+            extractedCaseData.caratula =
+              extraction.caratula;
+          }
+
+          if (
+            extraction.fuero &&
+            !extractedCaseData.fuero
+          ) {
+            extractedCaseData.fuero =
+              extraction.fuero;
+          }
+
+          if (
+            extraction.juzgado &&
+            !extractedCaseData.juzgado
+          ) {
+            extractedCaseData.juzgado =
+              extraction.juzgado;
+          }
+
+          if (
+            extraction.organismo &&
+            !extractedCaseData.organismo
+          ) {
+            extractedCaseData.organismo =
+              extraction.organismo;
+          }
+
+          if (
+            extraction.actor &&
+            !extractedCaseData.actor
+          ) {
+            extractedCaseData.actor =
+              extraction.actor;
+          }
+
+          if (
+            extraction.demandado &&
+            !extractedCaseData.demandado
+          ) {
+            extractedCaseData.demandado =
+              extraction.demandado;
+          }
+
+          if (
+            extraction.compania &&
+            !extractedCaseData.compania
+          ) {
+            extractedCaseData.compania =
+              extraction.compania;
+          }
+
+          if (
+            extraction.fechaDesignacion &&
+            !extractedCaseData.fechaDesignacion
+          ) {
+            extractedCaseData.fechaDesignacion =
+              extraction.fechaDesignacion;
+          }
+
+          if (
+            extraction.fechaAceptacionCargo &&
+            !extractedCaseData.fechaAceptacionCargo
+          ) {
+            extractedCaseData.fechaAceptacionCargo =
+              extraction.fechaAceptacionCargo;
+          }
+
+          if (
+            extraction.fechaPericia &&
+            !extractedCaseData.fechaPericia
+          ) {
+            extractedCaseData.fechaPericia =
+              extraction.fechaPericia;
+          }
+
+          if (
+            extraction.fechaSentencia &&
+            !extractedCaseData.fechaSentencia
+          ) {
+            extractedCaseData.fechaSentencia =
+              extraction.fechaSentencia;
+          }
+
+          if (
+            Array.isArray(
+              extraction.abogados
+            )
+          ) {
+            extraction.abogados.forEach(
+              pushLawyer
+            );
+          }
+
+          if (
+            Array.isArray(
+              extraction.actuaciones
+            )
+          ) {
+            extraction.actuaciones.forEach(
+              pushAction
+            );
+          }
+
+          if (
+            Array.isArray(
+              extraction.honorarios
+            )
+          ) {
+            extraction.honorarios.forEach(
+              pushFee
+            );
+          }
+
+          if (
+            parser?.parse
+          ) {
+            const parsed =
+              parser.parse(
+                documentText,
+                {
+                  document,
+                  department
+                }
+              ) || {};
+
+            if (
+              parsed.expediente &&
+              !extractedCaseData.expediente
+            ) {
+              extractedCaseData.expediente =
+                parsed.expediente;
+            }
+
+            if (
+              parsed.caratula &&
+              !extractedCaseData.caratula
+            ) {
+              extractedCaseData.caratula =
+                parsed.caratula;
+            }
+
+            if (
+              parsed.fuero &&
+              !extractedCaseData.fuero
+            ) {
+              extractedCaseData.fuero =
+                parsed.fuero;
+            }
+
+            if (
+              parsed.juzgado &&
+              !extractedCaseData.juzgado
+            ) {
+              extractedCaseData.juzgado =
+                parsed.juzgado;
+            }
+
+            if (
+              Array.isArray(
+                parsed.abogados
+              )
+            ) {
+              parsed.abogados.forEach(
+                pushLawyer
+              );
+            }
+
+            if (
+              Array.isArray(
+                parsed.actuaciones
+              )
+            ) {
+              parsed.actuaciones.forEach(
+                pushAction
+              );
+            }
+
+            if (
+              Array.isArray(
+                parsed.honorarios
+              )
+            ) {
+              parsed.honorarios.forEach(
+                pushFee
+              );
+            }
+          }
+
+        } catch (error) {
+          console.warn(
+            "No se pudo analizar un documento:",
+            document?.nombre ||
+              document?.rutaOriginal,
+            error
+          );
+        }
       }
     }
 
-    const expedienteFinal =
+
+    const expediente =
       extractedCaseData.expediente ||
       expedienteInicial ||
       "";
 
-    const year =
-      rules.detectYear(
-        expedienteFinal ||
-        searchableText
-      );
+    const caratula =
+      extractedCaseData.caratula ||
+      rawCase.folderName ||
+      "Sin carátula";
 
-    const codemandadasMap =
-      new Map();
+    const fuero =
+  rawCase.fueroDetectado ||
+  extractedCaseData.fuero ||
+  fueroInicial ||
+  "";
 
-    extractedLawyers
-      .filter(
-        (lawyer) =>
-          lawyer.parte ===
-            "demandada" &&
-          lawyer.companiaRepresentada
-      )
-      .forEach((lawyer) => {
-        const companyName =
-          String(
-            lawyer.companiaRepresentada ||
-            ""
-          ).trim();
-
-        const companyKey =
-          rules.normalizeText(
-            companyName
-          );
-
+    const duplicateAfterExtraction =
+      existingCases.some((causa) => {
         if (
-          !companyName ||
-          codemandadasMap.has(
-            companyKey
-          )
+          expediente &&
+          causa.expediente
         ) {
-          return;
+          return (
+            rules.normalizeText(
+              causa.expediente
+            ) ===
+            rules.normalizeText(
+              expediente
+            )
+          );
         }
 
-        codemandadasMap.set(
-          companyKey,
-          {
-            id:
-              window.crypto?.randomUUID?.() ||
-              `codemandada-${Date.now()}-${Math.random()
-                .toString(36)
-                .slice(2, 8)}`,
-
-            nombre:
-              companyName,
-
-            tipo:
-              "empresa",
-
-            documento:
-              "",
-
-            telefono:
-              "",
-
-            email:
-              "",
-
-            domicilio:
-              "",
-
-            observaciones:
-              "Detectada automáticamente desde los datos del abogado de la parte demandada."
-          }
+        return (
+          rules.normalizeText(
+            causa.caratula
+          ) ===
+          rules.normalizeText(
+            caratula
+          )
         );
       });
 
-    const safeDocuments =
-      activeDocuments.map(
+
+    const documents =
+      rawCase.documents.map(
         (document) => {
           const {
             zipEntry,
@@ -1114,293 +1799,759 @@ const looksLikeDefendantLawyer =
         }
       );
 
-    return {
+
+    const importedCase = {
       id:
         rawCase.id,
 
-      folderName:
-        rules.cleanImportedName(
-          rawCase.folderName
+      codigoInterno:
+        rules.buildInternalCode(
+          department,
+          expediente,
+          index
         ),
 
-      selected:
-        true,
+      caratula,
 
-      importStatus:
-        possibleDuplicate
-          ? "duplicate"
-          : requiresReview
-            ? "review"
-            : "ready",
+      expediente,
 
-      possibleDuplicate,
-      requiresReview,
+      departamento:
+        department,
 
-      causa: {
-        id:
-          window.crypto?.randomUUID?.() ||
-          `causa-importada-${Date.now()}-${index}`,
+      departamentoNombre:
+        departmentName,
 
-        caratula:
-          extractedCaseData.caratula ||
-          rules.cleanImportedName(
-            rawCase.folderName
-          ),
+      fuero,
 
-        expediente:
-          expedienteFinal,
+      juzgado:
+        extractedCaseData.juzgado ||
+        "",
 
-        codigoInterno:
-          rules.buildInternalCode({
-            department,
-            year,
-            index: index + 1
-          }),
+      organismo:
+        extractedCaseData.organismo ||
+        "",
 
-        departamento:
-          department,
+      actor:
+        extractedCaseData.actor ||
+        "",
 
-        departamentoNombre:
-          departmentName,
+      demandado:
+        extractedCaseData.demandado ||
+        "",
 
-        fuero:
-          extractedCaseData.fuero ||
-          fueroInicial ||
-          "",
+      compania:
+        extractedCaseData.compania ||
+        "",
 
-        organismo:
-          extractedCaseData.organismo ||
-          "",
+      estadoGeneral:
+        rawCase.esTerminada
+          ? "Finalizada"
+          : "Designada",
 
-        juzgado:
-          extractedCaseData.juzgado ||
-          "",
+      activa:
+        !rawCase.esTerminada,
 
-        secretaria:
-          extractedCaseData.secretaria ||
-          "",
+      situacion:
+        rawCase.esTerminada
+          ? "finalizada"
+          : "activa",
 
-        tipoProceso:
-          extractedCaseData.tipoProceso ||
-          "",
+      esTerminada:
+        Boolean(
+          rawCase.esTerminada
+        ),
 
-fechaDesignacion:
-  extractedCaseData.fechaDesignacion ||
-  "",
+      carpetaContenedora:
+        rawCase.carpetaContenedora ||
+        "",
 
-fechaAceptacion:
-  extractedCaseData.fechaAceptacion ||
-  "",
+      carpetaOriginal:
+        rawCase.folderName,
 
+      carpetaRaiz:
+        rawCase.rootFolderName,
 
-        actor:
-          extractedCaseData.actor ||
-          "",
+      documentos:
+        documents,
 
-        demandado:
-          extractedCaseData.demandado ||
-          "",
+      documentosCount:
+        documents.length,
 
-        partes: {
-          actora: {
-            nombre:
-              extractedCaseData.actor ||
-              "",
-
-            documento:
-              "",
-
-            telefono:
-              "",
-
-            email:
-              "",
-
-            domicilio:
-              ""
-          },
-
-          demandada: {
-            nombre:
-              extractedCaseData.demandado ||
-              "",
-
-            documento:
-              "",
-
-            telefono:
-              "",
-
-            email:
-              "",
-
-            domicilio:
-              ""
-          }
-        },
-
-        abogados:
-          extractedLawyers,
-
-        codemandadas:
-          Array.from(
-            codemandadasMap.values()
-          ),
-
-        periciados:
-          possiblePericiados,
-
-        documentos:
-          safeDocuments,
-
-        actuaciones:
-          extractedActions,
-
-        honorarios:
-          extractedFees,
-seguimiento: {
-
-  estadoDesignacion:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "designacion" ||
-        document.categoria === "apertura-prueba"
-    )
-      ? "registrada"
-      : "sin-cargar",
-
-  estadoAceptacion:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "aceptacion-cargo"
-    )
-      ? "registrada"
-      : "sin-cargar",
-
-  estadoAnticipo:
-    extractedFees.some(
-      (item) =>
-        item.tipo === "anticipo-solicitado"
-    )
-      ? "solicitado"
-      : activeDocuments.some(
-            (document) =>
-              document.categoria === "anticipo-gastos"
-          )
-        ? "registrado"
-        : "sin-solicitar",
-
-  estadoEntrevista:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "fecha-entrevista"
-    )
-      ? "registrada"
-      : "sin-informacion",
-
-  estadoPericia:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "pericia"
-    )
-      ? "presentada"
-      : "pendiente",
-
-  estadoImpugnacion:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "impugnacion"
-    )
-      ? "recibida"
-      : "ninguna",
-
-  estadoContestacion:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "contestacion-impugnacion"
-    )
-      ? "presentada"
-      : "ninguna",
-
-  estadoHonorarios:
-    extractedFees.some(
-      (item) =>
-        item.estado === "cobrado"
-    )
-      ? "cobrado"
-      : extractedFees.some(
-            (item) =>
-              item.estado === "regulado"
-          )
-        ? "regulado"
-        : activeDocuments.some(
-              (document) =>
-                document.categoria === "carta-pago" ||
-                document.categoria === "honorarios"
-            )
-          ? "registrado"
-          : "sin-regular",
-
-  estadoCobro:
-    activeDocuments.some(
-      (document) =>
-        document.categoria === "carta-pago"
-    )
-      ? "cobrado"
-      : "pendiente"
-
-},
-
-        estadoGeneral:
-          rules.detectCaseStatus(
-            activeDocuments
-          ),
-
-        proximoPaso:
-          rules.detectNextStep(
-            activeDocuments
-          ),
-
-        proximoVencimiento:
-          "",
-
-        observaciones:
-          `Importada desde la carpeta "${rules.cleanImportedName(
-            rawCase.folderName
-          )}". Datos extraídos automáticamente de la documentación disponible. Revisar antes de utilizar en presentaciones judiciales.`,
-
-        activa:
-          true,
-
-        origen:
-          "importacion-masiva-enriquecida",
-
-        carpetaOrigen:
-          rules.cleanImportedName(
-            rawCase.folderName
-          ),
-
-        archivoOrigen:
-          selectedZipFile?.name || "",
-
-        fechaCreacion:
-          new Date().toISOString(),
-
-        fechaActualizacion:
-          new Date().toISOString()
-      },
-
-      documentsCount:
-        rawCase.documents.length,
-
-      reviewDocumentsCount,
+      periciados:
+        possiblePericiados,
 
       periciadosCount:
-        possiblePericiados.length
+        possiblePericiados.length,
+
+      abogados:
+        extractedLawyers,
+
+      actuaciones:
+        extractedActions,
+
+      honorarios:
+        extractedFees,
+
+      fechaDesignacion:
+        extractedCaseData.fechaDesignacion ||
+        "",
+
+      fechaAceptacionCargo:
+        extractedCaseData.fechaAceptacionCargo ||
+        "",
+
+      fechaPericia:
+        extractedCaseData.fechaPericia ||
+        "",
+
+      fechaSentencia:
+        extractedCaseData.fechaSentencia ||
+        "",
+
+      danioPsiquico:
+  rawCase.danioPsiquicoDetectado ||
+  "sin-determinar",
+
+      observaciones:
+        "",
+
+      importado:
+        true,
+
+      origenImportacion:
+        "Importador Masivo FALCO®",
+
+      archivoOrigen:
+        selectedZipFile?.name ||
+        "",
+
+      requiereRevision:
+        requiresReview,
+
+      posibleDuplicada:
+        Boolean(
+          possibleDuplicate ||
+          duplicateAfterExtraction
+        ),
+
+      seleccionado:
+        true,
+
+      fechaCreacion:
+        new Date().toISOString(),
+
+      fechaActualizacion:
+        new Date().toISOString()
     };
+
+
+    return importedCase;
   };
 
-    const analyzeZip = async () => {
+
+  const getDestination = () =>
+    destinationFilter?.value ||
+    "causas";
+
+
+  const getDestinationLabel = (
+    destination = getDestination()
+  ) => {
+    if (
+      destination === "pericias"
+    ) {
+      return "Pericias";
+    }
+
+    if (
+      destination === "cobradas"
+    ) {
+      return "Causas cobradas";
+    }
+
+    return "Gestión de Causas";
+  };
+
+
+  const updateDestinationMessage = () => {
+    if (!destinationMessage) {
+      return;
+    }
+
+    const destination =
+      getDestination();
+
+    if (
+      destination === "pericias"
+    ) {
+      destinationMessage.textContent =
+        "Las causas seleccionadas se guardarán en Pericias.";
+
+      return;
+    }
+
+    if (
+      destination === "cobradas"
+    ) {
+      destinationMessage.textContent =
+        "Las causas seleccionadas se guardarán en Causas cobradas.";
+
+      return;
+    }
+
+    destinationMessage.textContent =
+      "Las causas seleccionadas se guardarán en Gestión de Causas.";
+  };
+
+
+  const getExistingDestinationCases =
+    async () => {
+      const destination =
+        getDestination();
+
+      if (
+        destination === "pericias"
+      ) {
+        return (
+          await window
+            .GestionCausasFirestore
+            ?.getPericias?.()
+        ) || [];
+      }
+
+      if (
+        destination === "cobradas"
+      ) {
+        return (
+          await window
+            .GestionCausasFirestore
+            ?.getCobradas?.()
+        ) || [];
+      }
+
+      return (
+        window.GestionCausasData
+          ?.getCases?.() || []
+      );
+    };
+
+
+  const matchesSearch = (
+    causa,
+    search
+  ) => {
+    if (!search) {
+      return true;
+    }
+
+    const searchable =
+      rules.normalizeText(
+        [
+          causa.caratula,
+          causa.expediente,
+          causa.codigoInterno,
+          causa.carpetaOriginal,
+          causa.departamentoNombre,
+          causa.fuero,
+          ...(causa.documentos || [])
+            .map((document) =>
+              document.nombre
+            )
+        ]
+          .filter(Boolean)
+          .join(" ")
+      );
+
+    return searchable.includes(
+      rules.normalizeText(search)
+    );
+  };
+
+
+  const applyFilters = () => {
+    const search =
+      searchInput?.value || "";
+
+    const reviewValue =
+      reviewFilter?.value || "";
+
+    const documentValue =
+      documentFilter?.value || "";
+
+    visibleCases =
+      analyzedCases.filter(
+        (causa) => {
+          if (
+            !matchesSearch(
+              causa,
+              search
+            )
+          ) {
+            return false;
+          }
+
+          if (
+            reviewValue ===
+              "ready" &&
+            causa.requiereRevision
+          ) {
+            return false;
+          }
+
+          if (
+            reviewValue ===
+              "review" &&
+            !causa.requiereRevision
+          ) {
+            return false;
+          }
+
+          if (
+            reviewValue ===
+              "duplicate" &&
+            !causa.posibleDuplicada
+          ) {
+            return false;
+          }
+
+          if (
+            documentValue ===
+              "with-documents" &&
+            !causa.documentosCount
+          ) {
+            return false;
+          }
+
+          if (
+            documentValue ===
+              "without-documents" &&
+            causa.documentosCount
+          ) {
+            return false;
+          }
+
+          if (
+            documentValue ===
+              "with-periciados" &&
+            !causa.periciadosCount
+          ) {
+            return false;
+          }
+
+          return true;
+        }
+      );
+
+    renderCases();
+  };
+
+    const getImportStatusLabel = (
+    causa
+  ) => {
+    if (causa.posibleDuplicada) {
+      return "Posible duplicada";
+    }
+
+    if (causa.requiereRevision) {
+      return "Requiere revisión";
+    }
+
+    return "Lista para importar";
+  };
+
+
+  const getImportStatusClass = (
+    causa
+  ) => {
+    if (
+      causa.posibleDuplicada ||
+      causa.requiereRevision
+    ) {
+      return "gc-status--warning";
+    }
+
+    return "gc-status--active";
+  };
+
+
+  const renderDocumentsPreview = (
+    documents = []
+  ) => {
+    const visibleDocuments =
+      documents.slice(0, 6);
+
+    const rows =
+      visibleDocuments
+        .map(
+          (document) => `
+            <li>
+              <span>
+                ${escapeHtml(
+                  document.categoriaNombre ||
+                  "Sin categoría"
+                )}
+              </span>
+
+              <strong>
+                ${escapeHtml(
+                  document.nombre ||
+                  "Documento"
+                )}
+              </strong>
+
+              ${
+                document.lecturaAutomatica
+                  ? `
+                    <small class="gc-import-document-read">
+                      Leído
+                    </small>
+                  `
+                  : document.requiereRevision
+                    ? `
+                      <small>
+                        Revisar
+                      </small>
+                    `
+                    : ""
+              }
+            </li>
+          `
+        )
+        .join("");
+
+    const remaining =
+      documents.length -
+      visibleDocuments.length;
+
+    return `
+      <ul class="gc-import-document-preview">
+
+        ${rows}
+
+        ${
+          remaining > 0
+            ? `
+              <li class="gc-import-document-preview__more">
+                +${remaining} documento(s) más
+              </li>
+            `
+            : ""
+        }
+
+      </ul>
+    `;
+  };
+
+
+  const renderCases = () => {
+    if (
+      !caseList ||
+      !emptyState
+    ) {
+      return;
+    }
+
+    if (visibleCount) {
+      visibleCount.textContent =
+        String(
+          visibleCases.length
+        );
+    }
+
+    if (!visibleCases.length) {
+      caseList.innerHTML = "";
+      emptyState.hidden = false;
+
+      updateSelectedCount();
+      return;
+    }
+
+    emptyState.hidden = true;
+
+    caseList.innerHTML =
+      visibleCases
+        .map((causa) => {
+          const lawyersCount =
+            Array.isArray(
+              causa.abogados
+            )
+              ? causa.abogados.length
+              : 0;
+
+          const actionsCount =
+            Array.isArray(
+              causa.actuaciones
+            )
+              ? causa.actuaciones.length
+              : 0;
+
+          const feesCount =
+            Array.isArray(
+              causa.honorarios
+            )
+              ? causa.honorarios.length
+              : 0;
+
+          const extractedFields = [
+            causa.expediente,
+            causa.organismo,
+            causa.actor,
+            causa.demandado
+          ].filter(Boolean).length;
+
+          return `
+            <article
+              class="gc-import-case-card ${
+                causa.seleccionado
+                  ? "is-selected"
+                  : ""
+              }"
+              data-import-case-id="${escapeHtml(
+                causa.id
+              )}"
+            >
+
+              <div class="gc-import-case-card__selection">
+
+                <input
+                  type="checkbox"
+                  class="gc-import-case-checkbox"
+                  data-case-id="${escapeHtml(
+                    causa.id
+                  )}"
+                  ${
+                    causa.seleccionado
+                      ? "checked"
+                      : ""
+                  }
+                  aria-label="Seleccionar causa"
+                >
+
+              </div>
+
+              <div class="gc-import-case-card__content">
+
+                <div class="gc-import-case-card__top">
+
+                  <div>
+
+                    <span class="gc-panel__eyebrow">
+                      Carpeta detectada
+                    </span>
+
+                    <h4>
+                      ${escapeHtml(
+                        causa.carpetaOriginal ||
+                        causa.caratula ||
+                        "Sin nombre"
+                      )}
+                    </h4>
+
+                  </div>
+
+                  <span
+                    class="gc-status ${getImportStatusClass(
+                      causa
+                    )}"
+                  >
+                    ${escapeHtml(
+                      getImportStatusLabel(
+                        causa
+                      )
+                    )}
+                  </span>
+
+                </div>
+
+                <div class="gc-import-case-card__meta">
+
+                  <span>
+                    <strong>
+                      Expediente:
+                    </strong>
+
+                    ${escapeHtml(
+                      causa.expediente ||
+                      "No detectado"
+                    )}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Departamento:
+                    </strong>
+
+                    ${escapeHtml(
+                      causa.departamentoNombre ||
+                      "Sin detectar"
+                    )}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Fuero:
+                    </strong>
+
+                    ${escapeHtml(
+                      causa.fuero ||
+                      "No detectado"
+                    )}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Organismo:
+                    </strong>
+
+                    ${escapeHtml(
+                      causa.organismo ||
+                      "No detectado"
+                    )}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Documentos:
+                    </strong>
+
+                    ${causa.documentosCount || 0}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Periciados posibles:
+                    </strong>
+
+                    ${causa.periciadosCount || 0}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Abogados detectados:
+                    </strong>
+
+                    ${lawyersCount}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Actuaciones:
+                    </strong>
+
+                    ${actionsCount}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Movimientos económicos:
+                    </strong>
+
+                    ${feesCount}
+                  </span>
+
+                  <span>
+                    <strong>
+                      Datos extraídos:
+                    </strong>
+
+                    ${extractedFields}/4
+                  </span>
+
+                </div>
+
+                ${renderDocumentsPreview(
+                  causa.documentos || []
+                )}
+
+              </div>
+
+            </article>
+          `;
+        })
+        .join("");
+
+    updateSelectedCount();
+  };
+
+
+  const updateSelectedCount = () => {
+    const totalSelected =
+      analyzedCases.filter(
+        (causa) =>
+          causa.seleccionado
+      ).length;
+
+    if (selectedCount) {
+      selectedCount.textContent =
+        String(totalSelected);
+    }
+
+    if (confirmButton) {
+      confirmButton.disabled =
+        totalSelected === 0;
+    }
+  };
+
+
+  const updateStatistics = () => {
+    const totalDocuments =
+      analyzedCases.reduce(
+        (sum, causa) =>
+          sum +
+          Number(
+            causa.documentosCount || 0
+          ),
+        0
+      );
+
+    const totalPericiados =
+      analyzedCases.reduce(
+        (sum, causa) =>
+          sum +
+          Number(
+            causa.periciadosCount || 0
+          ),
+        0
+      );
+
+    const totalReview =
+      analyzedCases.filter(
+        (causa) =>
+          causa.requiereRevision ||
+          causa.posibleDuplicada
+      ).length;
+
+    if (casesCount) {
+      casesCount.textContent =
+        String(
+          analyzedCases.length
+        );
+    }
+
+    if (documentsCount) {
+      documentsCount.textContent =
+        String(
+          totalDocuments
+        );
+    }
+
+    if (periciadosCount) {
+      periciadosCount.textContent =
+        String(
+          totalPericiados
+        );
+    }
+
+    if (reviewCount) {
+      reviewCount.textContent =
+        String(
+          totalReview
+        );
+    }
+  };
+
+
+  const analyzeZip = async () => {
     if (!selectedZipFile) {
       showToast(
         "Seleccione primero un archivo ZIP.",
@@ -1448,7 +2599,9 @@ seguimiento: {
       );
 
       const entries =
-        Object.values(zip.files);
+        Object.values(
+          zip.files
+        );
 
       const usableEntries =
         entries.filter(
@@ -1483,8 +2636,7 @@ seguimiento: {
         );
 
       const existingCases =
-        window.GestionCausasData
-          ?.getCases?.() || [];
+        await getExistingDestinationCases();
 
       analyzedCases = [];
 
@@ -1528,11 +2680,6 @@ seguimiento: {
           importedCase
         );
 
-        /*
-         * Pequeña pausa para permitir que
-         * el navegador actualice la barra
-         * y no quede bloqueada la interfaz.
-         */
         if (
           index > 0 &&
           index % 5 === 0
@@ -1560,7 +2707,11 @@ seguimiento: {
           )
       );
 
+      visibleCases =
+        [...analyzedCases];
+
       updateStatistics();
+
       applyFilters();
 
       if (resultsSection) {
@@ -1572,16 +2723,24 @@ seguimiento: {
         "Análisis enriquecido finalizado."
       );
 
-      window.setTimeout(() => {
-        resultsSection?.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 150);
+      window.setTimeout(
+        () => {
+          resultsSection
+            ?.scrollIntoView({
+              behavior:
+                "smooth",
+
+              block:
+                "start"
+            });
+        },
+        150
+      );
 
       showToast(
         `Se detectaron ${analyzedCases.length} causa(s) y se analizaron sus documentos compatibles.`
       );
+
     } catch (error) {
       console.error(
         "Error al analizar el ZIP:",
@@ -1597,6 +2756,7 @@ seguimiento: {
         0,
         "El análisis no pudo completarse."
       );
+
     } finally {
       if (analyzeButton) {
         analyzeButton.disabled = false;
@@ -1604,488 +2764,139 @@ seguimiento: {
     }
   };
 
-  const updateStatistics = () => {
-    const totalDocuments =
-      analyzedCases.reduce(
-        (sum, item) =>
-          sum +
-          Number(
-            item.documentsCount || 0
-          ),
-        0
-      );
 
-    const totalPericiados =
-      analyzedCases.reduce(
-        (sum, item) =>
-          sum +
-          Number(
-            item.periciadosCount || 0
-          ),
-        0
-      );
-
-    const totalReview =
-      analyzedCases.filter(
-        (item) =>
-          item.requiresReview ||
-          item.possibleDuplicate
-      ).length;
-
-    if (casesCount) {
-      casesCount.textContent =
-        String(
-          analyzedCases.length
-        );
-    }
-
-    if (documentsCount) {
-      documentsCount.textContent =
-        String(
-          totalDocuments
-        );
-    }
-
-    if (periciadosCount) {
-      periciadosCount.textContent =
-        String(
-          totalPericiados
-        );
-    }
-
-    if (reviewCount) {
-      reviewCount.textContent =
-        String(
-          totalReview
-        );
-    }
-  };
-
-  const getImportStatusLabel = (
-    item
-  ) => {
-    if (item.possibleDuplicate) {
-      return "Posible duplicada";
-    }
-
-    if (item.requiresReview) {
-      return "Requiere revisión";
-    }
-
-    return "Lista para importar";
-  };
-
-  const getImportStatusClass = (
-    item
-  ) => {
-    if (
-      item.possibleDuplicate ||
-      item.requiresReview
-    ) {
-      return "gc-status--warning";
-    }
-
-    return "gc-status--active";
-  };
-
-  const renderDocumentsPreview = (
-    documents = []
-  ) => {
-    const visibleDocuments =
-      documents.slice(0, 6);
-
-    const rows =
-      visibleDocuments
-        .map(
-          (document) => `
-            <li>
-
-              <span>
-                ${escapeHtml(
-                  document.categoriaNombre ||
-                    "Sin categoría"
-                )}
-              </span>
-
-              <strong>
-                ${escapeHtml(
-                  document.nombre ||
-                    "Documento"
-                )}
-              </strong>
-
-              ${
-                document.lecturaAutomatica
-                  ? `
-                    <small class="gc-import-document-read">
-                      Leído
-                    </small>
-                  `
-                  : document.requiereRevision
-                    ? `
-                      <small>
-                        Revisar
-                      </small>
-                    `
-                    : ""
-              }
-
-            </li>
-          `
-        )
-        .join("");
-
-    const remaining =
-      documents.length -
-      visibleDocuments.length;
-
-    return `
-      <ul class="gc-import-document-preview">
-
-        ${rows}
-
-        ${
-          remaining > 0
-            ? `
-              <li class="gc-import-document-preview__more">
-                +${remaining} documento(s) más
-              </li>
-            `
-            : ""
-        }
-
-      </ul>
-    `;
-  };
-
-  const renderCases = (cases) => {
-    visibleCases = cases;
-
-    if (
-      !caseList ||
-      !emptyState
-    ) {
-      return;
-    }
-
-    if (visibleCount) {
-      visibleCount.textContent =
-        String(cases.length);
-    }
-
-    if (!cases.length) {
-      caseList.innerHTML = "";
-      emptyState.hidden = false;
-
-      updateSelectedCount();
-      return;
-    }
-
-    emptyState.hidden = true;
-
-    caseList.innerHTML = cases
-      .map((item) => {
-        const lawyersCount =
-          Array.isArray(
-            item.causa.abogados
-          )
-            ? item.causa.abogados.length
-            : 0;
-
-        const actionsCount =
-          Array.isArray(
-            item.causa.actuaciones
-          )
-            ? item.causa.actuaciones.length
-            : 0;
-
-        const feesCount =
-          Array.isArray(
-            item.causa.honorarios
-          )
-            ? item.causa.honorarios.length
-            : 0;
-
-        const extractedFields = [
-          item.causa.expediente,
-          item.causa.organismo,
-          item.causa.actor,
-          item.causa.demandado
-        ].filter(Boolean).length;
-
-        return `
-          <article
-            class="gc-import-case-card ${
-              item.selected
-                ? "is-selected"
-                : ""
-            }"
-            data-import-case-id="${escapeHtml(
-              item.id
-            )}"
-          >
-
-            <div class="gc-import-case-card__selection">
-
-              <input
-                type="checkbox"
-                class="gc-import-case-checkbox"
-                data-case-id="${escapeHtml(
-                  item.id
-                )}"
-                ${
-                  item.selected
-                    ? "checked"
-                    : ""
-                }
-                aria-label="Seleccionar causa"
-              >
-
-            </div>
-
-            <div class="gc-import-case-card__content">
-
-              <div class="gc-import-case-card__top">
-
-                <div>
-
-                  <span class="gc-panel__eyebrow">
-                    Carpeta detectada
-                  </span>
-
-                  <h4>
-                    ${escapeHtml(
-                      item.folderName
-                    )}
-                  </h4>
-
-                </div>
-
-                <span
-                  class="gc-status ${getImportStatusClass(
-                    item
-                  )}"
-                >
-                  ${escapeHtml(
-                    getImportStatusLabel(
-                      item
-                    )
-                  )}
-                </span>
-
-              </div>
-
-              <div class="gc-import-case-card__meta">
-
-                <span>
-                  <strong>Expediente:</strong>
-                  ${escapeHtml(
-                    item.causa.expediente ||
-                      "No detectado"
-                  )}
-                </span>
-
-                <span>
-                  <strong>Departamento:</strong>
-                  ${escapeHtml(
-                    item.causa
-                      .departamentoNombre ||
-                      "Sin detectar"
-                  )}
-                </span>
-
-                <span>
-                  <strong>Fuero:</strong>
-                  ${escapeHtml(
-                    item.causa.fuero ||
-                      "No detectado"
-                  )}
-                </span>
-
-                <span>
-                  <strong>Organismo:</strong>
-                  ${escapeHtml(
-                    item.causa.organismo ||
-                      "No detectado"
-                  )}
-                </span>
-
-                <span>
-                  <strong>Documentos:</strong>
-                  ${item.documentsCount}
-                </span>
-
-                <span>
-                  <strong>Periciados posibles:</strong>
-                  ${item.periciadosCount}
-                </span>
-
-                <span>
-                  <strong>Abogados detectados:</strong>
-                  ${lawyersCount}
-                </span>
-
-                <span>
-                  <strong>Actuaciones:</strong>
-                  ${actionsCount}
-                </span>
-
-                <span>
-                  <strong>Movimientos económicos:</strong>
-                  ${feesCount}
-                </span>
-
-                <span>
-                  <strong>Datos extraídos:</strong>
-                  ${extractedFields}/4
-                </span>
-
-                <span>
-                  <strong>Documentos para revisar:</strong>
-                  ${item.reviewDocumentsCount}
-                </span>
-
-              </div>
-
-              ${renderDocumentsPreview(
-                item.causa.documentos
-              )}
-
-            </div>
-
-          </article>
-        `;
-      })
-      .join("");
-
-    updateSelectedCount();
-  };
-
-  const updateSelectedCount = () => {
-    const totalSelected =
-      analyzedCases.filter(
-        (item) => item.selected
-      ).length;
-
-    if (selectedCount) {
-      selectedCount.textContent =
-        String(
-          totalSelected
-        );
-    }
-
-    if (confirmButton) {
-      confirmButton.disabled =
-        totalSelected === 0;
-    }
-  };
-
-  const getSearchableText = (item) =>
-    rules.normalizeText(
-      [
-        item.folderName,
-        item.causa.expediente,
-        item.causa.caratula,
-        item.causa.departamentoNombre,
-        item.causa.fuero,
-        item.causa.organismo,
-        item.causa.actor,
-        item.causa.demandado,
-
-        ...(item.causa.abogados || [])
-          .map(
-            (lawyer) =>
-              [
-                lawyer.nombreCompleto,
-                lawyer.email,
-                lawyer.telefono,
-                lawyer.companiaRepresentada
-              ]
-                .filter(Boolean)
-                .join(" ")
-          ),
-
-        ...item.causa.documentos.map(
-          (document) =>
-            `${document.nombre} ${document.categoriaNombre}`
-        )
-      ]
-        .filter(Boolean)
-        .join(" ")
-    );
-
-  const applyFilters = () => {
-    const searchValue =
-      rules.normalizeText(
-        searchInput?.value
-      );
-
-    const departmentValue =
-      departmentFilter?.value || "";
-
-    const reviewValue =
-      reviewFilter?.value || "";
-
-    const documentValue =
-      documentFilter?.value || "";
-
-    const filtered =
-      analyzedCases.filter(
-        (item) => {
-          const matchesSearch =
-            !searchValue ||
-            getSearchableText(
-              item
-            ).includes(
-              searchValue
-            );
-
-          const matchesDepartment =
-            !departmentValue ||
-            item.causa.departamento ===
-              departmentValue;
-
-          const matchesReview =
-            !reviewValue ||
-            item.importStatus ===
-              reviewValue;
-
-          const matchesDocuments =
-            !documentValue ||
-            (
-              documentValue ===
-                "with-documents" &&
-              item.documentsCount > 0
-            ) ||
-            (
-              documentValue ===
-                "without-documents" &&
-              item.documentsCount === 0
-            ) ||
-            (
-              documentValue ===
-                "with-periciados" &&
-              item.periciadosCount > 0
-            );
-
+  const isDuplicate = (
+    causa,
+    existingCases
+  ) =>
+    existingCases.some(
+      (existing) => {
+        if (
+          causa.expediente &&
+          existing.expediente
+        ) {
           return (
-            matchesSearch &&
-            matchesDepartment &&
-            matchesReview &&
-            matchesDocuments
+            rules.normalizeText(
+              causa.expediente
+            ) ===
+            rules.normalizeText(
+              existing.expediente
+            )
           );
         }
-      );
 
-    renderCases(
-      filtered
+        return (
+          rules.normalizeText(
+            causa.caratula
+          ) ===
+          rules.normalizeText(
+            existing.caratula
+          )
+        );
+      }
     );
+
+
+  const saveGeneralCase = async (
+    causa
+  ) => {
+    const saved =
+      window.GestionCausasData
+        ?.addCase?.(
+          causa
+        );
+
+    if (!saved) {
+      return false;
+    }
+
+    if (
+      window.GestionCausasData
+        ?.flush
+    ) {
+      await window
+        .GestionCausasData
+        .flush();
+    }
+
+    return true;
   };
 
-    const confirmImport = () => {
+
+  const savePericia = async (
+    causa
+  ) => {
+    const api =
+      window.GestionCausasFirestore;
+
+    if (
+      typeof api?.savePericia !==
+      "function"
+    ) {
+      throw new Error(
+        "El puente Firestore para Pericias no está disponible."
+      );
+    }
+
+    await api.savePericia({
+      ...causa,
+
+      tipoRegistro:
+        "pericia",
+
+      danioPsiquico:
+        causa.danioPsiquico ||
+        "sin-determinar"
+    });
+
+    return true;
+  };
+
+
+  const saveCobrada = async (
+    causa
+  ) => {
+    const api =
+      window.GestionCausasFirestore;
+
+    if (
+      typeof api?.saveCobrada !==
+      "function"
+    ) {
+      throw new Error(
+        "El puente Firestore para Causas cobradas no está disponible."
+      );
+    }
+
+    await api.saveCobrada({
+      ...causa,
+
+      tipoRegistro:
+        "cobrada",
+
+      estadoGeneral:
+        "Cobrada",
+
+      activa:
+        false,
+
+      situacion:
+        "finalizada",
+
+      danioPsiquico:
+        causa.danioPsiquico ||
+        "sin-determinar"
+    });
+
+    return true;
+  };
+
+
+  const confirmImport = async () => {
     const selectedCases =
       analyzedCases.filter(
-        (item) => item.selected
+        (causa) =>
+          causa.seleccionado
       );
 
     if (!selectedCases.length) {
@@ -2097,90 +2908,188 @@ seguimiento: {
       return;
     }
 
-    const currentCases =
-      window.GestionCausasData
-        ?.getCases?.() || [];
+    const destination =
+      getDestination();
+
+    if (
+      (
+        destination === "pericias" ||
+        destination === "cobradas"
+      ) &&
+      !window.GestionCausasFirestore
+    ) {
+      showToast(
+        "Firestore todavía no está disponible. Recargue la página e intente nuevamente.",
+        "error"
+      );
+
+      return;
+    }
+
+    if (confirmButton) {
+      confirmButton.disabled = true;
+    }
 
     let imported = 0;
     let skipped = 0;
+    let errors = 0;
 
-    selectedCases.forEach((item) => {
-      const duplicate =
-        currentCases.some((causa) => {
+    try {
+      const existingCases =
+        await getExistingDestinationCases();
+
+      for (
+        const causa
+        of selectedCases
+      ) {
+        if (
+          isDuplicate(
+            causa,
+            existingCases
+          )
+        ) {
+          skipped += 1;
+          continue;
+        }
+
+        try {
+          let saved = false;
+
           if (
-            item.causa.expediente &&
-            causa.expediente
+            destination ===
+            "pericias"
           ) {
-            return (
-              rules.normalizeText(
-                item.causa.expediente
-              ) ===
-              rules.normalizeText(
-                causa.expediente
-              )
-            );
+            saved =
+              await savePericia(
+                causa
+              );
+
+          } else if (
+            destination ===
+            "cobradas"
+          ) {
+            saved =
+              await saveCobrada(
+                causa
+              );
+
+          } else {
+            saved =
+              await saveGeneralCase(
+                causa
+              );
           }
 
-          return (
-            rules.normalizeText(
-              item.causa.caratula
-            ) ===
-            rules.normalizeText(
-              causa.caratula
-            )
-          );
-        });
+          if (saved) {
+            existingCases.push(
+              causa
+            );
 
-      if (duplicate) {
-        skipped += 1;
-        return;
+            imported += 1;
+
+          } else {
+            errors += 1;
+          }
+
+        } catch (error) {
+          errors += 1;
+
+          console.error(
+            "Error guardando registro:",
+            causa.caratula ||
+            causa.id,
+            error
+          );
+        }
       }
 
-      const saved =
-        window.GestionCausasData
-          ?.addCase?.(
-            item.causa
-          );
-
-      if (saved) {
-        currentCases.push(
-          item.causa
+      const destinationLabel =
+        getDestinationLabel(
+          destination
         );
 
-        imported += 1;
-      } else {
-        skipped += 1;
+      const message =
+        errors > 0
+          ? `Importación finalizada en ${destinationLabel}: ${imported} guardada(s), ${skipped} omitida(s) y ${errors} con error.`
+          : `Importación finalizada en ${destinationLabel}: ${imported} guardada(s) y ${skipped} omitida(s).`;
+
+      showToast(
+        message,
+        errors > 0
+          ? "error"
+          : "success"
+      );
+
+      if (
+        imported > 0
+      ) {
+        let destinationUrl = "";
+
+        if (
+          destination ===
+          "pericias"
+        ) {
+          destinationUrl =
+            "../causas/pericias.html";
+
+        } else if (
+          destination ===
+          "cobradas"
+        ) {
+          destinationUrl =
+            "../causas/cobradas.html";
+
+        } else {
+          const importedDepartment =
+            selectedCases[0]
+              ?.departamento ||
+            "";
+
+          destinationUrl =
+            importedDepartment ===
+            "la-matanza"
+              ? "../causas/causas.html?departamento=la-matanza"
+              : "../causas/causas.html?departamento=moron";
+        }
+
+        window.setTimeout(
+          () => {
+            window.location.href =
+              destinationUrl;
+          },
+          1600
+        );
       }
-    });
 
-    showToast(
-      `Importación finalizada: ${imported} causa(s) guardada(s) y ${skipped} omitida(s).`
-    );
+    } catch (error) {
+      console.error(
+        "Error general durante la importación:",
+        error
+      );
 
-    if (imported > 0) {
-      const importedDepartment =
-        selectedCases[0]?.causa
-          ?.departamento || "";
+      showToast(
+        "La importación no pudo completarse.",
+        "error"
+      );
 
-      const destination =
-        importedDepartment ===
-        "la-matanza"
-          ? "../causas/causas.html?departamento=la-matanza"
-          : "../causas/causas.html?departamento=moron";
-
-      window.setTimeout(() => {
-        window.location.href =
-          destination;
-      }, 1600);
+    } finally {
+      if (confirmButton) {
+        confirmButton.disabled =
+          analyzedCases.filter(
+            (causa) =>
+              causa.seleccionado
+          ).length === 0;
+      }
     }
   };
 
-  selectFileButton?.addEventListener(
+    selectFileButton?.addEventListener(
     "click",
     () => {
       fileInput?.click();
     }
   );
+
 
   changeFileButton?.addEventListener(
     "click",
@@ -2189,22 +3098,28 @@ seguimiento: {
     }
   );
 
+
   fileInput?.addEventListener(
     "change",
     (event) => {
       const file =
-        event.target.files?.[0];
+        event.target
+          .files?.[0];
 
       if (file) {
-        setSelectedFile(file);
+        setSelectedFile(
+          file
+        );
       }
     }
   );
+
 
   analyzeButton?.addEventListener(
     "click",
     analyzeZip
   );
+
 
   dropzone?.addEventListener(
     "dragover",
@@ -2217,6 +3132,7 @@ seguimiento: {
     }
   );
 
+
   dropzone?.addEventListener(
     "dragleave",
     () => {
@@ -2225,6 +3141,7 @@ seguimiento: {
       );
     }
   );
+
 
   dropzone?.addEventListener(
     "drop",
@@ -2240,10 +3157,13 @@ seguimiento: {
           ?.files?.[0];
 
       if (file) {
-        setSelectedFile(file);
+        setSelectedFile(
+          file
+        );
       }
     }
   );
+
 
   caseList?.addEventListener(
     "change",
@@ -2260,17 +3180,17 @@ seguimiento: {
       const caseId =
         checkbox.dataset.caseId;
 
-      const item =
+      const causa =
         analyzedCases.find(
-          (caseItem) =>
-            caseItem.id === caseId
+          (item) =>
+            item.id === caseId
         );
 
-      if (!item) {
+      if (!causa) {
         return;
       }
 
-      item.selected =
+      causa.seleccionado =
         checkbox.checked;
 
       checkbox
@@ -2279,47 +3199,70 @@ seguimiento: {
         )
         ?.classList.toggle(
           "is-selected",
-          item.selected
+          causa.seleccionado
         );
 
       updateSelectedCount();
     }
   );
 
+
   selectAllButton?.addEventListener(
     "click",
     () => {
       visibleCases.forEach(
-        (item) => {
-          item.selected = true;
+        (causa) => {
+          causa.seleccionado =
+            true;
         }
       );
 
-      renderCases(
-        visibleCases
-      );
+      renderCases();
     }
   );
+
 
   clearSelectionButton?.addEventListener(
     "click",
     () => {
       analyzedCases.forEach(
-        (item) => {
-          item.selected = false;
+        (causa) => {
+          causa.seleccionado =
+            false;
         }
       );
 
-      renderCases(
-        visibleCases
-      );
+      renderCases();
     }
   );
+
 
   confirmButton?.addEventListener(
     "click",
     confirmImport
   );
+
+
+  destinationFilter?.addEventListener(
+    "change",
+    () => {
+      updateDestinationMessage();
+
+      /*
+       * Si ya había un análisis realizado,
+       * recalculamos posibles duplicados
+       * para el nuevo destino.
+       */
+      if (
+        analyzedCases.length
+      ) {
+        showToast(
+          `Destino seleccionado: ${getDestinationLabel()}.`
+        );
+      }
+    }
+  );
+
 
   [
     searchInput,
@@ -2332,7 +3275,8 @@ seguimiento: {
     }
 
     const eventName =
-      element.tagName === "INPUT"
+      element.tagName ===
+      "INPUT"
         ? "input"
         : "change";
 
@@ -2342,7 +3286,21 @@ seguimiento: {
     );
   });
 
+
+  updateDestinationMessage();
+
+
   console.log(
-    "Gestión de Causas FALCO® Importador Masivo Enriquecido Ready"
+    "Gestión de Causas FALCO® Importador Masivo Enriquecido Ready",
+    {
+      destino:
+        getDestination(),
+
+      firestore:
+        Boolean(
+          window.GestionCausasFirestore
+        )
+    }
   );
+
 });

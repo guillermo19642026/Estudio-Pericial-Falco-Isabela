@@ -722,27 +722,234 @@ domicilioElectronico:
     }
   });
 
-  window.GestionCausasImportadorExtractor = {
-    extractEmails,
-    extractPhones,
-    extractCuitDni,
-    extractCaseNumber,
-    extractCourtType,
-    extractCourt,
-    extractCourtNumber,
-    extractSecretary,
-    extractProcessType,
-    extractFullCaseTitle,
-    splitPartiesFromTitle,
-    extractLawyer,
-    extractCompany,
-    extractAmount,
-    extractDate,
-    extractCaseData,
-    extractFeeMovement,
-    extractAction,
-    mergeCaseData
+
+    /* =========================================================
+     EXTRACCIÓN DOCUMENTAL INTEGRADA
+  ========================================================= */
+
+  const extractDocumentData = (
+    text = "",
+    context = {}
+  ) => {
+    const document =
+      context.document || {};
+
+    const caseData =
+      extractCaseData(
+        text
+      ) || {};
+
+    const compania =
+      extractCompany(
+        text
+      ) || "";
+
+    const abogados = [];
+
+    const abogadoActora =
+      extractLawyer(
+        text,
+        "actora"
+      );
+
+    const abogadoDemandada =
+      extractLawyer(
+        text,
+        "demandada"
+      );
+
+    const hasLawyerData = (
+      lawyer
+    ) =>
+      Boolean(
+        lawyer &&
+        (
+          lawyer.nombreCompleto ||
+          lawyer.email ||
+          lawyer.telefono ||
+          lawyer.matricula ||
+          lawyer.domicilioElectronico ||
+          lawyer.companiaRepresentada
+        )
+      );
+
+    if (
+      hasLawyerData(
+        abogadoActora
+      )
+    ) {
+      abogados.push(
+        abogadoActora
+      );
+    }
+
+    if (
+      hasLawyerData(
+        abogadoDemandada
+      )
+    ) {
+      abogados.push(
+        abogadoDemandada
+      );
+    }
+
+
+    const actuaciones = [];
+
+    const categoriasActuacion = [
+      "designacion",
+      "aceptacion-cargo",
+      "anticipo-gastos",
+      "fecha-entrevista",
+      "prorroga",
+      "impugnacion",
+      "contestacion-impugnacion",
+      "explicaciones",
+      "traslado",
+      "providencia",
+      "audiencia",
+      "sentencia"
+    ];
+
+    if (
+      categoriasActuacion.includes(
+        document.categoria
+      )
+    ) {
+      const actuacion =
+        extractAction(
+          text,
+          document
+        );
+
+      if (actuacion) {
+        actuaciones.push(
+          actuacion
+        );
+      }
+    }
+
+
+    const honorarios = [];
+
+    const categoriasHonorarios = [
+      "anticipo-gastos",
+      "honorarios",
+      "carta-pago"
+    ];
+
+    if (
+      categoriasHonorarios.includes(
+        document.categoria
+      )
+    ) {
+      const movimiento =
+        extractFeeMovement(
+          text,
+          document
+        );
+
+      if (movimiento) {
+        honorarios.push(
+          movimiento
+        );
+      }
+    }
+
+
+    return {
+      expediente:
+        caseData.expediente ||
+        "",
+
+      caratula:
+        caseData.caratula ||
+        "",
+
+      fuero:
+        caseData.fuero ||
+        "",
+
+      organismo:
+        caseData.organismo ||
+        "",
+
+      juzgado:
+        caseData.juzgado ||
+        "",
+
+      secretaria:
+        caseData.secretaria ||
+        "",
+
+      tipoProceso:
+        caseData.tipoProceso ||
+        "",
+
+      actor:
+        caseData.actor ||
+        "",
+
+      demandado:
+        caseData.demandado ||
+        "",
+
+      compania,
+
+      abogados,
+
+      actuaciones,
+
+      honorarios,
+
+      fechaDesignacion:
+        document.categoria ===
+        "designacion"
+          ? extractDate(text)
+          : "",
+
+      fechaAceptacionCargo:
+        document.categoria ===
+        "aceptacion-cargo"
+          ? extractDate(text)
+          : "",
+
+      fechaPericia:
+        document.categoria ===
+        "pericia"
+          ? extractDate(text)
+          : "",
+
+      fechaSentencia:
+        document.categoria ===
+        "sentencia"
+          ? extractDate(text)
+          : ""
+    };
   };
+
+ window.GestionCausasImportadorExtractor = {
+  extractEmails,
+  extractPhones,
+  extractCuitDni,
+  extractCaseNumber,
+  extractCourtType,
+  extractCourt,
+  extractCourtNumber,
+  extractSecretary,
+  extractProcessType,
+  extractFullCaseTitle,
+  splitPartiesFromTitle,
+  extractLawyer,
+  extractCompany,
+  extractAmount,
+  extractDate,
+  extractCaseData,
+  extractFeeMovement,
+  extractAction,
+  mergeCaseData,
+  extractDocumentData
+};
 
   console.log(
     "Gestión de Causas FALCO® Extractor Documental Ready"

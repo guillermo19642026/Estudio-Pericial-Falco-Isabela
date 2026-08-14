@@ -37,7 +37,7 @@
   >
 </head>
 
-<body>
+<body class="gc-ficha-loading">
 
   <div class="gc-app">
 
@@ -413,6 +413,70 @@
             </article>
 
           </div>
+
+
+
+
+<!-- INFORMACIÓN SCBA -->
+
+<div
+  class="gc-scba-section"
+  id="gcScbaSection"
+  hidden
+>
+
+  <div class="gc-section-heading">
+
+    <div>
+
+      <span class="gc-panel__eyebrow">
+        Integración judicial
+      </span>
+
+      <h3>
+        Información SCBA
+      </h3>
+
+    </div>
+
+  </div>
+
+
+  <div class="gc-detail-grid">
+
+    <article class="gc-detail-card">
+
+      <span>
+        Expediente SCBA
+      </span>
+
+      <strong id="gcScbaExpediente">
+        Sin cargar
+      </strong>
+
+    </article>
+
+
+    <article class="gc-detail-card">
+
+      <span>
+        ID Causa SCBA
+      </span>
+
+      <strong id="gcScbaCausaId">
+        Sin cargar
+      </strong>
+
+    </article>
+
+  </div>
+  
+  <div
+    class="gc-scba-organisms"
+    id="gcScbaOrganisms"
+  ></div>
+
+</div>
 
         </section>
 
@@ -842,6 +906,14 @@
             >
               Subir documento
             </button>
+
+<input
+  type="file"
+  id="gcDocumentFileInput"
+  accept=".pdf,.odt,.doc,.docx"
+  hidden
+>
+
 
           </div>
 
@@ -1428,6 +1500,7 @@
   <script src="../js/gestion-causas-data.js"></script>
   <script src="../js/gestion-causas-ui.js"></script>
   <script src="../js/gestion-causas.js"></script>
+  <script src="../js/gestion-causas-documentos-storage.js"></script>
   <script src="../js/gestion-causas-ficha.js"></script>
 
 </body>

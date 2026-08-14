@@ -1,14 +1,171 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   "use strict";
 
-  const tabs = document.querySelectorAll(".gc-case-tab");
-  const panels = document.querySelectorAll(".gc-case-panel");
+  const tabs =
+    document.querySelectorAll(
+      ".gc-case-tab"
+    );
 
-  const params = new URLSearchParams(window.location.search);
-  const causeId = params.get("id");
+  const panels =
+    document.querySelectorAll(
+      ".gc-case-panel"
+    );
 
-  const causa =
-    window.GestionCausasData?.getCaseById?.(causeId);
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const causeId =
+    params.get("id");
+
+  const origen =
+    params.get("origen") ||
+    "causas";
+
+  const isPericia =
+    origen === "pericias";
+
+
+    const isCobrada =
+  origen === "cobradas";
+
+  let causa = null;
+
+
+if (isPericia) {
+
+  try {
+
+    const { db } =
+      await import(
+        "../../firebase-config.js"
+      );
+
+    const {
+      doc,
+      getDoc
+    } =
+      await import(
+        "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
+      );
+
+    const snapshot =
+      await getDoc(
+        doc(
+          db,
+          "gestion_pericias",
+          String(causeId)
+        )
+      );
+
+    if (snapshot.exists()) {
+
+      causa = {
+        id: snapshot.id,
+        ...snapshot.data()
+      };
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Error cargando Pericia FALCO®:",
+      error
+    );
+
+  }
+
+} else if (isCobrada) {
+
+  try {
+
+    const { db } =
+      await import(
+        "../../firebase-config.js"
+      );
+
+    const {
+      doc,
+      getDoc
+    } =
+      await import(
+        "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
+      );
+
+    const snapshot =
+      await getDoc(
+        doc(
+          db,
+          "gestion_cobradas",
+          String(causeId)
+        )
+      );
+
+    if (snapshot.exists()) {
+
+      causa = {
+        id: snapshot.id,
+        ...snapshot.data()
+      };
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Error cargando Causa Cobrada FALCO®:",
+      error
+    );
+
+  }
+
+} else {
+
+  try {
+
+    const { db } =
+      await import(
+        "../../firebase-config.js"
+      );
+
+    const {
+      doc,
+      getDoc
+    } =
+      await import(
+        "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
+      );
+
+    const snapshot =
+      await getDoc(
+        doc(
+          db,
+          "gestion_causas",
+          String(causeId)
+        )
+      );
+
+    if (snapshot.exists()) {
+
+      causa = {
+        id: snapshot.id,
+        ...snapshot.data()
+      };
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Error cargando Causa FALCO®:",
+      error
+    );
+
+  }
+
+}
 
   const escapeHtml = (value = "") =>
     String(value)
@@ -160,6 +317,147 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
+const calcularProximoPasoPericial = (
+  causaActual = {}
+) => {
+
+  const seguimiento =
+    causaActual.seguimiento || {};
+
+
+  const aceptacion =
+    seguimiento.estadoAceptacion ||
+    "sin-cargar";
+
+
+  const anticipo =
+    seguimiento.estadoAnticipo ||
+    "sin-solicitar";
+
+
+  const entrevista =
+    seguimiento.estadoEntrevista ||
+    "sin-informacion";
+
+
+  const pericia =
+    seguimiento.estadoPericia ||
+    "pendiente";
+
+
+  const impugnacion =
+    seguimiento.estadoImpugnacion ||
+    "ninguna";
+
+
+  const contestacion =
+    seguimiento.estadoContestacion ||
+    "ninguna";
+
+
+  /* =========================================
+     IMPUGNACIÓN PENDIENTE
+  ========================================= */
+
+  if (
+    impugnacion === "recibida" &&
+    contestacion !== "presentada"
+  ) {
+
+    return "Contestar impugnación / explicaciones";
+
+  }
+
+
+  /* =========================================
+     PERICIA TODAVÍA PENDIENTE
+  ========================================= */
+
+  if (
+    pericia === "pendiente"
+  ) {
+
+    if (
+      entrevista === "realizada"
+    ) {
+
+      return "Presentar dictamen pericial";
+
+    }
+
+
+    if (
+      entrevista === "registrada"
+    ) {
+
+      return "Realizar entrevista pericial";
+
+    }
+
+
+    if (
+      aceptacion === "registrada"
+    ) {
+
+      return "Coordinar entrevista pericial";
+
+    }
+
+
+    return "Revisar aceptación del cargo";
+
+  }
+
+
+  /* =========================================
+     PERICIA PRESENTADA
+  ========================================= */
+
+  if (
+    pericia === "presentada"
+  ) {
+
+    if (
+      impugnacion === "ninguna"
+    ) {
+
+      return "Controlar traslado del dictamen";
+
+    }
+
+
+    if (
+      contestacion === "presentada"
+    ) {
+
+      return "Controlar resolución posterior";
+
+    }
+
+  }
+
+
+  /* =========================================
+     ANTICIPO
+  ========================================= */
+
+  if (
+    anticipo === "solicitado"
+  ) {
+
+    return "Controlar anticipo de gastos";
+
+  }
+
+
+  return (
+    causaActual.proximoPaso ||
+    "Revisar estado de la causa"
+  );
+
+};
+
+
   const renderHeader = () => {
     const title = document.getElementById("gcCaseTitle");
     const fileNumber =
@@ -202,10 +500,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (nextStep) {
-      nextStep.textContent =
-        causa.proximoPaso ||
-        "Sin próximo paso";
-    }
+
+  nextStep.textContent =
+    calcularProximoPasoPericial(
+      causa
+    );
+
+}
 
     if (nextDeadline) {
       nextDeadline.textContent =
@@ -234,38 +535,283 @@ document.addEventListener("DOMContentLoaded", () => {
       `${causa.caratula || "Ficha de la causa"} | Gestión de Causas FALCO®`;
   };
 
-  const renderGeneralInformation = () => {
-    const values = {
-      gcDetailDepartment:
-        causa.departamentoNombre,
-      gcDetailCourtType:
-        causa.fuero,
-      gcDetailCourt:
-        causa.organismo,
-      gcDetailCourtNumber:
-        causa.juzgado,
-      gcDetailSecretary:
-        causa.secretaria,
-      gcDetailProcessType:
-        causa.tipoProceso,
-      gcDetailDesignationDate:
-        formatDate(causa.fechaDesignacion),
-      gcDetailAcceptanceDate:
-        formatDate(causa.fechaAceptacion)
-    };
 
-    Object.entries(values).forEach(
-      ([elementId, value]) => {
-        const element =
-          document.getElementById(elementId);
 
-        if (element) {
-          element.textContent =
-            value || "Sin cargar";
-        }
-      }
-    );
+const renderGeneralInformation = () => {
+
+  const values = {
+
+    gcDetailDepartment:
+      causa.departamentoNombre,
+
+    gcDetailCourtType:
+      causa.fuero,
+
+    gcDetailCourt:
+      causa.organismo,
+
+    gcDetailCourtNumber:
+      causa.juzgado,
+
+    gcDetailSecretary:
+      causa.secretaria,
+
+    gcDetailProcessType:
+      causa.tipoProceso,
+
+    gcDetailDesignationDate:
+      formatDate(
+        causa.fechaDesignacion
+      ),
+
+    gcDetailAcceptanceDate:
+      formatDate(
+        causa.fechaAceptacion
+      )
+
   };
+
+
+  Object.entries(
+    values
+  ).forEach(
+    ([elementId, value]) => {
+
+      const element =
+        document.getElementById(
+          elementId
+        );
+
+      if (element) {
+
+        element.textContent =
+          value ||
+          "Sin cargar";
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+     INFORMACIÓN SCBA
+  ========================================================= */
+
+  const scbaSection =
+    document.getElementById(
+      "gcScbaSection"
+    );
+
+  const scbaExpediente =
+    document.getElementById(
+      "gcScbaExpediente"
+    );
+
+  const scbaCausaId =
+    document.getElementById(
+      "gcScbaCausaId"
+    );
+
+  const scbaOrganisms =
+    document.getElementById(
+      "gcScbaOrganisms"
+    );
+
+
+  const organismosSCBA =
+    Array.isArray(
+      causa.organismosSCBA
+    )
+      ? causa.organismosSCBA
+      : [];
+
+
+  const tieneInformacionSCBA =
+    Boolean(
+      causa.expedienteSCBA ||
+      causa.idCausaSCBA ||
+      organismosSCBA.length
+    );
+
+
+  if (
+    !scbaSection
+  ) {
+    return;
+  }
+
+
+  if (
+    !tieneInformacionSCBA
+  ) {
+
+    scbaSection.hidden =
+      true;
+
+    return;
+
+  }
+
+
+  scbaSection.hidden =
+    false;
+
+
+  if (
+    scbaExpediente
+  ) {
+
+    scbaExpediente.textContent =
+      causa.expedienteSCBA ||
+      causa.expediente ||
+      "Sin cargar";
+
+  }
+
+
+  if (
+    scbaCausaId
+  ) {
+
+    scbaCausaId.textContent =
+      causa.idCausaSCBA ||
+      "Sin cargar";
+
+  }
+
+
+  if (
+    scbaOrganisms
+  ) {
+
+    if (
+      !organismosSCBA.length
+    ) {
+
+      scbaOrganisms.innerHTML =
+        `
+          <div class="gc-empty-state gc-empty-state--compact">
+            <p>
+              Sin organismos SCBA vinculados.
+            </p>
+          </div>
+        `;
+
+    } else {
+
+      scbaOrganisms.innerHTML =
+        organismosSCBA
+          .map(
+            (
+              organismo,
+              index
+            ) => {
+
+              const nombre =
+                organismo.nombre ||
+                `Organismo ${index + 1}`;
+
+
+              const departamento =
+                organismo.departamento ||
+                "";
+
+
+              const fuero =
+                organismo.fuero ||
+                "";
+
+
+              const idOrganismo =
+                organismo.idOrganismoSCBA ||
+                "";
+
+
+              const enlace =
+                organismo.enlaceTramites ||
+                "";
+
+
+              return `
+                <article class="gc-detail-card gc-scba-organism-card">
+
+                  <span>
+                    Organismo SCBA ${index + 1}
+                  </span>
+
+                  <strong>
+                    ${escapeHtml(
+                      nombre
+                    )}
+                  </strong>
+
+                  ${
+                    departamento
+                      ? `
+                        <small>
+                          ${escapeHtml(
+                            departamento
+                          )}
+                        </small>
+                      `
+                      : ""
+                  }
+
+                  ${
+                    fuero
+                      ? `
+                        <small>
+                          ${escapeHtml(
+                            fuero
+                          )}
+                        </small>
+                      `
+                      : ""
+                  }
+
+                  ${
+                    idOrganismo
+                      ? `
+                        <small>
+                          ID Organismo:
+                          ${escapeHtml(
+                            idOrganismo
+                          )}
+                        </small>
+                      `
+                      : ""
+                  }
+
+                  ${
+                    enlace
+                      ? `
+                        <a
+                          href="${escapeHtml(
+                            enlace
+                          )}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="gc-button gc-button--secondary"
+                        >
+                          Abrir trámites SCBA
+                        </a>
+                      `
+                      : ""
+                  }
+
+                </article>
+              `;
+
+            }
+          )
+          .join("");
+
+    }
+
+  }
+
+};
 
   const createPartyCard = (
     title,
@@ -637,121 +1183,129 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const stages = [
-    {
-      title: "Designación",
-      value:
-        causa.fechaDesignacion
-          ? formatDate(causa.fechaDesignacion)
-          : formatStageValue(
-              estadoDesignacion,
-              "Sin cargar"
-            ),
-      complete:
-        estadoDesignacion === "registrada" ||
-        Boolean(causa.fechaDesignacion)
-    },
+   {
+  title: "Designación",
+  value:
+    causa.fechaDesignacion
+      ? `${formatDate(causa.fechaDesignacion)} · ${formatStageValue(
+          estadoDesignacion,
+          "Sin cargar"
+        )}`
+      : formatStageValue(
+          estadoDesignacion,
+          "Sin cargar"
+        ),
+  complete:
+    estadoDesignacion === "registrada" ||
+    Boolean(causa.fechaDesignacion)
+},
 
-    {
-      title: "Aceptación del cargo",
-      value:
-        causa.fechaAceptacion
-          ? formatDate(causa.fechaAceptacion)
-          : formatStageValue(
-              estadoAceptacion,
-              "Sin cargar"
-            ),
-      complete:
-        estadoAceptacion === "registrada" ||
-        Boolean(causa.fechaAceptacion)
-    },
+   {
+  title: "Aceptación del cargo",
+  value:
+    causa.fechaAceptacion
+      ? `${formatDate(causa.fechaAceptacion)} · ${formatStageValue(
+          estadoAceptacion,
+          "Sin cargar"
+        )}`
+      : formatStageValue(
+          estadoAceptacion,
+          "Sin cargar"
+        ),
+  complete:
+    estadoAceptacion === "registrada" ||
+    Boolean(causa.fechaAceptacion)
+},
 
-    {
-      title: "Anticipo de gastos",
-      value:
-        formatStageValue(
+  {
+  title: "Anticipo de gastos",
+  value:
+    causa.fechaAnticipo
+      ? `${formatDate(causa.fechaAnticipo)} · ${formatStageValue(
+          estadoAnticipo,
+          "Sin solicitar"
+        )}`
+      : formatStageValue(
           estadoAnticipo,
           "Sin solicitar"
         ),
-      complete: [
-        "registrado",
-        "solicitado",
-        "depositado"
-      ].includes(estadoAnticipo)
-    },
+  complete: [
+    "registrado",
+    "solicitado",
+    "depositado"
+  ].includes(estadoAnticipo)
+},
 
-    {
-      title: "Entrevista",
-      value:
-        formatStageValue(
+   {
+  title: "Entrevista",
+  value:
+    causa.fechaEntrevista
+      ? `${formatDate(causa.fechaEntrevista)} · ${formatStageValue(
+          estadoEntrevista,
+          "Sin información"
+        )}`
+      : formatStageValue(
           estadoEntrevista,
           "Sin información"
         ),
-      complete: [
-        "registrada",
-        "realizada"
-      ].includes(estadoEntrevista)
-    },
+  complete: [
+    "registrada",
+    "realizada"
+  ].includes(estadoEntrevista)
+},
 
     {
-      title: "Dictamen pericial",
-      value:
-        formatStageValue(
+  title: "Dictamen pericial",
+  value:
+    causa.fechaPericia
+      ? `${formatDate(causa.fechaPericia)} · ${formatStageValue(
+          estadoPericia,
+          "Pendiente"
+        )}`
+      : formatStageValue(
           estadoPericia,
           "Pendiente"
         ),
-      complete: [
-        "presentada",
-        "impugnada",
-        "finalizada"
-      ].includes(estadoPericia)
-    },
+  complete: [
+    "presentada",
+    "impugnada",
+    "finalizada"
+  ].includes(estadoPericia)
+},
 
-    {
-      title: "Impugnación",
-      value:
-        formatStageValue(
+   {
+  title: "Impugnación",
+  value:
+    causa.fechaImpugnacion
+      ? `${formatDate(causa.fechaImpugnacion)} · ${formatStageValue(
+          estadoImpugnacion,
+          "Ninguna"
+        )}`
+      : formatStageValue(
           estadoImpugnacion,
           "Ninguna"
         ),
-      complete:
-        estadoImpugnacion === "recibida"
-    },
+  complete:
+    estadoImpugnacion === "recibida"
+},
 
-    {
-      title: "Contestación",
-      value:
-        formatStageValue(
+   {
+  title: "Contestación",
+  value:
+    causa.fechaContestacion
+      ? `${formatDate(causa.fechaContestacion)} · ${formatStageValue(
+          estadoContestacion,
+          "Ninguna"
+        )}`
+      : formatStageValue(
           estadoContestacion,
           "Ninguna"
         ),
-      complete:
-        estadoContestacion === "presentada"
-    },
+  complete:
+    estadoContestacion === "presentada"
+},
 
-    {
-      title: "Honorarios",
-      value:
-        formatStageValue(
-          estadoHonorarios,
-          "Sin regular"
-        ),
-      complete: [
-        "regulado",
-        "registrado",
-        "cobrado"
-      ].includes(estadoHonorarios)
-    },
 
-    {
-      title: "Cobro",
-      value:
-        formatStageValue(
-          estadoCobro,
-          "Pendiente"
-        ),
-      complete:
-        estadoCobro === "cobrado"
-    },
 
     {
       title: "Estado actual",
@@ -994,52 +1548,126 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
-  const renderDocuments = () => {
-    const panel = document.querySelector(
+
+
+
+const renderDocuments = () => {
+  const panel =
+    document.querySelector(
       '[data-panel="documentos"]'
     );
 
-    if (!panel) {
-      return;
-    }
+  if (!panel) {
+    return;
+  }
 
-    const documents = Array.isArray(
+  const documents =
+    Array.isArray(
       causa.documentos
     )
       ? causa.documentos
       : [];
 
-    const documentsHtml = documents.length
+  const documentsHtml =
+    documents.length
       ? documents
           .map(
-            (document) => `
-              <article class="gc-document-card">
+            (documento) => {
 
-                <span class="gc-document-card__icon">
-                  ${getValue(
-                    document.extension,
-                    "DOC"
-                  )}
-                </span>
+              const documentUrl =
+                documento.secureUrl ||
+                documento.url ||
+                documento.downloadURL ||
+                "";
 
-                <div>
-                  <strong>
+              const extension =
+                documento.extension ||
+                documento.formato ||
+                "DOC";
+
+              return `
+                <article class="gc-document-card">
+
+                  <span class="gc-document-card__icon">
                     ${getValue(
-                      document.nombre,
-                      "Documento"
-                    )}
-                  </strong>
-
-                  <span>
-                    ${getValue(
-                      document.categoria,
-                      "Sin categoría"
+                      extension,
+                      "DOC"
                     )}
                   </span>
-                </div>
 
-              </article>
-            `
+                  <div class="gc-document-card__content">
+
+                    <strong>
+                      ${getValue(
+                        documento.nombre ||
+                        documento.nombreOriginal,
+                        "Documento"
+                      )}
+                    </strong>
+
+                    <span>
+                      ${getValue(
+                        documento.categoria,
+                        "Documento asociado"
+                      )}
+                    </span>
+
+                    ${
+                      documento.tamanioLegible
+                        ? `
+                          <small>
+                            ${escapeHtml(
+                              documento.tamanioLegible
+                            )}
+                          </small>
+                        `
+                        : ""
+                    }
+
+                  </div>
+
+                  ${
+                    documentUrl
+                      ? `
+                        <div class="gc-document-card__actions">
+
+                          ${
+                            String(extension).toLowerCase() === "pdf"
+                              ? `
+                                <a
+                                  href="${escapeHtml(documentUrl)}"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  class="gc-button gc-button--small"
+                                >
+                                  Abrir
+                                </a>
+                              `
+                              : ""
+                          }
+
+                          <a
+                            href="${escapeHtml(documentUrl)}"
+                            download
+                            class="gc-button gc-button--small gc-button--ghost"
+                          >
+                            Descargar
+                          </a>
+
+                        </div>
+                      `
+                      : `
+                        <div class="gc-document-card__status">
+                          <span class="gc-status gc-status--neutral">
+                            Archivo histórico
+                          </span>
+                        </div>
+                      `
+                  }
+
+                </article>
+              `;
+            }
           )
           .join("")
       : `
@@ -1049,41 +1677,418 @@ document.addEventListener("DOMContentLoaded", () => {
             D
           </div>
 
-          <h3>Sin documentos asociados</h3>
+          <h3>
+            Sin documentos asociados
+          </h3>
 
           <p>
-            Todavía no se cargaron archivos en esta causa.
+            Todavía no se cargaron archivos en este registro.
           </p>
 
         </div>
       `;
 
-    panel.innerHTML = `
-      <div class="gc-section-heading">
+  panel.innerHTML = `
+    <div class="gc-section-heading">
 
-        <div>
-          <span class="gc-panel__eyebrow">
-            Archivo digital
-          </span>
+      <div>
 
-          <h3>Documentación asociada</h3>
-        </div>
+        <span class="gc-panel__eyebrow">
+          Archivo digital
+        </span>
 
-        <button
-          type="button"
-          class="gc-button gc-button--secondary"
-          id="gcUploadDocumentButton"
-        >
-          Subir documento
-        </button>
+        <h3>
+          Documentación asociada
+        </h3>
 
       </div>
 
-      <div class="gc-document-grid">
-        ${documentsHtml}
-      </div>
-    `;
-  };
+      <button
+        type="button"
+        class="gc-button gc-button--secondary"
+        id="gcUploadDocumentButton"
+      >
+        Subir documento
+      </button>
+
+      <input
+        type="file"
+        id="gcDocumentFileInput"
+        accept=".pdf,.odt,.doc,.docx"
+        hidden
+      >
+
+    </div>
+
+    <div class="gc-document-grid">
+      ${documentsHtml}
+    </div>
+  `;
+};
+
+const initializeDocumentUpload = () => {
+
+  const uploadButton =
+    document.getElementById(
+      "gcUploadDocumentButton"
+    );
+
+  const fileInput =
+    document.getElementById(
+      "gcDocumentFileInput"
+    );
+
+  if (
+    !uploadButton ||
+    !fileInput
+  ) {
+    return;
+  }
+
+
+  /* =====================================================
+     ABRIR SELECTOR
+  ====================================================== */
+
+  uploadButton.addEventListener(
+    "click",
+    () => {
+      fileInput.click();
+    }
+  );
+
+
+  /* =====================================================
+     SUBIR DOCUMENTO
+  ====================================================== */
+
+  fileInput.addEventListener(
+    "change",
+    async (event) => {
+
+      const archivo =
+        event.target.files?.[0];
+
+      if (!archivo) {
+        return;
+      }
+
+
+      uploadButton.disabled = true;
+
+      uploadButton.textContent =
+        "Subiendo...";
+
+
+      try {
+
+        /* ===============================================
+           TIPO DE REGISTRO
+        =============================================== */
+
+        const tipoRegistro =
+          isPericia
+            ? "pericias"
+            : "causas";
+
+
+        const coleccionFirestore =
+          isPericia
+            ? "gestion_pericias"
+            : "gestion_causas";
+
+
+        /* ===============================================
+           SUBIR A CLOUDINARY
+        =============================================== */
+
+        const resultado =
+          await window
+            .GestionCausasDocumentosStorage
+            .subirDocumento(
+              tipoRegistro,
+              causa.id,
+              archivo
+            );
+
+
+        /* ===============================================
+           DETECTAR CATEGORÍA
+        =============================================== */
+
+        const nombreNormalizado =
+          String(
+            archivo.name || ""
+          )
+            .normalize("NFD")
+            .replace(
+              /[\u0300-\u036f]/g,
+              ""
+            )
+            .toLowerCase();
+
+
+        let categoria =
+          "otros-documentos";
+
+
+        if (
+          nombreNormalizado.includes(
+            "pericia"
+          )
+        ) {
+
+          categoria =
+            "pericia";
+
+        } else if (
+          nombreNormalizado.includes(
+            "conteste"
+          ) ||
+          nombreNormalizado.includes(
+            "contestacion"
+          )
+        ) {
+
+          categoria =
+            "contestacion-impugnacion";
+
+        } else if (
+          nombreNormalizado.includes(
+            "impugnacion"
+          )
+        ) {
+
+          categoria =
+            "impugnacion";
+
+        } else if (
+          nombreNormalizado.includes(
+            "aceptacion"
+          )
+        ) {
+
+          categoria =
+            "aceptacion-cargo";
+
+        }
+
+
+        /* ===============================================
+           NUEVO DOCUMENTO
+        =============================================== */
+
+        const nuevoDocumento = {
+
+          id:
+            resultado.id ||
+            window.crypto
+              ?.randomUUID?.() ||
+            `documento-${Date.now()}`,
+
+          nombre:
+            archivo.name,
+
+          nombreOriginal:
+            archivo.name,
+
+          categoria,
+
+          extension:
+            resultado.extension ||
+            "",
+
+          formato:
+            resultado.formato ||
+            "",
+
+          tipo:
+            resultado.tipo ||
+            archivo.type ||
+            "",
+
+          tamanio:
+            resultado.tamanio ||
+            archivo.size ||
+            0,
+
+          tamanioLegible:
+            resultado.tamanioLegible ||
+            "",
+
+          publicId:
+            resultado.publicId ||
+            "",
+
+          assetId:
+            resultado.assetId ||
+            null,
+
+          secureUrl:
+            resultado.secureUrl ||
+            resultado.url ||
+            "",
+
+          url:
+            resultado.secureUrl ||
+            resultado.url ||
+            "",
+
+          carpeta:
+            resultado.carpeta ||
+            "",
+
+          rutaCloudinary:
+            resultado.ruta ||
+            "",
+
+          resourceType:
+            resultado.resourceType ||
+            "",
+
+          proveedor:
+            "cloudinary",
+
+          estado:
+            "subido",
+
+          fechaCarga:
+            new Date()
+              .toISOString()
+        };
+
+
+        /* ===============================================
+           DOCUMENTOS ACTUALES
+        =============================================== */
+
+        const documentosActuales =
+          Array.isArray(
+            causa.documentos
+          )
+            ? [
+                ...causa.documentos
+              ]
+            : [];
+
+
+        const documentosActualizados = [
+          ...documentosActuales,
+          nuevoDocumento
+        ];
+
+
+        /* ===============================================
+           GUARDAR EN FIRESTORE
+        =============================================== */
+
+        const { db } =
+          await import(
+            "../../firebase-config.js"
+          );
+
+
+        const {
+          doc,
+          updateDoc
+        } =
+          await import(
+            "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
+          );
+
+
+        const registroRef =
+          doc(
+            db,
+            coleccionFirestore,
+            String(
+              causa.id
+            )
+          );
+
+
+        await updateDoc(
+          registroRef,
+          {
+            documentos:
+              documentosActualizados,
+
+            documentosCount:
+              documentosActualizados.length,
+
+            fechaActualizacion:
+              new Date()
+                .toISOString()
+          }
+        );
+
+
+        /* ===============================================
+           ACTUALIZAR FICHA
+        =============================================== */
+
+        causa.documentos =
+          documentosActualizados;
+
+        causa.documentosCount =
+          documentosActualizados.length;
+
+
+        renderDocuments();
+
+        initializeDocumentUpload();
+
+        activateTab(
+          "documentos"
+        );
+
+
+        showToast(
+          "Documento subido y guardado correctamente."
+        );
+
+
+        console.log(
+          "Gestión de Causas FALCO® documento vinculado:",
+          nuevoDocumento
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Error al subir el documento:",
+          error
+        );
+
+        showToast(
+          "No se pudo subir el documento.",
+          "error"
+        );
+
+      } finally {
+
+        const nuevoBoton =
+          document.getElementById(
+            "gcUploadDocumentButton"
+          );
+
+        if (nuevoBoton) {
+
+          nuevoBoton.disabled =
+            false;
+
+          nuevoBoton.textContent =
+            "Subir documento";
+
+        }
+
+      }
+
+    }
+  );
+};
+
 
 
 
@@ -1828,25 +2833,357 @@ const actuacionesActualizadas = editingActionId
       nuevaActuacion
     ];
 
+const seguimientoActual =
+  (
+    causa.seguimiento &&
+    typeof causa.seguimiento === "object"
+  )
+    ? {
+        ...causa.seguimiento
+      }
+    : {};
+
+
 const updatedCase = {
   ...causa,
-  actuaciones: actuacionesActualizadas,
+
+  actuaciones:
+    actuacionesActualizadas,
+
+  seguimiento:
+    seguimientoActual,
+
   fechaActualizacion:
     new Date().toISOString()
 };
+
+
+/* =====================================================
+   SINCRONIZAR ACTUACIÓN CON SEGUIMIENTO PERICIAL
+===================================================== */
+
+const tipoActuacion =
+  String(
+    nuevaActuacion.tipo || ""
+  )
+    .trim()
+    .toLowerCase();
+
+
+const estadoActuacion =
+  String(
+    nuevaActuacion.estado || ""
+  )
+    .trim()
+    .toLowerCase();
+
+
+const fechaActuacion =
+  nuevaActuacion.fecha || "";
+
+
+/* =========================
+   DESIGNACIÓN
+========================= */
+
+if (
+  tipoActuacion === "designación" ||
+  tipoActuacion === "designacion"
+) {
+
+  updatedCase.fechaDesignacion =
+    fechaActuacion;
+
+  updatedCase.seguimiento.estadoDesignacion =
+    estadoActuacion === "cumplida" ||
+    estadoActuacion === "presentada"
+      ? "registrada"
+      : estadoActuacion === "pendiente"
+        ? "sin-cargar"
+        : "registrada";
+
+}
+
+
+/* =========================
+   ACEPTACIÓN DEL CARGO
+========================= */
+
+if (
+  tipoActuacion === "aceptación del cargo" ||
+  tipoActuacion === "aceptacion del cargo"
+) {
+
+  updatedCase.fechaAceptacion =
+    fechaActuacion;
+
+  updatedCase.seguimiento.estadoAceptacion =
+    estadoActuacion === "presentada" ||
+    estadoActuacion === "cumplida"
+      ? "registrada"
+      : "registrada";
+
+}
+
+
+/* =========================
+   ANTICIPO DE GASTOS
+========================= */
+
+if (
+  tipoActuacion === "anticipo de gastos"
+) {
+
+  if (
+    estadoActuacion === "presentada" ||
+    estadoActuacion === "cumplida"
+  ) {
+
+    updatedCase.seguimiento.estadoAnticipo =
+      "solicitado";
+
+  } else {
+
+    updatedCase.seguimiento.estadoAnticipo =
+      estadoActuacion === "pendiente"
+        ? "sin-solicitar"
+        : "solicitado";
+
+  }
+
+  updatedCase.fechaAnticipo =
+    fechaActuacion;
+
+}
+
+
+/* =========================
+   ENTREVISTA
+========================= */
+
+if (
+  tipoActuacion === "entrevista"
+) {
+
+  updatedCase.fechaEntrevista =
+    fechaActuacion;
+
+  updatedCase.seguimiento.estadoEntrevista =
+    estadoActuacion === "cumplida"
+      ? "realizada"
+      : estadoActuacion === "pendiente" ||
+        estadoActuacion === "en-preparacion"
+        ? "registrada"
+        : "registrada";
+
+}
+
+
+/* =========================
+   PERICIA
+========================= */
+
+if (
+  tipoActuacion === "pericia"
+) {
+
+  updatedCase.fechaPericia =
+    fechaActuacion;
+
+  updatedCase.seguimiento.estadoPericia =
+    estadoActuacion === "presentada" ||
+    estadoActuacion === "cumplida"
+      ? "presentada"
+      : estadoActuacion === "pendiente" ||
+        estadoActuacion === "en-preparacion"
+        ? "pendiente"
+        : estadoActuacion;
+
+}
+
+
+/* =========================
+   IMPUGNACIÓN
+========================= */
+
+if (
+  tipoActuacion === "impugnación" ||
+  tipoActuacion === "impugnacion"
+) {
+
+  updatedCase.fechaImpugnacion =
+    fechaActuacion;
+
+  updatedCase.seguimiento.estadoImpugnacion =
+    estadoActuacion === "pendiente" ||
+    estadoActuacion === "en-preparacion"
+      ? "recibida"
+      : estadoActuacion === "cumplida"
+        ? "recibida"
+        : "recibida";
+
+}
+
+
+/* =========================
+   EXPLICACIONES / CONTESTACIÓN
+========================= */
+
+if (
+  tipoActuacion === "explicaciones"
+) {
+
+  updatedCase.fechaContestacion =
+    fechaActuacion;
+
+  updatedCase.seguimiento.estadoContestacion =
+    estadoActuacion === "presentada" ||
+    estadoActuacion === "cumplida"
+      ? "presentada"
+      : estadoActuacion === "pendiente" ||
+        estadoActuacion === "en-preparacion"
+        ? "pendiente"
+        : estadoActuacion;
+
+}
 
     if (nuevaActuacion.vencimiento) {
       updatedCase.proximoVencimiento =
         nuevaActuacion.vencimiento;
     }
 
-    if (
-      nuevaActuacion.estado === "pendiente" ||
-      nuevaActuacion.estado === "en-preparacion"
-    ) {
-      updatedCase.proximoPaso =
-        nuevaActuacion.titulo;
-    }
+  /* =====================================================
+   CALCULAR PRÓXIMO PASO PERICIAL
+===================================================== */
+
+const seguimientoParaPaso =
+  updatedCase.seguimiento || {};
+
+
+const estadoAceptacionPaso =
+  seguimientoParaPaso.estadoAceptacion ||
+  "sin-cargar";
+
+const estadoAnticipoPaso =
+  seguimientoParaPaso.estadoAnticipo ||
+  "sin-solicitar";
+
+const estadoEntrevistaPaso =
+  seguimientoParaPaso.estadoEntrevista ||
+  "sin-informacion";
+
+const estadoPericiaPaso =
+  seguimientoParaPaso.estadoPericia ||
+  "pendiente";
+
+const estadoImpugnacionPaso =
+  seguimientoParaPaso.estadoImpugnacion ||
+  "ninguna";
+
+const estadoContestacionPaso =
+  seguimientoParaPaso.estadoContestacion ||
+  "ninguna";
+
+
+let proximoPasoCalculado =
+  "Revisar estado de la causa";
+
+
+/* =========================================
+   PRIORIDAD 1 — CONTESTAR IMPUGNACIÓN
+========================================= */
+
+if (
+  estadoImpugnacionPaso === "recibida" &&
+  estadoContestacionPaso !== "presentada"
+) {
+
+  proximoPasoCalculado =
+    "Contestar impugnación / explicaciones";
+
+}
+
+
+/* =========================================
+   PRIORIDAD 2 — PERICIA
+========================================= */
+
+else if (
+  estadoPericiaPaso === "pendiente"
+) {
+
+  if (
+    estadoEntrevistaPaso === "realizada"
+  ) {
+
+    proximoPasoCalculado =
+      "Presentar dictamen pericial";
+
+  }
+
+  else if (
+    estadoEntrevistaPaso === "registrada"
+  ) {
+
+    proximoPasoCalculado =
+      "Realizar entrevista pericial";
+
+  }
+
+  else if (
+    estadoAceptacionPaso === "registrada"
+  ) {
+
+    proximoPasoCalculado =
+      "Coordinar entrevista pericial";
+
+  }
+
+  else {
+
+    proximoPasoCalculado =
+      "Revisar aceptación del cargo";
+
+  }
+
+}
+
+
+/* =========================================
+   PRIORIDAD 3 — PERICIA YA PRESENTADA
+========================================= */
+
+else if (
+  estadoPericiaPaso === "presentada"
+) {
+
+  if (
+    estadoImpugnacionPaso === "ninguna"
+  ) {
+
+    proximoPasoCalculado =
+      "Controlar traslado del dictamen";
+
+  }
+
+  else if (
+    estadoContestacionPaso === "presentada"
+  ) {
+
+    proximoPasoCalculado =
+      "Controlar resolución posterior";
+
+  }
+
+}
+
+
+/* =========================================
+   GUARDAR PRÓXIMO PASO
+========================================= */
+
+updatedCase.proximoPaso =
+  proximoPasoCalculado;
 
     const saved =
       window.GestionCausasData?.updateCase?.(
@@ -2240,6 +3577,67 @@ if (!causa) {
   return;
 }
 
+
+/* =========================================================
+   MODO PERICIA
+========================================================= */
+
+if (isPericia) {
+
+  const editButton =
+    document.getElementById(
+      "gcEditCaseButton"
+    );
+
+  const saveButton =
+    document.getElementById(
+      "gcSaveCaseButton"
+    );
+
+  const backButton =
+    document.querySelector(
+      ".gc-topbar__actions a"
+    );
+
+  if (editButton) {
+    editButton.hidden = true;
+  }
+
+  if (saveButton) {
+    saveButton.hidden = true;
+  }
+
+  if (backButton) {
+    backButton.href =
+      "./pericias.html";
+
+    backButton.textContent =
+      "Volver a Pericias";
+  }
+
+  const topTitle =
+    document.querySelector(
+      ".gc-topbar h1"
+    );
+
+  if (topTitle) {
+    topTitle.textContent =
+      "Ficha de la pericia";
+  }
+
+  const eyebrow =
+    document.querySelector(
+      ".gc-topbar__eyebrow"
+    );
+
+  if (eyebrow) {
+    eyebrow.textContent =
+      "Archivo pericial";
+  }
+
+}
+
+
 renderHeader();
 renderGeneralInformation();
 renderParties();
@@ -2248,6 +3646,9 @@ renderExpertReport();
 renderPericiados();
 renderTimeline();
 renderDocuments();
+
+initializeDocumentUpload();
+
 renderFees();
 renderNotes();
 
@@ -2255,6 +3656,10 @@ initializeActionModal();
 initializeFeeModal();
 
 activateTab("informacion");
+
+document.body.classList.remove(
+  "gc-ficha-loading"
+);
 
 console.log(
   "Gestión de Causas FALCO® Ficha Ready",

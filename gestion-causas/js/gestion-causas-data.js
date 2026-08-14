@@ -2,6 +2,7 @@
   "use strict";
 
   const STORAGE_KEY = "falco_gestion_causas";
+  const FIRESTORE_COLLECTION = "gestion_causas";
 
   const causasIniciales = [
     {
@@ -359,20 +360,52 @@
     }
   ];
 
-  const readStoredCases = () => {
+  /* =========================================================
+     CACHE DE COMPATIBILIDAD
+  ========================================================= */
+
+  let cacheCases = [];
+  let firestoreReady = false;
+  let firebaseApi = null;
+
+  let writeQueue = Promise.resolve();
+
+  const clone = (value) => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
+      return structuredClone(value);
+    } catch (error) {
+      return JSON.parse(
+        JSON.stringify(value)
+      );
+    }
+  };
+
+  /* =========================================================
+     RESPALDO LOCAL TEMPORAL
+  ========================================================= */
+
+  const readLegacyLocalCases = () => {
+    try {
+      const stored =
+        localStorage.getItem(
+          STORAGE_KEY
+        );
 
       if (!stored) {
         return [];
       }
 
-      const parsed = JSON.parse(stored);
+      const parsed =
+        JSON.parse(stored);
 
-      return Array.isArray(parsed) ? parsed : [];
+      return Array.isArray(parsed)
+        ? parsed
+        : [];
+
     } catch (error) {
+
       console.error(
-        "No se pudieron leer las causas guardadas:",
+        "No se pudieron leer las causas locales de respaldo:",
         error
       );
 
@@ -380,107 +413,702 @@
     }
   };
 
-  const saveStoredCases = (causas) => {
-    try {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(causas)
+  const buildInitialCache = () => {
+
+    const casesMap =
+      new Map();
+
+    causasIniciales.forEach(
+      (causa) => {
+
+        casesMap.set(
+          String(causa.id),
+          clone(causa)
+        );
+      }
+    );
+
+    readLegacyLocalCases().forEach(
+      (causa) => {
+
+        if (!causa?.id) {
+          return;
+        }
+
+        casesMap.set(
+          String(causa.id),
+          clone(causa)
+        );
+      }
+    );
+
+    return Array.from(
+      casesMap.values()
+    );
+  };
+
+  cacheCases =
+    buildInitialCache();
+
+  /* =========================================================
+     FIREBASE
+  ========================================================= */
+
+  const loadFirebaseApi =
+    async () => {
+
+      if (firebaseApi) {
+        return firebaseApi;
+      }
+
+      const firebaseConfigModule =
+        await import(
+          "../../firebase-config.js"
+        );
+
+      const firestoreModule =
+        await import(
+          "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
+        );
+
+      firebaseApi = {
+
+        db:
+          firebaseConfigModule.db,
+
+        collection:
+          firestoreModule.collection,
+
+        doc:
+          firestoreModule.doc,
+
+        getDocs:
+          firestoreModule.getDocs,
+
+        setDoc:
+          firestoreModule.setDoc,
+
+        deleteDoc:
+          firestoreModule.deleteDoc,
+
+        serverTimestamp:
+          firestoreModule.serverTimestamp
+      };
+
+      return firebaseApi;
+    };
+
+  /* =========================================================
+     DOCUMENTOS LIVIANOS PARA LA FICHA
+  ========================================================= */
+
+  const getSlimDocuments = (
+    documents = []
+  ) => {
+
+    return (
+      Array.isArray(documents)
+        ? documents
+        : []
+    )
+      .map((document) => {
+
+        if (
+          !document ||
+          typeof document !== "object"
+        ) {
+          return null;
+        }
+
+        const {
+          textoExtraido,
+          zipEntry,
+          ...slimDocument
+        } = document;
+
+        return slimDocument;
+      })
+      .filter(Boolean);
+  };
+
+  const prepareMainCase = (
+    causa = {}
+  ) => {
+
+    const {
+      documentos = [],
+      ...mainCase
+    } = causa;
+
+    return {
+      ...mainCase,
+
+      documentos:
+        getSlimDocuments(
+          documentos
+        ),
+
+      documentosCount:
+        Array.isArray(documentos)
+          ? documentos.length
+          : 0,
+
+      fechaActualizacion:
+        causa.fechaActualizacion ||
+        new Date().toISOString()
+    };
+  };
+
+  /* =========================================================
+     LECTURA DESDE FIRESTORE
+  ========================================================= */
+
+  const replaceCache = (
+    firestoreCases = []
+  ) => {
+
+    const casesMap =
+      new Map();
+
+    firestoreCases.forEach(
+      (causa) => {
+
+        if (!causa?.id) {
+          return;
+        }
+
+        casesMap.set(
+          String(causa.id),
+          causa
+        );
+      }
+    );
+
+    causasIniciales.forEach(
+      (causa) => {
+
+        const key =
+          String(causa.id);
+
+        if (
+          !casesMap.has(key)
+        ) {
+
+          casesMap.set(
+            key,
+            clone(causa)
+          );
+        }
+      }
+    );
+
+    cacheCases =
+      Array.from(
+        casesMap.values()
+      );
+  };
+
+  const loadCasesFromFirestore =
+    async () => {
+
+      const {
+        db,
+        collection,
+        getDocs
+      } =
+        await loadFirebaseApi();
+
+      const snapshot =
+        await getDocs(
+          collection(
+            db,
+            FIRESTORE_COLLECTION
+          )
+        );
+
+      const firestoreCases =
+        snapshot.docs.map(
+          (documentSnapshot) => ({
+            id:
+              documentSnapshot.id,
+
+            ...documentSnapshot.data()
+          })
+        );
+
+      replaceCache(
+        firestoreCases
+      );
+
+      firestoreReady = true;
+
+      window.dispatchEvent(
+        new CustomEvent(
+          "gestion-causas-data-ready",
+          {
+            detail: {
+              total:
+                cacheCases.length,
+
+              origen:
+                "firestore"
+            }
+          }
+        )
+      );
+
+      console.log(
+        "Gestión de Causas FALCO® Data Firestore Ready",
+        {
+          total:
+            cacheCases.length
+        }
+      );
+
+      return getCases();
+    };
+
+  /* =========================================================
+     GUARDADO EN FIRESTORE
+  ========================================================= */
+
+  const persistCase =
+    async (causa) => {
+
+      if (!causa?.id) {
+
+        throw new Error(
+          "La causa no tiene identificador."
+        );
+      }
+
+      const {
+        db,
+        doc,
+        setDoc,
+        serverTimestamp
+      } =
+        await loadFirebaseApi();
+
+      const documents =
+        Array.isArray(
+          causa.documentos
+        )
+          ? causa.documentos
+          : [];
+
+      const mainCase =
+        prepareMainCase(
+          causa
+        );
+
+      await setDoc(
+        doc(
+          db,
+          FIRESTORE_COLLECTION,
+          String(causa.id)
+        ),
+        {
+          ...mainCase,
+
+          fechaPersistencia:
+            serverTimestamp()
+        },
+        {
+          merge: true
+        }
+      );
+
+      for (
+        const document
+        of documents
+      ) {
+
+        if (!document) {
+          continue;
+        }
+
+        const documentId =
+          document.id ||
+          window.crypto
+            ?.randomUUID?.() ||
+          `documento-${Date.now()}-${Math.random()
+            .toString(36)
+            .slice(2, 8)}`;
+
+        const {
+          zipEntry,
+          ...safeDocument
+        } = document;
+
+        await setDoc(
+          doc(
+            db,
+            FIRESTORE_COLLECTION,
+            String(causa.id),
+            "documentos",
+            String(documentId)
+          ),
+          {
+            ...safeDocument,
+            id: documentId
+          },
+          {
+            merge: true
+          }
+        );
+      }
+
+      return true;
+    };
+
+  /* =========================================================
+     ELIMINAR EN FIRESTORE
+  ========================================================= */
+
+  const removeCaseFromFirestore =
+    async (id) => {
+
+      const {
+        db,
+        collection,
+        doc,
+        getDocs,
+        deleteDoc
+      } =
+        await loadFirebaseApi();
+
+      const documentsSnapshot =
+        await getDocs(
+          collection(
+            db,
+            FIRESTORE_COLLECTION,
+            String(id),
+            "documentos"
+          )
+        );
+
+      for (
+        const documentSnapshot
+        of documentsSnapshot.docs
+      ) {
+
+        await deleteDoc(
+          documentSnapshot.ref
+        );
+      }
+
+      await deleteDoc(
+        doc(
+          db,
+          FIRESTORE_COLLECTION,
+          String(id)
+        )
       );
 
       return true;
-    } catch (error) {
-      console.error(
-        "No se pudieron guardar las causas:",
-        error
-      );
+    };
 
-      return false;
-    }
+  /* =========================================================
+     COLA DE ESCRITURA
+  ========================================================= */
+
+  const enqueueWrite = (
+    operation
+  ) => {
+
+    writeQueue =
+      writeQueue
+        .then(operation)
+        .catch((error) => {
+
+          console.error(
+            "Gestión de Causas FALCO® Error de persistencia:",
+            error
+          );
+
+          throw error;
+        });
+
+    return writeQueue;
   };
 
-  const mergeCases = () => {
-    const storedCases = readStoredCases();
-    const casesMap = new Map();
+  /* =========================================================
+     API COMPATIBLE
+  ========================================================= */
 
-    causasIniciales.forEach((causa) => {
-      casesMap.set(causa.id, causa);
-    });
+  const getCases = () => {
 
-    storedCases.forEach((causa) => {
-      casesMap.set(causa.id, causa);
-    });
-
-    return Array.from(casesMap.values());
+    return cacheCases.map(
+      (causa) =>
+        clone(causa)
+    );
   };
 
-  const getCases = () => mergeCases();
+  const getCaseById = (
+    id
+  ) => {
 
-  const getCaseById = (id) => {
     if (!id) {
       return null;
     }
 
-    return getCases().find(
-      (causa) => String(causa.id) === String(id)
-    ) || null;
+    const causa =
+      cacheCases.find(
+        (item) =>
+          String(item.id) ===
+          String(id)
+      );
+
+    return causa
+      ? clone(causa)
+      : null;
   };
 
-  const addCase = (newCase) => {
-    const storedCases = readStoredCases();
+  const addCase = (
+    newCase
+  ) => {
 
-    storedCases.push(newCase);
+    if (!newCase?.id) {
+      return false;
+    }
 
-    return saveStoredCases(storedCases);
+    const id =
+      String(newCase.id);
+
+    const existingIndex =
+      cacheCases.findIndex(
+        (causa) =>
+          String(causa.id) === id
+      );
+
+    const normalizedCase = {
+      ...clone(newCase),
+
+      fechaActualizacion:
+        newCase.fechaActualizacion ||
+        new Date().toISOString()
+    };
+
+    if (
+      existingIndex >= 0
+    ) {
+
+      cacheCases[
+        existingIndex
+      ] =
+        normalizedCase;
+
+    } else {
+
+      cacheCases.push(
+        normalizedCase
+      );
+    }
+
+    enqueueWrite(
+      () =>
+        persistCase(
+          normalizedCase
+        )
+    );
+
+    return true;
   };
 
-  const updateCase = (updatedCase) => {
+  const updateCase = (
+    updatedCase
+  ) => {
+
     if (!updatedCase?.id) {
       return false;
     }
 
-    const storedCases = readStoredCases();
-    const storedIndex = storedCases.findIndex(
-      (causa) => causa.id === updatedCase.id
-    );
+    const id =
+      String(updatedCase.id);
 
     const normalizedCase = {
-      ...updatedCase,
-      fechaActualizacion: new Date().toISOString()
+      ...clone(updatedCase),
+
+      fechaActualizacion:
+        new Date().toISOString()
     };
 
-    if (storedIndex >= 0) {
-      storedCases[storedIndex] = normalizedCase;
+    const existingIndex =
+      cacheCases.findIndex(
+        (causa) =>
+          String(causa.id) === id
+      );
+
+    if (
+      existingIndex >= 0
+    ) {
+
+      cacheCases[
+        existingIndex
+      ] =
+        normalizedCase;
+
     } else {
-      storedCases.push(normalizedCase);
+
+      cacheCases.push(
+        normalizedCase
+      );
     }
 
-    return saveStoredCases(storedCases);
-  };
-
-  const deleteCase = (id) => {
-    const storedCases = readStoredCases();
-
-    const filteredCases = storedCases.filter(
-      (causa) => causa.id !== id
+    enqueueWrite(
+      () =>
+        persistCase(
+          normalizedCase
+        )
     );
 
-    return saveStoredCases(filteredCases);
+    return true;
   };
 
+  const deleteCase = (
+    id
+  ) => {
+
+    if (!id) {
+      return false;
+    }
+
+    const normalizedId =
+      String(id);
+
+    const previousLength =
+      cacheCases.length;
+
+    cacheCases =
+      cacheCases.filter(
+        (causa) =>
+          String(causa.id) !==
+          normalizedId
+      );
+
+    if (
+      cacheCases.length ===
+      previousLength
+    ) {
+      return false;
+    }
+
+    enqueueWrite(
+      () =>
+        removeCaseFromFirestore(
+          normalizedId
+        )
+    );
+
+    return true;
+  };
+
+  /* =========================================================
+     SINCRONIZACIÓN
+  ========================================================= */
+
+  const flush =
+    async () => {
+
+      await writeQueue;
+
+      return true;
+    };
+
+  const refresh =
+    async () => {
+
+      await flush();
+
+      return (
+        loadCasesFromFirestore()
+      );
+    };
+
+  const clearLegacyLocalStorage =
+    () => {
+
+      try {
+
+        localStorage.removeItem(
+          STORAGE_KEY
+        );
+
+        return true;
+
+      } catch (error) {
+
+        console.error(
+          "No se pudo limpiar el respaldo local:",
+          error
+        );
+
+        return false;
+      }
+    };
+
+  /* =========================================================
+     INICIALIZACIÓN FIRESTORE
+  ========================================================= */
+
+  const ready =
+    loadCasesFromFirestore()
+      .catch((error) => {
+
+        firestoreReady = false;
+
+        console.error(
+          "Gestión de Causas FALCO® no pudo cargar Firestore. Se mantiene la cache local de respaldo:",
+          error
+        );
+
+        return getCases();
+      });
+
+  /* =========================================================
+     EXPORTACIÓN GLOBAL
+  ========================================================= */
+
   window.GestionCausasData = {
+
     STORAGE_KEY,
+    FIRESTORE_COLLECTION,
 
     causasIniciales,
-    vencimientos: vencimientosIniciales,
+
+    vencimientos:
+      vencimientosIniciales,
+
+    ready,
 
     getCases,
     getCaseById,
+
     addCase,
     updateCase,
     deleteCase,
+
+    flush,
+    refresh,
+
+    clearLegacyLocalStorage,
+
+    get firestoreReady() {
+      return firestoreReady;
+    },
 
     get causas() {
       return getCases();
     }
   };
+
+  console.log(
+    "Gestión de Causas FALCO® Data Bridge Ready",
+    {
+      cacheInicial:
+        cacheCases.length
+    }
+  );
+
 })();

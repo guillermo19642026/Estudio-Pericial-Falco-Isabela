@@ -3882,3 +3882,169 @@ body.gc-modal-open {
     padding-top: 0;
   }
 }
+
+
+
+/* =========================================================
+   PERICIAS · ACCIONES DE TABLA
+========================================================= */
+
+.gc-table-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BOTÓN COMPACTO
+========================================================= */
+
+.gc-table-actions .gc-button--small {
+  min-height: 32px;
+  height: 32px;
+
+  padding: 0 12px;
+
+  border-radius: 7px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: 0.01em;
+
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: none;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+
+/* =========================================================
+   ABRIR
+========================================================= */
+
+.gc-table-actions a.gc-button--small {
+  background: transparent;
+
+  border: 1px solid rgba(201, 169, 98, 0.55);
+
+  color: #d8bc79;
+}
+
+.gc-table-actions a.gc-button--small:hover {
+  background: rgba(201, 169, 98, 0.10);
+
+  border-color: rgba(216, 188, 121, 0.85);
+
+  color: #ead59d;
+}
+
+
+/* =========================================================
+   ELIMINAR
+========================================================= */
+
+.gc-table-actions .gc-button--danger {
+  background: transparent;
+
+  border: 1px solid rgba(185, 92, 92, 0.45);
+
+  color: #d89a9a;
+}
+
+.gc-table-actions .gc-button--danger:hover {
+  background: rgba(185, 92, 92, 0.10);
+
+  border-color: rgba(215, 115, 115, 0.70);
+
+  color: #ebb0b0;
+}
+
+
+/* =========================================================
+   FOCO
+========================================================= */
+
+.gc-table-actions .gc-button--small:focus-visible {
+  outline: 2px solid rgba(216, 188, 121, 0.55);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   COLUMNA ACCIONES
+========================================================= */
+
+.gc-table--cases th:last-child {
+  width: 145px;
+  min-width: 145px;
+  text-align: right;
+}
+
+.gc-table--cases td:last-child {
+  width: 145px;
+  min-width: 145px;
+  text-align: right;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .gc-table-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gc-table-actions .gc-button--small {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   CARGA DE FICHA
+========================================================= */
+
+body.gc-ficha-loading .gc-shell {
+  opacity: 0;
+  visibility: hidden;/* =========================================================
+   CARGA DE FICHA
+========================================================= */
+
+body.gc-ficha-loading .gc-shell {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body:not(.gc-ficha-loading) .gc-shell {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.15s ease;
+}
+}
+
+body:not(.gc-ficha-loading) .gc-shell {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.15s ease;
+}

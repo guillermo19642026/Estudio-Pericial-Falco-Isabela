@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   "use strict";
 
   const tableBody = document.getElementById(
@@ -285,6 +285,89 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
+
+  const calcularProximoPasoPericial = (
+  causaActual = {}
+) => {
+
+  const seguimiento =
+    causaActual.seguimiento || {};
+
+  const aceptacion =
+    seguimiento.estadoAceptacion ||
+    "sin-cargar";
+
+  const anticipo =
+    seguimiento.estadoAnticipo ||
+    "sin-solicitar";
+
+  const entrevista =
+    seguimiento.estadoEntrevista ||
+    "sin-informacion";
+
+  const pericia =
+    seguimiento.estadoPericia ||
+    "pendiente";
+
+  const impugnacion =
+    seguimiento.estadoImpugnacion ||
+    "ninguna";
+
+  const contestacion =
+    seguimiento.estadoContestacion ||
+    "ninguna";
+
+
+  if (
+    impugnacion === "recibida" &&
+    contestacion !== "presentada"
+  ) {
+    return "Contestar impugnación / explicaciones";
+  }
+
+
+  if (pericia === "pendiente") {
+
+    if (entrevista === "realizada") {
+      return "Presentar dictamen pericial";
+    }
+
+    if (entrevista === "registrada") {
+      return "Realizar entrevista pericial";
+    }
+
+    if (aceptacion === "registrada") {
+      return "Coordinar entrevista pericial";
+    }
+
+    return "Revisar aceptación del cargo";
+  }
+
+
+  if (pericia === "presentada") {
+
+    if (impugnacion === "ninguna") {
+      return "Controlar traslado del dictamen";
+    }
+
+    if (contestacion === "presentada") {
+      return "Controlar resolución posterior";
+    }
+  }
+
+
+  if (anticipo === "solicitado") {
+    return "Controlar anticipo de gastos";
+  }
+
+
+  return (
+    causaActual.proximoPaso ||
+    "Revisar estado de la causa"
+  );
+
+};
+
   const renderNextStep = (causa) => {
     const nextStep =
       causa.proximoPaso || "Sin próximo paso";
@@ -516,6 +599,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const department = params.get("departamento");
     const view = params.get("vista");
 
+const navLinks =
+  document.querySelectorAll(
+    ".gc-nav__link"
+  );
+
+navLinks.forEach((link) => {
+  link.classList.remove("is-active");
+});
+
+const activeLink =
+  department === "moron"
+    ? document.querySelector(
+        '.gc-nav__link[href="./causas.html?departamento=moron"]'
+      )
+    : department === "la-matanza"
+      ? document.querySelector(
+          '.gc-nav__link[href="./causas.html?departamento=la-matanza"]'
+        )
+      : document.querySelector(
+          '.gc-nav__link[href="./causas.html"]'
+        );
+
+activeLink?.classList.add("is-active");
+
+
     if (
       department &&
       departmentFilter &&
@@ -688,18 +796,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   clearFiltersButton?.addEventListener(
-    "click",
-    clearFilters
-  );
+  "click",
+  clearFilters
+);
 
-  applyUrlFilters();
-  applyFilters();
+applyUrlFilters();
 
-  console.log(
-    "Gestión de Causas FALCO® Listado Ready",
-    {
-      total: getCases().length,
-      visibles: currentCases.length
-    }
-  );
+if (
+  window.GestionCausasData?.ready
+) {
+  await window.GestionCausasData.ready;
+}
+
+applyFilters();
+
+document.body.classList.add("is-ready");
+
+
+console.log(
+  "Gestión de Causas FALCO® Listado Ready",
+  {
+    total: getCases().length,
+    visibles: currentCases.length
+  }
+);
 });
