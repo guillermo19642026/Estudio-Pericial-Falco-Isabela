@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Biblioteca FALCO® | Carga Administrativa
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="biblioteca-falco-2026.css"
+  >
+
+</head>
+
+
+<body class="biblioteca-premium">
+
+
+  <main class="bf-section">
+
+    <div class="bf-shell">
+
+
+      <!-- =====================================================
+           ENCABEZADO
+      ====================================================== -->
+
+      <div class="bf-section-head">
+
+        <div>
+
+          <span class="bf-kicker">
+            Administración
+          </span>
+
+          <h1>
+            Carga de contenidos
+          </h1>
+
+        </div>
+
+
+        <p>
+          Herramienta administrativa para incorporar
+          contenidos a Biblioteca FALCO®.
+        </p>
+
+      </div>
+
+
+
+      <!-- =====================================================
+           ESTADO DE USUARIO
+      ====================================================== -->
+
+      <div
+        id="adminEstado"
+        class="bf-search-panel"
+      >
+
+        Verificando permisos…
+
+      </div>
+
+
+
+      <!-- =====================================================
+           PANEL DE PRUEBA
+      ====================================================== -->
+
+      <div
+        id="panelCarga"
+        class="bf-search-panel"
+        hidden
+        style="margin-top: 30px;"
+      >
+
+
+        <span class="bf-kicker">
+          Lote de prueba
+        </span>
+
+
+        <h2
+          style="
+            margin-top: 12px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 34px;
+            font-weight: 500;
+          "
+        >
+          Primeros escritos profesionales
+        </h2>
+
+
+        <p
+          style="
+            color: var(--bf-muted);
+            line-height: 1.7;
+          "
+        >
+          Este lote carga los escritos
+          001, 116, 161, 188 y 230
+          dentro de la colección
+          <strong>contenidos</strong>
+          de Firestore.
+        </p>
+
+
+        <button
+          type="button"
+          id="cargarPruebaBtn"
+          class="bf-btn bf-btn--gold"
+          style="margin-top: 20px;"
+        >
+          Cargar 5 escritos de prueba
+        </button>
+
+
+        <div
+          id="resultadoCarga"
+          style="
+            margin-top: 24px;
+            color: var(--bf-muted);
+            line-height: 1.7;
+          "
+        ></div>
+
+
+        <!-- =====================================================
+             SEPARADOR
+        ====================================================== -->
+
+        <div
+          style="
+            height: 1px;
+            margin: 42px 0;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(214,177,100,.28),
+                rgba(255,255,255,.04),
+                transparent
+              );
+          "
+        ></div>
+
+
+
+        <!-- =====================================================
+             CARGA MASIVA
+        ====================================================== -->
+
+        <div id="panelCargaMasiva">
+
+
+          <span class="bf-kicker">
+  Colección depurada
+</span>
+
+<h2
+  style="
+    margin-top: 12px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 34px;
+    font-weight: 500;
+  "
+>
+  57 escritos profesionales únicos
+</h2>
+
+
+          <p
+            style="
+              color: var(--bf-muted);
+              line-height: 1.7;
+            "
+          >
+           Importación depurada de la colección de escritos
+profesionales de Biblioteca FALCO®. Los 300 archivos
+PDF originales se conservan, mientras que la Biblioteca
+muestra únicamente los contenidos diferentes.
+          </p>
+
+
+          <p
+            style="
+              color: var(--bf-muted);
+              line-height: 1.7;
+            "
+          >
+            Los documentos serán identificados automáticamente
+            por número, título, área temática, fuero,
+            subcategoría y tipo de escrito.
+          </p>
+
+
+          <div
+            style="
+              margin-top: 24px;
+              padding: 18px 20px;
+              border:
+                1px solid rgba(214,177,100,.18);
+              border-radius: 14px;
+              background:
+                rgba(214,177,100,.035);
+            "
+          >
+
+            <strong
+              style="
+                display: block;
+                margin-bottom: 8px;
+                color: var(--bf-gold-light);
+              "
+            >
+              Colección preparada
+            </strong>
+
+            <span
+              style="
+                color: var(--bf-muted);
+                line-height: 1.7;
+              "
+            >
+              300 archivos PDF disponibles en
+              <strong>pdf/biblioteca/escritos/</strong>
+            </span>
+
+          </div>
+
+
+          <button
+  type="button"
+  id="cargar300Btn"
+  class="bf-btn bf-btn--gold"
+  style="margin-top: 26px;"
+>
+  Cargar 57 escritos únicos
+</button>
+
+
+          <div
+            id="resultadoCarga300"
+            style="
+              margin-top: 24px;
+              color: var(--bf-muted);
+              line-height: 1.7;
+            "
+          ></div>
+
+
+              </div>
+
+
+
+        <!-- =====================================================
+             MODELOS JUDICIALES Y PROCESALES
+        ====================================================== -->
+
+        <div
+          style="
+            height: 1px;
+            margin: 42px 0;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(214,177,100,.28),
+                rgba(255,255,255,.04),
+                transparent
+              );
+          "
+        ></div>
+
+
+        <div id="panelModelosJudiciales">
+
+          <span class="bf-kicker">
+            Escritos profesionales
+          </span>
+
+
+          <h2
+            style="
+              margin-top: 12px;
+              font-family: 'Playfair Display', Georgia, serif;
+              font-size: 34px;
+              font-weight: 500;
+            "
+          >
+            111 modelos judiciales y procesales
+          </h2>
+
+
+          <p
+            style="
+              color: var(--bf-muted);
+              line-height: 1.7;
+            "
+          >
+            Colección complementaria de modelos para la práctica
+            profesional y pericial.
+          </p>
+
+
+          <p
+            style="
+              color: var(--bf-muted);
+              line-height: 1.7;
+            "
+          >
+            Incluye aceptación y renuncia de cargo, puntos de pericia,
+            gastos, documentación, entrevistas, incomparecencias,
+            presentación y defensa del dictamen, impugnaciones,
+            explicaciones, honorarios, oficios, familia, NNyA,
+            riesgo, violencia, daño psíquico y otros modelos
+            especializados.
+          </p>
+
+
+          <div
+            style="
+              margin-top: 24px;
+              padding: 18px 20px;
+              border: 1px solid rgba(214,177,100,.18);
+              border-radius: 14px;
+              background: rgba(214,177,100,.035);
+            "
+          >
+
+            <strong
+              style="
+                display: block;
+                margin-bottom: 8px;
+                color: var(--bf-gold-light);
+              "
+            >
+              Colección preparada
+            </strong>
+
+            <span
+              style="
+                color: var(--bf-muted);
+                line-height: 1.7;
+              "
+            >
+              111 archivos PDF disponibles en
+              <strong>
+                pdf/biblioteca/modelos-judiciales/
+              </strong>
+            </span>
+
+          </div>
+
+
+          <button
+            type="button"
+            id="cargarModelos111Btn"
+            class="bf-btn bf-btn--gold"
+            style="margin-top: 26px;"
+          >
+            Cargar 111 modelos judiciales
+          </button>
+
+
+          <div
+            id="resultadoModelos111"
+            style="
+              margin-top: 24px;
+              color: var(--bf-muted);
+              line-height: 1.7;
+            "
+          ></div>
+
+
+
+
+
+                  </div>
+
+
+
+        <!-- =====================================================
+             TÉCNICAS E INSTRUMENTOS
+        ====================================================== -->
+
+        <div
+          style="
+            height: 1px;
+            margin: 42px 0;
+            background:
+              linear-gradient(
+                90deg,
+                rgba(214,177,100,.28),
+                rgba(255,255,255,.04),
+                transparent
+              );
+          "
+        ></div>
+
+
+
+<div id="panelInstrumentos">
+
+  <span class="bf-kicker">
+    Técnicas e instrumentos
+  </span>
+
+
+  <h2
+    style="
+      margin-top: 12px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+    "
+  >
+    24 fichas técnicas profesionales
+  </h2>
+
+
+  <p
+    style="
+      color: var(--bf-muted);
+      line-height: 1.7;
+    "
+  >
+    Catálogo técnico de instrumentos, entrevistas
+    y procedimientos de evaluación psicológica
+    incorporados a Biblioteca FALCO®.
+  </p>
+
+
+  <p
+    style="
+      color: var(--bf-muted);
+      line-height: 1.7;
+    "
+  >
+    Incluye evaluación de síntomas, depresión,
+    ansiedad, personalidad, técnicas gráficas,
+    inteligencia, trauma, riesgo, validez de respuesta
+    y evaluación psicológica forense.
+  </p>
+
+
+  <div
+    style="
+      margin-top: 24px;
+      padding: 18px 20px;
+      border: 1px solid rgba(214,177,100,.18);
+      border-radius: 14px;
+      background: rgba(214,177,100,.035);
+    "
+  >
+
+    <strong
+      style="
+        display: block;
+        margin-bottom: 8px;
+        color: var(--bf-gold-light);
+      "
+    >
+      Catálogo preparado
+    </strong>
+
+    <span
+      style="
+        color: var(--bf-muted);
+        line-height: 1.7;
+      "
+    >
+      24 fichas técnicas disponibles en
+      <strong>
+        biblioteca-instrumentos-catalogo.js
+      </strong>
+    </span>
+
+  </div>
+
+
+  <button
+    type="button"
+    id="cargarInstrumentosBtn"
+    class="bf-btn bf-btn--gold"
+    style="margin-top: 26px;"
+  >
+    Cargar catálogo completo
+  </button>
+
+
+  <div
+    id="resultadoInstrumentos"
+    style="
+      margin-top: 24px;
+      color: var(--bf-muted);
+      line-height: 1.7;
+    "
+  ></div>
+
+</div>
+
+
+        
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       SCRIPT ADMINISTRATIVO
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="biblioteca-admin-carga.js"
+  ></script>
+
+
+</body>
+
+</html>

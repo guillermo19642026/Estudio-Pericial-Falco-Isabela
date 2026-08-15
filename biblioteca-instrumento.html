@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Biblioteca FALCO® | Ficha técnica
+  </title>
+
+  <meta
+    name="description"
+    content="Ficha técnica profesional de instrumentos psicológicos en Biblioteca FALCO®."
+  >
+
+
+  <!-- =====================================================
+       ESTILOS GENERALES
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <!-- =====================================================
+       ESTILO BIBLIOTECA
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="biblioteca-falco-2026.css"
+  >
+
+
+  <!-- =====================================================
+       AION
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="FALCO-CMS-V2/FALCO-IA/AION-LAB/css/aion-float.css"
+  >
+
+</head>
+
+
+<body
+  class="biblioteca-premium"
+  data-modulo="biblioteca"
+  data-aion-context="biblioteca-instrumento"
+>
+
+
+  <!-- =====================================================
+       ATMÓSFERA VISUAL
+  ====================================================== -->
+
+  <div
+    class="bf-noise"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="bf-glow bf-glow--one"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="bf-glow bf-glow--two"
+    aria-hidden="true"
+  ></div>
+
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="bf-header">
+
+    <div class="bf-shell bf-header__inner">
+
+
+      <a
+        class="bf-brand"
+        href="biblioteca-falco.html"
+        aria-label="Volver a Biblioteca FALCO®"
+      >
+
+        <img
+          src="img/logo.png"
+          alt="Estudio Pericial Psicológico FALCO®"
+        >
+
+        <div>
+
+          <span>
+            Estudio Pericial Psicológico
+          </span>
+
+          <strong>
+            FALCO®
+          </strong>
+
+        </div>
+
+      </a>
+
+
+      <nav
+        class="bf-header__nav"
+        aria-label="Navegación de instrumento"
+      >
+
+        <a href="biblioteca-falco.html">
+          Biblioteca
+        </a>
+
+        <a href="#ficha">
+          Ficha
+        </a>
+
+        <a href="#uso-forense">
+          Uso forense
+        </a>
+
+        <a href="#bibliografia">
+          Bibliografía
+        </a>
+
+      </nav>
+
+
+      <div class="bf-header__actions">
+
+        <a
+          class="bf-link-system"
+          href="biblioteca-falco.html#colecciones"
+        >
+          Técnicas e instrumentos
+        </a>
+
+        <button
+          type="button"
+          id="logoutBtn"
+          class="bf-btn bf-btn--ghost"
+        >
+          Cerrar sesión
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       CONTENIDO
+  ====================================================== -->
+
+  <main>
+
+
+
+    <!-- =====================================================
+         HERO DEL INSTRUMENTO
+    ====================================================== -->
+
+    <section class="bf-hero bf-instrument-hero">
+
+      <div class="bf-shell bf-hero__grid">
+
+
+        <!-- INFORMACIÓN PRINCIPAL -->
+
+        <div class="bf-hero__content">
+
+          <div class="bf-eyebrow">
+
+            <span></span>
+
+            Biblioteca FALCO® · Técnicas e instrumentos
+
+          </div>
+
+
+          <div
+            id="instrumentoEstado"
+            class="bf-access-state"
+          >
+
+            <span class="bf-access-state__dot"></span>
+
+            <span>
+              Cargando ficha técnica…
+            </span>
+
+          </div>
+
+
+          <h1 id="instrumentoTitulo">
+
+            Instrumento psicológico
+
+            <em id="instrumentoSigla">
+              Ficha técnica
+            </em>
+
+          </h1>
+
+
+          <p
+            id="instrumentoDescripcion"
+            class="bf-hero__lead"
+          >
+            Información técnica y profesional del instrumento.
+          </p>
+
+
+          <div class="bf-hero__actions">
+
+            <a
+              class="bf-btn bf-btn--gold"
+              href="#ficha"
+            >
+              Ver ficha completa
+            </a>
+
+            <a
+              id="instrumentoFuenteOficialHero"
+              class="bf-btn bf-btn--outline"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              hidden
+            >
+              Fuente oficial
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- PANEL RESUMEN -->
+
+        <aside class="bf-hero__panel">
+
+          <span class="bf-panel-kicker">
+            Ficha rápida
+          </span>
+
+
+          <h2 id="instrumentoNombreCorto">
+            Instrumento
+          </h2>
+
+
+          <div class="bf-instrument-summary">
+
+
+            <div>
+
+              <small>
+                Tipo
+              </small>
+
+              <strong id="instrumentoTipo">
+                —
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                Población
+              </small>
+
+              <strong id="instrumentoPoblacion">
+                —
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                Administración
+              </small>
+
+              <strong id="instrumentoAdministracion">
+                —
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <small>
+                Tiempo
+              </small>
+
+              <strong id="instrumentoTiempo">
+                —
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="bf-hero__line"></div>
+
+
+          <div class="bf-instrument-access">
+
+            <span>
+              Material
+            </span>
+
+            <strong id="instrumentoAcceso">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="bf-instrument-access">
+
+            <span>
+              Reproducción de ítems
+            </span>
+
+            <strong id="instrumentoItems">
+              —
+            </strong>
+
+          </div>
+
+
+        </aside>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         AVISO
+    ====================================================== -->
+
+    <section class="bf-section bf-section--instrument-note">
+
+      <div class="bf-shell">
+
+        <div class="bf-instrument-note">
+
+          <span class="bf-kicker">
+            Uso responsable
+          </span>
+
+          <p>
+
+            Biblioteca FALCO® presenta información técnica,
+            metodológica y profesional sobre instrumentos psicológicos.
+            Cuando el material de aplicación se encuentra protegido,
+            no se reproducen protocolos, ítems, estímulos, claves,
+            baremos ni contenidos cuya difusión no esté autorizada.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NAVEGACIÓN INTERNA
+    ====================================================== -->
+
+    <section class="bf-section bf-section--instrument-nav">
+
+      <div class="bf-shell">
+
+        <nav class="bf-instrument-nav">
+
+          <a href="#identificacion">
+            Identificación
+          </a>
+
+          <a href="#finalidad">
+            Para qué se utiliza
+          </a>
+
+          <a href="#evaluacion">
+            Qué evalúa
+          </a>
+
+          <a href="#administracion">
+            Cómo se administra
+          </a>
+
+          <a href="#analisis">
+            Cómo se analiza
+          </a>
+
+          <a href="#interpretacion">
+            Interpretación
+          </a>
+
+          <a href="#uso-forense">
+            Uso forense
+          </a>
+
+          <a href="#limitaciones">
+            Limitaciones
+          </a>
+
+          <a href="#integracion">
+            Integración pericial
+          </a>
+
+          <a href="#bibliografia">
+            Bibliografía
+          </a>
+
+        </nav>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FICHA
+    ====================================================== -->
+
+    <section
+      id="ficha"
+      class="bf-section bf-section--instrument-content"
+    >
+
+      <div class="bf-shell bf-instrument-layout">
+
+
+
+
+
+        <!-- =================================================
+             ÍNDICE LATERAL
+        ================================================== -->
+
+        <aside class="bf-instrument-sidebar">
+
+          <span class="bf-kicker">
+            Contenido
+          </span>
+
+          <nav>
+
+            <a href="#identificacion">
+              01 · Identificación
+            </a>
+
+            <a href="#finalidad">
+              02 · Finalidad
+            </a>
+
+            <a href="#evaluacion">
+              03 · Qué evalúa
+            </a>
+
+            <a href="#administracion">
+              04 · Administración
+            </a>
+
+            <a href="#respuesta">
+              05 · Modalidad de respuesta
+            </a>
+
+            <a href="#correccion">
+              06 · Corrección
+            </a>
+
+            <a href="#analisis">
+              07 · Análisis
+            </a>
+
+            <a href="#interpretacion">
+              08 · Interpretación
+            </a>
+
+            <a href="#uso-forense">
+              09 · Uso forense
+            </a>
+
+            <a href="#validez">
+              10 · Validez y evidencia
+            </a>
+
+            <a href="#limitaciones">
+              11 · Limitaciones
+            </a>
+
+            <a href="#integracion">
+              12 · Integración pericial
+            </a>
+
+            <a href="#errores">
+              13 · Errores frecuentes
+            </a>
+
+            <a href="#ejemplo">
+              14 · Ejemplo de integración
+            </a>
+
+            <a href="#bibliografia">
+              15 · Bibliografía
+            </a>
+
+          </nav>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             CONTENIDO CENTRAL
+        ================================================== -->
+
+        <div class="bf-instrument-main">
+
+
+
+          <!-- IDENTIFICACIÓN -->
+
+          <article
+            id="identificacion"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              01
+            </span>
+
+            <span class="bf-kicker">
+              Identificación
+            </span>
+
+            <h2>
+              Datos generales del instrumento
+            </h2>
+
+
+            <div
+              id="instrumentoIdentificacion"
+              class="bf-instrument-content"
+            >
+              Cargando información…
+            </div>
+
+          </article>
+
+
+
+          <!-- FINALIDAD -->
+
+          <article
+            id="finalidad"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              02
+            </span>
+
+            <span class="bf-kicker">
+              Finalidad
+            </span>
+
+            <h2>
+              ¿Para qué se utiliza?
+            </h2>
+
+            <div
+              id="instrumentoFinalidad"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- QUÉ EVALÚA -->
+
+          <article
+            id="evaluacion"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              03
+            </span>
+
+            <span class="bf-kicker">
+              Evaluación
+            </span>
+
+            <h2>
+              ¿Qué evalúa?
+            </h2>
+
+            <div
+              id="instrumentoEvaluacion"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- ADMINISTRACIÓN -->
+
+          <article
+            id="administracion"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              04
+            </span>
+
+            <span class="bf-kicker">
+              Procedimiento
+            </span>
+
+            <h2>
+              ¿Cómo se administra?
+            </h2>
+
+            <div
+              id="instrumentoAdministracionDetalle"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- RESPUESTA -->
+
+          <article
+            id="respuesta"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              05
+            </span>
+
+            <span class="bf-kicker">
+              Respuesta
+            </span>
+
+            <h2>
+              Modalidad de respuesta
+            </h2>
+
+            <div
+              id="instrumentoRespuesta"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- CORRECCIÓN -->
+
+          <article
+            id="correccion"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              06
+            </span>
+
+            <span class="bf-kicker">
+              Corrección
+            </span>
+
+            <h2>
+              Principios generales de corrección
+            </h2>
+
+            <div
+              id="instrumentoCorreccion"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- ANÁLISIS -->
+
+          <article
+            id="analisis"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              07
+            </span>
+
+            <span class="bf-kicker">
+              Análisis
+            </span>
+
+            <h2>
+              ¿Cómo se analizan los resultados?
+            </h2>
+
+            <div
+              id="instrumentoAnalisis"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- INTERPRETACIÓN -->
+
+          <article
+            id="interpretacion"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              08
+            </span>
+
+            <span class="bf-kicker">
+              Interpretación
+            </span>
+
+            <h2>
+              Lectura profesional de los resultados
+            </h2>
+
+            <div
+              id="instrumentoInterpretacion"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- USO FORENSE -->
+
+          <article
+            id="uso-forense"
+            class="bf-instrument-section bf-instrument-section--featured"
+          >
+
+            <span class="bf-instrument-number">
+              09
+            </span>
+
+            <span class="bf-kicker">
+              Psicología Forense
+            </span>
+
+            <h2>
+              Aplicación en evaluación pericial
+            </h2>
+
+            <div
+              id="instrumentoUsoForense"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- VALIDEZ -->
+
+          <article
+            id="validez"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              10
+            </span>
+
+            <span class="bf-kicker">
+              Evidencia
+            </span>
+
+            <h2>
+              Validez, confiabilidad y respaldo técnico
+            </h2>
+
+            <div
+              id="instrumentoValidez"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- LIMITACIONES -->
+
+          <article
+            id="limitaciones"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              11
+            </span>
+
+            <span class="bf-kicker">
+              Criterio profesional
+            </span>
+
+            <h2>
+              Limitaciones y precauciones
+            </h2>
+
+            <div
+              id="instrumentoLimitaciones"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- INTEGRACIÓN -->
+
+          <article
+            id="integracion"
+            class="bf-instrument-section bf-instrument-section--featured"
+          >
+
+            <span class="bf-instrument-number">
+              12
+            </span>
+
+            <span class="bf-kicker">
+              Práctica pericial
+            </span>
+
+            <h2>
+              Integración con la batería psicológica
+            </h2>
+
+            <div
+              id="instrumentoIntegracion"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- ERRORES -->
+
+          <article
+            id="errores"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              13
+            </span>
+
+            <span class="bf-kicker">
+              Buenas prácticas
+            </span>
+
+            <h2>
+              Errores frecuentes
+            </h2>
+
+            <div
+              id="instrumentoErrores"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- EJEMPLO -->
+
+          <article
+            id="ejemplo"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              14
+            </span>
+
+            <span class="bf-kicker">
+              Ejemplo profesional
+            </span>
+
+            <h2>
+              Ejemplo de integración en informe
+            </h2>
+
+            <div
+              id="instrumentoEjemplo"
+              class="bf-instrument-content"
+            ></div>
+
+          </article>
+
+
+
+          <!-- BIBLIOGRAFÍA -->
+
+          <article
+            id="bibliografia"
+            class="bf-instrument-section"
+          >
+
+            <span class="bf-instrument-number">
+              15
+            </span>
+
+            <span class="bf-kicker">
+              Fuentes
+            </span>
+
+            <h2>
+              Bibliografía y material oficial
+            </h2>
+
+            <div
+              id="instrumentoBibliografia"
+              class="bf-instrument-content"
+            ></div>
+
+
+            <a
+              id="instrumentoFuenteOficial"
+              class="bf-btn bf-btn--outline"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              hidden
+            >
+              Consultar fuente oficial
+            </a>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+<!-- =====================================================
+     SERVICIO PROFESIONAL FALCO®
+====================================================== -->
+
+<section
+  class="bf-section bf-section--instrument-service"
+>
+
+  <div class="bf-shell">
+
+    <div class="bf-instrument-service">
+
+
+      <div class="bf-instrument-service__content">
+
+        <span class="bf-kicker">
+          Servicio profesional
+        </span>
+
+        <h2>
+          Administración, análisis e integración profesional
+        </h2>
+
+        <p>
+          El Estudio Pericial Psicológico FALCO® brinda servicios
+          profesionales de administración, corrección, análisis,
+          interpretación e integración de instrumentos psicológicos,
+          de acuerdo con la finalidad de la evaluación y las condiciones
+          de utilización de cada técnica.
+        </p>
+
+        <p>
+          La selección del instrumento se realiza según la pertinencia
+          clínica, técnica y forense del caso, evitando conclusiones
+          basadas en resultados aislados y priorizando siempre la
+          integración con entrevista, antecedentes y demás fuentes
+          de información disponibles.
+        </p>
+
+
+        <div class="bf-instrument-service__grid">
+
+
+          <div>
+
+            <span>
+              01
+            </span>
+
+            <strong>
+              Administración
+            </strong>
+
+            <p>
+              Aplicación profesional del instrumento bajo condiciones
+              adecuadas y conforme a sus requisitos técnicos.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              02
+            </span>
+
+            <strong>
+              Corrección y análisis
+            </strong>
+
+            <p>
+              Revisión de resultados, indicadores relevantes y
+              consistencia de los datos obtenidos.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              03
+            </span>
+
+            <strong>
+              Interpretación
+            </strong>
+
+            <p>
+              Lectura profesional contextualizada, evitando
+              interpretaciones automáticas o aisladas.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              04
+            </span>
+
+            <strong>
+              Integración pericial
+            </strong>
+
+            <p>
+              Articulación con entrevista, antecedentes, otras técnicas
+              y objetivos específicos de la evaluación.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              05
+            </span>
+
+            <strong>
+              Redacción técnica
+            </strong>
+
+            <p>
+              Integración de resultados dentro de informes psicológicos,
+              psicodiagnósticos e informes periciales.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              06
+            </span>
+
+            <strong>
+              Consulta profesional
+            </strong>
+
+            <p>
+              Orientación técnica para psicólogos, peritos,
+              abogados y estudios jurídicos.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="bf-instrument-service__actions">
+
+          <a
+            href="https://wa.me/5491132049521"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bf-btn bf-btn--gold"
+          >
+            Consultar por WhatsApp
+          </a>
+
+          <a
+            href="https://estudiopericialpsicologico.com.ar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bf-btn bf-btn--outline"
+          >
+            Conocer el Estudio
+          </a>
+
+        </div>
+
+
+        <p class="bf-instrument-service__note">
+          La disponibilidad de administración y análisis depende
+          del instrumento, de sus condiciones de uso y de la
+          pertinencia profesional para cada evaluación.
+        </p>
+
+
+      </div>
+
+
+      <aside class="bf-instrument-service__aside">
+
+        <span class="bf-panel-kicker">
+          Estudio Pericial Psicológico
+        </span>
+
+        <strong>
+          FALCO®
+        </strong>
+
+        <p>
+          Psicología aplicada al ámbito judicial.
+        </p>
+
+        <div>
+
+          <small>
+            Modalidad
+          </small>
+
+          <span>
+            Según evaluación y técnica
+          </span>
+
+        </div>
+
+        <div>
+
+          <small>
+            Ámbito
+          </small>
+
+          <span>
+            Clínico · Forense · Pericial
+          </span>
+
+        </div>
+
+        <div>
+
+          <small>
+            Consulta
+          </small>
+
+          <span>
+            Profesionales · Abogados · Estudios jurídicos
+          </span>
+
+        </div>
+
+      </aside>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+    <!-- =====================================================
+         CIERRE
+    ====================================================== -->
+
+    <section class="bf-quote">
+
+      <div class="bf-shell">
+
+        <span class="bf-quote__line"></span>
+
+        <blockquote>
+          “Ningún instrumento reemplaza el juicio profesional,
+          la integración clínica ni el análisis forense del caso.”
+        </blockquote>
+
+        <p>
+          Biblioteca FALCO® · Técnicas e instrumentos
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="bf-footer">
+
+    <div class="bf-shell bf-footer__grid">
+
+
+      <div class="bf-footer__brand">
+
+        <span>
+          Estudio Pericial Psicológico
+        </span>
+
+        <strong>
+          FALCO®
+        </strong>
+
+        <p>
+          Psicología aplicada al ámbito judicial.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Biblioteca
+        </h3>
+
+        <a href="biblioteca-falco.html">
+          Inicio
+        </a>
+
+        <a href="biblioteca-falco.html#colecciones">
+          Colecciones
+        </a>
+
+        <a href="biblioteca-falco.html#explorar">
+          Explorar
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Técnicas
+        </h3>
+
+        <a href="#administracion">
+          Administración
+        </a>
+
+        <a href="#interpretacion">
+          Interpretación
+        </a>
+
+        <a href="#uso-forense">
+          Uso forense
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Sistema FALCO®
+        </h3>
+
+        <a
+          href="FALCO-CMS-V2/ecosistema-falco.html#acceso"
+        >
+          Portal Institucional
+        </a>
+
+        <a
+          href="FALCO-CMS-V2/centro-operaciones/centro-operaciones.html"
+        >
+          Centro de Operaciones
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="bf-shell bf-footer__bottom">
+
+      <span>
+        © 2026 Estudio Pericial Psicológico FALCO®
+      </span>
+
+      <span>
+        Excelencia profesional al servicio de la Justicia.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       SCRIPT GENERAL
+  ====================================================== -->
+
+  <script src="script.js"></script>
+
+
+
+  <!-- =====================================================
+       SCRIPT DE FICHA TÉCNICA
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="biblioteca-instrumento.js"
+  ></script>
+
+
+
+  <!-- =====================================================
+       AION
+  ====================================================== -->
+
+  <script
+    src="FALCO-CMS-V2/FALCO-IA/AION/registry/aion-registry.js"
+  ></script>
+
+  <script
+    src="FALCO-CMS-V2/FALCO-IA/AION/loader/aion-loader.js"
+  ></script>
+
+
+</body>
+
+</html>

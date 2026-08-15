@@ -2601,3 +2601,1520 @@ body.biblioteca-premium a {
   }
 
 }
+
+
+/* =========================================================
+   OCULTAR CORRECTAMENTE ESTADOS DINÁMICOS
+========================================================= */
+
+.bf-loading[hidden],
+.bf-empty[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   FILTROS SECUNDARIOS DE ESCRITOS
+========================================================= */
+
+.bf-filter-row--secondary {
+
+  margin-top: 12px;
+
+  padding-top: 14px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.06);
+
+}
+
+
+.bf-filter-row--secondary::before {
+
+  content:
+    "Filtrar escritos";
+
+  width:
+    100%;
+
+  margin-bottom:
+    3px;
+
+  color:
+    var(--bf-muted-2);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.14em;
+
+  font-size:
+    9px;
+
+}
+
+
+.bf-filter-row--secondary[hidden] {
+
+  display:
+    none !important;
+
+}
+
+
+/* =========================================================
+   BIBLIOTECA FALCO®
+   FICHA TÉCNICA DE INSTRUMENTOS
+========================================================= */
+
+
+/* =========================================================
+   HERO INSTRUMENTO
+========================================================= */
+
+.bf-instrument-hero {
+
+  min-height:
+    auto;
+
+  padding-top:
+    100px;
+
+  padding-bottom:
+    90px;
+
+}
+
+
+.bf-instrument-hero .bf-hero__content {
+
+  max-width:
+    820px;
+
+}
+
+
+/* =========================================================
+   RESUMEN RÁPIDO
+========================================================= */
+
+.bf-instrument-summary {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    18px;
+
+}
+
+
+.bf-instrument-summary > div {
+
+  padding:
+    16px 0;
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-instrument-summary small {
+
+  display:
+    block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    var(--bf-muted-2);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.12em;
+
+  font-size:
+    9px;
+
+}
+
+
+.bf-instrument-summary strong {
+
+  display:
+    block;
+
+  color:
+    var(--bf-text);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.5;
+
+  font-weight:
+    500;
+
+}
+
+
+/* =========================================================
+   ESTADO LEGAL / ACCESO
+========================================================= */
+
+.bf-instrument-access {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  padding:
+    12px 0;
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-instrument-access:last-child {
+
+  border-bottom:
+    0;
+
+}
+
+
+.bf-instrument-access span {
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    11px;
+
+}
+
+
+.bf-instrument-access strong {
+
+  color:
+    var(--bf-gold-light);
+
+  text-align:
+    right;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+}
+
+
+/* =========================================================
+   AVISO DE USO RESPONSABLE
+========================================================= */
+
+.bf-section--instrument-note {
+
+  padding:
+    50px 0;
+
+}
+
+
+.bf-instrument-note {
+
+  padding:
+    28px 32px;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.18);
+
+  border-radius:
+    20px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(214, 177, 100, 0.035),
+      rgba(25, 49, 78, 0.07)
+    );
+
+}
+
+
+.bf-instrument-note p {
+
+  max-width:
+    980px;
+
+  margin:
+    16px 0 0;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.8;
+
+}
+
+
+/* =========================================================
+   NAVEGACIÓN SUPERIOR DE LA FICHA
+========================================================= */
+
+.bf-section--instrument-nav {
+
+  padding:
+    0 0 36px;
+
+}
+
+
+.bf-instrument-nav {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+  padding:
+    16px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(8, 18, 31, 0.66);
+
+}
+
+
+.bf-instrument-nav a {
+
+  padding:
+    9px 12px;
+
+  border:
+    1px solid transparent;
+
+  border-radius:
+    999px;
+
+  text-decoration:
+    none;
+
+  color:
+    var(--bf-muted);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  font-size:
+    10px;
+
+  transition:
+    0.2s ease;
+
+}
+
+
+.bf-instrument-nav a:hover {
+
+  color:
+    var(--bf-gold-light);
+
+  border-color:
+    rgba(214, 177, 100, 0.22);
+
+  background:
+    rgba(214, 177, 100, 0.05);
+
+}
+
+
+/* =========================================================
+   LAYOUT PRINCIPAL
+========================================================= */
+
+.bf-section--instrument-content {
+
+  padding-top:
+    50px;
+
+}
+
+
+.bf-instrument-layout {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    250px minmax(0, 1fr);
+
+  gap:
+    55px;
+
+  align-items:
+    start;
+
+}
+
+
+/* =========================================================
+   ÍNDICE LATERAL
+========================================================= */
+
+.bf-instrument-sidebar {
+
+  position:
+    sticky;
+
+  top:
+    110px;
+
+  padding:
+    24px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(8, 18, 31, 0.72);
+
+  backdrop-filter:
+    blur(16px);
+
+}
+
+
+.bf-instrument-sidebar nav {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+
+  margin-top:
+    18px;
+
+}
+
+
+.bf-instrument-sidebar a {
+
+  padding:
+    8px 0;
+
+  text-decoration:
+    none;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.45;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.045);
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+
+}
+
+
+.bf-instrument-sidebar a:last-child {
+
+  border-bottom:
+    0;
+
+}
+
+
+.bf-instrument-sidebar a:hover {
+
+  color:
+    var(--bf-gold-light);
+
+  padding-left:
+    4px;
+
+}
+
+
+/* =========================================================
+   CONTENIDO CENTRAL
+========================================================= */
+
+.bf-instrument-main {
+
+  min-width:
+    0;
+
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.bf-instrument-section {
+
+  position:
+    relative;
+
+  padding:
+    42px 0 54px;
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-instrument-section:first-child {
+
+  padding-top:
+    0;
+
+}
+
+
+.bf-instrument-section:last-child {
+
+  border-bottom:
+    0;
+
+}
+
+
+.bf-instrument-section--featured {
+
+  margin:
+    32px 0;
+
+  padding:
+    38px;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.18);
+
+  border-radius:
+    24px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(214, 177, 100, 0.045),
+      rgba(14, 31, 51, 0.55)
+    );
+
+}
+
+
+.bf-instrument-number {
+
+  position:
+    absolute;
+
+  top:
+    40px;
+
+  right:
+    0;
+
+  color:
+    rgba(214, 177, 100, 0.22);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    54px;
+
+  line-height:
+    1;
+
+}
+
+
+.bf-instrument-section:first-child
+.bf-instrument-number {
+
+  top:
+    0;
+
+}
+
+
+.bf-instrument-section--featured
+.bf-instrument-number {
+
+  top:
+    32px;
+
+  right:
+    32px;
+
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.bf-instrument-section h2 {
+
+  max-width:
+    850px;
+
+  margin:
+    12px 0 24px;
+
+  padding-right:
+    90px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(30px, 4vw, 46px);
+
+  font-weight:
+    500;
+
+  line-height:
+    1.08;
+
+}
+
+
+/* =========================================================
+   TEXTO DE LA FICHA
+========================================================= */
+
+.bf-instrument-content {
+
+  max-width:
+    900px;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.85;
+
+}
+
+
+.bf-instrument-content p {
+
+  margin:
+    0 0 18px;
+
+}
+
+
+.bf-instrument-content p:last-child {
+
+  margin-bottom:
+    0;
+
+}
+
+
+.bf-instrument-content strong {
+
+  color:
+    var(--bf-text);
+
+  font-weight:
+    600;
+
+}
+
+
+.bf-instrument-content em {
+
+  color:
+    var(--bf-gold-light);
+
+}
+
+
+/* =========================================================
+   LISTAS
+========================================================= */
+
+.bf-instrument-content ul,
+.bf-instrument-content ol {
+
+  margin:
+    18px 0 22px;
+
+  padding-left:
+    22px;
+
+}
+
+
+.bf-instrument-content li {
+
+  margin-bottom:
+    9px;
+
+  padding-left:
+    4px;
+
+}
+
+
+.bf-instrument-content li::marker {
+
+  color:
+    var(--bf-gold);
+
+}
+
+
+/* =========================================================
+   TABLAS TÉCNICAS
+========================================================= */
+
+.bf-instrument-table {
+
+  width:
+    100%;
+
+  margin:
+    22px 0;
+
+  border-collapse:
+    collapse;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    14px;
+
+}
+
+
+.bf-instrument-table th,
+.bf-instrument-table td {
+
+  padding:
+    13px 15px;
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+  text-align:
+    left;
+
+  vertical-align:
+    top;
+
+}
+
+
+.bf-instrument-table th {
+
+  width:
+    30%;
+
+  color:
+    var(--bf-gold-light);
+
+  background:
+    rgba(214, 177, 100, 0.04);
+
+  font-size:
+    10px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.08em;
+
+}
+
+
+.bf-instrument-table td {
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    12px;
+
+  line-height:
+    1.6;
+
+}
+
+
+.bf-instrument-table tr:last-child th,
+.bf-instrument-table tr:last-child td {
+
+  border-bottom:
+    0;
+
+}
+
+
+/* =========================================================
+   CAJAS INFORMATIVAS
+========================================================= */
+
+.bf-instrument-callout {
+
+  margin:
+    22px 0;
+
+  padding:
+    20px 22px;
+
+  border-left:
+    2px solid var(--bf-gold);
+
+  border-radius:
+    0 14px 14px 0;
+
+  background:
+    rgba(214, 177, 100, 0.045);
+
+}
+
+
+.bf-instrument-callout strong {
+
+  display:
+    block;
+
+  margin-bottom:
+    6px;
+
+  color:
+    var(--bf-gold-light);
+
+}
+
+
+/* =========================================================
+   EJEMPLO DE REDACCIÓN
+========================================================= */
+
+.bf-instrument-example {
+
+  margin:
+    22px 0;
+
+  padding:
+    24px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color:
+    #d5dce4;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.85;
+
+}
+
+
+/* =========================================================
+   BIBLIOGRAFÍA
+========================================================= */
+
+.bf-instrument-reference {
+
+  margin:
+    0 0 12px;
+
+  padding-bottom:
+    12px;
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-instrument-reference:last-child {
+
+  border-bottom:
+    0;
+
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.bf-instrument-badges {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+  margin:
+    18px 0;
+
+}
+
+
+.bf-instrument-badge {
+
+  padding:
+    7px 10px;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.18);
+
+  border-radius:
+    999px;
+
+  color:
+    var(--bf-gold-light);
+
+  background:
+    rgba(214, 177, 100, 0.04);
+
+  font-size:
+    9px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.08em;
+
+}
+
+
+/* =========================================================
+   ESTADO DE CARGA
+========================================================= */
+
+.bf-instrument-loading {
+
+  min-height:
+    300px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  color:
+    var(--bf-muted);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media
+(max-width: 1050px) {
+
+  .bf-instrument-layout {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .bf-instrument-sidebar {
+
+    position:
+      relative;
+
+    top:
+      auto;
+
+  }
+
+
+  .bf-instrument-sidebar nav {
+
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap:
+      8px;
+
+  }
+
+}
+
+
+@media
+(max-width: 760px) {
+
+  .bf-instrument-summary {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .bf-instrument-nav {
+
+    overflow-x:
+      auto;
+
+    flex-wrap:
+      nowrap;
+
+  }
+
+
+  .bf-instrument-nav a {
+
+    flex:
+      0 0 auto;
+
+  }
+
+
+  .bf-instrument-sidebar nav {
+
+    grid-template-columns:
+      1fr 1fr;
+
+  }
+
+
+  .bf-instrument-section--featured {
+
+    padding:
+      26px;
+
+  }
+
+
+  .bf-instrument-section h2 {
+
+    padding-right:
+      60px;
+
+  }
+
+
+  .bf-instrument-number {
+
+    font-size:
+      42px;
+
+  }
+
+}
+
+
+@media
+(max-width: 520px) {
+
+  .bf-instrument-sidebar nav {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .bf-instrument-section h2 {
+
+    padding-right:
+      0;
+
+  }
+
+
+  .bf-instrument-number {
+
+    position:
+      static;
+
+    display:
+      block;
+
+    margin-bottom:
+      10px;
+
+    font-size:
+      30px;
+
+  }
+
+
+  .bf-instrument-table th,
+  .bf-instrument-table td {
+
+    display:
+      block;
+
+    width:
+      100%;
+
+  }
+
+
+  .bf-instrument-table th {
+
+    border-bottom:
+      0;
+
+  }
+
+}
+
+
+/* =========================================================
+   SERVICIO PROFESIONAL — INSTRUMENTOS
+========================================================= */
+
+.bf-section--instrument-service {
+  padding: 80px 0 110px;
+}
+
+
+.bf-instrument-service {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(280px, 0.55fr);
+
+  gap:
+    50px;
+
+  padding:
+    42px;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.20);
+
+  border-radius:
+    28px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(214, 177, 100, 0.045),
+      rgba(12, 28, 47, 0.68)
+    );
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.22);
+
+}
+
+
+.bf-instrument-service__content h2 {
+
+  max-width:
+    800px;
+
+  margin:
+    14px 0 24px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(34px, 4vw, 52px);
+
+  font-weight:
+    500;
+
+  line-height:
+    1.05;
+
+}
+
+
+.bf-instrument-service__content > p {
+
+  max-width:
+    850px;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.8;
+
+}
+
+
+.bf-instrument-service__grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap:
+    14px;
+
+  margin-top:
+    32px;
+
+}
+
+
+.bf-instrument-service__grid > div {
+
+  padding:
+    20px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+
+}
+
+
+.bf-instrument-service__grid span {
+
+  display:
+    block;
+
+  margin-bottom:
+    12px;
+
+  color:
+    rgba(214, 177, 100, 0.45);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    24px;
+
+}
+
+
+.bf-instrument-service__grid strong {
+
+  display:
+    block;
+
+  margin-bottom:
+    8px;
+
+  color:
+    var(--bf-gold-light);
+
+  font-size:
+    13px;
+
+}
+
+
+.bf-instrument-service__grid p {
+
+  margin:
+    0;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.7;
+
+}
+
+
+.bf-instrument-service__actions {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    10px;
+
+  margin-top:
+    30px;
+
+}
+
+
+.bf-instrument-service__note {
+
+  margin-top:
+    20px !important;
+
+  color:
+    var(--bf-muted-2) !important;
+
+  font-size:
+    11px !important;
+
+}
+
+
+/* =========================================================
+   PANEL LATERAL DEL SERVICIO
+========================================================= */
+
+.bf-instrument-service__aside {
+
+  padding:
+    30px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    22px;
+
+  background:
+    rgba(5, 13, 24, 0.72);
+
+}
+
+
+.bf-instrument-service__aside > strong {
+
+  display:
+    block;
+
+  margin:
+    10px 0 14px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    38px;
+
+  font-weight:
+    500;
+
+  color:
+    var(--bf-gold-light);
+
+}
+
+
+.bf-instrument-service__aside > p {
+
+  margin:
+    0 0 28px;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.7;
+
+}
+
+
+.bf-instrument-service__aside > div {
+
+  padding:
+    14px 0;
+
+  border-top:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-instrument-service__aside small {
+
+  display:
+    block;
+
+  margin-bottom:
+    5px;
+
+  color:
+    var(--bf-muted-2);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.12em;
+
+  font-size:
+    8px;
+
+}
+
+
+.bf-instrument-service__aside div span {
+
+  color:
+    var(--bf-text);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.5;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE SERVICIO
+========================================================= */
+
+@media
+(max-width: 900px) {
+
+  .bf-instrument-service {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+}
+
+
+@media
+(max-width: 620px) {
+
+  .bf-instrument-service {
+
+    padding:
+      26px;
+
+  }
+
+
+  .bf-instrument-service__grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+}
+
+
+/* =========================================================
+   OCULTAR BOTONES DINÁMICOS
+========================================================= */
+
+#instrumentoFuenteOficial[hidden],
+#instrumentoFuenteOficialHero[hidden] {
+  display: none !important;
+}

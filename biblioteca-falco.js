@@ -82,6 +82,11 @@ const ui = {
       "filtrosBiblioteca"
     ),
 
+    filtrosEscritos:
+  document.getElementById(
+    "filtrosEscritos"
+  ),
+
   estado:
     document.getElementById(
       "bibliotecaEstado"
@@ -131,6 +136,21 @@ let filtroActivo =
 let textoActivo =
   "";
 
+  let filtroEscritoActivo =
+  "";
+
+/* =========================================================
+   CANTIDAD DE RECURSOS VISIBLES
+========================================================= */
+
+const RECURSOS_POR_PAGINA =
+  12;
+
+
+let recursosVisibles =
+  RECURSOS_POR_PAGINA;
+
+
 
 
 /* =========================================================
@@ -155,7 +175,6 @@ function normalizar(
     .trim();
 
 }
-
 
 
 /* =========================================================
@@ -183,6 +202,12 @@ function textoIndexado(
 
     ${item.fuero || ""}
 
+    ${
+      Array.isArray(item.fueros)
+        ? item.fueros.join(" ")
+        : ""
+    }
+
     ${item.tipoEscrito || ""}
 
     ${item.autor || ""}
@@ -192,6 +217,8 @@ function textoIndexado(
     ${item.codigo || ""}
 
     ${item.numero || ""}
+
+    ${categoriaVisual(item)}
 
   `);
 
@@ -339,6 +366,55 @@ function urlSegura(
 
 }
 
+
+/* =========================================================
+   NORMALIZAR CATEGORÍAS DE BIBLIOTECA
+========================================================= */
+
+function categoriaVisual(
+  item
+) {
+
+  const categoria =
+    normalizar(
+      item.categoria ||
+      ""
+    );
+
+
+  /*
+    Unificamos denominaciones antiguas
+    y nuevas dentro de una sola colección.
+  */
+
+  if (
+    categoria.includes(
+      "escritos judiciales"
+    )
+
+    ||
+
+    categoria.includes(
+      "escritos profesionales"
+    )
+
+    ||
+
+    item.tipoContenido ===
+      "escrito"
+  ) {
+
+    return "Escritos profesionales";
+
+  }
+
+
+  return (
+    item.categoria ||
+    "General"
+  );
+
+}
 
 
 /* =========================================================
@@ -550,9 +626,7 @@ function crearCard(
           ${
             escapeHtml(
 
-              item.categoria ||
-
-              "Recurso profesional"
+              categoriaVisual(item)
 
             )
           }
@@ -633,16 +707,27 @@ function crearCard(
             Fuero / Categoría
           </small>
 
-          <strong>
+                  <strong>
 
             ${
               escapeHtml(
 
-                item.fuero ||
+                (
+                  Array.isArray(item.fueros) &&
+                  item.fueros.length
+                )
 
-                item.categoria ||
+                  ? item.fueros.join(" · ")
 
-                "General"
+                  : (
+
+                      item.fuero ||
+
+                      item.categoria ||
+
+                      "General"
+
+                    )
 
               )
             }
@@ -756,64 +841,137 @@ function crearCard(
 
 
 
-      <div
+
+
+           <div
         class="recurso-accion recurso-botones"
       >
 
 
         ${
+          item.tipoContenido ===
+          "instrumento"
 
-          crearBotonArchivo(
+            ?
 
-            item.urlPdf,
+            `
+              <a
+                href="${
+                  permitido
 
-            "📄",
+                    ? `biblioteca-instrumento.html?id=${
+                        encodeURIComponent(
+                          item.id
+                        )
+                      }`
 
-            "PDF",
+                    : "biblioteca-login.html?destino=biblioteca"
+                }"
 
-            permitido
+                class="btn-acceso-mini"
+              >
 
-          )
+                ${
+                  permitido
+
+                    ? "🧠 Ver ficha técnica"
+
+                    : "🔒 Acceder para abrir"
+                }
+
+              </a>
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${
+
+          item.tipoContenido !==
+          "instrumento"
+
+            ?
+
+            crearBotonArchivo(
+
+              item.urlPdf,
+
+              "📄",
+
+              "PDF",
+
+              permitido
+
+            )
+
+            :
+
+            ""
 
         }
 
 
         ${
 
-          crearBotonArchivo(
+          item.tipoContenido !==
+          "instrumento"
 
-            item.urlWord,
+            ?
 
-            "📝",
+            crearBotonArchivo(
 
-            "Word",
+              item.urlWord,
 
-            permitido
+              "📝",
 
-          )
+              "Word",
+
+              permitido
+
+            )
+
+            :
+
+            ""
 
         }
 
 
         ${
 
-          crearBotonArchivo(
+          item.tipoContenido !==
+          "instrumento"
 
-            item.urlVideo,
+            ?
 
-            "🎥",
+            crearBotonArchivo(
 
-            "Video",
+              item.urlVideo,
 
-            permitido
+              "🎥",
 
-          )
+              "Video",
+
+              permitido
+
+            )
+
+            :
+
+            ""
 
         }
 
 
-
         ${
+
+          item.tipoContenido !==
+          "instrumento"
+
+          &&
 
           !item.urlPdf
 
@@ -869,10 +1027,9 @@ function actualizarResumen(
     item => {
 
       const categoria =
-
-        item.categoria ||
-
-        "General";
+  categoriaVisual(
+    item
+  );
 
 
       conteo[categoria] =
@@ -967,7 +1124,6 @@ function actualizarResumen(
 }
 
 
-
 /* =========================================================
    FILTRADO
 ========================================================= */
@@ -990,12 +1146,33 @@ function filtrar() {
     );
 
 
+  const filtroEscrito =
+    normalizar(
+      filtroEscritoActivo
+    );
+
+
   return activos.filter(
     item => {
 
       const indice =
         textoIndexado(
           item
+        );
+
+
+      const categoria =
+        normalizar(
+          categoriaVisual(
+            item
+          )
+        );
+
+
+      const esEscrito =
+
+        categoria.includes(
+          "escritos profesionales"
         );
 
 
@@ -1010,14 +1187,55 @@ function filtrar() {
         );
 
 
-      const coincideFiltro =
+      let coincideFiltro =
+        true;
 
-        !filtro
+
+      /*
+        Filtro principal Escritos
+      */
+
+      if (
+        filtro ===
+        "escritos"
+      ) {
+
+        coincideFiltro =
+          esEscrito;
+
+      }
+
+      else if (
+        filtro
+      ) {
+
+        coincideFiltro =
+          indice.includes(
+            filtro
+          );
+
+      }
+
+
+      /*
+        Filtro secundario dentro
+        de Escritos profesionales
+      */
+
+      const coincideFiltroEscrito =
+
+        !filtroEscrito
 
         ||
 
-        indice.includes(
-          filtro
+        (
+          esEscrito
+
+          &&
+
+          indice.includes(
+            filtroEscrito
+          )
         );
 
 
@@ -1028,6 +1246,10 @@ function filtrar() {
         &&
 
         coincideFiltro
+
+        &&
+
+        coincideFiltroEscrito
 
       );
 
@@ -1061,9 +1283,16 @@ function render() {
     filtrar();
 
 
+  const listaVisible =
+    lista.slice(
+      0,
+      recursosVisibles
+    );
+
+
   ui.container.innerHTML =
 
-    lista
+    listaVisible
 
       .map(
         crearCard
@@ -1102,7 +1331,134 @@ function render() {
   }
 
 
+  renderControlVerMas(
+    lista.length,
+    listaVisible.length
+  );
+
+
   activarReveal();
+
+}
+
+
+/* =========================================================
+   VER MÁS RECURSOS
+========================================================= */
+
+function renderControlVerMas(
+  total,
+  visibles
+) {
+
+  document
+    .getElementById(
+      "bibliotecaVerMas"
+    )
+    ?.remove();
+
+
+  if (
+    total === 0
+  ) {
+
+    return;
+
+  }
+
+
+  const control =
+    document.createElement(
+      "div"
+    );
+
+
+  control.id =
+    "bibliotecaVerMas";
+
+
+  control.style.cssText = `
+    width: 100%;
+    margin: 38px 0 10px;
+    text-align: center;
+  `;
+
+
+  const texto =
+    document.createElement(
+      "p"
+    );
+
+
+  texto.style.cssText = `
+    margin: 0 0 18px;
+    color: var(--bf-muted);
+    font-size: 13px;
+    line-height: 1.6;
+  `;
+
+
+  texto.innerHTML = `
+    Mostrando
+    <strong>${visibles}</strong>
+    de
+    <strong>${total}</strong>
+    recursos
+  `;
+
+
+  control.appendChild(
+    texto
+  );
+
+
+  if (
+    visibles < total
+  ) {
+
+    const boton =
+      document.createElement(
+        "button"
+      );
+
+
+    boton.type =
+      "button";
+
+
+    boton.className =
+      "bf-btn bf-btn--outline";
+
+
+    boton.textContent =
+      "Ver más recursos";
+
+
+    boton.addEventListener(
+      "click",
+      () => {
+
+        recursosVisibles +=
+          RECURSOS_POR_PAGINA;
+
+
+        render();
+
+      }
+    );
+
+
+    control.appendChild(
+      boton
+    );
+
+  }
+
+
+  ui.container.insertAdjacentElement(
+    "afterend",
+    control
+  );
 
 }
 
@@ -1259,7 +1615,10 @@ async function cargarContenidos() {
     );
 
 
-    render();
+    recursosVisibles =
+  RECURSOS_POR_PAGINA;
+
+render();
 
 
     console.log(
@@ -1579,6 +1938,9 @@ ui.buscador?.addEventListener(
       event.target.value ||
       "";
 
+      recursosVisibles =
+  RECURSOS_POR_PAGINA;
+
 
     render();
 
@@ -1615,7 +1977,10 @@ ui.limpiar?.addEventListener(
     }
 
 
-    render();
+    recursosVisibles =
+  RECURSOS_POR_PAGINA;
+
+render();
 
   }
 
@@ -1656,6 +2021,64 @@ ui.filtros?.addEventListener(
       "";
 
 
+      /*
+  Mostrar filtros específicos
+  únicamente cuando estamos
+  dentro de Escritos.
+*/
+
+if (
+  ui.filtrosEscritos
+) {
+
+  const mostrarEscritos =
+
+    normalizar(
+      filtroActivo
+    )
+
+    ===
+
+    "escritos";
+
+
+  ui.filtrosEscritos.hidden =
+    !mostrarEscritos;
+
+
+  if (
+    !mostrarEscritos
+  ) {
+
+    filtroEscritoActivo =
+      "";
+
+
+    ui.filtrosEscritos
+
+      .querySelectorAll(
+        "[data-filtro-escrito]"
+      )
+
+      .forEach(
+        (
+          btn,
+          index
+        ) => {
+
+          btn.classList.toggle(
+            "is-active",
+            index === 0
+          );
+
+        }
+      );
+
+  }
+
+}
+
+
     ui.filtros
 
       .querySelectorAll(
@@ -1675,6 +2098,10 @@ ui.filtros?.addEventListener(
           )
 
       );
+
+
+    recursosVisibles =
+      RECURSOS_POR_PAGINA;
 
 
     render();
@@ -1775,6 +2202,74 @@ document.addEventListener(
           "start"
 
       });
+
+
+    recursosVisibles =
+      RECURSOS_POR_PAGINA;
+
+
+    render();
+
+  }
+
+);
+
+/* =========================================================
+   FILTROS INTERNOS DE ESCRITOS
+========================================================= */
+
+ui.filtrosEscritos?.addEventListener(
+
+  "click",
+
+  event => {
+
+    const button =
+
+      event.target.closest(
+        "[data-filtro-escrito]"
+      );
+
+
+    if (
+      !button
+    ) {
+
+      return;
+
+    }
+
+
+    filtroEscritoActivo =
+
+      button.dataset.filtroEscrito ||
+
+      "";
+
+
+    ui.filtrosEscritos
+
+      .querySelectorAll(
+        "[data-filtro-escrito]"
+      )
+
+      .forEach(
+
+        btn =>
+
+          btn.classList.toggle(
+
+            "is-active",
+
+            btn === button
+
+          )
+
+      );
+
+
+    recursosVisibles =
+      RECURSOS_POR_PAGINA;
 
 
     render();
