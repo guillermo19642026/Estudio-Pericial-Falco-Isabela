@@ -1,0 +1,2603 @@
+/* =========================================================
+   BIBLIOTECA FALCO®
+   REDISEÑO INSTITUCIONAL 2026
+   Estudio Pericial Psicológico FALCO®
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+  --bf-bg: #07101d;
+  --bf-bg-deep: #030915;
+
+  --bf-panel: rgba(14, 27, 45, 0.82);
+  --bf-panel-soft: rgba(255, 255, 255, 0.035);
+
+  --bf-line: rgba(214, 177, 100, 0.20);
+  --bf-line-soft: rgba(255, 255, 255, 0.08);
+
+  --bf-gold: #d6b164;
+  --bf-gold-light: #f0d79d;
+
+  --bf-text: #f4f6f8;
+  --bf-muted: #9ba8b7;
+  --bf-muted-2: #718094;
+
+  --bf-max: 1240px;
+  --bf-radius: 24px;
+
+  --bf-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+
+}
+
+
+/* =========================================================
+   RESET LOCAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body.biblioteca-premium {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  color: var(--bf-text);
+
+  background:
+
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(40, 75, 124, 0.18),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(214, 177, 100, 0.09),
+      transparent 24%
+    ),
+
+    linear-gradient(
+      180deg,
+      #07101d 0%,
+      #050b14 46%,
+      #030812 100%
+    );
+
+  font-family:
+    "Inter",
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+}
+
+
+body.biblioteca-premium a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.bf-shell {
+
+  width:
+    min(
+      var(--bf-max),
+      calc(100% - 64px)
+    );
+
+  margin:
+    0 auto;
+
+}
+
+
+/* =========================================================
+   ATMÓSFERA
+========================================================= */
+
+.bf-noise {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  opacity: 0.045;
+
+  background-image:
+
+    url(
+      "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"
+    );
+
+}
+
+
+.bf-glow {
+
+  position: fixed;
+
+  border-radius: 50%;
+
+  filter:
+    blur(100px);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  opacity: 0.35;
+
+}
+
+
+.bf-glow--one {
+
+  width: 420px;
+  height: 420px;
+
+  top: 6%;
+  left: -180px;
+
+  background:
+    rgba(44, 86, 143, 0.28);
+
+}
+
+
+.bf-glow--two {
+
+  width: 320px;
+  height: 320px;
+
+  top: 24%;
+  right: -120px;
+
+  background:
+    rgba(214, 177, 100, 0.12);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bf-header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 50;
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  background:
+    rgba(4, 10, 19, 0.78);
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-header__inner {
+
+  min-height: 82px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+}
+
+
+/* =========================================================
+   MARCA
+========================================================= */
+
+.bf-brand {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-right: auto;
+
+  text-decoration: none;
+
+}
+
+
+.bf-brand img {
+
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+}
+
+
+.bf-brand div {
+
+  display: grid;
+
+  line-height: 1.05;
+
+}
+
+
+.bf-brand span {
+
+  color:
+    var(--bf-muted);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.16em;
+
+  font-size:
+    10px;
+
+}
+
+
+.bf-brand strong {
+
+  margin-top:
+    5px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    20px;
+
+  letter-spacing:
+    0.08em;
+
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+.bf-header__nav {
+
+  display: flex;
+
+  gap: 26px;
+
+}
+
+
+.bf-header__nav a,
+.bf-link-system {
+
+  text-decoration:
+    none;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    13px;
+
+  transition:
+    color 0.25s ease;
+
+}
+
+
+.bf-header__nav a:hover,
+.bf-link-system:hover {
+
+  color:
+    var(--bf-gold-light);
+
+}
+
+
+.bf-header__actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.bf-btn {
+
+  min-height:
+    46px;
+
+  padding:
+    0 20px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    999px;
+
+  border:
+    1px solid transparent;
+
+  text-decoration:
+    none;
+
+  font:
+    inherit;
+
+  font-size:
+    13px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.02em;
+
+  cursor:
+    pointer;
+
+  transition:
+
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+
+}
+
+
+.bf-btn:hover {
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+.bf-btn--gold {
+
+  color:
+    #08101b !important;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--bf-gold-light),
+      var(--bf-gold)
+    );
+
+  box-shadow:
+
+    0 14px 40px
+    rgba(214, 177, 100, 0.16);
+
+}
+
+
+.bf-btn--outline,
+.bf-btn--ghost {
+
+  color:
+    var(--bf-text);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  border-color:
+    var(--bf-line-soft);
+
+}
+
+
+.bf-btn--outline:hover,
+.bf-btn--ghost:hover {
+
+  border-color:
+    rgba(214, 177, 100, 0.45);
+
+  background:
+    rgba(214, 177, 100, 0.06);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bf-hero {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  min-height:
+    calc(100vh - 82px);
+
+  display:
+    grid;
+
+  align-items:
+    center;
+
+  padding:
+    90px 0 110px;
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-hero::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent 0 49.92%,
+      rgba(255, 255, 255, 0.022) 50%,
+      transparent 50.08%
+    );
+
+}
+
+
+.bf-hero__grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+
+    minmax(0, 1.25fr)
+    minmax(320px, 0.75fr);
+
+  gap:
+    clamp(56px, 8vw, 120px);
+
+  align-items:
+    center;
+
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.bf-eyebrow,
+.bf-kicker {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    11px;
+
+  color:
+    var(--bf-gold-light);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.22em;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+}
+
+
+.bf-eyebrow span {
+
+  width:
+    38px;
+
+  height:
+    1px;
+
+  background:
+    var(--bf-gold);
+
+}
+
+
+/* =========================================================
+   HERO TÍTULO
+========================================================= */
+
+.bf-hero h1 {
+
+  margin:
+    28px 0 24px;
+
+  max-width:
+    850px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(54px, 7.3vw, 102px);
+
+  font-weight:
+    500;
+
+  line-height:
+    0.96;
+
+  letter-spacing:
+    -0.035em;
+
+}
+
+
+.bf-hero h1 em {
+
+  display:
+    block;
+
+  margin-top:
+    10px;
+
+  color:
+    var(--bf-gold-light);
+
+  font-weight:
+    400;
+
+}
+
+
+.bf-hero__lead {
+
+  max-width:
+    760px;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    clamp(17px, 1.45vw, 21px);
+
+  line-height:
+    1.75;
+
+}
+
+
+.bf-hero__actions {
+
+  display:
+    flex;
+
+  gap:
+    12px;
+
+  flex-wrap:
+    wrap;
+
+  margin-top:
+    34px;
+
+}
+
+
+/* =========================================================
+   ESTADO ACCESO
+========================================================= */
+
+.bf-access-state {
+
+  margin-top:
+    30px;
+
+  display:
+    inline-flex;
+
+  gap:
+    9px;
+
+  align-items:
+    center;
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    12px;
+
+}
+
+
+.bf-access-state__dot {
+
+  width:
+    7px;
+
+  height:
+    7px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--bf-gold);
+
+  box-shadow:
+
+    0 0 0 6px
+    rgba(214, 177, 100, 0.07);
+
+}
+
+
+.bf-access-state.is-ready {
+
+  color:
+    var(--bf-muted);
+
+}
+
+
+/* =========================================================
+   PANEL HERO
+========================================================= */
+
+.bf-hero__panel {
+
+  padding:
+    36px;
+
+  border:
+    1px solid var(--bf-line);
+
+  border-radius:
+    var(--bf-radius);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(20, 39, 63, 0.72),
+      rgba(8, 18, 31, 0.72)
+    );
+
+  box-shadow:
+    var(--bf-shadow);
+
+  backdrop-filter:
+    blur(18px);
+
+}
+
+
+.bf-panel-kicker {
+
+  color:
+    var(--bf-gold);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.18em;
+
+  font-size:
+    10px;
+
+}
+
+
+.bf-hero__panel h2 {
+
+  margin:
+    14px 0 28px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    34px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.15;
+
+}
+
+
+/* =========================================================
+   MÉTRICAS HERO
+========================================================= */
+
+.bf-hero__metrics {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap:
+    14px;
+
+}
+
+
+.bf-hero__metrics div {
+
+  padding:
+    18px 12px;
+
+  border-left:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-hero__metrics div:first-child {
+
+  border-left:
+    0;
+
+  padding-left:
+    0;
+
+}
+
+
+.bf-hero__metrics strong {
+
+  display:
+    block;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  color:
+    var(--bf-gold-light);
+
+  font-size:
+    30px;
+
+  font-weight:
+    500;
+
+}
+
+
+.bf-hero__metrics span {
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    11px;
+
+}
+
+
+.bf-hero__line {
+
+  height:
+    1px;
+
+  margin:
+    26px 0 22px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--bf-line),
+      transparent
+    );
+
+}
+
+
+.bf-hero__panel p {
+
+  color:
+    var(--bf-muted);
+
+  line-height:
+    1.7;
+
+  font-size:
+    13px;
+
+}
+
+
+/* =========================================================
+   INDICADOR SCROLL
+========================================================= */
+
+.bf-hero__scroll {
+
+  position:
+    absolute;
+
+  bottom:
+    30px;
+
+  left:
+    50%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+  transform:
+    translateX(-50%);
+
+  color:
+    var(--bf-muted-2);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.22em;
+
+  font-size:
+    9px;
+
+}
+
+
+.bf-hero__scroll span {
+
+  width:
+    32px;
+
+  height:
+    1px;
+
+  background:
+    var(--bf-line);
+
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.bf-section {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  padding:
+    110px 0;
+
+}
+
+
+.bf-section--collections {
+
+  background:
+    rgba(255, 255, 255, 0.012);
+
+}
+
+
+/* =========================================================
+   ENCABEZADOS DE SECCIÓN
+========================================================= */
+
+.bf-section-head {
+
+  display:
+    grid;
+
+  grid-template-columns:
+
+    1fr
+    minmax(280px, 460px);
+
+  gap:
+    60px;
+
+  align-items:
+    end;
+
+  margin-bottom:
+    54px;
+
+}
+
+
+.bf-section-head h2 {
+
+  margin:
+    14px 0 0;
+
+  max-width:
+    760px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(38px, 5vw, 62px);
+
+  line-height:
+    1.03;
+
+  font-weight:
+    500;
+
+}
+
+
+.bf-section-head > p {
+
+  margin:
+    0;
+
+  color:
+    var(--bf-muted);
+
+  line-height:
+    1.8;
+
+}
+
+
+/* =========================================================
+   COLECCIONES
+========================================================= */
+
+.bf-collection-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  border-top:
+    1px solid var(--bf-line-soft);
+
+  border-left:
+    1px solid var(--bf-line-soft);
+
+}
+
+
+.bf-collection {
+
+  min-height:
+    330px;
+
+  padding:
+    28px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  position:
+    relative;
+
+  background:
+    rgba(255, 255, 255, 0.015);
+
+  border-right:
+    1px solid var(--bf-line-soft);
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+  transition:
+
+    background 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+
+}
+
+
+.bf-collection:hover {
+
+  z-index:
+    2;
+
+  background:
+    rgba(214, 177, 100, 0.055);
+
+  transform:
+    translateY(-5px);
+
+}
+
+
+.bf-collection--featured {
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(214, 177, 100, 0.08),
+      rgba(30, 55, 88, 0.08)
+    );
+
+}
+
+
+.bf-collection__number {
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.15em;
+
+}
+
+
+.bf-collection__icon {
+
+  margin:
+    34px 0 26px;
+
+  color:
+    var(--bf-gold);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    36px;
+
+}
+
+
+.bf-collection h3 {
+
+  margin:
+    0 0 12px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    23px;
+
+  font-weight:
+    500;
+
+}
+
+
+.bf-collection p {
+
+  margin:
+    0 0 30px;
+
+  color:
+    var(--bf-muted);
+
+  line-height:
+    1.7;
+
+  font-size:
+    13px;
+
+}
+
+
+.bf-collection__action {
+
+  margin-top:
+    auto;
+
+  width:
+    fit-content;
+
+  padding:
+    0;
+
+  color:
+    var(--bf-gold-light);
+
+  border:
+    0;
+
+  background:
+    none;
+
+  font:
+    inherit;
+
+  font-size:
+    12px;
+
+  cursor:
+    pointer;
+
+}
+
+
+/* =========================================================
+   EXPLORADOR
+========================================================= */
+
+.bf-section--explorer {
+
+  padding-bottom:
+    48px;
+
+}
+
+
+.bf-search-panel {
+
+  padding:
+    24px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    var(--bf-radius);
+
+  background:
+    rgba(8, 18, 31, 0.7);
+
+}
+
+
+/* =========================================================
+   BUSCADOR
+========================================================= */
+
+.bf-search {
+
+  min-height:
+    66px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    28px 1fr auto;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  padding:
+    0 18px;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.24);
+
+  border-radius:
+    16px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+}
+
+
+.bf-search > span {
+
+  color:
+    var(--bf-gold);
+
+  font-size:
+    23px;
+
+}
+
+
+.bf-search input {
+
+  width:
+    100%;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  color:
+    var(--bf-text);
+
+  background:
+    transparent;
+
+  font:
+    inherit;
+
+  font-size:
+    16px;
+
+}
+
+
+.bf-search input::placeholder {
+
+  color:
+    #647287;
+
+}
+
+
+.bf-search button {
+
+  border:
+    0;
+
+  color:
+    var(--bf-muted);
+
+  background:
+    transparent;
+
+  font:
+    inherit;
+
+  font-size:
+    12px;
+
+  cursor:
+    pointer;
+
+}
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.bf-filter-row {
+
+  display:
+    flex;
+
+  gap:
+    9px;
+
+  flex-wrap:
+    wrap;
+
+  margin-top:
+    18px;
+
+}
+
+
+.bf-filter-row button {
+
+  padding:
+    9px 13px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    999px;
+
+  color:
+    var(--bf-muted);
+
+  background:
+    rgba(255, 255, 255, 0.02);
+
+  font:
+    inherit;
+
+  font-size:
+    11px;
+
+  cursor:
+    pointer;
+
+  transition:
+    0.25s ease;
+
+}
+
+
+.bf-filter-row button:hover,
+.bf-filter-row button.is-active {
+
+  color:
+    #09111b;
+
+  border-color:
+    var(--bf-gold);
+
+  background:
+    var(--bf-gold);
+
+}
+
+
+/* =========================================================
+   RESUMEN
+========================================================= */
+
+.bf-summary {
+
+  margin-top:
+    22px;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    30px;
+
+}
+
+
+.bf-summary__label {
+
+  display:
+    block;
+
+  margin-bottom:
+    12px;
+
+  color:
+    var(--bf-muted-2);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.16em;
+
+  font-size:
+    9px;
+
+}
+
+
+.bf-summary__categories {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+}
+
+
+.resumen-item {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  padding:
+    8px 11px;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    10px;
+
+}
+
+
+.resumen-item strong {
+
+  color:
+    var(--bf-gold-light);
+
+  font-size:
+    11px;
+
+}
+
+
+.bf-results-count {
+
+  flex:
+    0 0 auto;
+
+  text-align:
+    right;
+
+}
+
+
+.bf-results-count strong {
+
+  display:
+    block;
+
+  color:
+    var(--bf-gold-light);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    34px;
+
+  font-weight:
+    500;
+
+}
+
+
+.bf-results-count span {
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    10px;
+
+}
+
+
+/* =========================================================
+   RECURSOS
+========================================================= */
+
+.bf-section--resources {
+
+  padding-top:
+    36px;
+
+}
+
+
+.bf-resource-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap:
+    18px;
+
+}
+
+
+/* =========================================================
+   TARJETAS FIRESTORE
+========================================================= */
+
+.recurso-card {
+
+  min-height:
+    420px;
+
+  padding:
+    25px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  border:
+    1px solid var(--bf-line-soft);
+
+  border-radius:
+    20px;
+
+  background:
+
+    linear-gradient(
+      155deg,
+      rgba(16, 31, 51, 0.78),
+      rgba(7, 16, 28, 0.9)
+    );
+
+  box-shadow:
+
+    0 18px 42px
+    rgba(0, 0, 0, 0.16);
+
+  transition:
+
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+
+.recurso-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(214, 177, 100, 0.32);
+
+  box-shadow:
+
+    0 28px 60px
+    rgba(0, 0, 0, 0.26);
+
+}
+
+
+/* =========================================================
+   CABECERA TARJETA
+========================================================= */
+
+.recurso-ficha-top {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
+  margin-bottom:
+    28px;
+
+}
+
+
+.recurso-clase,
+.recurso-formato {
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.13em;
+
+  font-size:
+    9px;
+
+}
+
+
+.recurso-clase {
+
+  color:
+    var(--bf-gold-light);
+
+}
+
+
+.recurso-formato {
+
+  color:
+    var(--bf-muted-2);
+
+}
+
+
+/* =========================================================
+   TÍTULO RECURSO
+========================================================= */
+
+.recurso-titulo {
+
+  margin:
+    0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    25px;
+
+  line-height:
+    1.18;
+
+  font-weight:
+    500;
+
+}
+
+
+.recurso-descripcion {
+
+  margin:
+    14px 0 20px;
+
+  color:
+    var(--bf-muted);
+
+  line-height:
+    1.7;
+
+  font-size:
+    13px;
+
+}
+
+
+.recurso-separador {
+
+  height:
+    1px;
+
+  margin:
+    2px 0 18px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--bf-line),
+      transparent
+    );
+
+}
+
+
+/* =========================================================
+   METADATOS
+========================================================= */
+
+.recurso-meta {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    14px 16px;
+
+}
+
+
+.recurso-meta > div {
+
+  min-width:
+    0;
+
+}
+
+
+.recurso-meta small {
+
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    9px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.1em;
+
+}
+
+
+.recurso-meta strong {
+
+  display:
+    block;
+
+  color:
+    #d8dee6;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.45;
+
+  font-weight:
+    500;
+
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.recurso-tags {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    6px;
+
+  margin-top:
+    18px;
+
+}
+
+
+.recurso-tags span {
+
+  padding:
+    6px 8px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    9px;
+
+}
+
+
+/* =========================================================
+   BOTONES DE ARCHIVOS
+========================================================= */
+
+.recurso-accion {
+
+  margin-top:
+    auto;
+
+  padding-top:
+    22px;
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+}
+
+
+.btn-acceso-mini {
+
+  padding:
+    9px 12px;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.28);
+
+  border-radius:
+    999px;
+
+  text-decoration:
+    none;
+
+  color:
+    var(--bf-gold-light) !important;
+
+  background:
+    rgba(214, 177, 100, 0.05);
+
+  font-size:
+    10px;
+
+  transition:
+    0.2s ease;
+
+}
+
+
+.btn-acceso-mini:hover {
+
+  background:
+    rgba(214, 177, 100, 0.11);
+
+  border-color:
+    rgba(214, 177, 100, 0.52);
+
+}
+
+
+.badge-bloqueado {
+
+  color:
+    var(--bf-muted-2);
+
+  font-size:
+    10px;
+
+}
+
+
+/* =========================================================
+   CARGANDO
+========================================================= */
+
+.bf-loading,
+.bf-empty {
+
+  min-height:
+    260px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  align-content:
+    center;
+
+  gap:
+    10px;
+
+  text-align:
+    center;
+
+  color:
+    var(--bf-muted);
+
+}
+
+
+.bf-loading__mark {
+
+  width:
+    32px;
+
+  height:
+    32px;
+
+  border-radius:
+    50%;
+
+  border:
+    1px solid rgba(214, 177, 100, 0.22);
+
+  border-top-color:
+    var(--bf-gold);
+
+  animation:
+    bf-spin 0.8s linear infinite;
+
+}
+
+
+@keyframes bf-spin {
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+
+/* =========================================================
+   SIN RESULTADOS
+========================================================= */
+
+.bf-empty > span {
+
+  color:
+    var(--bf-gold);
+
+  font-size:
+    40px;
+
+}
+
+
+.bf-empty h3 {
+
+  margin:
+    4px 0 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    28px;
+
+  font-weight:
+    500;
+
+}
+
+
+.bf-empty p {
+
+  margin:
+    0;
+
+}
+
+
+/* =========================================================
+   FRASE INSTITUCIONAL
+========================================================= */
+
+.bf-quote {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  padding:
+    110px 0;
+
+  border-top:
+    1px solid var(--bf-line-soft);
+
+  border-bottom:
+    1px solid var(--bf-line-soft);
+
+  text-align:
+    center;
+
+}
+
+
+.bf-quote__line {
+
+  display:
+    block;
+
+  width:
+    50px;
+
+  height:
+    1px;
+
+  margin:
+    0 auto 30px;
+
+  background:
+    var(--bf-gold);
+
+}
+
+
+.bf-quote blockquote {
+
+  max-width:
+    900px;
+
+  margin:
+    0 auto;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(30px, 4.8vw, 54px);
+
+  font-weight:
+    400;
+
+  line-height:
+    1.2;
+
+}
+
+
+.bf-quote p {
+
+  margin:
+    24px 0 0;
+
+  color:
+    var(--bf-muted-2);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.16em;
+
+  font-size:
+    9px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.bf-footer {
+
+  position:
+    relative;
+
+  z-index:
+    1;
+
+  padding:
+    74px 0 30px;
+
+  background:
+    #02070f;
+
+}
+
+
+.bf-footer__grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1.6fr 1fr 1fr 1fr;
+
+  gap:
+    48px;
+
+}
+
+
+.bf-footer__brand span {
+
+  display:
+    block;
+
+  color:
+    var(--bf-muted);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.14em;
+
+  font-size:
+    10px;
+
+}
+
+
+.bf-footer__brand strong {
+
+  display:
+    block;
+
+  margin:
+    8px 0 14px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    30px;
+
+}
+
+
+.bf-footer p {
+
+  color:
+    var(--bf-muted);
+
+  line-height:
+    1.7;
+
+}
+
+
+.bf-footer h3 {
+
+  margin:
+    0 0 16px;
+
+  color:
+    var(--bf-gold-light);
+
+  font-size:
+    11px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.13em;
+
+}
+
+
+.bf-footer__grid > div:not(:first-child) {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+}
+
+
+.bf-footer a {
+
+  margin:
+    5px 0;
+
+  color:
+    var(--bf-muted);
+
+  text-decoration:
+    none;
+
+  font-size:
+    12px;
+
+}
+
+
+.bf-footer a:hover {
+
+  color:
+    var(--bf-gold-light);
+
+}
+
+
+.bf-footer__bottom {
+
+  margin-top:
+    55px;
+
+  padding-top:
+    22px;
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  border-top:
+    1px solid var(--bf-line-soft);
+
+  color:
+    #5d6877;
+
+  font-size:
+    10px;
+
+}
+
+
+/* =========================================================
+   ANIMACIONES / REVEAL
+========================================================= */
+
+.bf-reveal {
+
+  opacity:
+    0;
+
+  transform:
+    translateY(22px);
+
+  transition:
+
+    opacity 0.75s ease,
+    transform 0.75s ease;
+
+}
+
+
+.bf-reveal.is-visible {
+
+  opacity:
+    1;
+
+  transform:
+    translateY(0);
+
+}
+
+
+/* =========================================================
+   TABLET GRANDE
+========================================================= */
+
+@media
+(max-width: 1100px) {
+
+  .bf-header__nav {
+
+    display:
+      none;
+
+  }
+
+
+  .bf-collection-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+
+  .bf-resource-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+
+  .bf-footer__grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media
+(max-width: 820px) {
+
+  .bf-shell {
+
+    width:
+      min(
+        calc(100% - 32px),
+        var(--bf-max)
+      );
+
+  }
+
+
+  .bf-header__inner {
+
+    min-height:
+      70px;
+
+  }
+
+
+  .bf-brand span,
+  .bf-link-system {
+
+    display:
+      none;
+
+  }
+
+
+  .bf-hero {
+
+    min-height:
+      auto;
+
+    padding:
+      72px 0 90px;
+
+  }
+
+
+  .bf-hero__grid,
+  .bf-section-head {
+
+    grid-template-columns:
+      1fr;
+
+    gap:
+      34px;
+
+  }
+
+
+  .bf-hero h1 {
+
+    font-size:
+      clamp(46px, 13vw, 72px);
+
+  }
+
+
+  .bf-section {
+
+    padding:
+      78px 0;
+
+  }
+
+
+  .bf-summary {
+
+    flex-direction:
+      column;
+
+  }
+
+
+  .bf-results-count {
+
+    text-align:
+      left;
+
+  }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media
+(max-width: 620px) {
+
+  .bf-header__actions .bf-link-system {
+
+    display:
+      none;
+
+  }
+
+
+  .bf-brand img {
+
+    width:
+      40px;
+
+    height:
+      40px;
+
+  }
+
+
+  .bf-collection-grid,
+  .bf-resource-grid,
+  .bf-footer__grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .bf-collection {
+
+    min-height:
+      280px;
+
+  }
+
+
+  .bf-hero__panel {
+
+    padding:
+      25px;
+
+  }
+
+
+  .bf-hero__metrics {
+
+    grid-template-columns:
+      1fr 1fr;
+
+  }
+
+
+  .bf-search {
+
+    grid-template-columns:
+      24px 1fr;
+
+  }
+
+
+  .bf-search button {
+
+    display:
+      none;
+
+  }
+
+
+  .recurso-meta {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .bf-footer__bottom {
+
+    flex-direction:
+      column;
+
+  }
+
+}
