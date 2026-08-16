@@ -31,6 +31,10 @@ import {
   instrumentosBiblioteca
 } from "./biblioteca-instrumentos-catalogo.js";
 
+import {
+  librosPublicacionesBiblioteca
+} from "./biblioteca-libros-publicaciones-catalogo.js";
+
 
 import {
   modelosJudicialesAmpliacion,
@@ -149,6 +153,22 @@ const cargarInstrumentosBtn =
 const resultadoInstrumentos =
   document.getElementById(
     "resultadoInstrumentos"
+  );
+
+
+  /* =========================================================
+   LIBROS Y PUBLICACIONES
+========================================================= */
+
+const cargarPublicacionesBtn =
+  document.getElementById(
+    "cargarPublicacionesBtn"
+  );
+
+
+const resultadoPublicaciones =
+  document.getElementById(
+    "resultadoPublicaciones"
   );
 
 
@@ -1945,6 +1965,215 @@ Los 111 modelos anteriores no serán modificados.
 
 
 /* =========================================================
+   CARGA MASIVA DE LIBROS Y PUBLICACIONES
+========================================================= */
+
+async function cargarLibrosPublicaciones() {
+
+  if (
+    !cargarPublicacionesBtn
+  ) {
+
+    return;
+
+  }
+
+
+  const cantidad =
+    librosPublicacionesBiblioteca.length;
+
+
+  const confirmar =
+    window.confirm(
+
+      `Se cargarán o actualizarán ${cantidad} libros y publicaciones en Biblioteca FALCO®.
+
+Los registros existentes con el mismo ID serán actualizados.
+
+Los enlaces externos conservarán su fuente original.
+
+No se alojará material protegido sin autorización.
+
+¿Continuar?`
+
+    );
+
+
+  if (
+    !confirmar
+  ) {
+
+    return;
+
+  }
+
+
+  cargarPublicacionesBtn.disabled =
+    true;
+
+
+  cargarPublicacionesBtn.textContent =
+    `Actualizando ${cantidad} publicaciones…`;
+
+
+  if (
+    resultadoPublicaciones
+  ) {
+
+    resultadoPublicaciones.innerHTML = `
+
+      Preparando
+      <strong>${cantidad}</strong>
+      libros y publicaciones…
+
+    `;
+
+  }
+
+
+  try {
+
+    const batch =
+      writeBatch(
+        db
+      );
+
+
+    librosPublicacionesBiblioteca.forEach(
+      item => {
+
+        const {
+          id,
+          ...contenido
+        } =
+          item;
+
+
+        const referencia =
+          doc(
+            db,
+            "contenidos",
+            id
+          );
+
+
+        batch.set(
+
+          referencia,
+
+          contenido,
+
+          {
+            merge:
+              true
+          }
+
+        );
+
+      }
+    );
+
+
+    await batch.commit();
+
+
+    if (
+      resultadoPublicaciones
+    ) {
+
+      resultadoPublicaciones.innerHTML = `
+
+        <div
+          style="
+            padding: 20px;
+            border: 1px solid rgba(214,177,100,.28);
+            border-radius: 14px;
+            background: rgba(214,177,100,.04);
+          "
+        >
+
+          <strong
+            style="
+              color: var(--bf-gold-light);
+              font-size: 18px;
+            "
+          >
+            ✅ Libros y publicaciones actualizados
+          </strong>
+
+          <br><br>
+
+          <strong>
+            ${cantidad}
+          </strong>
+          recursos cargados o actualizados en Firestore.
+
+          <br><br>
+
+          Colección:
+          <strong>
+            Libros y publicaciones
+          </strong>
+
+          <br><br>
+
+          Los recursos ya pueden visualizarse
+          desde Biblioteca FALCO®.
+
+        </div>
+
+      `;
+
+    }
+
+
+    cargarPublicacionesBtn.textContent =
+      `${cantidad} publicaciones actualizadas`;
+
+
+  } catch (
+    error
+  ) {
+
+    console.error(
+      "❌ Error cargando libros y publicaciones:",
+      error
+    );
+
+
+    if (
+      resultadoPublicaciones
+    ) {
+
+      resultadoPublicaciones.innerHTML = `
+
+        ❌ No se pudo completar la carga.
+
+        <br><br>
+
+        ${
+          error.message ||
+          error
+        }
+
+      `;
+
+    }
+
+
+    cargarPublicacionesBtn.disabled =
+      false;
+
+
+    cargarPublicacionesBtn.textContent =
+      "Volver a intentar";
+
+  }
+
+}
+
+
+/* =========================================================
    EVENTOS
 ========================================================= */
 
@@ -1980,6 +2209,11 @@ cargarScl90Btn?.addEventListener(
 cargarInstrumentosBtn?.addEventListener(
   "click",
   cargarCatalogoInstrumentos
+);
+
+cargarPublicacionesBtn?.addEventListener(
+  "click",
+  cargarLibrosPublicaciones
 );
 
 

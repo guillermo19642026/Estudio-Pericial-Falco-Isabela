@@ -968,36 +968,88 @@ function crearCard(
 
         ${
 
-          item.tipoContenido !==
-          "instrumento"
+  item.tipoContenido ===
+  "publicacion"
 
-          &&
+  &&
 
-          !item.urlPdf
+  item.url
 
-          &&
+    ?
 
-          !item.urlWord
+      crearBotonArchivo(
 
-          &&
+        item.url,
 
-          !item.urlVideo
+        item.accesoAbierto === true
+          ? "📖"
+          : "↗",
 
-            ?
+        item.accesoAbierto === true
 
-            `
-              <span
-                class="badge-bloqueado"
-              >
-                Disponible próximamente
-              </span>
-            `
+          ? "Leer publicación"
 
-            :
+          : (
 
-            ""
+              normalizar(
+                item.acceso || ""
+              ).includes(
+                "muestra"
+              )
 
-        }
+                ? "Ver ficha y muestra"
+
+                : "Consultar fuente"
+
+            ),
+
+        permitido
+
+      )
+
+    :
+
+    ""
+
+}
+
+
+${
+
+  item.tipoContenido !==
+  "instrumento"
+
+  &&
+
+  !item.urlPdf
+
+  &&
+
+  !item.urlWord
+
+  &&
+
+  !item.urlVideo
+
+  &&
+
+  !item.url
+
+    ?
+
+    `
+      <span
+        class="badge-bloqueado"
+      >
+        Disponible próximamente
+      </span>
+    `
+
+    :
+
+    ""
+
+}
 
 
       </div>

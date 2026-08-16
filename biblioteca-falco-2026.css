@@ -4815,3 +4815,21 @@ box-sizing: border-box;
 .bf-instrument-admin-block p:last-child {
   margin-bottom: 0;
 }
+
+
+/* =========================================================
+   LIBROS Y PUBLICACIONES
+========================================================= */
+
+#panelPublicaciones {
+  width: min(1180px, calc(100% - 80px));
+  margin-inline: auto;
+  padding-block: 10px 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+  #panelPublicaciones {
+    width: calc(100% - 32px);
+  }
+}
