@@ -4118,3 +4118,166 @@ body.biblioteca-premium a {
 #instrumentoFuenteOficialHero[hidden] {
   display: none !important;
 }
+
+
+/* =========================================================
+   SOLICITUD DE NUEVOS ESCRITOS
+========================================================= */
+
+.bf-request {
+  width: min(1180px, calc(100% - 80px));
+
+  margin:
+    70px auto
+    50px;
+
+  box-sizing: border-box;
+}
+
+
+.bf-request__inner {
+    width: 100%;
+box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+  padding: 42px 44px;
+
+  border:
+    1px solid rgba(214, 177, 100, .22);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(214, 177, 100, .055),
+      rgba(255, 255, 255, .018)
+    );
+}
+
+
+.bf-request__inner::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  top: -150px;
+  right: -90px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(214, 177, 100, .12),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+.bf-request__title {
+  position: relative;
+
+  max-width: 760px;
+
+  margin:
+    12px 0 18px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      46px
+    );
+
+  line-height: 1.1;
+
+  font-weight: 500;
+}
+
+
+.bf-request__text {
+  position: relative;
+
+  max-width: 780px;
+
+  margin:
+    0 0 12px;
+
+  color:
+    var(--bf-muted);
+
+  line-height: 1.75;
+}
+
+
+.bf-request__actions {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+
+.bf-request__note {
+  position: relative;
+
+  max-width: 800px;
+
+  margin:
+    24px 0 0;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, .07);
+
+  color:
+    var(--bf-muted);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+@media (
+  max-width: 680px
+) {
+
+  .bf-request {
+    width: calc(100% - 32px);
+  }
+
+  .bf-request__inner {
+    padding:
+      32px 24px;
+  }
+
+  .bf-request__actions {
+    flex-direction:
+      column;
+  }
+
+  .bf-request__actions .bf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+}
+

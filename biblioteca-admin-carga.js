@@ -32,6 +32,12 @@ import {
 } from "./biblioteca-instrumentos-catalogo.js";
 
 
+import {
+  modelosJudicialesAmpliacion,
+  resumenModelosJudicialesAmpliacion
+} from "./biblioteca-modelos-judiciales-ampliacion-catalogo.js";
+
+
 
 console.log(
   "📚 Biblioteca FALCO® · Cargador administrativo"
@@ -99,6 +105,19 @@ const resultadoModelos111 =
   document.getElementById(
     "resultadoModelos111"
   );
+
+
+  const cargarAmpliacion121Btn =
+  document.getElementById(
+    "cargarAmpliacion121Btn"
+  );
+
+
+const resultadoAmpliacion121 =
+  document.getElementById(
+    "resultadoAmpliacion121"
+  );
+
 
 
   /* =========================================================
@@ -1722,6 +1741,210 @@ No se publicarán ítems, protocolos, claves, baremos ni material protegido.
 
 
 /* =========================================================
+   CARGA AMPLIACIÓN 118–238
+========================================================= */
+
+async function cargarAmpliacionModelos() {
+
+  if (
+    !cargarAmpliacion121Btn
+  ) {
+    return;
+  }
+
+
+  const cantidad =
+    modelosJudicialesAmpliacion.length;
+
+
+  const confirmar =
+    window.confirm(
+
+      `Se cargarán ${cantidad} nuevos modelos judiciales en Firestore.
+
+Rango: 118–238.
+
+Los 111 modelos anteriores no serán modificados.
+
+¿Continuar?`
+
+    );
+
+
+  if (
+    !confirmar
+  ) {
+    return;
+  }
+
+
+  cargarAmpliacion121Btn.disabled =
+    true;
+
+
+  cargarAmpliacion121Btn.textContent =
+    `Cargando ${cantidad} modelos…`;
+
+
+  if (
+    resultadoAmpliacion121
+  ) {
+
+    resultadoAmpliacion121.innerHTML = `
+
+      Preparando
+      <strong>${cantidad}</strong>
+      nuevos modelos judiciales…
+
+    `;
+
+  }
+
+
+  try {
+
+    const batch =
+      writeBatch(
+        db
+      );
+
+
+    modelosJudicialesAmpliacion.forEach(
+      item => {
+
+        const {
+          id,
+          ...contenido
+        } =
+          item;
+
+
+        const referencia =
+          doc(
+            db,
+            "contenidos",
+            id
+          );
+
+
+        batch.set(
+
+          referencia,
+
+          contenido,
+
+          {
+            merge:
+              true
+          }
+
+        );
+
+      }
+    );
+
+
+    await batch.commit();
+
+
+    if (
+      resultadoAmpliacion121
+    ) {
+
+      resultadoAmpliacion121.innerHTML = `
+
+        <div
+          style="
+            padding: 20px;
+            border: 1px solid rgba(214,177,100,.28);
+            border-radius: 14px;
+            background: rgba(214,177,100,.04);
+          "
+        >
+
+          <strong
+            style="
+              color: var(--bf-gold-light);
+              font-size: 18px;
+            "
+          >
+            ✅ Ampliación cargada correctamente
+          </strong>
+
+          <br><br>
+
+          <strong>
+            ${cantidad}
+          </strong>
+          nuevos modelos cargados en Firestore.
+
+          <br>
+
+          Colección:
+
+          <strong>
+            ${resumenModelosJudicialesAmpliacion.coleccion}
+          </strong>
+
+          <br><br>
+
+          Biblioteca FALCO® ya puede mostrar
+          los modelos 118–238.
+
+        </div>
+
+      `;
+
+    }
+
+
+    cargarAmpliacion121Btn.textContent =
+      `${cantidad} modelos cargados`;
+
+
+  } catch (
+    error
+  ) {
+
+    console.error(
+      "❌ Error cargando ampliación de modelos:",
+      error
+    );
+
+
+    if (
+      resultadoAmpliacion121
+    ) {
+
+      resultadoAmpliacion121.innerHTML = `
+
+        ❌ No se pudo completar la carga.
+
+        <br><br>
+
+        ${
+          error.message ||
+          error
+        }
+
+      `;
+
+    }
+
+
+    cargarAmpliacion121Btn.disabled =
+      false;
+
+
+    cargarAmpliacion121Btn.textContent =
+      "Volver a intentar";
+
+  }
+
+}
+
+
+/* =========================================================
    EVENTOS
 ========================================================= */
 
@@ -1757,4 +1980,10 @@ cargarScl90Btn?.addEventListener(
 cargarInstrumentosBtn?.addEventListener(
   "click",
   cargarCatalogoInstrumentos
+);
+
+
+cargarAmpliacion121Btn?.addEventListener(
+  "click",
+  cargarAmpliacionModelos
 );
