@@ -1578,8 +1578,8 @@ No se publicarán ítems, protocolos, claves, baremos ni material protegido.
     true;
 
 
-  cargarInstrumentosBtn.textContent =
-    `Cargando ${cantidad} fichas…`;
+cargarInstrumentosBtn.textContent =
+  `Actualizando ${cantidad} fichas…`;
 
 
   if (
@@ -1672,7 +1672,7 @@ No se publicarán ítems, protocolos, claves, baremos ni material protegido.
           <strong>
             ${cantidad}
           </strong>
-          fichas técnicas cargadas en Firestore.
+          fichas técnicas actualizadas en Firestore.
 
           <br><br>
 
@@ -1695,7 +1695,7 @@ No se publicarán ítems, protocolos, claves, baremos ni material protegido.
 
 
     cargarInstrumentosBtn.textContent =
-      `${cantidad} fichas cargadas`;
+  `${cantidad} fichas actualizadas`;
 
 
   } catch (

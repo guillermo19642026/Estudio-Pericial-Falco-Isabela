@@ -22,6 +22,11 @@
    CONFIGURACIÓN GENERAL
 ========================================================= */
 
+import {
+  aplicarGuiasAdministracion
+} from "./biblioteca-instrumentos-administracion.js?v=20260816-2";
+
+
 const AUTOR_BIBLIOTECA =
   "Biblioteca FALCO® · Estudio Pericial Psicológico FALCO®";
 
@@ -71,11 +76,17 @@ function crearFichaInstrumento({
 
   queEvalua = "",
 
-  administracionDetalle = "",
+administracionDetalle = "",
 
-  modalidadRespuesta = "",
+comoSeAdministra = "",
 
-  correccion = "",
+preparacionAdministracion = "",
+
+observacionAdministracion = "",
+
+modalidadRespuesta = "",
+
+correccion = "",
 
   analisis = "",
 
@@ -175,11 +186,17 @@ function crearFichaInstrumento({
 
     queEvalua,
 
-    administracionDetalle,
+administracionDetalle,
 
-    modalidadRespuesta,
+comoSeAdministra,
 
-    correccion,
+preparacionAdministracion,
+
+observacionAdministracion,
+
+modalidadRespuesta,
+
+correccion,
 
     analisis,
 
@@ -4766,3 +4783,12 @@ export const instrumentosBiblioteca = [
   })
 
 ];
+
+
+/* =========================================================
+   INTEGRACIÓN DE GUÍAS DE ADMINISTRACIÓN
+========================================================= */
+
+aplicarGuiasAdministracion(
+  instrumentosBiblioteca
+);

@@ -4280,4 +4280,538 @@ box-sizing: border-box;
   }
 
 }
+/* =========================================================
+   PAGINACIÓN CATÁLOGO
+========================================================= */
 
+.bf-catalog-pagination {
+  width: 100%;
+
+  margin:
+    42px 0
+    24px;
+
+  padding-top:
+    26px;
+
+  border-top:
+    1px solid rgba(214, 177, 100, .14);
+
+  text-align:
+    center;
+}
+
+
+.bf-catalog-pagination__status {
+  margin:
+    0 0
+    20px;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    13px;
+}
+
+
+.bf-catalog-pagination__controls {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    18px;
+
+  flex-wrap:
+    wrap;
+}
+
+
+.bf-catalog-pagination__page {
+  min-width:
+    130px;
+
+  color:
+    var(--bf-muted);
+
+  font-size:
+    13px;
+}
+
+
+.bf-catalog-pagination__page strong {
+  color:
+    var(--bf-gold-light);
+}
+
+
+.bf-catalog-pagination button:disabled {
+  opacity:
+    .35;
+
+  cursor:
+    default;
+
+  pointer-events:
+    none;
+}
+
+
+@media (
+  max-width: 620px
+) {
+
+  .bf-catalog-pagination__controls {
+    flex-direction:
+      column;
+  }
+
+
+  .bf-catalog-pagination__controls .bf-btn {
+    width:
+      100%;
+
+    justify-content:
+      center;
+  }
+
+}
+
+/* =========================================================
+   CATÁLOGO DE ESCRITOS · AJUSTE FINAL
+========================================================= */
+
+.bf-catalog-group {
+  width: 100%;
+  margin: 0 0 42px;
+}
+
+
+.bf-catalog-group__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: 24px;
+
+  margin: 0 0 18px;
+
+  padding: 0 0 16px;
+
+  border-bottom:
+    1px solid rgba(214, 177, 100, .18);
+
+  box-sizing: border-box;
+}
+
+
+.bf-catalog-group__head h2 {
+  margin: 8px 0 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(26px, 3vw, 34px);
+
+  line-height: 1.15;
+
+  font-weight: 500;
+}
+
+
+.bf-catalog-group__count {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 12px;
+
+  border:
+    1px solid rgba(214, 177, 100, .18);
+
+  border-radius: 999px;
+
+  color: var(--bf-muted);
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   FILAS DEL CATÁLOGO
+========================================================= */
+
+.bf-catalog-group__list {
+  display: grid;
+
+  width: 100%;
+
+  gap: 10px;
+}
+
+
+.bf-catalog-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: 24px;
+
+  padding: 18px 20px;
+
+  border:
+    1px solid rgba(255, 255, 255, .055);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, .018);
+
+  box-sizing: border-box;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+
+.bf-catalog-item:hover {
+  transform: translateY(-1px);
+
+  border-color:
+    rgba(214, 177, 100, .24);
+
+  background:
+    rgba(214, 177, 100, .03);
+}
+
+
+.bf-catalog-item__main {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  gap: 18px;
+
+  flex: 1;
+}
+
+
+.bf-catalog-item__number {
+  flex: 0 0 42px;
+
+  color: var(--bf-gold-light);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: .04em;
+}
+
+
+.bf-catalog-item__content {
+  min-width: 0;
+
+  flex: 1;
+}
+
+
+.bf-catalog-item__content h3 {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.45;
+
+  font-weight: 600;
+}
+
+
+.bf-catalog-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 7px;
+}
+
+
+.bf-catalog-item__meta span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, .035);
+
+  color: var(--bf-muted);
+
+  font-size: 11px;
+}
+
+
+.bf-catalog-item__action {
+  flex: 0 0 auto;
+}
+
+
+.bf-catalog-item__action a {
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--bf-gold-light);
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+
+.bf-catalog-item__action a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* =========================================================
+   PAGINACIÓN · 10 ESCRITOS POR PÁGINA
+========================================================= */
+
+.bf-catalog-pagination {
+  display: block;
+
+  width: 100%;
+
+  margin: 42px 0 24px;
+
+  padding: 26px 0 0;
+
+  border-top:
+    1px solid rgba(214, 177, 100, .14);
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+.bf-catalog-pagination__status {
+  display: block;
+
+  margin: 0 0 20px;
+
+  color: var(--bf-muted);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.bf-catalog-pagination__controls {
+  display: flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  gap: 18px;
+}
+
+
+.bf-catalog-pagination__page {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+
+  padding: 0 10px;
+
+  color: var(--bf-muted);
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+}
+
+
+.bf-catalog-pagination__page strong {
+  margin: 0 4px;
+
+  color: var(--bf-gold-light);
+}
+
+
+.bf-catalog-pagination__controls .bf-btn {
+  flex: 0 0 auto;
+
+  min-width: 145px;
+
+  justify-content: center;
+}
+
+
+.bf-catalog-pagination button:disabled {
+  opacity: .35;
+
+  cursor: default;
+
+  pointer-events: none;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+  .bf-catalog-group__head {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+
+  .bf-catalog-item {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+
+  .bf-catalog-item__main {
+    width: 100%;
+  }
+
+
+  .bf-catalog-item__action {
+    width: 100%;
+  }
+
+
+  .bf-catalog-item__action a {
+    width: 100%;
+
+    justify-content: flex-end;
+  }
+
+}
+
+
+@media (max-width: 620px) {
+
+  .bf-catalog-pagination__controls {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+
+  .bf-catalog-pagination__controls .bf-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .bf-catalog-pagination__page {
+    order: -1;
+
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   GUÍA DE ADMINISTRACIÓN DE INSTRUMENTOS
+========================================================= */
+
+.bf-instrument-admin-block {
+  margin: 0 0 30px;
+}
+
+.bf-instrument-admin-block:last-child {
+  margin-bottom: 0;
+}
+
+
+.bf-instrument-admin-block + .bf-instrument-admin-block {
+  padding-top: 26px;
+
+  border-top:
+    1px solid rgba(214, 177, 100, .14);
+}
+
+
+.bf-instrument-admin-block h3 {
+  margin:
+    0 0 14px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    21px;
+
+  line-height:
+    1.25;
+
+  font-weight:
+    500;
+
+  color:
+    var(--bf-gold-light);
+}
+
+
+.bf-instrument-admin-block p {
+  margin:
+    0 0 14px;
+
+  line-height:
+    1.75;
+}
+
+
+.bf-instrument-admin-block p:last-child {
+  margin-bottom: 0;
+}

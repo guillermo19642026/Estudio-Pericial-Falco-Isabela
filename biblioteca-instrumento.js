@@ -821,11 +821,80 @@ function renderInstrumento(
 
   renderContenido(
 
-    ui.administracionDetalle,
+  ui.administracionDetalle,
 
-    data.administracionDetalle
+  `
 
-  );
+    ${
+      data.administracionDetalle
+        ? `
+            <div class="bf-instrument-admin-block">
+
+              <h3>
+                Administración general
+              </h3>
+
+              ${data.administracionDetalle}
+
+            </div>
+          `
+        : ""
+    }
+
+
+    ${
+      data.comoSeAdministra
+        ? `
+            <div class="bf-instrument-admin-block">
+
+              <h3>
+                Cómo se administra
+              </h3>
+
+              ${data.comoSeAdministra}
+
+            </div>
+          `
+        : ""
+    }
+
+
+    ${
+      data.preparacionAdministracion
+        ? `
+            <div class="bf-instrument-admin-block">
+
+              <h3>
+                Preparación previa
+              </h3>
+
+              ${data.preparacionAdministracion}
+
+            </div>
+          `
+        : ""
+    }
+
+
+    ${
+      data.observacionAdministracion
+        ? `
+            <div class="bf-instrument-admin-block">
+
+              <h3>
+                Qué observar durante la administración
+              </h3>
+
+              ${data.observacionAdministracion}
+
+            </div>
+          `
+        : ""
+    }
+
+  `
+
+);
 
 
   renderContenido(

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Catálogo de Escritos Profesionales | Biblioteca FALCO®
+  </title>
+
+  <meta
+    name="description"
+    content="Catálogo completo de escritos profesionales disponibles en Biblioteca FALCO®."
+  >
+
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="biblioteca-falco-2026.css"
+  >
+
+</head>
+
+
+<body
+  class="biblioteca-premium"
+  data-modulo="biblioteca"
+>
+
+
+  <!-- =====================================================
+       ATMÓSFERA VISUAL
+  ====================================================== -->
+
+  <div
+    class="bf-noise"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="bf-glow bf-glow--one"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="bf-glow bf-glow--two"
+    aria-hidden="true"
+  ></div>
+
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="bf-header">
+
+    <div class="bf-shell bf-header__inner">
+
+
+      <a
+        class="bf-brand"
+        href="biblioteca-falco.html"
+        aria-label="Biblioteca FALCO®"
+      >
+
+        <img
+          src="img/logo.png"
+          alt="Estudio Pericial Psicológico FALCO®"
+        >
+
+        <div>
+
+          <span>
+            Estudio Pericial Psicológico
+          </span>
+
+          <strong>
+            FALCO®
+          </strong>
+
+        </div>
+
+      </a>
+
+
+      <nav
+        class="bf-header__nav"
+        aria-label="Navegación del catálogo"
+      >
+
+        <a href="biblioteca-falco.html">
+          Biblioteca
+        </a>
+
+        <a href="#catalogo">
+          Catálogo
+        </a>
+
+        <a href="#solicitar-escrito">
+          Solicitar escrito
+        </a>
+
+      </nav>
+
+
+      <div class="bf-header__actions">
+
+        <a
+          class="bf-link-system"
+          href="FALCO-CMS-V2/centro-operaciones/centro-operaciones.html"
+        >
+          Centro de Operaciones
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+  ====================================================== -->
+
+  <main>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="bf-hero">
+
+      <div class="bf-shell bf-hero__grid">
+
+
+        <div class="bf-hero__content">
+
+          <div class="bf-eyebrow">
+
+            <span></span>
+
+            Biblioteca FALCO® · Escritos profesionales
+
+          </div>
+
+
+          <h1>
+
+            Catálogo completo
+
+            <em>
+              de escritos profesionales.
+            </em>
+
+          </h1>
+
+
+          <p class="bf-hero__lead">
+
+            Índice organizado de modelos judiciales,
+            presentaciones periciales, honorarios,
+            impugnaciones, explicaciones y escritos
+            específicos por fuero.
+
+          </p>
+
+
+          <div class="bf-hero__actions">
+
+            <a
+              class="bf-btn bf-btn--gold"
+              href="#catalogo"
+            >
+              Explorar catálogo
+            </a>
+
+            <a
+              class="bf-btn bf-btn--outline"
+              href="biblioteca-falco.html"
+            >
+              Volver a Biblioteca
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <aside
+          class="bf-hero__panel"
+          aria-label="Resumen del catálogo"
+        >
+
+          <span class="bf-panel-kicker">
+            Escritos disponibles
+          </span>
+
+
+          <h2>
+            Un índice para encontrar rápidamente cada modelo.
+          </h2>
+
+
+          <div class="bf-hero__metrics">
+
+            <div>
+
+              <strong id="totalEscritosCatalogo">
+                —
+              </strong>
+
+              <span>
+                escritos
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <strong id="totalGruposCatalogo">
+                —
+              </strong>
+
+              <span>
+                grupos
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <strong>
+                2026
+              </strong>
+
+              <span>
+                edición actual
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="bf-hero__line"></div>
+
+
+          <p>
+            El catálogo se genera automáticamente
+            con los contenidos disponibles en Firestore.
+          </p>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CATÁLOGO
+    ====================================================== -->
+
+    <section
+      id="catalogo"
+      class="bf-section"
+    >
+
+      <div class="bf-shell">
+
+
+        <div class="bf-section-head">
+
+          <div>
+
+            <span class="bf-kicker">
+              Índice profesional
+            </span>
+
+            <h2>
+              Todos los escritos disponibles.
+            </h2>
+
+          </div>
+
+
+          <p>
+            Buscá por título, fuero, categoría,
+            subcategoría o palabra clave.
+          </p>
+
+        </div>
+
+
+
+        <!-- BUSCADOR -->
+
+        <div class="bf-search-panel">
+
+          <div class="bf-search">
+
+            <span aria-hidden="true">
+              ⌕
+            </span>
+
+            <input
+              type="search"
+              id="buscadorCatalogoEscritos"
+              autocomplete="off"
+              placeholder="Buscar escrito..."
+              aria-label="Buscar escrito en el catálogo"
+            >
+
+            <button
+              id="limpiarCatalogoEscritos"
+              type="button"
+            >
+              Limpiar
+            </button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ESTADO -->
+
+        <div
+          id="catalogoEscritosEstado"
+          class="bf-loading"
+          style="margin-top: 28px;"
+        >
+
+          <span class="bf-loading__mark"></span>
+
+          <p>
+            Cargando catálogo de escritos…
+          </p>
+
+        </div>
+
+
+
+        <!-- CONTENEDOR DINÁMICO -->
+
+        <div
+          id="catalogoEscritosContainer"
+          style="margin-top: 34px;"
+        ></div>
+
+
+
+        <!-- SIN RESULTADOS -->
+
+        <div
+          id="catalogoEscritosVacio"
+          class="bf-empty"
+          hidden
+        >
+
+          <span>
+            ⌕
+          </span>
+
+          <h3>
+            No encontramos escritos con esos criterios.
+          </h3>
+
+          <p>
+            Probá con otra palabra o solicitá
+            la incorporación de un nuevo modelo.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SOLICITAR ESCRITO
+    ====================================================== -->
+
+    <section
+      id="solicitar-escrito"
+      class="bf-request"
+    >
+
+      <div class="bf-shell">
+
+        <div class="bf-request__inner">
+
+          <span class="bf-kicker">
+            Biblioteca en expansión
+          </span>
+
+
+          <h2 class="bf-request__title">
+            ¿No encontrás el escrito que necesitás?
+          </h2>
+
+
+          <p class="bf-request__text">
+            Podés solicitar la incorporación de un nuevo
+            modelo indicando el tipo de presentación,
+            fuero y situación procesal.
+          </p>
+
+
+          <div class="bf-request__actions">
+
+            <a
+              class="bf-btn bf-btn--gold"
+              href="https://wa.me/5491132049521?text=Hola%2C%20quisiera%20solicitar%20un%20nuevo%20modelo%20de%20escrito%20para%20Biblioteca%20FALCO%C2%AE.%0A%0ATipo%20de%20escrito%3A%20%0AFuero%3A%20%0ASituaci%C3%B3n%20procesal%3A%20%0AObservaciones%3A%20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solicitar un escrito
+            </a>
+
+
+            <a
+              class="bf-btn bf-btn--ghost"
+              href="#catalogo"
+            >
+              Volver al catálogo
+            </a>
+
+          </div>
+
+
+          <p class="bf-request__note">
+            Las solicitudes se evalúan antes de su incorporación.
+            La inclusión dependerá de su utilidad profesional
+            general y de la posibilidad de formular un modelo
+            adaptable a distintas causas.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FRASE
+    ====================================================== -->
+
+    <section class="bf-quote">
+
+      <div class="bf-shell">
+
+        <span class="bf-quote__line"></span>
+
+        <blockquote>
+          “Encontrar el modelo adecuado también forma parte
+          de una práctica profesional organizada.”
+        </blockquote>
+
+        <p>
+          Biblioteca FALCO® · Escritos profesionales
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="bf-footer">
+
+    <div class="bf-shell bf-footer__grid">
+
+
+      <div class="bf-footer__brand">
+
+        <span>
+          Estudio Pericial Psicológico
+        </span>
+
+        <strong>
+          FALCO®
+        </strong>
+
+        <p>
+          Psicología aplicada al ámbito judicial.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Biblioteca
+        </h3>
+
+        <a href="biblioteca-falco.html">
+          Inicio
+        </a>
+
+        <a href="#catalogo">
+          Catálogo de escritos
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Sistema FALCO®
+        </h3>
+
+        <a href="FALCO-CMS-V2/ecosistema-falco.html#acceso">
+          Portal Institucional
+        </a>
+
+        <a href="FALCO-CMS-V2/centro-operaciones/centro-operaciones.html">
+          Centro de Operaciones
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Contacto
+        </h3>
+
+        <a
+          href="https://wa.me/5491132049521"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
+
+        <a href="mailto:estudiopericialpsicologico@gmail.com">
+          Correo electrónico
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="bf-shell bf-footer__bottom">
+
+      <span>
+        © 2026 Estudio Pericial Psicológico FALCO®
+      </span>
+
+      <span>
+        Excelencia profesional al servicio de la Justicia.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       SCRIPT CATÁLOGO
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="biblioteca-catalogo-escritos.js"
+  ></script>
+
+
+</body>
+
+</html>
