@@ -985,7 +985,7 @@ document.addEventListener(
                 behavior:
                   "smooth",
                 block:
-                  "nearest"
+  "start"
               });
 
             }
@@ -1019,8 +1019,7 @@ document.addEventListener(
       );
 
     if (
-      !toggle
-      ||
+      !toggle ||
       !panel
     ) {
       return;
@@ -1034,8 +1033,7 @@ document.addEventListener(
         const abierto =
           toggle.getAttribute(
             "aria-expanded"
-          ) ===
-          "true";
+          ) === "true";
 
 
         toggle.setAttribute(
@@ -1052,6 +1050,22 @@ document.addEventListener(
 
         panel.hidden =
           abierto;
+
+
+        if (!abierto) {
+
+          requestAnimationFrame(
+            () => {
+
+              panel.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+
+            }
+          );
+
+        }
 
       }
     );

@@ -33270,3 +33270,14 @@ button.falco-apertura__btn {
 .falco-apertura__guia[hidden] {
   display: none;
 }
+
+
+/* Posición al abrir los desplegables */
+
+.falco-apertura__consulta {
+  scroll-margin-top: 180px;
+}
+
+.falco-apertura__guia {
+  scroll-margin-top: 180px;
+}
