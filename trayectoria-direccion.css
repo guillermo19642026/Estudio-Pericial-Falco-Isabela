@@ -1,0 +1,2446 @@
+/* =========================================================
+   TRAYECTORIA DIRECCIÓN · FALCO®
+========================================================= */
+
+:root {
+  --td-bg:
+    #07101d;
+
+  --td-bg-soft:
+    #0b1626;
+
+  --td-panel:
+    rgba(15, 29, 48, .72);
+
+  --td-panel-strong:
+    rgba(12, 24, 40, .92);
+
+  --td-line:
+    rgba(214, 177, 100, .22);
+
+  --td-line-soft:
+    rgba(255, 255, 255, .08);
+
+  --td-gold:
+    #d6b164;
+
+  --td-gold-light:
+    #efd49a;
+
+  --td-text:
+    #f3f5f8;
+
+  --td-muted:
+    #aeb8c5;
+
+  --td-muted-soft:
+    #7f8b9b;
+
+  --td-shadow:
+    0 24px 70px rgba(0, 0, 0, .28);
+
+  --td-radius:
+    24px;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.ef-trayectoria-page {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(40, 69, 111, .18),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 84% 30%,
+      rgba(214, 177, 100, .08),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #07101d 0%,
+      #091421 42%,
+      #07101d 100%
+    );
+  color: var(--td-text);
+}
+
+body.ef-trayectoria-page::selection {
+  background:
+    rgba(214, 177, 100, .28);
+  color:
+    #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   ATMÓSFERA
+========================================================= */
+
+.ef-trayectoria-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  opacity: .035;
+  background-image:
+    repeating-radial-gradient(
+      circle at 0 0,
+      rgba(255,255,255,.25) 0,
+      rgba(255,255,255,.25) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+.ef-trayectoria-glow {
+  position: fixed;
+  z-index: -2;
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: .22;
+}
+
+.ef-trayectoria-glow--one {
+  top: -180px;
+  left: -180px;
+  background:
+    rgba(64, 100, 154, .28);
+}
+
+.ef-trayectoria-glow--two {
+  right: -220px;
+  top: 32%;
+  background:
+    rgba(214, 177, 100, .14);
+}
+
+
+/* =========================================================
+   SHELL
+========================================================= */
+
+.ef-trayectoria-shell {
+  width:
+    min(
+      1180px,
+      calc(100% - 80px)
+    );
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ef-trayectoria-header {
+  position:
+    sticky;
+  top:
+    0;
+  z-index:
+    50;
+  backdrop-filter:
+    blur(18px);
+  background:
+    rgba(7, 16, 29, .82);
+  border-bottom:
+    1px solid var(--td-line-soft);
+}
+
+.ef-trayectoria-header__inner {
+  min-height:
+    82px;
+  display:
+    grid;
+  grid-template-columns:
+    auto 1fr auto;
+  gap:
+    34px;
+  align-items:
+    center;
+}
+
+.ef-trayectoria-brand {
+  display:
+    flex;
+  flex-direction:
+    column;
+  gap:
+    2px;
+}
+
+.ef-trayectoria-brand__eyebrow {
+  font-size:
+    10px;
+  letter-spacing:
+    .17em;
+  text-transform:
+    uppercase;
+  color:
+    var(--td-muted);
+}
+
+.ef-trayectoria-brand strong {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    22px;
+  font-weight:
+    500;
+  letter-spacing:
+    .04em;
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-nav {
+  display:
+    flex;
+  justify-content:
+    center;
+  align-items:
+    center;
+  gap:
+    24px;
+  flex-wrap:
+    wrap;
+}
+
+.ef-trayectoria-nav a {
+  position:
+    relative;
+  padding:
+    10px 0;
+  font-size:
+    12px;
+  letter-spacing:
+    .06em;
+  color:
+    var(--td-muted);
+  transition:
+    color .25s ease;
+}
+
+.ef-trayectoria-nav a::after {
+  content:
+    "";
+  position:
+    absolute;
+  left:
+    0;
+  bottom:
+    5px;
+  width:
+    0;
+  height:
+    1px;
+  background:
+    var(--td-gold);
+  transition:
+    width .25s ease;
+}
+
+.ef-trayectoria-nav a:hover {
+  color:
+    var(--td-text);
+}
+
+.ef-trayectoria-nav a:hover::after {
+  width:
+    100%;
+}
+
+.ef-trayectoria-back {
+  display:
+    inline-flex;
+  align-items:
+    center;
+  justify-content:
+    center;
+  min-height:
+    42px;
+  padding:
+    0 18px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    999px;
+  font-size:
+    11px;
+  letter-spacing:
+    .06em;
+  color:
+    var(--td-gold-light);
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+.ef-trayectoria-back:hover {
+  background:
+    rgba(214, 177, 100, .08);
+  border-color:
+    rgba(214, 177, 100, .42);
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ef-trayectoria-hero {
+  position:
+    relative;
+  padding:
+    120px 0 76px;
+}
+
+.ef-trayectoria-hero__eyebrow,
+.ef-trayectoria-kicker {
+  display:
+    inline-flex;
+  align-items:
+    center;
+  gap:
+    12px;
+  font-size:
+    11px;
+  letter-spacing:
+    .16em;
+  text-transform:
+    uppercase;
+  color:
+    var(--td-gold);
+}
+
+.ef-trayectoria-hero__eyebrow span {
+  display:
+    block;
+  width:
+    36px;
+  height:
+    1px;
+  background:
+    var(--td-gold);
+}
+
+.ef-trayectoria-hero__grid {
+  display:
+    grid;
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(280px, .65fr);
+  gap:
+    70px;
+  align-items:
+    end;
+  margin-top:
+    34px;
+}
+
+.ef-trayectoria-overline {
+  margin:
+    0 0 10px;
+  font-size:
+    13px;
+  letter-spacing:
+    .14em;
+  text-transform:
+    uppercase;
+  color:
+    var(--td-muted);
+}
+
+.ef-trayectoria-hero h1 {
+  margin:
+    0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-weight:
+    500;
+  font-size:
+    clamp(
+      72px,
+      9vw,
+      132px
+    );
+  line-height:
+    .88;
+  letter-spacing:
+    -.045em;
+}
+
+.ef-trayectoria-hero h1 em {
+  display:
+    block;
+  font-style:
+    italic;
+  font-weight:
+    400;
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-hero__role {
+  max-width:
+    720px;
+  margin:
+    30px 0 0;
+  font-size:
+    18px;
+  line-height:
+    1.6;
+  color:
+    var(--td-muted);
+}
+
+.ef-trayectoria-hero__role strong {
+  color:
+    var(--td-text);
+}
+
+.ef-trayectoria-hero__credentials {
+  margin:
+    14px 0 0;
+  color:
+    var(--td-gold-light);
+  font-size:
+    13px;
+  letter-spacing:
+    .06em;
+}
+
+.ef-trayectoria-hero__lead {
+  max-width:
+    760px;
+  margin:
+    24px 0 0;
+  font-size:
+    20px;
+  line-height:
+    1.75;
+  color:
+    var(--td-muted);
+}
+
+.ef-trayectoria-hero__actions,
+.ef-trayectoria-current__actions,
+.ef-trayectoria-book__actions {
+  display:
+    flex;
+  gap:
+    14px;
+  flex-wrap:
+    wrap;
+  margin-top:
+    30px;
+}
+
+.ef-trayectoria-btn {
+  display:
+    inline-flex;
+  align-items:
+    center;
+  justify-content:
+    center;
+  min-height:
+    48px;
+  padding:
+    0 22px;
+  border-radius:
+    999px;
+  font-size:
+    12px;
+  letter-spacing:
+    .07em;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.ef-trayectoria-btn:hover {
+  transform:
+    translateY(-2px);
+}
+
+.ef-trayectoria-btn--gold {
+  background:
+    linear-gradient(
+      135deg,
+      #d6b164,
+      #efd49a
+    );
+  color:
+    #10151c;
+  box-shadow:
+    0 12px 30px
+    rgba(214, 177, 100, .18);
+}
+
+.ef-trayectoria-btn--outline {
+  border:
+    1px solid var(--td-line);
+  color:
+    var(--td-text);
+  background:
+    rgba(255,255,255,.018);
+}
+
+.ef-trayectoria-hero__statement {
+  padding:
+    30px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    var(--td-radius);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 34, 55, .72),
+      rgba(9, 20, 34, .74)
+    );
+  box-shadow:
+    var(--td-shadow);
+}
+
+.ef-trayectoria-hero__statement > span {
+  display:
+    block;
+  margin-bottom:
+    16px;
+  color:
+    var(--td-gold);
+  font-size:
+    10px;
+  letter-spacing:
+    .15em;
+  text-transform:
+    uppercase;
+}
+
+.ef-trayectoria-hero__statement p {
+  margin:
+    0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    26px;
+  line-height:
+    1.25;
+  color:
+    var(--td-text);
+}
+
+.ef-trayectoria-hero__statement strong {
+  display:
+    block;
+  margin-top:
+    22px;
+  font-weight:
+    400;
+  line-height:
+    1.7;
+  color:
+    var(--td-muted);
+}
+
+
+/* =========================================================
+   MÉTRICAS
+========================================================= */
+
+.ef-trayectoria-metrics {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  margin-top:
+    72px;
+  border-top:
+    1px solid var(--td-line);
+  border-bottom:
+    1px solid var(--td-line-soft);
+}
+
+.ef-trayectoria-metrics article {
+  padding:
+    28px 24px;
+  border-right:
+    1px solid var(--td-line-soft);
+}
+
+.ef-trayectoria-metrics article:last-child {
+  border-right:
+    0;
+}
+
+.ef-trayectoria-metrics span,
+.ef-trayectoria-metrics small {
+  display:
+    block;
+}
+
+.ef-trayectoria-metrics span {
+  margin-bottom:
+    12px;
+  font-size:
+    10px;
+  letter-spacing:
+    .12em;
+  text-transform:
+    uppercase;
+  color:
+    var(--td-muted-soft);
+}
+
+.ef-trayectoria-metrics strong {
+  display:
+    block;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    23px;
+  font-weight:
+    500;
+  color:
+    var(--td-text);
+}
+
+.ef-trayectoria-metrics small {
+  margin-top:
+    8px;
+  color:
+    var(--td-muted);
+  line-height:
+    1.5;
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.ef-trayectoria-section {
+  position:
+    relative;
+  padding:
+    110px 0;
+}
+
+.ef-trayectoria-section--dark {
+  background:
+    rgba(4, 11, 20, .46);
+  border-top:
+    1px solid var(--td-line-soft);
+  border-bottom:
+    1px solid var(--td-line-soft);
+}
+
+.ef-trayectoria-section--accent {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(214, 177, 100, .035),
+      rgba(255,255,255,.01)
+    );
+}
+
+.ef-trayectoria-section--education {
+  background:
+    rgba(14, 28, 46, .34);
+}
+
+.ef-trayectoria-section--institutions {
+  background:
+    rgba(4, 11, 20, .34);
+}
+
+.ef-trayectoria-section--author {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(214, 177, 100, .055),
+      rgba(13, 27, 45, .42)
+    );
+}
+
+.ef-trayectoria-heading {
+  max-width:
+    880px;
+}
+
+.ef-trayectoria-heading h2 {
+  margin:
+    16px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-weight:
+    500;
+  font-size:
+    clamp(
+      40px,
+      5vw,
+      68px
+    );
+  line-height:
+    1.03;
+  letter-spacing:
+    -.035em;
+}
+
+.ef-trayectoria-heading h2 em {
+  font-weight:
+    400;
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-heading--small h2 {
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      52px
+    );
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.ef-trayectoria-intro {
+  display:
+    grid;
+  grid-template-columns:
+    1.15fr .85fr;
+  gap:
+    70px;
+  margin-top:
+    52px;
+  align-items:
+    start;
+}
+
+.ef-trayectoria-intro p {
+  margin:
+    0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.85;
+  font-size:
+    16px;
+}
+
+.ef-trayectoria-intro__lead {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  color:
+    var(--td-text) !important;
+  font-size:
+    27px !important;
+  line-height:
+    1.5 !important;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.ef-trayectoria-timeline {
+  margin-top:
+    62px;
+}
+
+.ef-trayectoria-time {
+  display:
+    grid;
+  grid-template-columns:
+    150px 1px minmax(0, 1fr);
+  gap:
+    34px;
+  min-height:
+    180px;
+}
+
+.ef-trayectoria-time__year {
+  padding-top:
+    4px;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    24px;
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-time__line {
+  position:
+    relative;
+  background:
+    var(--td-line);
+}
+
+.ef-trayectoria-time__line::before {
+  content:
+    "";
+  position:
+    absolute;
+  top:
+    4px;
+  left:
+    50%;
+  width:
+    9px;
+  height:
+    9px;
+  transform:
+    translateX(-50%);
+  border-radius:
+    50%;
+  background:
+    var(--td-gold);
+  box-shadow:
+    0 0 0 6px
+    rgba(214,177,100,.07);
+}
+
+.ef-trayectoria-time__content {
+  padding:
+    0 0 54px;
+  max-width:
+    780px;
+}
+
+.ef-trayectoria-time__content span {
+  font-size:
+    10px;
+  letter-spacing:
+    .14em;
+  text-transform:
+    uppercase;
+  color:
+    var(--td-muted-soft);
+}
+
+.ef-trayectoria-time__content h3 {
+  margin:
+    10px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    30px;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-time__content p {
+  margin:
+    14px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.8;
+}
+
+
+/* =========================================================
+   FEATURE
+========================================================= */
+
+.ef-trayectoria-feature {
+  display:
+    grid;
+  grid-template-columns:
+    110px 1fr;
+  gap:
+    32px;
+  align-items:
+    center;
+  margin-top:
+    56px;
+  padding:
+    30px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    var(--td-radius);
+  background:
+    var(--td-panel);
+}
+
+.ef-trayectoria-feature__number {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    64px;
+  color:
+    rgba(214, 177, 100, .24);
+}
+
+.ef-trayectoria-feature span {
+  font-size:
+    10px;
+  text-transform:
+    uppercase;
+  letter-spacing:
+    .15em;
+  color:
+    var(--td-gold);
+}
+
+.ef-trayectoria-feature h3 {
+  margin:
+    7px 0 0;
+  font-size:
+    29px;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-feature p {
+  margin:
+    8px 0 0;
+  color:
+    var(--td-muted);
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.ef-trayectoria-grid {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap:
+    18px;
+  margin-top:
+    22px;
+}
+
+.ef-trayectoria-grid--three {
+  margin-top:
+    36px;
+}
+
+.ef-trayectoria-card {
+  min-height:
+    250px;
+  padding:
+    28px;
+  border:
+    1px solid var(--td-line-soft);
+  border-radius:
+    20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 29, 48, .76),
+      rgba(8, 18, 31, .68)
+    );
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
+
+.ef-trayectoria-card:hover {
+  transform:
+    translateY(-4px);
+  border-color:
+    rgba(214,177,100,.28);
+}
+
+.ef-trayectoria-card > span {
+  color:
+    var(--td-gold);
+  text-transform:
+    uppercase;
+  letter-spacing:
+    .12em;
+  font-size:
+    10px;
+}
+
+.ef-trayectoria-card h3 {
+  margin:
+    16px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    25px;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-card p {
+  margin:
+    14px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.75;
+}
+
+
+/* =========================================================
+   FORMACIÓN FORENSE
+========================================================= */
+
+.ef-trayectoria-forensic-grid {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap:
+    18px;
+  margin-top:
+    54px;
+}
+
+.ef-trayectoria-forensic-grid article {
+  min-height:
+    270px;
+  padding:
+    28px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    22px;
+  background:
+    rgba(12, 24, 40, .58);
+}
+
+.ef-trayectoria-forensic__icon {
+  display:
+    inline-flex;
+  align-items:
+    center;
+  justify-content:
+    center;
+  width:
+    42px;
+  height:
+    42px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    50%;
+  color:
+    var(--td-gold-light);
+  font-size:
+    11px;
+}
+
+.ef-trayectoria-forensic-grid h3 {
+  margin:
+    28px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    27px;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-forensic-grid p {
+  margin:
+    14px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.75;
+}
+
+
+/* =========================================================
+   JUDICIAL
+========================================================= */
+
+.ef-trayectoria-judicial {
+  display:
+    grid;
+  grid-template-columns:
+    .9fr 1.1fr;
+  gap:
+    60px;
+  align-items:
+    end;
+}
+
+.ef-trayectoria-judicial__intro h2 {
+  margin:
+    16px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(
+      40px,
+      5vw,
+      64px
+    );
+  line-height:
+    1.03;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-judicial__intro h2 em {
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-judicial__intro p {
+  margin:
+    24px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.8;
+}
+
+.ef-trayectoria-judicial__fueros {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    22px;
+  overflow:
+    hidden;
+}
+
+.ef-trayectoria-judicial__fueros article {
+  min-height:
+    124px;
+  padding:
+    24px;
+  border-right:
+    1px solid var(--td-line-soft);
+  border-bottom:
+    1px solid var(--td-line-soft);
+  background:
+    rgba(12, 24, 40, .5);
+}
+
+.ef-trayectoria-judicial__fueros article:nth-child(2n) {
+  border-right:
+    0;
+}
+
+.ef-trayectoria-judicial__fueros article:nth-last-child(-n + 2) {
+  border-bottom:
+    0;
+}
+
+.ef-trayectoria-judicial__fueros span {
+  display:
+    block;
+  color:
+    var(--td-gold);
+  font-size:
+    10px;
+  letter-spacing:
+    .14em;
+}
+
+.ef-trayectoria-judicial__fueros strong {
+  display:
+    block;
+  margin-top:
+    18px;
+  font-size:
+    20px;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-weight:
+    500;
+}
+
+
+/* =========================================================
+   EDUCACIÓN
+========================================================= */
+
+.ef-trayectoria-education-intro {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap:
+    48px;
+  margin-top:
+    44px;
+}
+
+.ef-trayectoria-education-intro p {
+  margin:
+    0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.85;
+}
+
+.ef-trayectoria-levels {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+  gap:
+    16px;
+  margin-top:
+    46px;
+}
+
+.ef-trayectoria-levels article {
+  min-height:
+    270px;
+  padding:
+    26px;
+  border:
+    1px solid var(--td-line-soft);
+  border-radius:
+    20px;
+  background:
+    rgba(10, 21, 36, .58);
+}
+
+.ef-trayectoria-levels__number {
+  margin-bottom:
+    34px;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    42px;
+  color:
+    rgba(214,177,100,.24);
+}
+
+.ef-trayectoria-levels article > span {
+  text-transform:
+    uppercase;
+  letter-spacing:
+    .12em;
+  font-size:
+    10px;
+  color:
+    var(--td-gold);
+}
+
+.ef-trayectoria-levels h3 {
+  margin:
+    10px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    25px;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-levels p {
+  margin:
+    14px 0 0;
+  line-height:
+    1.75;
+  color:
+    var(--td-muted);
+}
+
+
+/* =========================================================
+   MATERIAS
+========================================================= */
+
+.ef-trayectoria-subjects {
+  display:
+    flex;
+  flex-wrap:
+    wrap;
+  gap:
+    12px;
+  margin-top:
+    42px;
+}
+
+.ef-trayectoria-subjects span,
+.ef-trayectoria-book__tags span {
+  display:
+    inline-flex;
+  align-items:
+    center;
+  min-height:
+    38px;
+  padding:
+    0 16px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    999px;
+  color:
+    var(--td-muted);
+  background:
+    rgba(255,255,255,.018);
+  font-size:
+    12px;
+}
+
+
+/* =========================================================
+   INSTITUCIONES
+========================================================= */
+
+.ef-trayectoria-institutions {
+  display:
+    grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap:
+    18px;
+  margin-top:
+    50px;
+}
+
+.ef-trayectoria-institutions article {
+  min-height:
+    190px;
+  padding:
+    28px;
+  border:
+    1px solid var(--td-line-soft);
+  border-radius:
+    22px;
+  background:
+    rgba(13, 27, 45, .62);
+}
+
+.ef-trayectoria-institutions span {
+  color:
+    var(--td-gold);
+  text-transform:
+    uppercase;
+  letter-spacing:
+    .13em;
+  font-size:
+    10px;
+}
+
+.ef-trayectoria-institutions h3 {
+  margin:
+    14px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    26px;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-institutions p {
+  margin:
+    14px 0 0;
+  color:
+    var(--td-muted);
+}
+
+
+/* =========================================================
+   FORMACIÓN CONTINUA
+========================================================= */
+
+.ef-trayectoria-continuous {
+  display:
+    grid;
+  grid-template-columns:
+    .8fr 1.2fr;
+  gap:
+    70px;
+  align-items:
+    start;
+}
+
+.ef-trayectoria-continuous h2 {
+  margin:
+    16px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      68px
+    );
+  font-weight:
+    500;
+  line-height:
+    1;
+}
+
+.ef-trayectoria-continuous h2 em {
+  display:
+    block;
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-continuous p {
+  margin:
+    0 0 20px;
+  color:
+    var(--td-muted);
+  line-height:
+    1.9;
+}
+
+
+/* =========================================================
+   AUTORA Y LIBRO
+========================================================= */
+
+.ef-trayectoria-author {
+  display:
+    grid;
+  grid-template-columns:
+    .75fr 1.25fr;
+  gap:
+    46px;
+  margin-top:
+    54px;
+  align-items:
+    stretch;
+}
+
+.ef-trayectoria-author__intro {
+  padding:
+    30px;
+  border:
+    1px solid var(--td-line-soft);
+  border-radius:
+    22px;
+  background:
+    rgba(10, 21, 36, .5);
+}
+
+.ef-trayectoria-author__intro > span {
+  color:
+    var(--td-gold);
+  text-transform:
+    uppercase;
+  font-size:
+    10px;
+  letter-spacing:
+    .14em;
+}
+
+.ef-trayectoria-author__intro h3 {
+  margin:
+    14px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    32px;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-author__intro p {
+  margin:
+    20px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.85;
+}
+
+.ef-trayectoria-book {
+  position:
+    relative;
+  min-height:
+    100%;
+  padding:
+    36px;
+  border:
+    1px solid rgba(214,177,100,.30);
+  border-radius:
+    26px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 43, 60, .82),
+      rgba(10, 21, 35, .9)
+    );
+  overflow:
+    hidden;
+  box-shadow:
+    var(--td-shadow);
+}
+
+.ef-trayectoria-book::after {
+  content:
+    "";
+  position:
+    absolute;
+  width:
+    240px;
+  height:
+    240px;
+  right:
+    -80px;
+  top:
+    -80px;
+  border-radius:
+    50%;
+  background:
+    rgba(214,177,100,.08);
+  filter:
+    blur(20px);
+}
+
+.ef-trayectoria-book__number {
+  position:
+    absolute;
+  top:
+    18px;
+  right:
+    28px;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    92px;
+  line-height:
+    1;
+  color:
+    rgba(214,177,100,.08);
+}
+
+.ef-trayectoria-book__content {
+  position:
+    relative;
+  z-index:
+    2;
+  max-width:
+    720px;
+}
+
+.ef-trayectoria-book__content > span {
+  color:
+    var(--td-gold);
+  font-size:
+    10px;
+  text-transform:
+    uppercase;
+  letter-spacing:
+    .15em;
+}
+
+.ef-trayectoria-book h3 {
+  max-width:
+    630px;
+  margin:
+    20px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      55px
+    );
+  line-height:
+    1.05;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-book__subtitle {
+  margin:
+    20px 0 0;
+  font-size:
+    18px;
+  color:
+    var(--td-gold-light) !important;
+}
+
+.ef-trayectoria-book p {
+  max-width:
+    650px;
+  margin:
+    18px 0 0;
+  line-height:
+    1.8;
+  color:
+    var(--td-muted);
+}
+
+.ef-trayectoria-book__tags {
+  display:
+    flex;
+  flex-wrap:
+    wrap;
+  gap:
+    10px;
+  margin-top:
+    26px;
+}
+
+
+/* =========================================================
+   ETAPA ACTUAL
+========================================================= */
+
+.ef-trayectoria-current {
+  position:
+    relative;
+  padding:
+    130px 0;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 33, 55, .78),
+      rgba(5, 13, 23, .96)
+    );
+  border-top:
+    1px solid var(--td-line);
+  border-bottom:
+    1px solid var(--td-line-soft);
+  overflow:
+    hidden;
+}
+
+.ef-trayectoria-current .ef-trayectoria-shell {
+  display:
+    grid;
+  grid-template-columns:
+    1fr auto;
+  gap:
+    60px;
+  align-items:
+    center;
+}
+
+.ef-trayectoria-current__content {
+  position:
+    relative;
+  z-index:
+    2;
+  max-width:
+    850px;
+}
+
+.ef-trayectoria-current__content > span {
+  color:
+    var(--td-gold);
+  font-size:
+    10px;
+  letter-spacing:
+    .14em;
+  text-transform:
+    uppercase;
+}
+
+.ef-trayectoria-current h2 {
+  margin:
+    18px 0 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(
+      44px,
+      6vw,
+      78px
+    );
+  line-height:
+    1.02;
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-current h2 em {
+  display:
+    block;
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-current p {
+  max-width:
+    720px;
+  margin:
+    26px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.85;
+}
+
+.ef-trayectoria-current__mark {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(
+      180px,
+      22vw,
+      340px
+    );
+  line-height:
+    .7;
+  color:
+    rgba(214,177,100,.045);
+  user-select:
+    none;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.ef-trayectoria-closing {
+  padding:
+    110px 0;
+  text-align:
+    center;
+}
+
+.ef-trayectoria-closing blockquote {
+  max-width:
+    920px;
+  margin:
+    0 auto;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    clamp(
+      32px,
+      4vw,
+      54px
+    );
+  line-height:
+    1.3;
+  font-weight:
+    400;
+  color:
+    var(--td-text);
+}
+
+.ef-trayectoria-closing span {
+  display:
+    block;
+  margin-top:
+    28px;
+  color:
+    var(--td-gold);
+  font-size:
+    11px;
+  letter-spacing:
+    .14em;
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.ef-trayectoria-footer {
+  padding:
+    70px 0 34px;
+  border-top:
+    1px solid var(--td-line-soft);
+  background:
+    rgba(4, 10, 18, .72);
+}
+
+.ef-trayectoria-footer__grid {
+  display:
+    grid;
+  grid-template-columns:
+    1.2fr 1fr .7fr;
+  gap:
+    50px;
+}
+
+.ef-trayectoria-footer__grid > div {
+  display:
+    flex;
+  flex-direction:
+    column;
+  align-items:
+    flex-start;
+}
+
+.ef-trayectoria-footer__grid span {
+  font-size:
+    10px;
+  letter-spacing:
+    .13em;
+  text-transform:
+    uppercase;
+  color:
+    var(--td-muted-soft);
+}
+
+.ef-trayectoria-footer__grid strong {
+  margin-top:
+    8px;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    22px;
+  color:
+    var(--td-gold-light);
+  font-weight:
+    500;
+}
+
+.ef-trayectoria-footer__grid p,
+.ef-trayectoria-footer__grid a {
+  margin:
+    10px 0 0;
+  color:
+    var(--td-muted);
+  line-height:
+    1.6;
+}
+
+.ef-trayectoria-footer__grid a:hover {
+  color:
+    var(--td-gold-light);
+}
+
+.ef-trayectoria-footer__bottom {
+  display:
+    flex;
+  justify-content:
+    space-between;
+  gap:
+    30px;
+  margin-top:
+    54px;
+  padding-top:
+    24px;
+  border-top:
+    1px solid var(--td-line-soft);
+  color:
+    var(--td-muted-soft);
+  font-size:
+    11px;
+}
+
+
+/* =========================================================
+   ANIMACIÓN SUAVE
+========================================================= */
+
+@keyframes trayectoriaFadeUp {
+
+  from {
+    opacity:
+      0;
+    transform:
+      translateY(18px);
+  }
+
+  to {
+    opacity:
+      1;
+    transform:
+      translateY(0);
+  }
+
+}
+
+.ef-trayectoria-hero__content,
+.ef-trayectoria-hero__statement,
+.ef-trayectoria-metrics {
+  animation:
+    trayectoriaFadeUp
+    .8s
+    ease
+    both;
+}
+
+.ef-trayectoria-hero__statement {
+  animation-delay:
+    .12s;
+}
+
+.ef-trayectoria-metrics {
+  animation-delay:
+    .2s;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 1040px
+) {
+
+  .ef-trayectoria-header__inner {
+    grid-template-columns:
+      1fr auto;
+  }
+
+  .ef-trayectoria-nav {
+    grid-column:
+      1 / -1;
+    order:
+      3;
+    justify-content:
+      flex-start;
+    padding-bottom:
+      14px;
+  }
+
+  .ef-trayectoria-hero__grid {
+    grid-template-columns:
+      1fr;
+    gap:
+      40px;
+  }
+
+  .ef-trayectoria-metrics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ef-trayectoria-metrics article:nth-child(2) {
+    border-right:
+      0;
+  }
+
+  .ef-trayectoria-metrics article:nth-child(-n + 2) {
+    border-bottom:
+      1px solid var(--td-line-soft);
+  }
+
+  .ef-trayectoria-grid,
+  .ef-trayectoria-forensic-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ef-trayectoria-levels {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ef-trayectoria-judicial {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-author {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-current .ef-trayectoria-shell {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-current__mark {
+    position:
+      absolute;
+    right:
+      20px;
+    bottom:
+      20px;
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+    .ef-trayectoria-book {
+  grid-template-columns:
+    1fr;
+}
+
+.ef-trayectoria-book__cover {
+  width:
+    min(78%, 310px);
+}
+
+  .ef-trayectoria-shell {
+    width:
+      min(
+        100% - 34px,
+        1180px
+      );
+  }
+
+  .ef-trayectoria-header__inner {
+    min-height:
+      72px;
+    gap:
+      12px;
+  }
+
+  .ef-trayectoria-nav {
+    gap:
+      16px;
+    overflow-x:
+      auto;
+    flex-wrap:
+      nowrap;
+    padding-bottom:
+      12px;
+  }
+
+  .ef-trayectoria-nav a {
+    white-space:
+      nowrap;
+  }
+
+  .ef-trayectoria-back {
+    padding:
+      0 14px;
+  }
+
+  .ef-trayectoria-hero {
+    padding:
+      82px 0 58px;
+  }
+
+  .ef-trayectoria-hero h1 {
+    font-size:
+      clamp(
+        58px,
+        20vw,
+        86px
+      );
+  }
+
+  .ef-trayectoria-hero__lead {
+    font-size:
+      18px;
+  }
+
+  .ef-trayectoria-metrics {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-metrics article {
+    border-right:
+      0;
+    border-bottom:
+      1px solid var(--td-line-soft);
+  }
+
+  .ef-trayectoria-metrics article:last-child {
+    border-bottom:
+      0;
+  }
+
+  .ef-trayectoria-section {
+    padding:
+      82px 0;
+  }
+
+  .ef-trayectoria-intro,
+  .ef-trayectoria-education-intro,
+  .ef-trayectoria-continuous {
+    grid-template-columns:
+      1fr;
+    gap:
+      28px;
+  }
+
+  .ef-trayectoria-time {
+    grid-template-columns:
+      74px 1px minmax(0, 1fr);
+    gap:
+      18px;
+  }
+
+  .ef-trayectoria-time__year {
+    font-size:
+      18px;
+  }
+
+  .ef-trayectoria-feature {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-grid,
+  .ef-trayectoria-forensic-grid,
+  .ef-trayectoria-levels,
+  .ef-trayectoria-institutions {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-judicial__fueros {
+    grid-template-columns:
+      1fr;
+  }
+
+  .ef-trayectoria-judicial__fueros article {
+    border-right:
+      0;
+    border-bottom:
+      1px solid var(--td-line-soft);
+  }
+
+  .ef-trayectoria-judicial__fueros article:nth-last-child(-n + 2) {
+    border-bottom:
+      1px solid var(--td-line-soft);
+  }
+
+  .ef-trayectoria-judicial__fueros article:last-child {
+    border-bottom:
+      0;
+  }
+
+  .ef-trayectoria-book {
+    padding:
+      28px;
+  }
+
+  .ef-trayectoria-footer__grid {
+    grid-template-columns:
+      1fr;
+    gap:
+      34px;
+  }
+
+  .ef-trayectoria-footer__bottom {
+    flex-direction:
+      column;
+  }
+
+}
+
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  html {
+    scroll-behavior:
+      auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      .01ms !important;
+    animation-iteration-count:
+      1 !important;
+    transition-duration:
+      .01ms !important;
+  }
+
+}
+
+
+/* =========================================================
+   RETRATO DIRECCIÓN
+========================================================= */
+
+.ef-trayectoria-hero__portrait {
+  display:
+    flex;
+  flex-direction:
+    column;
+  gap:
+    18px;
+}
+
+.ef-trayectoria-portrait__frame {
+  position:
+    relative;
+  min-height:
+    560px;
+  border:
+    1px solid var(--td-line);
+  border-radius:
+    28px;
+  overflow:
+    hidden;
+  background:
+    var(--td-panel);
+  box-shadow:
+    var(--td-shadow);
+}
+
+.ef-trayectoria-portrait__image {
+  width:
+    100%;
+  height:
+    100%;
+  min-height:
+    560px;
+  display:
+    block;
+  object-fit:
+    cover;
+  object-position:
+    center 28%;
+}
+
+.ef-trayectoria-portrait__overlay {
+  position:
+    absolute;
+  inset:
+    0;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 42%,
+      rgba(4, 10, 18, .15) 58%,
+      rgba(4, 10, 18, .92) 100%
+    );
+}
+
+.ef-trayectoria-portrait__caption {
+  position:
+    absolute;
+  z-index:
+    2;
+  left:
+    28px;
+  right:
+    28px;
+  bottom:
+    26px;
+}
+
+.ef-trayectoria-portrait__caption span {
+  display:
+    block;
+  margin-bottom:
+    8px;
+  color:
+    var(--td-gold);
+  font-size:
+    10px;
+  letter-spacing:
+    .15em;
+  text-transform:
+    uppercase;
+}
+
+.ef-trayectoria-portrait__caption strong {
+  display:
+    block;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    29px;
+  font-weight:
+    500;
+  color:
+    #fff;
+}
+
+.ef-trayectoria-portrait__caption small {
+  display:
+    block;
+  margin-top:
+    7px;
+  color:
+    rgba(255,255,255,.72);
+  font-size:
+    12px;
+}
+
+.ef-trayectoria-portrait__statement {
+  padding:
+    22px 24px;
+  border:
+    1px solid var(--td-line-soft);
+  border-radius:
+    20px;
+  background:
+    rgba(12,24,40,.58);
+}
+
+.ef-trayectoria-portrait__statement p {
+  margin:
+    0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+  font-size:
+    21px;
+  line-height:
+    1.35;
+  color:
+    var(--td-text);
+}
+
+.ef-trayectoria-portrait__statement strong {
+  display:
+    block;
+  margin-top:
+    14px;
+  color:
+    var(--td-muted);
+  font-weight:
+    400;
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   LIBRO · IMAGEN
+========================================================= */
+
+.ef-trayectoria-book {
+  display:
+    grid;
+  grid-template-columns:
+    minmax(220px, .65fr)
+    minmax(0, 1.35fr);
+  gap:
+    34px;
+  align-items:
+    center;
+}
+
+.ef-trayectoria-book__visual {
+  position:
+    relative;
+  display:
+    flex;
+  justify-content:
+    center;
+  align-items:
+    center;
+}
+
+.ef-trayectoria-book__cover {
+  width:
+    min(100%, 340px);
+  display:
+    block;
+  border-radius:
+    18px;
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.34);
+  transform:
+    rotate(-1.5deg);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.ef-trayectoria-book:hover
+.ef-trayectoria-book__cover {
+  transform:
+    rotate(0deg)
+    translateY(-4px);
+  box-shadow:
+    0 34px 82px rgba(0,0,0,.40);
+}

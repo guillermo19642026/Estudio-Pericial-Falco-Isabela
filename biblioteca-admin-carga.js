@@ -41,6 +41,10 @@ import {
   resumenModelosJudicialesAmpliacion
 } from "./biblioteca-modelos-judiciales-ampliacion-catalogo.js";
 
+import {
+  normativaBiblioteca
+} from "./biblioteca-normativa-catalogo.js";
+
 
 
 console.log(
@@ -169,6 +173,22 @@ const cargarPublicacionesBtn =
 const resultadoPublicaciones =
   document.getElementById(
     "resultadoPublicaciones"
+  );
+
+
+  /* =========================================================
+   NORMATIVA
+========================================================= */
+
+const cargarNormativaBtn =
+  document.getElementById(
+    "cargarNormativaBtn"
+  );
+
+
+const resultadoNormativa =
+  document.getElementById(
+    "resultadoNormativa"
   );
 
 
@@ -2172,6 +2192,158 @@ No se alojará material protegido sin autorización.
 
 }
 
+/* =========================================================
+   CARGA MASIVA DE NORMATIVA
+========================================================= */
+
+async function cargarNormativa() {
+
+  if (
+    !cargarNormativaBtn
+  ) {
+    return;
+  }
+
+  const cantidad =
+    normativaBiblioteca.length;
+
+  const confirmar =
+    window.confirm(
+      `Se cargarán o actualizarán ${cantidad} registros de normativa en Biblioteca FALCO®.
+
+Los registros existentes con el mismo ID serán actualizados.
+
+¿Continuar?`
+    );
+
+  if (
+    !confirmar
+  ) {
+    return;
+  }
+
+  cargarNormativaBtn.disabled =
+    true;
+
+  cargarNormativaBtn.textContent =
+    `Actualizando ${cantidad} normas…`;
+
+  if (
+    resultadoNormativa
+  ) {
+    resultadoNormativa.innerHTML = `
+      Preparando
+      <strong>${cantidad}</strong>
+      registros normativos…
+    `;
+  }
+
+  try {
+
+    const batch =
+      writeBatch(
+        db
+      );
+
+    normativaBiblioteca.forEach(
+      item => {
+
+        const {
+          id,
+          ...contenido
+        } =
+          item;
+
+        const referencia =
+          doc(
+            db,
+            "contenidos",
+            id
+          );
+
+        batch.set(
+          referencia,
+          contenido,
+          {
+            merge:
+              true
+          }
+        );
+
+      }
+    );
+
+    await batch.commit();
+
+    if (
+      resultadoNormativa
+    ) {
+      resultadoNormativa.innerHTML = `
+        <div
+          style="
+            padding: 20px;
+            border: 1px solid rgba(214,177,100,.28);
+            border-radius: 14px;
+            background: rgba(214,177,100,.04);
+          "
+        >
+          <strong
+            style="
+              color: var(--bf-gold-light);
+              font-size: 18px;
+            "
+          >
+            ✅ Normativa actualizada
+          </strong>
+
+          <br><br>
+
+          <strong>${cantidad}</strong>
+          registros cargados o actualizados en Firestore.
+
+          <br><br>
+
+          Colección:
+          <strong>Normativa</strong>
+        </div>
+      `;
+    }
+
+    cargarNormativaBtn.textContent =
+      `${cantidad} normas actualizadas`;
+
+  } catch (
+    error
+  ) {
+
+    console.error(
+      "❌ Error cargando normativa:",
+      error
+    );
+
+    if (
+      resultadoNormativa
+    ) {
+      resultadoNormativa.innerHTML = `
+        ❌ No se pudo completar la carga.
+
+        <br><br>
+
+        ${
+          error.message ||
+          error
+        }
+      `;
+    }
+
+    cargarNormativaBtn.disabled =
+      false;
+
+    cargarNormativaBtn.textContent =
+      "Volver a intentar";
+  }
+}
+
 
 /* =========================================================
    EVENTOS
@@ -2220,4 +2392,9 @@ cargarPublicacionesBtn?.addEventListener(
 cargarAmpliacion121Btn?.addEventListener(
   "click",
   cargarAmpliacionModelos
+);
+
+cargarNormativaBtn?.addEventListener(
+  "click",
+  cargarNormativa
 );

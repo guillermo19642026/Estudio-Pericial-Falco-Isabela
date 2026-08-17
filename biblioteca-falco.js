@@ -843,7 +843,7 @@ function crearCard(
 
 
 
-           <div
+      <div
         class="recurso-accion recurso-botones"
       >
 
@@ -968,88 +968,118 @@ function crearCard(
 
         ${
 
-  item.tipoContenido ===
-  "publicacion"
+          item.tipoContenido ===
+          "publicacion"
 
-  &&
+          &&
 
-  item.url
+          item.url
 
-    ?
+            ?
 
-      crearBotonArchivo(
+            crearBotonArchivo(
 
-        item.url,
+              item.url,
 
-        item.accesoAbierto === true
-          ? "📖"
-          : "↗",
+              item.accesoAbierto === true
+                ? "📖"
+                : "↗",
 
-        item.accesoAbierto === true
+              item.accesoAbierto === true
 
-          ? "Leer publicación"
+                ? "Leer publicación"
 
-          : (
+                : (
 
-              normalizar(
-                item.acceso || ""
-              ).includes(
-                "muestra"
-              )
+                    normalizar(
+                      item.acceso || ""
+                    ).includes(
+                      "muestra"
+                    )
 
-                ? "Ver ficha y muestra"
+                      ? "Ver ficha y muestra"
 
-                : "Consultar fuente"
+                      : "Consultar fuente"
 
-            ),
+                  ),
 
-        permitido
+              permitido
 
-      )
+            )
 
-    :
+            :
 
-    ""
+            ""
 
-}
+        }
 
 
-${
+        ${
 
-  item.tipoContenido !==
-  "instrumento"
+          item.tipoContenido ===
+          "normativa"
 
-  &&
+          &&
 
-  !item.urlPdf
+          item.url
 
-  &&
+            ?
 
-  !item.urlWord
+            crearBotonArchivo(
 
-  &&
+              item.url,
 
-  !item.urlVideo
+              "§",
 
-  &&
+              "Consultar norma oficial",
 
-  !item.url
+              permitido
 
-    ?
+            )
 
-    `
-      <span
-        class="badge-bloqueado"
-      >
-        Disponible próximamente
-      </span>
-    `
+            :
 
-    :
+            ""
 
-    ""
+        }
 
-}
+
+        ${
+
+          item.tipoContenido !==
+          "instrumento"
+
+          &&
+
+          !item.urlPdf
+
+          &&
+
+          !item.urlWord
+
+          &&
+
+          !item.urlVideo
+
+          &&
+
+          !item.url
+
+            ?
+
+            `
+              <span
+                class="badge-bloqueado"
+              >
+                Disponible próximamente
+              </span>
+            `
+
+            :
+
+            ""
+
+        }
 
 
       </div>
