@@ -314,69 +314,613 @@ html {
 
 
 
+
+
 <!-- =====================================================
-     HERO FALCO® · SIMPLIFICADO
+     APERTURA INSTITUCIONAL · FALCO®
 ====================================================== -->
 
-<section id="inicio" class="hero-interno">
+<section
+  id="inicio"
+  class="falco-apertura"
+  aria-labelledby="falcoAperturaTitulo"
+>
 
-  <div class="hero-contenido">
+  <div class="falco-apertura__atmosfera" aria-hidden="true">
 
-    <div class="hero-top">
+    <span class="falco-apertura__glow falco-apertura__glow--one"></span>
+    <span class="falco-apertura__glow falco-apertura__glow--two"></span>
+    <span class="falco-apertura__linea falco-apertura__linea--one"></span>
+    <span class="falco-apertura__linea falco-apertura__linea--two"></span>
 
-      <h1 class="hero-titulo-principal">
-        Pericias Psicológicas
+  </div>
+
+
+  <div class="falco-apertura__shell">
+
+
+    <div class="falco-apertura__contenido">
+
+      <span class="falco-apertura__eyebrow">
+        Estudio Pericial Psicológico
+      </span>
+
+
+      <h1 id="falcoAperturaTitulo">
+        FALCO<sup>®</sup>
       </h1>
 
-      <div class="hero-linea" aria-hidden="true"></div>
 
-      <h2 class="hero-subtitulo-fuerte">
-        Rigor Científico · Valor Judicial
-      </h2>
+      <div class="falco-apertura__divider"></div>
 
-      <p class="hero-sello">
-        Evaluaciones periciales psicológicas con fundamentación técnica
-        y validez judicial.
+
+      <p class="falco-apertura__lema">
+        Psicología aplicada al ámbito judicial.
       </p>
 
-      <p class="hero-consulta-texto">
-        Atención profesional confidencial para particulares, abogados
-        y estudios jurídicos.
+
+      <p class="falco-apertura__descripcion">
+        Pericias psicológicas · Daño psíquico · Evaluación judicial ·
+        Asesoramiento técnico a abogados, estudios jurídicos y profesionales.
       </p>
 
-      <div class="hero-botones">
 
-        <a
-          href="FALCO-ADMISION/index.html"
-          class="btn-hero hero-accion-principal"
+      <div class="falco-apertura__acciones">
+
+        <button
+          type="button"
+          class="falco-apertura__btn falco-apertura__btn--principal"
+          id="falcoConsultaToggle"
+          aria-expanded="false"
+          aria-controls="falcoConsultaPanel"
         >
-          Solicitar consulta
-        </a>
+          <span>
+            Solicitar consulta
+          </span>
+
+          <span
+            class="falco-apertura__btn-icon"
+            aria-hidden="true"
+          >
+            ↓
+          </span>
+        </button>
+
 
         <a
           href="#servicios"
-          class="btn-hero-outline hero-accion-secundaria"
+          class="falco-apertura__btn falco-apertura__btn--secundario"
         >
-          Ver servicios
+          <span>
+            Explorar el Estudio
+          </span>
+
+          <span aria-hidden="true">
+            →
+          </span>
         </a>
 
       </div>
 
+
+<button
+  type="button"
+  class="falco-apertura__guia-toggle"
+  id="falcoGuiaToggle"
+  aria-expanded="false"
+  aria-controls="falcoGuiaPanel"
+>
+  <span>
+    ¿Qué está buscando?
+  </span>
+
+  <span
+    class="falco-apertura__guia-toggle-icon"
+    aria-hidden="true"
+  >
+    ↓
+  </span>
+</button>
+
+
+
+      <!-- =================================================
+           DOS VÍAS DE CONSULTA
+      ================================================== -->
+
+      <div
+        class="falco-apertura__consulta"
+        id="falcoConsultaPanel"
+        hidden
+      >
+
+        <div class="falco-apertura__consulta-header">
+
+          <span>
+            Consulta profesional
+          </span>
+
+          <strong>
+            ¿Cómo prefiere comunicarse?
+          </strong>
+
+        </div>
+
+
+        <div class="falco-apertura__consulta-grid">
+
+
+          <!-- CONTACTO DIRECTO -->
+
+          <a
+            href="https://wa.me/5491132049521?text=Hola%2C%20quisiera%20realizar%20una%20consulta%20al%20Estudio%20Pericial%20Psicol%C3%B3gico%20FALCO%C2%AE."
+            class="falco-apertura__consulta-opcion falco-apertura__consulta-opcion--directa"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <span class="falco-apertura__consulta-numero">
+              01
+            </span>
+
+            <div>
+
+              <span class="falco-apertura__consulta-tipo">
+                Camino rápido
+              </span>
+
+              <strong>
+                Contactar al Estudio
+              </strong>
+
+              <p>
+                Para consultas concretas, solicitud de información
+                u orientación inicial.
+              </p>
+
+              <small>
+                Respuesta directa por WhatsApp
+              </small>
+
+            </div>
+
+            <span
+              class="falco-apertura__consulta-flecha"
+              aria-hidden="true"
+            >
+              →
+            </span>
+
+          </a>
+
+
+          <!-- ADMISIÓN -->
+
+          <a
+            href="FALCO-ADMISION/perfil.html"
+            class="falco-apertura__consulta-opcion"
+          >
+
+            <span class="falco-apertura__consulta-numero">
+              02
+            </span>
+
+            <div>
+
+              <span class="falco-apertura__consulta-tipo">
+                Circuito institucional
+              </span>
+
+              <strong>
+                Admisión FALCO®
+              </strong>
+
+              <p>
+                Recorrido guiado para identificar su perfil,
+                necesidad y tipo de intervención.
+              </p>
+
+              <small>
+                Orientación estructurada por el Sistema FALCO®
+              </small>
+
+            </div>
+
+            <span
+              class="falco-apertura__consulta-flecha"
+              aria-hidden="true"
+            >
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+
+        <p class="falco-apertura__consulta-nota">
+          Ambas modalidades constituyen canales oficiales
+          de contacto del Estudio Pericial Psicológico FALCO®.
+        </p>
+
+      </div>
+
+
       <a
         href="honorarios-informes-psicologicos.html"
-        class="hero-enlace-honorarios"
+        class="falco-apertura__honorarios"
       >
         Honorarios e informes
-        <span aria-hidden="true">→</span>
+        <span aria-hidden="true">
+          →
+        </span>
       </a>
 
+      <!-- =================================================
+     GUÍA RÁPIDA · ¿QUÉ ESTÁ BUSCANDO?
+================================================== -->
+
+<div
+  class="falco-apertura__guia"
+  id="falcoGuiaPanel"
+  hidden
+>
+
+  <div class="falco-apertura__guia-header">
+
+    <span>
+      Guía rápida
+    </span>
+
+    <strong>
+      ¿Qué está buscando?
+    </strong>
+
+    <p>
+      Acceda directamente al área que mejor
+      se adapte a su necesidad.
+    </p>
+
+  </div>
+
+
+  <div class="falco-apertura__guia-grid">
+
+
+    <!-- 01 -->
+
+    <a
+      href="pericia-psicologica-buenos-aires.html"
+      class="falco-apertura__guia-item"
+    >
+
+      <span class="falco-apertura__guia-numero">
+        01
+      </span>
+
+      <span class="falco-apertura__guia-texto">
+
+        <strong>
+          Necesito una pericia psicológica
+        </strong>
+
+        <small>
+          Evaluación psicológica en el ámbito judicial
+        </small>
+
+      </span>
+
+      <span
+        class="falco-apertura__guia-flecha"
+        aria-hidden="true"
+      >
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 02 -->
+
+    <a
+      href="danio-psiquico-buenos-aires.html"
+      class="falco-apertura__guia-item"
+    >
+
+      <span class="falco-apertura__guia-numero">
+        02
+      </span>
+
+      <span class="falco-apertura__guia-texto">
+
+        <strong>
+          Necesito evaluar daño psíquico
+        </strong>
+
+        <small>
+          Valoración psicológica, repercusión e incapacidad
+        </small>
+
+      </span>
+
+      <span
+        class="falco-apertura__guia-flecha"
+        aria-hidden="true"
+      >
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 03 -->
+
+    <a
+      href="#servicios-abogados"
+      class="falco-apertura__guia-item"
+    >
+
+      <span class="falco-apertura__guia-numero">
+        03
+      </span>
+
+      <span class="falco-apertura__guia-texto">
+
+        <strong>
+          Soy abogado/a o estudio jurídico
+        </strong>
+
+        <small>
+          Asesoramiento técnico y servicios periciales
+        </small>
+
+      </span>
+
+      <span
+        class="falco-apertura__guia-flecha"
+        aria-hidden="true"
+      >
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 04 -->
+
+    <a
+      href="#formacion"
+      class="falco-apertura__guia-item"
+    >
+
+      <span class="falco-apertura__guia-numero">
+        04
+      </span>
+
+      <span class="falco-apertura__guia-texto">
+
+        <strong>
+          Soy psicólogo/a o perito
+        </strong>
+
+        <small>
+          Formación, supervisión y recursos profesionales
+        </small>
+
+      </span>
+
+      <span
+        class="falco-apertura__guia-flecha"
+        aria-hidden="true"
+      >
+        →
+      </span>
+
+    </a>
+
+
+    <!-- 05 -->
+
+    <a
+      href="biblioteca-falco.html"
+      class="falco-apertura__guia-item"
+    >
+
+      <span class="falco-apertura__guia-numero">
+        05
+      </span>
+
+      <span class="falco-apertura__guia-texto">
+
+        <strong>
+          Busco material profesional
+        </strong>
+
+        <small>
+          Escritos · Normativa · Técnicas · Publicaciones
+        </small>
+
+      </span>
+
+      <span
+        class="falco-apertura__guia-flecha"
+        aria-hidden="true"
+      >
+        →
+      </span>
+
+    </a>
+
+
+<!-- 06 · EXTERIOR -->
+
+<a
+  href="#consultas-internacionales"
+  class="falco-apertura__guia-item"
+>
+
+  <span class="falco-apertura__guia-numero">
+    06
+  </span>
+
+  <span class="falco-apertura__guia-texto">
+
+    <strong>
+      Consulta desde el exterior
+    </strong>
+
+    <small>
+      Orientación profesional para España y Estados Unidos
+    </small>
+
+  </span>
+
+  <span
+    class="falco-apertura__guia-flecha"
+    aria-hidden="true"
+  >
+    →
+  </span>
+
+</a>
+
+
+<!-- 07 · ADMISIONES -->
+
+<a
+  href="FALCO-ADMISION/index.html"
+  class="falco-apertura__guia-item"
+>
+
+  <span class="falco-apertura__guia-numero">
+    07
+  </span>
+
+  <span class="falco-apertura__guia-texto">
+
+    <strong>
+      FALCO Admisiones™
+    </strong>
+
+    <small>
+      Ingreso guiado según su perfil y necesidad
+    </small>
+
+  </span>
+
+  <span
+    class="falco-apertura__guia-flecha"
+    aria-hidden="true"
+  >
+    →
+  </span>
+
+</a>
+
+
+<!-- 08 · EXPERIENCE -->
+
+<a
+  href="falco-experience/falco-experience.html?autoplay=1"
+  class="falco-apertura__guia-item"
+>
+
+  <span class="falco-apertura__guia-numero">
+    08
+  </span>
+
+  <span class="falco-apertura__guia-texto">
+
+    <strong>
+      Conocer FALCO Experience™
+    </strong>
+
+    <small>
+      Recorrido visual por el ecosistema profesional
+    </small>
+
+  </span>
+
+  <span
+    class="falco-apertura__guia-flecha"
+    aria-hidden="true"
+  >
+    →
+  </span>
+
+</a>
+
+
+<!-- 09 · SISTEMA -->
+
+<a
+  href="FALCO-CMS-V2/ecosistema-falco.html#acceso"
+  class="falco-apertura__guia-item falco-apertura__guia-item--sistema"
+>
+
+  <span class="falco-apertura__guia-numero">
+    09
+  </span>
+
+  <span class="falco-apertura__guia-texto">
+
+    <strong>
+      Ya soy usuario FALCO®
+    </strong>
+
+    <small>
+      Ingresar al Sistema FALCO®
+    </small>
+
+  </span>
+
+  <span
+    class="falco-apertura__guia-flecha"
+    aria-hidden="true"
+  >
+    →
+  </span>
+
+</a>
+
+  </div>
+
+
+  <a
+    href="trayectoria-direccion.html"
+    class="falco-apertura__guia-direccion"
+  >
+    <span>
+      Conocer el Estudio y su Dirección
+    </span>
+
+    <span aria-hidden="true">
+      →
+    </span>
+  </a>
+
+</div>
+
+<!-- FIN GUÍA RÁPIDA -->
+
+
     </div>
+
+
+    <div
+      class="falco-apertura__marca"
+      aria-hidden="true"
+    >
+      F
+    </div>
+
 
   </div>
 
 </section>
 
-<!-- FIN HERO FALCO® -->
+<!-- FIN APERTURA INSTITUCIONAL · FALCO® -->
 
 
 <!-- =====================================================

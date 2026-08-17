@@ -912,3 +912,149 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+
+
+
+
+/* =========================================================
+   APERTURA FALCO® · DOS VÍAS DE CONSULTA
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const toggle =
+      document.getElementById(
+        "falcoConsultaToggle"
+      );
+
+    const panel =
+      document.getElementById(
+        "falcoConsultaPanel"
+      );
+
+    if (
+      !toggle
+      ||
+      !panel
+    ) {
+      return;
+    }
+
+
+    toggle.addEventListener(
+      "click",
+      () => {
+
+        const estaAbierto =
+          toggle.getAttribute(
+            "aria-expanded"
+          ) ===
+          "true";
+
+
+        toggle.setAttribute(
+          "aria-expanded",
+          String(
+            !estaAbierto
+          )
+        );
+
+
+        toggle.classList.toggle(
+          "is-open",
+          !estaAbierto
+        );
+
+
+        panel.hidden =
+          estaAbierto;
+
+
+        if (
+          !estaAbierto
+        ) {
+
+          requestAnimationFrame(
+            () => {
+
+              panel.scrollIntoView({
+                behavior:
+                  "smooth",
+                block:
+                  "nearest"
+              });
+
+            }
+          );
+
+        }
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================================
+   APERTURA FALCO® · GUÍA RÁPIDA
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const toggle =
+      document.getElementById(
+        "falcoGuiaToggle"
+      );
+
+    const panel =
+      document.getElementById(
+        "falcoGuiaPanel"
+      );
+
+    if (
+      !toggle
+      ||
+      !panel
+    ) {
+      return;
+    }
+
+
+    toggle.addEventListener(
+      "click",
+      () => {
+
+        const abierto =
+          toggle.getAttribute(
+            "aria-expanded"
+          ) ===
+          "true";
+
+
+        toggle.setAttribute(
+          "aria-expanded",
+          String(!abierto)
+        );
+
+
+        toggle.classList.toggle(
+          "is-open",
+          !abierto
+        );
+
+
+        panel.hidden =
+          abierto;
+
+      }
+    );
+
+  }
+);
