@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Solicitudes de Acceso · Sistema FALCO®
+  </title>
+
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="solicitudes-acceso.css"
+  >
+
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="falco-admin-header">
+
+    <div>
+
+      <span class="falco-admin-eyebrow">
+        Sistema FALCO®
+      </span>
+
+      <h1>
+        Solicitudes de Acceso
+      </h1>
+
+      <p>
+        Revisión y gestión de solicitudes de nuevos usuarios.
+      </p>
+
+    </div>
+
+
+    <a
+      href="centro-operaciones.html"
+      class="falco-admin-volver"
+    >
+      ← Volver al Centro de Operaciones
+    </a>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       CONTENIDO
+  ====================================================== -->
+
+  <main class="falco-admin-main">
+
+
+    <!-- ===================================================
+         INDICADORES
+    ==================================================== -->
+
+    <section
+      class="falco-admin-indicadores"
+      aria-label="Indicadores"
+    >
+
+      <article class="falco-admin-indicador">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="contadorTotal">
+          0
+        </strong>
+
+        <small>
+          Solicitudes recibidas
+        </small>
+
+      </article>
+
+
+      <article class="falco-admin-indicador">
+
+        <span>
+          Pendientes
+        </span>
+
+        <strong id="contadorPendientes">
+          0
+        </strong>
+
+        <small>
+          Requieren revisión
+        </small>
+
+      </article>
+
+
+      <article class="falco-admin-indicador">
+
+        <span>
+          Aprobadas
+        </span>
+
+        <strong id="contadorAprobadas">
+          0
+        </strong>
+
+        <small>
+          Accesos aprobados
+        </small>
+
+      </article>
+
+
+      <article class="falco-admin-indicador">
+
+        <span>
+          Rechazadas
+        </span>
+
+        <strong id="contadorRechazadas">
+          0
+        </strong>
+
+        <small>
+          Solicitudes rechazadas
+        </small>
+
+      </article>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PANEL
+    ==================================================== -->
+
+    <section class="falco-admin-panel">
+
+
+      <div class="falco-admin-panel__header">
+
+        <div>
+
+          <span class="falco-admin-eyebrow">
+            Gestión administrativa
+          </span>
+
+          <h2>
+            Solicitudes recibidas
+          </h2>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="botonActualizar"
+          class="falco-admin-actualizar"
+        >
+          Actualizar
+        </button>
+
+      </div>
+
+
+
+      <!-- =================================================
+           FILTROS
+      ================================================== -->
+
+      <div class="falco-admin-filtros">
+
+
+        <div class="falco-admin-campo">
+
+          <label for="buscarSolicitud">
+            Buscar
+          </label>
+
+          <input
+            type="search"
+            id="buscarSolicitud"
+            placeholder="Nombre, email o WhatsApp"
+          >
+
+        </div>
+
+
+        <div class="falco-admin-campo">
+
+          <label for="filtroEstado">
+            Estado
+          </label>
+
+          <select id="filtroEstado">
+
+            <option value="">
+              Todos
+            </option>
+
+            <option value="pendiente">
+              Pendientes
+            </option>
+
+            <option value="aprobada">
+              Aprobadas
+            </option>
+
+            <option value="rechazada">
+              Rechazadas
+            </option>
+
+            <option value="archivada">
+              Archivadas
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="falco-admin-campo">
+
+          <label for="filtroArea">
+            Acceso solicitado
+          </label>
+
+          <select id="filtroArea">
+
+            <option value="">
+              Todos
+            </option>
+
+            <option value="profesional">
+              Área Profesional / Peritos
+            </option>
+
+            <option value="evaluaciones">
+              Evaluaciones
+            </option>
+
+            <option value="biblioteca">
+              Biblioteca FALCO®
+            </option>
+
+            <option value="formacion">
+              Formación / Campus
+            </option>
+
+            <option value="escuela">
+              Escuela para Padres
+            </option>
+
+            <option value="otro">
+              Otro
+            </option>
+
+          </select>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           ESTADO DE CARGA
+      ================================================== -->
+
+      <div
+        id="estadoCarga"
+        class="falco-admin-estado"
+      >
+        Cargando solicitudes...
+      </div>
+
+
+
+      <!-- =================================================
+           TABLA
+      ================================================== -->
+
+      <div class="falco-admin-tabla-contenedor">
+
+        <table class="falco-admin-tabla">
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Fecha
+              </th>
+
+              <th>
+                Solicitante
+              </th>
+
+              <th>
+                Contacto
+              </th>
+
+              <th>
+                Acceso solicitado
+              </th>
+
+              <th>
+                Estado
+              </th>
+
+              <th>
+                Acción
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody id="tablaSolicitudes">
+
+            <!-- JS -->
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <!-- SIN RESULTADOS -->
+
+      <div
+        id="sinResultados"
+        class="falco-admin-vacio"
+        hidden
+      >
+
+        <strong>
+          No se encontraron solicitudes.
+        </strong>
+
+        <span>
+          Modifique los filtros para consultar otros registros.
+        </span>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       MODAL · FICHA DE SOLICITUD
+  ====================================================== -->
+
+  <div
+    id="modalSolicitud"
+    class="falco-admin-modal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="falco-admin-modal__fondo"
+      data-cerrar-modal
+    ></div>
+
+
+    <div
+      class="falco-admin-modal__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitulo"
+    >
+
+
+      <!-- CABECERA -->
+
+      <div class="falco-admin-modal__header">
+
+        <div>
+
+          <span class="falco-admin-eyebrow">
+            Solicitud de acceso
+          </span>
+
+          <h2 id="modalTitulo">
+            Detalle
+          </h2>
+
+          <span
+            id="modalReferencia"
+            class="falco-admin-modal__referencia"
+          ></span>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="cerrarModal"
+          class="falco-admin-modal__cerrar"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+
+      <!-- CONTENIDO DINÁMICO -->
+
+      <div
+        id="modalContenido"
+        class="falco-admin-modal__contenido"
+      ></div>
+
+
+
+      <!-- =================================================
+           GESTIÓN
+      ================================================== -->
+
+      <section class="falco-admin-gestion">
+
+        <h3>
+          Gestión administrativa
+        </h3>
+
+
+        <div class="falco-admin-gestion__grid">
+
+
+          <div class="falco-admin-campo">
+
+            <label for="modalEstado">
+              Estado
+            </label>
+
+            <select id="modalEstado">
+
+              <option value="pendiente">
+                Pendiente
+              </option>
+
+              <option value="aprobada">
+                Aprobada
+              </option>
+
+              <option value="rechazada">
+                Rechazada
+              </option>
+
+              <option value="archivada">
+                Archivada
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="falco-admin-campo">
+
+            <label for="modalObservaciones">
+              Observaciones internas
+            </label>
+
+            <textarea
+              id="modalObservaciones"
+              rows="4"
+              placeholder="Agregar una observación administrativa..."
+            ></textarea>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="falco-admin-gestion__acciones">
+
+          <a
+            id="contactarWhatsApp"
+            class="falco-admin-whatsapp"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contactar por WhatsApp
+          </a>
+
+
+          <button
+            type="button"
+            id="guardarSolicitud"
+            class="falco-admin-guardar"
+          >
+            Guardar cambios
+          </button>
+
+        </div>
+
+
+        <div
+          id="estadoGuardado"
+          class="falco-admin-guardado"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+
+      </section>
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="falco-admin-footer">
+
+    <span>
+      Estudio Pericial Psicológico FALCO®
+    </span>
+
+    <span>
+      Sistema Institucional · Administración
+    </span>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="../js/centro-operaciones/solicitudes-acceso.js"
+  ></script>
+
+
+</body>
+
+</html>

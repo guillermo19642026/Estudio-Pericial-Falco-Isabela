@@ -1,0 +1,875 @@
+/* =========================================================
+   SOLICITUDES DE ACCESO · ADMIN
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: #eef2f5;
+  background:
+    radial-gradient(
+      circle at 12% 12%,
+      rgba(198, 160, 82, 0.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 88% 85%,
+      rgba(28, 86, 110, 0.16),
+      transparent 34%
+    ),
+    #07131d;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.falco-admin-header {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 34px 0 28px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+.falco-admin-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #d2aa5d;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.falco-admin-header h1,
+.falco-admin-panel h2,
+.falco-admin-modal h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: #f5f1e8;
+}
+
+.falco-admin-header h1 {
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+}
+
+.falco-admin-header p {
+  margin: 10px 0 0;
+  color: rgba(238, 242, 245, 0.58);
+  font-size: 0.90rem;
+}
+
+.falco-admin-volver {
+  margin-top: 8px;
+
+  color: #d2aa5d;
+  text-decoration: none;
+
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.falco-admin-volver:hover {
+  color: #efd089;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.falco-admin-main {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 36px 0 72px;
+}
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.falco-admin-indicadores {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.falco-admin-indicador {
+  padding: 22px 22px 20px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.falco-admin-indicador span {
+  display: block;
+
+  color: rgba(238, 242, 245, 0.50);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.falco-admin-indicador strong {
+  display: block;
+
+  margin: 8px 0 5px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+
+  color: #f5f1e8;
+}
+
+.falco-admin-indicador small {
+  color: rgba(238, 242, 245, 0.40);
+  font-size: 0.70rem;
+}
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.falco-admin-panel {
+  padding: 28px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 35, 48, 0.97),
+      rgba(8, 24, 35, 0.98)
+    );
+
+  border:
+    1px solid rgba(210, 170, 93, 0.18);
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.26);
+}
+
+.falco-admin-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 26px;
+}
+
+.falco-admin-panel h2 {
+  font-size: 1.9rem;
+}
+
+.falco-admin-actualizar {
+  padding: 11px 16px;
+
+  border-radius: 10px;
+
+  border:
+    1px solid rgba(210, 170, 93, 0.26);
+
+  background:
+    rgba(210, 170, 93, 0.05);
+
+  color: #d2aa5d;
+
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.falco-admin-actualizar:hover {
+  background:
+    rgba(210, 170, 93, 0.10);
+}
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.falco-admin-filtros {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 1.5fr)
+    minmax(180px, 0.8fr)
+    minmax(220px, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+.falco-admin-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.falco-admin-campo label {
+  color: rgba(238, 242, 245, 0.68);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.falco-admin-campo input,
+.falco-admin-campo select,
+.falco-admin-campo textarea {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+
+  color: #11232d;
+
+  background: #f2f0e9;
+
+  border:
+    1px solid transparent;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.falco-admin-campo textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.falco-admin-campo input:focus,
+.falco-admin-campo select:focus,
+.falco-admin-campo textarea:focus {
+  border-color: #d2aa5d;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(210, 170, 93, 0.12);
+}
+
+/* =========================================================
+   ESTADO
+========================================================= */
+
+.falco-admin-estado {
+  margin: 8px 0 18px;
+
+  color: rgba(238, 242, 245, 0.52);
+
+  font-size: 0.78rem;
+}
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.falco-admin-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.falco-admin-tabla {
+  width: 100%;
+  min-width: 880px;
+
+  border-collapse: collapse;
+}
+
+.falco-admin-tabla thead th {
+  padding: 13px 12px;
+
+  text-align: left;
+
+  color: rgba(238, 242, 245, 0.42);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.falco-admin-tabla tbody td {
+  padding: 15px 12px;
+
+  color: rgba(238, 242, 245, 0.76);
+
+  font-size: 0.79rem;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.055);
+}
+
+.falco-admin-tabla tbody tr:hover {
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.falco-admin-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+}
+
+.falco-admin-badge--pendiente {
+  color: #f2d28c;
+  background:
+    rgba(210, 170, 93, 0.10);
+
+  border:
+    1px solid rgba(210, 170, 93, 0.22);
+}
+
+.falco-admin-badge--aprobada {
+  color: #bce8cb;
+  background:
+    rgba(65, 153, 101, 0.11);
+
+  border:
+    1px solid rgba(79, 180, 119, 0.23);
+}
+
+.falco-admin-badge--rechazada {
+  color: #f0b4b4;
+  background:
+    rgba(180, 68, 68, 0.11);
+
+  border:
+    1px solid rgba(205, 88, 88, 0.22);
+}
+
+/* =========================================================
+   BOTÓN VER
+========================================================= */
+
+.falco-admin-ver {
+  padding: 8px 11px;
+
+  border-radius: 8px;
+
+  border:
+    1px solid rgba(210, 170, 93, 0.22);
+
+  background:
+    rgba(210, 170, 93, 0.04);
+
+  color: #d2aa5d;
+
+  font: inherit;
+  font-size: 0.70rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.falco-admin-ver:hover {
+  background:
+    rgba(210, 170, 93, 0.10);
+}
+
+/* =========================================================
+   VACÍO
+========================================================= */
+
+.falco-admin-vacio {
+  padding: 34px 20px;
+  text-align: center;
+
+  color: rgba(238, 242, 245, 0.48);
+}
+
+.falco-admin-vacio strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: rgba(238, 242, 245, 0.72);
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.falco-admin-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: none;
+}
+
+.falco-admin-modal.is-open {
+  display: block;
+}
+
+.falco-admin-modal__fondo {
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(2, 10, 16, 0.76);
+
+  backdrop-filter: blur(6px);
+}
+
+.falco-admin-modal__panel {
+  position: relative;
+  z-index: 2;
+
+  width: min(720px, calc(100% - 32px));
+  max-height: calc(100vh - 56px);
+
+  margin: 28px auto;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #102631,
+      #091923
+    );
+
+  border:
+    1px solid rgba(210, 170, 93, 0.24);
+
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.42);
+}
+
+.falco-admin-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+.falco-admin-modal__header h2 {
+  font-size: 2rem;
+}
+
+.falco-admin-modal__referencia {
+  display: block;
+
+  margin-top: 5px;
+
+  color: rgba(238, 242, 245, 0.38);
+
+  font-size: 0.66rem;
+}
+
+.falco-admin-modal__cerrar {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.10);
+
+  background:
+    rgba(255, 255, 255, 0.03);
+
+  color: #eef2f5;
+
+  font-size: 1.3rem;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   CONTENIDO MODAL
+========================================================= */
+
+.falco-admin-modal__contenido {
+  padding: 22px 0;
+}
+
+.falco-admin-ficha {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.falco-admin-ficha-item {
+  padding: 14px 15px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.falco-admin-ficha-item--wide {
+  grid-column: 1 / -1;
+}
+
+.falco-admin-ficha-item span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: rgba(238, 242, 245, 0.38);
+
+  font-size: 0.64rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.falco-admin-ficha-item strong {
+  color: rgba(238, 242, 245, 0.82);
+
+  font-size: 0.80rem;
+  font-weight: 500;
+
+  line-height: 1.55;
+}
+
+/* =========================================================
+   GESTIÓN
+========================================================= */
+
+.falco-admin-gestion {
+  padding-top: 22px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.07);
+}
+
+.falco-admin-gestion h3 {
+  margin: 0 0 18px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+
+  color: #f5f1e8;
+}
+
+.falco-admin-gestion__grid {
+  display: grid;
+  grid-template-columns:
+    minmax(180px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 16px;
+}
+
+.falco-admin-gestion__acciones {
+  margin-top: 20px;
+}
+
+.falco-admin-guardar {
+  width: 100%;
+
+  padding: 14px 18px;
+
+  border: 0;
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  color: #14222b;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e4c471,
+      #c99d49
+    );
+}
+
+.falco-admin-guardar:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.falco-admin-guardado {
+  margin-top: 14px;
+
+  font-size: 0.76rem;
+  line-height: 1.5;
+
+  color: rgba(238, 242, 245, 0.52);
+}
+
+.falco-admin-guardado.is-success {
+  color: #bce8cb;
+}
+
+.falco-admin-guardado.is-error {
+  color: #f0b4b4;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.falco-admin-footer {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+
+  padding: 22px 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.06);
+
+  color: rgba(238, 242, 245, 0.36);
+
+  font-size: 0.66rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px) {
+
+  .falco-admin-indicadores {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .falco-admin-filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .falco-admin-gestion__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .falco-admin-header,
+  .falco-admin-main,
+  .falco-admin-footer {
+    width: calc(100% - 32px);
+  }
+
+  .falco-admin-header {
+    flex-direction: column;
+  }
+
+  .falco-admin-indicadores {
+    grid-template-columns: 1fr;
+  }
+
+  .falco-admin-panel {
+    padding: 20px;
+  }
+
+  .falco-admin-panel__header {
+    flex-direction: column;
+  }
+
+  .falco-admin-ficha {
+    grid-template-columns: 1fr;
+  }
+
+  .falco-admin-ficha-item--wide {
+    grid-column: auto;
+  }
+
+  .falco-admin-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   SOLICITUDES DE ACCESO · EXTENSIONES
+   Archivado + contacto WhatsApp
+========================================================= */
+
+
+/* =========================================================
+   BADGE · ARCHIVADA
+========================================================= */
+
+.falco-admin-badge--archivada {
+  color: rgba(238, 242, 245, 0.62);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   ACCIONES DEL MODAL
+========================================================= */
+
+.falco-admin-gestion__acciones {
+  margin-top: 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.falco-admin-whatsapp {
+  width: 100%;
+  min-height: 46px;
+
+  padding: 12px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  border:
+    1px solid rgba(210, 170, 93, 0.28);
+
+  background:
+    rgba(210, 170, 93, 0.05);
+
+  color: #d2aa5d;
+
+  text-decoration: none;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+
+  text-align: center;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.falco-admin-whatsapp:hover {
+  background:
+    rgba(210, 170, 93, 0.11);
+
+  border-color:
+    rgba(210, 170, 93, 0.42);
+
+  color: #efd089;
+}
+
+
+/* =========================================================
+   GUARDAR · AJUSTE PARA DOS BOTONES
+========================================================= */
+
+.falco-admin-gestion__acciones
+.falco-admin-guardar {
+  width: 100%;
+  min-height: 46px;
+}
+
+
+/* =========================================================
+   RESPONSIVE · ACCIONES
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .falco-admin-gestion__acciones {
+    grid-template-columns: 1fr;
+  }
+
+}

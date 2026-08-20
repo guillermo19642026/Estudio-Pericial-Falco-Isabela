@@ -50,6 +50,15 @@ export const MODULOS = {
   url: "../usuarios-permisos/usuarios.html",
   estado: "disponible"
 },
+
+{
+  titulo: "Solicitudes de Acceso",
+  descripcion:
+    "Revisar y gestionar solicitudes de nuevos usuarios y accesos al Sistema FALCO®.",
+  url: "solicitudes-acceso.html",
+  estado: "nuevo"
+},
+
         {
           titulo: "Configuración del Sistema",
           descripcion:
