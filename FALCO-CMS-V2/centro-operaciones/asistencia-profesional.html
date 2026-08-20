@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Mesa de Entrada · Asistencia Profesional FALCO®
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="asistencia-profesional.css"
+  >
+
+</head>
+
+
+<body>
+
+  <div class="falco-admin-shell">
+
+
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
+
+    <header class="falco-admin-header">
+
+      <div>
+
+        <span class="falco-admin-eyebrow">
+          Sistema FALCO®
+        </span>
+
+        <h1>
+          Mesa de Entrada
+          <em>Asistencia Profesional</em>
+        </h1>
+
+        <p>
+          Recepción y gestión de solicitudes profesionales.
+        </p>
+
+      </div>
+
+
+      <div class="falco-admin-header__actions">
+
+        <a
+          href="centro-operaciones.html"
+          class="falco-admin-btn falco-admin-btn--ghost"
+        >
+          Centro de Operaciones
+        </a>
+
+        <button
+          type="button"
+          id="logoutBtn"
+          class="falco-admin-btn falco-admin-btn--ghost"
+        >
+          Cerrar sesión
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         INDICADORES
+    ====================================================== -->
+
+    <section class="falco-admin-kpis">
+
+      <article>
+
+        <span>
+          Nuevas
+        </span>
+
+        <strong id="kpiNuevas">
+          0
+        </strong>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          En revisión
+        </span>
+
+        <strong id="kpiRevision">
+          0
+        </strong>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          Presupuestadas
+        </span>
+
+        <strong id="kpiPresupuestadas">
+          0
+        </strong>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          En elaboración
+        </span>
+
+        <strong id="kpiElaboracion">
+          0
+        </strong>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          Finalizadas
+        </span>
+
+        <strong id="kpiFinalizadas">
+          0
+        </strong>
+
+      </article>
+
+<article>
+
+  <span>
+    Archivadas
+  </span>
+
+  <strong id="kpiArchivadas">
+    0
+  </strong>
+
+</article>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         FILTROS
+    ====================================================== -->
+
+    <section class="falco-admin-toolbar">
+
+      <div>
+
+        <label for="buscadorSolicitudes">
+          Buscar
+        </label>
+
+        <input
+          type="search"
+          id="buscadorSolicitudes"
+          placeholder="Referencia, solicitante o expediente..."
+        >
+
+      </div>
+
+
+      <div>
+
+        <label for="filtroEstado">
+          Estado
+        </label>
+
+        <select id="filtroEstado">
+
+          <option value="">
+            Todos
+          </option>
+
+          <option value="nueva">
+            Nueva
+          </option>
+
+          <option value="en_revision">
+            En revisión
+          </option>
+
+          <option value="presupuestada">
+            Presupuestada
+          </option>
+
+          <option value="aceptada">
+            Aceptada
+          </option>
+
+          <option value="en_elaboracion">
+            En elaboración
+          </option>
+
+          <option value="finalizada">
+            Finalizada
+          </option>
+
+          <option value="rechazada">
+            Rechazada
+          </option>
+
+          <option value="archivada">
+  Archivada
+</option>
+
+        </select>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="actualizarSolicitudes"
+        class="falco-admin-btn"
+      >
+        Actualizar
+      </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         ESTADO DE CARGA
+    ====================================================== -->
+
+    <div
+      id="estadoCarga"
+      class="falco-admin-status"
+    >
+      Cargando solicitudes...
+    </div>
+
+
+    <!-- =====================================================
+         TABLA DE SOLICITUDES
+    ====================================================== -->
+
+    <section class="falco-admin-table-wrap">
+
+      <table class="falco-admin-table">
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Referencia
+            </th>
+
+            <th>
+              Fecha
+            </th>
+
+            <th>
+              Solicitante
+            </th>
+
+            <th>
+              Asistencia
+            </th>
+
+            <th>
+              Expediente
+            </th>
+
+            <th>
+              Vencimiento
+            </th>
+
+            <th>
+              Archivos
+            </th>
+
+            <th>
+              Estado
+            </th>
+
+            <th>
+              Acción
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody id="solicitudesBody">
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+
+    <div
+      id="sinSolicitudes"
+      class="falco-admin-empty"
+      hidden
+    >
+      No hay solicitudes que coincidan con los filtros.
+    </div>
+
+
+  </div>
+
+
+  <!-- =====================================================
+       MODAL · FICHA DE SOLICITUD
+  ====================================================== -->
+
+  <div
+    id="solicitudModal"
+    class="falco-admin-modal"
+    hidden
+  >
+
+    <div
+      class="falco-admin-modal__backdrop"
+      id="modalBackdrop"
+    ></div>
+
+
+    <section class="falco-admin-modal__panel">
+
+
+      <header class="falco-admin-modal__header">
+
+        <div>
+
+          <span>
+            Asistencia Profesional FALCO®
+          </span>
+
+          <h2 id="modalReferencia">
+            Solicitud
+          </h2>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="cerrarModal"
+          class="falco-admin-modal__close"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </header>
+
+
+      <!-- DATOS COMPLETOS -->
+
+      <div
+        id="modalContenido"
+        class="falco-admin-modal__contenido"
+      >
+      </div>
+
+
+      <!-- ===================================================
+           GESTIÓN ADMINISTRATIVA
+      ==================================================== -->
+
+      <div class="falco-admin-modal__gestion">
+
+        <h3>
+          Gestión administrativa
+        </h3>
+
+
+        <div class="falco-admin-modal__grid">
+
+
+          <div>
+
+            <label for="modalEstado">
+              Estado
+            </label>
+
+            <select id="modalEstado">
+
+              <option value="nueva">
+                Nueva
+              </option>
+
+              <option value="en_revision">
+                En revisión
+              </option>
+
+              <option value="presupuestada">
+                Presupuestada
+              </option>
+
+              <option value="aceptada">
+                Aceptada
+              </option>
+
+              <option value="en_elaboracion">
+                En elaboración
+              </option>
+
+              <option value="finalizada">
+                Finalizada
+              </option>
+
+              <option value="rechazada">
+                Rechazada
+              </option>
+
+              <option value="archivada">
+  Archivada
+</option>
+
+            </select>
+
+          </div>
+
+
+          <div>
+
+            <label for="modalPrioridad">
+              Prioridad
+            </label>
+
+            <select id="modalPrioridad">
+
+              <option value="normal">
+                Normal
+              </option>
+
+              <option value="alta">
+                Alta
+              </option>
+
+              <option value="urgente">
+                Urgente
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div>
+
+            <label for="modalPresupuesto">
+              Presupuesto
+            </label>
+
+            <input
+              type="number"
+              id="modalPresupuesto"
+              min="0"
+              step="1"
+              placeholder="0"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label for="modalPagoEstado">
+              Estado de pago
+            </label>
+
+            <select id="modalPagoEstado">
+
+              <option value="pendiente">
+                Pendiente
+              </option>
+
+              <option value="informado">
+                Informado
+              </option>
+
+              <option value="acreditado">
+                Acreditado
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="falco-admin-observaciones">
+
+          <label for="modalObservaciones">
+            Observaciones internas
+          </label>
+
+          <textarea
+            id="modalObservaciones"
+            rows="5"
+            placeholder="Notas internas del Estudio..."
+          ></textarea>
+
+        </div>
+
+
+       <div class="falco-admin-modal__actions">
+
+  <div class="falco-admin-modal__actions-left">
+
+    <button
+      type="button"
+      id="archivarSolicitud"
+      class="falco-admin-btn falco-admin-btn--archive"
+    >
+      Archivar solicitud
+    </button>
+
+    <button
+      type="button"
+      id="eliminarSolicitud"
+      class="falco-admin-btn falco-admin-btn--danger"
+    >
+      Eliminar
+    </button>
+
+  </div>
+
+
+  <button
+    type="button"
+    id="guardarGestion"
+    class="falco-admin-btn"
+  >
+    Guardar cambios
+  </button>
+
+</div>
+
+
+        <div
+          id="estadoGuardado"
+          class="falco-admin-save-status"
+        ></div>
+
+      </div>
+
+
+    </section>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script
+    type="module"
+    src="../js/centro-operaciones/asistencia-profesional.js"
+  ></script>
+
+</body>
+
+</html>

@@ -124,6 +124,13 @@ export const MODULOS = {
           estado: "disponible"
         },
         {
+  titulo: "Asistencia Profesional",
+  descripcion:
+    "Gestionar solicitudes de asistencia profesional, documentación recibida, estados, presupuestos y seguimiento.",
+  url: "asistencia-profesional.html",
+  estado: "nuevo"
+},
+        {
           titulo: "Document Engine FALCO®",
           descripcion:
             "Acceder al sistema de expedientes y construcción documental profesional.",

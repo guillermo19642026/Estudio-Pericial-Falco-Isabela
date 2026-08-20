@@ -1,0 +1,1076 @@
+/* =========================================================
+   MESA DE ENTRADA · ASISTENCIA PROFESIONAL FALCO®
+========================================================= */
+
+:root {
+  --falco-bg: #07101c;
+  --falco-bg-soft: #0b1726;
+  --falco-panel: #101f33;
+  --falco-panel-2: #13263d;
+  --falco-line: rgba(214, 177, 100, 0.18);
+  --falco-line-strong: rgba(214, 177, 100, 0.34);
+
+  --falco-gold: #d6b164;
+  --falco-gold-light: #efd08b;
+
+  --falco-text: #f4f1e9;
+  --falco-muted: #aeb8c6;
+  --falco-muted-2: #7f8c9d;
+
+  --falco-success: #80c9a5;
+  --falco-danger: #d98888;
+  --falco-warning: #e2bd73;
+
+  --falco-radius: 18px;
+  --falco-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(214, 177, 100, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #07101c,
+      #081422 55%,
+      #07101c
+    );
+
+  color: var(--falco-text);
+
+  font-family:
+    Inter,
+    Montserrat,
+    Arial,
+    sans-serif;
+}
+
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+========================================================= */
+
+.falco-admin-shell {
+  width: min(
+    1480px,
+    calc(100% - 48px)
+  );
+
+  margin: 0 auto;
+  padding: 48px 0 80px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.falco-admin-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 32px;
+
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid var(--falco-line);
+}
+
+
+.falco-admin-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: var(--falco-gold);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+
+.falco-admin-header h1 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: clamp(
+    34px,
+    5vw,
+    58px
+  );
+
+  line-height: 1.03;
+
+  font-weight: 500;
+}
+
+
+.falco-admin-header h1 em {
+  display: block;
+
+  color: var(--falco-gold-light);
+
+  font-style: normal;
+}
+
+
+.falco-admin-header p {
+  margin: 16px 0 0;
+
+  color: var(--falco-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+.falco-admin-header__actions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.falco-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  border: 1px solid var(--falco-gold);
+  border-radius: 999px;
+
+  background: var(--falco-gold);
+
+  color: #09111c;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.falco-admin-btn:hover {
+  transform: translateY(-1px);
+}
+
+
+.falco-admin-btn--ghost {
+  background: transparent;
+
+  color: var(--falco-gold-light);
+
+  border-color: var(--falco-line-strong);
+}
+
+
+.falco-admin-btn--ghost:hover {
+  border-color: var(--falco-gold);
+}
+
+
+.falco-admin-btn--small {
+  min-height: 34px;
+
+  padding: 0 13px;
+
+  font-size: 11px;
+}
+
+
+.falco-admin-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   KPIS
+========================================================= */
+
+.falco-admin-kpis {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 28px;
+}
+
+
+.falco-admin-kpis article {
+  min-height: 112px;
+
+  padding: 20px 22px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: var(--falco-radius);
+
+  background:
+    linear-gradient(
+      155deg,
+      rgba(16, 31, 51, 0.96),
+      rgba(8, 19, 32, 0.96)
+    );
+
+  box-shadow: var(--falco-shadow);
+}
+
+
+.falco-admin-kpis span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--falco-muted);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+
+.falco-admin-kpis strong {
+  color: var(--falco-gold-light);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 38px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.falco-admin-toolbar {
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 1fr)
+    minmax(190px, 240px)
+    auto;
+
+  align-items: end;
+
+  gap: 16px;
+
+  margin-bottom: 18px;
+
+  padding: 20px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: var(--falco-radius);
+
+  background: rgba(12, 25, 42, 0.88);
+}
+
+
+.falco-admin-toolbar label,
+.falco-admin-modal__gestion label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--falco-muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+
+.falco-admin-toolbar input,
+.falco-admin-toolbar select,
+.falco-admin-modal__gestion input,
+.falco-admin-modal__gestion select,
+.falco-admin-modal__gestion textarea {
+  width: 100%;
+
+  border: 1px solid var(--falco-line);
+  border-radius: 12px;
+
+  outline: none;
+
+  background: #0a1726;
+
+  color: var(--falco-text);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.falco-admin-toolbar input,
+.falco-admin-toolbar select,
+.falco-admin-modal__gestion input,
+.falco-admin-modal__gestion select {
+  min-height: 44px;
+
+  padding: 0 14px;
+}
+
+
+.falco-admin-modal__gestion textarea {
+  min-height: 120px;
+
+  padding: 13px 14px;
+
+  resize: vertical;
+}
+
+
+.falco-admin-toolbar input:focus,
+.falco-admin-toolbar select:focus,
+.falco-admin-modal__gestion input:focus,
+.falco-admin-modal__gestion select:focus,
+.falco-admin-modal__gestion textarea:focus {
+  border-color: var(--falco-gold);
+
+  box-shadow:
+    0 0 0 3px rgba(214, 177, 100, 0.08);
+}
+
+
+/* =========================================================
+   ESTADO CARGA
+========================================================= */
+
+.falco-admin-status {
+  margin: 18px 0;
+
+  padding: 14px 16px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: 12px;
+
+  background: rgba(214, 177, 100, 0.05);
+
+  color: var(--falco-muted);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLA
+========================================================= */
+
+.falco-admin-table-wrap {
+  overflow-x: auto;
+
+  border: 1px solid var(--falco-line);
+  border-radius: var(--falco-radius);
+
+  background: rgba(8, 19, 32, 0.92);
+
+  box-shadow: var(--falco-shadow);
+}
+
+
+.falco-admin-table {
+  width: 100%;
+
+  min-width: 1180px;
+
+  border-collapse: collapse;
+}
+
+
+.falco-admin-table thead {
+  background: rgba(214, 177, 100, 0.055);
+}
+
+
+.falco-admin-table th {
+  padding: 15px 14px;
+
+  border-bottom: 1px solid var(--falco-line);
+
+  color: var(--falco-gold-light);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-align: left;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+
+.falco-admin-table td {
+  padding: 16px 14px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+
+  color: var(--falco-muted);
+
+  font-size: 12px;
+
+  vertical-align: middle;
+}
+
+
+.falco-admin-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+
+.falco-admin-table tbody tr:hover {
+  background: rgba(214, 177, 100, 0.035);
+}
+
+
+.falco-admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+.falco-admin-table td strong {
+  display: block;
+
+  color: var(--falco-text);
+
+  font-weight: 600;
+}
+
+
+.falco-admin-table td small {
+  display: block;
+
+  margin-top: 7px;
+
+  color: var(--falco-muted-2);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.falco-admin-estado {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 28px;
+
+  padding: 0 10px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: var(--falco-muted);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.falco-admin-estado[data-estado="nueva"] {
+  color: var(--falco-gold-light);
+
+  border-color: rgba(214, 177, 100, 0.36);
+}
+
+
+.falco-admin-estado[data-estado="en_revision"] {
+  color: #b9cdec;
+
+  border-color: rgba(185, 205, 236, 0.26);
+}
+
+
+.falco-admin-estado[data-estado="presupuestada"] {
+  color: var(--falco-warning);
+
+  border-color: rgba(226, 189, 115, 0.28);
+}
+
+
+.falco-admin-estado[data-estado="aceptada"] {
+  color: #9fc9e4;
+
+  border-color: rgba(159, 201, 228, 0.28);
+}
+
+
+.falco-admin-estado[data-estado="en_elaboracion"] {
+  color: #c7b5ec;
+
+  border-color: rgba(199, 181, 236, 0.27);
+}
+
+
+.falco-admin-estado[data-estado="finalizada"] {
+  color: var(--falco-success);
+
+  border-color: rgba(128, 201, 165, 0.28);
+}
+
+
+.falco-admin-estado[data-estado="rechazada"] {
+  color: var(--falco-danger);
+
+  border-color: rgba(217, 136, 136, 0.28);
+}
+
+
+/* =========================================================
+   VACÍO
+========================================================= */
+
+.falco-admin-empty {
+  margin-top: 18px;
+
+  padding: 30px;
+
+  border: 1px dashed var(--falco-line);
+  border-radius: var(--falco-radius);
+
+  color: var(--falco-muted);
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.falco-admin-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px;
+}
+
+
+.falco-admin-modal[hidden] {
+  display: none !important;
+}
+
+
+.falco-admin-modal__backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(1, 7, 13, 0.82);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.falco-admin-modal__panel {
+  position: relative;
+  z-index: 1;
+
+  width: min(
+    1050px,
+    100%
+  );
+
+  max-height: calc(100vh - 56px);
+
+  overflow-y: auto;
+
+  border: 1px solid var(--falco-line-strong);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0e1d30,
+      #091624
+    );
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.falco-admin-modal__header {
+  position: sticky;
+  top: 0;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 24px 26px;
+
+  border-bottom: 1px solid var(--falco-line);
+
+  background: rgba(12, 25, 42, 0.96);
+
+  backdrop-filter: blur(10px);
+}
+
+
+.falco-admin-modal__header span {
+  color: var(--falco-gold);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+
+.falco-admin-modal__header h2 {
+  margin: 7px 0 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 28px;
+  font-weight: 500;
+}
+
+
+.falco-admin-modal__close {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--falco-text);
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   FICHA
+========================================================= */
+
+.falco-admin-modal__contenido {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  padding: 26px;
+}
+
+
+.falco-admin-ficha-seccion {
+  padding: 20px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.018);
+}
+
+
+.falco-admin-ficha-seccion h3 {
+  margin: 0 0 18px;
+
+  color: var(--falco-gold-light);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+.falco-admin-ficha-seccion p {
+  margin: 0 0 13px;
+
+  color: var(--falco-muted);
+
+  font-size: 12px;
+  line-height: 1.65;
+
+  white-space: pre-wrap;
+}
+
+
+.falco-admin-ficha-seccion p:last-child {
+  margin-bottom: 0;
+}
+
+
+.falco-admin-ficha-seccion p strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--falco-text);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   DOCUMENTOS
+========================================================= */
+
+.falco-admin-documentos {
+  display: grid;
+
+  gap: 10px;
+}
+
+
+.falco-admin-documentos a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 13px 14px;
+
+  border: 1px solid var(--falco-line);
+  border-radius: 12px;
+
+  background: rgba(214, 177, 100, 0.035);
+
+  color: var(--falco-text);
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.falco-admin-documentos a:hover {
+  transform: translateY(-1px);
+
+  border-color: var(--falco-gold);
+}
+
+
+.falco-admin-documentos strong {
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 12px;
+}
+
+
+.falco-admin-documentos span {
+  flex: 0 0 auto;
+
+  color: var(--falco-gold-light);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   GESTIÓN ADMINISTRATIVA
+========================================================= */
+
+.falco-admin-modal__gestion {
+  padding: 26px;
+
+  border-top: 1px solid var(--falco-line);
+
+  background: rgba(2, 10, 18, 0.28);
+}
+
+
+.falco-admin-modal__gestion h3 {
+  margin: 0 0 22px;
+
+  color: var(--falco-gold-light);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+.falco-admin-modal__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+
+.falco-admin-observaciones {
+  margin-bottom: 20px;
+}
+
+
+.falco-admin-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 18px;
+}
+
+
+.falco-admin-save-status {
+  min-height: 20px;
+
+  margin-top: 12px;
+
+  color: var(--falco-success);
+
+  font-size: 12px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  .falco-admin-kpis {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  .falco-admin-modal__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  .falco-admin-shell {
+    width: min(
+      100% - 28px,
+      1480px
+    );
+
+    padding-top: 28px;
+  }
+
+
+  .falco-admin-header {
+    flex-direction: column;
+  }
+
+
+  .falco-admin-header__actions {
+    width: 100%;
+  }
+
+
+  .falco-admin-header__actions .falco-admin-btn {
+    flex: 1;
+  }
+
+
+  .falco-admin-kpis {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .falco-admin-toolbar {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .falco-admin-toolbar .falco-admin-btn {
+    width: 100%;
+  }
+
+
+  .falco-admin-modal {
+    padding: 12px;
+  }
+
+
+  .falco-admin-modal__panel {
+    max-height: calc(100vh - 24px);
+
+    border-radius: 16px;
+  }
+
+
+  .falco-admin-modal__contenido {
+    grid-template-columns:
+      1fr;
+
+    padding: 18px;
+  }
+
+
+  .falco-admin-modal__gestion {
+    padding: 18px;
+  }
+
+
+  .falco-admin-modal__grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (
+  max-width: 480px
+) {
+
+  .falco-admin-kpis {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  .falco-admin-kpis article {
+    min-height: 96px;
+
+    padding: 16px;
+  }
+
+
+  .falco-admin-kpis strong {
+    font-size: 30px;
+  }
+
+}

@@ -1,0 +1,2487 @@
+/* =========================================================
+   ASISTENCIA PROFESIONAL FALCO®
+========================================================= */
+
+:root {
+  --ap-bg: #07101d;
+  --ap-bg-soft: #0b1626;
+  --ap-panel: rgba(14, 28, 47, .76);
+  --ap-panel-strong: rgba(10, 22, 38, .94);
+
+  --ap-gold: #d6b164;
+  --ap-gold-light: #efd49a;
+
+  --ap-text: #f3f5f8;
+  --ap-muted: #aab5c3;
+  --ap-muted-soft: #7e8a99;
+
+  --ap-line: rgba(214, 177, 100, .22);
+  --ap-line-soft: rgba(255, 255, 255, .075);
+
+  --ap-shadow: 0 26px 70px rgba(0, 0, 0, .26);
+
+  --ap-radius-lg: 28px;
+  --ap-radius-md: 20px;
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.falco-asistencia-page {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 14% 12%,
+      rgba(54, 88, 138, .18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 84% 30%,
+      rgba(214, 177, 100, .07),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #07101d 0%,
+      #091522 46%,
+      #07101d 100%
+    );
+
+  color: var(--ap-text);
+}
+
+.falco-asistencia-page *,
+.falco-asistencia-page *::before,
+.falco-asistencia-page *::after {
+  box-sizing: border-box;
+}
+
+.falco-asistencia-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.falco-asistencia-shell {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.falco-asistencia-hero {
+  position: relative;
+  min-height: 760px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 120px 0 90px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(59, 93, 145, .17),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 86% 34%,
+      rgba(214, 177, 100, .08),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(6, 15, 27, .96),
+      rgba(8, 20, 34, .97)
+    );
+
+  border-bottom: 1px solid var(--ap-line-soft);
+}
+
+.falco-asistencia-hero::after {
+  content: "";
+  position: absolute;
+
+  right: -150px;
+  bottom: -220px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: rgba(214, 177, 100, .055);
+
+  filter: blur(40px);
+
+  pointer-events: none;
+}
+
+
+.falco-asistencia-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--ap-gold);
+
+  font-size: 11px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.falco-asistencia-hero__eyebrow span {
+  width: 36px;
+  height: 1px;
+
+  background: var(--ap-gold);
+}
+
+
+.falco-asistencia-hero__grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(300px, .75fr);
+
+  gap: 70px;
+
+  align-items: end;
+
+  margin-top: 34px;
+}
+
+
+.falco-asistencia-hero__sobrelinea {
+  margin: 0 0 14px;
+
+  color: var(--ap-muted);
+
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-hero h1 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      64px,
+      8vw,
+      112px
+    );
+
+  line-height: .92;
+
+  font-weight: 500;
+
+  letter-spacing: -.04em;
+}
+
+
+.falco-asistencia-hero h1 em {
+  display: block;
+
+  color: var(--ap-gold-light);
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+.falco-asistencia-hero__lead {
+  max-width: 760px;
+
+  margin: 30px 0 0;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 24px;
+
+  line-height: 1.5;
+}
+
+
+.falco-asistencia-hero__descripcion {
+  max-width: 750px;
+
+  margin: 22px 0 0;
+
+  color: var(--ap-muted);
+
+  font-size: 16px;
+
+  line-height: 1.85;
+}
+
+
+/* BOTONES */
+
+.falco-asistencia-hero__acciones {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 32px;
+}
+
+
+.falco-asistencia-btn {
+  min-height: 50px;
+
+  padding: 0 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  letter-spacing: .06em;
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.falco-asistencia-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+.falco-asistencia-btn--principal {
+  color: #10151c;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--ap-gold),
+      var(--ap-gold-light)
+    );
+
+  box-shadow:
+    0 14px 34px rgba(214, 177, 100, .18);
+}
+
+
+.falco-asistencia-btn--secundario {
+  color: var(--ap-text);
+
+  border:
+    1px solid rgba(214, 177, 100, .28);
+
+  background:
+    rgba(255, 255, 255, .018);
+}
+
+
+.falco-asistencia-btn--secundario:hover {
+  border-color:
+    rgba(214, 177, 100, .52);
+
+  background:
+    rgba(214, 177, 100, .045);
+}
+
+
+/* PANEL HERO */
+
+.falco-asistencia-hero__panel {
+  position: relative;
+
+  padding: 32px;
+
+  border:
+    1px solid var(--ap-line);
+
+  border-radius:
+    var(--ap-radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 35, 56, .78),
+      rgba(8, 19, 33, .92)
+    );
+
+  box-shadow:
+    var(--ap-shadow);
+
+  backdrop-filter:
+    blur(16px);
+}
+
+
+.falco-asistencia-hero__panel-label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--ap-gold);
+
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-hero__panel h2 {
+  margin: 0;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 30px;
+
+  line-height: 1.2;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-hero__panel p {
+  margin: 18px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.75;
+}
+
+
+.falco-asistencia-hero__panel-line {
+  height: 1px;
+
+  margin: 24px 0;
+
+  background:
+    var(--ap-line-soft);
+}
+
+
+.falco-asistencia-hero__panel ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.falco-asistencia-hero__panel li {
+  position: relative;
+
+  padding:
+    10px 0 10px 20px;
+
+  color: var(--ap-muted);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, .045);
+}
+
+
+.falco-asistencia-hero__panel li:last-child {
+  border-bottom: 0;
+}
+
+
+.falco-asistencia-hero__panel li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 19px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    var(--ap-gold);
+}
+
+
+/* =========================================================
+   TITULARES DE SECCIÓN
+========================================================= */
+
+.falco-asistencia-heading {
+  max-width: 880px;
+}
+
+
+.falco-asistencia-heading > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--ap-gold);
+
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-heading h2 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      40px,
+      5vw,
+      66px
+    );
+
+  line-height: 1.03;
+
+  font-weight: 500;
+
+  letter-spacing: -.03em;
+}
+
+
+.falco-asistencia-heading h2 em {
+  color: var(--ap-gold-light);
+
+  font-weight: 400;
+}
+
+
+.falco-asistencia-heading > p {
+  max-width: 720px;
+
+  margin: 22px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.falco-asistencia-intro {
+  padding: 110px 0;
+}
+
+
+.falco-asistencia-intro__grid {
+  display: grid;
+
+  grid-template-columns:
+    1.08fr .92fr;
+
+  gap: 70px;
+
+  align-items: start;
+
+  margin-top: 50px;
+}
+
+
+.falco-asistencia-intro__grid p {
+  margin: 0 0 20px;
+
+  color: var(--ap-muted);
+
+  line-height: 1.85;
+}
+
+
+.falco-asistencia-intro__destacado {
+  color:
+    var(--ap-text) !important;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    27px;
+
+  line-height:
+    1.5 !important;
+}
+
+
+/* =========================================================
+   SERVICIOS
+========================================================= */
+
+.falco-asistencia-servicios {
+  padding: 110px 0;
+
+  background:
+    rgba(4, 11, 20, .36);
+
+  border-top:
+    1px solid var(--ap-line-soft);
+
+  border-bottom:
+    1px solid var(--ap-line-soft);
+}
+
+
+.falco-asistencia-servicios__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-top: 54px;
+}
+
+
+.falco-asistencia-servicio {
+  position: relative;
+
+  min-height: 310px;
+
+  padding: 28px;
+
+  border:
+    1px solid var(--ap-line-soft);
+
+  border-radius:
+    var(--ap-radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 30, 49, .72),
+      rgba(8, 18, 31, .78)
+    );
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
+
+
+.falco-asistencia-servicio:hover {
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(214, 177, 100, .29);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 35, 56, .80),
+      rgba(8, 18, 31, .86)
+    );
+}
+
+
+.falco-asistencia-servicio__numero {
+  display: block;
+
+  margin-bottom: 32px;
+
+  color:
+    rgba(214, 177, 100, .22);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 48px;
+}
+
+
+.falco-asistencia-servicio__categoria {
+  display: block;
+
+  color: var(--ap-gold);
+
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-servicio h3 {
+  margin: 12px 0 0;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-servicio p {
+  margin: 15px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.75;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   PROCESO
+========================================================= */
+
+.falco-asistencia-proceso {
+  padding: 110px 0;
+}
+
+
+.falco-asistencia-proceso__lista {
+  margin-top: 54px;
+}
+
+
+.falco-asistencia-proceso__lista article {
+  display: grid;
+
+  grid-template-columns:
+    110px minmax(0, 1fr);
+
+  gap: 30px;
+
+  padding:
+    30px 0;
+
+  border-top:
+    1px solid var(--ap-line-soft);
+}
+
+
+.falco-asistencia-proceso__lista article:last-child {
+  border-bottom:
+    1px solid var(--ap-line-soft);
+}
+
+
+.falco-asistencia-proceso__numero {
+  color:
+    var(--ap-gold-light);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 27px;
+}
+
+
+.falco-asistencia-proceso__lista h3 {
+  margin: 0;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 28px;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-proceso__lista p {
+  max-width: 760px;
+
+  margin: 10px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   ALCANCE
+========================================================= */
+
+.falco-asistencia-alcance {
+  padding: 0 0 110px;
+}
+
+
+.falco-asistencia-alcance__card {
+  display: grid;
+
+  grid-template-columns:
+    .9fr 1.1fr;
+
+  gap: 60px;
+
+  padding: 42px;
+
+  border:
+    1px solid var(--ap-line);
+
+  border-radius:
+    var(--ap-radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 39, 57, .78),
+      rgba(8, 19, 32, .90)
+    );
+
+  box-shadow:
+    var(--ap-shadow);
+}
+
+
+.falco-asistencia-alcance__card > div:first-child > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--ap-gold);
+
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-alcance__card h2 {
+  margin: 0;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      32px,
+      4vw,
+      48px
+    );
+
+  line-height: 1.12;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-alcance__card p {
+  margin: 0 0 20px;
+
+  color: var(--ap-muted);
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.falco-asistencia-form-section {
+  padding: 115px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 11, 20, .46),
+      rgba(8, 20, 34, .46)
+    );
+
+  border-top:
+    1px solid var(--ap-line-soft);
+
+  border-bottom:
+    1px solid var(--ap-line-soft);
+
+  scroll-margin-top: 160px;
+}
+
+
+.falco-asistencia-form-header {
+  max-width: 860px;
+}
+
+
+.falco-asistencia-form-header > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--ap-gold);
+
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-form-header h2 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      40px,
+      5vw,
+      66px
+    );
+
+  line-height: 1.04;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-form-header h2 em {
+  color: var(--ap-gold-light);
+
+  font-weight: 400;
+}
+
+
+.falco-asistencia-form-header p {
+  max-width: 700px;
+
+  margin: 22px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.8;
+}
+
+
+/* FORM */
+
+.falco-asistencia-form {
+  margin-top: 48px;
+}
+
+
+.falco-asistencia-form__bloque {
+  margin: 0 0 20px;
+  padding: 32px;
+
+  border:
+    1px solid var(--ap-line-soft);
+
+  border-radius:
+    22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 29, 48, .72),
+      rgba(8, 18, 31, .82)
+    );
+}
+
+
+.falco-asistencia-form__bloque[hidden] {
+  display: none;
+}
+
+
+.falco-asistencia-form__bloque legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 0 12px;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 23px;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-form__bloque legend span {
+  color: var(--ap-gold);
+
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+
+.falco-asistencia-form__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* CAMPOS */
+
+.falco-asistencia-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.falco-asistencia-field--full {
+  grid-column: 1 / -1;
+
+  margin-top: 20px;
+}
+
+
+.falco-asistencia-field label {
+  color: #dfe4ea;
+
+  font-size: 12px;
+
+  letter-spacing: .025em;
+}
+
+
+.falco-asistencia-field input,
+.falco-asistencia-field select,
+.falco-asistencia-field textarea {
+  width: 100%;
+
+  border:
+    1px solid rgba(255, 255, 255, .10);
+
+  border-radius:
+    12px;
+
+  outline: none;
+
+  background:
+    rgba(3, 10, 18, .48);
+
+  color:
+    var(--ap-text);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.falco-asistencia-field input,
+.falco-asistencia-field select {
+  min-height: 48px;
+
+  padding: 0 14px;
+}
+
+
+.falco-asistencia-field textarea {
+  min-height: 130px;
+
+  padding: 14px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+
+.falco-asistencia-field input:focus,
+.falco-asistencia-field select:focus,
+.falco-asistencia-field textarea:focus {
+  border-color:
+    rgba(214, 177, 100, .48);
+
+  background:
+    rgba(7, 17, 29, .66);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(214, 177, 100, .055);
+}
+
+
+.falco-asistencia-field input::placeholder,
+.falco-asistencia-field textarea::placeholder {
+  color:
+    rgba(170, 181, 195, .48);
+}
+
+
+.falco-asistencia-field select option {
+  background:
+    #0b1626;
+
+  color:
+    #f3f5f8;
+}
+
+
+.falco-asistencia-field small {
+  color:
+    var(--ap-muted-soft);
+
+  font-size: 10px;
+}
+
+
+/* INPUT FILE */
+
+.falco-asistencia-field input[type="file"] {
+  min-height: auto;
+
+  padding: 14px;
+}
+
+
+.falco-asistencia-field input[type="file"]::file-selector-button {
+  margin-right: 14px;
+
+  padding: 9px 14px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  color: #10151c;
+
+  background:
+    var(--ap-gold-light);
+
+  cursor: pointer;
+}
+
+
+/* INTRO DENTRO DEL FORM */
+
+.falco-asistencia-form__intro {
+  margin: 0 0 20px;
+
+  color: var(--ap-muted);
+
+  line-height: 1.75;
+}
+
+
+/* INFORMACIÓN DE UPLOAD */
+
+.falco-asistencia-upload-info {
+  margin-bottom: 22px;
+
+  padding: 20px;
+
+  border:
+    1px solid rgba(214, 177, 100, .16);
+
+  border-radius: 14px;
+
+  background:
+    rgba(214, 177, 100, .025);
+}
+
+
+.falco-asistencia-upload-info strong {
+  display: block;
+
+  color: var(--ap-text);
+}
+
+
+.falco-asistencia-upload-info p {
+  margin: 8px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.7;
+}
+
+
+/* RADIO ENTREGA */
+
+.falco-asistencia-entrega {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+.falco-asistencia-radio {
+  min-height: 110px;
+
+  padding: 20px;
+
+  display: flex;
+
+  gap: 14px;
+
+  align-items: flex-start;
+
+  border:
+    1px solid var(--ap-line-soft);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, .018);
+
+  cursor: pointer;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease;
+}
+
+
+.falco-asistencia-radio:hover {
+  border-color:
+    rgba(214, 177, 100, .28);
+
+  background:
+    rgba(214, 177, 100, .03);
+}
+
+
+.falco-asistencia-radio input {
+  margin-top: 4px;
+
+  accent-color:
+    var(--ap-gold);
+}
+
+
+.falco-asistencia-radio span {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.falco-asistencia-radio strong {
+  color: var(--ap-text);
+
+  font-size: 14px;
+}
+
+
+.falco-asistencia-radio small {
+  color: var(--ap-muted);
+
+  line-height: 1.5;
+}
+
+
+/* CHECKS */
+
+.falco-asistencia-check {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 15px 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.65;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, .045);
+}
+
+
+.falco-asistencia-check:last-child {
+  border-bottom: 0;
+}
+
+
+.falco-asistencia-check input {
+  flex: 0 0 auto;
+
+  margin-top: 5px;
+
+  accent-color:
+    var(--ap-gold);
+}
+
+
+/* SUBMIT */
+
+.falco-asistencia-form__submit {
+  display: grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap: 40px;
+
+  align-items: center;
+
+  margin-top: 26px;
+
+  padding: 28px 32px;
+
+  border:
+    1px solid var(--ap-line);
+
+  border-radius:
+    20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 39, 58, .82),
+      rgba(8, 19, 32, .92)
+    );
+}
+
+
+.falco-asistencia-form__submit > div > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--ap-gold);
+
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-form__submit p {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.65;
+
+  font-size: 12px;
+}
+
+
+.falco-asistencia-submit {
+  min-height: 52px;
+
+  padding: 0 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  color: #10151c;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--ap-gold),
+      var(--ap-gold-light)
+    );
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  letter-spacing: .055em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 13px 32px rgba(214, 177, 100, .16);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.falco-asistencia-submit:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 17px 40px rgba(214, 177, 100, .21);
+}
+
+
+.falco-asistencia-submit:disabled {
+  opacity: .55;
+
+  cursor: wait;
+
+  transform: none;
+}
+
+
+/* RESULTADO */
+
+.falco-asistencia-resultado {
+  margin-top: 20px;
+}
+
+
+.falco-asistencia-resultado:not(:empty) {
+  padding: 22px;
+
+  border:
+    1px solid var(--ap-line);
+
+  border-radius: 16px;
+
+  background:
+    rgba(214, 177, 100, .035);
+
+  color:
+    var(--ap-text);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BIBLIOTECA
+========================================================= */
+
+.falco-asistencia-biblioteca {
+  padding: 110px 0;
+}
+
+
+.falco-asistencia-biblioteca__card {
+  display: grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap: 50px;
+
+  align-items: center;
+
+  padding: 42px;
+
+  border:
+    1px solid var(--ap-line);
+
+  border-radius:
+    var(--ap-radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 36, 56, .78),
+      rgba(8, 19, 32, .88)
+    );
+}
+
+
+.falco-asistencia-biblioteca__card > div > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--ap-gold);
+
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-biblioteca__card h2 {
+  margin: 0;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      32px,
+      4vw,
+      48px
+    );
+
+  line-height: 1.12;
+
+  font-weight: 500;
+}
+
+
+.falco-asistencia-biblioteca__card p {
+  max-width: 690px;
+
+  margin: 16px 0 0;
+
+  color: var(--ap-muted);
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.falco-asistencia-cierre {
+  padding: 110px 0;
+
+  text-align: center;
+
+  background:
+    rgba(4, 10, 18, .32);
+
+  border-top:
+    1px solid var(--ap-line-soft);
+}
+
+
+.falco-asistencia-cierre span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: var(--ap-gold);
+
+  font-size: 10px;
+
+  letter-spacing: .15em;
+
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-cierre blockquote {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  color: var(--ap-text);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      30px,
+      4vw,
+      50px
+    );
+
+  line-height: 1.32;
+}
+
+
+/* =========================================================
+   SCROLL TARGETS
+========================================================= */
+
+#servicios,
+#como-funciona,
+#solicitud {
+  scroll-margin-top: 150px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1080px) {
+
+  .falco-asistencia-hero__grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 42px;
+  }
+
+
+  .falco-asistencia-hero__panel {
+    max-width: 720px;
+  }
+
+
+  .falco-asistencia-servicios__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .falco-asistencia-alcance__card {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+
+@media (max-width: 800px) {
+
+  .falco-asistencia-shell {
+    width:
+      min(
+        100% - 34px,
+        1180px
+      );
+  }
+
+
+  .falco-asistencia-hero {
+    min-height: auto;
+
+    padding:
+      90px 0 70px;
+  }
+
+
+  .falco-asistencia-hero h1 {
+    font-size:
+      clamp(
+        54px,
+        17vw,
+        82px
+      );
+  }
+
+
+  .falco-asistencia-hero__lead {
+    font-size: 20px;
+  }
+
+
+  .falco-asistencia-intro,
+  .falco-asistencia-servicios,
+  .falco-asistencia-proceso,
+  .falco-asistencia-form-section,
+  .falco-asistencia-biblioteca,
+  .falco-asistencia-cierre {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+
+  .falco-asistencia-intro__grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 28px;
+  }
+
+
+  .falco-asistencia-intro__destacado {
+    font-size: 23px;
+  }
+
+
+  .falco-asistencia-servicios__grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .falco-asistencia-proceso__lista article {
+    grid-template-columns:
+      65px minmax(0, 1fr);
+
+    gap: 18px;
+  }
+
+
+  .falco-asistencia-alcance__card,
+  .falco-asistencia-biblioteca__card {
+    padding: 28px;
+  }
+
+
+  .falco-asistencia-form__bloque {
+    padding: 24px 20px;
+  }
+
+
+  .falco-asistencia-form__grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .falco-asistencia-field--full {
+    grid-column: auto;
+  }
+
+
+  .falco-asistencia-entrega {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .falco-asistencia-form__submit {
+    grid-template-columns:
+      1fr;
+
+    gap: 22px;
+  }
+
+
+  .falco-asistencia-submit {
+    width: 100%;
+  }
+
+
+  .falco-asistencia-biblioteca__card {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+
+@media (max-width: 520px) {
+
+  .falco-asistencia-hero__acciones {
+    flex-direction: column;
+  }
+
+
+  .falco-asistencia-btn {
+    width: 100%;
+  }
+
+
+  .falco-asistencia-hero__panel {
+    padding: 24px;
+  }
+
+
+  .falco-asistencia-servicio {
+    min-height: auto;
+  }
+
+
+  .falco-asistencia-proceso__lista article {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .falco-asistencia-form__bloque legend {
+    font-size: 20px;
+  }
+
+}
+
+
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .falco-asistencia-page *,
+  .falco-asistencia-page *::before,
+  .falco-asistencia-page *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+}
+
+
+/* =========================================================
+   FORMULARIO · ESTADOS
+========================================================= */
+
+.falco-asistencia-field--invalid input,
+.falco-asistencia-field--invalid select,
+.falco-asistencia-field--invalid textarea {
+  border-color: rgba(220, 95, 95, .78);
+  box-shadow: 0 0 0 3px rgba(220, 95, 95, .07);
+}
+
+.falco-asistencia-check.falco-asistencia-field--invalid,
+.falco-asistencia-radio.falco-asistencia-field--invalid {
+  color: #efb5b5;
+}
+
+.falco-asistencia-resultado--error {
+  border-color: rgba(220, 95, 95, .28) !important;
+  background: rgba(220, 95, 95, .05) !important;
+}
+
+.falco-asistencia-resultado--error p {
+  margin: 0;
+  color: #efb5b5;
+}
+
+.falco-asistencia-resultado--ok {
+  border-color: rgba(214, 177, 100, .30) !important;
+}
+
+.falco-asistencia-confirmacion > span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ap-gold);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.falco-asistencia-confirmacion h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.falco-asistencia-confirmacion > p {
+  margin: 10px 0 0;
+  color: var(--ap-muted);
+}
+
+.falco-asistencia-confirmacion__datos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.falco-asistencia-confirmacion__datos p {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--ap-line-soft);
+  border-radius: 12px;
+  background: rgba(255,255,255,.018);
+  color: var(--ap-muted);
+}
+
+.falco-asistencia-confirmacion__datos strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ap-text);
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .falco-asistencia-confirmacion__datos {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   CONFIRMACIÓN · AJUSTE VISUAL
+========================================================= */
+
+/* Más aire en el bloque 08 */
+
+.falco-asistencia-form__bloque legend {
+  gap: 18px;
+}
+
+.falco-asistencia-form__bloque legend span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 32px;
+  height: 32px;
+
+  border: 1px solid rgba(214, 177, 100, .26);
+  border-radius: 50%;
+
+  color: var(--ap-gold);
+  font-family: inherit;
+  font-size: 10px;
+}
+
+
+/* CADA DECLARACIÓN */
+
+.falco-asistencia-check {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 16px;
+
+  align-items: start;
+
+  margin: 0 0 12px;
+  padding: 20px 22px;
+
+  border: 1px solid rgba(255, 255, 255, .075);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, .018);
+
+  color: var(--ap-muted);
+
+  line-height: 1.7;
+
+  cursor: pointer;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    transform .2s ease;
+}
+
+
+.falco-asistencia-check:last-child {
+  margin-bottom: 0;
+  border-bottom:
+    1px solid rgba(255, 255, 255, .075);
+}
+
+
+.falco-asistencia-check:hover {
+  border-color:
+    rgba(214, 177, 100, .28);
+
+  background:
+    rgba(214, 177, 100, .025);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* CHECKBOX */
+
+.falco-asistencia-check input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  margin: 2px 0 0;
+
+  border:
+    1px solid rgba(214, 177, 100, .42);
+
+  border-radius: 5px;
+
+  background:
+    rgba(3, 10, 18, .55);
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+
+.falco-asistencia-check input[type="checkbox"]:checked {
+  border-color:
+    var(--ap-gold);
+
+  background:
+    var(--ap-gold);
+}
+
+
+.falco-asistencia-check input[type="checkbox"]:checked::after {
+  content: "✓";
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #10151c;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.falco-asistencia-check > span {
+  display: block;
+
+  color: var(--ap-muted);
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+/* CUANDO ESTÁ MARCADO */
+
+.falco-asistencia-check:has(
+  input[type="checkbox"]:checked
+) {
+  border-color:
+    rgba(214, 177, 100, .30);
+
+  background:
+    rgba(214, 177, 100, .035);
+}
+
+
+/* ERROR */
+
+.falco-asistencia-check.falco-asistencia-field--invalid {
+  border-color:
+    rgba(220, 95, 95, .50);
+
+  background:
+    rgba(220, 95, 95, .035);
+}
+
+
+/* =========================================================
+   ANTES DE ENVIAR
+========================================================= */
+
+.falco-asistencia-form__submit {
+  margin-top: 34px;
+
+  padding: 30px 34px;
+
+  border:
+    1px solid rgba(214, 177, 100, .24);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 39, 58, .86),
+      rgba(8, 19, 32, .94)
+    );
+}
+
+
+.falco-asistencia-form__submit > div > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--ap-gold);
+
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+
+.falco-asistencia-form__submit p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--ap-muted);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+.falco-asistencia-submit {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SEPARACIÓN DESPUÉS DEL FORMULARIO
+========================================================= */
+
+.falco-asistencia-form {
+  padding-bottom: 20px;
+}
+
+
+.falco-asistencia-biblioteca {
+  position: relative;
+
+  padding-top: 120px;
+}
+
+
+.falco-asistencia-biblioteca::before {
+  content: "";
+
+  position: absolute;
+
+  top: 55px;
+  left: 50%;
+
+  width:
+    min(
+      1180px,
+      calc(100% - 80px)
+    );
+
+  height: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(214, 177, 100, .16),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .falco-asistencia-check {
+    grid-template-columns:
+      22px minmax(0, 1fr);
+
+    gap: 13px;
+
+    padding: 18px;
+  }
+
+
+  .falco-asistencia-form__submit {
+    padding: 24px 20px;
+  }
+
+
+  .falco-asistencia-submit {
+    white-space: normal;
+  }
+
+
+  .falco-asistencia-biblioteca::before {
+    width:
+      calc(100% - 34px);
+  }
+
+}
+
+
+/* =========================================================
+   HEADER · ASISTENCIA PROFESIONAL FALCO®
+   CORRECCIÓN DE DISTRIBUCIÓN
+========================================================= */
+
+.falco-asistencia-page header {
+  position: relative;
+  z-index: 1000;
+}
+
+.falco-asistencia-page .nav-container {
+  width: min(1380px, calc(100% - 60px));
+  min-height: 92px;
+
+  margin: 0 auto;
+  padding: 14px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 35px;
+}
+
+
+/* =========================================================
+   IZQUIERDA · LOGO
+========================================================= */
+
+.falco-asistencia-page .header-izquierda {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.falco-asistencia-page .logo {
+  display: flex;
+  align-items: center;
+}
+
+.falco-asistencia-page .logo a {
+  display: flex;
+  align-items: center;
+}
+
+.falco-asistencia-page .logo img {
+  display: block;
+
+  width: auto;
+  height: 58px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   DERECHA
+========================================================= */
+
+.falco-asistencia-page .header-derecha {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 24px;
+}
+
+
+/* IDENTIDAD */
+
+.falco-asistencia-page .header-texto {
+  flex: 0 1 auto;
+
+  margin-right: auto;
+
+  color: rgba(255, 255, 255, .72);
+
+  font-size: 10px;
+  line-height: 1.45;
+
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+.falco-asistencia-page .header-texto span {
+  color: var(--ap-gold);
+
+  font-size: 9px;
+  letter-spacing: .09em;
+}
+
+
+
+
+/* =========================================================
+   MENÚ
+========================================================= */
+
+.falco-asistencia-page #menu {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.falco-asistencia-page #menu a {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 38px;
+
+  padding: 0 10px;
+
+  color: rgba(255, 255, 255, .72);
+
+  font-size: 10px;
+  letter-spacing: .035em;
+
+  white-space: nowrap;
+
+  transition:
+    color .2s ease,
+    background .2s ease;
+}
+
+.falco-asistencia-page #menu a:hover {
+  color: var(--ap-gold-light);
+
+  background: rgba(214, 177, 100, .035);
+}
+
+
+/* =========================================================
+   INGRESAR AL SISTEMA
+========================================================= */
+
+.falco-asistencia-page .header-botones {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.falco-asistencia-page .btn-header-sistema {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 17px;
+
+  border: 1px solid rgba(214, 177, 100, .30);
+  border-radius: 999px;
+
+  color: var(--ap-gold-light);
+
+  font-size: 10px;
+  letter-spacing: .035em;
+
+  white-space: nowrap;
+
+  background: rgba(214, 177, 100, .025);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .falco-asistencia-page .header-texto {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 980px) {
+
+  .falco-asistencia-page #menu {
+    display: flex !important;
+  }
+
+  .falco-asistencia-page .header-derecha {
+    gap: 12px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .falco-asistencia-page .nav-container {
+    width: calc(100% - 30px);
+
+    min-height: 76px;
+
+    gap: 12px;
+  }
+
+  .falco-asistencia-page .logo img {
+    height: 45px;
+  }
+
+  .falco-asistencia-page .falco-drawer-toggle em {
+    display: none;
+  }
+
+  .falco-asistencia-page .btn-header-sistema {
+    font-size: 0;
+
+    width: 42px;
+    padding: 0;
+  }
+
+  .falco-asistencia-page .btn-header-sistema::after {
+    content: "🔐";
+
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   HEADER · MENÚ · ESTADOS
+========================================================= */
+
+body.falco-asistencia-page #menu > a,
+body.falco-asistencia-page #menu > a:link,
+body.falco-asistencia-page #menu > a:visited {
+  color: #e9edf2 !important;
+  -webkit-text-fill-color: #e9edf2 !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+
+  background: transparent !important;
+
+  transition:
+    color .2s ease,
+    background .2s ease;
+}
+
+
+body.falco-asistencia-page #menu > a:hover,
+body.falco-asistencia-page #menu > a:focus,
+body.falco-asistencia-page #menu > a:focus-visible,
+body.falco-asistencia-page #menu > a:active {
+  color: #efd49a !important;
+  -webkit-text-fill-color: #efd49a !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+
+  background:
+    rgba(214, 177, 100, .08) !important;
+
+  border-radius: 8px;
+
+  text-shadow:
+    0 0 14px rgba(214, 177, 100, .15);
+}
+
+
+/* =========================================================
+   HEADER · MENÚ FIJO EN ASISTENCIA PROFESIONAL
+========================================================= */
+
+body.falco-asistencia-page #menu {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  position: static !important;
+
+  transform: none !important;
+
+  pointer-events: auto !important;
+}
+
+
+/* =========================================================
+   HEADER · NO ACOMPAÑAR EL SCROLL
+========================================================= */
+
+body.falco-asistencia-page header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+
+  width: 100%;
+
+  transform: none !important;
+}
+
+body.falco-asistencia-page .nav-container {
+  position: relative !important;
+  top: auto !important;
+
+  transform: none !important;
+}
