@@ -846,9 +846,9 @@ function obtenerSolicitudesFiltradas() {
 
 
       const coincideEstado =
-        !estado ||
-        estadoActual ===
-        estado;
+  estado
+    ? estadoActual === estado
+    : estadoActual !== "archivada";
 
 
       return (
@@ -1073,6 +1073,194 @@ function crearDocumentosHTML(
 }
 
 
+function crearInformacionTecnicaHTML(
+  item
+) {
+
+  const tipo =
+    item.tipoAsistencia ||
+    "";
+
+  if (
+    tipo === "impugnacion" ||
+    tipo === "explicaciones" ||
+    tipo === "ampliacion" ||
+    tipo === "observaciones"
+  ) {
+
+    return `
+
+
+
+
+
+
+
+
+      <section class="falco-admin-ficha-seccion">
+
+        <h3>
+          Información técnica
+        </h3>
+
+        <p>
+          <strong>Cuestionamientos</strong>
+          ${escaparHTML(
+            item.judicial?.cuestionamientos ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Respuesta previa / observaciones</strong>
+          ${escaparHTML(
+            item.judicial?.respuestaPrevia ||
+            "—"
+          )}
+        </p>
+
+      </section>
+    `;
+
+  }
+
+
+  if (
+    tipo === "dictamen" ||
+    tipo === "revision"
+  ) {
+
+    return `
+      <section class="falco-admin-ficha-seccion">
+
+        <h3>
+          Información técnica
+        </h3>
+
+        <p>
+          <strong>Puntos de pericia</strong>
+          ${escaparHTML(
+            item.dictamen?.puntosPericia ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Entrevistas realizadas</strong>
+          ${escaparHTML(
+            item.dictamen?.entrevistasRealizadas ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Técnicas administradas</strong>
+          ${escaparHTML(
+            item.dictamen?.tecnicasAdministradas ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Conclusiones profesionales</strong>
+          ${escaparHTML(
+            item.dictamen?.conclusionesProfesional ||
+            "—"
+          )}
+        </p>
+
+      </section>
+    `;
+
+  }
+
+
+  if (
+    tipo === "tests"
+  ) {
+
+    return `
+      <section class="falco-admin-ficha-seccion">
+
+        <h3>
+          Información técnica
+        </h3>
+
+        <p>
+          <strong>Edad de la persona evaluada</strong>
+          ${escaparHTML(
+            item.tests?.edadEvaluado ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Contexto de evaluación</strong>
+          ${escaparHTML(
+            item.tests?.contextoEvaluacion ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Tests administrados</strong>
+          ${escaparHTML(
+            item.tests?.testsAplicados ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Objetivo de evaluación</strong>
+          ${escaparHTML(
+            item.tests?.objetivoEvaluacion ||
+            "—"
+          )}
+        </p>
+
+        <p>
+          <strong>Antecedentes</strong>
+          ${escaparHTML(
+            item.tests?.antecedentesEvaluacion ||
+            "—"
+          )}
+        </p>
+
+      </section>
+    `;
+
+  }
+
+
+  if (
+    tipo === "otro"
+  ) {
+
+    return `
+      <section class="falco-admin-ficha-seccion">
+
+        <h3>
+          Requerimiento
+        </h3>
+
+        <p>
+          ${escaparHTML(
+            item.otro?.requerimiento ||
+            "—"
+          )}
+        </p>
+
+      </section>
+    `;
+
+  }
+
+
+  return "";
+
+}
+
+
 function abrirFicha(
   id
 ) {
@@ -1253,93 +1441,9 @@ function abrirFicha(
         </section>
 
 
-        <section class="falco-admin-ficha-seccion">
-
-          <h3>
-            Información técnica
-          </h3>
-
-          <p>
-            <strong>Cuestionamientos</strong>
-            ${escaparHTML(
-              item.judicial?.cuestionamientos ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Observaciones del profesional</strong>
-            ${escaparHTML(
-              item.judicial?.respuestaPrevia ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Puntos de pericia</strong>
-            ${escaparHTML(
-              item.dictamen?.puntosPericia ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Entrevistas realizadas</strong>
-            ${escaparHTML(
-              item.dictamen?.entrevistasRealizadas ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Técnicas administradas</strong>
-            ${escaparHTML(
-              item.dictamen?.tecnicasAdministradas ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Conclusiones profesionales</strong>
-            ${escaparHTML(
-              item.dictamen?.conclusionesProfesional ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Tests administrados</strong>
-            ${escaparHTML(
-              item.tests?.testsAplicados ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Objetivo de evaluación</strong>
-            ${escaparHTML(
-              item.tests?.objetivoEvaluacion ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Antecedentes</strong>
-            ${escaparHTML(
-              item.tests?.antecedentesEvaluacion ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <strong>Otro requerimiento</strong>
-            ${escaparHTML(
-              item.otro?.requerimiento ||
-              "—"
-            )}
-          </p>
-
-        </section>
+        ${crearInformacionTecnicaHTML(
+          item
+        )}
 
 
         <section class="falco-admin-ficha-seccion">

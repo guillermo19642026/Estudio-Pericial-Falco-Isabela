@@ -95,13 +95,13 @@ export const MODULOS = {
           url: "../../dashboard.html",
           estado: "disponible"
         },
-        {
-          titulo: "Plataforma de Periciados",
-          descripcion:
-            "Acceder a la plataforma de fichas, tests, consentimientos y documentación.",
-          url: "../../login.html",
-          estado: "disponible"
-        },
+       {
+  titulo: "Plataforma de Periciados",
+  descripcion:
+    "Acceder a la plataforma de fichas, tests, consentimientos y documentación.",
+  url: "../../dashboard-periciado.html",
+  estado: "disponible"
+},
         {
           titulo: "Resultados de Evaluaciones",
           descripcion:
