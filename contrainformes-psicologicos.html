@@ -29,48 +29,128 @@
 
   <div class="nav-container">
 
-    <!-- IZQUIERDA -->
+    <!-- LOGO -->
+
     <div class="header-izquierda">
+
       <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="Estudio Pericial Psicológico">
+
+        <a
+          href="index.html"
+          aria-label="Ir a la página principal"
+        >
+
+          <img
+            src="img/logo.png"
+            alt="Estudio Pericial Psicológico"
+          >
+
         </a>
+
       </div>
+
     </div>
 
-    <!-- DERECHA -->
+
+    <!-- IDENTIDAD Y NAVEGACIÓN -->
+
     <div class="header-derecha">
 
-      <!-- TEXTO -->
       <div class="header-texto">
         ESTUDIO PERICIAL PSICOLÓGICO<br>
-        <span>Lic. en Psicología ISABELA FALCO</span>
+
+        <span>
+          Lic. en Psicología ISABELA FALCO
+        </span>
       </div>
 
+
       <!-- BOTÓN MOBILE -->
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+
+      <button
+        class="menu-toggle"
+        type="button"
+        onclick="toggleMenu()"
+        aria-label="Abrir o cerrar menú"
+      >
+
         <b class="menu-icon">
           <span></span>
           <span></span>
           <span></span>
         </b>
+
         <em>Navegación</em>
+
       </button>
 
-      <!-- MENÚ -->
-      <nav id="menu">
 
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#areas">Áreas</a>
-        <a href="index.html#danio-psiquico">Daño Psíquico</a>
-        <a href="index.html#tecnicas">Recursos</a>
-        <a href="index.html#formacion">Formación</a>
-        <a href="index.html#perito">Sobre la Perito</a>
-        <a href="index.html#consultas">Consultas</a>
-        <a href="index.html#faq">FAQ</a>
+      <!-- MENÚ PRINCIPAL -->
+
+      <nav
+        id="menu"
+        aria-label="Navegación principal"
+      >
+
+        <a href="index.html#inicio">
+          Inicio
+        </a>
+
+        <a href="index.html#danio-psiquico">
+          Daño Psíquico
+        </a>
+
+        <a href="index.html#servicios">
+          Servicios
+        </a>
+
+        <a href="index.html#areas">
+          Áreas
+        </a>
+
+        <a href="index.html#tecnicas">
+          Recursos
+        </a>
+
+        <a href="index.html#formacion">
+          Formación
+        </a>
+
+        <a href="index.html#perito">
+          Sobre la Perito
+        </a>
+
+        <a href="FALCO-ADMISION/index.html">
+          Consultas
+        </a>
+
+        <a href="index.html#faq">
+          FAQ
+        </a>
 
       </nav>
+
+
+      <!-- ACCESO CENTRALIZADO AL SISTEMA FALCO® -->
+
+      <div class="header-botones">
+
+        <div class="btn-wrapper tooltip-container">
+
+          <a
+            href="FALCO-CMS-V2/ecosistema-falco.html#acceso"
+            class="btn-header-inline"
+          >
+            🔒 Ingresar al Sistema FALCO®
+          </a>
+
+          <span class="tooltip-text">
+            Acceso institucional a las áreas y módulos habilitados
+          </span>
+
+        </div>
+
+      </div>
 
     </div>
 
@@ -295,110 +375,272 @@ Un análisis especializado puede aportar elementos objetivos para la preparació
 
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER INSTITUCIONAL · SISTEMA FALCO®
+====================================================== -->
+
 <footer class="footer">
 
   <div class="footer-contenido">
 
+
     <!-- IDENTIDAD -->
-    <div class="footer-col">
+
+    <div class="footer-col footer-identidad">
+
+      <span class="footer-etiqueta">
+        Estudio profesional
+      </span>
+
       <p class="footer-titulo">
-        Lic. Isabela Falco
+        Estudio Pericial Psicológico
       </p>
+
       <p class="footer-texto">
-        Pericias Psicológicas Forenses
+        Lic. en Psicología Isabela Falco
       </p>
+
+      <p class="footer-descripcion">
+        Pericias psicológicas, evaluación de daño psíquico,
+        informes técnicos y asesoramiento especializado
+        para procesos judiciales.
+      </p>
+
+      <div class="footer-especialidades">
+
+        <span>Civil</span>
+        <span>Laboral</span>
+        <span>Penal</span>
+        <span>Familia</span>
+
+      </div>
+
     </div>
 
-    <!-- CONTACTO -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Contacto</p>
 
-      <p class="footer-item">
-        WhatsApp<br>
-        <a href="https://wa.me/5491132049521" target="_blank" rel="noopener noreferrer">
-          11 3204 9521
-        </a>
+    <!-- CONTACTO -->
+
+    <div class="footer-col">
+
+      <p class="footer-subtitulo">
+        Contacto
       </p>
 
       <p class="footer-item">
-        Email<br>
+
+        <span class="footer-item-titulo">
+          WhatsApp
+        </span>
+
+        <a
+          href="https://wa.me/5491132049521"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          11 3204 9521
+        </a>
+
+      </p>
+
+      <p class="footer-item">
+
+        <span class="footer-item-titulo">
+          Correo electrónico
+        </span>
+
         <a href="mailto:estudiopericialpsicologico@gmail.com">
           estudiopericialpsicologico@gmail.com
         </a>
+
       </p>
+
+      <a
+        href="FALCO-ADMISION/index.html"
+        class="footer-consulta"
+      >
+        Iniciar una consulta
+
+        <span aria-hidden="true">
+          →
+        </span>
+      </a>
+
     </div>
 
-    <!-- REDES -->
+
+    <!-- SISTEMA FALCO® -->
+
     <div class="footer-col">
-      <p class="footer-subtitulo">Redes</p>
 
-      <p class="footer-item">
-        <a href="https://www.instagram.com/estudiopericialpsicologico/" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a><br>
-
-        <a href="https://www.facebook.com/licisabelafalco" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a><br>
-
-        <a href="https://www.linkedin.com/in/isabela-falco-1225b127a" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
+      <p class="footer-subtitulo">
+        Sistema FALCO®
       </p>
+
+      <nav
+        class="footer-navegacion"
+        aria-label="Acceso al Sistema FALCO"
+      >
+
+        <a href="FALCO-CMS-V2/ecosistema-falco.html#acceso">
+          Ingresar al Sistema FALCO®
+        </a>
+
+      </nav>
+
+      <p class="footer-nota">
+        Acceso institucional a las áreas,
+        herramientas y módulos habilitados.
+      </p>
+
     </div>
+
 
     <!-- ÁMBITO DE ATENCIÓN -->
-    <div class="footer-col">
-      <p class="footer-subtitulo">Ámbito de atención</p>
 
-      <p class="footer-item">
-        Zona Norte (Escobar · Pilar)<br>
-        Zona Oeste (Ramos Mejía)
+    <div class="footer-col">
+
+      <p class="footer-subtitulo">
+        Ámbito de atención
       </p>
 
       <p class="footer-item">
+
+        <span class="footer-item-titulo">
+          Buenos Aires
+        </span>
+
+        Zona Norte<br>
+        Escobar · Pilar
+
+      </p>
+
+      <p class="footer-item">
+        Zona Oeste<br>
+        Ramos Mejía
+      </p>
+
+      <p class="footer-item">
+
+        <span class="footer-item-titulo">
+          Modalidades
+        </span>
+
         Atención en estudio profesional<br>
-        Modalidad presencial y virtual
+        Entrevistas presenciales y virtuales
+
       </p>
 
       <p class="footer-nota">
-        Coordinación previa de turnos
+        Atención con coordinación previa
       </p>
+
     </div>
 
   </div>
 
+
   <!-- SEPARADOR -->
+
   <div class="footer-separador"></div>
 
-  <!-- COPYRIGHT -->
-  <div class="footer-bottom">
-    © 2026 Lic. Isabela Falco — Pericias Psicológicas Forenses
+
+  <!-- ECOSISTEMA -->
+
+  <div class="footer-ecosistema">
+
+    <a
+      href="https://estudiopericialpsicologico.com.ar/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Estudio Pericial Psicológico FALCO®
+    </a>
+
+    <a href="trayectoria-direccion.html">
+      Trayectoria profesional
+    </a>
+
+    <a href="metodo-falco.html">
+      Método FALCO®
+    </a>
+
+    <a href="programa-premium.html">
+      Programa Premium
+    </a>
+
+    <a href="biblioteca-falco.html">
+      Biblioteca FALCO®
+    </a>
+
+    <a href="FALCO-CMS-V2/ecosistema-falco.html#acceso">
+      Escuela para Padres
+    </a>
+
+    <a href="supervision-peritos-psicologos.html">
+      Supervisión profesional
+    </a>
+
   </div>
 
-  <!-- CRÉDITO -->
-  <div class="credito-card">
 
-  <p class="credito-titulo">
-    Diseño y desarrollo web
-  </p>
+  <!-- REDES -->
 
-  <a 
-    href="https://wa.me/5491141670049?text=Hola%20Guillermo,%20quisiera%20información%20sobre%20diseño%20de%20páginas%20web."
-    target="_blank"
-    rel="noopener noreferrer"
-    class="credito-nombre"
-  >
-    <span class="icono-whatsapp">🟢</span>
-    Guillermo Hechem
-  </a>
+  <div class="footer-redes">
 
-  <p class="credito-descripcion">
-    Desarrollo web profesional · Sitios modernos y optimizados
-  </p>
+    <span>
+      Seguinos
+    </span>
 
-</div>
+    <a
+      href="https://www.instagram.com/estudiopericialpsicologico/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Instagram
+    </a>
+
+    <a
+      href="https://www.facebook.com/licisabelafalco"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Facebook
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/isabela-falco-1225b127a"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      LinkedIn
+    </a>
+
+  </div>
+
+
+  <!-- INFORMACIÓN LEGAL -->
+
+  <div class="footer-legal">
+
+    <p>
+      La información publicada en este sitio tiene carácter general
+      y no reemplaza una evaluación profesional individual.
+    </p>
+
+  </div>
+
+
+  <!-- COPYRIGHT -->
+
+  <div class="footer-bottom">
+
+    © 2026 Estudio Pericial Psicológico · Lic. Isabela Falco<br>
+
+    <span>
+      Pericias Psicológicas Forenses · Sistema FALCO®
+    </span>
+
+  </div>
 
 </footer>
 
