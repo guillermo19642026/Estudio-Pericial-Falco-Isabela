@@ -230,7 +230,7 @@ if (dataUsuario.archivado === true) {
     localStorage.setItem("falcoRolUsuario", rol);
     localStorage.setItem("falcoEmailUsuario", user.email);
 
-    window.location.href = "centro-operaciones/centro-operaciones.html";
+    window.location.href = "centro-operaciones/centro-operaciones-v2.html";
 
   } catch (error) {
     console.error(error);
