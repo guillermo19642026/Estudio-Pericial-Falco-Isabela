@@ -121,7 +121,7 @@ async function cerrarSesion() {
     await signOut(auth);
 
     window.location.href =
-      "escuela-login.html";
+      "FALCO-CMS-V2/ecosistema-falco.html#acceso";
 
   } catch (error) {
 
@@ -150,7 +150,7 @@ onAuthStateChanged(
     if (!user) {
 
       window.location.href =
-        "escuela-login.html";
+        "FALCO-CMS-V2/ecosistema-falco.html#acceso";
 
       return;
 
