@@ -238,15 +238,16 @@ const contenedorVideo =
     "encuentroVideoContenedor"
   );
 
-/* =======================================================
-   CONTENIDO AUDIOVISUAL DEL ENCUENTRO
-======================================================= */
+
 
 /* =======================================================
    CONTENIDO AUDIOVISUAL DEL ENCUENTRO
 ======================================================= */
 
-if (encuentroId === 1) {
+if (
+  encuentroId >= 1 &&
+  encuentroId <= 8
+) {
 
   contenedorVideo.innerHTML = `
 
@@ -259,54 +260,11 @@ if (encuentroId === 1) {
         fullscreen;
         picture-in-picture
       "
-      
+      allowfullscreen
       loading="eager">
     </iframe>
 
   `;
-
-} else if (
-  encuentro.video &&
-  encuentro.videoUrl
-) {
-
-  const videoEmbed =
-    obtenerVideoEmbed(
-      encuentro.videoUrl
-    );
-
-  if (videoEmbed) {
-
-    contenedorVideo.innerHTML = `
-
-      <iframe
-        src="${videoEmbed}"
-        title="${encuentro.titulo}"
-        width="100%"
-        height="100%"
-        style="
-          width: 100%;
-          min-height: 420px;
-          border: 0;
-          display: block;
-        "
-        allow="
-          accelerometer;
-          autoplay;
-          clipboard-write;
-          encrypted-media;
-          gyroscope;
-          picture-in-picture;
-          web-share
-        "
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin">
-      </iframe>
-
-    `;
-
-  }
 
 }
 
