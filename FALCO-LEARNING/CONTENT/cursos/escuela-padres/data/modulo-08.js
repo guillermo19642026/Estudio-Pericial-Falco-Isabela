@@ -1,8 +1,8 @@
 /* =========================================================
    FALCO® LEARNING EXPERIENCE™
    ESCUELA PARA PADRES FALCO®
-   MÓDULO 02 — COMUNICACIÓN EFECTIVA
-   Archivo: modulo-02.js
+   MÓDULO 08 — PROYECTO DE VIDA Y CIERRE
+   Archivo: modulo-08.js
 ========================================================= */
 
 "use strict";
@@ -14,26 +14,33 @@ window.FALCO_LX_MODULE = Object.freeze({
      IDENTIDAD DEL MÓDULO
   ======================================================= */
 
-  id: "modulo-02",
+  id: "modulo-08",
 
   courseId: "escuela-padres",
 
-  number: 2,
+  number: 8,
 
-  title: "Comunicación efectiva",
+  title: "Proyecto de vida y cierre",
 
   subtitle:
-    "Escuchar, comprender y construir confianza.",
+    "Acompañar el futuro con confianza, presencia y esperanza.",
 
   eyebrow:
     "Escuela para Padres FALCO®",
 
   /*
-   * Duración provisoria.
-   * La ajustaremos exactamente después de generar la voz.
+   * DURACIÓN DE LAS NARRACIONES
+   *
+   * Parte 01: 02:18 = 138 s
+   * Parte 02: 02:45 = 165 s
+   * Parte 03: 02:45 = 165 s
+   * Parte 04: 02:31 = 151 s
+   * Parte 05: 02:37 = 157 s
+   *
+   * Total: 12:56 = 776 s
    */
 
-  duration: 232,
+  duration: 776,
 
   language: "es-AR",
 
@@ -46,37 +53,47 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   media: {
 
-    /*
-     * Las narraciones se cargarán después de generar
-     * los archivos de voz definitivos.
-     */
-
     narrations: [
 
-  {
-    id: "parte-01",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-01.mp3",
-    start: 0
-  },
+      {
+        id: "parte-01",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-08-parte-01.mp3",
+        start: 0
+      },
 
-  {
-    id: "parte-02",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-02.mp3",
-    start: 109.5
-  }
+      {
+        id: "parte-02",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-08-parte-02.mp3",
+        start: 138
+      },
 
-],
+      {
+        id: "parte-03",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-08-parte-03.mp3",
+        start: 303
+      },
+
+      {
+        id: "parte-04",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-08-parte-04.mp3",
+        start: 468
+      },
+
+      {
+        id: "parte-05",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-08-parte-05.mp3",
+        start: 619
+      }
+
+    ],
 
     music:
-      "./THEME/audio/music/falco-learning-base.mp3",
-
-    imageDirectory:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/",
-
-    poster:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/portada.jpg"
+      "./THEME/audio/music/falco-learning-base.mp3"
 
   },
 
@@ -95,7 +112,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     fadeInDuration: 2500,
 
-    fadeOutDuration: 4000,
+    fadeOutDuration: 5000,
 
     showParticles: true,
 
@@ -115,7 +132,8 @@ window.FALCO_LX_MODULE = Object.freeze({
   scenes: [
 
     /* -----------------------------------------------------
-       ESCENA 01 — APERTURA
+       ESCENA 01 — BIENVENIDA
+       00:00 → 00:35
     ------------------------------------------------------ */
 
     {
@@ -126,7 +144,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       start: 0,
 
-      end: 14,
+      end: 35,
 
       transitionIn: "fade",
 
@@ -148,13 +166,13 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Módulo 2",
+          "Bienvenidos al Módulo 8",
 
         subtitle:
-          "Comunicación efectiva",
+          "Proyecto de vida y cierre",
 
         supportingText:
-          "Escuchar, comprender y construir confianza."
+          "Hoy miramos hacia adelante y también recuperamos el camino recorrido."
 
       },
 
@@ -172,7 +190,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 02 — FRASE DE APERTURA
+       ESCENA 02 — MIRAR HACIA EL FUTURO
+       00:35 → 01:20
     ------------------------------------------------------ */
 
     {
@@ -181,9 +200,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "statement",
 
-      start: 14,
+      start: 35,
 
-      end: 34,
+      end: 80,
 
       transitionIn: "light",
 
@@ -202,18 +221,20 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         text:
-          "Durante la adolescencia también cambia la manera de comunicarse.",
+          "La adolescencia también es una etapa de descubrimientos, decisiones y construcción de identidad.",
 
         secondaryText:
-          "El diálogo necesita nuevas formas de encuentro."
+          "¿Quién soy? ¿Qué me interesa? ¿Qué quiero hacer? ¿Qué lugar quiero ocupar en el mundo?"
 
       },
 
       emphasis: [
 
-        "comunicarse",
+        "descubrimientos",
 
-        "encuentro"
+        "decisiones",
+
+        "identidad"
 
       ],
 
@@ -223,7 +244,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         secondaryText: "fade-up",
 
-        delay: 300
+        delay: 350
 
       }
 
@@ -231,7 +252,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 03 — CAMBIOS EN LA COMUNICACIÓN
+       ESCENA 03 — QUÉ ES UN PROYECTO DE VIDA
+       01:20 → 02:18
     ------------------------------------------------------ */
 
     {
@@ -240,9 +262,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "concept-list",
 
-      start: 34,
+      start: 80,
 
-      end: 58,
+      end: 138,
 
       transitionIn: "fade",
 
@@ -252,58 +274,55 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         type: "gradient",
 
-        variant: "institutional"
+        variant: "institutional",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Una comunicación que evoluciona",
+          "Proyecto de vida",
 
         title:
-          "El vínculo permanece, aunque el diálogo cambie.",
+          "No es un camino rígido. Es una construcción que puede transformarse.",
 
         items: [
 
           {
-
             text:
-              "Aparecen silencios y respuestas más breves.",
-
+              "Imaginar posibilidades.",
             icon:
-              "message-circle"
-
+              "sparkles"
           },
 
           {
-
             text:
-              "Crece la necesidad de intimidad.",
-
+              "Reconocer fortalezas.",
             icon:
-              "lock-keyhole"
-
+              "star"
           },
 
           {
-
             text:
-              "Se cuestionan normas y decisiones.",
-
+              "Identificar desafíos.",
             icon:
-              "messages-square"
-
+              "mountain"
           },
 
           {
-
             text:
-              "La opinión de los pares cobra mayor importancia.",
-
+              "Establecer objetivos posibles.",
             icon:
-              "users-round"
+              "target"
+          },
 
+          {
+            text:
+              "Adaptarse cuando las circunstancias cambian.",
+            icon:
+              "refresh-cw"
           }
 
         ]
@@ -316,7 +335,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         items: "stagger-up",
 
-        stagger: 450
+        stagger: 420
 
       }
 
@@ -324,18 +343,19 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 04 — ESCUCHAR DETRÁS DE LAS PALABRAS
+       ESCENA 04 — ACOMPAÑAR SIN IMPONER
+       02:18 → 03:10
     ------------------------------------------------------ */
 
     {
 
       id: "escena-04",
 
-      type: "image-focus",
+      type: "comparison",
 
-      start: 58,
+      start: 138,
 
-      end: 82,
+      end: 190,
 
       transitionIn: "camera",
 
@@ -343,93 +363,36 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       background: {
 
-        type: "image",
-
-        source:
-          "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/conversacion-familiar.jpg",
-
-        overlay: 0.64,
-
-        fit: "cover",
-
-        position: "center"
-
-      },
-
-      content: {
-
-        eyebrow:
-          "Comprender antes de responder",
-
-        title:
-          "Detrás de cada palabra también hay una emoción.",
-
-        text:
-          "Escuchar implica atender lo que se dice, lo que se siente y también aquello que cuesta expresar."
-
-      },
-
-      animation: {
-
-        image: "ken-burns",
-
-        title: "fade-up",
-
-        text: "fade-up"
-
-      }
-
-    },
-
-
-    /* -----------------------------------------------------
-       ESCENA 05 — BARRERAS Y ALTERNATIVAS
-    ------------------------------------------------------ */
-
-    {
-
-      id: "escena-05",
-
-      type: "comparison",
-
-      start: 82,
-
-      end: 110,
-
-      transitionIn: "fade",
-
-      transitionOut: "particles",
-
-      background: {
-
         type: "ambient",
 
-        variant: "navy"
+        variant: "navy",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Dos maneras de comunicarnos",
+          "El rol de las familias",
 
         title:
-          "Algunas respuestas generan distancia. Otras abren diálogo.",
+          "Acompañar no significa decidir por ellos.",
 
         left: {
 
           label:
-            "Lo que dificulta",
+            "Lo que puede dificultar",
 
           items: [
 
-            "Interrumpir.",
+            "Exigir definiciones inmediatas.",
 
-            "Minimizar emociones.",
+            "Elegir el camino por el adolescente.",
 
-            "Etiquetar.",
+            "Comparar con otras personas.",
 
-            "Comparar."
+            "Convertir el error en fracaso."
 
           ]
 
@@ -438,17 +401,17 @@ window.FALCO_LX_MODULE = Object.freeze({
         right: {
 
           label:
-            "Lo que favorece",
+            "Lo que puede favorecer",
 
           items: [
 
-            "Escuchar con atención.",
+            "Escuchar sin imponer.",
 
-            "Validar lo que siente.",
+            "Ofrecer información.",
 
-            "Preguntar antes de suponer.",
+            "Promover experiencias diversas.",
 
-            "Acompañar sin invadir."
+            "Transmitir confianza."
 
           ]
 
@@ -470,28 +433,29 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 06 — FRASE CENTRAL
+       ESCENA 05 — FORTALEZAS PERSONALES
+       03:10 → 04:08
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-06",
+      id: "escena-05",
 
-      type: "quote",
+      type: "tools",
 
-      start: 110,
+      start: 190,
 
-      end: 130,
+      end: 248,
 
-      transitionIn: "particles",
+      transitionIn: "fade",
 
       transitionOut: "light",
 
       background: {
 
-        type: "ambient",
+        type: "gradient",
 
-        variant: "gold-focus",
+        variant: "institutional",
 
         particles: true
 
@@ -499,60 +463,11 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       content: {
 
-        quote:
-          "Validar una emoción no significa aprobar cualquier conducta.",
-
-        continuation:
-          "Significa reconocer lo que el otro está sintiendo antes de orientar."
-
-      },
-
-      animation: {
-
-        quote: "words-reveal",
-
-        continuation: "fade-up",
-
-        delay: 500
-
-      }
-
-    },
-
-
-    /* -----------------------------------------------------
-       ESCENA 07 — HERRAMIENTAS PRÁCTICAS
-    ------------------------------------------------------ */
-
-    {
-
-      id: "escena-07",
-
-      type: "tools",
-
-      start: 130,
-
-      end: 166,
-
-      transitionIn: "light",
-
-      transitionOut: "fade",
-
-      background: {
-
-        type: "gradient",
-
-        variant: "institutional"
-
-      },
-
-      content: {
-
         eyebrow:
-          "Herramientas para el diálogo",
+          "Descubrir recursos propios",
 
         title:
-          "Tres actitudes que fortalecen la comunicación.",
+          "Reconocer fortalezas ayuda a construir el propio camino.",
 
         tools: [
 
@@ -562,10 +477,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "01",
 
             title:
-              "Escuchar antes de responder",
+              "Intereses",
 
             text:
-              "No toda conversación necesita una solución inmediata."
+              "¿Qué cosas disfruto hacer?"
 
           },
 
@@ -575,10 +490,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "02",
 
             title:
-              "Preguntar con interés genuino",
+              "Capacidades",
 
             text:
-              "Las preguntas abiertas permiten comprender mejor lo que está viviendo."
+              "¿Qué cosas hago bien?"
 
           },
 
@@ -588,10 +503,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "03",
 
             title:
-              "Hablar con claridad y respeto",
+              "Experiencias",
 
             text:
-              "Los límites pueden expresarse sin ironías, etiquetas ni desvalorizaciones."
+              "¿Qué dificultades pude superar?"
 
           }
 
@@ -613,20 +528,371 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 08 — SÍNTESIS
+       ESCENA 06 — CONFIAR
+       04:08 → 05:03
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-06",
+
+      type: "quote",
+
+      start: 248,
+
+      end: 303,
+
+      transitionIn: "light",
+
+      transitionOut: "fade",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "gold-focus",
+
+        particles: true
+
+      },
+
+      content: {
+
+        quote:
+          "A veces nuestros hijos necesitan escuchar de nosotros aquello que todavía no pueden reconocer en sí mismos.",
+
+        continuation:
+          "Confío en vos. Podés tomarte tiempo. Podemos pensar juntos las opciones."
+
+      },
+
+      animation: {
+
+        quote: "words-reveal",
+
+        continuation: "fade-up",
+
+        delay: 500
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 07 — DECIDIR TAMBIÉN ES EQUIVOCARSE
+       05:03 → 05:56
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-07",
+
+      type: "statement",
+
+      start: 303,
+
+      end: 356,
+
+      transitionIn: "fade",
+
+      transitionOut: "camera",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "soft-gold",
+
+        particles: true
+
+      },
+
+      content: {
+
+        text:
+          "Equivocarse no significa fracasar.",
+
+        secondaryText:
+          "Los errores también pueden convertirse en oportunidades para revisar, aprender y encontrar nuevas alternativas."
+
+      },
+
+      emphasis: [
+
+        "Equivocarse",
+
+        "aprender"
+
+      ],
+
+      animation: {
+
+        text: "words-reveal",
+
+        secondaryText: "fade-up",
+
+        delay: 350
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 08 — APRENDER DEL ERROR
+       05:56 → 06:48
     ------------------------------------------------------ */
 
     {
 
       id: "escena-08",
 
-      type: "summary",
+      type: "tools",
 
-      start: 166,
+      start: 356,
 
-      end: 190,
+      end: 408,
+
+      transitionIn: "camera",
+
+      transitionOut: "light",
+
+      background: {
+
+        type: "gradient",
+
+        variant: "institutional",
+
+        particles: true
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Transformar el error",
+
+        title:
+          "No podemos evitar todos los tropiezos. Podemos ayudar a aprender de ellos.",
+
+        tools: [
+
+          {
+
+            number:
+              "01",
+
+            title:
+              "Revisar",
+
+            text:
+              "¿Qué aprendiste de esta experiencia?"
+
+          },
+
+          {
+
+            number:
+              "02",
+
+            title:
+              "Pensar",
+
+            text:
+              "¿Qué podrías hacer diferente la próxima vez?"
+
+          },
+
+          {
+
+            number:
+              "03",
+
+            title:
+              "Explorar",
+
+            text:
+              "¿Qué alternativa podrías probar ahora?"
+
+          }
+
+        ]
+
+      },
+
+      animation: {
+
+        title: "fade-up",
+
+        tools: "stagger-up",
+
+        stagger: 650
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 09 — ESPERANZA
+       06:48 → 07:48
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-09",
+
+      type: "quote",
+
+      start: 408,
+
+      end: 468,
+
+      transitionIn: "light",
+
+      transitionOut: "fade",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "gold-focus",
+
+        particles: true
+
+      },
+
+      content: {
+
+        quote:
+          "La esperanza no significa negar las dificultades.",
+
+        continuation:
+          "Significa reconocer que existen recursos, alternativas y oportunidades para seguir avanzando."
+
+      },
+
+      animation: {
+
+        quote: "words-reveal",
+
+        continuation: "fade-up",
+
+        delay: 500
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 10 — REDES DE APOYO
+       07:48 → 08:40
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-10",
+
+      type: "concept-list",
+
+      start: 468,
+
+      end: 520,
 
       transitionIn: "fade",
+
+      transitionOut: "camera",
+
+      background: {
+
+        type: "gradient",
+
+        variant: "institutional",
+
+        particles: true
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Nadie construye su camino completamente solo",
+
+        title:
+          "Las redes saludables también forman parte del proyecto de vida.",
+
+        items: [
+
+          {
+            text:
+              "Familia.",
+            icon:
+              "home"
+          },
+
+          {
+            text:
+              "Amistades.",
+            icon:
+              "users"
+          },
+
+          {
+            text:
+              "Docentes y referentes.",
+            icon:
+              "graduation-cap"
+          },
+
+          {
+            text:
+              "Comunidad.",
+            icon:
+              "network"
+          },
+
+          {
+            text:
+              "Profesionales cuando sean necesarios.",
+            icon:
+              "hand-helping"
+          }
+
+        ]
+
+      },
+
+      animation: {
+
+        title: "fade-up",
+
+        items: "stagger-up",
+
+        stagger: 400
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 11 — EL RECORRIDO DE LOS OCHO ENCUENTROS
+       08:40 → 09:34
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-11",
+
+      type: "summary",
+
+      start: 520,
+
+      end: 574,
+
+      transitionIn: "camera",
 
       transitionOut: "light",
 
@@ -643,20 +909,26 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         eyebrow:
-          "Para recordar",
+          "El camino recorrido",
 
         title:
-          "La comunicación se construye en lo cotidiano.",
+          "Durante ocho encuentros fuimos construyendo una mirada sobre la adolescencia.",
 
         points: [
 
-          "Crear momentos compartidos favorece el diálogo.",
+          "Comprender los cambios de esta etapa.",
 
-          "Reconocer los propios errores también enseña.",
+          "Fortalecer la comunicación.",
 
-          "Los conflictos pueden convertirse en oportunidades de aprendizaje.",
+          "Acompañar emociones e identidad.",
 
-          "Escuchar fortalece la confianza y el vínculo familiar."
+          "Reflexionar sobre tecnología y redes.",
+
+          "Construir límites saludables.",
+
+          "Cuidar la salud mental.",
+
+          "Acompañar proyectos con sentido y esperanza."
 
         ]
 
@@ -668,7 +940,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         points: "stagger-fade",
 
-        stagger: 400
+        stagger: 350
 
       }
 
@@ -676,18 +948,224 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 09 — CIERRE
+       ESCENA 12 — PRESENCIA FAMILIAR
+       09:34 → 10:19
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-09",
+      id: "escena-12",
+
+      type: "statement",
+
+      start: 574,
+
+      end: 619,
+
+      transitionIn: "light",
+
+      transitionOut: "fade",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "soft-gold",
+
+        particles: true
+
+      },
+
+      content: {
+
+        text:
+          "No existe una única manera correcta de criar.",
+
+        secondaryText:
+          "Existen familias que intentan, se equivocan, vuelven a conversar y continúan ofreciendo presencia, escucha y acompañamiento."
+
+      },
+
+      emphasis: [
+
+        "presencia",
+
+        "escucha",
+
+        "acompañamiento"
+
+      ],
+
+      animation: {
+
+        text: "words-reveal",
+
+        secondaryText: "fade-up",
+
+        delay: 350
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 13 — MENSAJE A LAS FAMILIAS
+       10:19 → 11:15
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-13",
+
+      type: "concept-list",
+
+      start: 619,
+
+      end: 675,
+
+      transitionIn: "fade",
+
+      transitionOut: "camera",
+
+      background: {
+
+        type: "gradient",
+
+        variant: "institutional",
+
+        particles: true
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Queridas familias",
+
+        title:
+          "Los adolescentes no necesitan adultos perfectos.",
+
+        items: [
+
+          {
+            text:
+              "Necesitan adultos presentes.",
+            icon:
+              "heart-handshake"
+          },
+
+          {
+            text:
+              "Adultos que escuchen.",
+            icon:
+              "ear"
+          },
+
+          {
+            text:
+              "Adultos capaces de poner límites desde el afecto.",
+            icon:
+              "shield"
+          },
+
+          {
+            text:
+              "Adultos que reconozcan sus errores.",
+            icon:
+              "refresh-cw"
+          },
+
+          {
+            text:
+              "Adultos que vuelvan a intentarlo.",
+            icon:
+              "sparkles"
+          }
+
+        ]
+
+      },
+
+      animation: {
+
+        title: "fade-up",
+
+        items: "stagger-up",
+
+        stagger: 420
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 14 — UNA MIRADA FALCO®
+       11:15 → 12:16
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-14",
+
+      type: "quote",
+
+      start: 675,
+
+      end: 736,
+
+      transitionIn: "camera",
+
+      transitionOut: "light",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "gold-focus",
+
+        particles: true
+
+      },
+
+      content: {
+
+        quote:
+          "Educar también implica aprender a soltar progresivamente.",
+
+        continuation:
+          "Nuestros hijos necesitan saber que creemos en ellos y que seguiremos disponibles aun cuando el camino elegido sea diferente del que imaginamos."
+
+      },
+
+      animation: {
+
+        quote: "words-reveal",
+
+        continuation: "fade-up",
+
+        delay: 500
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 15 — DESPEDIDA FINAL
+       12:16 → 12:56
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-15",
 
       type: "closing",
 
-      start: 190,
+      start: 736,
 
-      end: 232,
+      end: 776,
 
       transitionIn: "light",
 
@@ -709,18 +1187,21 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Escuchar también es una forma de amar.",
+          "Acompañar hoy, fortalecer siempre, transformar el mañana.",
 
         text:
-          "La disponibilidad emocional, el respeto y la coherencia ayudan a sostener el vínculo incluso en las conversaciones difíciles.",
+          "Cada conversación, cada límite sostenido con afecto, cada oportunidad para escuchar y cada gesto de confianza contribuyen a construir vínculos más saludables.",
 
-        nextModule: {
+        completion: {
 
           label:
-            "Próximo encuentro",
+            "Recorrido completado",
 
           title:
-            "Emociones y autoestima"
+            "Aprendiendo a ser Padres de un Adolescente®",
+
+          text:
+            "Gracias por haber compartido estos ocho encuentros."
 
         }
 
@@ -732,7 +1213,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         text: "fade-up",
 
-        nextModule: "fade-up"
+        completion: "fade-up"
 
       }
 
@@ -748,84 +1229,93 @@ window.FALCO_LX_MODULE = Object.freeze({
   chapters: [
 
     {
-
       time: 0,
-
       label:
-        "Presentación"
-
+        "Bienvenida"
     },
 
     {
-
-      time: 14,
-
+      time: 35,
       label:
-        "La comunicación cambia"
-
+        "Mirar hacia el futuro"
     },
 
     {
-
-      time: 34,
-
+      time: 80,
       label:
-        "Nuevas formas de diálogo"
-
+        "Proyecto de vida"
     },
 
     {
-
-      time: 58,
-
+      time: 138,
       label:
-        "Escuchar emociones"
-
+        "Acompañar sin imponer"
     },
 
     {
-
-      time: 82,
-
-      label:
-        "Barreras y alternativas"
-
-    },
-
-    {
-
-      time: 110,
-
-      label:
-        "Validación emocional"
-
-    },
-
-    {
-
-      time: 130,
-
-      label:
-        "Herramientas prácticas"
-
-    },
-
-    {
-
-      time: 166,
-
-      label:
-        "Síntesis"
-
-    },
-
-    {
-
       time: 190,
-
       label:
-        "Cierre"
+        "Fortalezas personales"
+    },
 
+    {
+      time: 248,
+      label:
+        "Confiar"
+    },
+
+    {
+      time: 303,
+      label:
+        "Decidir y equivocarse"
+    },
+
+    {
+      time: 356,
+      label:
+        "Aprender del error"
+    },
+
+    {
+      time: 408,
+      label:
+        "Esperanza"
+    },
+
+    {
+      time: 468,
+      label:
+        "Redes de apoyo"
+    },
+
+    {
+      time: 520,
+      label:
+        "El recorrido compartido"
+    },
+
+    {
+      time: 574,
+      label:
+        "Presencia familiar"
+    },
+
+    {
+      time: 619,
+      label:
+        "Mensaje a las familias"
+    },
+
+    {
+      time: 675,
+      label:
+        "Una Mirada FALCO®"
+    },
+
+    {
+      time: 736,
+      label:
+        "Despedida"
     }
 
   ],
@@ -837,7 +1327,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   metadata: {
 
-    estimatedMinutes: 4,
+    estimatedMinutes: 13,
 
     category:
       "Orientación familiar",
@@ -856,15 +1346,27 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     keywords: [
 
-      "comunicación",
-
-      "escucha activa",
-
-      "validación emocional",
+      "proyecto de vida",
 
       "adolescencia",
 
-      "vínculo familiar"
+      "autonomía",
+
+      "decisiones",
+
+      "fortalezas",
+
+      "esperanza",
+
+      "redes de apoyo",
+
+      "familia",
+
+      "futuro",
+
+      "acompañamiento",
+
+      "cierre"
 
     ]
 

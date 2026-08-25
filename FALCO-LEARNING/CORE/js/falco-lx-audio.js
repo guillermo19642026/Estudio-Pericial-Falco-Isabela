@@ -558,34 +558,45 @@ window.FALCO_LX_AUDIO = (() => {
      SINCRONIZACIÓN DE MÚSICA
   ======================================================= */
 
-  function syncMusic(
-    force = false
+function syncMusic(
+  force = false
+) {
+
+  if (!music?.src) {
+    return;
+  }
+
+  const musicDuration =
+    Number.isFinite(music.duration) &&
+    music.duration > 0
+      ? music.duration
+      : 0;
+
+  const musicTime =
+    musicDuration > 0
+      ? state.currentTime % musicDuration
+      : state.currentTime;
+
+  const difference =
+    Math.abs(
+      music.currentTime -
+      musicTime
+    );
+
+  if (
+    force ||
+    difference >
+      state.syncTolerance
   ) {
 
-    if (!music?.src) {
-      return;
-    }
-
-    const difference =
-      Math.abs(
-        music.currentTime -
-        state.currentTime
-      );
-
-    if (
-      force ||
-      difference >
-        state.syncTolerance
-    ) {
-
-      setSafeTime(
-        music,
-        state.currentTime
-      );
-
-    }
+    setSafeTime(
+      music,
+      musicTime
+    );
 
   }
+
+}
 
 
   /* =======================================================

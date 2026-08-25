@@ -1,8 +1,8 @@
 /* =========================================================
    FALCO® LEARNING EXPERIENCE™
    ESCUELA PARA PADRES FALCO®
-   MÓDULO 02 — COMUNICACIÓN EFECTIVA
-   Archivo: modulo-02.js
+   MÓDULO 05 — ADOLESCENCIA Y MUNDO DIGITAL
+   Archivo: modulo-05.js
 ========================================================= */
 
 "use strict";
@@ -14,30 +14,37 @@ window.FALCO_LX_MODULE = Object.freeze({
      IDENTIDAD DEL MÓDULO
   ======================================================= */
 
-  id: "modulo-02",
+  id: "modulo-05",
 
   courseId: "escuela-padres",
 
-  number: 2,
+  number: 5,
 
-  title: "Comunicación efectiva",
+  title: "Adolescencia y mundo digital",
 
   subtitle:
-    "Escuchar, comprender y construir confianza.",
+    "Acompañar, cuidar y construir criterio en la vida digital.",
 
   eyebrow:
     "Escuela para Padres FALCO®",
 
   /*
-   * Duración provisoria.
-   * La ajustaremos exactamente después de generar la voz.
+   * DURACIÓN REAL DE LAS NARRACIONES
+   *
+   * Parte 01: 50.88 s
+   * Parte 02: 47.78 s
+   * Parte 03: 144.88 s
+   * Parte 04: 125.54 s
+   *
+   * Total: 369.08 s
+   * Aproximadamente 06:09
    */
 
-  duration: 232,
+  duration: 369.08,
 
   language: "es-AR",
 
-  version: "1.0.0",
+  version: "1.2.0",
 
 
   /* =======================================================
@@ -46,37 +53,40 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   media: {
 
-    /*
-     * Las narraciones se cargarán después de generar
-     * los archivos de voz definitivos.
-     */
-
     narrations: [
 
-  {
-    id: "parte-01",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-01.mp3",
-    start: 0
-  },
+      {
+        id: "parte-01",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-05-parte-01.mp3",
+        start: 0
+      },
 
-  {
-    id: "parte-02",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-02.mp3",
-    start: 109.5
-  }
+      {
+        id: "parte-02",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-05-parte-02.mp3",
+        start: 50.88
+      },
 
-],
+      {
+        id: "parte-03",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-05-parte-03.mp3",
+        start: 98.66
+      },
+
+      {
+        id: "parte-04",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-05-parte-04.mp3",
+        start: 243.54
+      }
+
+    ],
 
     music:
-      "./THEME/audio/music/falco-learning-base.mp3",
-
-    imageDirectory:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/",
-
-    poster:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/portada.jpg"
+      "./THEME/audio/music/falco-learning-base.mp3"
 
   },
 
@@ -116,6 +126,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     /* -----------------------------------------------------
        ESCENA 01 — APERTURA
+       00:00 → 00:13
     ------------------------------------------------------ */
 
     {
@@ -126,7 +137,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       start: 0,
 
-      end: 14,
+      end: 13.29,
 
       transitionIn: "fade",
 
@@ -148,13 +159,13 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Módulo 2",
+          "Módulo 5",
 
         subtitle:
-          "Comunicación efectiva",
+          "Adolescencia y mundo digital",
 
         supportingText:
-          "Escuchar, comprender y construir confianza."
+          "Acompañar, cuidar y construir criterio en la vida digital."
 
       },
 
@@ -172,7 +183,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 02 — FRASE DE APERTURA
+       ESCENA 02 — CRECER EN LA ERA DIGITAL
+       00:13 → 00:32
     ------------------------------------------------------ */
 
     {
@@ -181,9 +193,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "statement",
 
-      start: 14,
+      start: 13.29,
 
-      end: 34,
+      end: 31.60,
 
       transitionIn: "light",
 
@@ -202,18 +214,18 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         text:
-          "Durante la adolescencia también cambia la manera de comunicarse.",
+          "Para los adolescentes, lo digital forma parte de la vida cotidiana.",
 
         secondaryText:
-          "El diálogo necesita nuevas formas de encuentro."
+          "Es un espacio de comunicación, aprendizaje, expresión, entretenimiento y pertenencia."
 
       },
 
       emphasis: [
 
-        "comunicarse",
+        "digital",
 
-        "encuentro"
+        "pertenencia"
 
       ],
 
@@ -231,7 +243,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 03 — CAMBIOS EN LA COMUNICACIÓN
+       ESCENA 03 — TECNOLOGÍA Y VÍNCULO FAMILIAR
+       00:32 → 01:10
     ------------------------------------------------------ */
 
     {
@@ -240,9 +253,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "concept-list",
 
-      start: 34,
+      start: 31.60,
 
-      end: 58,
+      end: 69.95,
 
       transitionIn: "fade",
 
@@ -252,44 +265,36 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         type: "gradient",
 
-        variant: "institutional"
+        variant: "institutional",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Una comunicación que evoluciona",
+          "Tecnología y vínculo familiar",
 
         title:
-          "El vínculo permanece, aunque el diálogo cambie.",
+          "La tecnología puede acercar o alejar.",
 
         items: [
 
           {
 
             text:
-              "Aparecen silencios y respuestas más breves.",
+              "Compartir intereses y aprendizajes.",
 
             icon:
-              "message-circle"
+              "book-open"
 
           },
 
           {
 
             text:
-              "Crece la necesidad de intimidad.",
-
-            icon:
-              "lock-keyhole"
-
-          },
-
-          {
-
-            text:
-              "Se cuestionan normas y decisiones.",
+              "Mantener vínculos y conversaciones.",
 
             icon:
               "messages-square"
@@ -299,10 +304,20 @@ window.FALCO_LX_MODULE = Object.freeze({
           {
 
             text:
-              "La opinión de los pares cobra mayor importancia.",
+              "Evitar que cada integrante quede aislado en su pantalla.",
 
             icon:
-              "users-round"
+              "users"
+
+          },
+
+          {
+
+            text:
+              "Recuperar momentos cotidianos de encuentro.",
+
+            icon:
+              "heart-handshake"
 
           }
 
@@ -324,58 +339,94 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 04 — ESCUCHAR DETRÁS DE LAS PALABRAS
+       ESCENA 04 — BENEFICIOS DEL MUNDO DIGITAL
+       01:10 → 01:39
     ------------------------------------------------------ */
 
     {
 
       id: "escena-04",
 
-      type: "image-focus",
+      type: "tools",
 
-      start: 58,
+      start: 69.95,
 
-      end: 82,
+      end: 98.66,
 
       transitionIn: "camera",
 
-      transitionOut: "fade",
+      transitionOut: "light",
 
       background: {
 
-        type: "image",
+        type: "gradient",
 
-        source:
-          "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/conversacion-familiar.jpg",
+        variant: "institutional",
 
-        overlay: 0.64,
-
-        fit: "cover",
-
-        position: "center"
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Comprender antes de responder",
+          "Una mirada equilibrada",
 
         title:
-          "Detrás de cada palabra también hay una emoción.",
+          "El mundo digital también ofrece oportunidades.",
 
-        text:
-          "Escuchar implica atender lo que se dice, lo que se siente y también aquello que cuesta expresar."
+        tools: [
+
+          {
+
+            number:
+              "01",
+
+            title:
+              "Aprender",
+
+            text:
+              "Acceder a información, estudiar y explorar nuevos intereses."
+
+          },
+
+          {
+
+            number:
+              "02",
+
+            title:
+              "Crear",
+
+            text:
+              "Expresarse, desarrollar habilidades y producir contenidos."
+
+          },
+
+          {
+
+            number:
+              "03",
+
+            title:
+              "Conectar",
+
+            text:
+              "Mantener vínculos, compartir intereses y participar en comunidades."
+
+          }
+
+        ]
 
       },
 
       animation: {
 
-        image: "ken-burns",
-
         title: "fade-up",
 
-        text: "fade-up"
+        tools: "stagger-up",
+
+        stagger: 600
 
       }
 
@@ -383,7 +434,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 05 — BARRERAS Y ALTERNATIVAS
+       ESCENA 05 — RIESGOS Y DESAFÍOS
+       01:39 → 02:26
     ------------------------------------------------------ */
 
     {
@@ -392,11 +444,11 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "comparison",
 
-      start: 82,
+      start: 98.66,
 
-      end: 110,
+      end: 145.79,
 
-      transitionIn: "fade",
+      transitionIn: "light",
 
       transitionOut: "particles",
 
@@ -404,32 +456,34 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         type: "ambient",
 
-        variant: "navy"
+        variant: "navy",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Dos maneras de comunicarnos",
+          "Cuidado digital",
 
         title:
-          "Algunas respuestas generan distancia. Otras abren diálogo.",
+          "El mundo digital ofrece oportunidades y también desafíos.",
 
         left: {
 
           label:
-            "Lo que dificulta",
+            "Oportunidades",
 
           items: [
 
-            "Interrumpir.",
+            "Aprendizaje.",
 
-            "Minimizar emociones.",
+            "Creatividad.",
 
-            "Etiquetar.",
+            "Comunicación.",
 
-            "Comparar."
+            "Participación."
 
           ]
 
@@ -438,17 +492,17 @@ window.FALCO_LX_MODULE = Object.freeze({
         right: {
 
           label:
-            "Lo que favorece",
+            "Riesgos",
 
           items: [
 
-            "Escuchar con atención.",
+            "Uso excesivo.",
 
-            "Validar lo que siente.",
+            "Exposición inadecuada.",
 
-            "Preguntar antes de suponer.",
+            "Pérdida de privacidad.",
 
-            "Acompañar sin invadir."
+            "Contacto con desconocidos."
 
           ]
 
@@ -470,7 +524,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 06 — FRASE CENTRAL
+       ESCENA 06 — REDES SOCIALES Y AUTOESTIMA
+       02:26 → 03:06
     ------------------------------------------------------ */
 
     {
@@ -479,9 +534,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "quote",
 
-      start: 110,
+      start: 145.79,
 
-      end: 130,
+      end: 186.00,
 
       transitionIn: "particles",
 
@@ -500,10 +555,10 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         quote:
-          "Validar una emoción no significa aprobar cualquier conducta.",
+          "La aprobación virtual no define el valor personal.",
 
         continuation:
-          "Significa reconocer lo que el otro está sintiendo antes de orientar."
+          "Las imágenes idealizadas y la comparación constante pueden influir en la forma en que el adolescente se percibe."
 
       },
 
@@ -521,7 +576,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 07 — HERRAMIENTAS PRÁCTICAS
+       ESCENA 07 — SITUACIONES DE RIESGO
+       03:06 → 04:04
     ------------------------------------------------------ */
 
     {
@@ -530,9 +586,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "tools",
 
-      start: 130,
+      start: 186.00,
 
-      end: 166,
+      end: 243.54,
 
       transitionIn: "light",
 
@@ -542,17 +598,19 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         type: "gradient",
 
-        variant: "institutional"
+        variant: "institutional",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Herramientas para el diálogo",
+          "Prevenir sin generar miedo",
 
         title:
-          "Tres actitudes que fortalecen la comunicación.",
+          "Frente a situaciones digitales de riesgo, lo primero es proteger.",
 
         tools: [
 
@@ -562,10 +620,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "01",
 
             title:
-              "Escuchar antes de responder",
+              "Informar",
 
             text:
-              "No toda conversación necesita una solución inmediata."
+              "Conversar sobre privacidad, exposición, contactos desconocidos y cuidado de la información personal."
 
           },
 
@@ -575,10 +633,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "02",
 
             title:
-              "Preguntar con interés genuino",
+              "Escuchar",
 
             text:
-              "Las preguntas abiertas permiten comprender mejor lo que está viviendo."
+              "El adolescente necesita saber que puede pedir ayuda sin temor a ser humillado o castigado."
 
           },
 
@@ -588,10 +646,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "03",
 
             title:
-              "Hablar con claridad y respeto",
+              "Acompañar",
 
             text:
-              "Los límites pueden expresarse sin ironías, etiquetas ni desvalorizaciones."
+              "Frente a una situación de riesgo, escuchar y proteger antes de juzgar."
 
           }
 
@@ -613,20 +671,81 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 08 — SÍNTESIS
+       ESCENA 08 — ACOMPAÑAR SIN INVADIR
+       04:04 → 04:47
     ------------------------------------------------------ */
 
     {
 
       id: "escena-08",
 
-      type: "summary",
+      type: "statement",
 
-      start: 166,
+      start: 243.54,
 
-      end: 190,
+      end: 286.98,
 
       transitionIn: "fade",
+
+      transitionOut: "camera",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "soft-gold",
+
+        particles: true
+
+      },
+
+      content: {
+
+        text:
+          "Acompañar no significa vigilar permanentemente.",
+
+        secondaryText:
+          "Conversar antes de revisar, preguntar antes de acusar y escuchar antes de reaccionar favorece la confianza."
+
+      },
+
+      emphasis: [
+
+        "acompañar",
+
+        "confianza"
+
+      ],
+
+      animation: {
+
+        text: "words-reveal",
+
+        secondaryText: "fade-up",
+
+        delay: 350
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 09 — ACUERDOS Y AUTONOMÍA DIGITAL
+       04:47 → 05:40
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-09",
+
+      type: "summary",
+
+      start: 286.98,
+
+      end: 340.38,
+
+      transitionIn: "camera",
 
       transitionOut: "light",
 
@@ -643,20 +762,24 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         eyebrow:
-          "Para recordar",
+          "Autonomía digital progresiva",
 
         title:
-          "La comunicación se construye en lo cotidiano.",
+          "El objetivo no es controlar cada paso, sino formar criterio.",
 
         points: [
 
-          "Crear momentos compartidos favorece el diálogo.",
+          "Construir acuerdos claros y revisables.",
 
-          "Reconocer los propios errores también enseña.",
+          "Cuidar los momentos libres de pantallas.",
 
-          "Los conflictos pueden convertirse en oportunidades de aprendizaje.",
+          "Aprender a proteger la privacidad.",
 
-          "Escuchar fortalece la confianza y el vínculo familiar."
+          "Pensar antes de publicar o compartir.",
+
+          "Reconocer cuándo es necesario pedir ayuda.",
+
+          "Los adultos también educamos con nuestro ejemplo."
 
         ]
 
@@ -676,18 +799,19 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 09 — CIERRE
+       ESCENA 10 — CIERRE
+       05:40 → 06:09
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-09",
+      id: "escena-10",
 
       type: "closing",
 
-      start: 190,
+      start: 340.38,
 
-      end: 232,
+      end: 369.08,
 
       transitionIn: "light",
 
@@ -709,10 +833,10 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Escuchar también es una forma de amar.",
+          "La tecnología cambia. El vínculo permanece.",
 
         text:
-          "La disponibilidad emocional, el respeto y la coherencia ayudan a sostener el vínculo incluso en las conversaciones difíciles.",
+          "La presencia, el diálogo, los acuerdos y la confianza siguen siendo las principales herramientas para acompañar la vida digital adolescente.",
 
         nextModule: {
 
@@ -720,7 +844,7 @@ window.FALCO_LX_MODULE = Object.freeze({
             "Próximo encuentro",
 
           title:
-            "Emociones y autoestima"
+            "Límites saludables"
 
         }
 
@@ -758,70 +882,79 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     {
 
-      time: 14,
+      time: 13.29,
 
       label:
-        "La comunicación cambia"
+        "Crecer en la era digital"
 
     },
 
     {
 
-      time: 34,
+      time: 31.60,
 
       label:
-        "Nuevas formas de diálogo"
+        "Tecnología y vínculo"
 
     },
 
     {
 
-      time: 58,
+      time: 69.95,
 
       label:
-        "Escuchar emociones"
+        "Beneficios"
 
     },
 
     {
 
-      time: 82,
+      time: 98.66,
 
       label:
-        "Barreras y alternativas"
+        "Riesgos y desafíos"
 
     },
 
     {
 
-      time: 110,
+      time: 145.79,
 
       label:
-        "Validación emocional"
+        "Redes y autoestima"
 
     },
 
     {
 
-      time: 130,
+      time: 186.00,
 
       label:
-        "Herramientas prácticas"
+        "Cuidado digital"
 
     },
 
     {
 
-      time: 166,
+      time: 243.54,
 
       label:
-        "Síntesis"
+        "Acompañar sin invadir"
 
     },
 
     {
 
-      time: 190,
+      time: 286.98,
+
+      label:
+        "Acuerdos y autonomía"
+
+    },
+
+    {
+
+      time: 340.38,
 
       label:
         "Cierre"
@@ -837,7 +970,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   metadata: {
 
-    estimatedMinutes: 4,
+    estimatedMinutes: 7,
 
     category:
       "Orientación familiar",
@@ -856,15 +989,27 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     keywords: [
 
-      "comunicación",
-
-      "escucha activa",
-
-      "validación emocional",
-
       "adolescencia",
 
-      "vínculo familiar"
+      "mundo digital",
+
+      "tecnología",
+
+      "redes sociales",
+
+      "autoestima",
+
+      "grooming",
+
+      "ciberacoso",
+
+      "privacidad",
+
+      "pantallas",
+
+      "acuerdos digitales",
+
+      "autonomía digital"
 
     ]
 

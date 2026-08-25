@@ -1,8 +1,8 @@
 /* =========================================================
    FALCO® LEARNING EXPERIENCE™
    ESCUELA PARA PADRES FALCO®
-   MÓDULO 02 — COMUNICACIÓN EFECTIVA
-   Archivo: modulo-02.js
+   MÓDULO 07 — SALUD MENTAL ADOLESCENTE
+   Archivo: modulo-07.js
 ========================================================= */
 
 "use strict";
@@ -14,30 +14,37 @@ window.FALCO_LX_MODULE = Object.freeze({
      IDENTIDAD DEL MÓDULO
   ======================================================= */
 
-  id: "modulo-02",
+  id: "modulo-07",
 
   courseId: "escuela-padres",
 
-  number: 2,
+  number: 7,
 
-  title: "Comunicación efectiva",
+  title: "Salud mental adolescente",
 
   subtitle:
-    "Escuchar, comprender y construir confianza.",
+    "Acompañar, observar y pedir ayuda cuando sea necesario.",
 
   eyebrow:
     "Escuela para Padres FALCO®",
 
   /*
-   * Duración provisoria.
-   * La ajustaremos exactamente después de generar la voz.
+   * DURACIÓN DE LAS NARRACIONES
+   *
+   * Parte 01: 00:35 = 35 s
+   * Parte 02: 02:08 = 128 s
+   * Parte 03: 01:51 = 111 s
+   * Parte 04: 01:21 = 81 s
+   * Parte 05: 01:21 = 81 s
+   *
+   * Total: 07:16 = 436 s
    */
 
-  duration: 232,
+  duration: 436,
 
   language: "es-AR",
 
-  version: "1.0.0",
+  version: "1.1.0",
 
 
   /* =======================================================
@@ -46,37 +53,47 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   media: {
 
-    /*
-     * Las narraciones se cargarán después de generar
-     * los archivos de voz definitivos.
-     */
-
     narrations: [
 
-  {
-    id: "parte-01",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-01.mp3",
-    start: 0
-  },
+      {
+        id: "parte-01",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-07-parte-01.mp3",
+        start: 0
+      },
 
-  {
-    id: "parte-02",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-02.mp3",
-    start: 109.5
-  }
+      {
+        id: "parte-02",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-07-parte-02.mp3",
+        start: 35
+      },
 
-],
+      {
+        id: "parte-03",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-07-parte-03.mp3",
+        start: 163
+      },
+
+      {
+        id: "parte-04",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-07-parte-04.mp3",
+        start: 274
+      },
+
+      {
+        id: "parte-05",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-07-parte-05.mp3",
+        start: 355
+      }
+
+    ],
 
     music:
-      "./THEME/audio/music/falco-learning-base.mp3",
-
-    imageDirectory:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/",
-
-    poster:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/portada.jpg"
+      "./THEME/audio/music/falco-learning-base.mp3"
 
   },
 
@@ -115,7 +132,8 @@ window.FALCO_LX_MODULE = Object.freeze({
   scenes: [
 
     /* -----------------------------------------------------
-       ESCENA 01 — APERTURA
+       ESCENA 01 — BIENVENIDA
+       00:00 → 00:35
     ------------------------------------------------------ */
 
     {
@@ -126,7 +144,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       start: 0,
 
-      end: 14,
+      end: 35,
 
       transitionIn: "fade",
 
@@ -148,13 +166,13 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Módulo 2",
+          "Bienvenidos al Módulo 7",
 
         subtitle:
-          "Comunicación efectiva",
+          "Salud mental adolescente",
 
         supportingText:
-          "Escuchar, comprender y construir confianza."
+          "Observar, escuchar, estar disponibles y pedir ayuda cuando sea necesario."
 
       },
 
@@ -172,7 +190,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 02 — FRASE DE APERTURA
+       ESCENA 02 — UNA ETAPA DE CAMBIOS
+       00:35 → 01:02
     ------------------------------------------------------ */
 
     {
@@ -181,9 +200,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "statement",
 
-      start: 14,
+      start: 35,
 
-      end: 34,
+      end: 62,
 
       transitionIn: "light",
 
@@ -202,18 +221,20 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         text:
-          "Durante la adolescencia también cambia la manera de comunicarse.",
+          "La adolescencia es una etapa de grandes transformaciones.",
 
         secondaryText:
-          "El diálogo necesita nuevas formas de encuentro."
+          "Cambian las emociones, los vínculos, la manera de pensar y también la forma de relacionarse con el mundo."
 
       },
 
       emphasis: [
 
-        "comunicarse",
+        "transformaciones",
 
-        "encuentro"
+        "emociones",
+
+        "vínculos"
 
       ],
 
@@ -231,7 +252,8 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 03 — CAMBIOS EN LA COMUNICACIÓN
+       ESCENA 03 — QUÉ ENTENDEMOS POR SALUD MENTAL
+       01:02 → 01:36
     ------------------------------------------------------ */
 
     {
@@ -240,9 +262,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "concept-list",
 
-      start: 34,
+      start: 62,
 
-      end: 58,
+      end: 96,
 
       transitionIn: "fade",
 
@@ -252,58 +274,55 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         type: "gradient",
 
-        variant: "institutional"
+        variant: "institutional",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Una comunicación que evoluciona",
+          "Salud mental",
 
         title:
-          "El vínculo permanece, aunque el diálogo cambie.",
+          "No significa vivir sin dificultades.",
 
         items: [
 
           {
-
             text:
-              "Aparecen silencios y respuestas más breves.",
-
+              "Reconocer y expresar emociones.",
             icon:
-              "message-circle"
-
+              "heart"
           },
 
           {
-
             text:
-              "Crece la necesidad de intimidad.",
-
+              "Afrontar situaciones difíciles.",
             icon:
-              "lock-keyhole"
-
+              "shield"
           },
 
           {
-
             text:
-              "Se cuestionan normas y decisiones.",
-
+              "Mantener vínculos significativos.",
             icon:
-              "messages-square"
-
+              "users"
           },
 
           {
-
             text:
-              "La opinión de los pares cobra mayor importancia.",
-
+              "Adaptarse a los cambios.",
             icon:
-              "users-round"
+              "refresh-cw"
+          },
 
+          {
+            text:
+              "Pedir ayuda cuando resulte necesario.",
+            icon:
+              "hand-helping"
           }
 
         ]
@@ -316,7 +335,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         items: "stagger-up",
 
-        stagger: 450
+        stagger: 420
 
       }
 
@@ -324,166 +343,21 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 04 — ESCUCHAR DETRÁS DE LAS PALABRAS
+       ESCENA 04 — CUÁNDO PRESTAR MAYOR ATENCIÓN
+       01:36 → 02:43
     ------------------------------------------------------ */
 
     {
 
       id: "escena-04",
 
-      type: "image-focus",
-
-      start: 58,
-
-      end: 82,
-
-      transitionIn: "camera",
-
-      transitionOut: "fade",
-
-      background: {
-
-        type: "image",
-
-        source:
-          "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/conversacion-familiar.jpg",
-
-        overlay: 0.64,
-
-        fit: "cover",
-
-        position: "center"
-
-      },
-
-      content: {
-
-        eyebrow:
-          "Comprender antes de responder",
-
-        title:
-          "Detrás de cada palabra también hay una emoción.",
-
-        text:
-          "Escuchar implica atender lo que se dice, lo que se siente y también aquello que cuesta expresar."
-
-      },
-
-      animation: {
-
-        image: "ken-burns",
-
-        title: "fade-up",
-
-        text: "fade-up"
-
-      }
-
-    },
-
-
-    /* -----------------------------------------------------
-       ESCENA 05 — BARRERAS Y ALTERNATIVAS
-    ------------------------------------------------------ */
-
-    {
-
-      id: "escena-05",
-
-      type: "comparison",
-
-      start: 82,
-
-      end: 110,
-
-      transitionIn: "fade",
-
-      transitionOut: "particles",
-
-      background: {
-
-        type: "ambient",
-
-        variant: "navy"
-
-      },
-
-      content: {
-
-        eyebrow:
-          "Dos maneras de comunicarnos",
-
-        title:
-          "Algunas respuestas generan distancia. Otras abren diálogo.",
-
-        left: {
-
-          label:
-            "Lo que dificulta",
-
-          items: [
-
-            "Interrumpir.",
-
-            "Minimizar emociones.",
-
-            "Etiquetar.",
-
-            "Comparar."
-
-          ]
-
-        },
-
-        right: {
-
-          label:
-            "Lo que favorece",
-
-          items: [
-
-            "Escuchar con atención.",
-
-            "Validar lo que siente.",
-
-            "Preguntar antes de suponer.",
-
-            "Acompañar sin invadir."
-
-          ]
-
-        }
-
-      },
-
-      animation: {
-
-        title: "fade-up",
-
-        left: "slide-left",
-
-        right: "slide-right"
-
-      }
-
-    },
-
-
-    /* -----------------------------------------------------
-       ESCENA 06 — FRASE CENTRAL
-    ------------------------------------------------------ */
-
-    {
-
-      id: "escena-06",
-
       type: "quote",
 
-      start: 110,
+      start: 96,
 
-      end: 130,
+      end: 163,
 
-      transitionIn: "particles",
+      transitionIn: "camera",
 
       transitionOut: "light",
 
@@ -500,10 +374,10 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         quote:
-          "Validar una emoción no significa aprobar cualquier conducta.",
+          "No todo malestar significa que exista un problema de salud mental.",
 
         continuation:
-          "Significa reconocer lo que el otro está sintiendo antes de orientar."
+          "Cuando se vuelve intenso, persiste en el tiempo o interfiere significativamente con la vida cotidiana, puede ser necesario prestar mayor atención."
 
       },
 
@@ -521,18 +395,19 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 07 — HERRAMIENTAS PRÁCTICAS
+       ESCENA 05 — FACTORES PROTECTORES
+       02:43 → 03:20
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-07",
+      id: "escena-05",
 
       type: "tools",
 
-      start: 130,
+      start: 163,
 
-      end: 166,
+      end: 200,
 
       transitionIn: "light",
 
@@ -542,17 +417,19 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         type: "gradient",
 
-        variant: "institutional"
+        variant: "institutional",
+
+        particles: true
 
       },
 
       content: {
 
         eyebrow:
-          "Herramientas para el diálogo",
+          "Factores protectores",
 
         title:
-          "Tres actitudes que fortalecen la comunicación.",
+          "Hay recursos que pueden fortalecerse todos los días.",
 
         tools: [
 
@@ -562,10 +439,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "01",
 
             title:
-              "Escuchar antes de responder",
+              "Vínculos",
 
             text:
-              "No toda conversación necesita una solución inmediata."
+              "Familia, amistades y adultos significativos disponibles."
 
           },
 
@@ -575,10 +452,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "02",
 
             title:
-              "Preguntar con interés genuino",
+              "Hábitos",
 
             text:
-              "Las preguntas abiertas permiten comprender mejor lo que está viviendo."
+              "Sueño, alimentación, movimiento y espacios de recreación."
 
           },
 
@@ -588,10 +465,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "03",
 
             title:
-              "Hablar con claridad y respeto",
+              "Recursos emocionales",
 
             text:
-              "Los límites pueden expresarse sin ironías, etiquetas ni desvalorizaciones."
+              "Expresar emociones, resolver problemas y pedir ayuda."
 
           }
 
@@ -613,22 +490,407 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 08 — SÍNTESIS
+       ESCENA 06 — FACTORES DE RIESGO
+       03:20 → 03:57
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-06",
+
+      type: "concept-list",
+
+      start: 200,
+
+      end: 237,
+
+      transitionIn: "fade",
+
+      transitionOut: "camera",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "navy",
+
+        particles: true
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Factores de riesgo",
+
+        title:
+          "Algunas situaciones pueden aumentar la vulnerabilidad emocional.",
+
+        items: [
+
+          {
+            text:
+              "Aislamiento persistente.",
+            icon:
+              "user-round-x"
+          },
+
+          {
+            text:
+              "Violencia o maltrato.",
+            icon:
+              "triangle-alert"
+          },
+
+          {
+            text:
+              "Acoso escolar o digital.",
+            icon:
+              "messages-square"
+          },
+
+          {
+            text:
+              "Experiencias traumáticas o pérdidas significativas.",
+            icon:
+              "cloud-rain"
+          },
+
+          {
+            text:
+              "Consumo problemático o conflictos familiares severos.",
+            icon:
+              "shield-alert"
+          }
+
+        ]
+
+      },
+
+      animation: {
+
+        title: "fade-up",
+
+        items: "stagger-up",
+
+        stagger: 400
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 07 — RIESGO NO SIGNIFICA DESTINO
+       03:57 → 04:34
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-07",
+
+      type: "statement",
+
+      start: 237,
+
+      end: 274,
+
+      transitionIn: "camera",
+
+      transitionOut: "light",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "soft-gold",
+
+        particles: true
+
+      },
+
+      content: {
+
+        text:
+          "Riesgo no significa destino.",
+
+        secondaryText:
+          "Identificar una situación de vulnerabilidad permite comprender mejor lo que ocurre y acompañar de manera temprana."
+
+      },
+
+      emphasis: [
+
+        "Riesgo",
+
+        "acompañar"
+
+      ],
+
+      animation: {
+
+        text: "words-reveal",
+
+        secondaryText: "fade-up",
+
+        delay: 400
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 08 — SEÑALES DE ALERTA
+       04:34 → 05:02
     ------------------------------------------------------ */
 
     {
 
       id: "escena-08",
 
-      type: "summary",
+      type: "concept-list",
 
-      start: 166,
+      start: 274,
 
-      end: 190,
+      end: 302,
+
+      transitionIn: "light",
+
+      transitionOut: "fade",
+
+      background: {
+
+        type: "gradient",
+
+        variant: "institutional",
+
+        particles: true
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Señales de alerta",
+
+        title:
+          "Algunos cambios merecen una mirada más atenta.",
+
+        items: [
+
+          {
+            text:
+              "Cambios intensos y persistentes del estado de ánimo.",
+            icon:
+              "activity"
+          },
+
+          {
+            text:
+              "Aislamiento progresivo.",
+            icon:
+              "user-round-minus"
+          },
+
+          {
+            text:
+              "Pérdida de interés.",
+            icon:
+              "circle-minus"
+          },
+
+          {
+            text:
+              "Alteraciones importantes del sueño o del apetito.",
+            icon:
+              "moon"
+          },
+
+          {
+            text:
+              "Desesperanza o conductas de riesgo.",
+            icon:
+              "triangle-alert"
+          }
+
+        ]
+
+      },
+
+      animation: {
+
+        title: "fade-up",
+
+        items: "stagger-up",
+
+        stagger: 350
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 09 — ANSIEDAD Y DEPRESIÓN
+       05:02 → 05:55
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-09",
+
+      type: "comparison",
+
+      start: 302,
+
+      end: 355,
 
       transitionIn: "fade",
 
+      transitionOut: "particles",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "navy",
+
+        particles: true
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Ansiedad y depresión",
+
+        title:
+          "Importan la intensidad, la duración y la repercusión.",
+
+        left: {
+
+          label:
+            "Ansiedad",
+
+          items: [
+
+            "Preocupación excesiva.",
+
+            "Inquietud o tensión.",
+
+            "Dificultad para relajarse.",
+
+            "Necesidad intensa de controlar."
+
+          ]
+
+        },
+
+        right: {
+
+          label:
+            "Manifestaciones depresivas",
+
+          items: [
+
+            "Tristeza persistente.",
+
+            "Irritabilidad marcada.",
+
+            "Pérdida de interés.",
+
+            "Baja autoestima o desesperanza."
+
+          ]
+
+        }
+
+      },
+
+      animation: {
+
+        title: "fade-up",
+
+        left: "slide-left",
+
+        right: "slide-right"
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 10 — AUTOLESIONES
+       05:55 → 06:17
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-10",
+
+      type: "quote",
+
+      start: 355,
+
+      end: 377,
+
+      transitionIn: "particles",
+
       transitionOut: "light",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "gold-focus",
+
+        particles: true
+
+      },
+
+      content: {
+
+        quote:
+          "Toda manifestación de sufrimiento merece ser escuchada.",
+
+        continuation:
+          "Las autolesiones no deben minimizarse ni interpretarse simplemente como una búsqueda de atención."
+
+      },
+
+      animation: {
+
+        quote: "words-reveal",
+
+        continuation: "fade-up",
+
+        delay: 500
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 11 — EXPRESIONES DE DESESPERANZA
+       06:17 → 06:35
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-11",
+
+      type: "statement",
+
+      start: 377,
+
+      end: 395,
+
+      transitionIn: "light",
+
+      transitionOut: "fade",
 
       background: {
 
@@ -642,21 +904,170 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       content: {
 
+        text:
+          "Hay expresiones que siempre deben ser tomadas en serio.",
+
+        secondaryText:
+          "Escuchar, permanecer presentes y buscar ayuda profesional cuando exista riesgo."
+
+      },
+
+      emphasis: [
+
+        "tomadas en serio",
+
+        "ayuda"
+
+      ],
+
+      animation: {
+
+        text: "words-reveal",
+
+        secondaryText: "fade-up",
+
+        delay: 350
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 12 — CONSUMO PROBLEMÁTICO
+       06:35 → 06:53
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-12",
+
+      type: "statement",
+
+      start: 395,
+
+      end: 413,
+
+      transitionIn: "fade",
+
+      transitionOut: "light",
+
+      background: {
+
+        type: "ambient",
+
+        variant: "soft-gold",
+
+        particles: true
+
+      },
+
+      content: {
+
+        text:
+          "No todo consumo implica necesariamente una adicción.",
+
+        secondaryText:
+          "Los cambios bruscos, el deterioro cotidiano, los ocultamientos o los conflictos reiterados merecen atención."
+
+      },
+
+      emphasis: [
+
+        "atención"
+
+      ],
+
+      animation: {
+
+        text: "words-reveal",
+
+        secondaryText: "fade-up",
+
+        delay: 350
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
+       ESCENA 13 — ACOMPAÑAR
+       06:53 → 07:08
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-13",
+
+      type: "tools",
+
+      start: 413,
+
+      end: 428,
+
+      transitionIn: "light",
+
+      transitionOut: "fade",
+
+      background: {
+
+        type: "gradient",
+
+        variant: "institutional",
+
+        particles: true
+
+      },
+
+      content: {
+
         eyebrow:
-          "Para recordar",
+          "Acompañar",
 
         title:
-          "La comunicación se construye en lo cotidiano.",
+          "No necesitamos tener todas las respuestas.",
 
-        points: [
+        tools: [
 
-          "Crear momentos compartidos favorece el diálogo.",
+          {
 
-          "Reconocer los propios errores también enseña.",
+            number:
+              "01",
 
-          "Los conflictos pueden convertirse en oportunidades de aprendizaje.",
+            title:
+              "Escuchar",
 
-          "Escuchar fortalece la confianza y el vínculo familiar."
+            text:
+              "Sin juzgar ni apresurarse a resolver."
+
+          },
+
+          {
+
+            number:
+              "02",
+
+            title:
+              "Validar",
+
+            text:
+              "Reconocer el sufrimiento sin minimizarlo."
+
+          },
+
+          {
+
+            number:
+              "03",
+
+            title:
+              "Pedir ayuda",
+
+            text:
+              "Consultar cuando la situación lo requiere."
+
+          }
 
         ]
 
@@ -666,9 +1077,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
         title: "fade-up",
 
-        points: "stagger-fade",
+        tools: "stagger-up",
 
-        stagger: 400
+        stagger: 450
 
       }
 
@@ -676,20 +1087,21 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 09 — CIERRE
+       ESCENA 14 — CIERRE
+       07:08 → 07:16
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-09",
+      id: "escena-14",
 
       type: "closing",
 
-      start: 190,
+      start: 428,
 
-      end: 232,
+      end: 436,
 
-      transitionIn: "light",
+      transitionIn: "fade",
 
       transitionOut: "fade",
 
@@ -709,10 +1121,10 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Escuchar también es una forma de amar.",
+          "Lo que te pasa me importa.",
 
         text:
-          "La disponibilidad emocional, el respeto y la coherencia ayudan a sostener el vínculo incluso en las conversaciones difíciles.",
+          "La escucha, la presencia y la posibilidad de pedir ayuda pueden convertirse en recursos fundamentales de cuidado.",
 
         nextModule: {
 
@@ -720,7 +1132,7 @@ window.FALCO_LX_MODULE = Object.freeze({
             "Próximo encuentro",
 
           title:
-            "Emociones y autoestima"
+            "Proyecto de vida y cierre"
 
         }
 
@@ -748,84 +1160,87 @@ window.FALCO_LX_MODULE = Object.freeze({
   chapters: [
 
     {
-
       time: 0,
-
       label:
-        "Presentación"
-
+        "Bienvenida"
     },
 
     {
-
-      time: 14,
-
+      time: 35,
       label:
-        "La comunicación cambia"
-
+        "Una etapa de cambios"
     },
 
     {
-
-      time: 34,
-
+      time: 62,
       label:
-        "Nuevas formas de diálogo"
-
+        "Qué es la salud mental"
     },
 
     {
-
-      time: 58,
-
+      time: 96,
       label:
-        "Escuchar emociones"
-
+        "Cuándo prestar atención"
     },
 
     {
-
-      time: 82,
-
+      time: 163,
       label:
-        "Barreras y alternativas"
-
+        "Factores protectores"
     },
 
     {
-
-      time: 110,
-
+      time: 200,
       label:
-        "Validación emocional"
-
+        "Factores de riesgo"
     },
 
     {
-
-      time: 130,
-
+      time: 237,
       label:
-        "Herramientas prácticas"
-
+        "Riesgo no significa destino"
     },
 
     {
-
-      time: 166,
-
+      time: 274,
       label:
-        "Síntesis"
-
+        "Señales de alerta"
     },
 
     {
+      time: 302,
+      label:
+        "Ansiedad y depresión"
+    },
 
-      time: 190,
+    {
+      time: 355,
+      label:
+        "Autolesiones"
+    },
 
+    {
+      time: 377,
+      label:
+        "Expresiones de desesperanza"
+    },
+
+    {
+      time: 395,
+      label:
+        "Consumo problemático"
+    },
+
+    {
+      time: 413,
+      label:
+        "Cómo acompañar"
+    },
+
+    {
+      time: 428,
       label:
         "Cierre"
-
     }
 
   ],
@@ -837,7 +1252,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   metadata: {
 
-    estimatedMinutes: 4,
+    estimatedMinutes: 8,
 
     category:
       "Orientación familiar",
@@ -856,15 +1271,29 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     keywords: [
 
-      "comunicación",
-
-      "escucha activa",
-
-      "validación emocional",
+      "salud mental",
 
       "adolescencia",
 
-      "vínculo familiar"
+      "factores protectores",
+
+      "factores de riesgo",
+
+      "señales de alerta",
+
+      "ansiedad",
+
+      "depresión",
+
+      "autolesiones",
+
+      "conducta suicida",
+
+      "consumo problemático",
+
+      "acompañamiento",
+
+      "prevención"
 
     ]
 

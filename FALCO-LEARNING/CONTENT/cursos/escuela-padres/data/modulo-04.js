@@ -1,8 +1,9 @@
+
 /* =========================================================
    FALCO® LEARNING EXPERIENCE™
    ESCUELA PARA PADRES FALCO®
-   MÓDULO 02 — COMUNICACIÓN EFECTIVA
-   Archivo: modulo-02.js
+   MÓDULO 04 — LÍMITES Y NORMAS EN LA ADOLESCENCIA
+   Archivo: modulo-04.js
 ========================================================= */
 
 "use strict";
@@ -14,30 +15,35 @@ window.FALCO_LX_MODULE = Object.freeze({
      IDENTIDAD DEL MÓDULO
   ======================================================= */
 
-  id: "modulo-02",
+  id: "modulo-04",
 
   courseId: "escuela-padres",
 
-  number: 2,
+  number: 4,
 
-  title: "Comunicación efectiva",
+  title: "Límites y normas en la adolescencia",
 
   subtitle:
-    "Escuchar, comprender y construir confianza.",
+    "Acompañar con firmeza, claridad y respeto.",
 
   eyebrow:
     "Escuela para Padres FALCO®",
 
   /*
-   * Duración provisoria.
-   * La ajustaremos exactamente después de generar la voz.
+   * Duración real aproximada de las cuatro narraciones:
+   * Parte 01: 48.48 s
+   * Parte 02: 44.90 s
+   * Parte 03: 75.47 s
+   * Parte 04: 95.35 s
+   *
+   * Total: 264.20 s
    */
 
-  duration: 232,
+  duration: 264.2,
 
   language: "es-AR",
 
-  version: "1.0.0",
+  version: "1.2.0",
 
 
   /* =======================================================
@@ -46,37 +52,46 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   media: {
 
-    /*
-     * Las narraciones se cargarán después de generar
-     * los archivos de voz definitivos.
-     */
-
     narrations: [
 
-  {
-    id: "parte-01",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-01.mp3",
-    start: 0
-  },
+      {
+        id: "parte-01",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-04-parte-01.mp3",
+        start: 0
+      },
 
-  {
-    id: "parte-02",
-    source:
-      "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-02-parte-02.mp3",
-    start: 109.5
-  }
+      {
+        id: "parte-02",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-04-parte-02.mp3",
+        start: 48.48
+      },
 
-],
+      {
+        id: "parte-03",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-04-parte-03.mp3",
+        start: 93.38
+      },
+
+      {
+        id: "parte-04",
+        source:
+          "./CONTENT/cursos/escuela-padres/audio/narraciones/modulo-04-parte-04.mp3",
+        start: 168.85
+      }
+
+    ],
 
     music:
       "./THEME/audio/music/falco-learning-base.mp3",
 
     imageDirectory:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/",
+      "./CONTENT/cursos/escuela-padres/imagenes/modulo-04/",
 
     poster:
-      "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/portada.jpg"
+      "./CONTENT/cursos/escuela-padres/imagenes/modulo-04/portada.jpg"
 
   },
 
@@ -126,7 +141,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       start: 0,
 
-      end: 14,
+      end: 12.28,
 
       transitionIn: "fade",
 
@@ -148,13 +163,13 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Módulo 2",
+          "Módulo 4",
 
         subtitle:
-          "Comunicación efectiva",
+          "Límites y normas en la adolescencia",
 
         supportingText:
-          "Escuchar, comprender y construir confianza."
+          "Acompañar con firmeza, claridad y respeto."
 
       },
 
@@ -172,7 +187,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 02 — FRASE DE APERTURA
+       ESCENA 02 — SENTIDO DE LOS LÍMITES
     ------------------------------------------------------ */
 
     {
@@ -181,9 +196,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "statement",
 
-      start: 14,
+      start: 12.28,
 
-      end: 34,
+      end: 34.15,
 
       transitionIn: "light",
 
@@ -202,18 +217,18 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         text:
-          "Durante la adolescencia también cambia la manera de comunicarse.",
+          "Poner límites no significa controlar cada decisión.",
 
         secondaryText:
-          "El diálogo necesita nuevas formas de encuentro."
+          "Significa ofrecer un marco que brinde seguridad, orientación y previsibilidad."
 
       },
 
       emphasis: [
 
-        "comunicarse",
+        "límites",
 
-        "encuentro"
+        "seguridad"
 
       ],
 
@@ -231,7 +246,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 03 — CAMBIOS EN LA COMUNICACIÓN
+       ESCENA 03 — QUÉ NECESITAN LOS ADOLESCENTES
     ------------------------------------------------------ */
 
     {
@@ -240,9 +255,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "concept-list",
 
-      start: 34,
+      start: 34.15,
 
-      end: 58,
+      end: 72.34,
 
       transitionIn: "fade",
 
@@ -259,50 +274,50 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         eyebrow:
-          "Una comunicación que evoluciona",
+          "Un marco que acompaña",
 
         title:
-          "El vínculo permanece, aunque el diálogo cambie.",
+          "Los adolescentes necesitan autonomía, pero también referencias claras.",
 
         items: [
 
           {
 
             text:
-              "Aparecen silencios y respuestas más breves.",
+              "Saber qué se espera de ellos.",
 
             icon:
-              "message-circle"
+              "compass"
 
           },
 
           {
 
             text:
-              "Crece la necesidad de intimidad.",
+              "Conocer las consecuencias de sus decisiones.",
 
             icon:
-              "lock-keyhole"
+              "route"
 
           },
 
           {
 
             text:
-              "Se cuestionan normas y decisiones.",
+              "Sentir que las reglas tienen un fundamento.",
 
             icon:
-              "messages-square"
+              "scale"
 
           },
 
           {
 
             text:
-              "La opinión de los pares cobra mayor importancia.",
+              "Encontrar adultos coherentes y disponibles.",
 
             icon:
-              "users-round"
+              "users"
 
           }
 
@@ -324,81 +339,22 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 04 — ESCUCHAR DETRÁS DE LAS PALABRAS
+       ESCENA 04 — AUTORIDAD Y AUTORITARISMO
     ------------------------------------------------------ */
 
     {
 
       id: "escena-04",
 
-      type: "image-focus",
+      type: "comparison",
 
-      start: 58,
+      start: 72.34,
 
-      end: 82,
+      end: 109.52,
 
       transitionIn: "camera",
 
       transitionOut: "fade",
-
-      background: {
-
-        type: "image",
-
-        source:
-          "./CONTENT/cursos/escuela-padres/imagenes/modulo-02/conversacion-familiar.jpg",
-
-        overlay: 0.64,
-
-        fit: "cover",
-
-        position: "center"
-
-      },
-
-      content: {
-
-        eyebrow:
-          "Comprender antes de responder",
-
-        title:
-          "Detrás de cada palabra también hay una emoción.",
-
-        text:
-          "Escuchar implica atender lo que se dice, lo que se siente y también aquello que cuesta expresar."
-
-      },
-
-      animation: {
-
-        image: "ken-burns",
-
-        title: "fade-up",
-
-        text: "fade-up"
-
-      }
-
-    },
-
-
-    /* -----------------------------------------------------
-       ESCENA 05 — BARRERAS Y ALTERNATIVAS
-    ------------------------------------------------------ */
-
-    {
-
-      id: "escena-05",
-
-      type: "comparison",
-
-      start: 82,
-
-      end: 110,
-
-      transitionIn: "fade",
-
-      transitionOut: "particles",
 
       background: {
 
@@ -411,25 +367,25 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         eyebrow:
-          "Dos maneras de comunicarnos",
+          "No es lo mismo",
 
         title:
-          "Algunas respuestas generan distancia. Otras abren diálogo.",
+          "La autoridad orienta. El autoritarismo impone.",
 
         left: {
 
           label:
-            "Lo que dificulta",
+            "Autoritarismo",
 
           items: [
 
-            "Interrumpir.",
+            "Ordena sin explicar.",
 
-            "Minimizar emociones.",
+            "Descalifica o amenaza.",
 
-            "Etiquetar.",
+            "Exige obediencia inmediata.",
 
-            "Comparar."
+            "Reduce el espacio de diálogo."
 
           ]
 
@@ -438,17 +394,17 @@ window.FALCO_LX_MODULE = Object.freeze({
         right: {
 
           label:
-            "Lo que favorece",
+            "Autoridad saludable",
 
           items: [
 
-            "Escuchar con atención.",
+            "Explica con claridad.",
 
-            "Validar lo que siente.",
+            "Escucha sin perder el rol adulto.",
 
-            "Preguntar antes de suponer.",
+            "Sostiene consecuencias proporcionales.",
 
-            "Acompañar sin invadir."
+            "Mantiene criterios consistentes."
 
           ]
 
@@ -470,20 +426,20 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 06 — FRASE CENTRAL
+       ESCENA 05 — COHERENCIA
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-06",
+      id: "escena-05",
 
       type: "quote",
 
-      start: 110,
+      start: 109.52,
 
-      end: 130,
+      end: 133.15,
 
-      transitionIn: "particles",
+      transitionIn: "fade",
 
       transitionOut: "light",
 
@@ -500,10 +456,10 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         quote:
-          "Validar una emoción no significa aprobar cualquier conducta.",
+          "Un límite pierde fuerza cuando cambia según el enojo del adulto.",
 
         continuation:
-          "Significa reconocer lo que el otro está sintiendo antes de orientar."
+          "La coherencia genera previsibilidad y ayuda a construir confianza."
 
       },
 
@@ -521,18 +477,18 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
-       ESCENA 07 — HERRAMIENTAS PRÁCTICAS
+       ESCENA 06 — CÓMO FORMULAR UNA NORMA
     ------------------------------------------------------ */
 
     {
 
-      id: "escena-07",
+      id: "escena-06",
 
       type: "tools",
 
-      start: 130,
+      start: 133.15,
 
-      end: 166,
+      end: 168.85,
 
       transitionIn: "light",
 
@@ -549,10 +505,10 @@ window.FALCO_LX_MODULE = Object.freeze({
       content: {
 
         eyebrow:
-          "Herramientas para el diálogo",
+          "Una norma clara",
 
         title:
-          "Tres actitudes que fortalecen la comunicación.",
+          "Tres claves para establecer límites que puedan sostenerse.",
 
         tools: [
 
@@ -562,10 +518,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "01",
 
             title:
-              "Escuchar antes de responder",
+              "Ser concreto",
 
             text:
-              "No toda conversación necesita una solución inmediata."
+              "La norma debe indicar con claridad qué se espera y en qué situación."
 
           },
 
@@ -575,10 +531,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "02",
 
             title:
-              "Preguntar con interés genuino",
+              "Explicar el motivo",
 
             text:
-              "Las preguntas abiertas permiten comprender mejor lo que está viviendo."
+              "Comprender el sentido de una regla facilita su aceptación."
 
           },
 
@@ -588,10 +544,10 @@ window.FALCO_LX_MODULE = Object.freeze({
               "03",
 
             title:
-              "Hablar con claridad y respeto",
+              "Definir consecuencias",
 
             text:
-              "Los límites pueden expresarse sin ironías, etiquetas ni desvalorizaciones."
+              "Las consecuencias deben ser conocidas, posibles y proporcionales."
 
           }
 
@@ -613,6 +569,65 @@ window.FALCO_LX_MODULE = Object.freeze({
 
 
     /* -----------------------------------------------------
+       ESCENA 07 — NEGOCIAR SIN CEDER EL ROL
+    ------------------------------------------------------ */
+
+    {
+
+      id: "escena-07",
+
+      type: "image-focus",
+
+      start: 168.85,
+
+      end: 207.15,
+
+      transitionIn: "fade",
+
+      transitionOut: "camera",
+
+      background: {
+
+        type: "image",
+
+        source:
+          "./CONTENT/cursos/escuela-padres/imagenes/modulo-04/acuerdo-familiar.jpg",
+
+        overlay: 0.64,
+
+        fit: "cover",
+
+        position: "center"
+
+      },
+
+      content: {
+
+        eyebrow:
+          "Flexibilidad con criterio",
+
+        title:
+          "Escuchar una propuesta no significa perder autoridad.",
+
+        text:
+          "Algunas normas pueden revisarse a medida que aumenta la responsabilidad. Otras deben mantenerse porque protegen la salud, la seguridad o el bienestar familiar."
+
+      },
+
+      animation: {
+
+        image: "ken-burns",
+
+        title: "fade-up",
+
+        text: "fade-up"
+
+      }
+
+    },
+
+
+    /* -----------------------------------------------------
        ESCENA 08 — SÍNTESIS
     ------------------------------------------------------ */
 
@@ -622,11 +637,11 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "summary",
 
-      start: 166,
+      start: 207.15,
 
-      end: 190,
+      end: 237.58,
 
-      transitionIn: "fade",
+      transitionIn: "camera",
 
       transitionOut: "light",
 
@@ -646,17 +661,17 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Para recordar",
 
         title:
-          "La comunicación se construye en lo cotidiano.",
+          "Los límites también son una forma de cuidado.",
 
         points: [
 
-          "Crear momentos compartidos favorece el diálogo.",
+          "Las normas necesitan claridad y coherencia.",
 
-          "Reconocer los propios errores también enseña.",
+          "El diálogo no elimina el rol adulto.",
 
-          "Los conflictos pueden convertirse en oportunidades de aprendizaje.",
+          "Las consecuencias deben guardar relación con la conducta.",
 
-          "Escuchar fortalece la confianza y el vínculo familiar."
+          "La autonomía se construye de manera progresiva."
 
         ]
 
@@ -685,9 +700,9 @@ window.FALCO_LX_MODULE = Object.freeze({
 
       type: "closing",
 
-      start: 190,
+      start: 237.58,
 
-      end: 232,
+      end: 264.2,
 
       transitionIn: "light",
 
@@ -709,10 +724,10 @@ window.FALCO_LX_MODULE = Object.freeze({
           "Escuela para Padres FALCO®",
 
         title:
-          "Escuchar también es una forma de amar.",
+          "Acompañar también implica sostener.",
 
         text:
-          "La disponibilidad emocional, el respeto y la coherencia ayudan a sostener el vínculo incluso en las conversaciones difíciles.",
+          "Una presencia adulta firme, respetuosa y previsible ofrece al adolescente un marco desde el cual explorar su autonomía con mayor seguridad.",
 
         nextModule: {
 
@@ -720,7 +735,7 @@ window.FALCO_LX_MODULE = Object.freeze({
             "Próximo encuentro",
 
           title:
-            "Emociones y autoestima"
+            "Autonomía y responsabilidad"
 
         }
 
@@ -758,61 +773,61 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     {
 
-      time: 14,
+      time: 12.28,
 
       label:
-        "La comunicación cambia"
+        "El sentido de los límites"
 
     },
 
     {
 
-      time: 34,
+      time: 34.15,
 
       label:
-        "Nuevas formas de diálogo"
+        "Autonomía y referencias"
 
     },
 
     {
 
-      time: 58,
+      time: 72.34,
 
       label:
-        "Escuchar emociones"
+        "Autoridad saludable"
 
     },
 
     {
 
-      time: 82,
+      time: 109.52,
 
       label:
-        "Barreras y alternativas"
+        "Coherencia"
 
     },
 
     {
 
-      time: 110,
+      time: 133.15,
 
       label:
-        "Validación emocional"
+        "Cómo establecer una norma"
 
     },
 
     {
 
-      time: 130,
+      time: 168.85,
 
       label:
-        "Herramientas prácticas"
+        "Negociar con criterio"
 
     },
 
     {
 
-      time: 166,
+      time: 207.15,
 
       label:
         "Síntesis"
@@ -821,7 +836,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     {
 
-      time: 190,
+      time: 237.58,
 
       label:
         "Cierre"
@@ -837,7 +852,7 @@ window.FALCO_LX_MODULE = Object.freeze({
 
   metadata: {
 
-    estimatedMinutes: 4,
+    estimatedMinutes: 5,
 
     category:
       "Orientación familiar",
@@ -856,15 +871,19 @@ window.FALCO_LX_MODULE = Object.freeze({
 
     keywords: [
 
-      "comunicación",
+      "límites",
 
-      "escucha activa",
-
-      "validación emocional",
+      "normas",
 
       "adolescencia",
 
-      "vínculo familiar"
+      "autoridad",
+
+      "autonomía",
+
+      "responsabilidad",
+
+      "familia"
 
     ]
 
