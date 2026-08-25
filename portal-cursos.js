@@ -41,7 +41,7 @@ const CONFIG = {
     "./escuela-admin/shared/firebase/firebase-config.js",
 
   loginUrl:
-    "escuela-login.html",
+  "FALCO-CMS-V2/ecosistema-falco.html#acceso",
 
   cursoPrincipalId:
     "escuela-para-padres",
