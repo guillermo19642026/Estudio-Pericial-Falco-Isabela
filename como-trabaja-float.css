@@ -1,0 +1,359 @@
+/* =========================================================
+   FALCO® · AVISO FLOTANTE
+   CÓMO TRABAJA EL ESTUDIO
+========================================================= */
+
+.falco-como-trabaja-float {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9998;
+
+  width: min(255px, calc(100vw - 32px));
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 22, 38, 0.97),
+      rgba(5, 13, 25, 0.98)
+    );
+
+  border: 1px solid rgba(214, 180, 108, 0.34);
+  border-radius: 16px;
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation: falcoComoTrabajaEntrada 0.65s ease 0.8s forwards;
+}
+
+
+/* Línea dorada superior */
+
+.falco-como-trabaja-float::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(240, 216, 154, 0.7),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   ENLACE
+========================================================= */
+
+.falco-como-trabaja-float__enlace {
+  display: block;
+
+  padding: 12px 38px 11px 16px;
+
+  color: #f5f7fb;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.falco-como-trabaja-float__enlace:hover {
+  background: rgba(214, 180, 108, 0.05);
+}
+
+
+/* =========================================================
+   TEXTO SUPERIOR
+========================================================= */
+
+.falco-como-trabaja-float__eyebrow {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: #d6b46c;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.falco-como-trabaja-float__enlace strong {
+  display: block;
+
+  max-width: 185px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.88rem;
+  line-height: 1.2;
+  font-weight: 600;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   ACCIÓN
+========================================================= */
+
+.falco-como-trabaja-float__accion {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 4px;
+
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  color: #c7d0dd;
+}
+
+
+.falco-como-trabaja-float__accion b {
+  font-size: 0.85rem;
+  font-weight: 400;
+
+  color: #d6b46c;
+
+  transition: transform 0.22s ease;
+}
+
+
+.falco-como-trabaja-float__enlace:hover
+.falco-como-trabaja-float__accion b {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.falco-como-trabaja-float__cerrar {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+
+  z-index: 2;
+
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease;
+}
+
+
+.falco-como-trabaja-float__cerrar:hover {
+  color: #f0d89a;
+
+  border-color: rgba(214, 180, 108, 0.4);
+
+  background: rgba(214, 180, 108, 0.08);
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.falco-como-trabaja-float.is-closing {
+  animation: falcoComoTrabajaSalida 0.3s ease forwards;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
+@keyframes falcoComoTrabajaEntrada {
+
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes falcoComoTrabajaSalida {
+
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .falco-como-trabaja-float {
+    right: 18px;
+    bottom: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .falco-como-trabaja-float {
+    right: 10px;
+    bottom: 10px;
+
+    width: min(205px, calc(100vw - 20px));
+
+    border-radius: 13px;
+  }
+
+
+  .falco-como-trabaja-float::before {
+    left: 13px;
+    right: 13px;
+  }
+
+
+  .falco-como-trabaja-float__enlace {
+    padding: 10px 32px 9px 12px;
+  }
+
+
+  .falco-como-trabaja-float__eyebrow {
+    margin-bottom: 1px;
+
+    font-size: 0.49rem;
+    letter-spacing: 0.09em;
+  }
+
+
+  .falco-como-trabaja-float__enlace strong {
+    max-width: 150px;
+
+    font-size: 0.77rem;
+    line-height: 1.16;
+  }
+
+
+  .falco-como-trabaja-float__accion {
+    margin-top: 3px;
+
+    gap: 5px;
+
+    font-size: 0.59rem;
+  }
+
+
+  .falco-como-trabaja-float__accion b {
+    font-size: 0.75rem;
+  }
+
+
+  .falco-como-trabaja-float__cerrar {
+    top: 5px;
+    right: 5px;
+
+    width: 20px;
+    height: 20px;
+
+    font-size: 0.78rem;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .falco-como-trabaja-float {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+
+  .falco-como-trabaja-float.is-closing {
+    animation: none;
+    opacity: 0;
+  }
+
+
+  .falco-como-trabaja-float__cerrar,
+  .falco-como-trabaja-float__accion b {
+    transition: none;
+  }
+
+}

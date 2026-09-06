@@ -1,0 +1,1798 @@
+/* =========================================================
+   ESTUDIO PERICIAL PSICOLÓGICO FALCO®
+   CÓMO TRABAJA EL ESTUDIO
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+  --ef-bg: #07111f;
+  --ef-bg-soft: #0b1728;
+  --ef-bg-card: rgba(13, 27, 45, 0.82);
+  --ef-bg-card-strong: rgba(15, 31, 52, 0.94);
+
+  --ef-gold: #d6b46c;
+  --ef-gold-light: #f0d89a;
+  --ef-gold-soft: rgba(214, 180, 108, 0.16);
+
+  --ef-text: #f5f7fb;
+  --ef-text-soft: #c7d0dd;
+  --ef-text-muted: #8f9bad;
+
+  --ef-border: rgba(255, 255, 255, 0.10);
+  --ef-border-gold: rgba(214, 180, 108, 0.34);
+
+  --ef-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+
+  --ef-radius-lg: 28px;
+  --ef-radius-md: 20px;
+  --ef-radius-sm: 14px;
+
+  --ef-shell: 1180px;
+}
+
+
+/* =========================================================
+   RESET LOCAL
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.ef-proceso-page {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(39, 74, 118, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 85% 18%,
+      rgba(214, 180, 108, 0.08),
+      transparent 24%
+    ),
+    var(--ef-bg);
+
+  color: var(--ef-text);
+
+  font-family:
+    Inter,
+    Montserrat,
+    Arial,
+    sans-serif;
+}
+
+body.ef-proceso-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.ef-proceso-page img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
+   ATMÓSFERA
+   ========================================================= */
+
+.ef-proceso-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  pointer-events: none;
+
+  opacity: 0.025;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.7) 0,
+      rgba(255,255,255,0.7) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+.ef-proceso-glow {
+  position: fixed;
+  z-index: -4;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(100px);
+}
+
+.ef-proceso-glow--one {
+  width: 520px;
+  height: 520px;
+  top: -190px;
+  left: -180px;
+
+  background: rgba(35, 88, 150, 0.20);
+}
+
+.ef-proceso-glow--two {
+  width: 460px;
+  height: 460px;
+  right: -170px;
+  top: 260px;
+
+  background: rgba(214, 180, 108, 0.08);
+}
+
+
+/* =========================================================
+   ESTRUCTURA GENERAL
+   ========================================================= */
+
+.ef-proceso-shell {
+  width: min(
+    var(--ef-shell),
+    calc(100% - 80px)
+  );
+
+  margin: 0 auto;
+}
+
+.ef-proceso-section {
+  position: relative;
+  padding: 110px 0;
+}
+
+.ef-proceso-section--dark {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 12, 22, 0.38),
+      rgba(6, 15, 27, 0.86)
+    );
+
+  border-top: 1px solid var(--ef-border);
+  border-bottom: 1px solid var(--ef-border);
+}
+
+.ef-proceso-section--accent {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(214, 180, 108, 0.06),
+      rgba(10, 24, 41, 0.96)
+    );
+
+  border-top: 1px solid var(--ef-border-gold);
+  border-bottom: 1px solid var(--ef-border-gold);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.ef-proceso-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(7, 17, 31, 0.84);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--ef-border);
+}
+
+.ef-proceso-header__inner {
+  min-height: 86px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 30px;
+}
+
+.ef-proceso-brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ef-proceso-brand__eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--ef-text-muted);
+}
+
+.ef-proceso-brand strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ef-gold-light);
+}
+
+.ef-proceso-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.ef-proceso-nav a {
+  position: relative;
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+
+  color: var(--ef-text-soft);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ef-proceso-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+
+  height: 1px;
+
+  background: var(--ef-gold);
+
+  transition: right 0.25s ease;
+}
+
+.ef-proceso-nav a:hover {
+  color: var(--ef-gold-light);
+  transform: translateY(-1px);
+}
+
+.ef-proceso-nav a:hover::after {
+  right: 0;
+}
+
+.ef-proceso-back {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 18px;
+
+  border: 1px solid var(--ef-border-gold);
+  border-radius: 999px;
+
+  color: var(--ef-gold-light);
+
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ef-proceso-back:hover {
+  background: var(--ef-gold-soft);
+  border-color: var(--ef-gold);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.ef-proceso-hero {
+  position: relative;
+  min-height: 760px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 120px 0 100px;
+}
+
+.ef-proceso-hero::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: min(1180px, calc(100% - 80px));
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(214, 180, 108, 0.34),
+      transparent
+    );
+}
+
+.ef-proceso-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 48px;
+
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ef-text-muted);
+}
+
+.ef-proceso-hero__eyebrow span {
+  width: 58px;
+  height: 1px;
+
+  background: var(--ef-gold);
+}
+
+.ef-proceso-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.75fr);
+  gap: 70px;
+  align-items: center;
+}
+
+.ef-proceso-overline {
+  margin: 0 0 12px;
+
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-hero h1 {
+  margin: 0;
+
+  max-width: 780px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(58px, 7vw, 104px);
+  line-height: 0.98;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-hero h1 em {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--ef-gold-light);
+
+  font-weight: 500;
+}
+
+.ef-proceso-hero__lead {
+  max-width: 760px;
+
+  margin: 34px 0 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(23px, 2.7vw, 34px);
+  line-height: 1.35;
+
+  color: var(--ef-text-soft);
+}
+
+.ef-proceso-hero__text {
+  max-width: 720px;
+
+  margin: 26px 0 0;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: var(--ef-text-muted);
+}
+
+.ef-proceso-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 38px;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.ef-proceso-btn {
+  min-height: 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 24px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ef-proceso-btn:hover {
+  transform: translateY(-2px);
+}
+
+.ef-proceso-btn--gold {
+  background:
+    linear-gradient(
+      135deg,
+      var(--ef-gold-light),
+      var(--ef-gold)
+    );
+
+  color: #09121f;
+
+  box-shadow:
+    0 18px 40px rgba(214, 180, 108, 0.18);
+}
+
+.ef-proceso-btn--gold:hover {
+  box-shadow:
+    0 22px 50px rgba(214, 180, 108, 0.26);
+}
+
+.ef-proceso-btn--outline {
+  border: 1px solid var(--ef-border-gold);
+
+  color: var(--ef-gold-light);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.ef-proceso-btn--outline:hover {
+  background: var(--ef-gold-soft);
+  border-color: var(--ef-gold);
+}
+
+
+/* =========================================================
+   HERO STATEMENT
+   ========================================================= */
+
+.ef-proceso-hero__statement {
+  position: relative;
+
+  padding: 46px 40px;
+
+  border: 1px solid var(--ef-border-gold);
+  border-radius: var(--ef-radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(214, 180, 108, 0.08),
+      rgba(11, 23, 40, 0.88)
+    );
+
+  box-shadow: var(--ef-shadow);
+}
+
+.ef-proceso-hero__statement::before {
+  content: "";
+
+  position: absolute;
+  inset: 14px;
+
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: calc(var(--ef-radius-lg) - 10px);
+
+  pointer-events: none;
+}
+
+.ef-proceso-hero__statement > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ef-proceso-hero__statement span {
+  display: block;
+
+  margin-bottom: 24px;
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-hero__statement strong {
+  display: block;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  line-height: 1.34;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-hero__statement p {
+  margin: 24px 0 0;
+
+  font-size: 15px;
+  line-height: 1.75;
+
+  color: var(--ef-text-soft);
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.ef-proceso-heading {
+  max-width: 900px;
+
+  margin-bottom: 54px;
+}
+
+.ef-proceso-kicker {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-heading h2,
+.ef-proceso-budget__heading h2,
+.ef-proceso-interview h2,
+.ef-proceso-audience h2,
+.ef-proceso-current h2 {
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-heading h2 em,
+.ef-proceso-budget__heading h2 em,
+.ef-proceso-interview h2 em,
+.ef-proceso-audience h2 em,
+.ef-proceso-current h2 em {
+  color: var(--ef-gold-light);
+  font-weight: 500;
+}
+
+.ef-proceso-heading__lead {
+  max-width: 720px;
+
+  margin: 24px 0 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.ef-proceso-intro {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+}
+
+.ef-proceso-intro p {
+  margin: 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.ef-proceso-intro__lead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 25px !important;
+  line-height: 1.55 !important;
+
+  color: var(--ef-text) !important;
+}
+
+.ef-proceso-principle {
+  margin-top: 50px;
+  padding: 28px 30px;
+
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+
+  border-left: 2px solid var(--ef-gold);
+
+  background: rgba(255,255,255,0.025);
+}
+
+.ef-proceso-principle span {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-principle p {
+  margin: 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   OPCIONES
+   ========================================================= */
+
+.ef-proceso-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.ef-proceso-option {
+  position: relative;
+
+  min-height: 330px;
+
+  padding: 34px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--ef-border);
+  border-radius: var(--ef-radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.035),
+      rgba(255,255,255,0.012)
+    );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.ef-proceso-option:hover {
+  transform: translateY(-5px);
+  border-color: var(--ef-border-gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(214,180,108,0.07),
+      rgba(255,255,255,0.018)
+    );
+}
+
+.ef-proceso-option__number {
+  position: absolute;
+  right: 24px;
+  top: 18px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 72px;
+
+  color: rgba(214, 180, 108, 0.08);
+}
+
+.ef-proceso-option__type {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-option h3 {
+  margin: 0;
+
+  max-width: 430px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 31px;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-option p {
+  max-width: 510px;
+
+  margin: 20px 0 0;
+
+  font-size: 15px;
+  line-height: 1.78;
+
+  color: var(--ef-text-soft);
+}
+
+.ef-proceso-option small {
+  display: block;
+
+  margin-top: 24px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--ef-border);
+
+  color: var(--ef-text-muted);
+
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   PRIMER CONTACTO
+   ========================================================= */
+
+.ef-proceso-contact-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.ef-proceso-contact-copy p {
+  margin: 0 0 22px;
+
+  color: var(--ef-text-soft);
+
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.ef-proceso-contact-data {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ef-proceso-contact-data article {
+  min-height: 190px;
+
+  padding: 26px;
+
+  border: 1px solid var(--ef-border);
+  border-radius: var(--ef-radius-sm);
+
+  background: rgba(255,255,255,0.02);
+}
+
+.ef-proceso-contact-data article span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--ef-gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px;
+}
+
+.ef-proceso-contact-data article strong {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--ef-text);
+
+  font-size: 15px;
+}
+
+.ef-proceso-contact-data article p {
+  margin: 0;
+
+  color: var(--ef-text-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PRESUPUESTOS
+   ========================================================= */
+
+.ef-proceso-budget {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.ef-proceso-budget__content p {
+  margin: 0 0 22px;
+
+  color: var(--ef-text-soft);
+
+  font-size: 16px;
+  line-height: 1.86;
+}
+
+.ef-proceso-budget__lead {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px !important;
+  line-height: 1.6 !important;
+
+  color: var(--ef-text) !important;
+}
+
+.ef-proceso-budget__highlight {
+  margin-top: 48px;
+
+  padding: 34px 36px;
+
+  border: 1px solid var(--ef-border-gold);
+  border-radius: var(--ef-radius-md);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(214,180,108,0.10),
+      rgba(255,255,255,0.018)
+    );
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.18);
+}
+
+.ef-proceso-budget__highlight span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-budget__highlight strong {
+  display: block;
+
+  max-width: 900px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.35;
+  font-weight: 500;
+
+  color: var(--ef-gold-light);
+}
+
+
+/* =========================================================
+   CONSULTA PROFESIONAL
+   ========================================================= */
+
+.ef-proceso-professional {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+}
+
+.ef-proceso-professional__lead p {
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  line-height: 1.55;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-professional__items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ef-proceso-professional__items article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 16px;
+  align-items: start;
+
+  min-height: 110px;
+
+  padding: 20px;
+
+  border: 1px solid var(--ef-border);
+  border-radius: var(--ef-radius-sm);
+
+  background: rgba(255,255,255,0.018);
+}
+
+.ef-proceso-professional__items span {
+  color: var(--ef-gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+}
+
+.ef-proceso-professional__items p {
+  margin: 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ef-proceso-professional__notice {
+  margin-top: 46px;
+
+  padding: 30px 34px;
+
+  border-left: 2px solid var(--ef-gold);
+
+  background: rgba(214,180,108,0.055);
+}
+
+.ef-proceso-professional__notice strong {
+  display: block;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+
+  color: var(--ef-gold-light);
+}
+
+.ef-proceso-professional__notice p {
+  margin: 10px 0 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   ENTREVISTA
+   ========================================================= */
+
+.ef-proceso-interview {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.ef-proceso-interview__content p {
+  margin: 0 0 24px;
+
+  color: var(--ef-text-soft);
+
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+.ef-proceso-interview__content strong {
+  display: block;
+
+  margin-top: 32px;
+  padding-top: 26px;
+
+  border-top: 1px solid var(--ef-border-gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 25px;
+  line-height: 1.45;
+  font-weight: 500;
+
+  color: var(--ef-gold-light);
+}
+
+
+/* =========================================================
+   DECISIÓN
+   ========================================================= */
+
+.ef-proceso-decision {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ef-proceso-decision article {
+  position: relative;
+
+  min-height: 260px;
+
+  padding: 30px;
+
+  border: 1px solid var(--ef-border);
+  border-radius: var(--ef-radius-md);
+
+  background: var(--ef-bg-card);
+}
+
+.ef-proceso-decision article > span {
+  display: block;
+
+  margin-bottom: 26px;
+
+  width: 46px;
+  height: 46px;
+
+  border: 1px solid var(--ef-border-gold);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--ef-gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+}
+
+.ef-proceso-decision h3 {
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 27px;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-decision p {
+  margin: 18px 0 0;
+
+  color: var(--ef-text-muted);
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROPUESTA
+   ========================================================= */
+
+.ef-proceso-proposal {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ef-proceso-proposal article {
+  min-height: 150px;
+
+  padding: 26px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid var(--ef-border);
+  border-radius: var(--ef-radius-sm);
+
+  background: rgba(255,255,255,0.02);
+}
+
+.ef-proceso-proposal article span {
+  color: var(--ef-gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 21px;
+}
+
+.ef-proceso-proposal article strong {
+  color: var(--ef-text);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ef-proceso-proposal__closing {
+  max-width: 880px;
+
+  margin: 36px 0 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PASOS
+   ========================================================= */
+
+.ef-proceso-steps {
+  display: grid;
+  gap: 0;
+}
+
+.ef-proceso-steps article {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 30px;
+
+  position: relative;
+
+  padding: 30px 0;
+
+  border-bottom: 1px solid var(--ef-border);
+}
+
+.ef-proceso-step__number {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 42px;
+
+  color: var(--ef-gold);
+}
+
+.ef-proceso-steps article > div:last-child span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: var(--ef-text-muted);
+}
+
+.ef-proceso-steps h3 {
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 27px;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-steps p {
+  max-width: 660px;
+
+  margin: 10px 0 0;
+
+  color: var(--ef-text-muted);
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   AUDIENCIA
+   ========================================================= */
+
+.ef-proceso-audience {
+  position: relative;
+
+  padding: 110px 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214,180,108,0.07),
+      transparent 60%
+    );
+}
+
+.ef-proceso-audience h2 {
+  max-width: 850px;
+}
+
+.ef-proceso-audience__grid {
+  margin-top: 48px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ef-proceso-audience__grid span {
+  padding: 14px 22px;
+
+  border: 1px solid var(--ef-border-gold);
+  border-radius: 999px;
+
+  color: var(--ef-text-soft);
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+
+  background: rgba(255,255,255,0.016);
+}
+
+
+/* =========================================================
+   CONTINUAR
+   ========================================================= */
+
+.ef-proceso-current {
+  position: relative;
+
+  padding: 120px 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0a1728,
+      #08111f 66%
+    );
+
+  border-top: 1px solid var(--ef-border-gold);
+}
+
+.ef-proceso-current .ef-proceso-shell {
+  position: relative;
+}
+
+.ef-proceso-current__content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 800px;
+}
+
+.ef-proceso-current__content > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--ef-gold);
+
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ef-proceso-current__content > p {
+  max-width: 720px;
+
+  margin: 28px 0 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 17px;
+  line-height: 1.82;
+}
+
+.ef-proceso-current__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 36px;
+}
+
+.ef-proceso-current__note {
+  margin-top: 28px !important;
+
+  padding-top: 24px;
+
+  border-top: 1px solid var(--ef-border);
+
+  color: var(--ef-text-muted) !important;
+
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+}
+
+.ef-proceso-current__mark {
+  position: absolute;
+
+  right: -10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 330px;
+  line-height: 1;
+
+  color: rgba(214, 180, 108, 0.045);
+
+  user-select: none;
+}
+
+
+/* =========================================================
+   CIERRE
+   ========================================================= */
+
+.ef-proceso-closing {
+  padding: 105px 0;
+
+  text-align: center;
+
+  border-top: 1px solid var(--ef-border);
+}
+
+.ef-proceso-closing blockquote {
+  max-width: 930px;
+
+  margin: 0 auto;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(28px, 4vw, 50px);
+  line-height: 1.35;
+  font-weight: 500;
+
+  color: var(--ef-text);
+}
+
+.ef-proceso-closing > .ef-proceso-shell > span {
+  display: block;
+
+  margin-top: 30px;
+
+  color: var(--ef-gold);
+
+  font-size: 10px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.ef-proceso-footer {
+  padding: 70px 0 28px;
+
+  border-top: 1px solid var(--ef-border);
+
+  background: #050d18;
+}
+
+.ef-proceso-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr;
+  gap: 60px;
+}
+
+.ef-proceso-footer__grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ef-proceso-footer__grid span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--ef-text-muted);
+
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ef-proceso-footer__grid strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--ef-gold-light);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.ef-proceso-footer__grid p,
+.ef-proceso-footer__grid a {
+  margin: 5px 0;
+
+  color: var(--ef-text-soft);
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.ef-proceso-footer__grid a:hover {
+  color: var(--ef-gold-light);
+}
+
+.ef-proceso-footer__bottom {
+  margin-top: 54px;
+  padding-top: 22px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  border-top: 1px solid var(--ef-border);
+
+  color: var(--ef-text-muted);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   ANIMACIÓN SUTIL
+   ========================================================= */
+
+@keyframes efProcesoFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ef-proceso-hero__content,
+.ef-proceso-hero__statement {
+  animation:
+    efProcesoFadeUp 0.9s ease both;
+}
+
+.ef-proceso-hero__statement {
+  animation-delay: 0.12s;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .ef-proceso-shell {
+    width: min(
+      var(--ef-shell),
+      calc(100% - 48px)
+    );
+  }
+
+  .ef-proceso-header__inner {
+    grid-template-columns: auto auto;
+  }
+
+  .ef-proceso-nav {
+    display: none;
+  }
+
+  .ef-proceso-back {
+    justify-self: end;
+  }
+
+  .ef-proceso-hero {
+    min-height: auto;
+  }
+
+  .ef-proceso-hero__grid,
+  .ef-proceso-intro,
+  .ef-proceso-contact-grid,
+  .ef-proceso-budget,
+  .ef-proceso-professional,
+  .ef-proceso-interview {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .ef-proceso-hero__statement {
+    max-width: 720px;
+  }
+
+  .ef-proceso-decision {
+    grid-template-columns: 1fr;
+  }
+
+  .ef-proceso-proposal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  .ef-proceso-shell {
+    width: calc(100% - 32px);
+  }
+
+  .ef-proceso-section,
+  .ef-proceso-audience {
+    padding: 78px 0;
+  }
+
+  .ef-proceso-header__inner {
+    min-height: 74px;
+    gap: 16px;
+  }
+
+  .ef-proceso-brand__eyebrow {
+    font-size: 8px;
+  }
+
+  .ef-proceso-brand strong {
+    font-size: 23px;
+  }
+
+  .ef-proceso-back {
+    min-height: 38px;
+    padding: 0 13px;
+
+    font-size: 9px;
+  }
+
+  .ef-proceso-hero {
+    padding: 86px 0 78px;
+  }
+
+  .ef-proceso-hero::after {
+    width: calc(100% - 32px);
+  }
+
+  .ef-proceso-hero__eyebrow {
+    margin-bottom: 34px;
+  }
+
+  .ef-proceso-hero h1 {
+    font-size: clamp(48px, 15vw, 72px);
+  }
+
+  .ef-proceso-hero__lead {
+    font-size: 23px;
+  }
+
+  .ef-proceso-hero__text {
+    font-size: 15px;
+  }
+
+  .ef-proceso-hero__actions,
+  .ef-proceso-current__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ef-proceso-btn {
+    width: 100%;
+  }
+
+  .ef-proceso-hero__statement {
+    padding: 34px 26px;
+  }
+
+  .ef-proceso-hero__statement strong {
+    font-size: 25px;
+  }
+
+  .ef-proceso-heading {
+    margin-bottom: 38px;
+  }
+
+  .ef-proceso-heading h2,
+  .ef-proceso-budget__heading h2,
+  .ef-proceso-interview h2,
+  .ef-proceso-audience h2,
+  .ef-proceso-current h2 {
+    font-size: 38px;
+  }
+
+  .ef-proceso-intro__lead,
+  .ef-proceso-budget__lead,
+  .ef-proceso-professional__lead p {
+    font-size: 21px !important;
+  }
+
+  .ef-proceso-principle {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ef-proceso-options,
+  .ef-proceso-contact-data,
+  .ef-proceso-professional__items,
+  .ef-proceso-proposal {
+    grid-template-columns: 1fr;
+  }
+
+  .ef-proceso-option {
+    min-height: auto;
+  }
+
+  .ef-proceso-option__number {
+    font-size: 56px;
+  }
+
+  .ef-proceso-budget__highlight {
+    padding: 26px;
+  }
+
+  .ef-proceso-decision article {
+    min-height: auto;
+  }
+
+  .ef-proceso-steps article {
+    grid-template-columns: 68px 1fr;
+    gap: 18px;
+  }
+
+  .ef-proceso-step__number {
+    font-size: 32px;
+  }
+
+  .ef-proceso-audience__grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ef-proceso-audience__grid span {
+    text-align: center;
+  }
+
+  .ef-proceso-current {
+    padding: 86px 0;
+  }
+
+  .ef-proceso-current__mark {
+    right: -70px;
+
+    font-size: 240px;
+  }
+
+  .ef-proceso-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ef-proceso-footer__bottom {
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .ef-proceso-shell {
+    width: calc(100% - 24px);
+  }
+
+  .ef-proceso-header__inner {
+    min-height: 70px;
+  }
+
+  .ef-proceso-brand__eyebrow {
+    display: none;
+  }
+
+  .ef-proceso-back {
+    padding: 0 10px;
+  }
+
+  .ef-proceso-hero {
+    padding-top: 70px;
+  }
+
+  .ef-proceso-hero h1 {
+    font-size: 48px;
+  }
+
+  .ef-proceso-hero__lead {
+    font-size: 21px;
+  }
+
+  .ef-proceso-option,
+  .ef-proceso-contact-data article,
+  .ef-proceso-budget__highlight,
+  .ef-proceso-decision article {
+    padding: 22px;
+  }
+
+  .ef-proceso-option h3 {
+    font-size: 27px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}

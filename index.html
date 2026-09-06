@@ -112,6 +112,14 @@
   href="destacados-falco.css"
 >
 
+
+<!-- Aviso flotante · Cómo trabaja el Estudio -->
+<link rel="stylesheet" href="como-trabaja-float.css">
+
+
+
+
+
 <link rel="icon" href="img/favicon.png?v=3">
 
 <link rel="shortcut icon" href="img/favicon.png?v=3">
@@ -129,6 +137,53 @@ html {
 </head>
 
 <body>
+
+
+
+<!-- =====================================================
+     AVISO FLOTANTE · CÓMO TRABAJA EL ESTUDIO
+====================================================== -->
+
+<aside
+  class="falco-como-trabaja-float"
+  id="falcoComoTrabajaFloat"
+  aria-label="Información sobre la modalidad de trabajo del Estudio"
+>
+
+  <button
+    type="button"
+    class="falco-como-trabaja-float__cerrar"
+    id="falcoComoTrabajaCerrar"
+    aria-label="Cerrar aviso"
+  >
+    ×
+  </button>
+
+  <a
+    href="como-trabaja-el-estudio.html"
+    class="falco-como-trabaja-float__enlace"
+  >
+
+    <span class="falco-como-trabaja-float__eyebrow">
+      Antes de consultar
+    </span>
+
+    <strong>
+      Conozca cómo trabaja el Estudio
+    </strong>
+
+    <span class="falco-como-trabaja-float__accion">
+      Leer información
+      <b aria-hidden="true">→</b>
+    </span>
+
+  </a>
+
+</aside>
+
+<!-- FIN AVISO FLOTANTE -->
+
+
 
 <!-- NEURONAL -->
 <canvas id="neuronal-bg"></canvas>
@@ -6592,6 +6647,28 @@ function toggleInfoTests(){
   defer
 ></script>
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const aviso = document.getElementById("falcoComoTrabajaFloat");
+  const cerrar = document.getElementById("falcoComoTrabajaCerrar");
+
+  if (!aviso || !cerrar) return;
+
+  cerrar.addEventListener("click", () => {
+
+    aviso.classList.add("is-closing");
+
+    setTimeout(() => {
+      aviso.remove();
+    }, 300);
+
+  });
+
+});
+</script>
 
 
 </body>
