@@ -1,0 +1,1389 @@
+/* =========================================================
+   FALCO® · INICIARSE EN LA PRÁCTICA PERICIAL
+   Estudio Pericial Psicológico FALCO®
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --ip-bg: #050d19;
+  --ip-bg-soft: #081321;
+  --ip-panel: rgba(11, 25, 42, 0.78);
+
+  --ip-gold: #d6b46c;
+  --ip-gold-light: #f0d89a;
+
+  --ip-text: #f5f7fb;
+  --ip-muted: #aeb9c8;
+  --ip-muted-2: #7f8da0;
+
+  --ip-border: rgba(255, 255, 255, 0.08);
+  --ip-border-gold: rgba(214, 180, 108, 0.24);
+
+  --ip-shell: 1180px;
+
+  --ip-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --ip-sans: Inter, Montserrat, Arial, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 18% 0%,
+      rgba(40, 72, 108, 0.18),
+      transparent 34%
+    ),
+    var(--ip-bg);
+
+  color: var(--ip-text);
+
+  font-family: var(--ip-sans);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   ESTRUCTURA GENERAL
+========================================================= */
+
+.ip-shell {
+  width: min(var(--ip-shell), calc(100% - 80px));
+  margin-inline: auto;
+}
+
+.ip-section-number {
+  margin: 0 0 8px;
+
+  color: var(--ip-gold);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.ip-section-kicker,
+.ip-eyebrow {
+  margin: 0;
+
+  color: var(--ip-gold);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ip-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 42px;
+
+  background: rgba(5, 13, 25, 0.86);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.ip-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ip-brand__main {
+  font-family: var(--ip-serif);
+  font-size: 1.18rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.ip-brand__sub {
+  color: var(--ip-muted);
+
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.ip-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.ip-nav a {
+  position: relative;
+
+  color: #c7d0dd;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+.ip-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--ip-gold);
+
+  transition: width 0.25s ease;
+}
+
+.ip-nav a:hover {
+  color: #ffffff;
+}
+
+.ip-nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ip-hero {
+  position: relative;
+
+  min-height: 94vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 150px 0 90px;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-hero__atmosphere {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.ip-hero__glow {
+  position: absolute;
+
+  width: 760px;
+  height: 760px;
+
+  top: -220px;
+  right: -170px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(46, 83, 122, 0.25),
+      rgba(214, 180, 108, 0.05) 43%,
+      transparent 70%
+    );
+}
+
+.ip-hero__line {
+  position: absolute;
+
+  left: 15%;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(214, 180, 108, 0.18),
+      transparent
+    );
+}
+
+.ip-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.ip-eyebrow {
+  margin-bottom: 26px;
+}
+
+.ip-hero h1 {
+  max-width: 1000px;
+
+  margin: 0;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(3.2rem, 6.6vw, 6.8rem);
+  line-height: 0.96;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+}
+
+.ip-hero h1 span {
+  display: block;
+
+  margin-top: 13px;
+
+  color: var(--ip-gold-light);
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-hero__lead {
+  max-width: 730px;
+
+  margin: 36px 0 0;
+
+  color: #c2ccd9;
+
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.ip-hero__secondary {
+  max-width: 690px;
+
+  margin: 18px 0 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.ip-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 42px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.ip-button {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 0 22px;
+
+  border-radius: 3px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.ip-button:hover {
+  transform: translateY(-2px);
+}
+
+.ip-button--primary {
+  color: #08111c;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0d89a,
+      #d6b46c
+    );
+
+  border: 1px solid var(--ip-gold);
+}
+
+.ip-button--primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #f6e4b4,
+      #dfc17c
+    );
+}
+
+.ip-button--ghost {
+  color: #e8edf3;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.ip-button--ghost:hover {
+  border-color: rgba(214, 180, 108, 0.4);
+  color: var(--ip-gold-light);
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.ip-intro {
+  padding: 120px 0;
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-intro__grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 80px;
+}
+
+.ip-intro__content {
+  max-width: 820px;
+}
+
+.ip-intro__content h2 {
+  margin: 0;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+  line-height: 1.06;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-intro__content h2 span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-intro__lead {
+  margin: 34px 0 20px;
+
+  color: #d7dde6;
+
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.ip-intro__content > p:last-child {
+  max-width: 730px;
+
+  margin: 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   CABECERA DE SECCIONES
+========================================================= */
+
+.ip-section-header {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 80px;
+
+  margin-bottom: 60px;
+}
+
+.ip-section-header > div:last-child {
+  max-width: 780px;
+}
+
+.ip-section-header h2 {
+  margin: 0;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.06;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-section-header h2 span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-section-header > div:last-child > p {
+  max-width: 620px;
+
+  margin: 24px 0 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   ACOMPAÑAMIENTO
+========================================================= */
+
+.ip-support {
+  padding: 120px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012),
+      transparent
+    );
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-support__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid var(--ip-border);
+  border-left: 1px solid var(--ip-border);
+}
+
+.ip-support-card {
+  position: relative;
+
+  min-height: 335px;
+
+  padding: 34px 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.018),
+      rgba(255, 255, 255, 0.004)
+    );
+
+  border-right: 1px solid var(--ip-border);
+  border-bottom: 1px solid var(--ip-border);
+
+  overflow: hidden;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.ip-support-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 2px;
+  height: 100%;
+
+  background: var(--ip-gold);
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 0.3s ease;
+}
+
+.ip-support-card:hover {
+  background: rgba(214, 180, 108, 0.052);
+
+  border-color: rgba(214, 180, 108, 0.22);
+}
+
+.ip-support-card:hover::before {
+  transform: scaleY(1);
+}
+
+.ip-support-card__number {
+  color: var(--ip-gold);
+
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.ip-support-card__label {
+  margin: 36px 0 10px;
+
+  color: var(--ip-muted-2);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ip-support-card h3 {
+  margin: 0;
+
+  font-family: var(--ip-serif);
+  font-size: 1.55rem;
+  line-height: 1.22;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-support-card > p:last-child {
+  margin: 21px 0 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.81rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   ESCRITOS PROFESIONALES
+========================================================= */
+
+.ip-documents {
+  padding: 125px 0;
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-documents__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 90px;
+  align-items: start;
+}
+
+.ip-documents__intro {
+  position: sticky;
+  top: 120px;
+}
+
+.ip-documents__intro h2 {
+  margin: 24px 0 24px;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2.2rem, 4vw, 3.9rem);
+  line-height: 1.06;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-documents__intro h2 span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-documents__intro > p:last-child {
+  max-width: 520px;
+
+  margin: 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+.ip-documents__list {
+  border-top: 1px solid var(--ip-border);
+}
+
+.ip-document-item {
+  min-height: 68px;
+
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 20px;
+  align-items: center;
+
+  padding: 0 18px;
+
+  border-bottom: 1px solid var(--ip-border);
+
+  transition:
+    background 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.ip-document-item:hover {
+  padding-left: 24px;
+
+  background: rgba(214, 180, 108, 0.045);
+}
+
+.ip-document-item span {
+  color: var(--ip-gold);
+
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.ip-document-item strong {
+  color: #d9e0e8;
+
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DICTAMEN
+========================================================= */
+
+.ip-report {
+  padding: 150px 0;
+
+  text-align: center;
+
+  border-bottom: 1px solid var(--ip-border);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214, 180, 108, 0.06),
+      transparent 48%
+    );
+}
+
+.ip-report__inner {
+  max-width: 880px;
+
+  margin-inline: auto;
+}
+
+.ip-report h2 {
+  margin: 25px 0 32px;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2.7rem, 5.7vw, 5.7rem);
+  line-height: 1.02;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-report h2 span {
+  display: block;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-report__inner > p:last-child {
+  max-width: 730px;
+
+  margin: 0 auto;
+
+  color: var(--ip-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   AUTONOMÍA PROFESIONAL
+========================================================= */
+
+.ip-autonomy {
+  padding: 125px 0;
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-autonomy__grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 80px;
+}
+
+.ip-autonomy__grid > div:last-child {
+  max-width: 800px;
+}
+
+.ip-autonomy h2 {
+  margin: 0;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+  line-height: 1.06;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-autonomy h2 span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-autonomy__grid > div:last-child > p {
+  max-width: 720px;
+
+  color: var(--ip-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+.ip-autonomy__grid > div:last-child > p:first-of-type {
+  margin-top: 30px;
+
+  color: #d5dce5;
+
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   ALCANCE
+========================================================= */
+
+.ip-scope {
+  padding: 100px 0;
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-scope__box {
+  max-width: 950px;
+
+  margin-inline: auto;
+
+  padding: 55px 60px;
+
+  border: 1px solid var(--ip-border-gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(214, 180, 108, 0.055),
+      rgba(11, 25, 42, 0.38)
+    );
+}
+
+.ip-scope h2 {
+  margin: 22px 0 27px;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
+  line-height: 1.08;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-scope h2 span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-scope__box > p:not(.ip-section-kicker) {
+  max-width: 760px;
+
+  color: var(--ip-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   MODALIDAD
+========================================================= */
+
+.ip-mode {
+  padding: 120px 0;
+
+  border-bottom: 1px solid var(--ip-border);
+}
+
+.ip-mode__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid var(--ip-border);
+  border-left: 1px solid var(--ip-border);
+}
+
+.ip-mode-card {
+  min-height: 280px;
+
+  padding: 32px 28px;
+
+  border-right: 1px solid var(--ip-border);
+  border-bottom: 1px solid var(--ip-border);
+
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.ip-mode-card:hover {
+  background: rgba(214, 180, 108, 0.05);
+  border-color: rgba(214, 180, 108, 0.22);
+}
+
+.ip-mode-card > span {
+  color: var(--ip-gold);
+
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ip-mode-card h3 {
+  margin: 35px 0 20px;
+
+  font-family: var(--ip-serif);
+  font-size: 1.5rem;
+  line-height: 1.24;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-mode-card p {
+  margin: 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.81rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+
+.ip-contact {
+  padding: 105px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 29, 48, 0.95),
+      rgba(5, 13, 25, 0.98)
+    );
+
+  border-bottom: 1px solid var(--ip-border-gold);
+}
+
+.ip-contact__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 70px;
+  align-items: center;
+}
+
+.ip-contact h2 {
+  max-width: 700px;
+
+  margin: 18px 0 0;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(2.2rem, 4vw, 3.9rem);
+  line-height: 1.07;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-contact h2 span {
+  display: block;
+
+  color: var(--ip-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ip-contact p:not(.ip-section-kicker) {
+  max-width: 620px;
+
+  margin: 24px 0 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.ip-contact__actions {
+  min-width: 245px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.ip-closing {
+  padding: 125px 0;
+
+  text-align: center;
+}
+
+.ip-closing__inner > p {
+  margin: 0;
+
+  color: var(--ip-muted);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.ip-closing h2 {
+  margin: 16px 0 12px;
+
+  font-family: var(--ip-serif);
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+}
+
+.ip-closing span {
+  color: var(--ip-gold);
+
+  font-family: var(--ip-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.ip-footer {
+  padding: 70px 0 25px;
+
+  background: #030914;
+
+  border-top: 1px solid var(--ip-border);
+}
+
+.ip-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 70px;
+
+  padding-bottom: 60px;
+}
+
+.ip-footer__grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ip-footer strong {
+  font-family: var(--ip-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.ip-footer p {
+  margin: 0;
+
+  color: var(--ip-muted-2);
+
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.ip-footer__grid > div > span {
+  margin-bottom: 7px;
+
+  color: var(--ip-gold);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ip-footer a {
+  color: var(--ip-muted);
+
+  font-size: 0.72rem;
+
+  transition: color 0.2s ease;
+}
+
+.ip-footer a:hover {
+  color: var(--ip-gold-light);
+}
+
+.ip-footer__bottom {
+  width: min(var(--ip-shell), calc(100% - 80px));
+
+  margin-inline: auto;
+
+  padding-top: 22px;
+
+  border-top: 1px solid var(--ip-border);
+}
+
+.ip-footer__bottom p {
+  font-size: 0.62rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE · TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .ip-shell {
+    width: min(100% - 44px, var(--ip-shell));
+  }
+
+  .ip-header {
+    padding: 0 22px;
+  }
+
+  .ip-nav {
+    gap: 18px;
+  }
+
+  .ip-intro__grid,
+  .ip-section-header,
+  .ip-autonomy__grid {
+    grid-template-columns: 150px 1fr;
+    gap: 45px;
+  }
+
+  .ip-support__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ip-documents__grid {
+    gap: 55px;
+  }
+
+  .ip-footer__bottom {
+    width: min(100% - 44px, var(--ip-shell));
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE · MÓVIL
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .ip-shell {
+    width: calc(100% - 32px);
+  }
+
+  .ip-header {
+    min-height: 68px;
+
+    padding: 0 16px;
+  }
+
+  .ip-brand__main {
+    font-size: 1rem;
+  }
+
+  .ip-brand__sub {
+    font-size: 0.48rem;
+  }
+
+  .ip-nav {
+    display: none;
+  }
+
+  .ip-hero {
+    min-height: auto;
+
+    padding: 135px 0 88px;
+  }
+
+  .ip-hero__glow {
+    width: 440px;
+    height: 440px;
+
+    top: -80px;
+    right: -250px;
+  }
+
+  .ip-hero__line {
+    left: 16px;
+  }
+
+  .ip-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4.8rem);
+  }
+
+  .ip-hero__lead {
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
+  .ip-hero__secondary {
+    font-size: 0.82rem;
+  }
+
+  .ip-hero__actions {
+    flex-direction: column;
+  }
+
+  .ip-button {
+    width: 100%;
+  }
+
+  .ip-intro,
+  .ip-support,
+  .ip-documents,
+  .ip-autonomy,
+  .ip-mode {
+    padding: 85px 0;
+  }
+
+  .ip-intro__grid,
+  .ip-section-header,
+  .ip-autonomy__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ip-section-header {
+    margin-bottom: 42px;
+  }
+
+  .ip-support__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-support-card {
+    min-height: auto;
+
+    padding: 28px 23px;
+  }
+
+  .ip-documents__grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .ip-documents__intro {
+    position: static;
+  }
+
+  .ip-report {
+    padding: 105px 0;
+  }
+
+  .ip-report h2 {
+    font-size: clamp(2.7rem, 12vw, 4.7rem);
+  }
+
+  .ip-scope {
+    padding: 75px 0;
+  }
+
+  .ip-scope__box {
+    padding: 38px 25px;
+  }
+
+  .ip-mode__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-mode-card {
+    min-height: auto;
+
+    padding: 27px 23px;
+  }
+
+  .ip-contact {
+    padding: 80px 0;
+  }
+
+  .ip-contact__inner {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .ip-contact__actions {
+    min-width: 0;
+  }
+
+  .ip-closing {
+    padding: 100px 0;
+  }
+
+  .ip-footer {
+    padding-top: 55px;
+  }
+
+  .ip-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+
+    padding-bottom: 45px;
+  }
+
+  .ip-footer__bottom {
+    width: calc(100% - 32px);
+  }
+
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .ip-hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .ip-document-item {
+    grid-template-columns: 40px 1fr;
+
+    padding-inline: 10px;
+  }
+
+  .ip-closing h2 {
+    font-size: 3.6rem;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+}

@@ -1,0 +1,1215 @@
+/* =========================================================
+   FALCO® · ÁREA PROFESIONAL
+   PSICÓLOGOS Y PERITOS
+   Estudio Pericial Psicológico FALCO®
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+  --pp-bg: #050d19;
+  --pp-bg-soft: #081321;
+  --pp-panel: rgba(11, 25, 42, 0.76);
+  --pp-panel-strong: rgba(12, 27, 46, 0.94);
+
+  --pp-gold: #d6b46c;
+  --pp-gold-light: #f0d89a;
+  --pp-gold-soft: rgba(214, 180, 108, 0.14);
+
+  --pp-text: #f5f7fb;
+  --pp-muted: #aeb9c8;
+  --pp-muted-2: #7f8da0;
+
+  --pp-border: rgba(255, 255, 255, 0.08);
+  --pp-border-gold: rgba(214, 180, 108, 0.25);
+
+  --pp-shell: 1180px;
+
+  --pp-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --pp-sans: Inter, Montserrat, Arial, sans-serif;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(33, 63, 94, 0.18),
+      transparent 34%
+    ),
+    #050d19;
+
+  color: var(--pp-text);
+
+  font-family: var(--pp-sans);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================================================
+   ESTRUCTURA GENERAL
+========================================================= */
+
+.pp-shell {
+  width: min(var(--pp-shell), calc(100% - 80px));
+  margin-inline: auto;
+}
+
+.pp-section-number {
+  margin: 0 0 8px;
+
+  color: var(--pp-gold);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.pp-section-kicker,
+.pp-eyebrow {
+  margin: 0;
+
+  color: var(--pp-gold);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 42px;
+
+  background: rgba(5, 13, 25, 0.84);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.pp-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pp-brand__main {
+  font-family: var(--pp-serif);
+  font-size: 1.18rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.pp-brand__sub {
+  color: var(--pp-muted);
+
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.pp-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.pp-nav a {
+  position: relative;
+
+  color: #c7d0dd;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  transition: color 0.25s ease;
+}
+
+.pp-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--pp-gold);
+
+  transition: width 0.25s ease;
+}
+
+.pp-nav a:hover {
+  color: #ffffff;
+}
+
+.pp-nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.pp-hero {
+  position: relative;
+
+  min-height: 92vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 150px 0 90px;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid var(--pp-border);
+}
+
+.pp-hero__atmosphere {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.pp-hero__glow {
+  position: absolute;
+
+  width: 680px;
+  height: 680px;
+
+  top: -190px;
+  right: -130px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(48, 83, 120, 0.24),
+      rgba(214, 180, 108, 0.05) 42%,
+      transparent 70%
+    );
+
+  filter: blur(8px);
+}
+
+.pp-hero__line {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 15%;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(214, 180, 108, 0.18),
+      transparent
+    );
+}
+
+.pp-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.pp-eyebrow {
+  margin-bottom: 26px;
+}
+
+.pp-hero h1 {
+  max-width: 900px;
+
+  margin: 0;
+
+  font-family: var(--pp-serif);
+  font-size: clamp(3.4rem, 7vw, 7rem);
+  line-height: 0.94;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+}
+
+.pp-hero h1 span {
+  display: block;
+
+  margin-top: 14px;
+
+  color: var(--pp-gold-light);
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pp-hero__lead {
+  max-width: 670px;
+
+  margin: 38px 0 0;
+
+  color: #bac5d3;
+
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+.pp-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 42px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.pp-button {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 0 22px;
+
+  border-radius: 3px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.pp-button:hover {
+  transform: translateY(-2px);
+}
+
+.pp-button--primary {
+  color: #09111c;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0d89a,
+      #d6b46c
+    );
+
+  border: 1px solid var(--pp-gold);
+}
+
+.pp-button--primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #f6e4b4,
+      #dfc17c
+    );
+}
+
+.pp-button--ghost {
+  color: #e5eaf0;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.pp-button--ghost:hover {
+  border-color: rgba(214, 180, 108, 0.42);
+  color: var(--pp-gold-light);
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+========================================================= */
+
+.pp-intro {
+  padding: 120px 0;
+
+  border-bottom: 1px solid var(--pp-border);
+}
+
+.pp-intro__grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 80px;
+}
+
+.pp-intro__content {
+  max-width: 800px;
+}
+
+.pp-intro__content h2 {
+  margin: 0;
+
+  font-family: var(--pp-serif);
+  font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-intro__content h2 span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--pp-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pp-intro__lead {
+  margin: 34px 0 20px;
+
+  color: #d6dce5;
+
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.pp-intro__content > p:last-child {
+  max-width: 690px;
+
+  margin: 0;
+
+  color: var(--pp-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   CABECERAS DE SECCIÓN
+========================================================= */
+
+.pp-section-header {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 80px;
+
+  margin-bottom: 60px;
+}
+
+.pp-section-header > div:last-child {
+  max-width: 760px;
+}
+
+.pp-section-header h2 {
+  margin: 0;
+
+  font-family: var(--pp-serif);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.06;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-section-header h2 span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: var(--pp-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pp-section-header > div:last-child > p {
+  max-width: 610px;
+
+  margin: 24px 0 0;
+
+  color: var(--pp-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   RECORRIDOS
+========================================================= */
+
+.pp-paths {
+  padding: 120px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012),
+      transparent
+    );
+
+  border-bottom: 1px solid var(--pp-border);
+}
+
+.pp-paths__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--pp-border);
+  border-left: 1px solid var(--pp-border);
+}
+
+.pp-path {
+  position: relative;
+
+  min-height: 300px;
+
+  display: grid;
+  grid-template-columns: 50px 1fr 30px;
+  gap: 20px;
+
+  padding: 36px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.018),
+      rgba(255, 255, 255, 0.005)
+    );
+
+  border-right: 1px solid var(--pp-border);
+  border-bottom: 1px solid var(--pp-border);
+
+  overflow: hidden;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.pp-path::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: var(--pp-gold);
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 0.3s ease;
+}
+
+.pp-path:hover {
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(214, 180, 108, 0.08),
+      rgba(11, 25, 42, 0.34)
+    );
+
+  border-color: rgba(214, 180, 108, 0.25);
+}
+
+.pp-path:hover::before {
+  transform: scaleY(1);
+}
+
+.pp-path__number {
+  padding-top: 3px;
+
+  color: var(--pp-gold);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.pp-path__content {
+  align-self: center;
+}
+
+.pp-path__label {
+  margin: 0 0 10px;
+
+  color: var(--pp-muted-2);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pp-path h3 {
+  max-width: 390px;
+
+  margin: 0;
+
+  font-family: var(--pp-serif);
+  font-size: 1.65rem;
+  line-height: 1.18;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-path__content > p:last-child {
+  max-width: 410px;
+
+  margin: 20px 0 0;
+
+  color: var(--pp-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+.pp-path__arrow {
+  align-self: center;
+  justify-self: end;
+
+  color: var(--pp-gold);
+
+  font-size: 1.2rem;
+
+  transition: transform 0.25s ease;
+}
+
+.pp-path:hover .pp-path__arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   RECURSOS
+========================================================= */
+
+.pp-resources {
+  padding: 120px 0;
+
+  border-bottom: 1px solid var(--pp-border);
+}
+
+.pp-resources__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid var(--pp-border);
+  border-left: 1px solid var(--pp-border);
+}
+
+.pp-resource {
+  position: relative;
+
+  min-height: 210px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 30px;
+
+  border-right: 1px solid var(--pp-border);
+  border-bottom: 1px solid var(--pp-border);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.pp-resource:hover {
+  background: rgba(214, 180, 108, 0.055);
+  border-color: rgba(214, 180, 108, 0.22);
+}
+
+.pp-resource > span {
+  color: var(--pp-gold);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pp-resource strong {
+  max-width: 270px;
+
+  margin: 36px 0;
+
+  font-family: var(--pp-serif);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-resource b {
+  align-self: flex-end;
+
+  color: var(--pp-gold);
+
+  font-size: 1rem;
+  font-weight: 400;
+
+  transition: transform 0.25s ease;
+}
+
+.pp-resource:hover b {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PRINCIPIOS
+========================================================= */
+
+.pp-principles {
+  position: relative;
+
+  padding: 150px 0;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid var(--pp-border);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214, 180, 108, 0.065),
+      transparent 46%
+    );
+}
+
+.pp-principles__inner {
+  max-width: 900px;
+}
+
+.pp-principles h2 {
+  margin: 26px 0 30px;
+
+  font-family: var(--pp-serif);
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  line-height: 1;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-principles h2 span {
+  color: var(--pp-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pp-principles__inner > p:last-child {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: var(--pp-muted);
+
+  font-size: 0.92rem;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   ACCESO SISTEMA FALCO
+========================================================= */
+
+.pp-access {
+  padding: 105px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 29, 48, 0.94),
+      rgba(5, 13, 25, 0.96)
+    );
+
+  border-bottom: 1px solid var(--pp-border-gold);
+}
+
+.pp-access__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 70px;
+}
+
+.pp-access h2 {
+  max-width: 720px;
+
+  margin: 18px 0 0;
+
+  font-family: var(--pp-serif);
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
+  line-height: 1.08;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-access h2 span {
+  display: block;
+
+  color: var(--pp-gold-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pp-access p:not(.pp-section-kicker) {
+  max-width: 620px;
+
+  margin: 24px 0 0;
+
+  color: var(--pp-muted);
+
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.pp-closing {
+  padding: 130px 0;
+
+  text-align: center;
+}
+
+.pp-closing__inner > p {
+  margin: 0;
+
+  color: var(--pp-muted);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.pp-closing h2 {
+  margin: 16px 0 12px;
+
+  font-family: var(--pp-serif);
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+}
+
+.pp-closing span {
+  color: var(--pp-gold);
+
+  font-family: var(--pp-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pp-footer {
+  padding: 70px 0 25px;
+
+  background: #030914;
+
+  border-top: 1px solid var(--pp-border);
+}
+
+.pp-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 70px;
+
+  padding-bottom: 60px;
+}
+
+.pp-footer__grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pp-footer strong {
+  font-family: var(--pp-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  color: #ffffff;
+}
+
+.pp-footer p {
+  margin: 0;
+
+  color: var(--pp-muted-2);
+
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.pp-footer__grid > div > span {
+  margin-bottom: 7px;
+
+  color: var(--pp-gold);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pp-footer a {
+  color: var(--pp-muted);
+
+  font-size: 0.72rem;
+
+  transition: color 0.2s ease;
+}
+
+.pp-footer a:hover {
+  color: var(--pp-gold-light);
+}
+
+.pp-footer__bottom {
+  width: min(var(--pp-shell), calc(100% - 80px));
+
+  margin-inline: auto;
+
+  padding-top: 22px;
+
+  border-top: 1px solid var(--pp-border);
+}
+
+.pp-footer__bottom p {
+  font-size: 0.62rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE · TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .pp-shell {
+    width: min(100% - 44px, var(--pp-shell));
+  }
+
+  .pp-header {
+    padding: 0 22px;
+  }
+
+  .pp-nav {
+    gap: 18px;
+  }
+
+  .pp-intro__grid,
+  .pp-section-header {
+    grid-template-columns: 150px 1fr;
+    gap: 45px;
+  }
+
+  .pp-path {
+    padding: 28px;
+  }
+
+  .pp-resources__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pp-footer__bottom {
+    width: min(100% - 44px, var(--pp-shell));
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE · MÓVIL
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .pp-shell {
+    width: calc(100% - 32px);
+  }
+
+  .pp-header {
+    min-height: 68px;
+
+    padding: 0 16px;
+  }
+
+  .pp-brand__main {
+    font-size: 1rem;
+  }
+
+  .pp-brand__sub {
+    font-size: 0.48rem;
+  }
+
+  .pp-nav {
+    display: none;
+  }
+
+  .pp-hero {
+    min-height: auto;
+
+    padding: 135px 0 90px;
+  }
+
+  .pp-hero__glow {
+    width: 440px;
+    height: 440px;
+
+    top: -80px;
+    right: -250px;
+  }
+
+  .pp-hero__line {
+    left: 16px;
+  }
+
+  .pp-hero h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .pp-hero__lead {
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
+  .pp-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pp-button {
+    width: 100%;
+  }
+
+  .pp-intro,
+  .pp-paths,
+  .pp-resources {
+    padding: 85px 0;
+  }
+
+  .pp-intro__grid,
+  .pp-section-header {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pp-section-header {
+    margin-bottom: 42px;
+  }
+
+  .pp-paths__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-path {
+    min-height: auto;
+
+    grid-template-columns: 36px 1fr 20px;
+
+    gap: 12px;
+
+    padding: 27px 20px;
+  }
+
+  .pp-path h3 {
+    font-size: 1.4rem;
+  }
+
+  .pp-path__content > p:last-child {
+    font-size: 0.78rem;
+  }
+
+  .pp-resources__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pp-resource {
+    min-height: 175px;
+
+    padding: 25px 22px;
+  }
+
+  .pp-principles {
+    padding: 105px 0;
+  }
+
+  .pp-principles h2 {
+    font-size: clamp(2.8rem, 13vw, 4.8rem);
+  }
+
+  .pp-access {
+    padding: 80px 0;
+  }
+
+  .pp-access__inner {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .pp-closing {
+    padding: 100px 0;
+  }
+
+  .pp-footer {
+    padding-top: 55px;
+  }
+
+  .pp-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+
+    padding-bottom: 45px;
+  }
+
+  .pp-footer__bottom {
+    width: calc(100% - 32px);
+  }
+
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .pp-hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .pp-path {
+    grid-template-columns: 30px 1fr 18px;
+  }
+
+  .pp-path__number {
+    font-size: 0.6rem;
+  }
+
+  .pp-path h3 {
+    font-size: 1.25rem;
+  }
+
+  .pp-closing h2 {
+    font-size: 3.6rem;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+}
