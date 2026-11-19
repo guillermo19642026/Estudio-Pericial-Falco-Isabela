@@ -33280,4 +33280,5 @@ button.falco-apertura__btn {
 
 .falco-apertura__guia {
   scroll-margin-top: 180px;
-}
+}.falco-portal-cta{display:table;max-width:90%;margin:20px auto;padding:14px 25px;border:1px solid #c9a96e;border-radius:40px;background:#171717;color:#c9a96e!important;text-align:center;text-decoration:none;font-weight:600;position:relative;z-index:9999;cursor:pointer}
+.falco-portal-cta:hover{background:#c9a96e;color:#111!important;box-shadow:0 4px 20px #c9a96e44;transform:translateY(-2px);transition:.3s}
